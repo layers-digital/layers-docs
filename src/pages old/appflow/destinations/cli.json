@@ -1,0 +1,470 @@
+{
+  "path": "/docs/appflow/destinations/cli",
+  "title": "Command-line Deploy",
+  "previousText": "Builds/Automations",
+  "previousUrl": "/docs/appflow/destinations/builds",
+  "nextText": "Manual",
+  "nextUrl": "/docs/appflow/destinations/manual",
+  "body": [
+    "div",
+    null,
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        [
+          "strong",
+          null,
+          "NOTE:"
+        ],
+        " To deploy a build you will need to be running ",
+        [
+          "code",
+          null,
+          "@ionic/cli"
+        ],
+        " of at least version 6.8"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "You can also create a build that will be deployed to an app store or deploy an already completed build as well."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        [
+          "strong",
+          null,
+          "NOTE:"
+        ],
+        " To deploy a build you will need to have permissions to be able to deploy builds from cli."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "deploy-a-new-build-to-an-app-store"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#deploy-a-new-build-to-an-app-store"
+        },
+        "Deploy a new build to an app store"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic package build ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "platform",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "type",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " --security-profile",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "name",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " --destination",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "name",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "<platform>"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            [
+              "code",
+              null,
+              "android"
+            ],
+            " or ",
+            [
+              "code",
+              null,
+              "ios"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "<type>"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            [
+              "code",
+              null,
+              "app-store"
+            ],
+            " or ",
+            [
+              "code",
+              null,
+              "enterprise"
+            ],
+            " for ",
+            [
+              "code",
+              null,
+              "ios"
+            ]
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "code",
+              null,
+              "release"
+            ],
+            " for ",
+            [
+              "code",
+              null,
+              "android"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--security-profile=<name>"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "The selected profile must be a release or app store profile"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--destination=<name>"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "For an iOS build it must be a Apple App store destination"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "For an Android build it must be a Google Play Store destination"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For more information about other ",
+      [
+        "code",
+        null,
+        "ionic package build"
+      ],
+      " options, please refer to the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/cli/commands/package-build"
+        },
+        "package build documentation"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "deploy-an-existing-build-to-an-app-store"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#deploy-an-existing-build-to-an-app-store"
+        },
+        "Deploy an existing build to an app store"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic package deploy ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "build-id",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "destination",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "<build-id>"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "An existing build that has been looked up in the UI"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "<destination>"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "The name of an appropriate destination for the build"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Deploy a new build to an app store",
+      "href": "#deploy-a-new-build-to-an-app-store"
+    },
+    {
+      "text": "Deploy an existing build to an app store",
+      "href": "#deploy-an-existing-build-to-an-app-store"
+    }
+  ],
+  "pageClass": "page-appflow-destinations-cli"
+}

@@ -1,0 +1,460 @@
+{
+  "title": "Alipay",
+  "path": "/docs/native/alipay",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "This plugin facilitates the usage of Alipay 支付宝 in an Ionic apps with the integrated AlipaySDK dated on 20180601."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Requires Cordova plugin: ",
+      [
+        "code",
+        null,
+        "cordova-plugin-gubnoi-alipay"
+      ],
+      ". For more info, please see ",
+      [
+        "a",
+        {
+          "href": "https://github.com/jing-zhou/cordova-plugin-alipay"
+        },
+        "https://github.com/jing-zhou/cordova-plugin-alipay"
+      ],
+      " ."
+    ]
+  ],
+  "repo": "https://github.com/jing-zhou/cordova-plugin-alipay",
+  "platforms": [
+    "Android",
+    "iOS"
+  ],
+  "codeUsage": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Alipay ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/alipay/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " alipay",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Alipay"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//alipayOrder is a string that has been generated and signed by the server side."
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "alipay",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "pay"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "alipayOrder",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n   ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "result"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "result",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Success"
+          ],
+          "\n   ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n   ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "catch"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "error"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "error",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Failed"
+          ],
+          "\n   ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n"
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "package": "@ionic-native/alipay",
+  "cordova": "cordova-plugin-gubnoi-alipay",
+  "capacitorIncompatible": false,
+  "premierSlug": null,
+  "template": "native",
+  "headings": [],
+  "pageClass": "page-native-alipay"
+}

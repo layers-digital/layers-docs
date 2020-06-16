@@ -1,0 +1,1356 @@
+{
+  "path": "/docs/enterprise/screen-orientation",
+  "title": "Screen Orientation",
+  "template": "enterprise-plugin",
+  "version": "3.0.1",
+  "minor": "3.0.X",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Screen Orientation plugin provides the ability to set or lock the screen orientation (landscape or portrait), as well as detect when the orientation has changed."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "native-ent-install",
+        {
+          "plugin-id": "screen-orientation",
+          "variables": ""
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "index"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#index"
+        },
+        "Index"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#screenorientation"
+          },
+          "ScreenOrientation"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "screenorientation"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "screenorientation"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#screenorientation"
+        },
+        "ScreenOrientation"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "usage"
+        ]
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ScreenOrientation ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-enterprise/screen-orientation/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " screenOrientation",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ScreenOrientation"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// get current"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "screenOrientation",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "type"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// logs the current orientation, example: 'landscape'"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// set to landscape"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "screenOrientation",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "lock"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "screenOrientation",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "ORIENTATIONS"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "LANDSCAPE"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// allow user rotate"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "screenOrientation",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "unlock"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// detect orientation changes"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "screenOrientation",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "onChange"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "subscribe"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n   ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n       ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Orientation Changed\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n   ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "advanced"
+        ]
+      ],
+      ": Accepted orientation values:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Value"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Description"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "portrait-primary"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The orientation is in the primary portrait mode."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "portrait-secondary"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The orientation is in the secondary portrait mode."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "landscape-primary"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The orientation is in the primary landscape mode."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "landscape-secondary"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The orientation is in the secondary landscape mode."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "portrait"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The orientation is either portrait-primary or portrait-secondary (sensor)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "landscape"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The orientation is either landscape-primary or landscape-secondary (sensor)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "screenorientation.orientations"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "orientations"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#orientations"
+        },
+        "ORIENTATIONS"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● ORIENTATIONS"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Convenience enum for possible orientations"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "type-declaration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-declaration"
+        },
+        "Type declaration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " ANY: ",
+      [
+        "code",
+        null,
+        "string"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " LANDSCAPE: ",
+      [
+        "code",
+        null,
+        "string"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " LANDSCAPE_PRIMARY: ",
+      [
+        "code",
+        null,
+        "string"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " LANDSCAPE_SECONDARY: ",
+      [
+        "code",
+        null,
+        "string"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " PORTRAIT: ",
+      [
+        "code",
+        null,
+        "string"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " PORTRAIT_PRIMARY: ",
+      [
+        "code",
+        null,
+        "string"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " PORTRAIT_SECONDARY: ",
+      [
+        "code",
+        null,
+        "string"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "screenorientation.type"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "type"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type"
+        },
+        "type"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● type"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Get the current orientation of the device."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "screenorientation.lock"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "lock"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#lock"
+        },
+        "lock"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "lock"
+      ],
+      "(orientation: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Lock the orientation to the passed value. See below for accepted values"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "orientation"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "The orientation which should be locked. Accepted values see table above."
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "screenorientation.onchange"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "onchange"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#onchange"
+        },
+        "onChange"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "onChange"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "Observable"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "void"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Listen to orientation change event"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Observable"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "void"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "screenorientation.unlock"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "unlock"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#unlock"
+        },
+        "unlock"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "unlock"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Unlock and allow all orientations."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Index",
+      "href": "#index"
+    },
+    {
+      "text": "Classes",
+      "href": "#classes"
+    }
+  ],
+  "pageClass": "page-enterprise-screen-orientation"
+}

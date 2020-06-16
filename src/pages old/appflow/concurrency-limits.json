@@ -1,0 +1,128 @@
+{
+  "path": "/docs/appflow/concurrency-limits",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Each account plan has a defined maximum amount of concurrent builds allowed (see ",
+      [
+        "a",
+        {
+          "href": "/pricing"
+        },
+        "Plans Details"
+      ],
+      ").\nThis limit is enforced at the account level across different apps."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "When you trigger a build, in the Appflow Dashboard you will notice that a build can have different statuses before it is processed:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Queued"
+        ],
+        ": this means that your build is queued for the next available runner. Usually your build should not be in this state for more than few seconds."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Pending"
+        ],
+        ": this means that you have reached your concurrent build limit and your build will continue when your current builds are completed."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After the build starts to be processed the statuses are:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Running"
+        ],
+        ": the build is currently being processed. You can read the logs in the build details."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Successful"
+        ],
+        ": the build terminated in a correct state."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Failed"
+        ],
+        ": the build terminated in an incorrect state."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "More concurrent builds can be added to your plan.\nIf you have a Starter or Developer plan, you can get more builds by ",
+      [
+        "a",
+        {
+          "href": "https://dashboard.ionicframework.com/settings/billing"
+        },
+        "upgrading plan"
+      ],
+      ".\nIf you have a Teams or Business plan, please ",
+      [
+        "a",
+        {
+          "href": "https://ionic.zendesk.com/hc/en-us/requests/new"
+        },
+        "contact us"
+      ],
+      "."
+    ]
+  ],
+  "title": "Concurrency limits",
+  "headings": [],
+  "pageClass": "page-appflow-concurrency-limits"
+}

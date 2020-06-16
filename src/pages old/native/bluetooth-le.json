@@ -1,0 +1,551 @@
+{
+  "title": "BluetoothLE",
+  "path": "/docs/native/bluetooth-le",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "This plugin has the most complete implementation for interacting with Bluetooth LE devices on Android, iOS and partially Windows.\nIt's a wrap around ",
+      [
+        "a",
+        {
+          "href": "https://github.com/randdusing/cordova-plugin-bluetoothle/blob/master/readme.md"
+        },
+        "randdusing/cordova-plugin-bluetoothle"
+      ],
+      " cordova plugin for Ionic.\nIt supports peripheral ",
+      [
+        "strong",
+        null,
+        "and"
+      ],
+      " central modes and covers most of the API methods available on Android and iOS."
+    ]
+  ],
+  "repo": "https://github.com/randdusing/cordova-plugin-bluetoothle",
+  "platforms": [
+    "Android",
+    "iOS"
+  ],
+  "codeUsage": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " BluetoothLE ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/bluetooth-le/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " bluetoothle",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " BluetoothLE",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " plt",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Platform"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n\n ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "plt",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ready"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "readySource"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n\n   ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Platform ready from'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " readySource",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n   ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "bluetoothle",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "initialize"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "ble"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ble'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ble",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "status",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// logs 'enabled'"
+          ],
+          "\n   ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n"
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "package": "@ionic-native/bluetooth-le",
+  "cordova": "cordova-plugin-bluetoothle",
+  "capacitorIncompatible": false,
+  "premierSlug": null,
+  "template": "native",
+  "headings": [],
+  "pageClass": "page-native-bluetooth-le"
+}

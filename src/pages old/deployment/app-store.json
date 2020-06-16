@@ -1,0 +1,390 @@
+{
+  "path": "/docs/deployment/app-store",
+  "previousText": "",
+  "previousUrl": "",
+  "nextText": "Android Play Store",
+  "nextUrl": "/docs/deployment/play-store",
+  "contributors": [
+    "zaarheed"
+  ],
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "requirements"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#requirements"
+        },
+        "Requirements"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Submitting an App to the iOS App store requires a few things:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Xcode"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "A Paid Apple Developers account"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "A valid provisioning profile"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "App Development and Distribution certificates"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To enroll in the Apple Developer Program, follow the instructions ",
+      [
+        "a",
+        {
+          "href": "https://developer.apple.com/programs/"
+        },
+        "listed here"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "generating-a-release-build"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#generating-a-release-build"
+        },
+        "Generating a release build"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If the iOS platform is not already added, be sure to add it:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic cordova platform ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "add"
+          ],
+          " ios"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "With the platform added, run the build command with the ",
+      [
+        "code",
+        null,
+        "--prod"
+      ],
+      " flag:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic cordova build ios --prod"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This will generate the minified code for the web portion of an app and copy it over the iOS code base."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "From here, open the ",
+      [
+        "code",
+        null,
+        ".xcworkspace"
+      ],
+      " file in ",
+      [
+        "code",
+        null,
+        "./platforms/ios/"
+      ],
+      " to start Xcode."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "generating-signing-certs"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#generating-signing-certs"
+        },
+        "Generating Signing Certs"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Generating certificates for iOS is a bit of an involved process, so be sure to check ",
+      [
+        "a",
+        {
+          "href": "https://help.apple.com/xcode/mac/current/#/dev3a05256b8"
+        },
+        "Apple's official documentation"
+      ],
+      " on what certificates are and how to generate them."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To create the certificates and profiles needed, visit ",
+      [
+        "a",
+        {
+          "href": "https://developer.apple.com/membercenter"
+        },
+        "Apple's member center"
+      ],
+      " and follow the links described in Apple's documentation."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are two types of certificates that matter here, Development, and Distribution. Development Certificates are just that, meant for development time. They are meant to sign an app and deploy it to devices that the certificate has access to."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Distribution certs are meant for distributing an app to the store. When an app is signed with a Distribution cert, it can be installed on any device."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "signing-the-app-in-xcode-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#signing-the-app-in-xcode-"
+        },
+        "Signing the App in Xcode."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After generating the correct certificates, there are options to either have Xcode automatically manage certificates or manually manage them. It's suggested to let Xcode automatically manage certificates. This will make sure that the correct Development and Distribution certs are used, based on the build type selected."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "With this option selected, select ",
+      [
+        "code",
+        null,
+        "Archive"
+      ],
+      " from the ",
+      [
+        "code",
+        null,
+        "Product > Archive"
+      ],
+      " menu. This will build a version of the app that is ready for distribution in the app stores. After archive has been created, Xcode Organizer is opened."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Xcode Organizer displays a list with builds of the current app. Pick the last build and click 'Upload to App Store'.\nThere should be a place to select the team followed by some more information on the app and a \"Upload\" button to click."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If the upload successfully, the app should be listed on ",
+      [
+        "a",
+        {
+          "href": "https://itunesconnect.apple.com"
+        },
+        "iTunes Connect"
+      ],
+      " and listed in 'Activities'.\nFrom there, TestFlight can be enabled for beta testing, or the App can be sent for approval from Apple."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "updating-an-app"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#updating-an-app"
+        },
+        "Updating an app"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "As an app grows, it will need to be updated with new features and fixes.\nAn app can be updated by either submitting a new version to Apple, or by using a live update service like Ionic Appflow's ",
+      [
+        "a",
+        {
+          "href": "https://ionicframework.com/appflow/deploy/intro",
+          "target": "_blank"
+        },
+        "live update feature"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "With ",
+      [
+        "strong",
+        null,
+        "Live Updates"
+      ],
+      ", app changes can be pushed in realtime directly to users from the Ionic Appflow dashboard, without waiting for App Store approvals."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "In order for the iOS App Store to accept the updated build, the config.xml file will need to be edited to increment the version value, then rebuild the app for release following the same instructions above."
+      ],
+      " "
+    ]
+  ],
+  "title": "iOS App Store Deployment",
+  "headings": [
+    {
+      "text": "Requirements",
+      "href": "#requirements"
+    },
+    {
+      "text": "Generating a release build",
+      "href": "#generating-a-release-build"
+    },
+    {
+      "text": "Generating Signing Certs",
+      "href": "#generating-signing-certs"
+    },
+    {
+      "text": "Signing the App in Xcode.",
+      "href": "#signing-the-app-in-xcode-"
+    },
+    {
+      "text": "Updating an app",
+      "href": "#updating-an-app"
+    }
+  ],
+  "pageClass": "page-deployment-app-store"
+}

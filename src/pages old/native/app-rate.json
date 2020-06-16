@@ -1,0 +1,584 @@
+{
+  "title": "App Rate",
+  "path": "/docs/native/app-rate",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The AppRate plugin makes it easy to prompt the user to rate your app, either now, later, or never."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Requires Cordova plugin: cordova-plugin-apprate. For more info, please see the ",
+      [
+        "a",
+        {
+          "href": "https://github.com/pushandplay/cordova-plugin-apprate"
+        },
+        "AppRate plugin docs"
+      ],
+      "."
+    ]
+  ],
+  "repo": "https://github.com/pushandplay/cordova-plugin-apprate",
+  "platforms": [
+    "Android",
+    "BlackBerry 10",
+    "iOS",
+    "Windows"
+  ],
+  "codeUsage": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " AppRate ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/app-rate/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " appRate",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " AppRate"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// set certain preferences"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "appRate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "preferences",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "storeAppURL ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ios",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'<app_id>'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  android",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'market://details?id=<package_name>'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  windows",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ms-windows-store://review/?ProductId=<store_id>'"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "appRate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "promptForRating"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// or, override the whole preferences object"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "appRate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "preferences ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  usesUntilPrompt",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "3"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  storeAppURL",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n   ios",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'<app_id>'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n   android",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'market://details?id=<package_name>'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n   windows",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ms-windows-store://review/?ProductId=<store_id>'"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "appRate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "promptForRating"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "false"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "package": "@ionic-native/app-rate",
+  "cordova": "cordova-plugin-apprate",
+  "capacitorIncompatible": false,
+  "premierSlug": "app-rate",
+  "template": "native",
+  "headings": [],
+  "pageClass": "page-native-app-rate"
+}

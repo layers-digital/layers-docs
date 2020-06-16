@@ -1,0 +1,10553 @@
+{
+  "path": "/docs/enterprise/camera",
+  "title": "Camera",
+  "template": "enterprise-plugin",
+  "version": "4.1.0",
+  "minor": "4.1.X",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Camera plugin offers the ability to take a photo, capture video and choose images from the system's image library."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "native-ent-install",
+        {
+          "plugin-id": "camera",
+          "variables": ""
+        }
+      ]
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "preferences-ios-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#preferences-ios-"
+        },
+        "Preferences (iOS)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "CameraUsesGeolocation"
+        ],
+        " (boolean, defaults to false). For capturing JPEGs, set to true to get geolocation data in the EXIF header. This will trigger a request for geolocation permissions if set to true."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h5",
+      {
+        "id": "cordova-usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cordova-usage"
+        },
+        "Cordova Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Add the preference in the ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "<preference name=\"CameraUsesGeolocation\" value=\"false\" />"
+      ]
+    ],
+    " ",
+    [
+      "h5",
+      {
+        "id": "capacitor-usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#capacitor-usage"
+        },
+        "Capacitor Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Add the preference in the ",
+      [
+        "code",
+        null,
+        "capacitor.config.json"
+      ]
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "null"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "\"cordova\": {\n  \"preferences\": {\n    \"CameraUsesGeolocation\": \"false\"\n  }\n}"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "using-with-androidx-projects-android-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#using-with-androidx-projects-android-"
+        },
+        "Using with AndroidX Projects (Android)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This plugin relies on the legacy Android Support libraries and will not work in projects using the newer AndroidX libraries without using the ",
+      [
+        "a",
+        {
+          "href": "https://www.npmjs.com/package/jetifier"
+        },
+        "jetifier"
+      ],
+      " tool to patch them."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " jetifier\nnpx jetifier"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To run it automatically when dependencies are installed, add ",
+      [
+        "code",
+        null,
+        "\"postinstall\": \"jetifier\""
+      ],
+      " in the ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "index"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#index"
+        },
+        "Index"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "enumerations"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#enumerations"
+        },
+        "Enumerations"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#destinationtype"
+          },
+          "DestinationType"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#direction"
+          },
+          "Direction"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#encodingtype"
+          },
+          "EncodingType"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#mediatype"
+          },
+          "MediaType"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#picturesourcetype"
+          },
+          "PictureSourceType"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#popoverarrowdirection"
+          },
+          "PopoverArrowDirection"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#camera"
+          },
+          "Camera"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "interfaces"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#interfaces"
+        },
+        "Interfaces"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#cameraoptions"
+          },
+          "CameraOptions"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#camerapopoveroptions"
+          },
+          "CameraPopoverOptions"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "enumerations"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#enumerations"
+        },
+        "Enumerations"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "destinationtype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "destinationtype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#destinationtype"
+        },
+        "DestinationType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "DestinationType"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "destinationtype.data_url"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "data_url"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#data_url"
+        },
+        "DATA_URL"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "DATA_URL"
+      ],
+      ":  = 0"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "destinationtype.file_url"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "file_url"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#file_url"
+        },
+        "FILE_URL"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "FILE_URL"
+      ],
+      ":  = 1"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "destinationtype.native_uri"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "native_uri"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#native_uri"
+        },
+        "NATIVE_URI"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "NATIVE_URI"
+      ],
+      ":  = 2"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "direction"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "direction"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#direction"
+        },
+        "Direction"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Direction"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "direction.back"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "back"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#back"
+        },
+        "BACK"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "BACK"
+      ],
+      ":  = 0"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "direction.front"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "front"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#front"
+        },
+        "FRONT"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "FRONT"
+      ],
+      ":  = 1"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "encodingtype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "encodingtype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#encodingtype"
+        },
+        "EncodingType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "EncodingType"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "encodingtype.jpeg"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "jpeg"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#jpeg"
+        },
+        "JPEG"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "JPEG"
+      ],
+      ":  = 0"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "encodingtype.png"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "png"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#png"
+        },
+        "PNG"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "PNG"
+      ],
+      ":  = 1"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "mediatype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "mediatype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#mediatype"
+        },
+        "MediaType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "MediaType"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "mediatype.allmedia"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "allmedia"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#allmedia"
+        },
+        "ALLMEDIA"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ALLMEDIA"
+      ],
+      ":  = 2"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "mediatype.picture"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "picture"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#picture"
+        },
+        "PICTURE"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "PICTURE"
+      ],
+      ":  = 0"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "mediatype.video"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "video"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#video"
+        },
+        "VIDEO"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "VIDEO"
+      ],
+      ":  = 1"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "picturesourcetype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "picturesourcetype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#picturesourcetype"
+        },
+        "PictureSourceType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "PictureSourceType"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "picturesourcetype.camera"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "camera"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#camera"
+        },
+        "CAMERA"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "CAMERA"
+      ],
+      ":  = 1"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "picturesourcetype.photolibrary"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "photolibrary"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#photolibrary"
+        },
+        "PHOTOLIBRARY"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "PHOTOLIBRARY"
+      ],
+      ":  = 0"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "picturesourcetype.savedphotoalbum"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "savedphotoalbum"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#savedphotoalbum"
+        },
+        "SAVEDPHOTOALBUM"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "SAVEDPHOTOALBUM"
+      ],
+      ":  = 2"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "popoverarrowdirection"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "popoverarrowdirection"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#popoverarrowdirection"
+        },
+        "PopoverArrowDirection"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "PopoverArrowDirection"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "popoverarrowdirection.arrow_any"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "arrow_any"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#arrow_any"
+        },
+        "ARROW_ANY"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ARROW_ANY"
+      ],
+      ":  = 5"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "popoverarrowdirection.arrow_down"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "arrow_down"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#arrow_down"
+        },
+        "ARROW_DOWN"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ARROW_DOWN"
+      ],
+      ":  = 2"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "popoverarrowdirection.arrow_left"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "arrow_left"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#arrow_left"
+        },
+        "ARROW_LEFT"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ARROW_LEFT"
+      ],
+      ":  = 3"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "popoverarrowdirection.arrow_right"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "arrow_right"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#arrow_right"
+        },
+        "ARROW_RIGHT"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ARROW_RIGHT"
+      ],
+      ":  = 4"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "popoverarrowdirection.arrow_up"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "arrow_up"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#arrow_up"
+        },
+        "ARROW_UP"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ARROW_UP"
+      ],
+      ":  = 1"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camera"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "camera"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#camera"
+        },
+        "Camera"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Camera"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "name"
+        ]
+      ],
+      ": Camera"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "description"
+        ]
+      ],
+      ": Take a photo or capture video."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "[Warning] Since IOS 10 the camera requires permissions to be placed in your config.xml add"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "xml"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "config-file"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "parent"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "NSCameraUsageDescription",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "platform"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "ios",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "target"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "*-Info.plist",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "string"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "You can take photos",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "string"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "config-file"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "inside of the <platform name='ios> section"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "usage"
+        ]
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " CameraOptions ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-enterprise/camera/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " camera",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Camera"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " options",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " CameraOptions ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  quality",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "100"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  destinationType",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "DestinationType",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "FILE_URI"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  encodingType",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "EncodingType",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "JPEG"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  mediaType",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "MediaType",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "PICTURE"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getPicture"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "options",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "imageData"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// imageData is either a base64 encoded string or a file URI"
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// If it's base64 (DATA_URL):"
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "let"
+          ],
+          " base64Image ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'data:image/jpeg;base64,'"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "+"
+          ],
+          " imageData",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "err"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Handle error"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "interfaces"
+        ]
+      ],
+      ": CameraOptions CameraPopoverOptions"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camera.destinationtype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "destinationtype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#destinationtype"
+        },
+        "DestinationType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● DestinationType"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Constant for possible destination types"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "type-declaration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-declaration"
+        },
+        "Type declaration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " DATA_URL: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Return base64 encoded string. DATA_URL can be very memory intensive and cause app crashes or out of memory errors. Use FILE_URI or NATIVE_URI if possible"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " FILE_URI: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Return file uri (content://media/external/images/media/2 for Android)"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " NATIVE_URI: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Return native uri (eg. asset-library://... for iOS)"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camera.direction"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "direction"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#direction"
+        },
+        "Direction"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● Direction"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Convenience constant"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "type-declaration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-declaration"
+        },
+        "Type declaration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " BACK: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Use the back-facing camera"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " FRONT: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Use the front-facing camera"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camera.encodingtype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "encodingtype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#encodingtype"
+        },
+        "EncodingType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● EncodingType"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Convenience constant"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "type-declaration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-declaration"
+        },
+        "Type declaration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " JPEG: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Return JPEG encoded image"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " PNG: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Return PNG encoded image"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camera.mediatype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "mediatype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#mediatype"
+        },
+        "MediaType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● MediaType"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Convenience constant"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "type-declaration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-declaration"
+        },
+        "Type declaration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " ALLMEDIA: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Allow selection from all media types"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " PICTURE: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " VIDEO: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Allow selection of video only, ONLY RETURNS URL"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camera.picturesourcetype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "picturesourcetype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#picturesourcetype"
+        },
+        "PictureSourceType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● PictureSourceType"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Convenience constant"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "type-declaration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-declaration"
+        },
+        "Type declaration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " CAMERA: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Take picture from camera"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " PHOTOLIBRARY: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Choose image from picture library (same as PHOTOLIBRARY for Android)"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " SAVEDPHOTOALBUM: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Choose image from picture library (same as SAVEDPHOTOALBUM for Android)"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camera.popoverarrowdirection"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "popoverarrowdirection"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#popoverarrowdirection"
+        },
+        "PopoverArrowDirection"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● PopoverArrowDirection"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Convenience constant"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "type-declaration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-declaration"
+        },
+        "Type declaration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " ARROW_ANY: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " ARROW_DOWN: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " ARROW_LEFT: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " ARROW_RIGHT: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " ARROW_UP: ",
+      [
+        "code",
+        null,
+        "number"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camera.cleanup"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "cleanup"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cleanup"
+        },
+        "cleanup"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "cleanup"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Remove intermediate image files that are kept in temporary storage after calling camera.getPicture. Applies only when the value of Camera.sourceType equals Camera.PictureSourceType.CAMERA and the Camera.destinationType equals Camera.DestinationType.FILE_URI."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camera.getpicture"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "getpicture"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#getpicture"
+        },
+        "getPicture"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "getPicture"
+      ],
+      "(options?: ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#cameraoptions"
+          },
+          "CameraOptions"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Take a picture or video, or load one from the library."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " options"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "a",
+              {
+                "href": "#cameraoptions"
+              },
+              "CameraOptions"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">\nReturns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "interfaces"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#interfaces"
+        },
+        "Interfaces"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "cameraoptions"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cameraoptions"
+        },
+        "CameraOptions"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "CameraOptions"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.allowedit"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-allowedit"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-allowedit"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " allowEdit"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● allowEdit"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Allow simple editing of image before selection."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.cameradirection"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-cameradirection"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-cameradirection"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " cameraDirection"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● cameraDirection"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Choose the camera to use (front- or back-facing). Defined in Camera.Direction. Default is BACK. BACK: 0 FRONT: 1"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.correctorientation"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-correctorientation"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-correctorientation"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " correctOrientation"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● correctOrientation"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Rotate the image to correct for the orientation of the device during capture."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.destinationtype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-destinationtype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-destinationtype"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " destinationType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● destinationType"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Choose the format of the return value. Defined in Camera.DestinationType. Default is FILE_URI. DATA_URL : 0, Return image as base64-encoded string (DATA_URL can be very memory intensive and cause app crashes or out of memory errors. Use FILE_URI or NATIVE_URI if possible), FILE_URI : 1, Return image file URI, NATIVE_URI : 2 Return image native URI (e.g., assets-library:// on iOS or content:// on Android)"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.encodingtype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-encodingtype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-encodingtype"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " encodingType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● encodingType"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Choose the returned image file's encoding. Defined in Camera.EncodingType. Default is JPEG JPEG : 0 Return JPEG encoded image PNG : 1 Return PNG encoded image"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.mediatype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-mediatype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-mediatype"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " mediaType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● mediaType"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Set the type of media to select from. Only works when PictureSourceType is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in Camera.MediaType PICTURE: 0 allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType VIDEO: 1 allow selection of video only, WILL ALWAYS RETURN FILE_URI ALLMEDIA : 2 allow selection from all media types"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.popoveroptions"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-popoveroptions"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-popoveroptions"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " popoverOptions"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● popoverOptions"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#camerapopoveroptions"
+          },
+          "CameraPopoverOptions"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "iOS-only options that specify popover location in iPad. Defined in CameraPopoverOptions."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.quality"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-quality"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-quality"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " quality"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● quality"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Picture quality in range 0-100. Default is 50"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.savetophotoalbum"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-savetophotoalbum"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-savetophotoalbum"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " saveToPhotoAlbum"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● saveToPhotoAlbum"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Save the image to the photo album on the device after capture."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.sourcetype"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-sourcetype"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-sourcetype"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " sourceType"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● sourceType"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Set the source of the picture. Defined in Camera.PictureSourceType. Default is CAMERA. PHOTOLIBRARY : 0, CAMERA : 1, SAVEDPHOTOALBUM : 2"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.targetheight"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-targetheight"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-targetheight"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " targetHeight"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● targetHeight"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Height in pixels to scale image. Must be used with targetWidth. Aspect ratio remains constant."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "cameraoptions.targetwidth"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-targetwidth"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-targetwidth"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " targetWidth"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● targetWidth"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Width in pixels to scale image. Must be used with targetHeight. Aspect ratio remains constant."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camerapopoveroptions"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "camerapopoveroptions"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#camerapopoveroptions"
+        },
+        "CameraPopoverOptions"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "CameraPopoverOptions"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "iOS-only parameters that specify the anchor element location and arrow direction of the popover when selecting images from an iPad's library or album."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camerapopoveroptions.arrowdir"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "arrowdir"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#arrowdir"
+        },
+        "arrowDir"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● arrowDir"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Direction the arrow on the popover should point. Defined in Camera.PopoverArrowDirection Matches iOS UIPopoverArrowDirection constants. ARROW_UP : 1, ARROW_DOWN : 2, ARROW_LEFT : 4, ARROW_RIGHT : 8, ARROW_ANY : 15"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camerapopoveroptions.height"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "height"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#height"
+        },
+        "height"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● height"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camerapopoveroptions.width"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "width"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#width"
+        },
+        "width"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● width"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camerapopoveroptions.x"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "x"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#x"
+        },
+        "x"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● x"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "camerapopoveroptions.y"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "y"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#y"
+        },
+        "y"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● y"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    "  ",
+    [
+      "h3",
+      {
+        "id": "4-1-0-jun-27-2019-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-1-0-jun-27-2019-"
+        },
+        "4.1.0 (Jun 27, 2019)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "docs: remove outdated test docs translations (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/06dc38f"
+          },
+          [
+            "code",
+            null,
+            "06dc38f"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "build: remove ",
+        [
+          "code",
+          null,
+          ".ratignore"
+        ],
+        " file that is not needed any more (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/5dc9527"
+          },
+          [
+            "code",
+            null,
+            "5dc9527"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore: fix repo and issue urls and license in package.json and plugin.xml (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/cad8bd1"
+          },
+          [
+            "code",
+            null,
+            "cad8bd1"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix: temporarily remove Appium tests to unbreak CI (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/468"
+          },
+          "#468"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/19d8e2f"
+          },
+          [
+            "code",
+            null,
+            "19d8e2f"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "ci(travis): Update Travis CI configuration for new paramedic (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/455"
+          },
+          "#455"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/cffd0ac"
+          },
+          [
+            "code",
+            null,
+            "cffd0ac"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix(android): Fix NullPointerException error on some Android phones (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/429"
+          },
+          "#429"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/295e928"
+          },
+          [
+            "code",
+            null,
+            "295e928"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "ci: Update CI Environment Setup for Node.js 6 (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/438"
+          },
+          "#438"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/fae190e"
+          },
+          [
+            "code",
+            null,
+            "fae190e"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "refactor(android): Enhancement: Camera plugin code cleanup (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/425"
+          },
+          "#425"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/a13665d"
+          },
+          [
+            "code",
+            null,
+            "a13665d"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix(android): Exif data lost on many cases (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/331"
+          },
+          "#331"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/81b878d"
+          },
+          [
+            "code",
+            null,
+            "81b878d"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore(github): Add or update GitHub pull request and issue template (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/b261d31"
+          },
+          [
+            "code",
+            null,
+            "b261d31"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix(ios): fixes UIImagePickerController cancel handling for iOS11+ (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/377"
+          },
+          "#377"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/24c8b6c"
+          },
+          [
+            "code",
+            null,
+            "24c8b6c"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: Remove deprecated platforms from docs (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/394"
+          },
+          "#394"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/7ddb3df"
+          },
+          [
+            "code",
+            null,
+            "7ddb3df"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix(android): return DATA_URL for ALLMEDIA if it's an image (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/382"
+          },
+          "#382"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/60e7795"
+          },
+          [
+            "code",
+            null,
+            "60e7795"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "refactor(ios): ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/13813"
+          },
+          "CB-13813"
+        ],
+        ": Remove old iOS code (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/381"
+          },
+          "#381"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/ce77aab"
+          },
+          [
+            "code",
+            null,
+            "ce77aab"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "feat(ios): ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/13865"
+          },
+          "CB-13865"
+        ],
+        ": (Ipad) Making popover Window Size configurable using popoverOptions - imagePicker (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/314"
+          },
+          "#314"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/cd72047"
+          },
+          [
+            "code",
+            null,
+            "cd72047"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore(types): ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/13837"
+          },
+          "CB-13837"
+        ],
+        ": fix TypeScript Definition for CameraPopoverOptions (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/379"
+          },
+          "#379"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/86b0bf2"
+          },
+          [
+            "code",
+            null,
+            "86b0bf2"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs(android): clarify android quirk of cameraDirection (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/a5a3d88"
+          },
+          [
+            "code",
+            null,
+            "a5a3d88"
+          ]
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/bfbe4a1"
+          },
+          [
+            "code",
+            null,
+            "bfbe4a1"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore(release): Bump minor version (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/370"
+          },
+          "#370"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/eed4433"
+          },
+          [
+            "code",
+            null,
+            "eed4433"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "build: Remove automatic README generation (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/365"
+          },
+          "#365"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/07e8574"
+          },
+          [
+            "code",
+            null,
+            "07e8574"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: remove JIRA link (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/bcb26fb"
+          },
+          [
+            "code",
+            null,
+            "bcb26fb"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "ci(travis): also accept terms for android sdk ",
+        [
+          "code",
+          null,
+          "android-27"
+        ],
+        " (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/a346212"
+          },
+          [
+            "code",
+            null,
+            "a346212"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: remove outdated docs translations that haven't been touched for 3 years (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/403682b"
+          },
+          [
+            "code",
+            null,
+            "403682b"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix(android): ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/14097"
+          },
+          "CB-14097"
+        ],
+        ": Fix crash when selecting some files with getPicture (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/322"
+          },
+          "#322"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/5c23b65"
+          },
+          [
+            "code",
+            null,
+            "5c23b65"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix(browser): ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/13384"
+          },
+          "CB-13384"
+        ],
+        ": Added deprecation of video.src compatibility (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/288"
+          },
+          "#288"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/5163d38"
+          },
+          [
+            "code",
+            null,
+            "5163d38"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix(browser): Remove audio flag from getUserMedia (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/284"
+          },
+          "#284"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/36343a8"
+          },
+          [
+            "code",
+            null,
+            "36343a8"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: replace warning emoji with warning unicode (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/317"
+          },
+          "#317"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/ead7d5e"
+          },
+          [
+            "code",
+            null,
+            "ead7d5e"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "feat(android): Update engines to use variables (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/323"
+          },
+          "#323"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/6899c5e"
+          },
+          [
+            "code",
+            null,
+            "6899c5e"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "feat(android): ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/14017"
+          },
+          "CB-14017"
+        ],
+        ": Make com.android.support:support-v4 version configurable (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/318"
+          },
+          "#318"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/e334656"
+          },
+          [
+            "code",
+            null,
+            "e334656"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "refactor(android): ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/14047"
+          },
+          "CB-14047"
+        ],
+        ": CameraLauncher: Replacing Repeated String literals with final variables (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/319"
+          },
+          "#319"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/5ec121b"
+          },
+          [
+            "code",
+            null,
+            "5ec121b"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix(windows): ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/11714"
+          },
+          "CB-11714"
+        ],
+        ": added extra check for content-type in savePhoto() without options.targetWidth/Height (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/issues/242"
+          },
+          "#242"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/a201722"
+          },
+          [
+            "code",
+            null,
+            "a201722"
+          ]
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/dc73954"
+          },
+          [
+            "code",
+            null,
+            "dc73954"
+          ]
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/dca4b9c"
+          },
+          [
+            "code",
+            null,
+            "dca4b9c"
+          ]
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/c1b9772"
+          },
+          [
+            "code",
+            null,
+            "c1b9772"
+          ]
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-camera/commit/eb57b02"
+          },
+          [
+            "code",
+            null,
+            "eb57b02"
+          ]
+        ],
+        ")"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-0-3-apr-12-2018-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-0-3-apr-12-2018-"
+        },
+        "4.0.3 (Apr 12, 2018)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12593"
+          },
+          "CB-12593"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " Fix potential ",
+        [
+          "code",
+          null,
+          "FileProvider"
+        ],
+        " conflicts"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fix a mistake in the examples of usage descriptions (#313)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "CB-13854(ios): fix Camera opens in portrait orientation on iphones"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13415"
+          },
+          "CB-13415"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " Importing corrupt images using the Camera plugin crashes the app"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-0-2-jan-24-2018-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-0-2-jan-24-2018-"
+        },
+        "4.0.2 (Jan 24, 2018)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13781"
+          },
+          "CB-13781"
+        ],
+        " (android) Fixed permissions request on ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " 8 to save a photo into the photo album"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13747"
+          },
+          "CB-13747"
+        ],
+        " Add build-tools-26.0.2 to travis"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-0-1-dec-27-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-0-1-dec-27-2017-"
+        },
+        "4.0.1 (Dec 27, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "CB-13701Fix to allow 4.0.0 version install"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-0-0-dec-15-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-0-0-dec-15-2017-"
+        },
+        "4.0.0 (Dec 15, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13661"
+          },
+          "CB-13661"
+        ],
+        " Remove deprecated platforms"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "3-0-0-nov-06-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#3-0-0-nov-06-2017-"
+        },
+        "3.0.0 (Nov 06, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Added ",
+        [
+          "code",
+          null,
+          "cordova-OSX"
+        ],
+        " support"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13515"
+          },
+          "CB-13515"
+        ],
+        " (all): Add 'protective' entry to ",
+        [
+          "code",
+          null,
+          "cordovaDependencies"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13332"
+          },
+          "CB-13332"
+        ],
+        " (iOS): document ",
+        [
+          "code",
+          null,
+          "NSPhotoLibraryAddUsageDescription"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13264"
+          },
+          "CB-13264"
+        ],
+        " (iOS): Remove ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " usage descriptions"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13473"
+          },
+          "CB-13473"
+        ],
+        " (CI) Removed ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " builds from AppVeyor"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13446"
+          },
+          "CB-13446"
+        ],
+        " Sync template with previous doc changes"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13294"
+          },
+          "CB-13294"
+        ],
+        " Removed ",
+        [
+          "code",
+          null,
+          "cordova-plugin-compat"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13299"
+          },
+          "CB-13299"
+        ],
+        " (CI) Fix ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " builds"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12985"
+          },
+          "CB-12985"
+        ],
+        " setup ",
+        [
+          "code",
+          null,
+          "eslint"
+        ],
+        " and removed ",
+        [
+          "code",
+          null,
+          "jshint"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13028"
+          },
+          "CB-13028"
+        ],
+        " (CI) ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " builds on Travis and AppVeyor"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13002"
+          },
+          "CB-13002"
+        ],
+        " (Android, ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        ") Fix occasional Appium tests failures"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13000"
+          },
+          "CB-13000"
+        ],
+        " (CI) Speed up ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " builds"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12991"
+          },
+          "CB-12991"
+        ],
+        " (CI) Updated CI badges"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12964"
+          },
+          "CB-12964"
+        ],
+        " (android) Fix of bug when Pictures folder did not exist."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12982"
+          },
+          "CB-12982"
+        ],
+        " (Android, ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        ") Appium tests: try to create a session harder"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12682"
+          },
+          "CB-12682"
+        ],
+        " (ios, ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        "): changes cancel error message to be consistent for ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Android"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12764"
+          },
+          "CB-12764"
+        ],
+        " (android) Adapt Appium tests for ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " 7"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12847"
+          },
+          "CB-12847"
+        ],
+        " added ",
+        [
+          "code",
+          null,
+          "bugs"
+        ],
+        " entry to ",
+        [
+          "code",
+          null,
+          "package.json"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-4-1-apr-27-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-4-1-apr-27-2017-"
+        },
+        "2.4.1 (Apr 27, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12622"
+          },
+          "CB-12622"
+        ],
+        " Updated build badges in ",
+        [
+          "code",
+          null,
+          "README"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12650"
+          },
+          "CB-12650"
+        ],
+        " Fix manual test for uploading image"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12685"
+          },
+          "CB-12685"
+        ],
+        " added ",
+        [
+          "code",
+          null,
+          "package.json"
+        ],
+        " to tests folder"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12622"
+          },
+          "CB-12622"
+        ],
+        " (android) Appium tests: Bust ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " 6 and 7 permission dialogs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12618"
+          },
+          "CB-12618"
+        ],
+        " (android) Appium tests: Handle native cling"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-4-0-feb-28-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-4-0-feb-28-2017-"
+        },
+        "2.4.0 (Feb 28, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12501"
+          },
+          "CB-12501"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        ": Appium tests don't use ",
+        [
+          "code",
+          null,
+          "XPath"
+        ],
+        " selectors anymore"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12469"
+          },
+          "CB-12469"
+        ],
+        " Appium tests can now run on ",
+        [
+          "strong",
+          null,
+          "iOS 10"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12005"
+          },
+          "CB-12005"
+        ],
+        " Changing the ",
+        [
+          "code",
+          null,
+          "getOrientation"
+        ],
+        " method to return the defined enumerated ",
+        [
+          "code",
+          null,
+          "EXIF"
+        ],
+        " instead of orientation in degrees for Consistency"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12368"
+          },
+          "CB-12368"
+        ],
+        " Fix permission check on ",
+        [
+          "strong",
+          null,
+          "Android"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12353"
+          },
+          "CB-12353"
+        ],
+        " Corrected merges usage in ",
+        [
+          "code",
+          null,
+          "plugin.xml"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12369"
+          },
+          "CB-12369"
+        ],
+        " Add plugin typings from ",
+        [
+          "code",
+          null,
+          "DefinitelyTyped"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12363"
+          },
+          "CB-12363"
+        ],
+        " Added build badges for ",
+        [
+          "strong",
+          null,
+          "iOS 9.3"
+        ],
+        " and ",
+        [
+          "strong",
+          null,
+          "iOS 10.0"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12312"
+          },
+          "CB-12312"
+        ],
+        " [Appium] [Android] A few changes to the tests:  - updated comments on how to run the tests. extra comments around functionality at certain points in the automation.  - stub of a resolution checker on test startup - still need to figure out acceptable values.  - moved session shutdown to an afterAll clause.  - changed resolution determiner from using webview-based values to using the native windows dimensions - this helps as the webview values may be scaled down intentionally by manufacturers (via changing devicePixelRatio). furthermore, since the screen dimension automation is used purely for native UI automation, better to use the dimensions reported by the native context rather than the web context.  - when finding elements by XPath, use multiple calls to avoid a Windows emulator + Android bug. Made this pattern consistent in the entire test."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12236"
+          },
+          "CB-12236"
+        ],
+        " - Fixed RELEASENOTES for cordova-plugin-camera"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12230"
+          },
+          "CB-12230"
+        ],
+        " Removed Windows 8.1 build badges"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-3-1-dec-07-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-3-1-dec-07-2016-"
+        },
+        "2.3.1 (Dec 07, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12224"
+          },
+          "CB-12224"
+        ],
+        " Updated version and RELEASENOTES.md for release 2.3.1"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fix missing license headers."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12086"
+          },
+          "CB-12086"
+        ],
+        " Regenerate README.md from template"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added NSPhotoLibraryUsageDescription parameter to example install command Fixing some usages of NSPhotoLibraryUsageDescriptionentry"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Updating compat dependency to 1.1.0 or better"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11625"
+          },
+          "CB-11625"
+        ],
+        " Forgot to add CordovaUri.java to plugin.xml"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11625"
+          },
+          "CB-11625"
+        ],
+        " Files Provider does not work with Android 4.4.4 or lower, and I have no idea why.  Working around with CordovaUri"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11625"
+          },
+          "CB-11625"
+        ],
+        " (Android) : Make this work with previous versions of Cordova via cordova-plugin-compat"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "BuildConfig from test project crept in source code thanks to Android Studio, removing"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11625"
+          },
+          "CB-11625"
+        ],
+        " Managed to get Content Providers to work with a weird mix of Content Providers and non-Content Providers"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11625"
+          },
+          "CB-11625"
+        ],
+        " Working on fix to API 24 no longer allowing File URIs to be passed across intents"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11917"
+          },
+          "CB-11917"
+        ],
+        " - Remove pull request template checklist item: \"iCLA has been submitted…\""
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11832"
+          },
+          "CB-11832"
+        ],
+        " Incremented plugin version."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-3-0-sep-08-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-3-0-sep-08-2016-"
+        },
+        "2.3.0 (Sep 08, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11795"
+          },
+          "CB-11795"
+        ],
+        " Add 'protective' entry to cordovaDependencies"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11661"
+          },
+          "CB-11661"
+        ],
+        " Add mandatory ",
+        [
+          "strong",
+          null,
+          "iOS 10"
+        ],
+        " privacy description"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11714"
+          },
+          "CB-11714"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "windows"
+        ],
+        " added more explicit content-type when converting to target data on canvas"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11295"
+          },
+          "CB-11295"
+        ],
+        " Add ",
+        [
+          "strong",
+          null,
+          "WP8.1"
+        ],
+        " quirk when choosing image from ",
+        [
+          "code",
+          null,
+          "photoalbum"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10067"
+          },
+          "CB-10067"
+        ],
+        " Update ",
+        [
+          "code",
+          null,
+          "PictureSourceType"
+        ],
+        " JSDoc to reflect ",
+        [
+          "code",
+          null,
+          "README"
+        ],
+        " update"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9070"
+          },
+          "CB-9070"
+        ],
+        " Update ",
+        [
+          "code",
+          null,
+          "CameraPopoverHandle"
+        ],
+        " docs to reflect ",
+        [
+          "code",
+          null,
+          "README"
+        ],
+        " update"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Plugin uses ",
+        [
+          "code",
+          null,
+          "Android Log class"
+        ],
+        " and not ",
+        [
+          "code",
+          null,
+          "Cordova LOG class"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11631"
+          },
+          "CB-11631"
+        ],
+        " Appium tests: A working fix for a flaky ",
+        [
+          "code",
+          null,
+          "selection canceled"
+        ],
+        " failure"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11709"
+          },
+          "CB-11709"
+        ],
+        " Tests should use ",
+        [
+          "code",
+          null,
+          "resolveLocalFileSystemURL()"
+        ],
+        " instead of deprecated ",
+        [
+          "code",
+          null,
+          "resolveFileSystemURI()"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11695"
+          },
+          "CB-11695"
+        ],
+        " Increased session creation timeout for Appium tests"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11656"
+          },
+          "CB-11656"
+        ],
+        " (",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        ") Appium tests: Fixed side menu opening on some more resolutions"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11376"
+          },
+          "CB-11376"
+        ],
+        " (",
+        [
+          "strong",
+          null,
+          "ios"
+        ],
+        "): fix ",
+        [
+          "code",
+          null,
+          "CameraUsesGeolocation"
+        ],
+        " error"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10067"
+          },
+          "CB-10067"
+        ],
+        " (",
+        [
+          "strong",
+          null,
+          "ios"
+        ],
+        ") clarifications on ",
+        [
+          "code",
+          null,
+          "PictureSourceType"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11410"
+          },
+          "CB-11410"
+        ],
+        " (",
+        [
+          "strong",
+          null,
+          "ios"
+        ],
+        ") fix ",
+        [
+          "code",
+          null,
+          "cameraPopoverHandle.setPosition"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9070"
+          },
+          "CB-9070"
+        ],
+        " (",
+        [
+          "strong",
+          null,
+          "ios"
+        ],
+        ") Fixed ",
+        [
+          "code",
+          null,
+          "CameraPopoverHandle"
+        ],
+        " documentation"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11447"
+          },
+          "CB-11447"
+        ],
+        " Respect output format when retrieving images from gallery"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11447"
+          },
+          "CB-11447"
+        ],
+        " Resolve ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " tests failures due to ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " quirks"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11553"
+          },
+          "CB-11553"
+        ],
+        " Pend failing Appium tests on Sauce Labs for the time being (reverted from commit b69571724035f41642f3ee612c5b66e1f0c4386c)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11553"
+          },
+          "CB-11553"
+        ],
+        " Pend failing Appium tests on Sauce Labs for the time being"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11498"
+          },
+          "CB-11498"
+        ],
+        " [",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        "] Appium tests should not fail when there is no camera"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add badges for paramedic builds on Jenkins"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11296"
+          },
+          "CB-11296"
+        ],
+        " Appium: Better element clicking and session error handling"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11232"
+          },
+          "CB-11232"
+        ],
+        " Appium tests: fixed element tapping on ",
+        [
+          "strong",
+          null,
+          "iOS 9"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11183"
+          },
+          "CB-11183"
+        ],
+        " Appium tests: Added image verification"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fixed some bad formatting that hid ",
+        [
+          "code",
+          null,
+          "HTML"
+        ],
+        " tags and added link to sample"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Set ",
+        [
+          "strong",
+          null,
+          "android"
+        ],
+        " quality default value to 50 on the java code"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Moving message in PR template to a comment"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add pull request template. This closes #213"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11228"
+          },
+          "CB-11228"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "browser"
+        ],
+        ": Add classes for styling purposes"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10139"
+          },
+          "CB-10139"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "browser"
+        ],
+        ": Respect target width and height"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11227"
+          },
+          "CB-11227"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "browser"
+        ],
+        ": Fix incorrect ",
+        [
+          "code",
+          null,
+          "mime type"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11162"
+          },
+          "CB-11162"
+        ],
+        " Appium tests: retry spec on failure"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4078"
+          },
+          "CB-4078"
+        ],
+        " Fix for ",
+        [
+          "code",
+          null,
+          "orientation/scaling"
+        ],
+        " on ",
+        [
+          "strong",
+          null,
+          "Android 4.4+"
+        ],
+        " devices"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11165"
+          },
+          "CB-11165"
+        ],
+        " removed peer dependency"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11147"
+          },
+          "CB-11147"
+        ],
+        " Appium tests: generate descriptive spec names"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10996"
+          },
+          "CB-10996"
+        ],
+        " Adding front matter to ",
+        [
+          "code",
+          null,
+          "README.md"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11128"
+          },
+          "CB-11128"
+        ],
+        " Appum tests: Fixed some of the flaky failures"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11003"
+          },
+          "CB-11003"
+        ],
+        " Added Sample section to the Camera plugin README"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-2-0-apr-15-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-2-0-apr-15-2016-"
+        },
+        "2.2.0 (Apr 15, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10873"
+          },
+          "CB-10873"
+        ],
+        " Avoid crash due to usage of uninitialized variable when writing geolocation data to image destination. Properly handle 'CameraUsesGeolocation' option by properly setting geolocation data in EXIF header in all cases"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11073"
+          },
+          "CB-11073"
+        ],
+        " Appium tests stability improvements"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Replace ",
+        [
+          "code",
+          null,
+          "PermissionHelper.java"
+        ],
+        " with ",
+        [
+          "code",
+          null,
+          "cordova-plugin-compat"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Making focus handler work only for ",
+        [
+          "strong",
+          null,
+          "windows 10"
+        ],
+        " phone"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10865"
+          },
+          "CB-10865"
+        ],
+        " Run ",
+        [
+          "strong",
+          null,
+          "ios"
+        ],
+        " native tests on ",
+        [
+          "strong",
+          null,
+          "Travis"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10120"
+          },
+          "CB-10120"
+        ],
+        " Fixing use of constants and ",
+        [
+          "code",
+          null,
+          "PermissionHelper"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10120"
+          },
+          "CB-10120"
+        ],
+        " Fix missing CAMERA permission for ",
+        [
+          "strong",
+          null,
+          "Android M"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10756"
+          },
+          "CB-10756"
+        ],
+        " Adding sterner warnings about ",
+        [
+          "code",
+          null,
+          "DATA_URL"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10460"
+          },
+          "CB-10460"
+        ],
+        " ",
+        [
+          "code",
+          null,
+          "getRealPath"
+        ],
+        " return null in some cases"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-1-1-mar-09-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-1-1-mar-09-2016-"
+        },
+        "2.1.1 (Mar 09, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10825"
+          },
+          "CB-10825"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " should request READ permission for gallery source"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "added apache license header to appium files"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10720"
+          },
+          "CB-10720"
+        ],
+        " Fixed spelling, capitalization, and other small issues."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10414"
+          },
+          "CB-10414"
+        ],
+        " Adding focus handler to resume video when user comes back on leaving the app while preview was running"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Appium tests: adjust swipe distance on ",
+        [
+          "strong",
+          null,
+          "Android"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10750"
+          },
+          "CB-10750"
+        ],
+        " Appium tests: fail fast if session is irrecoverable"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Adding missing semi colon"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Adding focus handler to make sure filepicker gets launched when app is active on ",
+        [
+          "strong",
+          null,
+          "Windows"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10128"
+          },
+          "CB-10128"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " Fixed how checks access authorization to camera & library. This closes #146"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10636"
+          },
+          "CB-10636"
+        ],
+        " Add JSHint for plugins"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10639"
+          },
+          "CB-10639"
+        ],
+        " Appium tests: Added some timeouts, Taking a screenshot on failure, Retry taking a picture up to 3 times, Try to restart the Appium session if it's lost"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10552"
+          },
+          "CB-10552"
+        ],
+        " Replacing images in README.md."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added a lot of more cases to get the real path on ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10625"
+          },
+          "CB-10625"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " getPicture fails when getting a photo from the Photo Library - Google Photos"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10619"
+          },
+          "CB-10619"
+        ],
+        " Appium tests: Properly switch to webview on ",
+        [
+          "strong",
+          null,
+          "Android"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10397"
+          },
+          "CB-10397"
+        ],
+        " Added Appium tests"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10576"
+          },
+          "CB-10576"
+        ],
+        " MobileSpec can't get results for ",
+        [
+          "strong",
+          null,
+          "Windows"
+        ],
+        "-Store 8.1 Builds"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore: edit package.json license to match SPDX id"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10539"
+          },
+          "CB-10539"
+        ],
+        " Commenting out the verySmallQvga maxResolution option on ",
+        [
+          "strong",
+          null,
+          "Windows"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10541"
+          },
+          "CB-10541"
+        ],
+        " Changing default maxResoltion to be highestAvailable for CameraCaptureUI on ",
+        [
+          "strong",
+          null,
+          "Windows"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10113"
+          },
+          "CB-10113"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Browse"
+        ],
+        " - Layer camera UI on top of all! "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10502"
+          },
+          "CB-10502"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " - Fix camera plugin exception in Chrome when click capture."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Adding comments"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Camera tapping fix on ",
+        [
+          "strong",
+          null,
+          "Windows"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-1-0-jan-15-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-1-0-jan-15-2016-"
+        },
+        "2.1.0 (Jan 15, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "added ",
+        [
+          "code",
+          null,
+          ".ratignore"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10319"
+          },
+          "CB-10319"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " Adding reflective helper methods for permission requests"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9189"
+          },
+          "CB-9189"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " Implementing ",
+        [
+          "code",
+          null,
+          "save/restore"
+        ],
+        " API to handle Activity destruction"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10241"
+          },
+          "CB-10241"
+        ],
+        " App Crash cause by Camera Plugin ",
+        [
+          "strong",
+          null,
+          "iOS 7"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8940"
+          },
+          "CB-8940"
+        ],
+        " Setting ",
+        [
+          "code",
+          null,
+          "z-index"
+        ],
+        " values to maximum for UI buttons."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-0-0-nov-18-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-0-0-nov-18-2015-"
+        },
+        "2.0.0 (Nov 18, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10035"
+          },
+          "CB-10035"
+        ],
+        " Updated ",
+        [
+          "code",
+          null,
+          "RELEASENOTES"
+        ],
+        " to be newest to oldest"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8863"
+          },
+          "CB-8863"
+        ],
+        " correct block usage for ",
+        [
+          "code",
+          null,
+          "async"
+        ],
+        " calls"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5479"
+          },
+          "CB-5479"
+        ],
+        " changed ",
+        [
+          "code",
+          null,
+          "saveToPhotoAlbum"
+        ],
+        " to save uncompressed images for ",
+        [
+          "strong",
+          null,
+          "Android"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9169"
+          },
+          "CB-9169"
+        ],
+        " Fixed ",
+        [
+          "code",
+          null,
+          "filetype"
+        ],
+        " for uncompressed images and added quirk for ",
+        [
+          "strong",
+          null,
+          "Android"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9446"
+          },
+          "CB-9446"
+        ],
+        " Removing ",
+        [
+          "code",
+          null,
+          "CordovaResource"
+        ],
+        " library code in favour of the code we're supposed to be deprecating because that at least works."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9942"
+          },
+          "CB-9942"
+        ],
+        " Normalize line endings in Camera plugin docs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9910"
+          },
+          "CB-9910"
+        ],
+        " Add permission request for some gallery requests for ",
+        [
+          "strong",
+          null,
+          "Android"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7668"
+          },
+          "CB-7668"
+        ],
+        " Adding a sterner warning for ",
+        [
+          "code",
+          null,
+          "allowedit"
+        ],
+        " on ",
+        [
+          "strong",
+          null,
+          "Android"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fixing contribute link."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Using the ",
+        [
+          "code",
+          null,
+          "CordovaResourceApi"
+        ],
+        " to fine paths of files in the background thread.  If the file doesn't exist, return the content ",
+        [
+          "code",
+          null,
+          "URI"
+        ],
+        ". "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add engine tag for ",
+        [
+          "strong",
+          null,
+          "Cordova-Android 5.0.x"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9583"
+          },
+          "CB-9583"
+        ],
+        ": Added support for ",
+        [
+          "strong",
+          null,
+          "Marshmallow"
+        ],
+        " permissions (",
+        [
+          "strong",
+          null,
+          "Android 6.0"
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Try to use ",
+        [
+          "code",
+          null,
+          "realpath"
+        ],
+        " filename instead of default ",
+        [
+          "code",
+          null,
+          "modified.jpg"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6190"
+          },
+          "CB-6190"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " camera plugin ignores quality parameter"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9633"
+          },
+          "CB-9633"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " Taking a Picture With Option ",
+        [
+          "code",
+          null,
+          "destinationType:NATIVE_URI"
+        ],
+        " doesn't show image"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9745"
+          },
+          "CB-9745"
+        ],
+        " Camera plugin docs should be generated from the source"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9622"
+          },
+          "CB-9622"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "WP8"
+        ],
+        " Camera Option ",
+        [
+          "code",
+          null,
+          "destinationType:NATIVE_URI"
+        ],
+        " is a ",
+        [
+          "code",
+          null,
+          "NO-OP"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9623"
+          },
+          "CB-9623"
+        ],
+        " Fixes various issues when ",
+        [
+          "code",
+          null,
+          "encodingType"
+        ],
+        " set to ",
+        [
+          "code",
+          null,
+          "png"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9591"
+          },
+          "CB-9591"
+        ],
+        " Retaining aspect ratio when resizing"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9443"
+          },
+          "CB-9443"
+        ],
+        " Pick correct ",
+        [
+          "code",
+          null,
+          "maxResolution"
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9151"
+          },
+          "CB-9151"
+        ],
+        " Trigger ",
+        [
+          "code",
+          null,
+          "captureAction"
+        ],
+        " only once"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9413"
+          },
+          "CB-9413"
+        ],
+        " Close ",
+        [
+          "code",
+          null,
+          "RandomAccessStream"
+        ],
+        " once copied"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5661"
+          },
+          "CB-5661"
+        ],
+        " Remove outdated ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " quirks about memory"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9349"
+          },
+          "CB-9349"
+        ],
+        " Focus control and nice UI"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9259"
+          },
+          "CB-9259"
+        ],
+        " Forgot to add another check on which ",
+        [
+          "code",
+          null,
+          "URI"
+        ],
+        " we're using when fixing this thing the first time"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9247"
+          },
+          "CB-9247"
+        ],
+        " Added macro to conditionally add ",
+        [
+          "code",
+          null,
+          "NSData+Base64.h"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9247"
+          },
+          "CB-9247"
+        ],
+        " Fixes compilation errors with ",
+        [
+          "strong",
+          null,
+          "cordova-ios 4.x"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fix returning native url on ",
+        [
+          "strong",
+          null,
+          "Windows"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "1-2-0-jun-17-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#1-2-0-jun-17-2015-"
+        },
+        "1.2.0 (Jun 17, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Closing stale pull request: close #84"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Closing stale pull request: close #66"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9128"
+          },
+          "CB-9128"
+        ],
+        " cordova-plugin-camera documentation translation: cordova-plugin-camera"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Update docs. This closes #100"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "attempt to fix npm markdown issue"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8883"
+          },
+          "CB-8883"
+        ],
+        " fix picture rotation issue"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "one more alias"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fixed some nit white-space issues, aliased a little more"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "major refactor : readability"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Patch for ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8498"
+          },
+          "CB-8498"
+        ],
+        ", this closes #64"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8879"
+          },
+          "CB-8879"
+        ],
+        " fix stripe issue with correct aspect ratio"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8601"
+          },
+          "CB-8601"
+        ],
+        " - iOS camera unit tests broken"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7667"
+          },
+          "CB-7667"
+        ],
+        " iOS8: Handle case where camera is not authorized (closes #49)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "add missing license header"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "1-1-0-may-06-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#1-1-0-may-06-2015-"
+        },
+        "1.1.0 (May 06, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8943"
+          },
+          "CB-8943"
+        ],
+        " fix ",
+        [
+          "code",
+          null,
+          "PickAndContinue"
+        ],
+        " issue on ",
+        [
+          "em",
+          null,
+          "Win10Phone"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8253"
+          },
+          "CB-8253"
+        ],
+        " Fix potential unreleased resources"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8909"
+          },
+          "CB-8909"
+        ],
+        ": Remove unused import from File"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8404"
+          },
+          "CB-8404"
+        ],
+        " typo fix ",
+        [
+          "code",
+          null,
+          "cameraproxy.js"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8404"
+          },
+          "CB-8404"
+        ],
+        " Rotate camera feed with device orientation"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8054"
+          },
+          "CB-8054"
+        ],
+        " Support taking pictures from file for ",
+        [
+          "em",
+          null,
+          "WP8"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8405"
+          },
+          "CB-8405"
+        ],
+        " Use ",
+        [
+          "code",
+          null,
+          "z-index"
+        ],
+        " instead of ",
+        [
+          "code",
+          null,
+          "z-order"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "1-0-0-apr-15-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#1-0-0-apr-15-2015-"
+        },
+        "1.0.0 (Apr 15, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8780"
+          },
+          "CB-8780"
+        ],
+        " - Display popover using main thread. Fixes popover slowness (closes #81)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8746"
+          },
+          "CB-8746"
+        ],
+        " bumped version of file dependency"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8746"
+          },
+          "CB-8746"
+        ],
+        " gave plugin major version bump"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8707"
+          },
+          "CB-8707"
+        ],
+        " refactoring windows code to improve readability"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8706"
+          },
+          "CB-8706"
+        ],
+        " use filePicker if saveToPhotoAlbum is true"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8706"
+          },
+          "CB-8706"
+        ],
+        " remove unnecessary capabilities from xml"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8747"
+          },
+          "CB-8747"
+        ],
+        " updated dependency, added peer dependency"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8683"
+          },
+          "CB-8683"
+        ],
+        " updated blackberry specific references of org.apache.cordova.camera to cordova-plugin-camera"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8782"
+          },
+          "CB-8782"
+        ],
+        ": Updated the docs to talk about the allowEdit quirks, it's not 100% working, but better than it was"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8782"
+          },
+          "CB-8782"
+        ],
+        ": Fixed the flow so that we save the cropped image and use it, not the original non-cropped.  Crop only supports G+ Photos Crop, other crops may not work, depending on the OEM"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8740"
+          },
+          "CB-8740"
+        ],
+        ": Removing FileHelper call that was failing on Samsung Galaxy S3, now that we have a real path, we only need to update the MediaStore, not pull from it in this case"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8740"
+          },
+          "CB-8740"
+        ],
+        ": Partial fix for Save Image to Gallery error found in MobileSpec"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8683"
+          },
+          "CB-8683"
+        ],
+        " changed plugin-id to pacakge-name"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8653"
+          },
+          "CB-8653"
+        ],
+        " properly updated translated docs to use new id"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8653"
+          },
+          "CB-8653"
+        ],
+        " updated translated docs to use new id"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8351"
+          },
+          "CB-8351"
+        ],
+        " Fix custom implementation of integerValueForKey (close #79)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fix cordova-paramedic path change, build with TRAVIS_BUILD_DIR, use npm to install paramedic"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: added 'Windows' to supported platforms"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8653"
+          },
+          "CB-8653"
+        ],
+        " Updated Readme"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8659"
+          },
+          "CB-8659"
+        ],
+        ": ios: 4.0.x Compatibility: Remove use of deprecated headers"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-6-mar-10-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-6-mar-10-2015-"
+        },
+        "0.3.6 (Mar 10, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Fix localize key for Videos. This closes #58"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8235"
+          },
+          "CB-8235"
+        ],
+        " android: Fix crash when selecting images from DropBox with spaces in path (close #65)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "add try ... catch for getting image orientation"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8599"
+          },
+          "CB-8599"
+        ],
+        " fix threading issue with cameraPicker (fixes #72)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8559"
+          },
+          "CB-8559"
+        ],
+        " Integrate TravisCI"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8438"
+          },
+          "CB-8438"
+        ],
+        " cordova-plugin-camera documentation translation: cordova-plugin-camera"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8538"
+          },
+          "CB-8538"
+        ],
+        " Added package.json file"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-5-feb-04-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-5-feb-04-2015-"
+        },
+        "0.3.5 (Feb 04, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8351"
+          },
+          "CB-8351"
+        ],
+        " ios: Stop using now-deprecated [NSData base64EncodedString]"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8351"
+          },
+          "CB-8351"
+        ],
+        " ios: Stop using now-deprecated integerValueForKey: class extension"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8351"
+          },
+          "CB-8351"
+        ],
+        " ios: Use argumentForIndex rather than NSArray extension"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8032"
+          },
+          "CB-8032"
+        ],
+        " ios: Add nativeURL external method support for CDVFileSystem->makeEntryForPath:isDirectory:"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7938"
+          },
+          "CB-7938"
+        ],
+        " ios: Added XCTest unit tests project, with stubs (adapted from SplashScreen unit test setup)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7937"
+          },
+          "CB-7937"
+        ],
+        " ios: Re-factor iOS Camera plugin so that it is testable"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-4-dec-02-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-4-dec-02-2014-"
+        },
+        "0.3.4 (Dec 02, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7977"
+          },
+          "CB-7977"
+        ],
+        " Mention ",
+        [
+          "code",
+          null,
+          "deviceready"
+        ],
+        " in plugin docs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7979"
+          },
+          "CB-7979"
+        ],
+        " Each plugin doc should have a ## Installation section"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fix memory leak of image data in ",
+        [
+          "code",
+          null,
+          "imagePickerControllerReturnImageResult"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Pass uri to crop instead of pulling the low resolution image out of the intent return (close #43)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add orientation support for PNG to Android (closes #45)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7700"
+          },
+          "CB-7700"
+        ],
+        " cordova-plugin-camera documentation translation: cordova-plugin-camera"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-3-oct-03-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-3-oct-03-2014-"
+        },
+        "0.3.3 (Oct 03, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7600"
+          },
+          "CB-7600"
+        ],
+        " Adds informative message to error callback in manual test."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-2-sep-17-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-2-sep-17-2014-"
+        },
+        "0.3.2 (Sep 17, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7551"
+          },
+          "CB-7551"
+        ],
+        " [Camera][iOS 8] Scaled images show a white line"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7558"
+          },
+          "CB-7558"
+        ],
+        " hasPendingOperation flag in Camera plugin's takePicture should be reversed to fix memory errors"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7557"
+          },
+          "CB-7557"
+        ],
+        " Camera plugin tests is missing a File dependency"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7423"
+          },
+          "CB-7423"
+        ],
+        " do cleanup after copyImage manual test"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7471"
+          },
+          "CB-7471"
+        ],
+        " cordova-plugin-camera documentation translation: cordova-plugin-camera"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7413"
+          },
+          "CB-7413"
+        ],
+        " Resolve 'ms-appdata' URIs with File plugin"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fixed minor bugs with the browser"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7433"
+          },
+          "CB-7433"
+        ],
+        " Adds missing window reference to prevent manual tests failure on Android and iOS"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7249"
+          },
+          "CB-7249"
+        ],
+        " cordova-plugin-camera documentation translation: cordova-plugin-camera"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4003"
+          },
+          "CB-4003"
+        ],
+        " Add config option to not use location information in Camera plugin (and default to not use it)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7461"
+          },
+          "CB-7461"
+        ],
+        " Geolocation fails in Camera plugin in iOS 8"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7378"
+          },
+          "CB-7378"
+        ],
+        " Use single Proxy for both windows8 and windows."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7378"
+          },
+          "CB-7378"
+        ],
+        " Adds support for windows platform"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7433"
+          },
+          "CB-7433"
+        ],
+        " Fixes manual tests failure on windows"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6958"
+          },
+          "CB-6958"
+        ],
+        " Get the correct default for \"quality\" in the test"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "add documentation for manual tests"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7249"
+          },
+          "CB-7249"
+        ],
+        " cordova-plugin-camera documentation translation: cordova-plugin-camera"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4003"
+          },
+          "CB-4003"
+        ],
+        " Add config option to not use location information in Camera plugin (and default to not use it)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7461"
+          },
+          "CB-7461"
+        ],
+        " Geolocation fails in Camera plugin in iOS 8"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7433"
+          },
+          "CB-7433"
+        ],
+        " Fixes manual tests failure on windows"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7378"
+          },
+          "CB-7378"
+        ],
+        " Use single Proxy for both windows8 and windows."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7378"
+          },
+          "CB-7378"
+        ],
+        " Adds support for windows platform"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6958"
+          },
+          "CB-6958"
+        ],
+        " Get the correct default for \"quality\" in the test"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "add documentation for manual tests"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Updated docs for browser"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added support for the browser"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7286"
+          },
+          "CB-7286"
+        ],
+        " [BlackBerry10] Use getUserMedia if camera card is unavailable"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7180"
+          },
+          "CB-7180"
+        ],
+        " Update Camera plugin to support generic plugin webView UIView (which can be either a UIWebView or WKWebView)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Renamed test dir, added nested plugin.xml"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6958"
+          },
+          "CB-6958"
+        ],
+        " added manual tests"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6958"
+          },
+          "CB-6958"
+        ],
+        " Port camera tests to plugin-test-framework"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-1-aug-06-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-1-aug-06-2014-"
+        },
+        "0.3.1 (Aug 06, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "FFOS"
+        ],
+        " update CameraProxy.js"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7187"
+          },
+          "CB-7187"
+        ],
+        " ios: Add explicit dependency on CoreLocation.framework"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[BlackBerry10] Doc correction - sourceType is supported"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7071"
+          },
+          "CB-7071"
+        ],
+        " android: Fix callback firing before CROP intent is sent when allowEdit=true"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6875"
+          },
+          "CB-6875"
+        ],
+        " android: Handle exception when SDCard is not mounted"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "ios: Delete postImage (dead code)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Prevent NPE on processResiultFromGallery when intent comes null"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Remove iOS doc reference to non-existing navigator.fileMgr API"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Docs updated with some default values"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Removes File plugin dependency from windows8 code."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Use WinJS functionality to resize image instead of File plugin functionality"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6127"
+          },
+          "CB-6127"
+        ],
+        " Updated translations for docs"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-0-jun-05-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-0-jun-05-2014-"
+        },
+        "0.3.0 (Jun 05, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5895"
+          },
+          "CB-5895"
+        ],
+        " documented saveToPhotoAlbum quirk on WP8"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Remove deprecated symbols for iOS < 6"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "documentation translation: cordova-plugin-camera"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "ubuntu: use application directory for images"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6795"
+          },
+          "CB-6795"
+        ],
+        " Add license"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Little fix in code formatting"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6613"
+          },
+          "CB-6613"
+        ],
+        " Use WinJS functionality to get base64-encoded content of image instead of File plugin functionality"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6612"
+          },
+          "CB-6612"
+        ],
+        " camera.getPicture now always returns encoded JPEG image"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Removed invalid note from ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5398"
+          },
+          "CB-5398"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6576"
+          },
+          "CB-6576"
+        ],
+        " - Returns a specific error message when app has no access to library."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6491"
+          },
+          "CB-6491"
+        ],
+        " add CONTRIBUTING.md"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6546"
+          },
+          "CB-6546"
+        ],
+        " android: Fix a couple bugs with allowEdit pull request"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6546"
+          },
+          "CB-6546"
+        ],
+        " android: Add support for allowEdit Camera option"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-9-apr-17-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-9-apr-17-2014-"
+        },
+        "0.2.9 (Apr 17, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6460"
+          },
+          "CB-6460"
+        ],
+        ": Update license headers"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6422"
+          },
+          "CB-6422"
+        ],
+        ": [windows8] use cordova/exec/proxy"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[WP8] When only targetWidth or targetHeight is provided, use it as the only bound"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4027"
+          },
+          "CB-4027"
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5102"
+          },
+          "CB-5102"
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-2737"
+          },
+          "CB-2737"
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-2387"
+          },
+          "CB-2387"
+        ],
+        ": [WP] Fix camera issues, cropping, memory leaks"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6212"
+          },
+          "CB-6212"
+        ],
+        ": [iOS] fix warnings compiled under arm64 64-bit"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[BlackBerry10] Add rim xml namespaces declaration"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add NOTICE file"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-8-feb-26-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-8-feb-26-2014-"
+        },
+        "0.2.8 (Feb 26, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-1826"
+          },
+          "CB-1826"
+        ],
+        " Catch OOM on gallery image resize"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-7-feb-05-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-7-feb-05-2014-"
+        },
+        "0.2.7 (Feb 05, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4919"
+          },
+          "CB-4919"
+        ],
+        " firefox os quirks added and supported platforms list is updated"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "getPicture via web activities"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Documented quirk for ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5335"
+          },
+          "CB-5335"
+        ],
+        " + ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5206"
+          },
+          "CB-5206"
+        ],
+        " for WP7+8"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "reference the correct firefoxos implementation"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[BlackBerry10] Add permission to access_shared"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-6-jan-02-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-6-jan-02-2014-"
+        },
+        "0.2.6 (Jan 02, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5658"
+          },
+          "CB-5658"
+        ],
+        " Add doc/index.md for Camera plugin"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-2442"
+          },
+          "CB-2442"
+        ],
+        " ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-2419"
+          },
+          "CB-2419"
+        ],
+        " Use Windows.Storage.ApplicationData.current.localFolder, instead of writing to app package."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[BlackBerry10] Adding platform level permissions"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5599"
+          },
+          "CB-5599"
+        ],
+        " Android: Catch and ignore OutOfMemoryError in getRotatedBitmap()"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-5-dec-4-2013-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-5-dec-4-2013-"
+        },
+        "0.2.5 (Dec 4, 2013)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "fix camera for firefox os"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "getPicture via web activities"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[ubuntu] specify policy_group"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "add ubuntu platform"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "ol",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "User Agent detection now detects AmazonWebView. 2. Change to use amazon-fireos as the platform if user agent string contains 'cordova-amazon-fireos'"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added amazon-fireos platform."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-4-oct-28-2013-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-4-oct-28-2013-"
+        },
+        "0.2.4 (Oct 28, 2013)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5128"
+          },
+          "CB-5128"
+        ],
+        ": added repo + issue tag to plugin.xml for camera plugin"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4958"
+          },
+          "CB-4958"
+        ],
+        " - iOS - Camera plugin should not show the status bar"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4919"
+          },
+          "CB-4919"
+        ],
+        " updated plugin.xml for FxOS"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4915"
+          },
+          "CB-4915"
+        ],
+        " Incremented plugin version on dev branch."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-3-sept-25-2013-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-3-sept-25-2013-"
+        },
+        "0.2.3 (Sept 25, 2013)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4889"
+          },
+          "CB-4889"
+        ],
+        " bumping&resetting version"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4889"
+          },
+          "CB-4889"
+        ],
+        " forgot index.html"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4889"
+          },
+          "CB-4889"
+        ],
+        " renaming core inside cameraProxy"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[Windows8] commandProxy has moved"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[Windows8] commandProxy has moved"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "added Camera API for FirefoxOS"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Rename CHANGELOG.md -> RELEASENOTES.md"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4823"
+          },
+          "CB-4823"
+        ],
+        " Fix XCode 5 camera plugin warnings"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fix compiler warnings"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4765"
+          },
+          "CB-4765"
+        ],
+        " Move ExifHelper.java into Camera Plugin"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4764"
+          },
+          "CB-4764"
+        ],
+        " Remove reference to DirectoryManager from CameraLauncher"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4763"
+          },
+          "CB-4763"
+        ],
+        " Use a copy of FileHelper.java within camera-plugin."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4752"
+          },
+          "CB-4752"
+        ],
+        " Incremented plugin version on dev branch."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4633"
+          },
+          "CB-4633"
+        ],
+        ": We really should close cursors.  It's just the right thing to do."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "No longer causes a stack trace, but it doesn't cause the error to be called."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4889"
+          },
+          "CB-4889"
+        ],
+        " renaming org.apache.cordova.core.camera to org.apache.cordova.camera"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-1-sept-5-2013-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-1-sept-5-2013-"
+        },
+        "0.2.1 (Sept 5, 2013)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4656"
+          },
+          "CB-4656"
+        ],
+        " Don't add line-breaks to base64-encoded images (Fixes type=DataURI)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4432"
+          },
+          "CB-4432"
+        ],
+        " copyright notice change"
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Index",
+      "href": "#index"
+    },
+    {
+      "text": "Enumerations",
+      "href": "#enumerations"
+    },
+    {
+      "text": "Classes",
+      "href": "#classes"
+    },
+    {
+      "text": "Interfaces",
+      "href": "#interfaces"
+    }
+  ],
+  "pageClass": "page-enterprise-camera"
+}

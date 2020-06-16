@@ -1,0 +1,3849 @@
+{
+  "path": "/docs/enterprise/splashscreen",
+  "title": "Splashscreen",
+  "template": "enterprise-plugin",
+  "version": "5.0.3",
+  "minor": "5.0.X",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Splash Screen plugin provides control options for displaying and hiding a splash screen, commonly during application launch."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "native-ent-install",
+        {
+          "plugin-id": "splashscreen",
+          "variables": "",
+          "capacitor-slug": "splash-screen"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "preferences"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#preferences"
+        },
+        "Preferences"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "You can add the following preferences in your ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "AutoHideSplashScreen"
+          ],
+          " (boolean, default to ",
+          [
+            "code",
+            null,
+            "true"
+          ],
+          "). Indicates whether to hide splash screen automatically or not. The splash screen is hidden after the amount of time specified in the ",
+          [
+            "code",
+            null,
+            "SplashScreenDelay"
+          ],
+          " preference."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"AutoHideSplashScreen\" value=\"true\" />"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "SplashScreenDelay"
+          ],
+          " (number, default to 3000). Amount of time in milliseconds to wait before automatically hide splash screen.\nThis value used to be in seconds (but is now milliseconds) so values less than 30 will continue to be treated as seconds. (Consider this a deprecated patch that will disapear in some future version.)"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"SplashScreenDelay\" value=\"3000\" />"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "FadeSplashScreen"
+          ],
+          " (boolean, defaults to ",
+          [
+            "code",
+            null,
+            "true"
+          ],
+          "): Set to ",
+          [
+            "code",
+            null,
+            "false"
+          ],
+          " to prevent the splash screen from fading in and out when its display state changes."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"FadeSplashScreen\" value=\"false\"/>"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "FadeSplashScreenDuration"
+          ],
+          " (float, defaults to ",
+          [
+            "code",
+            null,
+            "500"
+          ],
+          "): Specifies the number of milliseconds for the splash screen fade effect to execute."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"FadeSplashScreenDuration\" value=\"750\"/>"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "ShowSplashScreenSpinner"
+          ],
+          " (boolean, defaults to ",
+          [
+            "code",
+            null,
+            "true"
+          ],
+          "): Set to ",
+          [
+            "code",
+            null,
+            "false"
+          ],
+          " to hide the splash screen spinner."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"ShowSplashScreenSpinner\" value=\"false\"/>"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "android-only-preferences"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#android-only-preferences"
+        },
+        "Android Only Preferences"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "SplashMaintainAspectRatio"
+          ],
+          " preference is optional. If set to ",
+          [
+            "code",
+            null,
+            "true"
+          ],
+          ", the splash screen drawable is not stretched to fit the full screen, but instead simply \"covers\" the screen, like CSS \"background-size:cover\". This is very useful when splash screen images cannot be distorted in any way, for example when they contain scenery or text. This setting works best with images that have large margins (safe areas) that can be safely cropped on screens with different aspect ratios. The splash screen plugin reloads the splash screen whenever the orientation changes so that you can specify different splash screen images for portrait and landscape orientations."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"SplashMaintainAspectRatio\" value=\"true\" />"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "SplashShowOnlyFirstTime"
+          ],
+          " preference is  optional and defaults to ",
+          [
+            "code",
+            null,
+            "true"
+          ],
+          ". When set to ",
+          [
+            "code",
+            null,
+            "true"
+          ],
+          " the splash screen will only appear on application launch. However, if you plan to use ",
+          [
+            "code",
+            null,
+            "navigator.app.exitApp()"
+          ],
+          " to close the application and force the splash screen appear on the application's next launch, you should set this property to ",
+          [
+            "code",
+            null,
+            "false"
+          ],
+          " (this also applies to closing the application with the Back button)."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"SplashShowOnlyFirstTime\" value=\"true\" />"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "SplashScreenSpinnerColor"
+          ],
+          " preference is also optional and is ignored when not set. Setting it to a valid color name or HEX color code will change the color of the spinner on Android 5.0+ devices."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"SplashScreenSpinnerColor\" value=\"white\" />"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "index"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#index"
+        },
+        "Index"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#splashscreen"
+          },
+          "SplashScreen"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "splashscreen"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "splashscreen"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#splashscreen"
+        },
+        "SplashScreen"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "SplashScreen"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "name"
+        ]
+      ],
+      ": Splash Screen"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "description"
+        ]
+      ],
+      ": This plugin displays and hides a splash screen during application launch. The methods below allows showing and hiding the splashscreen after the app has loaded."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "usage"
+        ]
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " SplashScreen ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-enterprise/splashscreen/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " splashScreen",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " SplashScreen"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "splashScreen",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "show"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "splashScreen",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "hide"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "splashscreen.hide"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "hide"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#hide"
+        },
+        "hide"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "hide"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Hides the splashscreen"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "splashscreen.show"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "show"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#show"
+        },
+        "show"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "show"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Shows the splashscreen"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    "  ",
+    [
+      "h3",
+      {
+        "id": "5-0-3-may-09-2019-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#5-0-3-may-09-2019-"
+        },
+        "5.0.3 (May 09, 2019)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Update CI configuration and README (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-splashscreen/pull/210"
+          },
+          "#210"
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-splashscreen/pull/208"
+          },
+          "#208"
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-splashscreen/pull/198"
+          },
+          "#198"
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-splashscreen/pull/194"
+          },
+          "#194"
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add or update GitHub pull request and issue template"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13826"
+          },
+          "CB-13826"
+        ],
+        " Incremented plugin version."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12277"
+          },
+          "CB-12277"
+        ],
+        " (android) avoid NullPointerException on splashImageView when removing splashscreen"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "5-0-2-jan-24-2018-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#5-0-2-jan-24-2018-"
+        },
+        "5.0.2 (Jan 24, 2018)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13750"
+          },
+          "CB-13750"
+        ],
+        " Add build-tools-26.0.2 to travis"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13737"
+          },
+          "CB-13737"
+        ],
+        " (iOS): fix Splash screen images for iPhone X"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "5-0-1-dec-27-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#5-0-1-dec-27-2017-"
+        },
+        "5.0.1 (Dec 27, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13709"
+          },
+          "CB-13709"
+        ],
+        " Fix to allow 5.0.0 version install (#144)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "5-0-0-dec-15-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#5-0-0-dec-15-2017-"
+        },
+        "5.0.0 (Dec 15, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13677"
+          },
+          "CB-13677"
+        ],
+        " Remove deprecated platforms"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-1-0-nov-06-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-1-0-nov-06-2017-"
+        },
+        "4.1.0 (Nov 06, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13473"
+          },
+          "CB-13473"
+        ],
+        " (CI) Removed ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " builds from AppVeyor"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12011"
+          },
+          "CB-12011"
+        ],
+        " (android) added the possibility to change the spinner color on ",
+        [
+          "strong",
+          null,
+          "Android 5.0"
+        ],
+        "+ apps"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13028"
+          },
+          "CB-13028"
+        ],
+        " (CI) ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " builds on Travis and AppVeyor"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13094"
+          },
+          "CB-13094"
+        ],
+        " (android) Don't show splash when activity being finished"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11487"
+          },
+          "CB-11487"
+        ],
+        " (browser) Documented ",
+        [
+          "code",
+          null,
+          "AutoHideSplashScreen"
+        ],
+        " for ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11488"
+          },
+          "CB-11488"
+        ],
+        " (browser) The ",
+        [
+          "code",
+          null,
+          "hide()"
+        ],
+        " call became non re-entrant after the addition of fade out. This fixes the issue."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11487"
+          },
+          "CB-11487"
+        ],
+        " (browser) The standard ",
+        [
+          "code",
+          null,
+          "AutoHideSplashScreen"
+        ],
+        " ",
+        [
+          "code",
+          null,
+          "config.xml"
+        ],
+        " property is now supported by the ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " platform."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11486"
+          },
+          "CB-11486"
+        ],
+        " (browser) ",
+        [
+          "code",
+          null,
+          "splashScreenDelay"
+        ],
+        " now feed through ",
+        [
+          "code",
+          null,
+          "parseInt"
+        ],
+        " to ensure it is an integer by the time it's value is passed in to ",
+        [
+          "code",
+          null,
+          "setTimeout()"
+        ],
+        " in ",
+        [
+          "code",
+          null,
+          "hide()"
+        ],
+        "."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12847"
+          },
+          "CB-12847"
+        ],
+        " added ",
+        [
+          "code",
+          null,
+          "bugs"
+        ],
+        " entry to ",
+        [
+          "code",
+          null,
+          "package.json"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-0-3-apr-27-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-0-3-apr-27-2017-"
+        },
+        "4.0.3 (Apr 27, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12622"
+          },
+          "CB-12622"
+        ],
+        " Added ",
+        [
+          "strong",
+          null,
+          "Android 6.0"
+        ],
+        " build badge to ",
+        [
+          "code",
+          null,
+          "README"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12685"
+          },
+          "CB-12685"
+        ],
+        " added ",
+        [
+          "code",
+          null,
+          "package.json"
+        ],
+        " to tests folder"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-0-2-feb-28-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-0-2-feb-28-2017-"
+        },
+        "4.0.2 (Feb 28, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12353"
+          },
+          "CB-12353"
+        ],
+        " Corrected merges usage in ",
+        [
+          "code",
+          null,
+          "plugin.xml"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12369"
+          },
+          "CB-12369"
+        ],
+        " Add plugin typings from ",
+        [
+          "code",
+          null,
+          "DefinitelyTyped"
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12363"
+          },
+          "CB-12363"
+        ],
+        " Added build badges for ",
+        [
+          "strong",
+          null,
+          "iOS 9.3"
+        ],
+        " and ",
+        [
+          "strong",
+          null,
+          "iOS 10.0"
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12230"
+          },
+          "CB-12230"
+        ],
+        " Removed ",
+        [
+          "strong",
+          null,
+          "Windows 8.1"
+        ],
+        " build badges"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-0-1-dec-07-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-0-1-dec-07-2016-"
+        },
+        "4.0.1 (Dec 07, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12224"
+          },
+          "CB-12224"
+        ],
+        " Updated version and RELEASENOTES.md for release 4.0.1"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11751"
+          },
+          "CB-11751"
+        ],
+        " 'extendedSplashScreen' is undefined Document that splashscreen needs to be disabled on Windows in case of updating entire document body"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9287"
+          },
+          "CB-9287"
+        ],
+        " Not enough Icons and Splashscreens for ",
+        [
+          "strong",
+          null,
+          "Windows 8.1"
+        ],
+        " and Windows Phone 8.1"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11917"
+          },
+          "CB-11917"
+        ],
+        " - Remove pull request template checklist item: \"iCLA has been submitted…\""
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11830"
+          },
+          "CB-11830"
+        ],
+        " (iOS) Fix doc typos in PR#114"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11829"
+          },
+          "CB-11829"
+        ],
+        " (iOS) Support for CB-9762; docs (CB-11830)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11832"
+          },
+          "CB-11832"
+        ],
+        " Incremented plugin version."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-0-0-sep-08-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-0-0-sep-08-2016-"
+        },
+        "4.0.0 (Sep 08, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11795"
+          },
+          "CB-11795"
+        ],
+        " Add 'protective' entry to cordovaDependencies"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11326"
+          },
+          "CB-11326"
+        ],
+        " Prevent crash when initializing plugin after navigating to another URL"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fix crash on ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " when reloading page from remote ",
+        [
+          "strong",
+          null,
+          "Safari"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add badges for paramedic builds on Jenkins"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add pull request template."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11179"
+          },
+          "CB-11179"
+        ],
+        " Extend the windows-splashscreen docs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11159"
+          },
+          "CB-11159"
+        ],
+        " Fix flaky splashscreen native tests"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11156"
+          },
+          "CB-11156"
+        ],
+        " Change default ",
+        [
+          "code",
+          null,
+          "FadeSplashScreenDuration"
+        ],
+        " value"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8056"
+          },
+          "CB-8056"
+        ],
+        " Updated the dependency version, added it to the docs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10996"
+          },
+          "CB-10996"
+        ],
+        " Adding front matter to README.md"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8056"
+          },
+          "CB-8056"
+        ],
+        " Implement splashscreen for ",
+        [
+          "strong",
+          null,
+          "Windows"
+        ],
+        " platform"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6498"
+          },
+          "CB-6498"
+        ],
+        " Misleading documentation in ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " Quirks"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "3-2-2-apr-15-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#3-2-2-apr-15-2016-"
+        },
+        "3.2.2 (Apr 15, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10979"
+          },
+          "CB-10979"
+        ],
+        " Fix splashscreen ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " native tests. Added ",
+        [
+          "code",
+          null,
+          "jshintignore"
+        ],
+        " for tests/ios"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10895"
+          },
+          "CB-10895"
+        ],
+        " Transparent Splashscreen view sometimes remains"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10562"
+          },
+          "CB-10562"
+        ],
+        " ",
+        [
+          "code",
+          null,
+          "hide()"
+        ],
+        " not working in latest splashscreen plug in 3.1.0 in ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10688"
+          },
+          "CB-10688"
+        ],
+        " Plugin Splashscreen Readme must have examples."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10864"
+          },
+          "CB-10864"
+        ],
+        " Run ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " native tests on Travis"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "3-2-1-mar-09-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#3-2-1-mar-09-2016-"
+        },
+        "3.2.1 (Mar 09, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10764"
+          },
+          "CB-10764"
+        ],
+        " Remove emoji in cordova-plugin-splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10650"
+          },
+          "CB-10650"
+        ],
+        " Non-index content.src causes Splashscreen to be not displayed on ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10636"
+          },
+          "CB-10636"
+        ],
+        " Add JSHint for plugins"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10606"
+          },
+          "CB-10606"
+        ],
+        " fix deprecation warning for interfaceOrientation on ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore: edit package.json license to match SPDX id"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "3-2-0-feb-09-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#3-2-0-feb-09-2016-"
+        },
+        "3.2.0 (Feb 09, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10422"
+          },
+          "CB-10422"
+        ],
+        " Splashscreen displays black screen with no image on Android"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10412"
+          },
+          "CB-10412"
+        ],
+        " AutoHideSplashScreen \"false\" isn't taken in account on iOS"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9516"
+          },
+          "CB-9516"
+        ],
+        " Android SplashScreen - Spinner Does Not Display"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9094"
+          },
+          "CB-9094"
+        ],
+        " Smarter autohide logic on Android"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8396"
+          },
+          "CB-8396"
+        ],
+        " Add AutoHideSplashScreen logic to Android's Splashscreen"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "3-1-0-jan-15-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#3-1-0-jan-15-2016-"
+        },
+        "3.1.0 (Jan 15, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9538"
+          },
+          "CB-9538"
+        ],
+        " Implementing ",
+        [
+          "code",
+          null,
+          "FadeSplashScreen"
+        ],
+        " feature for ",
+        [
+          "strong",
+          null,
+          "Android"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9240"
+          },
+          "CB-9240"
+        ],
+        " Cordova splash screen plugin ",
+        [
+          "strong",
+          null,
+          "iPad"
+        ],
+        " landscape mode issue"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10263"
+          },
+          "CB-10263"
+        ],
+        " Fix splashscreen plugin filenames for Asset Catalog"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9374"
+          },
+          "CB-9374"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " add ",
+        [
+          "code",
+          null,
+          "SplashShowOnlyFirstTime"
+        ],
+        " as preference"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10244"
+          },
+          "CB-10244"
+        ],
+        " Don't rotate the ",
+        [
+          "strong",
+          null,
+          "iPhone 6 Plus"
+        ],
+        " splash"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9043"
+          },
+          "CB-9043"
+        ],
+        " Fix the ",
+        [
+          "strong",
+          null,
+          "ios"
+        ],
+        " splashscreen being deformed on orientation change"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10079"
+          },
+          "CB-10079"
+        ],
+        " Splashscreen plugin does not honor ",
+        [
+          "code",
+          null,
+          "SplashScreenDelay"
+        ],
+        " on ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10231"
+          },
+          "CB-10231"
+        ],
+        " Fix ",
+        [
+          "code",
+          null,
+          "FadeSplashScreen"
+        ],
+        " to default to true on ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "3-0-0-nov-18-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#3-0-0-nov-18-2015-"
+        },
+        "3.0.0 (Nov 18, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10035"
+          },
+          "CB-10035"
+        ],
+        " Updated ",
+        [
+          "code",
+          null,
+          "RELEASENOTES"
+        ],
+        " to be newest to oldest"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fixing contribute link."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9750"
+          },
+          "CB-9750"
+        ],
+        " ",
+        [
+          "code",
+          null,
+          "FadeSplashDuration"
+        ],
+        " is now in ",
+        [
+          "code",
+          null,
+          "msecs"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8875"
+          },
+          "CB-8875"
+        ],
+        " ",
+        [
+          "code",
+          null,
+          "FadeSplashScreen"
+        ],
+        " was not fading"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9467"
+          },
+          "CB-9467"
+        ],
+        " SplashScreen does not show any image in hosted app on ",
+        [
+          "strong",
+          null,
+          "Windows 10"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7282"
+          },
+          "CB-7282"
+        ],
+        " Document ",
+        [
+          "code",
+          null,
+          "AutoHideSplashScreenpreference"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9327"
+          },
+          "CB-9327"
+        ],
+        " - Splashscreen not receiving ",
+        [
+          "code",
+          null,
+          "CDVPageLoadNotification"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "WP8: Avoid config ",
+        [
+          "code",
+          null,
+          "value"
+        ],
+        " of a wrong element."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-1-0-jun-17-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-1-0-jun-17-2015-"
+        },
+        "2.1.0 (Jun 17, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "added missing license headers"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9128"
+          },
+          "CB-9128"
+        ],
+        " cordova-plugin-splashscreen documentation translation: cordova-plugin-splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix npm md issue"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fixed iOS unit tests."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-3562"
+          },
+          "CB-3562"
+        ],
+        ": Disable screen rotation for iPhone when splash screen is shown. (closes #47)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8988"
+          },
+          "CB-8988"
+        ],
+        ": Fix rotation on iOS/iPad (closes #46)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8904"
+          },
+          "CB-8904"
+        ],
+        ": Don't reset the static variable when it's destroyed, otherwise we might as well just have a member variable"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Removed wp7 from ",
+        [
+          "code",
+          null,
+          "plugin.xml"
+        ],
+        " and package.json"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8750"
+          },
+          "CB-8750"
+        ],
+        " [wp8]: Rewrite resoultion helper"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8750"
+          },
+          "CB-8750"
+        ],
+        " [wp8]: Allow resolution-specific splashscreen images"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8758"
+          },
+          "CB-8758"
+        ],
+        " [wp8]: UnauthorizedAccessException on hide()"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-0-0-apr-15-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-0-0-apr-15-2015-"
+        },
+        "2.0.0 (Apr 15, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "give users a way to install the bleeding edge."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8746"
+          },
+          "CB-8746"
+        ],
+        " gave plugin major version bump"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8797"
+          },
+          "CB-8797"
+        ],
+        " - Splashscreen preferences FadeSplashScreenDuration and FadeSplashScreen (iOS) are missing"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8836"
+          },
+          "CB-8836"
+        ],
+        " - Crashes after animating splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8753"
+          },
+          "CB-8753"
+        ],
+        " android: Fix missing import in previous commit"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8753"
+          },
+          "CB-8753"
+        ],
+        " android: Adds ",
+        [
+          "code",
+          null,
+          "SplashMaintainAspectRatio"
+        ],
+        " preference (close #43)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8683"
+          },
+          "CB-8683"
+        ],
+        " changed plugin-id to pacakge-name"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8653"
+          },
+          "CB-8653"
+        ],
+        " properly updated translated docs to use new id"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8653"
+          },
+          "CB-8653"
+        ],
+        " updated translated docs to use new id"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8345"
+          },
+          "CB-8345"
+        ],
+        " Make default for splashscreen resource \"screen\" (which is what template and CLI assume it to be)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Revert \"CB-8345 android: Make \"splash\" the default resource ID instead of null\""
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Use TRAVIS_BUILD_DIR, install paramedic by npm"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8345"
+          },
+          "CB-8345"
+        ],
+        " android: Make \"splash\" the default resource ID instead of null"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: added Windows to supported platforms"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7964"
+          },
+          "CB-7964"
+        ],
+        " Add cordova-plugin-splashscreen support for browser platform"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8653"
+          },
+          "CB-8653"
+        ],
+        " Updated Readme"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[wp8] oops, Added back config parse result checks"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[WP8] code cleanup, minor refactors, comments to clarify some stuff."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Extend WP8 Splash Screen to respect SplashScreen and SplashScreenDelay preferences from config file"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8574"
+          },
+          "CB-8574"
+        ],
+        " Integrate TravisCI"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8438"
+          },
+          "CB-8438"
+        ],
+        " cordova-plugin-splashscreen documentation translation: cordova-plugin-splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8538"
+          },
+          "CB-8538"
+        ],
+        " Added package.json file"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8397"
+          },
+          "CB-8397"
+        ],
+        " Add support to 'windows' for showing the Windows Phone splashscreen"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "1-0-0-feb-04-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#1-0-0-feb-04-2015-"
+        },
+        "1.0.0 (Feb 04, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8351"
+          },
+          "CB-8351"
+        ],
+        " ios: Stop using deprecated IsIpad macro"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-3679"
+          },
+          "CB-3679"
+        ],
+        " Add engine tag for Android >= 3.6.0 due to use of ",
+        [
+          "code",
+          null,
+          "preferences"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-3679"
+          },
+          "CB-3679"
+        ],
+        " Make SplashScreen plugin compatible with ",
+        [
+          "a",
+          {
+            "href": "mailto:cordova-android@4.0.x"
+          },
+          "cordova-android@4.0.x"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-5-dec-02-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-5-dec-02-2014-"
+        },
+        "0.3.5 (Dec 02, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7204"
+          },
+          "CB-7204"
+        ],
+        " - Race condition when hiding and showing spinner (closes #21)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7700"
+          },
+          "CB-7700"
+        ],
+        " cordova-plugin-splashscreen documentation translation: cordova-plugin-splashscreen"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-4-oct-03-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-4-oct-03-2014-"
+        },
+        "0.3.4 (Oct 03, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Finalized iOS splash screen (image name) tests. 176 tests in all, 44 for each type of device (iPad, iPhone, iPhone5, iPhone6, iPhone 6 Plus)."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7633"
+          },
+          "CB-7633"
+        ],
+        " - (Re-fix based on updated unit tests) iPhone 6 Plus support"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Updated iOS tests for locked orientations"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added more iOS splash screen tests."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7633"
+          },
+          "CB-7633"
+        ],
+        " - Add support for iPhone 6/6+"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added failing iPhone 6/6 Plus tests."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added 'npm test'"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7663"
+          },
+          "CB-7663"
+        ],
+        " - iOS unit tests for splash screen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Properly formatted splashscreen preference docs."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-3-sep-17-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-3-sep-17-2014-"
+        },
+        "0.3.3 (Sep 17, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7249"
+          },
+          "CB-7249"
+        ],
+        " cordova-plugin-splashscreen documentation translation"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Renamed test dir, added nested ",
+        [
+          "code",
+          null,
+          "plugin.xml"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "added documentation for manual tests"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7196"
+          },
+          "CB-7196"
+        ],
+        " port splashscreen tests to framework"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-2-aug-06-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-2-aug-06-2014-"
+        },
+        "0.3.2 (Aug 06, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6127"
+          },
+          "CB-6127"
+        ],
+        " Updated translations for docs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7041"
+          },
+          "CB-7041"
+        ],
+        " ios: Fix image filename logic when setting the iPad splash screen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fixes Splashscreen crash on WP8"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Remove outdated doc"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-1-jun-05-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-1-jun-05-2014-"
+        },
+        "0.3.1 (Jun 05, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "documentation translation: cordova-plugin-splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Lisa testing pulling in plugins for plugin: cordova-plugin-splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Lisa testing pulling in plugins for plugin: cordova-plugin-splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Lisa testing pulling in plugins for plugin: cordova-plugin-splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Lisa testing pulling in plugins for plugin: cordova-plugin-splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6810"
+          },
+          "CB-6810"
+        ],
+        " Add license to CONTRIBUTING.md"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[wp8] updated quirk for  and combined iOS,WP8,BB10 quirks as they are all the same"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[wp] implemented OnInit so splash screen can be shown before cordova page is loaded"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[wp] plugin must be autoloaded for AutoHideSplashScreen preference to work"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6483"
+          },
+          "CB-6483"
+        ],
+        " Use splash screen image from manifest on Windows8"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6491"
+          },
+          "CB-6491"
+        ],
+        " add CONTRIBUTING.md"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Revert \"Merge branch 'tizen' of ",
+        [
+          "a",
+          {
+            "href": "http://github.com/siovene/cordova-plugin-splashscreen\""
+          },
+          "http://github.com/siovene/cordova-plugin-splashscreen\""
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-3-0-apr-17-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-3-0-apr-17-2014-"
+        },
+        "0.3.0 (Apr 17, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Add Tizen support to plugin"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6422"
+          },
+          "CB-6422"
+        ],
+        ": [windows8] use cordova/exec/proxy"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4051"
+          },
+          "CB-4051"
+        ],
+        ": [ios] - Re-fix - Splashscreen rotation problem (closes #13)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6460"
+          },
+          "CB-6460"
+        ],
+        ": Update license headers"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6465"
+          },
+          "CB-6465"
+        ],
+        ": Add license headers to Tizen code"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add NOTICE file"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-7-feb-05-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-7-feb-05-2014-"
+        },
+        "0.2.7 (Feb 05, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-3562"
+          },
+          "CB-3562"
+        ],
+        " Fix aspect ratio on landscape-only iPhone applications"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4051"
+          },
+          "CB-4051"
+        ],
+        " fix for splashscreen rotation problem"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-6-jan-02-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-6-jan-02-2014-"
+        },
+        "0.2.6 (Jan 02, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5658"
+          },
+          "CB-5658"
+        ],
+        " Add doc/index.md for Splashscreen plugin"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Handle error when splash image is missing."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-5-dec-4-2013-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-5-dec-4-2013-"
+        },
+        "0.2.5 (Dec 4, 2013)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "add ubuntu platform"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added amazon-fireos platform. Change to use amazon-fireos as a platform if the user agent string contains 'cordova-amazon-fireos'"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5124"
+          },
+          "CB-5124"
+        ],
+        " - Remove splashscreen config.xml values from iOS Configuration Docs, move to plugin docs"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-4-oct-28-2013-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-4-oct-28-2013-"
+        },
+        "0.2.4 (Oct 28, 2013)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5128"
+          },
+          "CB-5128"
+        ],
+        ": add repo + issue tag to ",
+        [
+          "code",
+          null,
+          "plugin.xml"
+        ],
+        " for splashscreen plugin"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5010"
+          },
+          "CB-5010"
+        ],
+        " Incremented plugin version on dev branch."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-3-oct-9-2013-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-3-oct-9-2013-"
+        },
+        "0.2.3 (Oct 9, 2013)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4806"
+          },
+          "CB-4806"
+        ],
+        " Re-fix Update splashscreen image bounds for iOS 7"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4934"
+          },
+          "CB-4934"
+        ],
+        " plugin-splashscreen should not show by default on Windows8"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4929"
+          },
+          "CB-4929"
+        ],
+        " plugin-splashscreen not loading proxy windows8"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4915"
+          },
+          "CB-4915"
+        ],
+        " Incremented plugin version on dev branch."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-2-2-sept-25-2013-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-2-2-sept-25-2013-"
+        },
+        "0.2.2 (Sept 25, 2013)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4889"
+          },
+          "CB-4889"
+        ],
+        " bumping&resetting version"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4889"
+          },
+          "CB-4889"
+        ],
+        " renaming org.apache.cordova.core.splashscreen to org.apache.cordova.splashscreen"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Rename CHANGELOG.md -> RELEASENOTES.md"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4806"
+          },
+          "CB-4806"
+        ],
+        " Update splashscreen image bounds for iOS 7"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4752"
+          },
+          "CB-4752"
+        ],
+        " Incremented plugin version on dev branch."
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Index",
+      "href": "#index"
+    },
+    {
+      "text": "Classes",
+      "href": "#classes"
+    }
+  ],
+  "pageClass": "page-enterprise-splashscreen"
+}

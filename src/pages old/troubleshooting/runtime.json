@@ -1,0 +1,2090 @@
+{
+  "path": "/docs/troubleshooting/runtime",
+  "previousText": "Build Errors",
+  "previousUrl": "/docs/troubleshooting/build",
+  "nextText": "Native Errors",
+  "nextUrl": "/docs/troubleshooting/native",
+  "contributors": [
+    "brandyscarney"
+  ],
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "blank-app"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#blank-app"
+        },
+        "Blank App"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "I have no errors in my app. Why does it show a blank screen?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are several different reasons this can happen. If you are unable to find a solution on the ",
+      [
+        "a",
+        {
+          "href": "https://forum.ionicframework.com"
+        },
+        "Ionic forums"
+      ],
+      ", make sure:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Polyfills are not included for older browser/versions of android"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For projects with ",
+      [
+        "code",
+        null,
+        "@angular/cli@7.3"
+      ],
+      " or above, polyfills will automatically be included. For project created before that, polyfills need to be manually enabled."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In ",
+      [
+        "code",
+        null,
+        "src/polyfills.ts"
+      ],
+      ", you must enabled all ES6 polyfills for Android 4.4 support."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Alternatively, a project could be updated to use the latest release of the ",
+      [
+        "code",
+        null,
+        "@angular/cli"
+      ],
+      " package & ",
+      [
+        "code",
+        null,
+        "@angular-devkit"
+      ],
+      " packages and include the ",
+      [
+        "code",
+        null,
+        "es5BrowserSupport"
+      ],
+      " option in the ",
+      [
+        "code",
+        null,
+        "angular.json"
+      ],
+      "'s build options object:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "diff"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "        \"input\": \"src/global.scss\"\n      }\n    ],\n-   \"scripts\": []\n+   \"scripts\": [],\n+   \"es5BrowserSupport\": true\n  },\n  \"configurations\": {\n    \"production\": {"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This will automatically include the polyfills for older browsers that need them."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "directive-not-working"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#directive-not-working"
+        },
+        "Directive Not Working"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Why is my custom component/directive not working?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are a few things you can check. Make sure:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Your selector doesn't have any misspellings."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "You're using the selector correctly as an attribute, element or class."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Your selector has the proper syntax:",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            [
+              "code",
+              null,
+              "[attr]"
+            ],
+            " if it's an attribute selector"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "code",
+              null,
+              "element"
+            ],
+            " if it's an element selector"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "code",
+              null,
+              ".class"
+            ],
+            " if it's a class selector"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Here's an example using an attribute selector:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Directive"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  selector",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'[my-dir]'"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// <-- [my-dir] because it is an attribute"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "                     ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Could be my-dir, [my-dir], .my-dir"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "MyDir"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'I'"
+          ],
+          "m alive",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "!"
+          ],
+          "'",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Component"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// We add my-dir as an attribute to match the directive's selector"
+          ],
+          "\n  template",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "<div my-dir>Hello World</div>"
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Alternatively, if you were attaching the directive to an element it would be:"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// template: `<my-dir>Hello World</my-dir>`"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// and if you were attaching by class the template would be:"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// template: `<div class=\"my-dir\">Hello World</div>`"
+          ],
+          "\n\n  directives",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "MyDir",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// <-- Don't forget me! (only if your ionic-angular version is below RC0)"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "MyPage"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "click-delays"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#click-delays"
+        },
+        "Click Delays"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Why is there a delay on my click event?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In general, we recommend only adding ",
+      [
+        "code",
+        null,
+        "(click)"
+      ],
+      " events to elements that are\nnormally clickable. This includes ",
+      [
+        "code",
+        null,
+        "<button>"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "<a>"
+      ],
+      " elements. This improves\naccessibility as a screen reader will be able to tell that the element is\nclickable."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "However, you may need to add a ",
+      [
+        "code",
+        null,
+        "(click)"
+      ],
+      " event to an element that is not\nnormally clickable. When you do this you may experience a ",
+      [
+        "code",
+        null,
+        "300ms"
+      ],
+      " delay from the\ntime you click the element to the event firing. To remove this delay, you can\nadd the ",
+      [
+        "code",
+        null,
+        "tappable"
+      ],
+      " attribute to your element."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "html"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          " ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "div"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "tappable"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "(click)"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "doClick()",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "I am clickable!",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "div"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "angular-change-detection"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#angular-change-detection"
+        },
+        "Angular Change Detection"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Why does Angular change detection run very frequently when my components are initializing?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Angular uses a library called ",
+      [
+        "a",
+        {
+          "href": "https://github.com/angular/angular/tree/master/packages/zone.js/"
+        },
+        "zone.js"
+      ],
+      " which helps it determine when to run change detection."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "As of zone.js ",
+      [
+        "code",
+        null,
+        "0.8.27"
+      ],
+      ", certain APIs for Web Components also cause change\ndetection to run. This can have the undesirable side effect of your app\nslowing down when a large number of components are initializing."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To prevent this from happening, the zone.js flag that manages this portion of\nchange detection can be disabled. In the ",
+      [
+        "code",
+        null,
+        "src"
+      ],
+      " directory of your application,\ncreate a file called ",
+      [
+        "code",
+        null,
+        "zone-flags.ts"
+      ],
+      ". Place the following code into the file:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "window ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "as"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "any"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "__Zone_disable_customElements ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "code",
+        null,
+        "zone-flags.ts"
+      ],
+      " file then needs to be imported into your application's ",
+      [
+        "code",
+        null,
+        "polyfills.ts"
+      ],
+      " file. Be sure to import it ",
+      [
+        "em",
+        null,
+        "before"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "zone.js"
+      ],
+      " is imported:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'./zone-flags.ts'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'zone.js/dist/zone'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Included with Angular CLI"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This change will only affect applications that depend on zone.js ",
+      [
+        "code",
+        null,
+        "0.8.27"
+      ],
+      " or\nnewer. Older versions will not be affected by this change."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Note: This flag is automatically included when creating an Ionic app via\nthe Ionic CLI."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "cordova-plugins-not-working-in-the-browser"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cordova-plugins-not-working-in-the-browser"
+        },
+        "Cordova plugins not working in the browser"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "At some point in your development you may, try to call Cordova plugin, but get a\nwarning:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "Warning",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          " Native: tried calling StatusBar.styleDefault, but Cordova is not\navailable. Make sure to include cordova.js or run ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "in"
+          ],
+          " a device/simulator\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "app.bundle.js, line ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "83388"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This happens when you try to call a native plugin, but Cordova isn't available.\nThankfully, Ionic Native will print out a nice warning, instead of an error."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In other cases where the plugin is not being used through Ionic Native, plugins\ncan print a much more obscure warning."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "EXCEPTION: Error: Uncaught ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "in promise",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          ": TypeError: undefined is not an object\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "evaluating ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'navigator.camera.getPicture'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If this happens, test the plugin on a real device or simulator."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "multiple-instances-of-a-provider"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#multiple-instances-of-a-provider"
+        },
+        "Multiple instances of a provider"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you inject a provider in every component because you want it available to all\nof them you will end up with multiple instances of the provider. You should\ninject the provider once in the parent component if you want it to be available\nto the child components."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "let"
+          ],
+          " id ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "0"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "MyService"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  id",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "number"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "id ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " id",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "++"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Component"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  selector",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'my-component'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  template",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Hello World'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  providers",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "MyService",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// <-- Creates a new instance of MyService :("
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "                       ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Unnecessary because MyService is in App's providers"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "MyComp"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// id is 1, s is a different MyService instance than MyApp"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "s",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " MyService"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'MyService id is: '"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "+"
+          ],
+          " s",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "id",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Component"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  template",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'<my-component></my-component>'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  providers",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "MyService",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// MyService only needs to be here"
+          ],
+          "\n  directives",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "MyComp",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "MyApp"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// id is 0"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "s",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " MyService"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'MyService id is: '"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "+"
+          ],
+          " s",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "id",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ]
+  ],
+  "title": "Runtime Issues",
+  "headings": [
+    {
+      "text": "Blank App",
+      "href": "#blank-app"
+    },
+    {
+      "text": "Directive Not Working",
+      "href": "#directive-not-working"
+    },
+    {
+      "text": "Click Delays",
+      "href": "#click-delays"
+    },
+    {
+      "text": "Angular Change Detection",
+      "href": "#angular-change-detection"
+    },
+    {
+      "text": "Cordova plugins not working in the browser",
+      "href": "#cordova-plugins-not-working-in-the-browser"
+    },
+    {
+      "text": "Multiple instances of a provider",
+      "href": "#multiple-instances-of-a-provider"
+    }
+  ],
+  "pageClass": "page-troubleshooting-runtime"
+}

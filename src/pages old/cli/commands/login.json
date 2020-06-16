@@ -1,0 +1,144 @@
+{
+  "title": "ionic login",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "Authenticate with Ionic and retrieve a user token, which is stored in the CLI config. The most secure way to log in is running ",
+      [
+        "code",
+        null,
+        "ionic login"
+      ],
+      " without arguments, which will prompt you for your credentials."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If the ",
+      [
+        "code",
+        null,
+        "IONIC_TOKEN"
+      ],
+      " environment variable is set, the CLI will automatically authenticate you. To retrieve your user token, first use ",
+      [
+        "code",
+        null,
+        "ionic login"
+      ],
+      ", then print the token by running the ",
+      [
+        "code",
+        null,
+        "ionic config get -g tokens.user"
+      ],
+      " command."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "ionic login"
+      ],
+      " will also accept ",
+      [
+        "code",
+        null,
+        "password"
+      ],
+      " through stdin, e.g.: ",
+      [
+        "code",
+        null,
+        "echo \"<password>\" | ionic login <email>"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you need to create an Ionic account, use ",
+      [
+        "code",
+        null,
+        "ionic signup"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "You can reset your password in the ",
+      [
+        "a",
+        {
+          "href": "https://dashboard.ionicframework.com/reset-password"
+        },
+        "Dashboard"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you are having issues logging in, please get in touch with our ",
+      [
+        "a",
+        {
+          "href": "https://ion.link/support-request"
+        },
+        "Support"
+      ],
+      "."
+    ]
+  ],
+  "path": "/docs/cli/commands/login",
+  "summary": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "Log in to Ionic"
+    ]
+  ],
+  "inputs": [
+    {
+      "name": "email",
+      "summary": "<p>Your email address</p>\n",
+      "required": true
+    },
+    {
+      "name": "password",
+      "summary": "<p>Your password</p>\n",
+      "required": true
+    }
+  ],
+  "options": [],
+  "skipIntros": true,
+  "template": "cli",
+  "namespace": [
+    "ionic"
+  ],
+  "footnotes": [],
+  "groups": [],
+  "exampleCommands": [
+    "ionic login ",
+    "ionic login john@example.com",
+    "ionic login hello@example.com secret"
+  ],
+  "aliases": [],
+  "type": "global",
+  "headings": [],
+  "pageClass": "page-cli-commands-login"
+}

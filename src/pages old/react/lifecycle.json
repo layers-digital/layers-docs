@@ -1,0 +1,2267 @@
+{
+  "path": "/docs/react/lifecycle",
+  "previousText": "Your First App",
+  "previousUrl": "/docs/react/your-first-app",
+  "nextText": "Navigation",
+  "nextUrl": "/docs/react/navigation",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "This guide discusses how to use the Ionic Lifecycle events in an Ionic React application."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "ionic-lifecycle-methods"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ionic-lifecycle-methods"
+        },
+        "Ionic Lifecycle Methods"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Ionic provides a few lifecycle methods that you can use in your apps:"
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Event Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "ionViewWillEnter"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Fired when the component routing to is about to animate into view."
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "ionViewDidEnter"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Fired when the component routing to has finished animating."
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "ionViewWillLeave"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Fired when the component routing from is about to animate."
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "ionViewDidLeave"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Fired when the component routing to has finished animating."
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The way you access these methods varies based on if you are using class-based components or functional components. We cover both methods below."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "lifecycle-methods-in-class-based-components"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#lifecycle-methods-in-class-based-components"
+        },
+        "Lifecycle Methods in Class-Based Components"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "to use the Ionic Lifecycle methods in a class-based component, you must wrap your component with the ",
+      [
+        "code",
+        null,
+        "withIonLifeCycle"
+      ],
+      " higher order component (HOC) like so:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "default"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "withIonLifeCycle"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "HomePage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        [
+          "code",
+          null,
+          "withIonLifeCycle"
+        ],
+        " is imported from ",
+        [
+          "code",
+          null,
+          "@ionic/react"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "You can then create the appropriate lifecycle method on your class component, and the HOC calls that method when the event happens. Below is the entire component with each of the lifecycle methods implemented:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " React ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'react'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " IonHeader",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " IonPage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " IonToolbar",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " IonTitle",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " IonContent",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " withIonLifeCycle ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic/react'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "HomePage"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "React",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            "Component"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ionViewWillEnter"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionViewWillEnter event fired'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ionViewWillLeave"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionViewWillLeave event fired'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ionViewDidEnter"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionViewDidEnter event fired'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ionViewDidLeave"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionViewDidLeave event fired'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "render"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "Home",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "default"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "withIonLifeCycle"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "HomePage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "lifecycle-methods-in-functional-components"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#lifecycle-methods-in-functional-components"
+        },
+        "Lifecycle Methods in Functional Components"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Ionic React exports hooks for each of the lifecycle methods that you can use in your functional components. Each of the hooks takes the method you want called when the event fires. "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  IonContent",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  IonHeader",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  IonTitle",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  IonToolbar",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  useIonViewDidEnter",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  useIonViewDidLeave",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  useIonViewWillEnter",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  useIonViewWillLeave\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic/react'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " React ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'react'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " HomePage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " React",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function-variable function"
+            },
+            "FC"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "useIonViewDidEnter"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionViewDidEnter event fired'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "useIonViewDidLeave"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionViewDidLeave event fired'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "useIonViewWillEnter"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionViewWillEnter event fired'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "useIonViewWillLeave"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionViewWillLeave event fired'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "Home",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "default"
+          ],
+          " HomePage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Note: Functional components don't need to be wrapped with the ",
+        [
+          "code",
+          null,
+          "withIonLifeCycle"
+        ],
+        " HOC as class components do."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "react-lifecycle-methods"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#react-lifecycle-methods"
+        },
+        "React LifeCycle Methods"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "All the lifecycle methods in React (",
+      [
+        "code",
+        null,
+        "componentDidMount"
+      ],
+      ", ",
+      [
+        "code",
+        null,
+        "componentWillUnmount"
+      ],
+      ", etc..) are available for you to use as well. However, since Ionic React manages the lifetime of a page, certain events might not fire when you expect them to. For instance, ",
+      [
+        "code",
+        null,
+        "componentDidMount"
+      ],
+      " fires the first time a page is displayed, but if you navigate away from the page Ionic might keep the page around in the DOM, and a subsequent visit to the page might not call ",
+      [
+        "code",
+        null,
+        "componentDidMount"
+      ],
+      " again. This scenario is the main reason the Ionic lifecycle methods exist, to still give you a way to call logic when views enter and exit when the native framework's events might not fire."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "guidance-for-each-lifecycle-method"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#guidance-for-each-lifecycle-method"
+        },
+        "Guidance for Each LifeCycle Method"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Below are some tips on uses cases for each of the life cycle events."
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionViewWillEnter"
+        ],
+        " - Since ",
+        [
+          "code",
+          null,
+          "ionViewWillEnter"
+        ],
+        " is called every time the view is navigated to (regardless if initialized or not), it's a good method to load data from services."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionViewDidEnter"
+        ],
+        " - If you see performance problems from using ",
+        [
+          "code",
+          null,
+          "ionViewWillEnter"
+        ],
+        " when loading data, you can do your data calls in ",
+        [
+          "code",
+          null,
+          "ionViewDidEnter"
+        ],
+        " instead. This event won't fire until after the page is visible to the user, however, so you might want to use either a loading indicator or a skeleton screen, so content doesn't flash in un-naturally after the transition is complete."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionViewWillLeave"
+        ],
+        " - Can be used for cleanup, like unsubscribing from data sources. Since ",
+        [
+          "code",
+          null,
+          "componentWillUnmount"
+        ],
+        " might not fire when you navigate from the current page, put your cleanup code here if you don't want it active while the screen is not in view."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionViewDidLeave"
+        ],
+        " - When this event fires, you know the new page has fully transitioned in, so any logic you might not normally do when the view is visible can go here."
+      ],
+      " "
+    ]
+  ],
+  "title": "React Lifecycle",
+  "headings": [
+    {
+      "text": "Ionic Lifecycle Methods",
+      "href": "#ionic-lifecycle-methods"
+    },
+    {
+      "text": "Lifecycle Methods in Class-Based Components",
+      "href": "#lifecycle-methods-in-class-based-components"
+    },
+    {
+      "text": "Lifecycle Methods in Functional Components",
+      "href": "#lifecycle-methods-in-functional-components"
+    },
+    {
+      "text": "React LifeCycle Methods",
+      "href": "#react-lifecycle-methods"
+    },
+    {
+      "text": "Guidance for Each LifeCycle Method",
+      "href": "#guidance-for-each-lifecycle-method"
+    }
+  ],
+  "pageClass": "page-react-lifecycle"
+}

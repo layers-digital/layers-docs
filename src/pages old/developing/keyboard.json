@@ -1,0 +1,3410 @@
+{
+  "path": "/docs/developing/keyboard",
+  "previousText": "Hardware Back Button",
+  "previousUrl": "/docs/developing/hardware-back-button",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Customizing and accounting for the presence of an on-screen keyboard are two common roadblocks developers face when building mobile apps and PWAs. This guide will provide an introduction to the various tools available for managing the on-screen keyboard in your application."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "inputmode"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#inputmode"
+        },
+        "inputmode"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "code",
+        null,
+        "inputmode"
+      ],
+      " attribute allows developers to specify what type of data might be entered into an input. This will prompt the browser to show a keyboard that includes buttons relevant to what the user may enter. For example, ",
+      [
+        "code",
+        null,
+        "inputmode=\"email\""
+      ],
+      " will display a keyboard with the ",
+      [
+        "code",
+        null,
+        "@"
+      ],
+      " key as well as other optimizations for entering emails."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Since ",
+      [
+        "code",
+        null,
+        "inputmode"
+      ],
+      " is a global attribute, it can be used on Ionic components such as ",
+      [
+        "code",
+        null,
+        "ion-input"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "ion-textarea"
+      ],
+      " in addition to regular input elements."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Inputs that ",
+      [
+        "em",
+        null,
+        "require"
+      ],
+      " a certain data type should use the ",
+      [
+        "code",
+        null,
+        "type"
+      ],
+      " attribute instead. For example, inputs that require an email should use ",
+      [
+        "code",
+        null,
+        "type=\"email\""
+      ],
+      " rather than specifying an ",
+      [
+        "code",
+        null,
+        "inputmode."
+      ],
+      " This is because the data that will be entered is always going to be in the form of an email. On the other hand, if the input accepts an email or a username, using ",
+      [
+        "code",
+        null,
+        "inputmode=”email”"
+      ],
+      " is appropriate because the data being entered is not always going to be an email address."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For a list of accepted values, see the ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode",
+          "target": "_blank",
+          "rel": "noreferrer"
+        },
+        "inputmode Documentation"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#usage"
+        },
+        "Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-tabs",
+      null,
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "Javascript"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "html"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "Username or Email",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-input"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "inputmode"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "email",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-input"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "Enter a number",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-textarea"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "inputmode"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "numeric",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-textarea"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "Angular"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "html"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "Username or Email",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-input"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "inputmode"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "email",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-input"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "Enter a number",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-textarea"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "inputmode"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "numeric",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-textarea"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "React"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "html"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "IonItem"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "IonLabel"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "Username or Email",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "IonLabel"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "IonInput"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "inputmode"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "email",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "IonInput"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "IonItem"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "IonItem"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "IonLabel"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "Enter a number",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "IonLabel"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "IonTextarea"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "inputmode"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "numeric",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "IonTextarea"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "IonItem"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "docs-codepen",
+        {
+          "user": "ionic",
+          "slug": "abvJVVv",
+          "height": "400"
+        }
+      ]
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "The ",
+        [
+          "code",
+          null,
+          "inputmode"
+        ],
+        " attribute is supported on devices running Chrome 66+ and iOS Safari 12.2+: ",
+        [
+          "a",
+          {
+            "href": "https://caniuse.com/#search=inputmode"
+          },
+          "https://caniuse.com/#search=inputmode"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "enterkeyhint"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#enterkeyhint"
+        },
+        "enterkeyhint"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "code",
+        null,
+        "enterkeyhint"
+      ],
+      " attribute allows developers to specify what type of action label or icon should be shown for the \"Enter\" key. Using ",
+      [
+        "code",
+        null,
+        "enterkeyhint"
+      ],
+      " lets the user know what will happen when they tap the “Enter” key. The value that should be specified here depends on the context of what the user is doing. For example, if the user is typing into a searchbox, developers should ensure that the input has ",
+      [
+        "code",
+        null,
+        "enterkeyhint=\"search\""
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Since ",
+      [
+        "code",
+        null,
+        "enterkeyhint"
+      ],
+      " is a global attribute, it can be used on Ionic components such as ",
+      [
+        "code",
+        null,
+        "ion-input"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "ion-textarea"
+      ],
+      " in addition to regular input elements."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For a list of accepted values, see the ",
+      [
+        "a",
+        {
+          "href": "https://html.spec.whatwg.org/dev/interaction.html#input-modalities:-the-enterkeyhint-attribute",
+          "target": "_blank",
+          "rel": "noreferrer"
+        },
+        "enterkeyhint Standard"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#usage"
+        },
+        "Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-tabs",
+      null,
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "Javascript"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "html"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "Enter search query",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-input"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "enterkeyhint"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "search",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "type"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "search",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-input"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "Angular"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "html"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "Enter search query",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-label"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "ion-input"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "enterkeyhint"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "search",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "type"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "search",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-input"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "ion-item"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "React"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "html"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "IonItem"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "IonLabel"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "Enter search query",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "IonLabel"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "<"
+                  ],
+                  "IonInput"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "enterkeyhint"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "search",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token attr-name"
+                  },
+                  "type"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token attr-value"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "="
+                  ],
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ],
+                  "search",
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "\""
+                  ]
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "IonInput"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token tag"
+                  },
+                  [
+                    "span",
+                    {
+                      "class": "token punctuation"
+                    },
+                    "</"
+                  ],
+                  "IonItem"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ">"
+                ]
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "docs-codepen",
+        {
+          "user": "ionic",
+          "slug": "GRpWyRB",
+          "height": "350"
+        }
+      ]
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "The ",
+        [
+          "code",
+          null,
+          "enterkeyhint"
+        ],
+        " attribute is supported on devices running Chrome 77+ and iOS Safari 13.4+."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "dark-mode"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#dark-mode"
+        },
+        "Dark Mode"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "By default the keyboard theme is determined by the OS. For example, if dark mode is enabled on iOS, the keyboard in your app will appear with a dark theme even if your application does not have a dark theme in its CSS. "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When running an app in a mobile web browser or as a PWA there is no way to force the keyboard to appear with a certain theme."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When running an app in Capacitor or Cordova, it is possible to force the keyboard to appear with a certain theme. For more information regarding this configuration, see the ",
+      [
+        "a",
+        {
+          "href": "https://capacitor.ionicframework.com/docs/apis/keyboard#keyboard-configuration-ios-only-",
+          "target": "_blank"
+        },
+        "Capacitor Keyboard Documentation"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "hiding-the-accessory-bar"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#hiding-the-accessory-bar"
+        },
+        "Hiding the Accessory Bar"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When running any kind of web based application, iOS will show an accessory bar above the keyboard. This allows users to move to the next or previous inputs as well as close the keyboard."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When running an app in a mobile web browser or as a PWA there is no way to hide the accessory bar."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When running an app in Capacitor or Cordova, it is possible to hide the accessory bar. For more information regarding this configuration, see the ",
+      [
+        "a",
+        {
+          "href": "https://capacitor.ionicframework.com/docs/apis/keyboard#keyboard-configuration-ios-only-",
+          "target": "_blank"
+        },
+        "Capacitor Keyboard Documentation"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "keyboard-lifecycle-events"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#keyboard-lifecycle-events"
+        },
+        "Keyboard Lifecycle Events"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Detecting the presence of an on-screen keyboard is useful for adjusting the positioning of an input that would otherwise be hidden by the keyboard. For Capacitor and Cordova apps, developers typically rely on native keyboard plugins to listen for the keyboard lifecycle events. For apps running in a mobile browser or as a PWA, developers can use the ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API",
+          "rel": "noreferrer",
+          "target": "_blank"
+        },
+        "Visual Viewport API"
+      ],
+      " where supported. Ionic Framework wraps both of these approaches and emits ",
+      [
+        "code",
+        null,
+        "ionKeyboardDidShow"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "ionKeyboardDidHide"
+      ],
+      " events on the ",
+      [
+        "code",
+        null,
+        "window"
+      ],
+      ". The event payload for ",
+      [
+        "code",
+        null,
+        "ionKeyboardDidShow"
+      ],
+      " contains an approximation of the keyboard height in pixels."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#usage"
+        },
+        "Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-tabs",
+      null,
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "Javascript"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "javascript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "window",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "addEventListener"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'ionKeyboardDidShow'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "ev"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " keyboardHeight ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ev",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "detail",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token comment"
+                },
+                "// Do something with the keyboard height such as translating an input above the keyboard."
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\nwindow",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "addEventListener"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'ionKeyboardDidHide'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token comment"
+                },
+                "// Move input back to original location"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "Angular"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "typescript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " Platform ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@ionic/angular'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "..."
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "constructor"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "private"
+                ],
+                " platform",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  ":"
+                ],
+                " Platform"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "this"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "platform",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "keyboardDidShow",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "subscribe"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "ev"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " keyboardHeight ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ev",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "detail",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token comment"
+                },
+                "// Do something with the keyboard height such as translating an input above the keyboard."
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "this"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "platform",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "keyboardDidHide",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "subscribe"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token comment"
+                },
+                "// Move input back to original location"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "React"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "tsx"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " useKeyboardState ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@ionic/react-hooks/keyboard'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "..."
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " isOpen",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " keyboardHeight ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "useKeyboardState"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token comment"
+                },
+                "// Do something with the keyboard height such as translating an input above the keyboard"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "For apps running in a mobile web browser or as a PWA, Keyboard Lifecycle Events are only supported on Chrome 62+ and iOS Safari 13.0+."
+      ],
+      " "
+    ]
+  ],
+  "title": "Keyboard",
+  "headings": [
+    {
+      "text": "inputmode",
+      "href": "#inputmode"
+    },
+    {
+      "text": "enterkeyhint",
+      "href": "#enterkeyhint"
+    },
+    {
+      "text": "Dark Mode",
+      "href": "#dark-mode"
+    },
+    {
+      "text": "Hiding the Accessory Bar",
+      "href": "#hiding-the-accessory-bar"
+    },
+    {
+      "text": "Keyboard Lifecycle Events",
+      "href": "#keyboard-lifecycle-events"
+    }
+  ],
+  "pageClass": "page-developing-keyboard"
+}

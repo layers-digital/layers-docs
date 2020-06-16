@@ -1,0 +1,3760 @@
+{
+  "title": "ion-virtual-scroll",
+  "path": "/docs/api/virtual-scroll",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Virtual Scroll displays a virtual, \"infinite\" list. An array of records\nis passed to the virtual scroll containing the data to create templates\nfor. The template created for each record, referred to as a cell, can\nconsist of items, headers, and footers. For performance reasons, not every record\nin the list is rendered at once; instead a small subset of records (enough to fill the viewport)\nare rendered and reused as the user scrolls."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "approximate-widths-and-heights"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#approximate-widths-and-heights"
+        },
+        "Approximate Widths and Heights"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If the height of items in the virtual scroll are not close to the\ndefault size of ",
+      [
+        "code",
+        null,
+        "40px"
+      ],
+      ", it is extremely important to provide a value for\nthe ",
+      [
+        "code",
+        null,
+        "approxItemHeight"
+      ],
+      " property. An exact pixel-perfect size is not necessary,\nbut without an estimate the virtual scroll will not render correctly."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The approximate width and height of each template is used to help\ndetermine how many cells should be created, and to help calculate\nthe height of the scrollable area. Note that the actual rendered size\nof each cell comes from the app's CSS, whereas this approximation\nis only used to help calculate initial dimensions."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "It's also important to know that Ionic's default item sizes have\nslightly different heights between platforms, which is perfectly fine."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "images-within-virtual-scroll"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#images-within-virtual-scroll"
+        },
+        "Images Within Virtual Scroll"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "HTTP requests, image decoding, and image rendering can cause jank while\nscrolling. In order to better control images, Ionic provides ",
+      [
+        "code",
+        null,
+        "<ion-img>"
+      ],
+      " to manage HTTP requests and image rendering. While scrolling through items\nquickly, ",
+      [
+        "code",
+        null,
+        "<ion-img>"
+      ],
+      " knows when and when not to make requests, when and\nwhen not to render images, and only loads the images that are viewable\nafter scrolling. ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/api/img"
+        },
+        "Read more about ",
+        [
+          "code",
+          null,
+          "ion-img"
+        ],
+        "."
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "It's also important for app developers to ensure image sizes are locked in,\nand after images have fully loaded they do not change size and affect any\nother element sizes. Simply put, to ensure rendering bugs are not introduced,\nit's vital that elements within a virtual item does not dynamically change."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For virtual scrolling, the natural effects of the ",
+      [
+        "code",
+        null,
+        "<img>"
+      ],
+      " are not desirable\nfeatures. We recommend using the ",
+      [
+        "code",
+        null,
+        "<ion-img>"
+      ],
+      " component over the native ",
+      [
+        "code",
+        null,
+        "<img>"
+      ],
+      " element because when an ",
+      [
+        "code",
+        null,
+        "<img>"
+      ],
+      " element is added to the DOM, it\nimmediately makes a HTTP request for the image file. Additionally, ",
+      [
+        "code",
+        null,
+        "<img>"
+      ],
+      " renders whenever it wants which could be while the user is scrolling. However, ",
+      [
+        "code",
+        null,
+        "<ion-img>"
+      ],
+      " is governed by the containing ",
+      [
+        "code",
+        null,
+        "ion-content"
+      ],
+      " and does not render\nimages while scrolling quickly."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "virtual-scroll-performance-tips"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#virtual-scroll-performance-tips"
+        },
+        "Virtual Scroll Performance Tips"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "ios-cordova-wkwebview"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ios-cordova-wkwebview"
+        },
+        "iOS Cordova WKWebView"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When deploying to iOS with Cordova, it's highly recommended to use the ",
+      [
+        "a",
+        {
+          "href": "https://blog.ionicframework.com/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/"
+        },
+        "WKWebView plugin"
+      ],
+      " in order to take advantage of iOS's higher performing webview. Additionally,\nWKWebView is superior at scrolling efficiently in comparison to the older\nUIWebView."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "lock-in-element-dimensions-and-locations"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#lock-in-element-dimensions-and-locations"
+        },
+        "Lock in element dimensions and locations"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In order for virtual scroll to efficiently size and locate every item, it's\nvery important every element within each virtual item does not dynamically\nchange its dimensions or location. The best way to ensure size and location\ndoes not change, it's recommended each virtual item has locked in its size\nvia CSS."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "use-ion-img-for-images"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#use-ion-img-for-images"
+        },
+        "Use ",
+        [
+          "code",
+          null,
+          "ion-img"
+        ],
+        " for images"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When including images within Virtual Scroll, be sure to use ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/api/img/Img/"
+        },
+        [
+          "code",
+          null,
+          "ion-img"
+        ]
+      ],
+      " rather than the standard ",
+      [
+        "code",
+        null,
+        "<img>"
+      ],
+      " HTML element.\nWith ",
+      [
+        "code",
+        null,
+        "ion-img"
+      ],
+      ", images are lazy loaded so only the viewable ones are\nrendered, and HTTP requests are efficiently controlled while scrolling."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "set-approximate-widths-and-heights"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#set-approximate-widths-and-heights"
+        },
+        "Set Approximate Widths and Heights"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "As mentioned above, all elements should lock in their dimensions. However,\nvirtual scroll isn't aware of the dimensions until after they have been\nrendered. For the initial render, virtual scroll still needs to set\nhow many items should be built. With \"approx\" property inputs, such as ",
+      [
+        "code",
+        null,
+        "approxItemHeight"
+      ],
+      ", we're able to give virtual scroll an approximate size,\ntherefore allowing virtual scroll to decide how many items should be\ncreated."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "changing-dataset-should-use-trackby"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#changing-dataset-should-use-trackby"
+        },
+        "Changing dataset should use ",
+        [
+          "code",
+          null,
+          "trackBy"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "It is possible for the identities of elements in the iterator to change\nwhile the data does not. This can happen, for example, if the iterator\nproduced from an RPC to the server, and that RPC is re-run. Even if the\n\"data\" hasn't changed, the second response will produce objects with\ndifferent identities, and Ionic will tear down the entire DOM and rebuild\nit. This is an expensive operation and should be avoided if possible."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "efficient-headers-and-footer-functions"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#efficient-headers-and-footer-functions"
+        },
+        "Efficient headers and footer functions"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Each virtual item must stay extremely efficient, but one way to really\nkill its performance is to perform any DOM operations within section header\nand footer functions. These functions are called for every record in the\ndataset, so please make sure they're performant."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "react"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#react"
+        },
+        "React"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Virtual Scroll component is not supported in React."
+    ]
+  ],
+  "usage": {
+    "angular": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "html"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-virtual-scroll"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[items]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "items",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "approxItemHeight"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "320px",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-card"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "*virtualItem"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "let item; let itemBounds = bounds;",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "div"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n        ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-img"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[src]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "item.imgSrc",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[height]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "item.imgHeight",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[alt]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "item.name",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-img"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "div"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-card-header"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-card-title"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "{{ item.name }}",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-card-title"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-card-header"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-card-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "{{ item.content }}",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-card-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-card"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-virtual-scroll"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ]
+          ]
+        ],
+        "\n"
+      ],
+      "\n\n",
+      [
+        "docs-code",
+        {
+          "language": "typescript"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "export"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "class"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token class-name"
+              },
+              "VirtualScrollPageComponent"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  items",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token builtin"
+              },
+              "any"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "["
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "]"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "["
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "]"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "constructor"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "for"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "let"
+            ],
+            " i ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "0"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            " i ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "<"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "1000"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            " i",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "++"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "this"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            "items",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "push"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n        name",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " i ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "+"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "' - '"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "+"
+            ],
+            " images",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "["
+            ],
+            "rotateImg",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "]"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n        imgSrc",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "getImgSrc"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n        avatarSrc",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "getImgSrc"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n        imgHeight",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Math",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "floor"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            "Math",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "random"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "*"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "50"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "+"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "150"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n        content",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " lorem",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "substring"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "0"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " Math",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "random"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "*"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            "lorem",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            "length ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "-"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "100"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "+"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "100"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n      rotateImg",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "++"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "if"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            "rotateImg ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "==="
+            ],
+            " images",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            "length",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n        rotateImg ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "0"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "const"
+            ],
+            " lorem ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "const"
+            ],
+            " images ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "["
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'bandit'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'batmobile'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'blues-brothers'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'bueller'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'delorean'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'eleanor'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'general-lee'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'ghostbusters'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'knight-rider'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'mirth-mobile'"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "]"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "function"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "getImgSrc"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "const"
+            ],
+            " src ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'https://dummyimage.com/600x400/${Math.round( Math.random() * 99999)}/fff.png'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  rotateImg",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "++"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "if"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            "rotateImg ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "==="
+            ],
+            " images",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            "length",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    rotateImg ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "0"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " src",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "let"
+            ],
+            " rotateImg ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "0"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ]
+          ]
+        ],
+        "\n"
+      ],
+      "\n\n    ",
+      [
+        "h3",
+        {
+          "id": "basic"
+        },
+        "\n      ",
+        [
+          "a",
+          {
+            "href": "#basic"
+          },
+          "Basic"
+        ],
+        "\n    "
+      ],
+      "\n  ",
+      [
+        "p",
+        null,
+        "The array of records should be passed to the ",
+        [
+          "code",
+          null,
+          "items"
+        ],
+        " property on the ",
+        [
+          "code",
+          null,
+          "ion-virtual-scroll"
+        ],
+        " element.\nThe data given to the ",
+        [
+          "code",
+          null,
+          "items"
+        ],
+        " property must be an array. An item template with the ",
+        [
+          "code",
+          null,
+          "*virtualItem"
+        ],
+        " property is required in the ",
+        [
+          "code",
+          null,
+          "ion-virtual-scroll"
+        ],
+        ". The ",
+        [
+          "code",
+          null,
+          "*virtualItem"
+        ],
+        " property can be added to any element."
+      ],
+      "\n\n",
+      [
+        "docs-code",
+        {
+          "language": "html"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-virtual-scroll"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[items]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "items",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-item"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "*virtualItem"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "let item",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    {{ item }}\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-item"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-virtual-scroll"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ]
+          ]
+        ],
+        "\n"
+      ],
+      "\n\n    ",
+      [
+        "h3",
+        {
+          "id": "section-headers-and-footers"
+        },
+        "\n      ",
+        [
+          "a",
+          {
+            "href": "#section-headers-and-footers"
+          },
+          "Section Headers and Footers"
+        ],
+        "\n    "
+      ],
+      "\n  ",
+      [
+        "p",
+        null,
+        "Section headers and footers are optional. They can be dynamically created\nfrom developer-defined functions. For example, a large list of contacts\nusually has a divider for each letter in the alphabet. Developers provide\ntheir own custom function to be called on each record. The logic in the\ncustom function should determine whether to create the section template\nand what data to provide to the template. The custom function should\nreturn ",
+        [
+          "code",
+          null,
+          "null"
+        ],
+        " if a template shouldn't be created."
+      ],
+      "\n\n",
+      [
+        "docs-code",
+        {
+          "language": "html"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-virtual-scroll"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[items]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "items",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[headerFn]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "myHeaderFn",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-item-divider"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "*virtualHeader"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "let header",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    {{ header }}\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-item-divider"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-item"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "*virtualItem"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "let item",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    Item: {{ item }}\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-item"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-virtual-scroll"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ]
+          ]
+        ],
+        "\n"
+      ],
+      "\n",
+      [
+        "p",
+        null,
+        "Below is an example of a custom function called on every record. It\ngets passed the individual record, the record's index number,\nand the entire array of records. In this example, after every 20\nrecords a header will be inserted. So between the 19th and 20th records,\nbetween the 39th and 40th, and so on, a ",
+        [
+          "code",
+          null,
+          "<ion-item-divider>"
+        ],
+        " will\nbe created and the template's data will come from the function's\nreturned data."
+      ],
+      "\n\n",
+      [
+        "docs-code",
+        {
+          "language": "ts"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "myHeaderFn"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token parameter"
+              },
+              "record",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " recordIndex",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " records"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "if"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            "recordIndex ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "%"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "20"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "==="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token number"
+              },
+              "0"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'Header '"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "+"
+            ],
+            " recordIndex",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "null"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ]
+          ]
+        ],
+        "\n"
+      ],
+      "\n\n    ",
+      [
+        "h3",
+        {
+          "id": "custom-components"
+        },
+        "\n      ",
+        [
+          "a",
+          {
+            "href": "#custom-components"
+          },
+          "Custom Components"
+        ],
+        "\n    "
+      ],
+      "\n  ",
+      [
+        "p",
+        null,
+        "If a custom component is going to be used within Virtual Scroll, it's best\nto wrap it with a ",
+        [
+          "code",
+          null,
+          "<div>"
+        ],
+        " to ensure the component is rendered correctly. Since\neach custom component's implementation and internals can be quite different, wrapping\nwithin a ",
+        [
+          "code",
+          null,
+          "<div>"
+        ],
+        " is a safe way to make sure dimensions are measured correctly."
+      ],
+      "\n\n",
+      [
+        "docs-code",
+        {
+          "language": "html"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-virtual-scroll"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[items]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "items",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "div"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "*virtualItem"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "let item",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "my-custom-item"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[item]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "item",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n      {{ item }}\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "my-custom-item"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "div"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-virtual-scroll"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ]
+          ]
+        ],
+        "\n"
+      ]
+    ]
+  },
+  "props": [
+    {
+      "name": "approxFooterHeight",
+      "type": "number",
+      "mutable": false,
+      "attr": "approx-footer-height",
+      "reflectToAttr": false,
+      "docs": "<p>The approximate width of each footer template&#39;s cell.\nThis dimension is used to help determine how many cells should\nbe created when initialized, and to help calculate the height of\nthe scrollable area. This height value can only use <code>px</code> units.\nNote that the actual rendered size of each cell comes from the\napp&#39;s CSS, whereas this approximation is used to help calculate\ninitial dimensions before the item has been rendered.</p>\n",
+      "docsTags": [],
+      "default": "30",
+      "values": [
+        {
+          "type": "number"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "approxHeaderHeight",
+      "type": "number",
+      "mutable": false,
+      "attr": "approx-header-height",
+      "reflectToAttr": false,
+      "docs": "<p>The approximate height of each header template&#39;s cell.\nThis dimension is used to help determine how many cells should\nbe created when initialized, and to help calculate the height of\nthe scrollable area. This height value can only use <code>px</code> units.\nNote that the actual rendered size of each cell comes from the\napp&#39;s CSS, whereas this approximation is used to help calculate\ninitial dimensions before the item has been rendered.</p>\n",
+      "docsTags": [],
+      "default": "30",
+      "values": [
+        {
+          "type": "number"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "approxItemHeight",
+      "type": "number",
+      "mutable": false,
+      "attr": "approx-item-height",
+      "reflectToAttr": false,
+      "docs": "<p>It is important to provide this\nif virtual item height will be significantly larger than the default\nThe approximate height of each virtual item template&#39;s cell.\nThis dimension is used to help determine how many cells should\nbe created when initialized, and to help calculate the height of\nthe scrollable area. This height value can only use <code>px</code> units.\nNote that the actual rendered size of each cell comes from the\napp&#39;s CSS, whereas this approximation is used to help calculate\ninitial dimensions before the item has been rendered.</p>\n",
+      "docsTags": [],
+      "default": "45",
+      "values": [
+        {
+          "type": "number"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "footerFn",
+      "type": "((item: any, index: number, items: any[]) => string | null | undefined) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>Section footers and the data used within its given\ntemplate can be dynamically created by passing a function to <code>footerFn</code>.\nThe logic within the footer function can decide if the footer template\nshould be used, and what data to give to the footer template. The function\nmust return <code>null</code> if a footer cell shouldn&#39;t be created.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((item: any, index: number, items: any[]) => string"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "undefined)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "footerHeight",
+      "type": "((item: any, index: number) => number) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>An optional function that maps each item footer within their height.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((item: any, index: number) => number)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "headerFn",
+      "type": "((item: any, index: number, items: any[]) => string | null | undefined) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>Section headers and the data used within its given\ntemplate can be dynamically created by passing a function to <code>headerFn</code>.\nFor example, a large list of contacts usually has dividers between each\nletter in the alphabet. App&#39;s can provide their own custom <code>headerFn</code>\nwhich is called with each record within the dataset. The logic within\nthe header function can decide if the header template should be used,\nand what data to give to the header template. The function must return\n<code>null</code> if a header cell shouldn&#39;t be created.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((item: any, index: number, items: any[]) => string"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "undefined)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "headerHeight",
+      "type": "((item: any, index: number) => number) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>An optional function that maps each item header within their height.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((item: any, index: number) => number)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "itemHeight",
+      "type": "((item: any, index: number) => number) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>An optional function that maps each item within their height.\nWhen this function is provides, heavy optimizations and fast path can be taked by\n<code>ion-virtual-scroll</code> leading to massive performance improvements.</p>\n<p>This function allows to skip all DOM reads, which can be Doing so leads\nto massive performance</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((item: any, index: number) => number)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "items",
+      "type": "any[] | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>The data that builds the templates within the virtual scroll.\nIt&#39;s important to note that when this data has changed, then the\nentire virtual scroll is reset, which is an expensive operation and\nshould be avoided if possible.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "any[]"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "nodeRender",
+      "type": "((el: HTMLElement | null, cell: Cell, domIndex: number) => HTMLElement) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>NOTE: only Vanilla JS API.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((el: HTMLElement"
+        },
+        {
+          "type": "null, cell: Cell, domIndex: number) => HTMLElement)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "renderFooter",
+      "type": "((item: any, index: number) => any) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>NOTE: only JSX API for stencil.</p>\n<p>Provide a render function for the footer to be rendered. Returns a JSX virtual-dom.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((item: any, index: number) => any)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "renderHeader",
+      "type": "((item: any, index: number) => any) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>NOTE: only JSX API for stencil.</p>\n<p>Provide a render function for the header to be rendered. Returns a JSX virtual-dom.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((item: any, index: number) => any)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "renderItem",
+      "type": "((item: any, index: number) => any) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>NOTE: only JSX API for stencil.</p>\n<p>Provide a render function for the items to be rendered. Returns a JSX virtual-dom.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((item: any, index: number) => any)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    }
+  ],
+  "methods": [
+    {
+      "name": "checkEnd",
+      "returns": {
+        "type": "Promise<void>",
+        "docs": ""
+      },
+      "signature": "checkEnd() => Promise<void>",
+      "parameters": [],
+      "docs": "<p>This method marks the tail the items array as dirty, so they can be re-rendered.</p>\n<p>It&#39;s equivalent to calling:</p>\n\n<docs-code language=\"js\">\n  <pre><code>virtualScroll<span class=\"token punctuation\">.</span><span class=\"token function\">checkRange</span><span class=\"token punctuation\">(</span>lastItemLen<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span></code></pre>\n</docs-code>\n",
+      "docsTags": []
+    },
+    {
+      "name": "checkRange",
+      "returns": {
+        "type": "Promise<void>",
+        "docs": ""
+      },
+      "signature": "checkRange(offset: number, len?: number) => Promise<void>",
+      "parameters": [],
+      "docs": "<p>This method marks a subset of items as dirty, so they can be re-rendered. Items should be marked as\ndirty any time the content or their style changes.</p>\n<p>The subset of items to be updated can are specifing by an offset and a length.</p>\n",
+      "docsTags": []
+    },
+    {
+      "name": "positionForItem",
+      "returns": {
+        "type": "Promise<number>",
+        "docs": ""
+      },
+      "signature": "positionForItem(index: number) => Promise<number>",
+      "parameters": [],
+      "docs": "<p>Returns the position of the virtual item at the given index.</p>\n",
+      "docsTags": []
+    }
+  ],
+  "template": "api",
+  "filePath": "./src/components/virtual-scroll/virtual-scroll.tsx",
+  "encapsulation": "none",
+  "tag": "ion-virtual-scroll",
+  "docs": [
+    "div",
+    null,
+    "Virtual Scroll displays a virtual, \"infinite\" list. An array of records\nis passed to the virtual scroll containing the data to create templates\nfor. The template created for each record, referred to as a cell, can\nconsist of items, headers, and footers. For performance reasons, not every record\nin the list is rendered at once; instead a small subset of records (enough to fill the viewport)\nare rendered and reused as the user scrolls."
+  ],
+  "docsTags": [],
+  "events": [],
+  "listeners": [
+    {
+      "event": "resize",
+      "target": "window",
+      "capture": false,
+      "passive": true
+    }
+  ],
+  "styles": [],
+  "slots": [],
+  "dependents": [],
+  "dependencies": [],
+  "dependencyGraph": {},
+  "headings": [
+    {
+      "text": "Virtual Scroll Performance Tips",
+      "href": "#virtual-scroll-performance-tips"
+    },
+    {
+      "text": "React",
+      "href": "#react"
+    }
+  ],
+  "pageClass": "page-api-virtual-scroll"
+}

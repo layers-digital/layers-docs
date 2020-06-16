@@ -1,0 +1,71 @@
+{
+  "title": "Tealium",
+  "path": "/docs/native/tealium",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "This plugin provides a TypeScript wrapper around the ",
+      [
+        "a",
+        {
+          "href": "https://www.tealium.com"
+        },
+        "Tealium"
+      ],
+      " Cordova plugin for Ionic Native."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "For full documentation, see ",
+      [
+        "a",
+        {
+          "href": "https://community.tealiumiq.com/t5/Mobile-Libraries/Tealium-for-Cordova/ta-p/17618"
+        },
+        "https://community.tealiumiq.com/t5/Mobile-Libraries/Tealium-for-Cordova/ta-p/17618"
+      ]
+    ]
+  ],
+  "repo": "https://github.com/Tealium/cordova-plugin",
+  "platforms": [
+    "Android",
+    "iOS"
+  ],
+  "codeUsage": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "null"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "import { Tealium, TealConfig } from '@ionic-native/tealium/ngx';\n\n\nconstructor(private tealium: Tealium) { }\n\n...\n\nlet tealConfig: TealConfig = {\n account: \"<your-account>\",\n profile: \"<your-profile>\",\n environment: \"<your-environment>\", // usually \"dev\", \"qa\" or \"prod\"\n isLifecycleEnabled: \"true\", // pass \"false\" to disable lifecycle tracking\n isCrashReporterEnabled: \"false\", // pass \"true\" to enable crash reporter (Android only)\n instance: \"<your-instance-name\" // an arbitrary instance name. use the same instance name for all subsequent API calls\n}\n\nthis.tealium.init(tealConfig).then(()=>{\n  this.tealium.trackView({\"screen_name\": \"homescreen\"});\n});\n"
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "package": "@ionic-native/tealium",
+  "cordova": "tealium-cordova-plugin",
+  "capacitorIncompatible": false,
+  "premierSlug": null,
+  "template": "native",
+  "headings": [],
+  "pageClass": "page-native-tealium"
+}

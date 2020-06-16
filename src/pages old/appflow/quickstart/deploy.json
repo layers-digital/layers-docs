@@ -1,0 +1,485 @@
+{
+  "path": "/docs/appflow/quickstart/deploy",
+  "title": "Deploy a Live Update",
+  "previousText": "Push a Commit",
+  "previousUrl": "/docs/appflow/quickstart/push",
+  "nextText": "Build a Native Binary",
+  "nextUrl": "/docs/appflow/quickstart/package",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Now that we've ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/quickstart/installation"
+        },
+        "installed the Appflow SDK "
+      ],
+      " and ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/quickstart/push"
+        },
+        "pushed a commit"
+      ],
+      " to the Dashboard, we'll walk through the process of deploying a live update to a device."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "overview"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#overview"
+        },
+        "Overview"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Live Update feature works by using the installed Appflow SDK in your native application to listen to a particular Deploy ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/deploy/channels"
+        },
+        "Channel"
+      ],
+      " Destination."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When a Deploy build is assigned to a Channel Destination, that update will be deployed to user devices running binaries that are configured to listen to the specified Channel Destination."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "b",
+        null,
+        "Nomenclature note:"
+      ],
+      " The terms \"Deploy build\", \"web build\", \"live deploy\" and \"live update\" can be used interchangeably. They all refer to an update provided to your user's device by Appflow's Deploy feature. "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "triggering-a-deploy-build"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#triggering-a-deploy-build"
+        },
+        "Triggering a Deploy Build"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In order to deploy a live update, you will first need to create a ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/deploy/builds"
+        },
+        "Deploy build"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are two ways to do this:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Click the ",
+        [
+          "code",
+          null,
+          "Start build"
+        ],
+        " icon from the ",
+        [
+          "code",
+          null,
+          "Commits"
+        ],
+        " tab ",
+        [
+          "img",
+          {
+            "src": "/docs/assets/img/appflow/ss-start-web-build-commits.png",
+            "alt": "Start Web Build from Commits"
+          }
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Click the ",
+        [
+          "code",
+          null,
+          "New build"
+        ],
+        " button in the top right from the ",
+        [
+          "code",
+          null,
+          "Build > Builds"
+        ],
+        " tab ",
+        [
+          "img",
+          {
+            "src": "/docs/assets/img/appflow/ss-new-web-build.png",
+            "alt": "New Web Build"
+          }
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "You will need to make sure you've selected the correct commit to deploy. Then select the ",
+      [
+        "code",
+        null,
+        "Web Deploy"
+      ],
+      " target platform. \nIf your plan includes ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/automation/environments#custom-environments"
+        },
+        "custom environments"
+      ],
+      " and you have configured at least one, you can select one from the provided dropdown list.\nFinally, you can also pick a ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/deploy/channels"
+        },
+        "Channel"
+      ],
+      " to automatically assign the build to once it completes successfully.\nFor the purposes of this tutorial, we will leave both options blank. "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once the build begins you will be able to watch it's\nprogress and look at the logs if you encounter errors."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/gif-start-web-build.gif",
+          "alt": "Running Web Build"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "web-build-versioning"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#web-build-versioning"
+        },
+        "Web Build Versioning"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once the Web Build completed, it can be restricted to a specific native build number assigned in the Web Build details. A minimum and maximum equivalent build version number are specified, which designates whether or not the update is compatible. After doing this, new native builds that are distributed within an app store do not conflict with the current available update from AppFlow."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/web-build-versioning.png",
+          "alt": "Web build versioning"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For more details and a simple use case see ",
+      [
+        "a",
+        {
+          "href": "https://ionic.zendesk.com/hc/en-us/articles/360003567694-How-to-restrict-Deploy-updates-by-native-version"
+        },
+        "this article"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "assign-the-build-to-a-channel"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#assign-the-build-to-a-channel"
+        },
+        "Assign the Build to a Channel"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "b",
+        null,
+        "Note:"
+      ],
+      " If you have trouble getting a successful build in the previous step, you can find answers to common Deploy build errors in ",
+      [
+        "a",
+        {
+          "href": "https://ionic.zendesk.com/hc/en-us/categories/360000410474-Deploy-Builds-Git-",
+          "target": "_blank"
+        },
+        "this section of our knowledge base"
+      ],
+      ". "
+    ],
+    " Once you have a successful Deploy build, you can assign it to the same Channel you configured the Appflow SDK to\nlisten to when you installed it by clicking the `Deploy live updates` button in the build detail\npage. You can also click the `Deploy live updates` icon on the build in the `Build > Builds` tab and select the Channel\nfrom the dropdown. ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/gif-assign-to-channel.gif",
+          "alt": "Assign to Channel"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "receiving-a-live-update-on-a-device"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#receiving-a-live-update-on-a-device"
+        },
+        "Receiving a Live Update on a Device"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For your application to receive a live update from Deploy, you'll need to run the app on a device or an emulator. The easiest\nway to do this is simply to use the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/cli/commands/cordova-run"
+        },
+        "ionic cordova run"
+      ],
+      " command to launch\nyour local app in an emulator or a device connected to your computer."
+    ],
+    " ",
+    [
+      "command-line",
+      null,
+      " ",
+      [
+        "command-prompt",
+        null,
+        " ionic cordova run [ios | android] [options] "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If the app is configured correctly to\nlisten to the channel you deployed it to, the application should update immediately on startup if you're using the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/deploy/api#update_method"
+        },
+        "auto update method"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you're using the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/deploy/api#update_method"
+        },
+        "background update method"
+      ],
+      ", just stay in the app for 30 seconds or so while the update\nis downloaded in the background. Then, close the application, reopen it again and you should see your update applied 🎉."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "disabling-deploy-for-development"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#disabling-deploy-for-development"
+        },
+        "Disabling Deploy for Development"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Generally speaking, if you are developing using an emulator and live reload you probably do not want Deploy to be active, as it can intefere with your local development. "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "We recommend setting the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/deploy/api#disabledeploy"
+        },
+        "DisableDeploy"
+      ],
+      " preference to ",
+      [
+        "code",
+        null,
+        "true"
+      ],
+      " in the ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      " file during local development. You can then set it back to ",
+      [
+        "code",
+        null,
+        "false"
+      ],
+      " before building your binary for release by either manually setting it\nback or using the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/package/native-configs"
+        },
+        "native config feature"
+      ],
+      " if you're building your binaries with ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/package/intro"
+        },
+        "Ionic Package"
+      ],
+      "."
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Overview",
+      "href": "#overview"
+    },
+    {
+      "text": "Triggering a Deploy Build",
+      "href": "#triggering-a-deploy-build"
+    },
+    {
+      "text": "Web Build Versioning",
+      "href": "#web-build-versioning"
+    },
+    {
+      "text": "Assign the Build to a Channel",
+      "href": "#assign-the-build-to-a-channel"
+    },
+    {
+      "text": "Receiving a Live Update on a Device",
+      "href": "#receiving-a-live-update-on-a-device"
+    },
+    {
+      "text": "Disabling Deploy for Development",
+      "href": "#disabling-deploy-for-development"
+    }
+  ],
+  "pageClass": "page-appflow-quickstart-deploy"
+}

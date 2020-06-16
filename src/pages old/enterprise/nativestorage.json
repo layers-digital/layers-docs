@@ -1,0 +1,1509 @@
+{
+  "path": "/docs/enterprise/nativestorage",
+  "title": "Native Storage",
+  "template": "enterprise-plugin",
+  "version": "2.3.2",
+  "minor": "2.3.X",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Native Storage plugin provides native storage of variables in Android (SharedPreferences) and iOS (UserDefaults)."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "native-ent-install",
+        {
+          "plugin-id": "nativestorage",
+          "variables": ""
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "index"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#index"
+        },
+        "Index"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#nativestorage"
+          },
+          "NativeStorage"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "nativestorage"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "nativestorage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#nativestorage"
+        },
+        "NativeStorage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "usage"
+        ]
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " NativeStorage ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-enterprise/nativestorage/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " nativeStorage",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " NativeStorage"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "nativeStorage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "setItem"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'myitem'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "property",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'value'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " anotherProperty",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'anotherValue'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Stored item!'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "error"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "error"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Error storing item'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " error",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "nativeStorage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getItem"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'myitem'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "data"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "data",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "error"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "error"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "error",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "nativestorage.clear"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "clear"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#clear"
+        },
+        "clear"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "clear"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Removes all stored values."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "nativestorage.getitem"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "getitem"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#getitem"
+        },
+        "getItem"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "getItem"
+      ],
+      "(reference: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Gets a stored item"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "reference"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "nativestorage.keys"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "keys"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#keys"
+        },
+        "keys"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "keys"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Retrieving all keys"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "nativestorage.remove"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "remove"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#remove"
+        },
+        "remove"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "remove"
+      ],
+      "(reference: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Removes a single stored item"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "reference"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "nativestorage.setitem"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "setitem"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#setitem"
+        },
+        "setItem"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "setItem"
+      ],
+      "(reference: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", value: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "any"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Stores a value"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "reference"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "value"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "any"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Index",
+      "href": "#index"
+    },
+    {
+      "text": "Classes",
+      "href": "#classes"
+    }
+  ],
+  "pageClass": "page-enterprise-nativestorage"
+}

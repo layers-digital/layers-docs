@@ -1,0 +1,6401 @@
+{
+  "path": "/docs/enterprise/apple-payment-pass",
+  "title": "Apple Payment Pass",
+  "template": "enterprise-plugin",
+  "version": "1.0.2",
+  "minor": "1.0.X",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Apple Payment Pass plugin provides support for adding credit/debit cards to Apple Wallet. It also can check if the credit/debit card exists in Wallet."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "strong",
+        null,
+        "Important Note:"
+      ]
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Adding payment passes requires a special entitlement issued by Apple. Your app must include this entitlement before you can use this class. For more information on requesting this entitlement, see the Apple Pay ",
+        [
+          "a",
+          {
+            "href": "https://developer.apple.com/apple-pay/implementation/"
+          },
+          "implementation details"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "native-ent-install",
+        {
+          "plugin-id": "apple-payment-pass",
+          "variables": ""
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#usage"
+        },
+        "Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "angular"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#angular"
+        },
+        "Angular"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Platform ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic/angular'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " RequestTemplate ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-enterprise/apple-payment-pass/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "MyService"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " platform",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Platform",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " paypass",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ApplePaymentPass"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addCardToWallet"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "try"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " response ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "paypass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addPaymentPass"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        userId",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        appleWalletData",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          certificates",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n            RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_0"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          nonce",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          nonceSignature",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE_SIGNATURE"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "catch"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "if"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "type"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "==="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"ServerError\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "error"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "Server Responded with status: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "statusCode",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              " and body "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "body",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "es2015-typescript"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#es2015-typescript"
+        },
+        "ES2015+/Typescript"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " RequestTemplate ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-enterprise/apple-payment-pass'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "try"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " response ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addPaymentPass"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    userId",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    appleWalletData",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      certificates",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_0"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      nonce",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      nonceSignature",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE_SIGNATURE"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "catch"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "if"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "type"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "==="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"ServerError\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "error"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "Server Responded with status: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "statusCode",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              " and body "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "body",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "vanilla-js"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#vanilla-js"
+        },
+        "Vanilla JS"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "javascript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addPaymentPass"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  userId",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  appleWalletData",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    certificates",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "template",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_0"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "template",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    nonce",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "template",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    nonceSignature",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "template",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE_SIGNATURE"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "cardStatus"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " console",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Success Adding Card: \""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " cardStatus",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "catch"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "e"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "if"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "type ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "==="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"ServerError\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      console",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "error"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "Server Responded with status: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "statusCode",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              " and body "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "body",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "card-addition"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#card-addition"
+        },
+        "Card Addition"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Call with the configuration data needed to instantiate a new PKAddPaymentPassViewController object and complete the HTTP request to do the handshake with your server."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This method provides the data needed to create a request to add your payment pass (credit/debit card)."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " card ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      cardholderName",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Test User'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      primaryAccountSuffix",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'1234'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      localizedDescription",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Description of payment card'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      paymentNetwork",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'VISA'"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " options ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      headers",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Authorization'"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Bearer xxxxxx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Content-Type'"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'application/json'"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      url",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'https://my.api.com/v1/cards'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      method",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'POST'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// This is a hybrid template with the data you need prefilled"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// and the ApplePaymentPass.CONSTANTS will be filled in during the handshake."
+          ],
+          "\n      body",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        userId",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        appleWalletData",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          certificates",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n            ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_0"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          nonce",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          nonceSignature",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE_SIGNATURE"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      card",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " card",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " passData ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ApplePaymentPass",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addPaymentPass"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "options",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "index"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#index"
+        },
+        "Index"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "enumerations"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#enumerations"
+        },
+        "Enumerations"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#requesttemplate"
+          },
+          "RequestTemplate"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#applepaymentpass"
+          },
+          "ApplePaymentPass"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "interfaces"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#interfaces"
+        },
+        "Interfaces"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#addpassoptions"
+          },
+          "AddPassOptions"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#addpassresponse"
+          },
+          "AddPassResponse"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#carddata"
+          },
+          "CardData"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#delegateerror"
+          },
+          "DelegateError"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#headers"
+          },
+          "Headers"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#servererror"
+          },
+          "ServerError"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "type-aliases"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-aliases"
+        },
+        "Type aliases"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#activationstate"
+          },
+          "ActivationState"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "enumerations"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#enumerations"
+        },
+        "Enumerations"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "requesttemplate"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "requesttemplate"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#requesttemplate"
+        },
+        "RequestTemplate"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "RequestTemplate"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Constants used to define the shape of the body used during the request to the server"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "requesttemplate.certificate_0"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "certificate_0"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#certificate_0"
+        },
+        "CERTIFICATE_0"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "CERTIFICATE_0"
+      ],
+      ":  = \"$certificates.0\""
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Constant used in the body template that represents the first item in the certificates array returned by the PKAddPaymentPassViewController."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "requesttemplate.certificate_1"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "certificate_1"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#certificate_1"
+        },
+        "CERTIFICATE_1"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "CERTIFICATE_1"
+      ],
+      ":  = \"$certificates.1\""
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Constant used in the body template that represents the second item in the certificates array returned by the PKAddPaymentPassViewController."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "requesttemplate.nonce"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "nonce"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#nonce"
+        },
+        "NONCE"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "NONCE"
+      ],
+      ":  = \"$nonceString\""
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Constant used in the body template that represents the nonce returned by the PKAddPaymentPassViewController."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "requesttemplate.nonce_signature"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "nonce_signature"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#nonce_signature"
+        },
+        "NONCE_SIGNATURE"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "NONCE_SIGNATURE"
+      ],
+      ":  = \"$nonceSignature\""
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Constant used in the body template that represents the nonceSignature returned by the PKAddPaymentPassViewController."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "applepaymentpass"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "applepaymentpass"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#applepaymentpass"
+        },
+        "ApplePaymentPass"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ApplePaymentPass"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This plugin provides support for adding credit/debit cards to Apple Wallet. It also can check if the credit/debit card exists in Wallet."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "applepaymentpass.template"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "template"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#template"
+        },
+        "template"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● template"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#requesttemplate"
+          },
+          "RequestTemplate"
+        ]
+      ],
+      " =  RequestTemplate"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "applepaymentpass.addpaymentpass"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "addpaymentpass"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#addpaymentpass"
+        },
+        "addPaymentPass"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "addPaymentPass"
+      ],
+      "(options: ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#addpassoptions"
+          },
+          "AddPassOptions"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "a",
+        {
+          "href": "#addpassresponse"
+        },
+        "AddPassResponse"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This function accepts both the card data and information required to make the http request to the server in order to use PKAddPaymentPassViewController object to add a payment pass to the apple wallet."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "throws"
+        ]
+      ],
+      ": * ",
+      [
+        "a",
+        {
+          "href": "#servererror"
+        },
+        "ServerError"
+      ],
+      " ",
+      [
+        "a",
+        {
+          "href": "#delegateerror"
+        },
+        "DelegateError"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "options"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "a",
+              {
+                "href": "#addpassoptions"
+              },
+              "AddPassOptions"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "The ",
+            [
+              "a",
+              {
+                "href": "#addpassoptions"
+              },
+              "AddPassOptions"
+            ],
+            " object to configure the PKAddPaymentPassViewController and setup the call to the server."
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "a",
+        {
+          "href": "#addpassresponse"
+        },
+        "AddPassResponse"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "An object with the pass information"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "applepaymentpass.available"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "available"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#available"
+        },
+        "available"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "available"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "boolean"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A function to determine if the current device supports adding a payment pass"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "boolean"
+      ],
+      ">\nwhether or not a pay pass can be added"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "applepaymentpass.availableprovider"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "availableprovider"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#availableprovider"
+        },
+        "availableProvider"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "availableProvider"
+      ],
+      "(options: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "boolean"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A function to determine if the card has already been provisioned for the device."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "options: ",
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "An object with the primary account identifier for the card."
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "primaryAccountIdentifier"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "boolean"
+      ],
+      ">\nwhether or not a pay can be added, throws an error if the card is already added"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "interfaces"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#interfaces"
+        },
+        "Interfaces"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassoptions"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "addpassoptions"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#addpassoptions"
+        },
+        "AddPassOptions"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "AddPassOptions"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The options interface to pass to the ",
+      [
+        "a",
+        {
+          "href": "#applepaymentpass.addpaymentpass"
+        },
+        "addPaymentPass"
+      ],
+      " function."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassoptions.body"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "body"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#body"
+        },
+        "body"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● body"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "any"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A templated request body to send to your server. include any additional fields and use the constansts ",
+      [
+        "a",
+        {
+          "href": "#requesttemplate.certificate_0"
+        },
+        "CERTIFICATE_0"
+      ],
+      ", ",
+      [
+        "a",
+        {
+          "href": "#requesttemplate.certificate_1"
+        },
+        "CERTIFICATE_1"
+      ],
+      ", ",
+      [
+        "a",
+        {
+          "href": "#requesttemplate.nonce"
+        },
+        "NONCE"
+      ],
+      ", ",
+      [
+        "a",
+        {
+          "href": "#requesttemplate.nonce_signature"
+        },
+        "NONCE_SIGNATURE"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "usage"
+        ]
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " body ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  userId",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  cardId",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'xxxxx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  appleWalletData",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    certs",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_0"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CERTIFICATE_1"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    nonce",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    nonceSignature",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " RequestTemplate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "NONCE_SIGNATURE"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassoptions.card"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "card"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#card"
+        },
+        "card"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● card"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#carddata"
+          },
+          "CardData"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The card data"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassoptions.headers"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "headers"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#headers"
+        },
+        "headers"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● headers"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#headers"
+          },
+          "Headers"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "An object with the headers required for the server request."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassoptions.method"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "method"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#method"
+        },
+        "method"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● method"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The HTTP method to use ex. ",
+      [
+        "code",
+        null,
+        "POST"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassoptions.url"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "url"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#url"
+        },
+        "url"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● url"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The url to hit ex. ",
+      [
+        "code",
+        null,
+        "https://my.api.com/v1/add/applepay/card"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassresponse"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "addpassresponse"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#addpassresponse"
+        },
+        "AddPassResponse"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "AddPassResponse"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The response from adding the pass with the pass data"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassresponse.activationstate"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "activationstate"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#activationstate"
+        },
+        "activationState"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● activationState"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#activationstate"
+          },
+          "ActivationState"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The activation state of the card"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassresponse.deviceaccountidentifier"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "deviceaccountidentifier"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#deviceaccountidentifier"
+        },
+        "deviceAccountIdentifier"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● deviceAccountIdentifier"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The device account identifier."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassresponse.deviceaccountnumbersuffix"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "deviceaccountnumbersuffix"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#deviceaccountnumbersuffix"
+        },
+        "deviceAccountNumberSuffix"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● deviceAccountNumberSuffix"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The device account number suffix"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassresponse.devicename"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "devicename"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#devicename"
+        },
+        "deviceName"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● deviceName"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The device name."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassresponse.primaryaccountidentifier"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "primaryaccountidentifier"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#primaryaccountidentifier"
+        },
+        "primaryAccountIdentifier"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● primaryAccountIdentifier"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The primary account identifier"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "addpassresponse.primaryaccountnumbersuffix"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "primaryaccountnumbersuffix"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#primaryaccountnumbersuffix"
+        },
+        "primaryAccountNumberSuffix"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● primaryAccountNumberSuffix"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The primary account number suffix"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "carddata"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "carddata"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#carddata"
+        },
+        "CardData"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "CardData"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The card data for the PKAddPaymentPassViewController"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "carddata.cardholdername"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-cardholdername"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-cardholdername"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " cardholderName"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● cardholderName"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ],
+        " | ",
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The cardholder name"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "carddata.localizeddescription"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-localizeddescription"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-localizeddescription"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " localizedDescription"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● localizedDescription"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ],
+        " | ",
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A short description of the card."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "carddata.paymentnetwork"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-paymentnetwork"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-paymentnetwork"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " paymentNetwork"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● paymentNetwork"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ],
+        " | ",
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Filters the networks shown in the introduction view to this single network. ex.",
+      [
+        "code",
+        null,
+        "VISA \\| MASTERCARD"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "carddata.primaryaccountidentifier"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-primaryaccountidentifier"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-primaryaccountidentifier"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " primaryAccountIdentifier"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● primaryAccountIdentifier"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ],
+        " | ",
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Filters the device and attached devices that already have this card provisioned. No filter is applied if the parameter is omitted"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "carddata.primaryaccountsuffix"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-primaryaccountsuffix"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-primaryaccountsuffix"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " primaryAccountSuffix"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● primaryAccountSuffix"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ],
+        " | ",
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Last 4/5 digits of PAN. The last four or five digits of the PAN. Presented to the user with dots prepended to indicate that it is a suffix."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "delegateerror"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "delegateerror"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#delegateerror"
+        },
+        "DelegateError"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "DelegateError"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Error thrown by ",
+      [
+        "a",
+        {
+          "href": "#applepaymentpass.addpaymentpass"
+        },
+        "addPaymentPass"
+      ],
+      " when the PKAddPaymentPassViewController fails to add the card to the wallet"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "delegateerror.body"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "body"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#body"
+        },
+        "body"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● body"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The error message"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "type-declaration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-declaration"
+        },
+        "Type declaration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " message: ",
+      [
+        "code",
+        null,
+        "string"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "delegateerror.statuscode"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "statuscode"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#statuscode"
+        },
+        "statusCode"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● statusCode"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The error code"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "delegateerror.type"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "type"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type"
+        },
+        "type"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● type"
+      ],
+      ": *\"DelegateError\"*"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The type of the error"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "headers"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "headers"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#headers"
+        },
+        "Headers"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Headers"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "An object with the headers required for the server request."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "usage"
+        ]
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " headers ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Authorization'"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Bearer xxxxx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Content-Type'"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'application/json'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "servererror"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "servererror"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#servererror"
+        },
+        "ServerError"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ServerError"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Error thrown by ",
+      [
+        "a",
+        {
+          "href": "#applepaymentpass.addpaymentpass"
+        },
+        "addPaymentPass"
+      ],
+      " when server responds with a HTTP status code >= 400"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "servererror.body"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "body"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#body"
+        },
+        "body"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● body"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "any"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The body return by the server"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "servererror.statuscode"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "statuscode"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#statuscode"
+        },
+        "statusCode"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● statusCode"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The status code returned from the server"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "servererror.type"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "type"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type"
+        },
+        "type"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● type"
+      ],
+      ": *\"ServerError\"*"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The type of the error"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "type-aliases"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#type-aliases"
+        },
+        "Type aliases"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "activationstate"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "activationstate"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#activationstate"
+        },
+        "ActivationState"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Ƭ ActivationState"
+      ],
+      ": *\"activated\" | \"activating\" | \"suspended\" | \"deactivated\" | \"requires-activation\" | \"unknown\"*"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The activation state of the provisioned card"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "change-log"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#change-log"
+        },
+        "Change Log"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-1-0-2-2019-04-27-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-1-0-2-2019-04-27-"
+        },
+        "[1.0.2] (2019-04-27)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "bug-fixes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#bug-fixes"
+        },
+        "Bug Fixes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Fixed issue where cordova plugin id was being incorrectly set by release script."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-1-0-0-2019-04-27-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-1-0-0-2019-04-27-"
+        },
+        "[1.0.0] (2019-04-27)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "bug-fixes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#bug-fixes"
+        },
+        "Bug Fixes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "iOS:"
+        ],
+        " Fix issues where nonce string could be incorrectly replaced and errors from server weren't properly handled"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "features"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#features"
+        },
+        "Features"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Added typed imports for ",
+        [
+          "a",
+          {
+            "href": "#angular"
+          },
+          "Angular"
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "#es2015-typescript"
+          },
+          "ES2015+/Typescript"
+        ],
+        ", and ",
+        [
+          "a",
+          {
+            "href": "#vanilla-js"
+          },
+          "Vanilla JS"
+        ],
+        " , closes [#es2015]"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "breaking-changes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#breaking-changes"
+        },
+        "BREAKING CHANGES"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Changed package name from ",
+        [
+          "code",
+          null,
+          "@ionic-enterprise/apple-wallet"
+        ],
+        " to ",
+        [
+          "code",
+          null,
+          "@ionic-enterprise/apple-payment-pass"
+        ],
+        " and the main class from ",
+        [
+          "code",
+          null,
+          "AppleWallet"
+        ],
+        " to ",
+        [
+          "code",
+          null,
+          "ApplePaymentPass"
+        ],
+        ". See updated ",
+        [
+          "a",
+          {
+            "href": "#usage"
+          },
+          "usage docs"
+        ],
+        "."
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Usage",
+      "href": "#usage"
+    },
+    {
+      "text": "Index",
+      "href": "#index"
+    },
+    {
+      "text": "Enumerations",
+      "href": "#enumerations"
+    },
+    {
+      "text": "Classes",
+      "href": "#classes"
+    },
+    {
+      "text": "Interfaces",
+      "href": "#interfaces"
+    },
+    {
+      "text": "Type aliases",
+      "href": "#type-aliases"
+    },
+    {
+      "text": "Change Log",
+      "href": "#change-log"
+    }
+  ],
+  "pageClass": "page-enterprise-apple-payment-pass"
+}

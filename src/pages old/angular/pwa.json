@@ -1,0 +1,1635 @@
+{
+  "path": "/docs/angular/pwa",
+  "title": "Progressive Web Apps in Angular",
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "making-your-angular-app-a-pwa"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#making-your-angular-app-a-pwa"
+        },
+        "Making your Angular app a PWA"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The two main requirements of a PWA are a ",
+      [
+        "a",
+        {
+          "href": "https://developers.google.com/web/fundamentals/primers/service-workers/",
+          "target": "_blank"
+        },
+        "Service Worker"
+      ],
+      " and a ",
+      [
+        "a",
+        {
+          "href": "https://developers.google.com/web/fundamentals/web-app-manifest/",
+          "target": "_blank"
+        },
+        "Web Manifest"
+      ],
+      ". While it's possible to add both of these to an app manually, the Angular team has an ",
+      [
+        "code",
+        null,
+        "@angular/pwa"
+      ],
+      " package that can be used to automate this."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "code",
+        null,
+        "@angular/pwa"
+      ],
+      " package will automatically add a service worker and an app manifest to the app.\nTo add this package to the app, run:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ng ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "add"
+          ],
+          " @angular/pwa"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once this package has been added run ",
+      [
+        "code",
+        null,
+        "ionic build --prod"
+      ],
+      " and the ",
+      [
+        "code",
+        null,
+        "www"
+      ],
+      " directory will be ready to deploy as a PWA."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "By default, the ",
+        [
+          "code",
+          null,
+          "@angular/pwa"
+        ],
+        " package comes with the Angular logo for the app icons. Be sure to update the manifest to use the correct app name and also replace the icons."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Note: Features like Service Workers and many JavaScript APIs (such as geolocation) require the app be hosted in a secure context. When deploying an app through a hosting service, be aware that HTTPS will be required to take full advantage of Service Workers."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "service-worker-configuration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#service-worker-configuration"
+        },
+        "Service Worker configuration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After ",
+      [
+        "code",
+        null,
+        "@angular/pwa"
+      ],
+      " has been added, a new ",
+      [
+        "code",
+        null,
+        "ngsw-config.json"
+      ],
+      " file will be created at the root of the project. This file is responsible for configuring how Angular's service worker mechanism will handle caching assets. By default, the following will be provided:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"$schema\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"./node_modules/@angular/service-worker/config/schema.json\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"index\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/index.html\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"assetGroups\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"app\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"installMode\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"prefetch\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"resources\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"files\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/favicon.ico\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/index.html\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/*.css\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/*.js\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"assets\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"installMode\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"lazy\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"updateMode\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"prefetch\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"resources\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"files\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/assets/**\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are two sections in here, one for app specific resources (JS, CSS, HTML) and assets the app will load on demand. Depending on your app, these options can be customized. For a more detailed guide, read ",
+      [
+        "a",
+        {
+          "href": "https://angular.io/guide/service-worker-config"
+        },
+        "the official guide from the Angular Team."
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "deploying"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#deploying"
+        },
+        "Deploying"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "firebase"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#firebase"
+        },
+        "Firebase"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Firebase hosting provides many benefits for Progressive Web Apps, including fast response times thanks to CDNs, HTTPS enabled by default, and support for ",
+      [
+        "a",
+        {
+          "href": "https://firebase.googleblog.com/2016/09/http2-comes-to-firebase-hosting.html"
+        },
+        "HTTP2 push"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "First, if not already available, ",
+      [
+        "a",
+        {
+          "href": "https://console.firebase.google.com"
+        },
+        "create the project"
+      ],
+      " in Firebase."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Next, in a Terminal, install the Firebase CLI:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " -g firebase-tools"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "With the Firebase CLI installed, run ",
+      [
+        "code",
+        null,
+        "firebase init"
+      ],
+      " within your Ionic project. The CLI prompts:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "\"Which Firebase CLI features do you want to set up for this folder?\""
+      ],
+      " Choose \"Hosting: Configure and deploy Firebase Hosting sites.\""
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "\"Select a default Firebase project for this directory:\""
+      ],
+      " Choose the project you created on the Firebase website."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "\"What do you want to use as your public directory?\""
+      ],
+      " Enter \"www\"."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Note: Answering these next two questions will ensure that routing, hard reload, and deep linking work in the app:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Configure as a single-page app (rewrite all urls to /index.html)?\""
+      ],
+      " Enter \"Yes\"."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "\"File www/index.html already exists. Overwrite?\""
+      ],
+      " Enter \"No\"."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A ",
+      [
+        "code",
+        null,
+        "firebase.json"
+      ],
+      " config file is generated, configuring the app for deployment."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The last thing needed is to make sure caching headers are being set correctly. To do this, add a ",
+      [
+        "code",
+        null,
+        "headers"
+      ],
+      " snippet to the ",
+      [
+        "code",
+        null,
+        "firebase.json"
+      ],
+      " file. The complete ",
+      [
+        "code",
+        null,
+        "firebase.json"
+      ],
+      " looks like:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"hosting\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"public\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"www\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"ignore\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"firebase.json\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"**/.*\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"**/node_modules/**\""
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"rewrites\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"source\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"**\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"destination\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/index.html\""
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"headers\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"source\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/build/app/**\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"headers\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"key\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Cache-Control\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"value\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"public, max-age=31536000\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"source\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"ngsw-worker.js\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"headers\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"key\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Cache-Control\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"value\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"no-cache\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For more information about the ",
+      [
+        "code",
+        null,
+        "firebase.json"
+      ],
+      " properties, see the ",
+      [
+        "a",
+        {
+          "href": "https://firebase.google.com/docs/hosting/full-config#section-firebase-json"
+        },
+        "Firebase documentation"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Next, build an optimized version of the app by running:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic build --prod"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Last, deploy the app by running:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "firebase deploy"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After this completes, the app will be live."
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Making your Angular app a PWA",
+      "href": "#making-your-angular-app-a-pwa"
+    },
+    {
+      "text": "Service Worker configuration",
+      "href": "#service-worker-configuration"
+    },
+    {
+      "text": "Deploying",
+      "href": "#deploying"
+    }
+  ],
+  "pageClass": "page-angular-pwa"
+}

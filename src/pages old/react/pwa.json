@@ -1,0 +1,1255 @@
+{
+  "path": "/docs/react/pwa",
+  "title": "Progressive Web Apps in React",
+  "previousText": "Platform Utils",
+  "previousUrl": "/docs/react/platform",
+  "nextText": "Testing",
+  "nextUrl": "/docs/react/testing",
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "making-your-react-app-a-pwa"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#making-your-react-app-a-pwa"
+        },
+        "Making your React app a PWA"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The two main requirements of a PWA are a ",
+      [
+        "a",
+        {
+          "href": "https://developers.google.com/web/fundamentals/primers/service-workers/",
+          "target": "_blank"
+        },
+        "Service Worker"
+      ],
+      " and a ",
+      [
+        "a",
+        {
+          "href": "https://developers.google.com/web/fundamentals/web-app-manifest/",
+          "target": "_blank"
+        },
+        "Web Manifest"
+      ],
+      ". While it's possible to add both of these to an app manually, a base project from Create React App (CRA) and the Ionic CLI provides this already."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In the ",
+      [
+        "code",
+        null,
+        "index.ts"
+      ],
+      " for your app, there is a call to a ",
+      [
+        "code",
+        null,
+        "serviceWorker.unregister()"
+      ],
+      " function. The base CRA provides has service workers as an opt-in feature, so it must be enabled.\nTo enabled, call ",
+      [
+        "code",
+        null,
+        "serviceWorker.register()"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "ts"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " React ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'react'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ReactDOM ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'react-dom'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " App ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'./App'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "*"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "as"
+          ],
+          " serviceWorker ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'./serviceWorker'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\nReactDOM",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "render"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "App ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " document",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getElementById"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'root'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// If you want your app to work offline and load faster, you can change"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// unregister() to register() below. Note this comes with some pitfalls."
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Learn more about service workers: https://bit.ly/CRA-PWA"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// serviceWorker.unregister();"
+          ],
+          "\nserviceWorker",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "register"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once this package has been added run ",
+      [
+        "code",
+        null,
+        "ionic build"
+      ],
+      " and the ",
+      [
+        "code",
+        null,
+        "build"
+      ],
+      " directory will be ready to deploy as a PWA."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "By default, react apps package comes with the Ionic logo for the app icons. Be sure to update the manifest to use the correct app name and also replace the icons."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Note: Features like Service Workers and many JavaScript APIs (such as geolocation) require the app be hosted in a secure context. When deploying an app through a hosting service, be aware that HTTPS will be required to take full advantage of Service Workers."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "service-worker-configuration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#service-worker-configuration"
+        },
+        "Service Worker configuration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "By default, CRA/React Scripts come with a preconfigured Service Worker setup based on ",
+      [
+        "a",
+        {
+          "href": "https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin"
+        },
+        "Workbox's Webpack plugin"
+      ],
+      ". This utilises a cache-first strategy, meaning that your app will load from a cache, even if the network returns a newer version of the app."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Because of the nature or CRA/React Scripts, the configuration for this is internal to React Scripts, meaning that is cannot be customized without ejecting from React Scripts. Currently, the Ionic CLI does not support an ejected React App, so if this action is taken, you'll need to use npm/yarn scripts instead of the Ionic CLI."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "deploying"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#deploying"
+        },
+        "Deploying"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "firebase"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#firebase"
+        },
+        "Firebase"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Firebase hosting provides many benefits for Progressive Web Apps, including fast response times thanks to CDNs, HTTPS enabled by default, and support for ",
+      [
+        "a",
+        {
+          "href": "https://firebase.googleblog.com/2016/09/http2-comes-to-firebase-hosting.html"
+        },
+        "HTTP2 push"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "First, if not already available, ",
+      [
+        "a",
+        {
+          "href": "https://console.firebase.google.com"
+        },
+        "create the project"
+      ],
+      " in Firebase."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Next, in a Terminal, install the Firebase CLI:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " -g firebase-tools"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "With the Firebase CLI installed, run ",
+      [
+        "code",
+        null,
+        "firebase init"
+      ],
+      " within your Ionic project. The CLI prompts:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "\"Which Firebase CLI features do you want to set up for this folder?\""
+      ],
+      " Choose \"Hosting: Configure and deploy Firebase Hosting sites.\""
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "\"Select a default Firebase project for this directory:\""
+      ],
+      " Choose the project you created on the Firebase website."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "\"What do you want to use as your public directory?\""
+      ],
+      " Enter \"build\"."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Note: Answering these next two questions will ensure that routing, hard reload, and deep linking work in the app:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Configure as a single-page app (rewrite all urls to /index.html)?\""
+      ],
+      " Enter \"Yes\"."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "\"File build/index.html already exists. Overwrite?\""
+      ],
+      " Enter \"No\"."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A ",
+      [
+        "code",
+        null,
+        "firebase.json"
+      ],
+      " config file is generated, configuring the app for deployment."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The last thing needed is to make sure caching headers are being set correctly. To do this, add a ",
+      [
+        "code",
+        null,
+        "headers"
+      ],
+      " snippet to the ",
+      [
+        "code",
+        null,
+        "firebase.json"
+      ],
+      " file. The complete ",
+      [
+        "code",
+        null,
+        "firebase.json"
+      ],
+      " looks like:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"hosting\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"public\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"build\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"ignore\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"firebase.json\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"**/.*\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"**/node_modules/**\""
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"rewrites\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"source\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"**\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"destination\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/index.html\""
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"headers\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"source\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/**\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"headers\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"key\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Cache-Control\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"value\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"public, max-age=31536000\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For more information about the ",
+      [
+        "code",
+        null,
+        "firebase.json"
+      ],
+      " properties, see the ",
+      [
+        "a",
+        {
+          "href": "https://firebase.google.com/docs/hosting/full-config#section-firebase-json"
+        },
+        "Firebase documentation"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Next, build an optimized version of the app by running:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic build --prod"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Last, deploy the app by running:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "firebase deploy"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After this completes, the app will be live."
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Making your React app a PWA",
+      "href": "#making-your-react-app-a-pwa"
+    },
+    {
+      "text": "Service Worker configuration",
+      "href": "#service-worker-configuration"
+    },
+    {
+      "text": "Deploying",
+      "href": "#deploying"
+    }
+  ],
+  "pageClass": "page-react-pwa"
+}

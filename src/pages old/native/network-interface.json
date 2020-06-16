@@ -1,0 +1,1286 @@
+{
+  "title": "Network Interface",
+  "path": "/docs/native/network-interface",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Network interface information plugin for Cordova/PhoneGap that supports Android, Blackberry 10, Browser, iOS, and Windows Phone 8."
+    ]
+  ],
+  "repo": "https://github.com/salbahra/cordova-plugin-networkinterface",
+  "platforms": [
+    "Android",
+    "BlackBerry 10",
+    "Browser",
+    "iOS",
+    "Windows",
+    "Windows Phone"
+  ],
+  "codeUsage": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " NetworkInterface ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/network-interface/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " networkInterface",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " NetworkInterface"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "networkInterface",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getWiFiIPAddress"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "address"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "info"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "IP: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "address",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "ip",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              ", Subnet: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "address",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "subnet",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "catch"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "error"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "error"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "Unable to get IP: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "error",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "networkInterface",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getCarrierIPAddress"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "address"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "info"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "IP: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "address",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "ip",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              ", Subnet: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "address",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "subnet",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "catch"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "error"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "error"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "Unable to get IP: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "error",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " url ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'www.github.com'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "networkInterface",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getHttpProxyInformation"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "url",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "proxy"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "info"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "Type: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "proxy",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "type"
+              ],
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              ", Host: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "proxy",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "host",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              ", Port: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "proxy",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "port",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "catch"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "error"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "error"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "Unable to get proxy info: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "error",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "package": "@ionic-native/network-interface",
+  "cordova": "cordova-plugin-networkinterface",
+  "capacitorIncompatible": false,
+  "premierSlug": null,
+  "template": "native",
+  "headings": [],
+  "pageClass": "page-native-network-interface"
+}

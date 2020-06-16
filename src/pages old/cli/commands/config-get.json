@@ -1,0 +1,175 @@
+{
+  "title": "ionic config get",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "This command reads and prints configuration values from the project's ",
+      [
+        "strong",
+        null,
+        "./ionic.config.json"
+      ],
+      " file. It can also operate on the global CLI configuration (",
+      [
+        "strong",
+        null,
+        "~/.ionic/config.json"
+      ],
+      ") using the ",
+      [
+        "code",
+        null,
+        "--global"
+      ],
+      " option."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For nested properties, separate nest levels with dots. For example, the property name ",
+      [
+        "code",
+        null,
+        "integrations.cordova"
+      ],
+      " will look in the ",
+      [
+        "strong",
+        null,
+        "integrations"
+      ],
+      " object for the ",
+      [
+        "strong",
+        null,
+        "cordova"
+      ],
+      " property."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Without a ",
+      [
+        "code",
+        null,
+        "property"
+      ],
+      " argument, this command prints out the entire config."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For multi-app projects, this command is scoped to the current project by default. To operate at the root of the project configuration file instead, use the ",
+      [
+        "code",
+        null,
+        "--root"
+      ],
+      " option."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you are using this command programmatically, you can use the ",
+      [
+        "code",
+        null,
+        "--json"
+      ],
+      " option."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This command will sanitize config output for known sensitive fields (disabled when using ",
+      [
+        "code",
+        null,
+        "--json"
+      ],
+      ")."
+    ]
+  ],
+  "path": "/docs/cli/commands/config-get",
+  "summary": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "Print config values"
+    ]
+  ],
+  "inputs": [
+    {
+      "name": "property",
+      "summary": "<p>The property name you wish to get</p>\n",
+      "required": false
+    }
+  ],
+  "options": [
+    {
+      "name": "global",
+      "type": "boolean",
+      "summary": "<p>Use global CLI config</p>\n",
+      "groups": [],
+      "aliases": [
+        "g"
+      ],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "json",
+      "type": "boolean",
+      "summary": "<p>Output config values in JSON</p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "root",
+      "type": "boolean",
+      "summary": "<p>Operate on root of <strong>./ionic.config.json</strong></p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    }
+  ],
+  "skipIntros": true,
+  "template": "cli",
+  "namespace": [
+    "ionic",
+    "config"
+  ],
+  "footnotes": [],
+  "groups": [],
+  "exampleCommands": [
+    "ionic config get ",
+    "ionic config get id",
+    "ionic config get --global user.email",
+    "ionic config get -g npmClient"
+  ],
+  "aliases": [],
+  "type": "global",
+  "headings": [],
+  "pageClass": "page-cli-commands-config-get"
+}

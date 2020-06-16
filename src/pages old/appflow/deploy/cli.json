@@ -1,0 +1,716 @@
+{
+  "path": "/docs/appflow/deploy/cli",
+  "previousText": "Live Update API",
+  "previousUrl": "/docs/appflow/deploy/api",
+  "nextText": "Deploy To Appstore",
+  "nextUrl": "/docs/appflow/destinations/intro",
+  "body": [
+    "div",
+    null,
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        [
+          "b",
+          null,
+          "Note:"
+        ],
+        " This feature is only available on our ",
+        [
+          "b",
+          null,
+          "Scale"
+        ],
+        " plan. Please ",
+        [
+          "a",
+          {
+            "href": "/sales"
+          },
+          "contact us"
+        ],
+        " to enable this feature."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "It is possible to trigger Deploy builds on Appflow directly from the CLI.\nThis is extremely useful if you need to integrate the Deploy build step inside an existing external CI/CD process."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "prerequisites"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#prerequisites"
+        },
+        "Prerequisites"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Upgrade the Ionic CLI to at least version ",
+      [
+        "code",
+        null,
+        "4.8.0"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To use environments, a proper Appflow subscription that allows the usage of Automations is needed."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "authentication"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#authentication"
+        },
+        "Authentication"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Ionic CLI has to be authenticated on Appflow to be able to trigger a Deploy build."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To log in, type:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic login ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "email",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "password",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This will prompt for the Appflow username/password."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The CLI can also be authenticated via an environment variable (for example, if it is used during a CI/CD task)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To set up the authentication via environment variable, first login via the CLI with an Appflow user who has access to the app you want to trigger Deploy builds for:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic login ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "email",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "password",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Then, export the authentication token:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic config get -g tokens.user"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Finally, export the token in an environment variable of your shell or your CI/CD service."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token builtin class-name"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_TOKEN"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "your token",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "link-the-app"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#link-the-app"
+        },
+        "Link the app"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Your app must be linked to the remote app on Appflow. If the app is not linked yet, run:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "link"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "app id",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "and commit the changes to ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "trigger-a-deploy-build"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#trigger-a-deploy-build"
+        },
+        "Trigger a deploy build"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Currently, a Deploy build can be triggered only from the root project directory:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token builtin class-name"
+            },
+            "cd"
+          ],
+          " /path/to/your/app"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Assuming the CLI is authenticated, to trigger a Deploy build, run:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic deploy build"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once the build is successfully triggered, the CLI will automatically start tailing the logs from Appflow."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "customize-the-deploy-build-with-options"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#customize-the-deploy-build-with-options"
+        },
+        "Customize the Deploy build with Options"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Options available to customize the build include:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--environment=<name>"
+        ],
+        " to specify the group of environment variables to be exposed to the build\n(available only with Automation; more info about environments are available ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/appflow/environments/"
+          },
+          "here"
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--channel=<name>"
+        ],
+        " to specify the channel you want to auto deploy the build to. This can be repeated multiple times if\nmultiple channels need to be specified; more infos about channels are available ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/appflow/deploy/channels/"
+          },
+          "here"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "customize-the-deploy-build-with-advanced-options"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#customize-the-deploy-build-with-advanced-options"
+        },
+        "Customize the Deploy build with Advanced Options"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Advanced Options available to customize the build include:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--commit=<sha1>"
+        ],
+        " The commit defaults to HEAD; to use a different commit you can use this option with the full SHA1 of the commit."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "note-about-referencing-options-values-by-name"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#note-about-referencing-options-values-by-name"
+        },
+        "Note about referencing Options values by name"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Names are case sensitive and need to be specified including spaces, for instance:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic deploy build --channel",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"My Custom Channel\""
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Apart from the ",
+      [
+        "code",
+        null,
+        "--commit"
+      ],
+      " option, all others require the full name setup within the Appflow Dashboard."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Look for the name on the Environments and Destinations pages in Appflow:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/cli-environments-list.png",
+          "alt": "CLI Environments List"
+        }
+      ],
+      " ",
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/cli-channels-list.png",
+          "alt": "CLI Channels List"
+        }
+      ]
+    ]
+  ],
+  "title": "Deploy Builds on Appflow using the Ionic CLI",
+  "headings": [],
+  "pageClass": "page-appflow-deploy-cli"
+}

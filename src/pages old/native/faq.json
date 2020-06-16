@@ -1,0 +1,804 @@
+{
+  "path": "/docs/native/faq",
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "cordova-management-tips"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cordova-management-tips"
+        },
+        "Cordova Management Tips"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "1) Use the ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/cli"
+          },
+          "Ionic CLI"
+        ],
+        " to add/update/delete plugins."
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Instead of directly editing ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      ". Use ",
+      [
+        "code",
+        null,
+        "ionic"
+      ],
+      " in front of Cordova commands for a better experience and additional functionality (",
+      [
+        "code",
+        null,
+        "ionic cordova build ios"
+      ],
+      " instead of ",
+      [
+        "code",
+        null,
+        "cordova build ios"
+      ],
+      ")."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "2) Upgrade plugins by removing, then re-adding them."
+      ]
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic cordova plugin remove cordova-plugin-camera\n",
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic cordova plugin ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "add"
+          ],
+          " cordova-plugin-camera"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "3) Install explicit versions."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To ensure that the same version of a plugin is always installed via ",
+      [
+        "code",
+        null,
+        "npm install"
+      ],
+      ", specify the version number:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic cordova plugin ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "add"
+          ],
+          " cordova-plugin-camera@4.3.2"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "4) Restore Cordova in an existing Ionic project"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Useful when adding new developers to a project. ",
+      [
+        "code",
+        null,
+        "ionic cordova prepare"
+      ],
+      " restores platforms and plugins from ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      ". The version to be installed is taken from ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      " or ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      ", if found in those files. In case of conflicts, ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      " is given precedence over ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "5) Troubleshoot Cordova issues with Ionic CLI commands"
+      ]
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionic doctor list"
+        ],
+        ": Detects ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/cli/commands/doctor-list"
+          },
+          "common issues"
+        ],
+        " and suggests steps to fix them "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionic repair"
+        ],
+        ": Remove, then ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/cli/commands/repair"
+          },
+          "regenerate"
+        ],
+        " all dependencies"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "understanding-version-numbers"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#understanding-version-numbers"
+        },
+        "Understanding Version Numbers"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For any given Ionic Native plugin, the Ionic Native (TypeScript code) and Cordova (native code) version numbers will not match. The Ionic Native version number is found in ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"@ionic-native/camera\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"^5.3.0\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Cordova plugin version number is found in both ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"cordova-plugin-camera\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"4.0.3\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "xml"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "plugin"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "name"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "cordova-plugin-camera",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "spec"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "4.0.3",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "/>"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When checking for new native functionality or bug fixes, look for new versions on the Cordova plugin GitHub page itself (here's the ",
+      [
+        "a",
+        {
+          "href": "https://github.com/apache/cordova-plugin-camera"
+        },
+        "Camera one"
+      ],
+      ", for example)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To check for new Ionic Native releases (may include exposing methods recently added by the Cordova plugin, etc.), see ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/ionic-native/releases"
+        },
+        "here"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "troubleshooting-failed-builds"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#troubleshooting-failed-builds"
+        },
+        "Troubleshooting Failed Builds"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Research the build error(s) by checking out these resources:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Google & ",
+        [
+          "a",
+          {
+            "href": "https://stackoverflow.com"
+          },
+          "StackOverflow"
+        ],
+        ": Many issues are documented online"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Ask the ",
+        [
+          "a",
+          {
+            "href": "https://forum.ionicframework.com"
+          },
+          "Ionic Community Ionic Forum"
+        ],
+        " (see the Ionic Native category)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Ask the Ionic Community in the ",
+        [
+          "a",
+          {
+            "href": "https://ionicworldwide.herokuapp.com"
+          },
+          "Ionic Worldwide Slack"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "See the Ionic Customer Success ",
+        [
+          "a",
+          {
+            "href": "https://ionic.zendesk.com"
+          },
+          "Knowledge Base"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "cordova-plugin-conflicts"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cordova-plugin-conflicts"
+        },
+        "Cordova Plugin Conflicts"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Plugins can conflict with each other when they share the same underlying native dependencies or when more than one plugin tries to access the same native code at once. For example, common libraries like the Google Play Services version (Google Maps is using GPS v24.2 but Firebase wants GPS v27.1). Keeping these plugins updated regularly can help with this."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Another tip is to ensure that your app uses only one plugin per specific feature/functionality (example: Push Notifications)."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "recommended-upgrade-strategy"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#recommended-upgrade-strategy"
+        },
+        "Recommended Upgrade Strategy"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The most Ionic stable apps are routinely updated, especially at the native layer. Keeping native plugins up to date ensures your project has the latest security fixes, new features, and improved performance."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Update your project's plugins one at a time, ideally in separate code branches. This reduces the surface area that issues can arise from - if you update everything in your project at once, it's sometimes hard to tell where the problem stems from."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "when-should-i-update-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#when-should-i-update-"
+        },
+        "When should I update?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "When a new feature/bug is released: Run ",
+        [
+          "code",
+          null,
+          "npm outdated"
+        ],
+        " to see a list of available updates."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "When new major versions are released: Official blogs, such as the ",
+        [
+          "a",
+          {
+            "href": "https://cordova.apache.org/blog/"
+          },
+          "Cordova blog"
+        ],
+        " and ",
+        [
+          "a",
+          {
+            "href": "https://ionicframework.com/blog/"
+          },
+          "Ionic blog"
+        ],
+        ", will publish announcements and news."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Evaluate the nature of the update: is it a shiny new feature or critical security fix?"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Timing: Where does it fit in against your team's project goals?"
+      ],
+      " "
+    ]
+  ],
+  "title": "Ionic Native FAQ",
+  "headings": [
+    {
+      "text": "Cordova Management Tips",
+      "href": "#cordova-management-tips"
+    },
+    {
+      "text": "Understanding Version Numbers",
+      "href": "#understanding-version-numbers"
+    },
+    {
+      "text": "Troubleshooting Failed Builds",
+      "href": "#troubleshooting-failed-builds"
+    },
+    {
+      "text": "Recommended Upgrade Strategy",
+      "href": "#recommended-upgrade-strategy"
+    }
+  ],
+  "pageClass": "page-native-faq"
+}

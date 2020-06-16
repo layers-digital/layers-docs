@@ -1,0 +1,307 @@
+{
+  "path": "/docs/appflow/deploy/builds",
+  "previousText": "Setup",
+  "previousUrl": "/docs/appflow/deploy/setup",
+  "nextText": "Channels",
+  "nextUrl": "/docs/appflow/deploy/channels",
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "overview"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#overview"
+        },
+        "Overview"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A Live Update build of your application includes only the web assets (JavaScript, HTML, fonts, and images) which can be shipped out to customer via a ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/deploy/intro"
+        },
+        "Live Update"
+      ],
+      " deployment.\nLive Update builds can be created manually from the Ionic Dashboard, in the ",
+      [
+        "strong",
+        null,
+        "Builds"
+      ],
+      " section under ",
+      [
+        "strong",
+        null,
+        "Build"
+      ],
+      " in the sidebar. You will be able to pick from the list of available commits that Appflow\nknows about. If there are know available commits you will need to push a new commit to your Git remote in order for it to show up in Appflow. After picking the commit, select ",
+      [
+        "code",
+        null,
+        "Web Deploy"
+      ],
+      " from the ",
+      [
+        "code",
+        null,
+        "Target platform"
+      ],
+      " dropdown menu."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/deploy-builds-create-location.png",
+          "alt": "Navigating to Live Update Builds"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A Live Update build will do the following:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "npm install"
+        ],
+        " will run to install any dependencies you have."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "npm run build"
+        ],
+        " will run if a ",
+        [
+          "code",
+          null,
+          "build"
+        ],
+        " script is detected in the ",
+        [
+          "code",
+          null,
+          "scripts"
+        ],
+        " section of your ",
+        [
+          "code",
+          null,
+          "package.json"
+        ],
+        " in order to build the web assets for your application."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "The ",
+        [
+          "code",
+          null,
+          "www"
+        ],
+        " directory with your built application will be stored and made available for live updates."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "You can find the history and status of your Live Update builds in the side menu under ",
+        [
+          "code",
+          null,
+          "Builds"
+        ],
+        " in the ",
+        [
+          "code",
+          null,
+          "Build"
+        ],
+        " tab."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "concurrency-limits"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#concurrency-limits"
+        },
+        "Concurrency limits"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Each account plan has a defined maximum amount of concurrent builds allowed (see ",
+      [
+        "a",
+        {
+          "href": "/pricing"
+        },
+        "Plans Details"
+      ],
+      ").\nThis limit is enforced at the account level across different apps."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When you trigger a build, in the Appflow Dashboard you will notice that a build can have different statuses before it is processed:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Queued"
+        ],
+        ": this means that your build is queued for the next available runner. Usually your build should not be in this state for more than few seconds."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Pending"
+        ],
+        ": this means that you have reached your concurrent build limit and your build will continue when your current builds are completed."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After the build starts to be processed the statuses are:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Running"
+        ],
+        ": the build is currently being processed. You can read the logs in the build details."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Successful"
+        ],
+        ": the build terminated in a correct state."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Failed"
+        ],
+        ": the build terminated in an incorrect state."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "More concurrent builds can be added to your plan.\nIf you have a Starter or Starter + Add-on plan, you can get more builds by ",
+      [
+        "a",
+        {
+          "href": "https://dashboard.ionicframework.com/settings/billing"
+        },
+        "upgrading your plan"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you have a Growth or Scale plan, please ",
+      [
+        "a",
+        {
+          "href": "https://ionic.zendesk.com/hc/en-us/requests/new"
+        },
+        "contact us"
+      ],
+      "."
+    ]
+  ],
+  "title": "Live Update Builds",
+  "headings": [
+    {
+      "text": "Overview",
+      "href": "#overview"
+    },
+    {
+      "text": "Concurrency limits",
+      "href": "#concurrency-limits"
+    }
+  ],
+  "pageClass": "page-appflow-deploy-builds"
+}

@@ -1,0 +1,776 @@
+{
+  "title": "OneSignal",
+  "path": "/docs/native/onesignal",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The OneSignal plugin is an client implementation for using the ",
+      [
+        "a",
+        {
+          "href": "https://onesignal.com/"
+        },
+        "OneSignal"
+      ],
+      " Service.\nOneSignal is a simple implementation for delivering push notifications."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Please view the official ",
+      [
+        "a",
+        {
+          "href": "https://documentation.onesignal.com/docs/ionic-sdk-setup"
+        },
+        "OneSignal Ionic SDK Installation"
+      ],
+      " guide\nfor more information."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "icons"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#icons"
+        },
+        "Icons"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you want to use generated icons with command ",
+      [
+        "code",
+        null,
+        "ionic cordova resources"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "ol",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "Add a file to your ",
+          [
+            "code",
+            null,
+            "hooks"
+          ],
+          " directory called ",
+          [
+            "code",
+            null,
+            "copy_android_notification_icons.js"
+          ]
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "Configure the hook in your config.xml"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              " <platform name=\"android\">\n     <hook type=\"after_prepare\" src=\"hooks/copy_android_notification_icons.js\" />\n </platform>"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "Put the following code in it:"
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "null"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "#!/usr/bin/env node\n\nvar fs = require('fs');\nvar path = require('path');\n\nvar filestocopy = [{\n    \"resources/android/icon/drawable-hdpi-icon.png\":\n        \"platforms/android/app/src/main/res/drawable-hdpi/ic_stat_onesignal_default.png\"\n}, {\n    \"resources/android/icon/drawable-mdpi-icon.png\":\n        \"platforms/android/app/src/main/res/drawable-mdpi/ic_stat_onesignal_default.png\"\n}, {\n    \"resources/android/icon/drawable-xhdpi-icon.png\":\n        \"platforms/android/app/src/main/res/drawable-xhdpi/ic_stat_onesignal_default.png\"\n}, {\n    \"resources/android/icon/drawable-xxhdpi-icon.png\":\n        \"platforms/android/app/src/main/res/drawable-xxhdpi/ic_stat_onesignal_default.png\"\n}, {\n    \"resources/android/icon/drawable-xxxhdpi-icon.png\":\n        \"platforms/android/app/src/main/res/drawable-xxxhdpi/ic_stat_onesignal_default.png\"\n} ];\n\nmodule.exports = function(context) {\n\n    // no need to configure below\n    var rootdir = context.opts.projectRoot;\n\n    filestocopy.forEach(function(obj) {\n        Object.keys(obj).forEach(function(key) {\n            var val = obj[key];\n            var srcfile = path.join(rootdir, key);\n            var destfile = path.join(rootdir, val);\n            console.log(\"copying \"+srcfile+\" to \"+destfile);\n            var destdir = path.dirname(destfile);\n            if (fs.existsSync(srcfile) && fs.existsSync(destdir)) {\n                fs.createReadStream(srcfile).pipe(\n                    fs.createWriteStream(destfile));\n            }\n        });\n    });\n\n};"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ol",
+      {
+        "start": "3"
+      },
+      " ",
+      [
+        "li",
+        null,
+        "From the root of your project make the file executable: ",
+        [
+          "code",
+          null,
+          "$ chmod +x hooks/copy_android_notification_icons.js"
+        ]
+      ],
+      " "
+    ]
+  ],
+  "repo": "https://github.com/OneSignal/OneSignal-Cordova-SDK",
+  "platforms": [
+    "Amazon Fire OS",
+    "Android",
+    "iOS",
+    "Windows"
+  ],
+  "codeUsage": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " OneSignal ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/onesignal/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " oneSignal",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " OneSignal"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "oneSignal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "startInit"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'b2f7f966-d8cc-11e4-bed1-df8f05be55ba'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'703322744261'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "oneSignal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "inFocusDisplaying"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "oneSignal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "OSInFocusDisplayOption",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "InAppAlert",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "oneSignal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "handleNotificationReceived"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "subscribe"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// do something when notification is received"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "oneSignal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "handleNotificationOpened"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "subscribe"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// do something when a notification is opened"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "oneSignal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "endInit"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "package": "@ionic-native/onesignal",
+  "cordova": "onesignal-cordova-plugin",
+  "capacitorIncompatible": false,
+  "premierSlug": null,
+  "template": "native",
+  "headings": [],
+  "pageClass": "page-native-onesignal"
+}

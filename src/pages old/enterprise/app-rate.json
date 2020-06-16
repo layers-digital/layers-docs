@@ -1,0 +1,3577 @@
+{
+  "path": "/docs/enterprise/app-rate",
+  "title": "App Rate",
+  "template": "enterprise-plugin",
+  "version": "1.5.0",
+  "minor": "1.5.X",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The App Rate plugin makes it easy to prompt the user to rate your app - either now, later, or never."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "native-ent-install",
+        {
+          "plugin-id": "app-rate",
+          "variables": ""
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "index"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#index"
+        },
+        "Index"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#apprate"
+          },
+          "AppRate"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "interfaces"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#interfaces"
+        },
+        "Interfaces"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#appratecallbacks"
+          },
+          "AppRateCallbacks"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#appratecustomlocale"
+          },
+          "AppRateCustomLocale"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#appratepreferences"
+          },
+          "AppRatePreferences"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#appurls"
+          },
+          "AppUrls"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "apprate"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "apprate"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#apprate"
+        },
+        "AppRate"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "AppRate"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "name"
+        ]
+      ],
+      ": App Rate"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "description"
+        ]
+      ],
+      ": The AppRate plugin makes it easy to prompt the user to rate your app, either now, later, or never."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "usage"
+        ]
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " AppRate ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-enterprise/app-rate/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " appRate",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " AppRate"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// set certain preferences"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "appRate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "preferences",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "storeAppURL ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ios",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'<app_id>'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  android",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'market://details?id=<package_name>'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  windows",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ms-windows-store://review/?ProductId=<store_id>'"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "appRate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "promptForRating"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// or, override the whole preferences object"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "appRate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "preferences ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  usesUntilPrompt",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "3"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  storeAppURL",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n   ios",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'<app_id>'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n   android",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'market://details?id=<package_name>'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n   windows",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ms-windows-store://review/?ProductId=<store_id>'"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "appRate",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "promptForRating"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "false"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "interfaces"
+        ]
+      ],
+      ": AppRatePreferences AppUrls AppRateCallbacks AppRateCustomLocal"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "apprate.preferences"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "preferences"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#preferences"
+        },
+        "preferences"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● preferences"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#appratepreferences"
+          },
+          "AppRatePreferences"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Configure various settings for the Rating View. See table below for options"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "apprate.navigatetoappstore"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "navigatetoappstore"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#navigatetoappstore"
+        },
+        "navigateToAppStore"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "navigateToAppStore"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Immediately send the user to the app store rating page"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "apprate.promptforrating"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "promptforrating"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#promptforrating"
+        },
+        "promptForRating"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "promptForRating"
+      ],
+      "(immediately: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Prompts the user for rating"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "immediately"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "boolean"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Show the rating prompt immediately."
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "interfaces"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#interfaces"
+        },
+        "Interfaces"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecallbacks"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "appratecallbacks"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#appratecallbacks"
+        },
+        "AppRateCallbacks"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "AppRateCallbacks"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecallbacks.handlenegativefeedback"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-handlenegativefeedback"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-handlenegativefeedback"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " handleNegativeFeedback"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● handleNegativeFeedback"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "Function"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "call back function. called when user clicked on negative feedback"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecallbacks.onbuttonclicked"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-onbuttonclicked"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-onbuttonclicked"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " onButtonClicked"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● onButtonClicked"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "Function"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "call back function. called when user clicked on rate-dialog buttons"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecallbacks.onratedialogshow"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-onratedialogshow"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-onratedialogshow"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " onRateDialogShow"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● onRateDialogShow"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "Function"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "call back function. called when rate-dialog showing"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "appratecustomlocale"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#appratecustomlocale"
+        },
+        "AppRateCustomLocale"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "AppRateCustomLocale"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.appratepromptmessage"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-appratepromptmessage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-appratepromptmessage"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " appRatePromptMessage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● appRatePromptMessage"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Feedback prompt message"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.apprateprompttitle"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-apprateprompttitle"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-apprateprompttitle"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " appRatePromptTitle"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● appRatePromptTitle"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "App rate prompt title"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.cancelbuttonlabel"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-cancelbuttonlabel"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-cancelbuttonlabel"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " cancelButtonLabel"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● cancelButtonLabel"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Cancel button label"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.feedbackpromptmessage"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-feedbackpromptmessage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-feedbackpromptmessage"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " feedbackPromptMessage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● feedbackPromptMessage"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Feedback prompt message"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.feedbackprompttitle"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-feedbackprompttitle"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-feedbackprompttitle"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " feedbackPromptTitle"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● feedbackPromptTitle"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Feedback prompt title"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.laterbuttonlabel"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-laterbuttonlabel"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-laterbuttonlabel"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " laterButtonLabel"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● laterButtonLabel"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Later button label"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.message"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-message"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-message"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " message"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● message"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Message"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.nobuttonlabel"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-nobuttonlabel"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-nobuttonlabel"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " noButtonLabel"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● noButtonLabel"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "No button label"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.ratebuttonlabel"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-ratebuttonlabel"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-ratebuttonlabel"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " rateButtonLabel"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● rateButtonLabel"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Rate button label"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.title"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-title"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-title"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " title"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● title"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Title"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratecustomlocale.yesbuttonlabel"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-yesbuttonlabel"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-yesbuttonlabel"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " yesButtonLabel"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● yesButtonLabel"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Yes button label"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "appratepreferences"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#appratepreferences"
+        },
+        "AppRatePreferences"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "AppRatePreferences"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.callbacks"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-callbacks"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-callbacks"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " callbacks"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● callbacks"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#appratecallbacks"
+          },
+          "AppRateCallbacks"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Callbacks for events"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.customlocale"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-customlocale"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-customlocale"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " customLocale"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● customLocale"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#appratecustomlocale"
+          },
+          "AppRateCustomLocale"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Custom locale object"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.displayappname"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-displayappname"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-displayappname"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " displayAppName"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● displayAppName"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Custom application title"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.inappreview"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-inappreview"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-inappreview"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " inAppReview"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● inAppReview"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "leave app or no when application page opened in app store (now supported only for iOS). Defaults to ",
+      [
+        "code",
+        null,
+        "false"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.promptagainforeachnewversion"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-promptagainforeachnewversion"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-promptagainforeachnewversion"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " promptAgainForEachNewVersion"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● promptAgainForEachNewVersion"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Show dialog again when application version will be updated. Defaults to ",
+      [
+        "code",
+        null,
+        "true"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.simplemode"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-simplemode"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-simplemode"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " simpleMode"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● simpleMode"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Simple Mode to display the rate dialog directly and bypass negative feedback filtering flow"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.storeappurl"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-storeappurl"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-storeappurl"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " storeAppURL"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● storeAppURL"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "#appurls"
+          },
+          "AppUrls"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "App Store URLS"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.usecustomratedialog"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-usecustomratedialog"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-usecustomratedialog"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " useCustomRateDialog"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● useCustomRateDialog"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "use custom view for rate dialog. Defaults to ",
+      [
+        "code",
+        null,
+        "false"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.uselanguage"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-uselanguage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-uselanguage"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " useLanguage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● useLanguage"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Custom BCP 47 language tag"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appratepreferences.usesuntilprompt"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-usesuntilprompt"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-usesuntilprompt"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " usesUntilPrompt"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● usesUntilPrompt"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "number"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "count of runs of application before dialog will be displayed. Defaults to ",
+      [
+        "code",
+        null,
+        "3"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appurls"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "appurls"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#appurls"
+        },
+        "AppUrls"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "AppUrls"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appurls.android"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-android"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-android"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " android"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● android"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "application URL in GooglePlay"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appurls.blackberry"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-blackberry"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-blackberry"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " blackberry"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● blackberry"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "application URL in AppWorld"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appurls.ios"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-ios"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-ios"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " ios"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● ios"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "application id in AppStore"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appurls.windows"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-windows"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-windows"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " windows"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● windows"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "application URL in Windows Store"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "appurls.windows8"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "-optional-windows8"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#-optional-windows8"
+        },
+        [
+          "code",
+          null,
+          "<Optional>"
+        ],
+        " windows8"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● windows8"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "application URL in WindowsStore"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    "  ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "1.5.0"
+        ],
+        " ",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/pull/253"
+              },
+              "PR #253"
+            ],
+            " - Remove iOS rating counter in favor of native approach"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/pull/252"
+              },
+              "PR #252"
+            ],
+            " - Postpone initial AppRate.init() until ",
+            [
+              "code",
+              null,
+              "deviceready"
+            ]
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/pull/239"
+              },
+              "PR #239"
+            ],
+            " - Remove inappbrowser dependency adding support to choose between inappbrowser and safariviewcontroller "
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/pull/244"
+              },
+              "PR #244"
+            ],
+            " - Use ES5 var instead of ES6 const for better browser compatibility"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/pull/231"
+              },
+              "PR #231"
+            ],
+            " - Displaying store view page before it loads for improved UX"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/pull/228"
+              },
+              "PR #228"
+            ],
+            " - Add native support for windows platform rating"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/pull/220"
+              },
+              "PR #220"
+            ],
+            " - Remove dependency on deprecated cordova-plugin-globalization in favor of browser ",
+            [
+              "code",
+              null,
+              "Intl"
+            ],
+            " api"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Various language fixes and improvements"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/compare/v1.4.0...master"
+              },
+              "View All Merged PR's"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "1.4.0"
+        ],
+        " ",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed+merged%3A2017-06-24..2018-06-13"
+              },
+              "Merged PR's"
+            ]
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "a",
+              {
+                "href": "https://github.com/pushandplay/cordova-plugin-apprate/pull/211"
+              },
+              "PR #211"
+            ],
+            " - Use NativeStorage for persistance across installs"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Breaking Change - Instead of directly asking our users to Rate our app, we now handle this flow much better. The first popup will be \"Do you like using appName?\" If the user says 'Yes' then we ask the user if they would like take a moment and rate our app. If the user says 'NO', We ask the user another question: \"Would you mind providing us feedback?\" If the user says yes, then we can run a custom callback to handle this such as sending an email. To revert to previous behaviour you can use ",
+            [
+              "code",
+              null,
+              "simpleMode: true"
+            ]
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "iOS 9+ now redirects directly to write review"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "iOS 10.3+ now supports In-App Reviews. One limitation to note is you can only prompt the user 3 times per year before it must fallback to the old open review in store. The preference option to disable this feature is called ",
+            [
+              "code",
+              null,
+              "inAppReview"
+            ],
+            " and defaults to true, this option was previously named ",
+            [
+              "code",
+              null,
+              "openStoreInApp"
+            ],
+            " and defaulted to false."
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "1.3.0"
+        ],
+        " ",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Added a general done callbacks called once we have completed the job, not showing or showing the popup"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Fix %@ with customLocale"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Fix bugs with callbacks"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Fix deep links on ios 9+"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Locales updates"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "1.2.1"
+        ],
+        " ",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Align the version in the package.json and the plugin.xml"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "1.2.0"
+        ],
+        " ",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Remove coffeescript to remove barrier of entry to contributions"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Remove docs generation, just use the readme instead"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Improve readme"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Add Windows support from PR #120"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Fix JSON parse for Android 2.x as per PR #73"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Remove InAppBrowser dependency"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Add/Improve Locales"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "1.1.12"
+        ],
+        " ",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Bump version to be higher than the previous ",
+            [
+              "code",
+              null,
+              "cordova-plugin-apprate"
+            ],
+            " on the NPM registry"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Clean up readme"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "1.1.9"
+        ],
+        " ",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Update id to ",
+            [
+              "code",
+              null,
+              "cordova-plugin-apprate"
+            ],
+            " and update dependencies"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Add finnish locale"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Index",
+      "href": "#index"
+    },
+    {
+      "text": "Classes",
+      "href": "#classes"
+    },
+    {
+      "text": "Interfaces",
+      "href": "#interfaces"
+    }
+  ],
+  "pageClass": "page-enterprise-app-rate"
+}

@@ -1,0 +1,2616 @@
+{
+  "path": "/docs/native/community",
+  "title": "Ionic Native Community",
+  "tableOfContents": false,
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Ionic Native Community is a collection of TypeScript wrappers for open source Cordova and Capacitor plugins that make it easy to add native functionality to any Ionic app."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "These Community Plugins are submitted and maintained by the Ionic community. While community members are generally quick to find and fix issues, certain plugins may not function properly. "
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "For teams that require dedicated native plugin support & SLAs, ongoing maintenance, and security patches, please explore ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/enterprise"
+        },
+        "Ionic Enterprise"
+      ],
+      " then ",
+      [
+        "a",
+        {
+          "href": "https://ionicframework.com/enterprise/contact"
+        },
+        "request a free trial"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "These docs are for apps built with Ionic Framework 4.0.0 and greater. For older Ionic v3 projects, please ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/v3/native"
+          },
+          "see here"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "capacitor-support"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#capacitor-support"
+        },
+        "Capacitor Support"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In addition to Cordova, Ionic Native also works with ",
+      [
+        "a",
+        {
+          "href": "https://capacitor.ionicframework.com"
+        },
+        "Capacitor"
+      ],
+      ", Ionic's official native runtime. Basic usage below. For complete details, ",
+      [
+        "a",
+        {
+          "href": "https://capacitor.ionicframework.com/docs/cordova/using-cordova-plugins"
+        },
+        "see the Capacitor documentation"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#usage"
+        },
+        "Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "All plugins have two components - the native code (Cordova) and the TypeScript code (Ionic Native).\nCordova plugins are also wrapped in a ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      " or ",
+      [
+        "code",
+        null,
+        "Observable"
+      ],
+      " in order to provide a common plugin interface and modernized development approach."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Using the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/native/camera"
+        },
+        "Camera plugin"
+      ],
+      " as an example, first install it:"
+    ],
+    " ",
+    [
+      "docs-tabs",
+      null,
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "Cordova"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "// Install Cordova plugin\n",
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                "$ "
+              ],
+              "ionic cordova plugin ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "add"
+              ],
+              " cordova-plugin-camera\n\n// Install Ionic Native TypeScript wrapper\n",
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                "$ "
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "npm"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "install"
+              ],
+              " @ionic-native/camera\n\n// Install Ionic Native core library ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "once per project",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " \n$ "
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "npm"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "install"
+              ],
+              " @ionic-native/core"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "Capacitor"
+        },
+        " ",
+        [
+          "p",
+          null,
+          "For complete details, ",
+          [
+            "a",
+            {
+              "href": "https://capacitor.ionicframework.com/docs/cordova/using-cordova-plugins"
+            },
+            "see the Capacitor documentation"
+          ],
+          "."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "// Install Ionic Native TypeScript wrapper\n",
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                "$ "
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "npm"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "install"
+              ],
+              " @ionic-native/camera\n\n// Install Cordova plugin\n",
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                "$ "
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "npm"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "install"
+              ],
+              " cordova-plugin-camera\n\n// Update native platform project",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "s",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " to include newly added plugin\n",
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                "$ "
+              ],
+              "ionic cap ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "sync"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Next, begin using the plugin, following the various framework usage options below. For FAQ, see ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/native/faq"
+        },
+        "here"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "angular"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#angular"
+        },
+        "Angular"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Angular apps can use either Cordova or Capacitor to build native mobile apps. Import the plugin in a ",
+      [
+        "code",
+        null,
+        "@NgModule"
+      ],
+      " and add it to the list of Providers. For Angular, the import path should end with ",
+      [
+        "code",
+        null,
+        "/ngx"
+      ],
+      ".  Angular's change detection is automatically handled."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// app.module.ts"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Camera ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/camera/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "NgModule"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n  providers",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n    Camera\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "AppModule"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After the plugin has been declared, it can be imported and injected like any other service:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// camera.service.ts"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Injectable ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@angular/core'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " CameraOptions ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/camera/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Injectable"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  providedIn",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'root'"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "PhotoService"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " camera",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Camera"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "takePicture"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " options",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " CameraOptions ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      quality",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "100"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      destinationType",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "DestinationType",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "DATA_URL"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      encodingType",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "EncodingType",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "JPEG"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      mediaType",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "MediaType",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "PICTURE"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getPicture"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "options",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "imageData"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Do something with the new photo"
+          ],
+          "\n\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "err"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Handle error"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Camera issue: \""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "+"
+          ],
+          " err",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "react"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#react"
+        },
+        "React"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "React apps must use Capacitor to build native mobile apps. However, Ionic Native (and therefore, Cordova plugins) can still be used."
+    ],
+    " ",
+    [
+      "command-line",
+      null,
+      " ",
+      [
+        "div",
+        null,
+        "// Install Core library (once per project)"
+      ],
+      " ",
+      [
+        "command-prompt",
+        null,
+        "npm install @ionic-native/core"
+      ],
+      " ",
+      [
+        "br",
+        null
+      ],
+      " ",
+      [
+        "div",
+        null,
+        "// Install Ionic Native TypeScript wrapper"
+      ],
+      " ",
+      [
+        "command-prompt",
+        null,
+        "npm install @ionic-native/barcode-scanner"
+      ],
+      " ",
+      [
+        "br",
+        null
+      ],
+      " ",
+      [
+        "div",
+        null,
+        "// Install Cordova plugin"
+      ],
+      " ",
+      [
+        "command-prompt",
+        null,
+        "npm install phonegap-plugin-barcodescanner"
+      ],
+      " ",
+      [
+        "br",
+        null
+      ],
+      " ",
+      [
+        "div",
+        null,
+        "// Update native platform project(s) to include newly added plugin"
+      ],
+      " ",
+      [
+        "command-prompt",
+        null,
+        "ionic cap sync"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Import the plugin object then use its static methods: "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " BarcodeScanner ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/barcode-scanner'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " Tab1",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " React",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function-variable function"
+            },
+            "FC"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function-variable function"
+            },
+            "openScanner"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "async"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " data ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " BarcodeScanner",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "scan"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "Barcode data: "
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "data",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "text",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "Tab ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonButton onClick",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "openScanner",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "Scan barcode",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonButton",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "vanilla-javascript"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#vanilla-javascript"
+        },
+        "Vanilla JavaScript"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Vanilla JavaScript apps, targeting ES2015+ and/or TypeScript, can use either Cordova or Capacitor to build native mobile apps. To use any plugin, import the class from the appropriate package and use its static methods:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Camera ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/camera'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\ndocument",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addEventListener"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'deviceready'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  Camera",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getPicture"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "data"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " console",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Took a picture!'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " data",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "catch"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "e"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " console",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Error occurred while taking a picture'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Capacitor Support",
+      "href": "#capacitor-support"
+    },
+    {
+      "text": "Usage",
+      "href": "#usage"
+    },
+    {
+      "text": "Angular",
+      "href": "#angular"
+    },
+    {
+      "text": "React",
+      "href": "#react"
+    },
+    {
+      "text": "Vanilla JavaScript",
+      "href": "#vanilla-javascript"
+    }
+  ],
+  "pageClass": "page-native-community"
+}

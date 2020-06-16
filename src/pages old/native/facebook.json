@@ -1,0 +1,1087 @@
+{
+  "title": "Facebook",
+  "path": "/docs/native/facebook",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Use the Facebook Connect plugin to obtain access to the native FB application on iOS and Android."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Requires Cordova plugin: ",
+      [
+        "code",
+        null,
+        "cordova-plugin-facebook4"
+      ],
+      ". For more info, please see the ",
+      [
+        "a",
+        {
+          "href": "https://github.com/jeduan/cordova-plugin-facebook4"
+        },
+        "Facebook Connect"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "installation"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#installation"
+        },
+        "Installation"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      " To use the FB plugin, you first have to create a new Facebook App inside of the Facebook developer portal at ",
+      [
+        "a",
+        {
+          "href": "https://developers.facebook.com/apps"
+        },
+        "https://developers.facebook.com/apps"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "href": "https://developers.facebook.com/apps/"
+        },
+        [
+          "img",
+          {
+            "src": "/img/docs/native/Facebook/1.png",
+            "alt": "fb-getstarted-1"
+          }
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Retrieve the ",
+      [
+        "code",
+        null,
+        "App ID"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "App Name"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "href": "https://developers.facebook.com/apps/"
+        },
+        [
+          "img",
+          {
+            "src": "/img/docs/native/Facebook/2.png",
+            "alt": "fb-getstarted-2"
+          }
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Then type in the following command in your Terminal, where APP_ID and APP_NAME are the values from the Facebook Developer portal."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          " ionic cordova plugin ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "add"
+          ],
+          " cordova-plugin-facebook4 --variable ",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "APP_ID"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"123456789\""
+          ],
+          " --variable ",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "APP_NAME"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"myApplication\""
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After, you'll need to add the native platforms you'll be using to your app in the Facebook Developer portal under your app's Settings:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "href": "https://developers.facebook.com/apps/"
+        },
+        [
+          "img",
+          {
+            "src": "/img/docs/native/Facebook/3.png",
+            "alt": "fb-getstarted-3"
+          }
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Click ",
+      [
+        "code",
+        null,
+        "'Add Platform'"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "href": "https://developers.facebook.com/apps/"
+        },
+        [
+          "img",
+          {
+            "src": "/img/docs/native/Facebook/4.png",
+            "alt": "fb-getstarted-4"
+          }
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "At this point you'll need to open your project's ",
+      [
+        "a",
+        {
+          "href": "https://cordova.apache.org/docs/en/latest/config_ref/index.html"
+        },
+        [
+          "code",
+          null,
+          "config.xml"
+        ]
+      ],
+      " file, found in the root directory of your project."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Take note of the ",
+      [
+        "code",
+        null,
+        "id"
+      ],
+      " for the next step:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "null"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "<widget id=\"com.mycompany.testapp\" version=\"0.0.1\" xmlns=\"http://www.w3.org/ns/widgets\" xmlns:cdv=\"http://cordova.apache.org/ns/1.0\">"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "You can also edit the ",
+      [
+        "code",
+        null,
+        "id"
+      ],
+      " to whatever you'd like it to be."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "ios-install"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ios-install"
+        },
+        "iOS Install"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Under 'Bundle ID', add the ",
+      [
+        "code",
+        null,
+        "id"
+      ],
+      " from your ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      " file:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "href": "https://developers.facebook.com/apps/"
+        },
+        [
+          "img",
+          {
+            "src": "/img/docs/native/Facebook/5.png",
+            "alt": "fb-getstarted-5"
+          }
+        ]
+      ]
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "android-install"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#android-install"
+        },
+        "Android Install"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Under 'Google Play Package Name', add the ",
+      [
+        "code",
+        null,
+        "id"
+      ],
+      " from your ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      " file:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "href": "https://developers.facebook.com/apps/"
+        },
+        [
+          "img",
+          {
+            "src": "/img/docs/native/Facebook/6.png",
+            "alt": "fb-getstarted-6"
+          }
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "And that's it! You can now make calls to Facebook using the plugin."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "events"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#events"
+        },
+        "Events"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "App events allow you to understand the makeup of users engaging with your app, measure the performance of your Facebook mobile app ads, and reach specific sets of your users with Facebook mobile app ads."
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "[iOS] ",
+        [
+          "a",
+          {
+            "href": "https://developers.facebook.com/docs/ios/app-events"
+          },
+          "https://developers.facebook.com/docs/ios/app-events"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[Android] ",
+        [
+          "a",
+          {
+            "href": "https://developers.facebook.com/docs/android/app-events"
+          },
+          "https://developers.facebook.com/docs/android/app-events"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "[JS] Does not have an Events API, so the plugin functions are empty and will return an automatic success"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Activation events are automatically tracked for you in the plugin."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Events are listed on the ",
+      [
+        "a",
+        {
+          "href": "https://www.facebook.com/insights/"
+        },
+        "insights page"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For tracking events, see ",
+      [
+        "code",
+        null,
+        "logEvent"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "logPurchase"
+      ],
+      "."
+    ]
+  ],
+  "repo": "https://github.com/jeduan/cordova-plugin-facebook4",
+  "platforms": [
+    "Android",
+    "iOS",
+    "Browser"
+  ],
+  "codeUsage": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Facebook",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " FacebookLoginResponse ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/facebook/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " fb",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Facebook"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "fb",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "login"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'public_profile'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'user_friends'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'email'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "res",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " FacebookLoginResponse"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Logged into Facebook!'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " res",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "catch"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "e"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Error logging into Facebook'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "fb",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "logEvent"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "fb",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "EVENTS"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "EVENT_NAME_ADDED_TO_CART"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n"
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "package": "@ionic-native/facebook",
+  "cordova": "cordova-plugin-facebook4",
+  "capacitorIncompatible": false,
+  "premierSlug": null,
+  "template": "native",
+  "headings": [
+    {
+      "text": "Events",
+      "href": "#events"
+    }
+  ],
+  "pageClass": "page-native-facebook"
+}

@@ -1,0 +1,234 @@
+{
+  "title": "ionic cordova build",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "Like running ",
+      [
+        "code",
+        null,
+        "cordova build"
+      ],
+      " directly, but also builds web assets with configuration from ",
+      [
+        "code",
+        null,
+        "ionic build"
+      ],
+      " and provides friendly checks."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To pass additional options to the Cordova CLI, use the ",
+      [
+        "code",
+        null,
+        "--"
+      ],
+      " separator after the Ionic CLI arguments."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Cordova CLI requires a separator for platform-specific arguments for Android ",
+      [
+        "a",
+        {
+          "href": "https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#using-flags"
+        },
+        "builds"
+      ],
+      ", so an additional separator is required for the Ionic CLI, but it is not required for iOS ",
+      [
+        "a",
+        {
+          "href": "https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#using-flags"
+        },
+        "builds"
+      ],
+      ". See the example commands for usage with separators. To avoid using flags, consider using ",
+      [
+        "code",
+        null,
+        "--buildConfig"
+      ],
+      " with a ",
+      [
+        "strong",
+        null,
+        "build.json"
+      ],
+      " file."
+    ]
+  ],
+  "path": "/docs/cli/commands/cordova-build",
+  "summary": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "Build (prepare + compile) an Ionic project for a given platform"
+    ]
+  ],
+  "inputs": [
+    {
+      "name": "platform",
+      "summary": "<p>The platform to build (e.g. <code>android</code>, <code>ios</code>)</p>\n",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "name": "build",
+      "type": "boolean",
+      "summary": "<p>Do not invoke an Ionic build</p>\n",
+      "default": true,
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "debug",
+      "type": "boolean",
+      "summary": "<p>Mark as a debug build</p>\n",
+      "groups": [
+        "cordova",
+        "cordova-cli"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "release",
+      "type": "boolean",
+      "summary": "<p>Mark as a release build</p>\n",
+      "groups": [
+        "cordova",
+        "cordova-cli"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "device",
+      "type": "boolean",
+      "summary": "<p>Deploy build to a device</p>\n",
+      "groups": [
+        "cordova",
+        "cordova-cli",
+        "native-run"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "emulator",
+      "type": "boolean",
+      "summary": "<p>Deploy build to an emulator</p>\n",
+      "groups": [
+        "cordova",
+        "cordova-cli",
+        "native-run"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "buildConfig",
+      "type": "string",
+      "summary": "<p>Use the specified build configuration</p>\n",
+      "groups": [
+        "advanced",
+        "cordova",
+        "cordova-cli"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "file"
+      }
+    },
+    {
+      "name": "prod",
+      "type": "boolean",
+      "summary": "<p>Flag to use the <code>production</code> configuration</p>\n",
+      "groups": [
+        "cordova"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "configuration",
+      "type": "string",
+      "summary": "<p>Specify the configuration to use.</p>\n",
+      "groups": [
+        "advanced",
+        "cordova"
+      ],
+      "aliases": [
+        "c"
+      ],
+      "spec": {
+        "value": "conf"
+      }
+    },
+    {
+      "name": "source-map",
+      "type": "boolean",
+      "summary": "<p>Output source maps</p>\n",
+      "groups": [
+        "advanced",
+        "cordova"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    }
+  ],
+  "skipIntros": true,
+  "template": "cli",
+  "namespace": [
+    "ionic",
+    "cordova"
+  ],
+  "footnotes": [],
+  "groups": [],
+  "exampleCommands": [
+    "ionic cordova build android",
+    "ionic cordova build android --buildConfig=build.json",
+    "ionic cordova build android --prod --release -- -- --gradleArg=-PcdvBuildMultipleApks=true",
+    "ionic cordova build android --prod --release -- -- --keystore=filename.keystore --alias=myalias",
+    "ionic cordova build android --prod --release -- -- --minSdkVersion=21",
+    "ionic cordova build android --prod --release -- -- --versionCode=55",
+    "ionic cordova build android --prod --release --buildConfig=build.json",
+    "ionic cordova build ios",
+    "ionic cordova build ios --buildConfig=build.json",
+    "ionic cordova build ios --prod --release",
+    "ionic cordova build ios --prod --release -- --developmentTeam=\"ABCD\" --codeSignIdentity=\"iPhone Developer\" --packageType=\"app-store\"",
+    "ionic cordova build ios --prod --release --buildConfig=build.json"
+  ],
+  "aliases": [],
+  "type": "project",
+  "headings": [],
+  "pageClass": "page-cli-commands-cordova-build"
+}

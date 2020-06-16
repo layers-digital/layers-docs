@@ -1,0 +1,1131 @@
+{
+  "path": "/docs/appflow/automation/environments",
+  "previousText": "Create Automations",
+  "previousUrl": "/docs/appflow/automation/create",
+  "nextText": "Webhooks",
+  "nextUrl": "/docs/appflow/automation/webhooks",
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "introduction"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#introduction"
+        },
+        "Introduction"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Environments give you a way to customize the build process for your application in order to produce different versions\nof your applications for different environments from the same code base. All environment variables are accessible to\nany build scripts that run during the ",
+      [
+        "code",
+        null,
+        "npm run install"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "npm run build"
+      ],
+      " portion of your builds."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are two types of Enviornment variables available to use:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#predefined-environments"
+          },
+          "Predefined Environments"
+        ],
+        " (Available on all Builds)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#custom-environments"
+          },
+          "Custom Environments"
+        ],
+        " (Available on select plans)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "predefined-environments"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#predefined-environments"
+        },
+        "Predefined Environments"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Every time a Build occurs, it's done in a secure environment where we provide\nsome predefined variables which are key/value pairs that are made available in\nthe environment and are available by using ",
+      [
+        "a",
+        {
+          "href": "https://nodejs.org/docs/latest-v8.x/api/process.html#process_process_env"
+        },
+        "process.env.MY_VAR"
+      ],
+      " syntax\nin NodeJS or via ",
+      [
+        "code",
+        null,
+        "$MY_VAR"
+      ],
+      " syntax in a standard shell script.\nThese variables can be leveraged to ",
+      [
+        "a",
+        {
+          "href": "#usage"
+        },
+        "customize the build and outputs"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The following environment variables are provided in every build, which can be accessed in build scripts:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "CI_APP_ID"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "(string):"
+        ],
+        " Your Ionic app's unique ID."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "CI_APP_NAME"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "(string):"
+        ],
+        " Your Ionic app's name."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "CI_AUTOMATED_BUILD"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "(int):"
+        ],
+        " Whether this build occurred as a result of an automation (",
+        [
+          "code",
+          null,
+          "0"
+        ],
+        " for ",
+        [
+          "code",
+          null,
+          "false"
+        ],
+        ", ",
+        [
+          "code",
+          null,
+          "1"
+        ],
+        " for ",
+        [
+          "code",
+          null,
+          "true"
+        ],
+        ")."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "CI_AUTOMATION_ID"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "(optional int):"
+        ],
+        " The unique ID of the automation which created this build."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "CI_AUTOMATION_NAME"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "(optional string):"
+        ],
+        " The name of the automation which created this build."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "CI_GIT_COMMIT_SHA"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "(string):"
+        ],
+        " The SHA for the commit on which the build was run."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "CI_GIT_COMMIT_MSG"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "(string):"
+        ],
+        " The message for the commit on which the build was run."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "CI_GIT_REF"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "(string):"
+        ],
+        " The git ref from which the build was created (i.e. ",
+        [
+          "code",
+          null,
+          "master"
+        ],
+        ")."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "CI_GIT_REF_TYPE"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "(string):"
+        ],
+        " The git ref type (i.e. ",
+        [
+          "code",
+          null,
+          "branch"
+        ],
+        ")."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "custom-environments"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#custom-environments"
+        },
+        "Custom Environments"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        [
+          "b",
+          null,
+          "Note:"
+        ],
+        "This feature is only available on our ",
+        [
+          "a",
+          {
+            "href": "/pricing"
+          },
+          "Growth plans"
+        ],
+        " and above."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In addition to the ",
+      [
+        "a",
+        {
+          "href": "#predefined-environments"
+        },
+        "predefined environments"
+      ],
+      ", customers on the ",
+      [
+        "a",
+        {
+          "href": "/pricing"
+        },
+        "plans with access to automations"
+      ],
+      " will have access to create custom environments.\nWith custom environments it's easy to create and manage custom sets of key/value pairs\nto further customize builds on Ionic Appflow. Common use cases include customizing your build process\nin order to build staging & QA versions of your app that connect to different APIs\nor to build different white labeled versions of your application.\nTo get started with custom environments, open the app you wish to work on and navigate in the sidebar to ",
+      [
+        "strong",
+        null,
+        "Automate -> Environments"
+      ],
+      ", then click ",
+      [
+        "strong",
+        null,
+        "New Environment"
+      ],
+      " on the top right. You should see a form like this:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/ss-environments-create.png",
+          "alt": "Create Environment Form"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "As can be noticed, there are 2 different sets of environment variables sections that can be utilized:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Secrets"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Variables"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The only difference is that the secrets are hidden and never shown in the dashboard after they have been added, while\nthe variables are always available to be read."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The environments dashboard also lists available custom environments along with their configured key/value pairs and secrets keys."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/ss-environments-list.png",
+          "alt": "Environments List View"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#usage"
+        },
+        "Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For example you could replace your ",
+      [
+        "code",
+        null,
+        "build"
+      ],
+      " script in the ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      " with a custom shell script that\nreads the branch and triggers a custom build."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// customize the build script in the package.json"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n...\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"scripts\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"start\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"ionic-app-scripts serve\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"clean\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"ionic-app-scripts clean\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"build\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"./mybuild.sh\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"lint\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"ionic-app-scripts lint\""
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n..."
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "null"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "#!/bin/bash\nif [ \"$CI_GIT_REF\" = \"master\" ]; then\n    npx ionic build --prod\nelse\n    npx ionic build\nfi"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "As of ",
+      [
+        "code",
+        null,
+        "@ionic/app-scripts@3.2.0"
+      ],
+      " you can also use ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/ionic-app-scripts#environments"
+        },
+        "environment variables directly in your source code"
+      ],
+      " and they will be replaced at build time so that you can customize your code based on the environment."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        [
+          "b",
+          null,
+          "Note:"
+        ],
+        "`@ionic/app-scripts` is only for use with Ionic Framework v3 applications. The above does not apply to other versions."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For example:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "productionConfig ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  api",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'https://my.production.api.com'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  analyticsKey",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'my-production-key'"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\nstagingConfig ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  api",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'https://my.staging.api.com'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  analyticsKey",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'my-staging-key'"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\nlocalConfig ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  api",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'https://localhost:7000'"
+          ],
+          "\n  analyticsKey",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'my-local-key'"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "switch"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "process",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "env",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "CI_GIT_REF"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "case"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'master'"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " productionConfig",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "case"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'staging'"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " stagingConfig",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "default"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " localConfig",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ]
+  ],
+  "title": "Build Environments",
+  "headings": [
+    {
+      "text": "Introduction",
+      "href": "#introduction"
+    },
+    {
+      "text": "Predefined Environments",
+      "href": "#predefined-environments"
+    },
+    {
+      "text": "Custom Environments",
+      "href": "#custom-environments"
+    },
+    {
+      "text": "Usage",
+      "href": "#usage"
+    }
+  ],
+  "pageClass": "page-appflow-automation-environments"
+}

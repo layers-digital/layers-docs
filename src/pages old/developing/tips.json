@@ -1,0 +1,1284 @@
+{
+  "path": "/docs/developing/tips",
+  "previousText": "Developing for Android",
+  "previousUrl": "/docs/developing/android",
+  "contributors": [
+    "rtpHarry",
+    "FdezRomero",
+    "brandyscarney"
+  ],
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "resolving-permission-errors"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#resolving-permission-errors"
+        },
+        "Resolving Permission Errors"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "EACCES"
+      ],
+      " permission errors can occur when packages are installed globally. If this is the case, npm may need to be set up to operate without elevated permissions."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Using ",
+        [
+          "code",
+          null,
+          "sudo"
+        ],
+        " with npm is ",
+        [
+          "strong",
+          null,
+          "not recommended"
+        ],
+        " because it can lead to further complications."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This guide offers two options for resolving permission issues. See the ",
+      [
+        "a",
+        {
+          "href": "https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally"
+        },
+        "npm docs"
+      ],
+      " for full documentation and additional options."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "option-1"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#option-1"
+        },
+        "Option 1"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The best way to avoid permission issues is to reinstall NodeJS and npm using a node version manager."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This guide will document ",
+      [
+        "a",
+        {
+          "href": "https://github.com/nvm-sh/nvm"
+        },
+        "nvm"
+      ],
+      " installation and usage. See the ",
+      [
+        "a",
+        {
+          "href": "https://github.com/nvm-sh/nvm#installation-and-update"
+        },
+        "nvm docs"
+      ],
+      " for full documentation. See the ",
+      [
+        "a",
+        {
+          "href": "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm"
+        },
+        "npm docs"
+      ],
+      " for additional options and instructions for Windows."
+    ],
+    " ",
+    [
+      "ol",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "Install nvm."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "curl"
+              ],
+              " -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "|"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "bash"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "New terminals will now use nvm. To verify, open a new terminal and run the following. If something prints, the installation was successful."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              [
+                "span",
+                {
+                  "class": "token builtin class-name"
+                },
+                "command"
+              ],
+              " -v nvm"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "To download and install the latest LTS release of NodeJS, run:"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              "nvm ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "install"
+              ],
+              " --lts"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "Set the newly installed NodeJS as the default environment:"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              "nvm ",
+              [
+                "span",
+                {
+                  "class": "token builtin class-name"
+                },
+                "alias"
+              ],
+              " default lts/*"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "New terminals will now use the nvm-controlled NodeJS. To verify:"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              "node -v  ",
+              [
+                "span",
+                {
+                  "class": "token comment"
+                },
+                "# will print the version installed above"
+              ],
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                "\n $ "
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "which"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "npm"
+              ],
+              "  ",
+              [
+                "span",
+                {
+                  "class": "token comment"
+                },
+                "# will print a path somewhere within the ~/.nvm folder"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Global packages will now be installed in the ",
+      [
+        "code",
+        null,
+        "~/.nvm"
+      ],
+      " directory, so permission errors should no longer occur as long as ",
+      [
+        "code",
+        null,
+        "npm"
+      ],
+      " is used ",
+      [
+        "em",
+        null,
+        "without"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "sudo"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "option-2"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#option-2"
+        },
+        "Option 2"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "small",
+        null,
+        [
+          "em",
+          null,
+          "Does not apply to Windows"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Change the owner of npm's directories to the current user:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "sudo"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "chown"
+          ],
+          " -R ",
+          [
+            "span",
+            {
+              "class": "token variable"
+            },
+            [
+              "span",
+              {
+                "class": "token variable"
+              },
+              "$("
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "whoami"
+            ],
+            [
+              "span",
+              {
+                "class": "token variable"
+              },
+              ")"
+            ]
+          ],
+          " /usr/local/",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "lib/node_modules,bin,share",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "\n$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "sudo"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "chown"
+          ],
+          " -R ",
+          [
+            "span",
+            {
+              "class": "token variable"
+            },
+            [
+              "span",
+              {
+                "class": "token variable"
+              },
+              "$("
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "whoami"
+            ],
+            [
+              "span",
+              {
+                "class": "token variable"
+              },
+              ")"
+            ]
+          ],
+          " ~/.npm ~/.npmrc"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Since these global directories are no longer owned by ",
+      [
+        "code",
+        null,
+        "root"
+      ],
+      ", packages can be installed globally ",
+      [
+        "em",
+        null,
+        "without"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "sudo"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "updating-dependencies"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#updating-dependencies"
+        },
+        "Updating Dependencies"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To update an ",
+      [
+        "a",
+        {
+          "href": "https://www.npmjs.com/"
+        },
+        "npm"
+      ],
+      " dependency, run the following, where ",
+      [
+        "code",
+        null,
+        "<package-name>"
+      ],
+      " is the package to update:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "package-name",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "@",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "version",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "|"
+          ],
+          "latest",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " --save"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For example, to update the ",
+      [
+        "code",
+        null,
+        "@ionic/angular"
+      ],
+      " package to the release tagged ",
+      [
+        "code",
+        null,
+        "latest"
+      ],
+      ", run:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " @ionic/angular@latest --save"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "It is recommended that packages get updated through the CLI since npm will now read package versions from the ",
+      [
+        "code",
+        null,
+        "package-lock.json"
+      ],
+      " first."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "code-editors"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#code-editors"
+        },
+        "Code Editors"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are a lot of code editors to choose from. Here are some of our favorites:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://code.visualstudio.com"
+          },
+          "Visual Studio Code"
+        ],
+        ": a popular and free text editor made by Microsoft"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://atom.io"
+          },
+          "Atom"
+        ],
+        ": a hackable text editor made by GitHub"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://www.jetbrains.com/webstorm/"
+          },
+          "WebStorm"
+        ],
+        ": a powerful non-free editor by JetBrains"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "using-a-debugger"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#using-a-debugger"
+        },
+        "Using a Debugger"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "code",
+        null,
+        "debugger"
+      ],
+      " keyword can be used to debug an app. When most browsers encounters a ",
+      [
+        "code",
+        null,
+        "debugger"
+      ],
+      " statement, running of JavaScript is stopped, and the browser will load its debugger. This can be used to set \"breakpoints\" in the app."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For example, if a function is not returning the correct value, the debugger can be used to step through the code and inspect variables."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "javascript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "function"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "myBrokenFunction"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "debugger"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// do other stuff"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When an app runs, it will pause at this function. From there, the developer tools can be used to run pieces of JavaScript, line by line, and inspect where exactly the function breaks."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "changing-mode"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#changing-mode"
+        },
+        "Changing Mode"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "By default, when an app is viewed in the browser, Ionic will apply the ",
+      [
+        "code",
+        null,
+        "md"
+      ],
+      " mode. However, since Ionic components adapt according to their platform, it is helpful to be able to view what the app will look like on iOS. To do this, add ",
+      [
+        "code",
+        null,
+        "?ionic:mode=ios"
+      ],
+      " to the URL where the app is being served. For example, if the app is served on port ",
+      [
+        "code",
+        null,
+        "8100"
+      ],
+      ", the url would be: ",
+      [
+        "code",
+        null,
+        "http://localhost:8100/?ionic:mode=ios"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "This will not change which platform the browser sees being used. The platform is determined by device detection and inspecting the user-agent. To change the platform, the user-agent must be changed. To do this, open up Chrome DevTools with ",
+        [
+          "kbd",
+          null,
+          "Ctrl+Shift+I"
+        ],
+        "(",
+        [
+          "kbd",
+          null,
+          "Cmd+Option+I"
+        ],
+        " on Mac), and then toggle device mode on with ",
+        [
+          "kbd",
+          null,
+          "Ctrl+Shift+M"
+        ],
+        "(",
+        [
+          "kbd",
+          null,
+          "Cmd+Option+M"
+        ],
+        " on Mac)."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/faq/tips/change-device-platform.png",
+          "alt": "app with a different mode"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Selecting devices from the device dropdown will change the user-agent, as well as the dimensions of the viewport."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "using-the-ios-simulator"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#using-the-ios-simulator"
+        },
+        "Using the iOS Simulator"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The iOS simulator enables testing and debugging of an app before it reaches an actual device."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Before it can be used, ",
+      [
+        "a",
+        {
+          "href": "https://developer.apple.com/xcode/download/"
+        },
+        "Xcode"
+      ],
+      ", Apple's IDE, must be installed."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/cli"
+        },
+        "Ionic CLI"
+      ],
+      " can then be used to run the app in the current directory on the simulator:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic cordova emulate ios -lc"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Passing in the ",
+      [
+        "code",
+        null,
+        "-lc"
+      ],
+      " flag will enable livereload and log console output to a terminal."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Xcode can also be used to launch the emulator and debug an app."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Open up Xcode and open ",
+      [
+        "code",
+        null,
+        "../path-to-app/platforms/ios/myApp.xcodeproj"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After the app loads, console output and device logs will be printed inside of Xcode's output window."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "using-the-genymotion-android-emulator"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#using-the-genymotion-android-emulator"
+        },
+        "Using the Genymotion Android Emulator"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "While the Android SDK comes with a stock emulator, it can be slow and unresponsive at times."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "href": "https://www.genymotion.com"
+        },
+        "Genymotion"
+      ],
+      " is an alternate emulator that is faster, and still allows access to native functionality like GPS and camera."
+    ]
+  ],
+  "title": "Development Tips",
+  "headings": [
+    {
+      "text": "Resolving Permission Errors",
+      "href": "#resolving-permission-errors"
+    },
+    {
+      "text": "Updating Dependencies",
+      "href": "#updating-dependencies"
+    },
+    {
+      "text": "Code Editors",
+      "href": "#code-editors"
+    },
+    {
+      "text": "Using a Debugger",
+      "href": "#using-a-debugger"
+    },
+    {
+      "text": "Changing Mode",
+      "href": "#changing-mode"
+    },
+    {
+      "text": "Using the iOS Simulator",
+      "href": "#using-the-ios-simulator"
+    },
+    {
+      "text": "Using the Genymotion Android Emulator",
+      "href": "#using-the-genymotion-android-emulator"
+    }
+  ],
+  "pageClass": "page-developing-tips"
+}

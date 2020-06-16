@@ -1,0 +1,4336 @@
+{
+  "path": "/docs/developing/hardware-back-button",
+  "previousText": "Development Tips",
+  "previousUrl": "/docs/developing/tips",
+  "nextText": "Keyboard",
+  "nextUrl": "/docs/developing/keyboard",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The hardware back button is found on most Android devices. In native applications it can be used to close modals, navigate to the previous view, exit an app, and more. By default in Ionic, when the back button is pressed, the current view will be popped off the navigation stack, and the previous view will be displayed. If no previous view exists in the navigation stack, nothing will happen. This guide will show how to customize the behavior of the hardware back button."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "The hardware back button refers to the physical back button on an Android device and should not be confused with either the browser back button or ",
+        [
+          "code",
+          null,
+          "ion-back-button"
+        ],
+        ". The information in this guide only applies to Android devices."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "hardware-back-button-in-capacitor-and-cordova"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#hardware-back-button-in-capacitor-and-cordova"
+        },
+        "Hardware Back Button in Capacitor and Cordova"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When running in a Capacitor or Cordova application, Ionic Framework will emit an ",
+      [
+        "code",
+        null,
+        "ionBackButton"
+      ],
+      " event when a user presses the hardware back button."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When listening for the ",
+      [
+        "code",
+        null,
+        "ionBackButton"
+      ],
+      " event, you can register a handler to be fired. This handler can perform actions such as quitting the app or opening a confirmation dialog. Each handler must be assigned a priority. By default, only one handler is fired per hardware back button press. The priority value is used to determine which callback should be called. This is useful because if you have a modal open, you likely would not want the modal to close ",
+      [
+        "em",
+        null,
+        "and"
+      ],
+      " the app to navigate backwards when pressing the hardware back button. Only running one handler at a time allows the modal to close but still requires another press of the hardware back button to navigate backwards."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are situations where you might want to have multiple handlers fired. Each handler callback passes in a function as a parameter that can be used to tell the framework to call the next handler."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "hardware-back-button-in-a-browser"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#hardware-back-button-in-a-browser"
+        },
+        "Hardware Back Button in a Browser"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When running your app in a mobile browser or as a PWA, hardware back button customization will be limited. This is because Capacitor and Cordova expose additional features that are not exposed in a normal web browser. For example, closing overlays and menus via the hardware back button are functionalities that are currently not supported when running your app in a mobile browser. These are known limitations and do not currently have straightforward solutions."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For complete hardware back button support, we recommend using Capacitor or Cordova."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "The ",
+        [
+          "code",
+          null,
+          "ionBackButton"
+        ],
+        " event will not be emitted when running an app in a browser or as a PWA."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "basic-usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#basic-usage"
+        },
+        "Basic Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-tabs",
+      null,
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "javascript"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "javascript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "document",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "addEventListener"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'ionBackButton'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "ev"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ev",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "detail",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "register"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    console",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "log"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'Handler was called!'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "angular"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "typescript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " Platform ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@ionic/angular'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "..."
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "constructor"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "private"
+                ],
+                " platform",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  ":"
+                ],
+                " Platform"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "this"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "platform",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "backButton",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "subscribeWithPriority"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token builtin"
+                },
+                "console"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "log"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'Handler was called!'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "react"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "typescript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "document",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "addEventListener"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'ionBackButton'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "ev"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ev",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "detail",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "register"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token builtin"
+                },
+                "console"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "log"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'Handler was called!'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In this example, we are registering a handler to be called when the hardware back button is pressed. We have set the priority to be 10, and we have not indicated to the framework that we want the next handler to be called. As a result, any handlers with a priority less than 10 will not be called. A handler that has a priority greater than 10 will be called first."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In the event that there are handlers with the same priority value, the handler that was registered ",
+      [
+        "em",
+        null,
+        "last"
+      ],
+      " will be called. See ",
+      [
+        "a",
+        {
+          "href": "#handlers-with-the-same-priorities"
+        },
+        "Handlers with the Same Priorities"
+      ],
+      " for more information."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "calling-multiple-handlers"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#calling-multiple-handlers"
+        },
+        "Calling Multiple Handlers"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Each hardware back button callback has a ",
+      [
+        "code",
+        null,
+        "processNextHandler"
+      ],
+      " parameter. Calling this function allows you to continue calling hardware back button handlers."
+    ],
+    " ",
+    [
+      "docs-tabs",
+      null,
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "javascript"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "javascript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "document",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "addEventListener"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'ionBackButton'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "ev"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ev",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "detail",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "register"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "5"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    console",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "log"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'Another handler was called!'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n  ev",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "detail",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "register"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "processNextHandler"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    console",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "log"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'Handler was called!'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n    ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "processNextHandler"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "angular"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "typescript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " Platform ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@ionic/angular'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "..."
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "constructor"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "private"
+                ],
+                " platform",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  ":"
+                ],
+                " Platform"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "this"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "platform",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "backButton",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "subscribeWithPriority"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "5"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token builtin"
+                },
+                "console"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "log"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'Another handler was called!'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "this"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "platform",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "backButton",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "subscribeWithPriority"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "processNextHandler"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token builtin"
+                },
+                "console"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "log"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'Handler was called!'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n    ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "processNextHandler"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "react"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "typescript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "document",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "addEventListener"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'ionBackButton'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "ev"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ev",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "detail",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "register"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "5"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token builtin"
+                },
+                "console"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "log"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'Another handler was called!'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n  ev",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "detail",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "register"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "10"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "processNextHandler"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token builtin"
+                },
+                "console"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "log"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'Handler was called!'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n    ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "processNextHandler"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This example shows how to indicate to Ionic Framework that you want the next handler to be fired. All callbacks are provided with a ",
+      [
+        "code",
+        null,
+        "processNextHandler"
+      ],
+      " function as a parameter. Calling this will cause the next handler, if any exists, to be fired."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "handlers-with-the-same-priorities"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#handlers-with-the-same-priorities"
+        },
+        "Handlers with the Same Priorities"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Internally, Ionic Framework uses something similar to a priority queue to manage hardware back button handlers. The handler with the largest priority value will be called first. In the event that there are multiple handlers with the same priority value, the ",
+      [
+        "em",
+        null,
+        "last"
+      ],
+      " handler of the same priority added to this queue will be the first handler to be called."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "javascript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "document",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addEventListener"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionBackButton'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "ev"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Handler A"
+          ],
+          "\n  ev",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "detail",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "register"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "10"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "processNextHandler"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    console",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Handler A was called!'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n    ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "processNextHandler"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Handler B"
+          ],
+          "\n  ev",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "detail",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "register"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "10"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "processNextHandler"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    console",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Handler B was called!'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n    ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "processNextHandler"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In the example above, both handlers A and B have a priority of 10. Since handler B was registered last, Ionic Framework will call handler B before it calls handler A."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "exiting-the-app"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#exiting-the-app"
+        },
+        "Exiting the App"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In some scenarios, it may be desirable to quit the app when pressing the hardware back button. This can be achieved through the use of the ",
+      [
+        "code",
+        null,
+        "ionBackButton"
+      ],
+      " event combined with methods that Capacitor/Cordova provide."
+    ],
+    " ",
+    [
+      "docs-tabs",
+      null,
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "javascript"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "typescript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " Plugins ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@capacitor/core'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " BackButtonEvent ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@ionic/core'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " App ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " Plugins",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "..."
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " routerEl ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " document",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "querySelector"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'ion-router'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\ndocument",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "addEventListener"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'ionBackButton'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "ev",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  ":"
+                ],
+                " BackButtonEvent"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ev",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "detail",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "register"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "-"
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " path ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " window",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "location",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "pathname",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "if"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "path ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "==="
+              ],
+              " routerEl",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "root",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n      App",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "exitApp"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "angular"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "typescript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " IonRouterOutlet",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " Platform ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@ionic/angular'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " Plugins ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@capacitor/core'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " App ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " Plugins",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "..."
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "constructor"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "private"
+                ],
+                " platform",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  ":"
+                ],
+                " Platform",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ","
+                ],
+                "\n  ",
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "private"
+                ],
+                " routerOutlet",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  ":"
+                ],
+                " IonRouterOutlet"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "this"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "platform",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "backButton",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "subscribeWithPriority"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "-"
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "if"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "!"
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "this"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "routerOutlet",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "canGoBack"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n      App",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "exitApp"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This example shows the application exiting when the user presses the hardware back button and there is nothing left in the navigation stack. It is also possible to display a confirmation dialog before quitting the app."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "It is recommended to check whether or not the user is on the root page prior to exiting the application. Developers can use the ",
+      [
+        "code",
+        null,
+        "canGoBack"
+      ],
+      " method on ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      " in Ionic Angular. Support for this will be coming to Ionic React soon."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "internal-framework-handlers"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#internal-framework-handlers"
+        },
+        "Internal Framework Handlers"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Th table below lists all of the internal hardware back button event handlers that Ionic Framework uses. The ",
+      [
+        "code",
+        null,
+        "Propagates"
+      ],
+      " column notes whether or not that particular handler tells Ionic Framework to call the next back button handler."
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Handler"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Priority"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Propagates"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "Overlays"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "100"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "No"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Applies to overlay components ",
+            [
+              "code",
+              null,
+              "ion-action-sheet"
+            ],
+            ", ",
+            [
+              "code",
+              null,
+              "ion-alert"
+            ],
+            ", ",
+            [
+              "code",
+              null,
+              "ion-loading"
+            ],
+            ", ",
+            [
+              "code",
+              null,
+              "ion-modal"
+            ],
+            ", ",
+            [
+              "code",
+              null,
+              "ion-popover"
+            ],
+            ", ",
+            [
+              "code",
+              null,
+              "ion-picker"
+            ],
+            ", and ",
+            [
+              "code",
+              null,
+              "ion-toast"
+            ],
+            "."
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "Menu"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "99"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "No"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Applies to ",
+            [
+              "code",
+              null,
+              "ion-menu"
+            ],
+            "."
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "Navigation"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "0"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Yes"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Applies to routing navigation (i.e. Angular Routing)."
+          ],
+          " "
+        ],
+        " "
+      ]
+    ]
+  ],
+  "title": "Hardware Back Button",
+  "headings": [
+    {
+      "text": "Hardware Back Button in Capacitor and Cordova",
+      "href": "#hardware-back-button-in-capacitor-and-cordova"
+    },
+    {
+      "text": "Hardware Back Button in a Browser",
+      "href": "#hardware-back-button-in-a-browser"
+    },
+    {
+      "text": "Basic Usage",
+      "href": "#basic-usage"
+    },
+    {
+      "text": "Calling Multiple Handlers",
+      "href": "#calling-multiple-handlers"
+    },
+    {
+      "text": "Handlers with the Same Priorities",
+      "href": "#handlers-with-the-same-priorities"
+    },
+    {
+      "text": "Exiting the App",
+      "href": "#exiting-the-app"
+    },
+    {
+      "text": "Internal Framework Handlers",
+      "href": "#internal-framework-handlers"
+    }
+  ],
+  "pageClass": "page-developing-hardware-back-button"
+}

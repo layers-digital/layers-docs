@@ -1,0 +1,3382 @@
+{
+  "path": "/docs/reference/migration",
+  "previousText": "Browser Support",
+  "previousUrl": "/docs/reference/browser-support",
+  "contributors": [
+    "mhartington",
+    "kensodemann",
+    "elylucas"
+  ],
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "migrating-from-ionic-4-x-to-ionic-5-x"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#migrating-from-ionic-4-x-to-ionic-5-x"
+        },
+        "Migrating from Ionic 4.x to Ionic 5.x"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Migrating an app from 4.x to 5.x requires a few updates to the API properties, CSS utilities, and the installed package dependencies."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "api-and-css-updates"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#api-and-css-updates"
+        },
+        "API and CSS Updates"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For a complete list of breaking changes from 4.x to 5.x, please refer to ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/ionic/blob/master/BREAKING.md#version-5x"
+        },
+        "the breaking changes document"
+      ],
+      " in the Ionic core repo."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "packages-and-dependencies"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#packages-and-dependencies"
+        },
+        "Packages and Dependencies"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For Angular based projects, you can simply run:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " @ionic/angular@latest @ionic/angular-toolkit@latest --save"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For React projects, you can run:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " @ionic/react@latest @ionic/react-router@latest ionicons@latest"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For Stencil / vanilla JS projects, you can run:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " i @ionic/core@latest --save"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you would like a fresh project starter, a new project base can be created from the CLI and an existing app can be migrated over manually."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "migrating-from-ionic-3-0-to-ionic-4-0"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#migrating-from-ionic-3-0-to-ionic-4-0"
+        },
+        "Migrating from Ionic 3.0 to Ionic 4.0"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "For a ",
+        [
+          "strong",
+          null,
+          "complete list of breaking changes"
+        ],
+        " from Ionic 3 to Ionic 4, please refer to ",
+        [
+          "a",
+          {
+            "href": "https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md"
+          },
+          "the breaking changes document"
+        ],
+        " in the Ionic core repo."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "We suggest the following general process when migrating an existing application from Ionic 3 to 4:"
+    ],
+    " ",
+    [
+      "ol",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Generate a new project using the ",
+        [
+          "code",
+          null,
+          "blank"
+        ],
+        " starter (see ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/developing/starting"
+          },
+          "Starting an App"
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Copy any Angular services from ",
+        [
+          "code",
+          null,
+          "src/providers"
+        ],
+        " to ",
+        [
+          "code",
+          null,
+          "src/app/services"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Services should include ",
+            [
+              "code",
+              null,
+              "{ providedIn: 'root' }"
+            ],
+            " in the ",
+            [
+              "code",
+              null,
+              "@Injectable()"
+            ],
+            " decorator. For details, please see Angular ",
+            [
+              "a",
+              {
+                "href": "https://angular.io/guide/providers"
+              },
+              "provider docs"
+            ],
+            "."
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Copy the app's other root-level items (pipes, components, etc) keeping in mind that the directory structure changes from ",
+        [
+          "code",
+          null,
+          "src/components"
+        ],
+        " to ",
+        [
+          "code",
+          null,
+          "src/app/components"
+        ],
+        ", etc."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Copy global Sass styling from ",
+        [
+          "code",
+          null,
+          "src/app/app.scss"
+        ],
+        " to ",
+        [
+          "code",
+          null,
+          "src/global.scss"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Copy the rest of the application, page by page or feature by feature, keeping the following items in mind:",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Emulated Shadow DOM is turned on by default"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Page/component Sass should no longer be wrapped in the page/component tag and should use Angular's ",
+            [
+              "a",
+              {
+                "href": "https://angular.io/api/core/Component#styleUrls"
+              },
+              [
+                "code",
+                null,
+                "styleUrls"
+              ]
+            ],
+            " option of the ",
+            [
+              "code",
+              null,
+              "@Component"
+            ],
+            " decorator"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "RxJS has been updated from v5 to v6 (see ",
+            [
+              "a",
+              {
+                "href": "#rxjs-changes"
+              },
+              "RxJS Changes"
+            ],
+            ")"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Certain lifecycle hooks should be replaced by Angular's hooks (see ",
+            [
+              "a",
+              {
+                "href": "#lifecycle-events"
+              },
+              "Lifecycle Events"
+            ],
+            ")"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            "Markup changes may be required (migration tool available, see ",
+            [
+              "a",
+              {
+                "href": "#markup-changes"
+              },
+              "Markup Changes"
+            ],
+            ")"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In many cases, using the Ionic CLI to generate a new object and then copying the code also works very well. For example: ",
+      [
+        "code",
+        null,
+        "ionic g service weather"
+      ],
+      " will create a shell ",
+      [
+        "code",
+        null,
+        "Weather"
+      ],
+      " service and test. The code can then be copied from the older project with minor modifications as needed. This helps to ensure the proper structure is followed. This also generates shells for unit tests."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "changes-in-package-name"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#changes-in-package-name"
+        },
+        "Changes in Package Name"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In Ionic 4, the package name is ",
+      [
+        "code",
+        null,
+        "@ionic/angular"
+      ],
+      ". Uninstall Ionic 3 and install Ionic 4 using the new package name:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " uninstall ionic-angular\n",
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " @ionic/angular"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "While migrating an app, update the imports from ",
+      [
+        "code",
+        null,
+        "ionic-angular"
+      ],
+      " to ",
+      [
+        "code",
+        null,
+        "@ionic/angular"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "project-structure"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#project-structure"
+        },
+        "Project structure"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "One of the major changes between an Ionic 3 app and an Ionic 4 app is the overall project layout and structure. In v3, Ionic apps had a custom convention for how an app should be set up and what that folder structure should look like. In v4, this has been changed to follow the recommended setup of each supported framework."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For example, if an app is using Angular, that project structure will be exactly what an Angular CLI app would be. This change, while not too difficult to accommodate, helps to keep common patterns and documentation consistent."
+    ],
+    " ",
+    [
+      "ion-grid",
+      null,
+      " ",
+      [
+        "ion-row",
+        null,
+        " ",
+        [
+          "ion-col",
+          null,
+          " ",
+          [
+            "figure",
+            null,
+            " ",
+            [
+              "file-tree",
+              null,
+              " ",
+              [
+                "file-tree-directory",
+                {
+                  "name": "src"
+                },
+                " ",
+                [
+                  "file-tree-directory",
+                  {
+                    "name": "app"
+                  },
+                  " ",
+                  [
+                    "file-tree-directory",
+                    {
+                      "name": "about",
+                      "collapsed": ""
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-directory",
+                    {
+                      "name": "home",
+                      "collapsed": ""
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "app-routing.module.ts"
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "app.component.html"
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "app.component.spec.ts"
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "app.component.ts"
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "app.module.ts"
+                    }
+                  ],
+                  " "
+                ],
+                " ",
+                [
+                  "file-tree-directory",
+                  {
+                    "name": "assets",
+                    "collapsed": ""
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-directory",
+                  {
+                    "name": "environments",
+                    "collapsed": ""
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-directory",
+                  {
+                    "name": "theme",
+                    "collapsed": ""
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "global.scss"
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "index.html"
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "karma.conf.js"
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "main.ts"
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "polyfills.ts"
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "test.ts"
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "tsconfig.app.json"
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "tsconfig.spec.json"
+                  }
+                ],
+                " "
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": ".gitignore"
+                }
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": "angular.json"
+                }
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": "ionic.config.json"
+                }
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": "package.json"
+                }
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": "tsconfig.json"
+                }
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": "tslint.json"
+                }
+              ],
+              " "
+            ],
+            " ",
+            [
+              "figcaption",
+              null,
+              "Ionic 4"
+            ],
+            " "
+          ],
+          " "
+        ],
+        " ",
+        [
+          "ion-col",
+          null,
+          " ",
+          [
+            "figure",
+            null,
+            " ",
+            [
+              "file-tree",
+              null,
+              " ",
+              [
+                "file-tree-directory",
+                {
+                  "name": "src"
+                },
+                " ",
+                [
+                  "file-tree-directory",
+                  {
+                    "name": "app"
+                  },
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "app.component.html"
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "app.html"
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "app.module.ts"
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "app.scss"
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-file",
+                    {
+                      "name": "main.ts"
+                    }
+                  ],
+                  " "
+                ],
+                " ",
+                [
+                  "file-tree-directory",
+                  {
+                    "name": "assets",
+                    "collapsed": ""
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-directory",
+                  {
+                    "name": "pages"
+                  },
+                  " ",
+                  [
+                    "file-tree-directory",
+                    {
+                      "name": "about",
+                      "collapsed": ""
+                    }
+                  ],
+                  " ",
+                  [
+                    "file-tree-directory",
+                    {
+                      "name": "home",
+                      "collapsed": ""
+                    }
+                  ],
+                  " "
+                ],
+                " ",
+                [
+                  "file-tree-directory",
+                  {
+                    "name": "theme",
+                    "collapsed": ""
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "index.html"
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "manifest.json"
+                  }
+                ],
+                " ",
+                [
+                  "file-tree-file",
+                  {
+                    "name": "service-worker.js"
+                  }
+                ],
+                " "
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": ".gitignore"
+                }
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": "ionic.config.json"
+                }
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": "package.json"
+                }
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": "tsconfig.json"
+                }
+              ],
+              " ",
+              [
+                "file-tree-file",
+                {
+                  "name": "tslint.json"
+                }
+              ],
+              " "
+            ],
+            " ",
+            [
+              "figcaption",
+              null,
+              "Ionic 3"
+            ],
+            " "
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The above comparison is an example of a v4 app's project structure. For developers with experience in a vanilla Angular project, this should feel really familiar."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There is a ",
+      [
+        "code",
+        null,
+        "src/"
+      ],
+      " directory that acts as the home for the app. This includes the ",
+      [
+        "code",
+        null,
+        "index.html"
+      ],
+      ", any assets, environment configuration, and any app-specific config files."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "While migrating an app to take advantage of this new layout, it is suggested that a new project \"base\" is made with the CLI. Then, with the new project layout, migrate the features of the app piece by piece. Pages/components/etc. should be moved into the ",
+      [
+        "code",
+        null,
+        "src/app/"
+      ],
+      " folder."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Ensure your Ionic configuration file has the appropriate ",
+      [
+        "code",
+        null,
+        "type"
+      ],
+      ". The project type for v3 is ",
+      [
+        "code",
+        null,
+        "ionic-angular"
+      ],
+      ". The project type for v4 is ",
+      [
+        "code",
+        null,
+        "angular"
+      ],
+      ". If this value is incorrect, the CLI may invoke the incorrect build scripts."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "See the following ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      " as an example:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"my-app\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"angular\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "rxjs-changes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#rxjs-changes"
+        },
+        "RxJS Changes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Between V3 and V4, RxJS was updated to version 6. This changes many of the import paths of operators and core RxJS functions. Please see the ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ReactiveX/rxjs/blob/master/docs_app/content/guide/v6/migration.md",
+          "target": "_blank"
+        },
+        "RxJS Migration Guide"
+      ],
+      " for details."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "lifecycle-events"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#lifecycle-events"
+        },
+        "Lifecycle Events"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "With V4, we're now able to utilize the typical events provided by ",
+      [
+        "a",
+        {
+          "href": "https://angular.io/guide/lifecycle-hooks"
+        },
+        "Angular"
+      ],
+      ". But for certain cases, you might want to have access to the events fired when a component has finished animating during its route change. In this case, the ",
+      [
+        "code",
+        null,
+        "ionViewWillEnter"
+      ],
+      ", ",
+      [
+        "code",
+        null,
+        "ionViewDidEnter"
+      ],
+      ", ",
+      [
+        "code",
+        null,
+        "ionViewWillLeave"
+      ],
+      ", and ",
+      [
+        "code",
+        null,
+        "ionViewDidLeave"
+      ],
+      " have been ported over from V3. Use these events to coordinate actions with Ionic's own animations system."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Older events like ",
+      [
+        "code",
+        null,
+        "ionViewDidLoad"
+      ],
+      ", ",
+      [
+        "code",
+        null,
+        "ionViewCanLeave"
+      ],
+      ", and ",
+      [
+        "code",
+        null,
+        "ionViewCanEnter"
+      ],
+      " have been removed, and the proper Angular alternatives should be used."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For more details, check out the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/api/router-outlet"
+        },
+        "router-outlet docs"
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "overlay-components"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#overlay-components"
+        },
+        "Overlay Components"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In prior versions of Ionic, overlay components such as Loading, Toast, or Alert were created synchronously. In Ionic v4, these components are all created asynchronously. As a result of this, the API is now promise-based."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// v3"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "showAlert"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " alert ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "alertCtrl",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "create"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    message",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Hello There\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    subHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"I'm a subheader\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  alert",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "present"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In v4, promises are used:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "showAlert"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "alertCtrl",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "create"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    message",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Hello There\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    subHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"I'm a subheader\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "alert"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " alert",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "present"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Or using async/await"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "async"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "showAlert"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " alert ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "alertCtrl",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "create"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    message",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Hello There\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    subHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"I'm a subheader\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " alert",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "present"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "navigation"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#navigation"
+        },
+        "Navigation"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In V4, navigation received the most changes. Now, instead of using Ionic's own ",
+      [
+        "code",
+        null,
+        "NavController"
+      ],
+      ", we integrate with the official Angular Router. This not only provides a consistent routing experience across apps, but is much more dependable. The Angular team has an ",
+      [
+        "a",
+        {
+          "href": "http://angular.io/guide/router",
+          "target": "_blank"
+        },
+        "excellent guide"
+      ],
+      " on their docs site that covers the Router in great detail."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To provide the platform-specific animations that users are used to, we have created ",
+      [
+        "code",
+        null,
+        "ion-router-outlet"
+      ],
+      " for Angular Apps. This behaves in a similar manner to Angular's ",
+      [
+        "code",
+        null,
+        "router-outlet"
+      ],
+      " but provides a stack-based navigation (tabs) and animations."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For a detailed explanation in navigation works in a V4 project, check out the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/angular/navigation"
+        },
+        "Angular navigation guide"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "lazy-loading"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#lazy-loading"
+        },
+        "Lazy Loading"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Since Navigation has changed, the mechanism for lazy loading has also changed in V4."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In v3, a typical lazy loading setup worked like this:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// home.page.ts"
+          ],
+          "\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "IonicPage"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  segment",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'home'"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Component"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "HomePage"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// home.module.ts"
+          ],
+          "\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "NgModule"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  declarations",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "HomePage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  imports",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "IonicPageModule",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "forChild"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "HomePage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "HomePageModule"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "However, in v4, lazy loading is done via the ",
+      [
+        "code",
+        null,
+        "loadChildren"
+      ],
+      " method of the Angular router:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// home.module.ts"
+          ],
+          "\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "NgModule"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  imports",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    IonicModule",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    RouterModule",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "forChild"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "''"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " component",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " HomePage ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  declarations",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "HomePage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "HomePageModule"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// app.module.ts"
+          ],
+          "\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "NgModule"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  declarations",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "AppComponent",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  imports",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    BrowserModule",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    IonicModule",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "forRoot"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    RouterModule",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "forRoot"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'home'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " loadChildren",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'./pages/home/home.module#HomePageModule'"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "''"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " redirectTo",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'home'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " pathMatch",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'full'"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  bootstrap",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "AppComponent",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "AppModule"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For a detailed explanation of lazy loading in V4 project, check out the ",
+      [
+        "a",
+        {
+          "href": "docs/navigation/angular#lazy-loading-routes"
+        },
+        "Angular navigation guide"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "markup-changes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#markup-changes"
+        },
+        "Markup Changes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Since v4 moved to Custom Elements, there's been a significant change to the markup for each component. These changes have all been made to follow the Custom Elements spec, and have been documented in a ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#breaking-changes",
+          "target": "_blank"
+        },
+        "dedicated file on GitHub"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To help with these markup changes, we've released a TSLint-based ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/v4-migration-tslint",
+          "target": "_blank"
+        },
+        "Migration Tool"
+      ],
+      ", which detects issues and can even fix some of them automatically."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "migrating-from-ionic-1-0-to-ionic-4-0"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#migrating-from-ionic-1-0-to-ionic-4-0"
+        },
+        "Migrating from Ionic 1.0 to Ionic 4.0"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "ionic-1-0-to-ionic-4-0-what-s-involved-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ionic-1-0-to-ionic-4-0-what-s-involved-"
+        },
+        "Ionic 1.0 to Ionic 4.0: What’s Involved?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Migrating from Ionic 1 to Ionic 4.0 involves moving from AngularJS (aka Angular 1) to Angular 7+. There are many architectural differences between these versions, so some of the app code will have to be rewritten. The amount of work involved depends on the complexity and size of your app."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "One upside is that for the most part, the Ionic UI components you know and love from V1 haven’t changed much."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Here are some considerations to review before beginning the upgrade:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "App complexity"
+        ],
+        ": Naturally, the larger and more complex the app is, the longer it will take to migrate."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Framework support"
+        ],
+        ": In 2019, Ionic will release full support for React. You can also use Ionic Framework components ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/intro/cdn/"
+          },
+          "without a framework"
+        ],
+        ". Since these are not production-ready yet, we recommend sticking with Angular or waiting until the other framework support is available."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Budget and team makeup"
+        ],
+        ": The length of a migration project will vary based on the size of your team, the complexity of the app, and the amount of time allotted to make the transition."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "suggested-strategy"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#suggested-strategy"
+        },
+        "Suggested Strategy"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once your development team has identified a good time frame for beginning the migration, Ionic recommends feature-freezing the Ionic 1 application and getting the code in order: Fix any major bugs, eliminate tech debt, and reorganize as you see fit. Then, identify which features to migrate over and which to abandon."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once the Ionic 1 app is stable, create a new Ionic 4.0 project. The majority of the dev team’s attention should be given to the new project; only bugs should be fixed in the Ionic 1 app to ensure that the transition happens as quickly and smoothly as possible."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once the team is comfortable that the Ionic 4.0 app has become stable and has fulfilled a core set of features, you can then shut down the Ionic 1 app."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "moving-from-angularjs-to-angular"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#moving-from-angularjs-to-angular"
+        },
+        "Moving From AngularJS to Angular"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Please reference official ",
+      [
+        "a",
+        {
+          "href": "https://angular.io/guide/upgrade"
+        },
+        "Angular upgrade guide"
+      ],
+      " information."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "ionic-changes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ionic-changes"
+        },
+        "Ionic Changes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Our Ionic 3.0 to Ionic 4.0 migration sections above may prove to be a useful reference. Generate a new Ionic 4.0 project using the blank starter (see ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/developing/starting"
+        },
+        "Starting an App"
+      ],
+      "). Spend time getting familiar with Ionic 4.0 components. Happy building!"
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "need-assistance-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#need-assistance-"
+        },
+        "Need Assistance?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If your team would like assistance with the migration, please ",
+      [
+        "a",
+        {
+          "href": "https://ionicframework.com/enterprise-engine"
+        },
+        "reach out to us"
+      ],
+      "! Ionic offers Advisory Services, which includes Ionic 4.0 training, architecture reviews, and migration assistance."
+    ]
+  ],
+  "title": "Migration Guide",
+  "headings": [
+    {
+      "text": "Migrating from Ionic 4.x to Ionic 5.x",
+      "href": "#migrating-from-ionic-4-x-to-ionic-5-x"
+    },
+    {
+      "text": "Migrating from Ionic 3.0 to Ionic 4.0",
+      "href": "#migrating-from-ionic-3-0-to-ionic-4-0"
+    },
+    {
+      "text": "Changes in Package Name",
+      "href": "#changes-in-package-name"
+    },
+    {
+      "text": "Project structure",
+      "href": "#project-structure"
+    },
+    {
+      "text": "RxJS Changes",
+      "href": "#rxjs-changes"
+    },
+    {
+      "text": "Lifecycle Events",
+      "href": "#lifecycle-events"
+    },
+    {
+      "text": "Overlay Components",
+      "href": "#overlay-components"
+    },
+    {
+      "text": "Navigation",
+      "href": "#navigation"
+    },
+    {
+      "text": "Lazy Loading",
+      "href": "#lazy-loading"
+    },
+    {
+      "text": "Markup Changes",
+      "href": "#markup-changes"
+    },
+    {
+      "text": "Migrating from Ionic 1.0 to Ionic 4.0",
+      "href": "#migrating-from-ionic-1-0-to-ionic-4-0"
+    }
+  ],
+  "pageClass": "page-reference-migration"
+}

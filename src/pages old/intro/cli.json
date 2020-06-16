@@ -1,0 +1,408 @@
+{
+  "path": "/docs/intro/cli",
+  "previousText": "Environment Setup",
+  "previousUrl": "/docs/intro/environment",
+  "nextText": "Packages & CDN",
+  "nextUrl": "/docs/intro/cdn",
+  "contributors": [
+    "rtpHarry",
+    "dwieeb"
+  ],
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Ionic apps are created and developed primarily through the Ionic ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#cli"
+        },
+        "command-line"
+      ],
+      " utility. The Ionic CLI is the preferred method of installation, as it offers a wide range of dev tools and help options along the way. It is also the main tool through which to run the app and connect it to other services, such as Ionic Appflow."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "install-the-ionic-cli"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#install-the-ionic-cli"
+        },
+        "Install the Ionic CLI"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Before proceeding, make sure your computer has ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#node"
+        },
+        "Node.js"
+      ],
+      " installed. See ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/intro/environment"
+        },
+        "these instructions"
+      ],
+      " to set up an environment for Ionic."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Install the Ionic CLI with npm:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " -g @ionic/cli"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If there was a previous installation of the Ionic CLI, it will need to be uninstalled due to a change in package name."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " uninstall -g ionic\n",
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " -g @ionic/cli\n"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "The ",
+        [
+          "code",
+          null,
+          "-g"
+        ],
+        " option means ",
+        [
+          "em",
+          null,
+          "install globally"
+        ],
+        ". When packages are installed globally, ",
+        [
+          "code",
+          null,
+          "EACCES"
+        ],
+        " permission errors can occur.\nConsider setting up npm to operate globally without elevated permissions. See ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/developing/tips#resolving-permission-errors"
+          },
+          "Resolving Permission Errors"
+        ],
+        " for more information."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "start-an-app"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#start-an-app"
+        },
+        "Start an App"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Create an Ionic app using one of the pre-made app templates, or a blank one to start fresh. The three most common starters are the ",
+      [
+        "code",
+        null,
+        "blank"
+      ],
+      " starter, ",
+      [
+        "code",
+        null,
+        "tabs"
+      ],
+      " starter, and ",
+      [
+        "code",
+        null,
+        "sidemenu"
+      ],
+      " starter. Get started with the ",
+      [
+        "code",
+        null,
+        "ionic start"
+      ],
+      " command:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic start myApp tabs"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/installation/start-app-thumbnails.png",
+          "alt": "start app thumbnails"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To learn more about starting Ionic apps, see the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/developing/starting"
+        },
+        "Starting Guide"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "run-the-app"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#run-the-app"
+        },
+        "Run the App"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The majority of Ionic app development can be spent right in the browser using the ",
+      [
+        "code",
+        null,
+        "ionic serve"
+      ],
+      " command:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token builtin class-name"
+            },
+            "cd"
+          ],
+          " myApp\n",
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic serve"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are a number of other ways to run an app, it's recommended to start with this workflow. To develop and test apps on devices and emulators, see the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/developing/previewing"
+        },
+        "Running an App Guide"
+      ],
+      "."
+    ]
+  ],
+  "title": "Installing Ionic",
+  "headings": [
+    {
+      "text": "Install the Ionic CLI",
+      "href": "#install-the-ionic-cli"
+    },
+    {
+      "text": "Start an App",
+      "href": "#start-an-app"
+    },
+    {
+      "text": "Run the App",
+      "href": "#run-the-app"
+    }
+  ],
+  "pageClass": "page-intro-cli"
+}

@@ -1,0 +1,430 @@
+{
+  "path": "/docs/core-concepts/webview",
+  "previousText": "Cross Platform",
+  "previousUrl": "/docs/core-concepts/cross-platform",
+  "nextText": "What are PWAs?",
+  "nextUrl": "/docs/core-concepts/what-are-progressive-web-apps",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Web Views power web apps on native devices."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Web View is automatically provided for apps integrated with ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#capacitor"
+        },
+        "Capacitor"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "For ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#cordova"
+        },
+        "Cordova"
+      ],
+      ", Ionic maintains a ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/cordova-plugin-ionic-webview",
+          "target": "_blank"
+        },
+        "Web View plugin"
+      ],
+      ". The plugin is provided by default when using the Ionic CLI."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "what-is-a-web-view-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#what-is-a-web-view-"
+        },
+        "What is a Web View?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Ionic apps are built using ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#web-standards"
+        },
+        "web technologies"
+      ],
+      " and are rendered using Web Views, which are a full screen and full-powered web browser."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Modern Web Views offer many built-in ",
+      [
+        "a",
+        {
+          "href": "https://whatwebcando.today",
+          "target": "_blank"
+        },
+        "HTML5 APIs"
+      ],
+      " for hardware functionality such as cameras, sensors, GPS, speakers, and Bluetooth, but sometimes it may also be necessary to access platform-specific hardware APIs. In Ionic apps, hardware APIs can be accessed through a bridge layer, typically by using native plugins which expose JavaScript APIs."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/building/webview-architecture.png",
+          "alt": "webview architecture"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Ionic Web View plugin is specialized for modern JavaScript apps. For both iOS and Android, app files are always hosted using the ",
+      [
+        "code",
+        null,
+        "http://"
+      ],
+      " protocol with an optimized HTTP server that runs on the local device."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "cors"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cors"
+        },
+        "CORS"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Web Views enforce ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#cors"
+        },
+        "CORS"
+      ],
+      ", so it's important that external services properly handle cross-origin requests. See the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/troubleshooting/cors"
+        },
+        "CORS FAQs"
+      ],
+      " for information on dealing with CORS in Ionic apps."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "file-protocol"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#file-protocol"
+        },
+        "File Protocol"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Capacitor and Cordova apps are hosted on a local HTTP server and are served with the ",
+      [
+        "code",
+        null,
+        "http://"
+      ],
+      " protocol. Some plugins, however, attempt to access device files via the ",
+      [
+        "code",
+        null,
+        "file://"
+      ],
+      " protocol. To avoid difficulties between ",
+      [
+        "code",
+        null,
+        "http://"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "file://"
+      ],
+      ", paths to device files must be rewritten to use the local HTTP server. For example, ",
+      [
+        "code",
+        null,
+        "file:///path/to/device/file"
+      ],
+      " must be rewritten as ",
+      [
+        "code",
+        null,
+        "http://<host>:<port>/<prefix>/path/to/device/file"
+      ],
+      " before being rendered in the app."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For Capacitor apps, convert file URIs like so:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "javascript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Capacitor ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@capacitor/core'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\nCapacitor",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "convertFileSrc"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "filePath",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For Cordova apps, the ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/cordova-plugin-ionic-webview"
+        },
+        "Ionic Web View plugin"
+      ],
+      " provides a utility function for converting File URIs: ",
+      [
+        "code",
+        null,
+        "window.Ionic.WebView.convertFileSrc()"
+      ],
+      ". There is also a corresponding Ionic Native plugin: ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/native/ionic-webview/"
+        },
+        [
+          "code",
+          null,
+          "@ionic-native/ionic-webview"
+        ]
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "implementations"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#implementations"
+        },
+        "Implementations"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        ": ",
+        [
+          "a",
+          {
+            "href": "https://developer.apple.com/documentation/webkit/wkwebview",
+            "target": "_blank"
+          },
+          "WKWebView"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        ": ",
+        [
+          "a",
+          {
+            "href": "https://developer.chrome.com/multidevice/webview/overview",
+            "target": "_blank"
+          },
+          "Web View for Android"
+        ]
+      ],
+      " "
+    ]
+  ],
+  "title": "Web View",
+  "headings": [
+    {
+      "text": "What is a Web View?",
+      "href": "#what-is-a-web-view-"
+    }
+  ],
+  "pageClass": "page-core-concepts-webview"
+}

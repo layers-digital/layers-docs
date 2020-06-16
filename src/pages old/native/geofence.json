@@ -1,0 +1,1232 @@
+{
+  "title": "Geofence",
+  "path": "/docs/native/geofence",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Monitors circular geofences around latitude/longitude coordinates, and sends a notification to the user when the boundary of a geofence is crossed. Notifications can be sent when the user enters and/or exits a geofence.\nGeofences persist after device reboot. Geofences will be monitored even when the app is not running."
+    ]
+  ],
+  "repo": "https://github.com/cowbell/cordova-plugin-geofence",
+  "platforms": [
+    "Android",
+    "iOS",
+    "Windows",
+    "Windows Phone 8"
+  ],
+  "codeUsage": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Geofence ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-native/geofence/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " geofence",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Geofence"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// initialize the plugin"
+          ],
+          "\n  geofence",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "initialize"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// resolved promise does not return a value"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Geofence Plugin Ready'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "err"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "err",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "private"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addGeofence"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//options describing geofence"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "let"
+          ],
+          " fence ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    id",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//any unique ID"
+          ],
+          "\n    latitude",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          "       ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "37.285951"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//center of geofence radius"
+          ],
+          "\n    longitude",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          "      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "-"
+          ],
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "121.936650"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    radius",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          "         ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "100"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//radius to edge of geofence in meters"
+          ],
+          "\n    transitionType",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "3"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//see 'Transition Types' below"
+          ],
+          "\n    notification",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//notification settings"
+          ],
+          "\n        id",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          "             ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//any unique ID"
+          ],
+          "\n        title",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          "          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'You crossed a fence'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//notification title"
+          ],
+          "\n        text",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          "           ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'You just arrived to Gliwice city center.'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//notification body"
+          ],
+          "\n        openAppOnClick",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//open app when notification is tapped"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "geofence",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addOrUpdate"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "fence",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Geofence added'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "err"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "console"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Geofence failed to add'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n   ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n"
+        ]
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h3",
+      {
+        "id": "transition-types"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#transition-types"
+        },
+        "Transition Types"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "Transition type specifies whether the geofence should trigger when the user enters and/or leaves the geofence."
+    ],
+    "\n\n    ",
+    [
+      "h4",
+      {
+        "id": "supported-values"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#supported-values"
+        },
+        "Supported values"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "ul",
+      null,
+      "\n",
+      [
+        "li",
+        null,
+        "1: Enter"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "2: Leave"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "3: Both"
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h3",
+      {
+        "id": "defining-a-geofence"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#defining-a-geofence"
+        },
+        "Defining a Geofence"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "Geofences are defined by an object that is passed to ",
+      [
+        "code",
+        null,
+        "addOrUpdate()"
+      ],
+      ". Object properties are:"
+    ],
+    "\n",
+    [
+      "ul",
+      null,
+      "\n",
+      [
+        "li",
+        null,
+        "id: Any unique ID for the geofence. This ID is used to remove and update a geofence"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "latitude: Latitude coordinate of the center of the geofence radius"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "longitude: Latitude coordinate of the center of the geofence radius"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "radius: Radius from the center to the edge of the geofence"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "transitionType: Type of geofence transition to monitor for. See 'Transition Types' above"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "notification: Object. Options for defining the notification sent when a geofence is crossed",
+        [
+          "ul",
+          null,
+          "\n",
+          [
+            "li",
+            null,
+            "id: Any unique ID"
+          ],
+          "\n",
+          [
+            "li",
+            null,
+            "title: Notification title"
+          ],
+          "\n",
+          [
+            "li",
+            null,
+            "text: Notification body"
+          ],
+          "\n",
+          [
+            "li",
+            null,
+            "openAppOnClick: Boolean. Whether to open the app when the notification is tapped by the user"
+          ],
+          "\n"
+        ],
+        "\n"
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h3",
+      {
+        "id": "troubleshooting"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#troubleshooting"
+        },
+        "Troubleshooting"
+      ],
+      "\n    "
+    ],
+    "\n  \n    ",
+    [
+      "h4",
+      {
+        "id": "i-get-compile-errors-when-i-run-ionic-build-ios-or-ionic-run-ios-"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#i-get-compile-errors-when-i-run-ionic-build-ios-or-ionic-run-ios-"
+        },
+        "I get compile errors when I run ",
+        [
+          "code",
+          null,
+          "ionic build ios"
+        ],
+        " or ",
+        [
+          "code",
+          null,
+          "ionic run ios"
+        ],
+        "."
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "This could be caused by the Cordova project directory in ",
+      [
+        "code",
+        null,
+        "/platforms/ios"
+      ],
+      " not being named correctly.\nTry running ",
+      [
+        "code",
+        null,
+        "ionic cordova platform rm <platform>"
+      ],
+      " then run ",
+      [
+        "code",
+        null,
+        "ionic cordova platform add <platform>"
+      ],
+      " to recreate the\nplatform directories."
+    ]
+  ],
+  "package": "@ionic-native/geofence",
+  "cordova": "cordova-plugin-geofence",
+  "capacitorIncompatible": false,
+  "premierSlug": null,
+  "template": "native",
+  "headings": [],
+  "pageClass": "page-native-geofence"
+}

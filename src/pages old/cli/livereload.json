@@ -1,0 +1,499 @@
+{
+  "path": "/docs/cli/livereload",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "One option that can boost productivity when building Ionic apps is ",
+      [
+        "strong",
+        null,
+        "Live Reload"
+      ],
+      " (or ",
+      [
+        "strong",
+        null,
+        "live-reload"
+      ],
+      "). When active, Live Reload will reload the browser or ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/core-concepts/webview"
+        },
+        "Web View"
+      ],
+      " when changes in the app are detected. This is particularly useful for developing using hardware devices."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "terms"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#terms"
+        },
+        "Terms"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Live Reload is a conflated term. With ",
+      [
+        "code",
+        null,
+        "ionic serve"
+      ],
+      ", Live Reload just refers to reloading the browser when changes are made. Live Reload can also be used with Capacitor and Cordova to provide the same experience on virtual and hardware devices, which eliminates the need for re-deploying a native binary."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#usage"
+        },
+        "Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Since live-reload requires the Web View to load your app from a URL hosted by your computer instead of just reading files on the device, setting up live-reload for hardware devices can be tricky."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "As with regular device deploys, you will need a cable to connect your device to your computer. The difference is the Ionic CLI configures the Web View to load your app from the dev server on your computer."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "capacitor"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#capacitor"
+        },
+        "Capacitor"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Capacitor does not yet have a programmatic build for development (track ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/capacitor/issues/324"
+        },
+        "this issue"
+      ],
+      " for progress), so the Ionic CLI does ",
+      [
+        "strong",
+        null,
+        "not"
+      ],
+      " automatically forward ports for iOS and Android."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To use Live Reload with Capacitor, make sure you're either using a virtual device or a hardware device connected to the same Wi-Fi network as your computer. Then, you'll need to specify that you want to use an external address for the dev server using the ",
+      [
+        "code",
+        null,
+        "--external"
+      ],
+      " flag."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic capacitor run ios -l --external\n",
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic capacitor run android -l --external"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Remember, with the ",
+        [
+          "code",
+          null,
+          "--external"
+        ],
+        " option, others on your Wi-Fi network will be able to access your app."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "cordova"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cordova"
+        },
+        "Cordova"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "android"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#android"
+        },
+        "Android"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For Android devices, the Ionic CLI will automatically forward the dev server port. This means you can use a ",
+      [
+        "code",
+        null,
+        "localhost"
+      ],
+      " address and it will refer to your computer when loaded in the Web View, not the device."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The following all-in-one command will start a live-reload server on ",
+      [
+        "code",
+        null,
+        "localhost"
+      ],
+      " and deploy the app to an Android device using Cordova:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic cordova run android -l"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "ios"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ios"
+        },
+        "iOS"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For iOS devices, port forwarding is not yet an option. This means you'll need to connect your device to the same Wi-Fi network as your computer and use an external address for the dev server."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "You can track ",
+        [
+          "a",
+          {
+            "href": "https://github.com/ionic-team/native-run/issues/20"
+          },
+          "this issue"
+        ],
+        " for progress on iOS port forwarding with Ionic."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In some cases, the Ionic CLI won't know the address with which to configure the Web View, so you may be prompted to select one. Be sure to select the address of your computer on your Wi-Fi network."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The following all-in-one command will start a live-reload server on ",
+      [
+        "strong",
+        null,
+        "all addresses"
+      ],
+      " and deploy the app to an iOS device using Cordova:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic cordova run ios -l --external"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Remember, with the ",
+        [
+          "code",
+          null,
+          "--external"
+        ],
+        " option, others on your Wi-Fi network will be able to access your app."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "tips"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#tips"
+        },
+        "Tips"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "With Cordova, use the ",
+        [
+          "code",
+          null,
+          "--device"
+        ],
+        ", ",
+        [
+          "code",
+          null,
+          "--emulator"
+        ],
+        ", and ",
+        [
+          "code",
+          null,
+          "--target"
+        ],
+        " options to narrow down target devices. Use the ",
+        [
+          "code",
+          null,
+          "--list"
+        ],
+        " option to list all targets. See usage in the ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/cli/commands/cordova-run"
+          },
+          "command docs"
+        ],
+        "."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "You can separate the dev server process and the deploy process by using ",
+        [
+          "code",
+          null,
+          "ionic serve"
+        ],
+        " and the ",
+        [
+          "code",
+          null,
+          "--livereload-url"
+        ],
+        " option of ",
+        [
+          "code",
+          null,
+          "ionic cordova run"
+        ],
+        " or ",
+        [
+          "code",
+          null,
+          "ionic capacitor run"
+        ],
+        "."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "For Android, it is possible to configure ",
+        [
+          "a",
+          {
+            "href": "https://developer.android.com/studio/command-line/adb"
+          },
+          "adb"
+        ],
+        " to always forward ports while the adb server is running (see ",
+        [
+          "code",
+          null,
+          "adb reverse"
+        ],
+        "). With port forwarding set up, an external address would no longer be required. You can also setup the adb bridge over TCP such that subsequent deploys no longer need a USB cable."
+      ],
+      " "
+    ]
+  ],
+  "title": "Live Reload",
+  "headings": [
+    {
+      "text": "Terms",
+      "href": "#terms"
+    },
+    {
+      "text": "Usage",
+      "href": "#usage"
+    },
+    {
+      "text": "Tips",
+      "href": "#tips"
+    }
+  ],
+  "pageClass": "page-cli-livereload"
+}

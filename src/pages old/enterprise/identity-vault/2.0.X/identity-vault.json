@@ -1,0 +1,5113 @@
+{
+  "path": "/docs/enterprise/identity-vault/2.0.X/identity-vault",
+  "title": "Identity Vault",
+  "version": "2.0.0",
+  "minor": "2.0.X",
+  "template": "enterprise-plugin",
+  "otherVersions": [
+    "2.0.X",
+    "3.0.X",
+    "3.1.X",
+    "3.2.X",
+    "3.3.X",
+    "3.4.X",
+    "3.5.X",
+    "3.6.X",
+    "4.0.X",
+    "4.1.X"
+  ],
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Ionic Enterprise Identity Vault (\"the Vault\") is a all-in-one frontend identity management system that uses security best practices and the latest in biometric authentication options available on iOS and Android."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Vault manages secure user identity and session tokens, ensuring sensitive tokens are encrypted at rest, stored only in secure locations on the device, and unlocked only with biometric identity (TouchID/FaceID/fingerprint)."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Without Ionic Enterprise Identity Vault, Ionic developers have to resort to combining third party Cordova plugins, often resulting in insecure setups due to the lack of correct implementation of biometric and at-rest encryption strategies."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "overview"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#overview"
+        },
+        "Overview"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "iframe",
+      {
+        "src": "https://fast.wistia.net/embed/iframe/1drqkhh5sb",
+        "title": "Wistia video player",
+        "allowtransparency": "true",
+        "frameborder": "0",
+        "scrolling": "no",
+        "class": "wistia_embed",
+        "name": "wistia_embed",
+        "allowfullscreen": "",
+        "mozallowfullscreen": "",
+        "webkitallowfullscreen": "",
+        "oallowfullscreen": "",
+        "msallowfullscreen": "",
+        "width": "640",
+        "height": "360"
+      }
+    ],
+    " ",
+    [
+      "template",
+      {
+        "src": "https://fast.wistia.net/assets/external/E-v1.js",
+        "async": ""
+      }
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "implementation-video-walkthrough"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#implementation-video-walkthrough"
+        },
+        "Implementation Video Walkthrough"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "iframe",
+      {
+        "src": "https://fast.wistia.net/embed/iframe/11kyjukz3u",
+        "title": "Wistia video player",
+        "allowtransparency": "true",
+        "frameborder": "0",
+        "scrolling": "no",
+        "class": "wistia_embed",
+        "name": "wistia_embed",
+        "allowfullscreen": "",
+        "mozallowfullscreen": "",
+        "webkitallowfullscreen": "",
+        "oallowfullscreen": "",
+        "msallowfullscreen": "",
+        "width": "640",
+        "height": "360"
+      }
+    ],
+    " ",
+    [
+      "template",
+      {
+        "src": "https://fast.wistia.net/assets/external/E-v1.js",
+        "async": ""
+      }
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "configuring-the-vault"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#configuring-the-vault"
+        },
+        "Configuring the Vault"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In the constructor of your ",
+      [
+        "code",
+        null,
+        "User"
+      ],
+      " service, the vault is configured by providing options to the ",
+      [
+        "code",
+        null,
+        "super()"
+      ],
+      " call:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Injectable"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "User"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "IonicIdentityVaultUser"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " http",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Http",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " platform",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Platform",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " app",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " App"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "super"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "platform",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Whether to enable biometrics automatically when the user logs in"
+          ],
+          "\n      enableBiometrics",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Lock the app if it is terminated and re-opened"
+          ],
+          "\n      lockOnClose",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "false"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Lock the app after N milliseconds of inactivity"
+          ],
+          "\n      lockAfter",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "5000"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Obscure the app when the app is backgrounded (most apps will want"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// to set this to false unless sensitive financial data is being displayed)"
+          ],
+          "\n      hideScreenOnBackground",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "(See more detailed explanations of the ",
+      [
+        "code",
+        null,
+        "super()"
+      ],
+      " call ",
+      [
+        "a",
+        {
+          "href": "#superplatform-options"
+        },
+        "below"
+      ],
+      ".)"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "modify-login-signup-methods"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#modify-login-signup-methods"
+        },
+        "Modify login/signup methods"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "By default, the user service contains mock ",
+      [
+        "code",
+        null,
+        "login"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "signup"
+      ],
+      " methods. You should modify\nthose to call your login and signup API endpoints, respectively."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "user-lifecycle"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#user-lifecycle"
+        },
+        "User Lifecycle"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Apps manage user sessions in a variety of ways. We have provided a typical authentication\nflow in the provided ",
+      [
+        "code",
+        null,
+        "demo"
+      ],
+      ", which has traditional login forms and the ability for the\nuser to enable biometric authentication in settings."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "user-service-initialization"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#user-service-initialization"
+        },
+        "User service initialization"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In the demo app, the user service is the first point of initialization for the user session. When the\nservice is first loaded by Angular, it will query the vault for an unlocked token. An unlocked token is\nan in-memory token that indicates an active user session that is not locked out. For example, when using an app like Facebook, you can open and close the app repeatedly but still be logged in, this is considered \"unlocked\" in Vault terminology."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If the session is restored by the ",
+      [
+        "code",
+        null,
+        "User"
+      ],
+      " service, then ",
+      [
+        "code",
+        null,
+        "onSessionRestored"
+      ],
+      " will be called in your ",
+      [
+        "code",
+        null,
+        "User"
+      ],
+      " service with the restored token, provided it extends ",
+      [
+        "code",
+        null,
+        "IonicIdentityVaultUser"
+      ],
+      ". See the demo example in ",
+      [
+        "code",
+        null,
+        "user.ts"
+      ],
+      ": ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/enterprise-auth/blob/32bd512239eb0033887dd198406193c831f2fe02/demo/src/services/user.ts#L44"
+        },
+        "onSessionRestored()"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Even for unlocked tokens, the vault is using security best practices, so you shouldn't store that token again yourself. The vault stores the token in a secure location so that it is encrypted ",
+      [
+        "em",
+        null,
+        "at rest"
+      ],
+      ", only requiring biometric authentication if the vault is locked and the user locked out."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        "Lock out"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Depending on your configuration, the Vault can become ",
+      [
+        "code",
+        null,
+        "locked"
+      ],
+      ". For example, when using ",
+      [
+        "code",
+        null,
+        "lockAfter"
+      ],
+      ", the vault will be locked after the app is inactive beyond the ",
+      [
+        "code",
+        null,
+        "lockAfter"
+      ],
+      " threshold. When the vault is locked,\nthe ",
+      [
+        "code",
+        null,
+        "User"
+      ],
+      " service will have its ",
+      [
+        "code",
+        null,
+        "onVaultLocked()"
+      ],
+      " method called. In this method, you should\nclear the session token, and navigate the user back to the login page. See the example in ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ionic-team/enterprise-auth/blob/32bd512239eb0033887dd198406193c831f2fe02/demo/src/services/user.ts#L29"
+        },
+        "onVaultLocked()"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When the vault is locked, the session token is still stored in the vault, but now it is stored such that it ",
+      [
+        "em",
+        null,
+        "requires"
+      ],
+      " biometric authentication to access. This is hardware-level security that cannot be bypassed even in jailbroken devices."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        "Log out"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Logging a user out removes their session and clears any stored tokens in the Vault. This should be used when the user wants to completely log out from the app, for example to switch to a different user."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "code",
+        null,
+        "User"
+      ],
+      " service provides a ",
+      [
+        "code",
+        null,
+        "logout()"
+      ],
+      " method that ",
+      [
+        "em",
+        null,
+        "clears"
+      ],
+      " the vault. This will also trigger the lock out event in ",
+      [
+        "code",
+        null,
+        "onVaultLocked()"
+      ],
+      ", so your logic can remain the same."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "automatically-adding-your-token-to-requests"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#automatically-adding-your-token-to-requests"
+        },
+        "Automatically adding your token to requests"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you'd like to automatically add your authorization token from your user service to every request, you can follow\nalong with the simple example at ",
+      [
+        "code",
+        null,
+        "demo/src/services/http-interceptor.ts"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "iframe",
+      {
+        "src": "https://fast.wistia.net/embed/iframe/ykv4h1dpiq",
+        "title": "Wistia video player",
+        "allowtransparency": "true",
+        "frameborder": "0",
+        "scrolling": "no",
+        "class": "wistia_embed",
+        "name": "wistia_embed",
+        "allowfullscreen": "",
+        "mozallowfullscreen": "",
+        "webkitallowfullscreen": "",
+        "oallowfullscreen": "",
+        "msallowfullscreen": "",
+        "width": "640",
+        "height": "360"
+      }
+    ],
+    " ",
+    [
+      "template",
+      {
+        "src": "https://fast.wistia.net/assets/external/E-v1.js",
+        "async": ""
+      }
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "working-with-multiple-authentication-tokens"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#working-with-multiple-authentication-tokens"
+        },
+        "Working with multiple authentication tokens"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Identity Vault also supports using an ",
+      [
+        "code",
+        null,
+        "object"
+      ],
+      " to store multiple tokens at once. This requires a few changes to your user service to make it use an\nobject instead of a string. Please see ",
+      [
+        "code",
+        null,
+        "demo/src/services/user-multitoken.js"
+      ],
+      " for an example."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Please note that this means ",
+      [
+        "code",
+        null,
+        "user.token"
+      ],
+      " becomes an object with the tokens you stored, so any time you use ",
+      [
+        "code",
+        null,
+        "user.token"
+      ],
+      " you'll also want to specify\nwhick key such as ",
+      [
+        "code",
+        null,
+        "user.token.mainToken"
+      ],
+      ". You may also need to modify ",
+      [
+        "code",
+        null,
+        "http-interceptor.ts"
+      ],
+      " from above to include the right tokens."
+    ],
+    " ",
+    [
+      "iframe",
+      {
+        "src": "https://fast.wistia.net/embed/iframe/kz8oekyfxs",
+        "title": "Wistia video player",
+        "allowtransparency": "true",
+        "frameborder": "0",
+        "scrolling": "no",
+        "class": "wistia_embed",
+        "name": "wistia_embed",
+        "allowfullscreen": "",
+        "mozallowfullscreen": "",
+        "webkitallowfullscreen": "",
+        "oallowfullscreen": "",
+        "msallowfullscreen": "",
+        "width": "640",
+        "height": "360"
+      }
+    ],
+    " ",
+    [
+      "template",
+      {
+        "src": "https://fast.wistia.net/assets/external/E-v1.js",
+        "async": ""
+      }
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "function-callback-documentation"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#function-callback-documentation"
+        },
+        "Function & Callback Documentation"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When extending a User service with ",
+      [
+        "code",
+        null,
+        "IonicIdentityVaultUser"
+      ],
+      ", this modifies your user\nservice and provides access to many methods both inside of your User class as well\nas other portions of your app. If you haven't already, you should extend ",
+      [
+        "code",
+        null,
+        "IonicIdentityVaultUser"
+      ],
+      " and set up Identity Vault using the ",
+      [
+        "code",
+        null,
+        "super()"
+      ],
+      " call from above."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Here are all of the functions available to you, as well as callbacks and how they work:"
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "examples-from-services-user-ts-in-demo-project"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#examples-from-services-user-ts-in-demo-project"
+        },
+        "Examples from ",
+        [
+          "code",
+          null,
+          "services/user.ts"
+        ],
+        " in Demo project"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "super-platform-options-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#super-platform-options-"
+        },
+        [
+          "code",
+          null,
+          "super(platform, options)"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This call should be made inside of your User classes constructor, please see the available options above."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Injectable"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "User"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "IonicIdentityVaultUser"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " http",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Http",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " platform",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Platform",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " app",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " App"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "super"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "platform",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Whether to enable biometrics automatically when the user logs in"
+          ],
+          "\n      enableBiometrics",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Lock the app if it is terminated and re-opened"
+          ],
+          "\n      lockOnClose",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "false"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Lock the app after N milliseconds of inactivity"
+          ],
+          "\n      lockAfter",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "5000"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Obscure the app when the app is backgrounded (most apps will want"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// to set this to false unless sensitive financial data is being displayed)"
+          ],
+          "\n      hideScreenOnBackground",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "enableBiometrics"
+      ],
+      " defaults Biometrics to be turned on automatically when a user is logged in."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "lockOnClose"
+      ],
+      " requires the user to reauthenticate (with login or biometrics) in order to access\ntheir session token after completely closing the app on their device."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "lockAfter"
+      ],
+      " specifies how long the app can be idle (in background) before the user is locked\nout of the vault and required to re-authenticate. Set to ",
+      [
+        "code",
+        null,
+        "0"
+      ],
+      " to allow long lived sessions,\nappropriate for social network and non-financial apps."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "hideScreenOnBackground"
+      ],
+      " obscures the app when backgrounded to avoid leaking sensitive information,\nsuch as financial statements or balances. Most non-financial apps should set this to ",
+      [
+        "code",
+        null,
+        "false"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "onvaultlocked-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#onvaultlocked-"
+        },
+        [
+          "code",
+          null,
+          "onVaultLocked()"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "onVaultLocked()"
+      ],
+      " is a callback that will be called whenever the Vault has become\nlocked (requiring the user to reauthenticate by logging in or using Biometrics). In this callback you should\nclear the token from memory, and send the user back to your login page, or perform any other custom logic you'd\nlike to."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "User"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "IonicIdentityVaultUser"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ..."
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "onVaultLocked"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Clear our in-memory token"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "token ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "null"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " nav ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "app",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getRootNavs"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "0"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "if"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "nav",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      nav",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "setRoot"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "LoginPage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "onsessionrestored-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#onsessionrestored-"
+        },
+        [
+          "code",
+          null,
+          "onSessionRestored()"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "onSessionRestored()"
+      ],
+      " is a callback that will be called whenever the user has an unlocked token stored in the vault. This will be called when a user launches the app after some period of inactivity and their session is still active and the vault is not locked. This inactivity period can be configured using ",
+      [
+        "code",
+        null,
+        "lockAfter"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Here you should also set the token in memory, and possibly also check to make sure that the token is still valid with your server."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "User"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "IonicIdentityVaultUser"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ..."
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "onSessionRestored"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "token",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token builtin"
+              },
+              "string"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "token ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " token",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "savesession-username-email-token-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#savesession-username-email-token-"
+        },
+        [
+          "code",
+          null,
+          "saveSession(username/email, token)"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "saveSession()"
+      ],
+      " can be called to save and secure your token\nwhenever you get a new one, such as in your ",
+      [
+        "code",
+        null,
+        "login"
+      ],
+      " or ",
+      [
+        "code",
+        null,
+        "signup"
+      ],
+      " functions. This method is made available by extending ",
+      [
+        "code",
+        null,
+        "IonicIdentityVaultUser"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "User"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "IonicIdentityVaultUser"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ..."
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "login"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "email",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " password"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Make a request to your server that returns a token"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " fakeToken ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'token'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "saveSession"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "email",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " fakeToken",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "getvault-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#getvault-"
+        },
+        [
+          "code",
+          null,
+          "getVault()"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "getVault"
+      ],
+      " returns the Vault object asynchronously that you can then interact with in future calls."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Please see the following vault functions for examples:"
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "vault-clear-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#vault-clear-"
+        },
+        [
+          "code",
+          null,
+          "vault.clear()"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "vault.clear()"
+      ],
+      " removes any stored tokens from the Identity Vault, this should be called on logout for instance."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "User"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "IonicIdentityVaultUser"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ..."
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "async"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "logout"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Send a request to your server that invalidates the users session / token."
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " vault ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getVault"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    vault",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "clear"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "vault-lock-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#vault-lock-"
+        },
+        [
+          "code",
+          null,
+          "vault.lock()"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "vault.lock()"
+      ],
+      " locks the user out of their current session until they reauthenticate by logging in or with biometrics.\nThis is effectively a \"soft\" logout, as the session/token may still be active on the server but the only way for the user to unlock the vault and use the app again is by providing biometric authentication."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "User"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "IonicIdentityVaultUser"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ..."
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "async"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "lockout"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Send a request to your server that invalidates the users session / token."
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " vault ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getVault"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    vault",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "lock"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "examples-from-pages-settings-settings-ts-in-demo-project"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#examples-from-pages-settings-settings-ts-in-demo-project"
+        },
+        "Examples from ",
+        [
+          "code",
+          null,
+          "pages/settings/settings.ts"
+        ],
+        " in Demo project"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "injecting-your-user-into-pages"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#injecting-your-user-into-pages"
+        },
+        "Injecting your User into Pages"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Whenever you'd like to use your User Service on another page, you'll have to inject it into that page, making it available to other functions."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " User ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'../../services/user'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Component"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  selector",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'page-settings'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  templateUrl",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'settings.html'"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "SettingsPage"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " user",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " User"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// this.user is now a thing!"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "ready-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ready-"
+        },
+        [
+          "code",
+          null,
+          "ready()"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "ready()"
+      ],
+      " is a function that returns when the User object and Identity Vault have loaded and are ready to access the\nnative functionality of the device. It should be used before attempting to use functions within a constructor or ",
+      [
+        "code",
+        null,
+        "ionViewDidEnter()"
+      ],
+      " for instance."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "SettingsPage"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "async"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ionViewDidEnter"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "user",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ready"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Now we can call user functions!"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "getbiometrictype-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#getbiometrictype-"
+        },
+        [
+          "code",
+          null,
+          "getBiometricType()"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "getBiometricType()"
+      ],
+      " returns the type of Biometrics that is available on your users physical device. This can be used\nto update the UI to show the type in a settings page, for instance."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "SettingsPage"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  _biometricType",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "string"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "null"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "async"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ionViewDidEnter"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "user",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ready"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "_biometricType ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "user",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getBiometricType"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getBiometricType"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// An example function that turns the returned biometric type into something"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// that looks nice for your UI."
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "if"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "!"
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "_biometricType",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "null"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "switch"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "_biometricType",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "toLowerCase"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "case"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'touchid'"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'TouchID'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "case"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'faceid'"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'FaceID'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "case"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'fingerprint'"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Fingerprint'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "''"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "isbiometricsenabled-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#isbiometricsenabled-"
+        },
+        [
+          "code",
+          null,
+          "isBiometricsEnabled()"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "isBiometricsEnabled()"
+      ],
+      " returns a boolean for whether or not Biometrics is indeed turned on for your user."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "SettingsPage"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  enableBiometrics",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "boolean"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "false"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "async"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ionViewDidEnter"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "user",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ready"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "enableBiometrics ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "user",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "isBiometricsEnabled"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "setbiometricsenabled-boolean-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#setbiometricsenabled-boolean-"
+        },
+        [
+          "code",
+          null,
+          "setBiometricsEnabled(boolean)"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "setBiometricsEnabled()"
+      ],
+      " allows you to change whether or not Biometrics is currently turned on for the user. In this example, we've\nattached ",
+      [
+        "code",
+        null,
+        "enableBiometrics"
+      ],
+      " as the ",
+      [
+        "code",
+        null,
+        "ngModel"
+      ],
+      " on a Toggle input:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "SettingsPage"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  enableBiometrics",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "boolean"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "false"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "async"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ionViewDidEnter"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "await"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "user",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ready"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "enableBiometrics ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "user",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "isBiometricsEnabled"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "onEnableBiometricsChange"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "user",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "setBiometricsEnabled"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "enableBiometrics",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "mocking-for-testing"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#mocking-for-testing"
+        },
+        "Mocking for Testing"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Cordova plugin provided can be mocked to enable testing and in-browser development."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "We have provided an example mock in ",
+      [
+        "code",
+        null,
+        "~/path/to/enterprise-auth/demo/src/services/auth-mock.ts"
+      ],
+      ", copy\nit to your project and then, in your ",
+      [
+        "code",
+        null,
+        "User"
+      ],
+      " service, override ",
+      [
+        "code",
+        null,
+        "getPlugin()"
+      ],
+      " to return the mock:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " IonicIdentityVaultUser ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionic-enterprise-identity-vault'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " IonicNativeAuthMock ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'./auth-mock'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n@",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "Injectable"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "MockUser"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "IonicIdentityVaultUser"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ..."
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getPlugin"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " IonicNativeAuthMock",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ..."
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Overview",
+      "href": "#overview"
+    },
+    {
+      "text": "Automatically adding your token to requests",
+      "href": "#automatically-adding-your-token-to-requests"
+    },
+    {
+      "text": "Working with multiple authentication tokens",
+      "href": "#working-with-multiple-authentication-tokens"
+    },
+    {
+      "text": "Function & Callback Documentation",
+      "href": "#function-callback-documentation"
+    }
+  ],
+  "pageClass": "page-enterprise-identity-vault-2-0-x-identity-vault"
+}

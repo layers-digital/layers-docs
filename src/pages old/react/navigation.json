@@ -1,0 +1,3777 @@
+{
+  "path": "/docs/react/navigation",
+  "previousText": "Lifecycle",
+  "previousUrl": "/docs/react/lifecycle",
+  "nextText": "Config",
+  "nextUrl": "/docs/react/config",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "This guide covers how routing works in an app built with Ionic and React."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "code",
+        null,
+        "IonReactRouter"
+      ],
+      " uses the popular ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ReactTraining/react-router"
+        },
+        "React Router"
+      ],
+      " library under the hood. With Ionic and React Router, you can create multi-page apps with rich page transitions."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Everything you know about routing using React Router carries over into Ionic React. Let's take a look at the basics of an Ionic React app and how routing works with it."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "routing-in-ionic-react"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#routing-in-ionic-react"
+        },
+        "Routing in Ionic React"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Here is a sample ",
+      [
+        "code",
+        null,
+        "App"
+      ],
+      " component that defines a single route to the \"/dashboard\" URL. When you visit \"/dashboard\", the route renders the ",
+      [
+        "code",
+        null,
+        "DashboardPage"
+      ],
+      " component."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "App.tsx"
+      ]
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " App",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " React",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function-variable function"
+            },
+            "FC"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonApp",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonReactRouter",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonRouterOutlet",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Route path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/dashboard\""
+          ],
+          " component",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "DashboardPage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Redirect exact ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/\""
+          ],
+          " to",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/dashboard\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonRouterOutlet",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonReactRouter",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonApp",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Directly after the ",
+      [
+        "code",
+        null,
+        "Route"
+      ],
+      ", we define our default ",
+      [
+        "code",
+        null,
+        "Redirect"
+      ],
+      ", which, when a user visits the root URL of the app (\"/\"), it redirects them to the \"/dashboard\" URL."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The redirect also has the ",
+      [
+        "code",
+        null,
+        "exact"
+      ],
+      " prop set, which means the URL has to match the ",
+      [
+        "code",
+        null,
+        "from"
+      ],
+      " prop (or the ",
+      [
+        "code",
+        null,
+        "path"
+      ],
+      " prop if ",
+      [
+        "code",
+        null,
+        "exact"
+      ],
+      " was used on a ",
+      [
+        "code",
+        null,
+        "Route"
+      ],
+      ") precisely for this route to be a match. Without it, this redirect would render for every route, since every route begins with \"/\"."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "You can also programmatically redirect from a Route's render method based on a condition, like checking if a user is authed or not:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Route\n  exact\n  path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/dashboard\""
+          ],
+          "\n  render",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "props"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " isAuthed ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "?"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "DashboardPage ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "props",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "LoginPage ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "ionreactrouter"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ionreactrouter"
+        },
+        "IonReactRouter"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "code",
+        null,
+        "IonReactRouter"
+      ],
+      " component wraps the traditional ",
+      [
+        "a",
+        {
+          "href": "https://reacttraining.com/react-router/web/api/BrowserRouter"
+        },
+        [
+          "code",
+          null,
+          "BrowserRouter"
+        ]
+      ],
+      " component from React Router, and sets the app up for routing. Therefore, use ",
+      [
+        "code",
+        null,
+        "IonReactRouter"
+      ],
+      " in place of ",
+      [
+        "code",
+        null,
+        "BrowserRouter"
+      ],
+      ". You can pass in any props to ",
+      [
+        "code",
+        null,
+        "IonReactRouter"
+      ],
+      " and they will be passed down to the underlying ",
+      [
+        "code",
+        null,
+        "BrowserRouter"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "nested-routes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#nested-routes"
+        },
+        "Nested Routes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Inside the Dashboard page, we define more routes related to this specific section of the app:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "DashboardPage.tsx"
+      ]
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " DashboardPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " React",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function-variable function"
+            },
+            "FC"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonRouterOutlet",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Route exact path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/dashboard\""
+          ],
+          " component",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "UsersListPage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Route path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/dashboard/users/:id\""
+          ],
+          " component",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "UserDetailPage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonRouterOutlet",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Here, there are a couple more routes defined to point to pages from within the dashboard portion of the app. Note, that we need to define the whole route in the path, and we can't leave off \"/dashboard\" even though we arrived to this page from that URL. React Router requires full paths, and relative paths are not supported."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "However, we can use the ",
+      [
+        "a",
+        {
+          "href": "https://reacttraining.com/react-router/web/api/match"
+        },
+        [
+          "code",
+          null,
+          "match"
+        ]
+      ],
+      " objects ",
+      [
+        "code",
+        null,
+        "url"
+      ],
+      " property to provide the URL that was matched to render a component, which helps when working with nested routes:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " DashboardPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " React",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "FC"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "RouteComponentProps",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "match",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonRouterOutlet",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Route exact path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "match",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "url",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " component",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "UsersListPage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Route path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token template-string"
+            },
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ],
+            [
+              "span",
+              {
+                "class": "token interpolation"
+              },
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "${"
+              ],
+              "match",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "url",
+              [
+                "span",
+                {
+                  "class": "token interpolation-punctuation punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "/users/:id"
+            ],
+            [
+              "span",
+              {
+                "class": "token template-punctuation string"
+              },
+              "`"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " component",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "UserDetailPage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonRouterOutlet",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Here, ",
+      [
+        "code",
+        null,
+        "match.url"
+      ],
+      " contains the value of \"/dashboard\", since that was the URL used to render the ",
+      [
+        "code",
+        null,
+        "DashboardPage"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "These routes are grouped in an ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      ", let's discuss that next."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "ionrouteroutlet"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ionrouteroutlet"
+        },
+        "IonRouterOutlet"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      " component provides a container for Routes that render Ionic \"pages\". When a page is in an ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      ", the container controls the transition animation between the pages as well as controls when a page is created and destroyed, which helps maintain the state between the views when switching back and forth between them."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "code",
+        null,
+        "DashboardPage"
+      ],
+      " above shows a users list page and a details page. When navigating between the two pages, the ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      " provides the appropriate platform page transition and keeps the state of the previous page intact so that when a user navigates back to the list page, it appears in the same state as when it left."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "An ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      " should only contain ",
+      [
+        "code",
+        null,
+        "Route"
+      ],
+      "s or ",
+      [
+        "code",
+        null,
+        "Redirect"
+      ],
+      "s. Any other component should be rendered either as a result of a ",
+      [
+        "code",
+        null,
+        "Route"
+      ],
+      " or outside of the ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "An ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      " should also not be a descendant from another ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "navigation"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#navigation"
+        },
+        "Navigation"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are several options available when routing to different views in an Ionic React app. Here, the ",
+      [
+        "code",
+        null,
+        "UsersListPage"
+      ],
+      " uses ",
+      [
+        "code",
+        null,
+        "IonItem"
+      ],
+      "'s ",
+      [
+        "code",
+        null,
+        "routerLink"
+      ],
+      " prop to specify the route to go to when the item is tapped/clicked:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "UsersListPage.tsx"
+      ]
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " UsersListPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " React",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function-variable function"
+            },
+            "FC"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "Users",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonList",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonItem routerLink",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/dashboard/users/1\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonLabel",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "User ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonLabel",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonItem",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonItem routerLink",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/dashboard/users/2\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonLabel",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "User ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "2"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonLabel",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonItem",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonList",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Other components that have the ",
+      [
+        "code",
+        null,
+        "routerLink"
+      ],
+      " prop are ",
+      [
+        "code",
+        null,
+        "IonButton"
+      ],
+      ", ",
+      [
+        "code",
+        null,
+        "IonCard"
+      ],
+      ", ",
+      [
+        "code",
+        null,
+        "IonRouterLink"
+      ],
+      ", ",
+      [
+        "code",
+        null,
+        "IonFabButton"
+      ],
+      ", and ",
+      [
+        "code",
+        null,
+        "IonItemOption"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Each of these components also have a ",
+      [
+        "code",
+        null,
+        "routerDirection"
+      ],
+      " prop to explicitly set the type of page transition to use (\"back\", \"forward\", or \"none\")."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Outside of these components that have the ",
+      [
+        "code",
+        null,
+        "routerLink"
+      ],
+      " prop, you can also use React Routers ",
+      [
+        "a",
+        {
+          "href": "https://reacttraining.com/react-router/web/api/Link"
+        },
+        [
+          "code",
+          null,
+          "Link"
+        ]
+      ],
+      " component to navigate between views:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "html"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "Link"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "to"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "/dashboard/users/1",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "User 1",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "Link"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "We recommend using one of the above methods whenever possible for routing. The advantage to these approaches is that they both render an anchor (",
+      [
+        "code",
+        null,
+        "<a>"
+      ],
+      ")tag, which is suitable for overall app accessibility."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A programmatic option for navigation is using the ",
+      [
+        "a",
+        {
+          "href": "https://reacttraining.com/react-router/web/api/history"
+        },
+        [
+          "code",
+          null,
+          "history"
+        ]
+      ],
+      " prop that React Router provides to the components it renders via routes."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonButton\n  onClick",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "e"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "preventDefault"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n    history",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "push"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'/dashboard/users/1'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  Go to User ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonButton",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Note: ",
+        [
+          "code",
+          null,
+          "history"
+        ],
+        " is a prop."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "url-parameters"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#url-parameters"
+        },
+        "URL Parameters"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The second route defined in the Dashboard Page has a URL parameter defined (the \":id\" portion in the path). URL parameters are dynamic portions of the ",
+      [
+        "code",
+        null,
+        "path"
+      ],
+      ", and when the user navigates to a URL such as \"/dashboard/users/1\", the \"1\" is saved to a parameter named \"id\", which can be accessed in the component the route renders. Let's see how that's done."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "UserDetailPage.tsx"
+      ]
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "interface"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "UserDetailPageProps"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "extends"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token class-name"
+            },
+            "RouteComponentProps"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  id",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "string"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " UserDetailPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " React",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token constant"
+            },
+            "FC"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "UserDetailPageProps",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "match",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "return"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "User Detail",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonTitle",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonToolbar",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonHeader",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n        User ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "match",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "params",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "id",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonContent",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonPage",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "a",
+        {
+          "href": "https://reacttraining.com/react-router/web/api/match"
+        },
+        [
+          "code",
+          null,
+          "match"
+        ]
+      ],
+      " prop contains information about the matched route, including the URL params. We obtain the ",
+      [
+        "code",
+        null,
+        "id"
+      ],
+      " param here and display it on the screen."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Note how we use a TypeScript interface to strongly type the props object. The interface gives us type safety and code completion inside of the component."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "ionrouteroutlet-in-a-tabs-view"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ionrouteroutlet-in-a-tabs-view"
+        },
+        "IonRouterOutlet in a Tabs View"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When working in a tabs view, Ionic React needs a way to determine what views belong to which tabs. We accomplish this by taking advantage of the fact that the paths provided to a ",
+      [
+        "code",
+        null,
+        "Route"
+      ],
+      " are regular expressions."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "While the syntax looks a bit strange, it is reasonably straightforward once you understand it."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For example, the routes for a view with two tabs (sessions and speakers) can be set up as such:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "IonRouterOutlet",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Route path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/:tab(sessions)\""
+          ],
+          " component",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "SessionsPage",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " exact",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Route path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/:tab(sessions)/:id\""
+          ],
+          " component",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "SessionDetail",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "Route path",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/:tab(speakers)\""
+          ],
+          " component",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "SpeakerList",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " exact",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "IonRouterOutlet",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If the navigated URL were \"/sessions\", it would match the first route and add a URL parameter named \"tab\" with the value of \"sessions\" to the resulting ",
+      [
+        "code",
+        null,
+        "match"
+      ],
+      " object passed into ",
+      [
+        "code",
+        null,
+        "SessionsPage"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When a user navigates to a session detail page (\"/sessions/1\" for instance), the second route adds a URL parameter named \"tab\" with a value of \"sessions\". When ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      " sees that both pages are in the same \"sessions\" tab, it provides an animated page transition to the new view. If a user navigates to a new tab (\"speakers\" in this case), ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      " knows not to provide the animation."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "switches-in-ionrouteroutlet"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#switches-in-ionrouteroutlet"
+        },
+        "Switches in IonRouterOutlet"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Since ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      " takes over the job in determining which routes get rendered, using a ",
+      [
+        "code",
+        null,
+        "Switch"
+      ],
+      " from React Router has no effect when used inside of an ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      ". Switches still function as expected when used outside an ",
+      [
+        "code",
+        null,
+        "IonRouterOutlet"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "more-information"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#more-information"
+        },
+        "More Information"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For more info on routing in React using React Router, check out their docs at ",
+      [
+        "a",
+        {
+          "href": "https://reacttraining.com/react-router/web"
+        },
+        "https://reacttraining.com/react-router/web"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "from-the-community"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#from-the-community"
+        },
+        "From the Community"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "href": "https://alligator.io/ionic/ionic-4-react-navigation"
+        },
+        "Ionic 4 and React: Navigation"
+      ],
+      " - Paul Halliday"
+    ]
+  ],
+  "title": "React Navigation",
+  "headings": [
+    {
+      "text": "Routing in Ionic React",
+      "href": "#routing-in-ionic-react"
+    },
+    {
+      "text": "IonReactRouter",
+      "href": "#ionreactrouter"
+    },
+    {
+      "text": "Nested Routes",
+      "href": "#nested-routes"
+    },
+    {
+      "text": "IonRouterOutlet",
+      "href": "#ionrouteroutlet"
+    },
+    {
+      "text": "Navigation",
+      "href": "#navigation"
+    },
+    {
+      "text": "URL Parameters",
+      "href": "#url-parameters"
+    },
+    {
+      "text": "More Information",
+      "href": "#more-information"
+    },
+    {
+      "text": "From the Community",
+      "href": "#from-the-community"
+    }
+  ],
+  "pageClass": "page-react-navigation"
+}

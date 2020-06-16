@@ -1,0 +1,1312 @@
+{
+  "path": "/docs/developing/ios",
+  "previousText": "Scaffolding",
+  "previousUrl": "/docs/developing/scaffolding",
+  "nextText": "Developing for Android",
+  "nextUrl": "/docs/developing/android",
+  "skipIntros": true,
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "This guide covers how to run and debug Ionic apps on iOS simulators and devices using ",
+      [
+        "a",
+        {
+          "href": "/docs/reference/glossary#capacitor"
+        },
+        "Capacitor"
+      ],
+      " or ",
+      [
+        "a",
+        {
+          "href": "/docs/reference/glossary#cordova"
+        },
+        "Cordova"
+      ],
+      ". iOS apps can only be developed on macOS with Xcode installed."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are two workflows for running Ionic apps on iOS:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#running-with-xcode"
+          },
+          "Running with Xcode"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#running-with-the-ionic-cli"
+          },
+          "Running with the Ionic CLI"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Xcode approach is generally more stable, but the Ionic CLI approach offers ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#livereload"
+        },
+        "live-reload"
+      ],
+      " functionality."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "xcode-setup"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#xcode-setup"
+        },
+        "Xcode Setup"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "href": "https://developer.apple.com/xcode/"
+        },
+        "Xcode"
+      ],
+      " is the IDE for creating native iOS apps. It includes the iOS SDK and Xcode command-line tools. Xcode can be ",
+      [
+        "a",
+        {
+          "href": "https://developer.apple.com/download/"
+        },
+        "downloaded for free"
+      ],
+      " with an Apple account or it can be installed through the App Store."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once Xcode is installed, make sure the command-line tools are selected for use:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "xcode-select --install"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "setting-up-a-development-team"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#setting-up-a-development-team"
+        },
+        "Setting up a Development Team"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "All iOS apps must be code signed, even for development. Luckily, Xcode makes this easy with automatic code signing. The only prerequisite is an Apple ID."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Open Xcode and navigate to ",
+      [
+        "strong",
+        null,
+        "Xcode"
+      ],
+      " » ",
+      [
+        "strong",
+        null,
+        "Preferences"
+      ],
+      " » ",
+      [
+        "strong",
+        null,
+        "Accounts"
+      ],
+      ". Add an Apple ID if none are listed. Once logged in, a Personal Team will appear in the team list of the Apple ID."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/installation/ios-xcode-accounts.png",
+          "alt": "Xcode Accounts"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "creating-an-ios-simulator"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#creating-an-ios-simulator"
+        },
+        "Creating an iOS Simulator"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The iOS simulator emulates iOS devices on Macs. The following documentation is a quick way to get the iOS simulator set up. For more information, see ",
+      [
+        "a",
+        {
+          "href": "https://developer.apple.com/library/content/documentation/IDEs/Conceptual/simulator_help_topics/Chapter/Chapter.html"
+        },
+        "Apple's documentation"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Open Xcode and navigate to ",
+      [
+        "strong",
+        null,
+        "Window"
+      ],
+      " » ",
+      [
+        "strong",
+        null,
+        "Devices and Simulators"
+      ],
+      ". Create an ",
+      [
+        "strong",
+        null,
+        "iPhone 11"
+      ],
+      " simulator if one does not already exist."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/installation/ios-xcode-simulators-setup.png",
+          "alt": "iOS Simulators"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "cordova-setup"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cordova-setup"
+        },
+        "Cordova Setup"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Additional setup is required for Cordova to support programmatic builds. This section is not necessary for Capacitor."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "ios-sim-ios-deploy"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ios-sim-ios-deploy"
+        },
+        "ios-sim & ios-deploy"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ios-control/ios-sim"
+        },
+        [
+          "code",
+          null,
+          "ios-sim"
+        ]
+      ],
+      " and ",
+      [
+        "a",
+        {
+          "href": "https://github.com/ios-control/ios-deploy"
+        },
+        [
+          "code",
+          null,
+          "ios-deploy"
+        ]
+      ],
+      " are utilities that deploy apps to the iOS simulator and iOS devices during development. They can be installed globally with ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#npm"
+        },
+        "npm"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " -g ios-sim\n",
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "brew ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " ios-deploy"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "project-setup"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#project-setup"
+        },
+        "Project Setup"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Before apps can be deployed to iOS simulators and devices, the native project must be configured."
+    ],
+    " ",
+    [
+      "ol",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "Generate the native project, if it does not already exist."
+          ]
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " For Capacitor, run the following:"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              "ionic capacitor ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "add"
+              ],
+              " ios"
+            ]
+          ],
+          " "
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " For Cordova, run the following:"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              "ionic cordova prepare ios"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "Set the ",
+            [
+              "stencil-route-link",
+              {
+                "url": "/docs/reference/glossary#package-id"
+              },
+              "Package ID"
+            ],
+            "."
+          ]
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " For Capacitor, open the ",
+          [
+            "code",
+            null,
+            "capacitor.config.json"
+          ],
+          " file and modify the ",
+          [
+            "code",
+            null,
+            "appId"
+          ],
+          " property."
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " For Cordova, open the ",
+          [
+            "code",
+            null,
+            "config.xml"
+          ],
+          " file and modify the ",
+          [
+            "code",
+            null,
+            "id"
+          ],
+          " attribute of the root element, ",
+          [
+            "code",
+            null,
+            "<widget>"
+          ],
+          ". See ",
+          [
+            "a",
+            {
+              "href": "https://cordova.apache.org/docs/en/latest/config_ref/#widget"
+            },
+            "the Cordova documentation"
+          ],
+          " for more information."
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "Open the project in ",
+            [
+              "b",
+              null,
+              "Xcode"
+            ],
+            "."
+          ]
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " For Capacitor, run the following to open the app in Xcode:"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              "ionic capacitor ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "open"
+              ],
+              " ios"
+            ]
+          ],
+          " "
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " For Cordova, open Xcode. Use ",
+          [
+            "strong",
+            null,
+            "File"
+          ],
+          " » ",
+          [
+            "strong",
+            null,
+            "Open"
+          ],
+          " and locate the app. Open the app's ",
+          [
+            "code",
+            null,
+            "platforms/ios"
+          ],
+          " directory."
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "In ",
+            [
+              "b",
+              null,
+              "Project navigator"
+            ],
+            ", select the project root to open the project editor. Under the ",
+            [
+              "strong",
+              null,
+              "Identity"
+            ],
+            " section, verify that the Package ID that was set matches the Bundle Identifier."
+          ]
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " ",
+          [
+            "img",
+            {
+              "src": "/docs/assets/img/running/ios-xcode-identity-setup.png",
+              "alt": "Xcode Identity Setup"
+            }
+          ]
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "In the same project editor, under the ",
+            [
+              "b",
+              null,
+              "Signing"
+            ],
+            " section, ensure ",
+            [
+              "b",
+              null,
+              "Automatically manage signing"
+            ],
+            " is enabled."
+          ],
+          " Then, select a Development Team. Given a Development Team, Xcode will attempt to automatically prepare provisioning and signing."
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " ",
+          [
+            "img",
+            {
+              "src": "/docs/assets/img/running/ios-xcode-signing-setup.png",
+              "alt": "Xcode Signing Setup"
+            }
+          ]
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "running-with-xcode"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#running-with-xcode"
+        },
+        "Running with Xcode"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In this workflow, Xcode can automatically fix common compilation and signing issues that can occur."
+    ],
+    " ",
+    [
+      "ol",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "Develop the Ionic app and sync it to the native project."
+          ]
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " With each meaningful change, Ionic apps must be built into web assets before the change can appear on iOS simulators and devices. The web assets then must be copied into the native project. Luckily, this process is made easy with a single Ionic CLI command."
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " For Capacitor, run the following:"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              "ionic capacitor copy ios"
+            ]
+          ],
+          " "
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " For Cordova, run the following:"
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              "ionic cordova prepare ios"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "In Xcode, select a target simulator or device and click the play button."
+          ]
+        ],
+        " ",
+        [
+          "p",
+          null,
+          " ",
+          [
+            "img",
+            {
+              "src": "/docs/assets/img/running/ios-xcode-play-button-area.png",
+              "alt": "Xcode Play Button Area"
+            }
+          ]
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "running-with-the-ionic-cli"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#running-with-the-ionic-cli"
+        },
+        "Running with the Ionic CLI"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Ionic CLI can build, copy, and deploy Ionic apps to iOS simulators and devices with a single command. It can also spin up a development server, like the one used in ",
+      [
+        "code",
+        null,
+        "ionic serve"
+      ],
+      ", to provide ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#livereload"
+        },
+        "live-reload"
+      ],
+      " functionality."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "With live-reload, changes made to the app's source files trigger a rebuild of web assets and the changes are reflected on the simulator or device without having to deploy again."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        [
+          "strong",
+          null,
+          "Warning"
+        ],
+        ": For iOS devices, the device and the computer need to be on the same Wi-Fi network. An external URL for the dev server is also required so the device can connect to it. Use ",
+        [
+          "code",
+          null,
+          "--external"
+        ],
+        " (or ",
+        [
+          "code",
+          null,
+          "--host=0.0.0.0"
+        ],
+        ") to bind to external addresses."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "live-reload-with-capacitor"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#live-reload-with-capacitor"
+        },
+        "Live-reload with Capacitor"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Capacitor does not yet have a way to build native projects. It relies on Xcode to build and deploy app binaries. However, the Ionic CLI can boot up a live-reload server and configure Capacitor to use it with a single command."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Run the following, then select a target simulator or device and click the play button in Xcode:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic capacitor run ios -l --external"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "live-reload-with-cordova"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#live-reload-with-cordova"
+        },
+        "Live-reload with Cordova"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Cordova can build and deploy native projects programmatically."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To boot up a live-reload server, build, and deploy the app, run the following:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic cordova run ios -l --external"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "debugging-ios-apps"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#debugging-ios-apps"
+        },
+        "Debugging iOS Apps"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once an app is running on an iOS device or simulator, it can be debugged in Safari."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "using-safari-web-inspector"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#using-safari-web-inspector"
+        },
+        "Using Safari Web Inspector"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Safari has Web Inspector support for iOS simulators and devices. Open the ",
+      [
+        "strong",
+        null,
+        "Develop"
+      ],
+      " menu and select the simulator or device, then select the Ionic App to open Web Inspector."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "If the ",
+        [
+          "strong",
+          null,
+          "Develop"
+        ],
+        " menu is hidden, enable it in ",
+        [
+          "strong",
+          null,
+          "Safari"
+        ],
+        " » ",
+        [
+          "strong",
+          null,
+          "Preferences"
+        ],
+        " » ",
+        [
+          "strong",
+          null,
+          "Advanced"
+        ],
+        " » ",
+        [
+          "strong",
+          null,
+          "Show Develop menu in menu bar"
+        ],
+        "."
+      ],
+      " ",
+      [
+        "p",
+        null,
+        "If the app isn't listed, the Web Inspector may need to be enabled on the device in ",
+        [
+          "strong",
+          null,
+          "Settings"
+        ],
+        " » ",
+        [
+          "strong",
+          null,
+          "Safari"
+        ],
+        " » ",
+        [
+          "strong",
+          null,
+          "Advanced"
+        ],
+        " » ",
+        [
+          "strong",
+          null,
+          "Web Inspector"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/running/ios-safari-web-inspector-timelines.png",
+          "alt": "Safari Web Inspector"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "viewing-native-logs"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#viewing-native-logs"
+        },
+        "Viewing Native Logs"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If running with Xcode, native logs can be found in in the Xcode ",
+      [
+        "strong",
+        null,
+        "Console"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "If the ",
+        [
+          "strong",
+          null,
+          "Console"
+        ],
+        " is hidden, enable it in ",
+        [
+          "strong",
+          null,
+          "View"
+        ],
+        " » ",
+        [
+          "strong",
+          null,
+          "Debug Area"
+        ],
+        " » ",
+        [
+          "strong",
+          null,
+          "Activate Console"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/running/ios-xcode-console.png",
+          "alt": "Xcode Console"
+        }
+      ]
+    ]
+  ],
+  "title": "iOS Development",
+  "headings": [
+    {
+      "text": "Xcode Setup",
+      "href": "#xcode-setup"
+    },
+    {
+      "text": "Cordova Setup",
+      "href": "#cordova-setup"
+    },
+    {
+      "text": "Project Setup",
+      "href": "#project-setup"
+    },
+    {
+      "text": "Running with Xcode",
+      "href": "#running-with-xcode"
+    },
+    {
+      "text": "Running with the Ionic CLI",
+      "href": "#running-with-the-ionic-cli"
+    },
+    {
+      "text": "Debugging iOS Apps",
+      "href": "#debugging-ios-apps"
+    }
+  ],
+  "pageClass": "page-developing-ios"
+}

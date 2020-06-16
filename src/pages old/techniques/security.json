@@ -1,0 +1,2349 @@
+{
+  "path": "/docs/techniques/security",
+  "previousText": "",
+  "previousUrl": "",
+  "nextText": "",
+  "nextUrl": "",
+  "disableHtmlPreviews": true,
+  "contributors": [
+    "liamdebeasi"
+  ],
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "sanitizing-user-input"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#sanitizing-user-input"
+        },
+        "Sanitizing User Input"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For components such as ",
+      [
+        "code",
+        null,
+        "ion-alert"
+      ],
+      " developers can allow for custom or user-provided content. This content can be plain text or HTML and should be considered untrusted. As with any untrusted input, it is important to sanitize it before doing anything else with it. In particular, using things like ",
+      [
+        "code",
+        null,
+        "innerHTML"
+      ],
+      " without sanitization provides an attack vector for bad actors to input malicious content and potentially launch a ",
+      [
+        "a",
+        {
+          "href": "https://en.wikipedia.org/wiki/Cross-site_scripting"
+        },
+        "Cross Site Scripting attack (XSS)"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Ionic comes built in with basic sanitization methods for the components it provides, but for user-created components it is up to the developer to make sure all data is sanitized. Different frameworks have different solutions for sanitizing user input, so developers should familiarize themselves with what their specific framework offers."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For developers who are not using a framework, or for developers whose framework does not provide the sanitization methods they need, we recommend using ",
+      [
+        "a",
+        {
+          "href": "https://www.npmjs.com/package/sanitize-html"
+        },
+        "sanitize-html"
+      ],
+      ". This package provides a simple HTML sanitizer that allows the developer to specify the exact tags and attributes that they want to allow in their application."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "angular"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#angular"
+        },
+        "Angular"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Angular comes built in with the ",
+      [
+        "code",
+        null,
+        "DomSanitizer"
+      ],
+      " class. This helps prevent XSS issues by ensuring that values are safe to be used in the DOM. By default, Angular will mark any values it deems unsafe. For example, the following link would be marked as unsafe by Angular because it would attempt to execute some JavaScript."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "public"
+          ],
+          " myUrl",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token builtin"
+            },
+            "string"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'javascript:alert(\"oh no!\")'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          "a ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "href",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"myUrl\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ],
+          "Click Me",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "!"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "<"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "/"
+          ],
+          "a",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ">"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To learn more about the built-in protections that Angular provides, see the ",
+      [
+        "a",
+        {
+          "href": "https://angular.io/guide/security"
+        },
+        "Angular Security Guide"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "react"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#react"
+        },
+        "React"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "React DOM escapes values embedded in JSX before rendering them by converting them to strings. For example, the following would be safe as ",
+      [
+        "code",
+        null,
+        "name"
+      ],
+      " is converted to a string before being rendered:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "jsx"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " name ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " values",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "name",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " element ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "h1"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token plain-text"
+            },
+            "Hello, "
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "name",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token plain-text"
+            },
+            "!"
+          ],
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "h1"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "However, this does not stop someone from injecting JavaScript into places such as the ",
+      [
+        "code",
+        null,
+        "href"
+      ],
+      " attribute of an anchor element. The following is unsafe and can potentially allow an XSS attack to occur:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "jsx"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " userInput ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'javascript:alert(\"Oh no!\")'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " element ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "a"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "href"
+            ],
+            [
+              "span",
+              {
+                "class": "token script language-javascript"
+              },
+              [
+                "span",
+                {
+                  "class": "token script-punctuation punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "userInput",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token plain-text"
+            },
+            "Click Me!"
+          ],
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "a"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If the developer needs to achieve more comprehensive sanitization, they can use the ",
+      [
+        "a",
+        {
+          "href": "https://www.npmjs.com/package/sanitize-html"
+        },
+        "sanitize-html"
+      ],
+      " package."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To learn more about the built-in protections that React and JSX provide, see the ",
+      [
+        "a",
+        {
+          "href": "https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks"
+        },
+        "React JSX Documentation"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "vue"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#vue"
+        },
+        "Vue"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Vue does not provide any type of sanitizing methods built in. It is recommended that developers use a package such as ",
+      [
+        "a",
+        {
+          "href": "https://www.npmjs.com/package/sanitize-html"
+        },
+        "sanitize-html"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To learn more about the security recommendations for binding to directives such as ",
+      [
+        "code",
+        null,
+        "v-html"
+      ],
+      ", see the ",
+      [
+        "a",
+        {
+          "href": "https://vuejs.org/v2/guide/syntax.html#Raw-HTML"
+        },
+        "Vue Syntax Guide"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "ejecting-from-the-built-in-sanitizer"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ejecting-from-the-built-in-sanitizer"
+        },
+        "Ejecting from the built-in sanitizer"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For developers who wish to add complex HTML to components such as ",
+      [
+        "code",
+        null,
+        "ion-toast"
+      ],
+      ", they will need to eject from the sanitizer that is built into Ionic Framework. Developers can either disable the sanitizer across their entire app or bypass it on a case-by-case basis."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Bypassing sanitization functionality can make your application vulnerable to ",
+        [
+          "a",
+          {
+            "href": "https://en.wikipedia.org/wiki/Cross-site_scripting",
+            "target": "_blank",
+            "rel": "noreferrer"
+          },
+          "XSS attacks"
+        ],
+        ". Please exercise extreme caution when disabling the sanitizer."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "disabling-the-sanitizer-via-config"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#disabling-the-sanitizer-via-config"
+        },
+        "Disabling the sanitizer via config"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Ionic Framework provides an application config option called ",
+      [
+        "code",
+        null,
+        "sanitizerEnabled"
+      ],
+      " that is set to ",
+      [
+        "code",
+        null,
+        "true"
+      ],
+      " by default. Set this value to ",
+      [
+        "code",
+        null,
+        "false"
+      ],
+      " to globally disable Ionic Framework's built in sanitizer. Please note that this does not disable any sanitizing functionality provided by other frameworks such as Angular."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "bypassing-the-sanitizer-on-a-case-by-case-basis"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#bypassing-the-sanitizer-on-a-case-by-case-basis"
+        },
+        "Bypassing the sanitizer on a case-by-case basis"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Developers can also choose to eject from the sanitizer in certain scenarios. Ionic Framework provides the ",
+      [
+        "code",
+        null,
+        "IonicSafeString"
+      ],
+      " class that allows developers to do just that."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "usage"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#usage"
+        },
+        "Usage"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-tabs",
+      null,
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "angular"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "typescript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " IonicSafeString",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ToastController ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@ionic/angular'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "..."
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "constructor"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "private"
+                ],
+                " toastController",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  ":"
+                ],
+                " ToastController"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "async"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "presentToast"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " toast ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "await"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "this"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "toastController",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "create"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n      message",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "new"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token class-name"
+                },
+                "IonicSafeString"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'<ion-button>Hello!</ion-button>'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "\n      duration",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "2000"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  toast",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "present"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "javascript"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "javascript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " IonicSafeString ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@ionic/core'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "..."
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "async"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function-variable function"
+                },
+                "presentToast"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " toast ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " document",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "createElement"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'ion-toast'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  toast",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "message ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "new"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token class-name"
+                },
+                "IonicSafeString"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'<ion-button>Hello!</ion-button>'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  toast",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "duration ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "2000"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n  document",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "body",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "appendChild"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "toast",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "return"
+              ],
+              " toast",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "present"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "docs-tab",
+        {
+          "tab": "react"
+        },
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "typescript"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " React",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " useState ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'react'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "import"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              " Animation",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " IonButton",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " IonContent",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " IonicSafeString",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " IonToast ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "from"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'@ionic/react'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "export"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " ToastExample",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " React",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function-variable function"
+                },
+                "FC"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "["
+              ],
+              "showToast",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              " setShowToast",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "]"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "useState"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token boolean"
+                },
+                "false"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n\n  ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "return"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "<"
+              ],
+              "IonContent",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ">"
+              ],
+              "\n      ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "<"
+              ],
+              "IonButton onClick",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "setShowToast"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token boolean"
+                },
+                "true"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              " expand",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "\"block\""
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ">"
+              ],
+              "Show Toast",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "<"
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "/"
+              ],
+              "IonButton",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ">"
+              ],
+              "\n      ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "<"
+              ],
+              "IonToast\n        isOpen",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "showToast",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n        onDidDismiss",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "setShowToast"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token boolean"
+                },
+                "false"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n        message",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "new"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token class-name"
+                },
+                "IonicSafeString"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "'<ion-button>Hello!</ion-button>'"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n        duration",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "2000"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n      ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "/"
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ">"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "<"
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "/"
+              ],
+              "IonContent",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ">"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              "\n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ]
+  ],
+  "title": "Security",
+  "headings": [
+    {
+      "text": "Sanitizing User Input",
+      "href": "#sanitizing-user-input"
+    },
+    {
+      "text": "Ejecting from the built-in sanitizer",
+      "href": "#ejecting-from-the-built-in-sanitizer"
+    }
+  ],
+  "pageClass": "page-techniques-security"
+}

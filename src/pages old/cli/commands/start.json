@@ -1,0 +1,260 @@
+{
+  "title": "ionic start",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "This command creates a working Ionic app. It installs dependencies for you and sets up your project."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Running ",
+      [
+        "code",
+        null,
+        "ionic start"
+      ],
+      " without any arguments will prompt you for information about your new project."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The first argument is your app's ",
+      [
+        "code",
+        null,
+        "name"
+      ],
+      ". Don't worry--you can always change this later. The ",
+      [
+        "code",
+        null,
+        "--project-id"
+      ],
+      " is generated from ",
+      [
+        "code",
+        null,
+        "name"
+      ],
+      " unless explicitly specified."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The second argument is the ",
+      [
+        "code",
+        null,
+        "template"
+      ],
+      " from which to generate your app. You can list all templates with the ",
+      [
+        "code",
+        null,
+        "--list"
+      ],
+      " option. You can also specify a git repository URL for ",
+      [
+        "code",
+        null,
+        "template"
+      ],
+      ", in which case the existing project will be cloned."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Use the ",
+      [
+        "code",
+        null,
+        "--type"
+      ],
+      " option to start projects using older versions of Ionic. For example, you can start an Ionic 3 project with ",
+      [
+        "code",
+        null,
+        "--type=ionic-angular"
+      ],
+      ". Use ",
+      [
+        "code",
+        null,
+        "--list"
+      ],
+      " to see all project types and templates."
+    ]
+  ],
+  "path": "/docs/cli/commands/start",
+  "summary": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "Create a new project"
+    ]
+  ],
+  "inputs": [
+    {
+      "name": "name",
+      "summary": "<p>The name of your new project (e.g. <code>myApp</code>, <code>&quot;My App&quot;</code>)</p>\n",
+      "required": true
+    },
+    {
+      "name": "template",
+      "summary": "<p>The starter template to use (e.g. <code>blank</code>, <code>tabs</code>; use <code>--list</code> to see all)</p>\n",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "name": "list",
+      "type": "boolean",
+      "summary": "<p>List available starter templates</p>\n",
+      "groups": [],
+      "aliases": [
+        "l"
+      ],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "summary": "<p>Type of project to start (e.g. <code>angular</code>, <code>react</code>, <code>ionic-angular</code>, <code>ionic1</code>)</p>\n",
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "type"
+      }
+    },
+    {
+      "name": "cordova",
+      "type": "boolean",
+      "summary": "<p>Include Cordova integration</p>\n",
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "capacitor",
+      "type": "boolean",
+      "summary": "<p>Include Capacitor integration</p>\n",
+      "groups": [
+        "experimental"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "deps",
+      "type": "boolean",
+      "summary": "<p>Do not install npm/yarn dependencies</p>\n",
+      "default": true,
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "git",
+      "type": "boolean",
+      "summary": "<p>Do not initialize a git repo</p>\n",
+      "default": true,
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "link",
+      "type": "boolean",
+      "summary": "<p>Connect your new app to Ionic</p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "summary": "<p>Specify an Ionic App ID to link</p>\n",
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "id"
+      }
+    },
+    {
+      "name": "project-id",
+      "type": "string",
+      "summary": "<p>Specify a slug for your app (used for the directory name and package name)</p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "slug"
+      }
+    },
+    {
+      "name": "package-id",
+      "type": "string",
+      "summary": "<p>Specify the bundle ID/application ID for your app (reverse-DNS notation)</p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "id"
+      }
+    }
+  ],
+  "skipIntros": true,
+  "template": "cli",
+  "namespace": [
+    "ionic"
+  ],
+  "footnotes": [],
+  "groups": [],
+  "exampleCommands": [
+    "ionic start ",
+    "ionic start --list",
+    "ionic start myApp",
+    "ionic start myApp blank",
+    "ionic start myApp tabs --cordova",
+    "ionic start myApp tabs --capacitor",
+    "ionic start myApp super --type=ionic-angular",
+    "ionic start myApp blank --type=ionic1",
+    "ionic start cordovaApp tabs --cordova",
+    "ionic start \"My App\" blank",
+    "ionic start \"Conference App\" https://github.com/ionic-team/ionic-conference-app"
+  ],
+  "aliases": [],
+  "type": "global",
+  "headings": [],
+  "pageClass": "page-cli-commands-start"
+}

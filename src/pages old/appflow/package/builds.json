@@ -1,0 +1,371 @@
+{
+  "path": "/docs/appflow/package/builds",
+  "previousText": "Introduction",
+  "previousUrl": "/docs/appflow/package/intro",
+  "nextText": "Package Build Types",
+  "nextUrl": "/docs/appflow/package/build-types",
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "overview"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#overview"
+        },
+        "Overview"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A package build is a native build of your application that is platform specific and can run on a physical device.\nPackage builds produce ",
+      [
+        "code",
+        null,
+        "apk"
+      ],
+      " files for Android and ",
+      [
+        "code",
+        null,
+        "ipa"
+      ],
+      " files for iOS. Currently package builds are only available\nto customers on one of the paid plans and must manually be triggered from the dashboard.\nThe basic steps of the package build are as follows:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "npm install"
+        ],
+        " will run to install any dependencies you have."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "npm run build"
+        ],
+        " will run if a ",
+        [
+          "code",
+          null,
+          "build"
+        ],
+        " script is detected in the ",
+        [
+          "code",
+          null,
+          "scripts"
+        ],
+        " section of your ",
+        [
+          "code",
+          null,
+          "package.json"
+        ],
+        " in order to build the web assets for your application."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "cordova platform add [ios|android]"
+        ],
+        " will run with the platform you have configured ",
+        [
+          "code",
+          null,
+          "NOTE:"
+        ],
+        " ",
+        [
+          "em",
+          null,
+          "DO NOT"
+        ],
+        " commit your ",
+        [
+          "code",
+          null,
+          "platforms"
+        ],
+        " directory as this will cause your build to fail."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "cordova build [ios|android]"
+        ],
+        " will run with the platform and options you have configured and generate the ",
+        [
+          "code",
+          null,
+          "ipa"
+        ],
+        " or ",
+        [
+          "code",
+          null,
+          "apk"
+        ],
+        " file"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "The generated ",
+        [
+          "code",
+          null,
+          "ipa"
+        ],
+        " or ",
+        [
+          "code",
+          null,
+          "apk"
+        ],
+        " will be stored and available for you to download from the dashboard"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "You can find the history and status of your package builds as well as download successful builds in the side menu under ",
+        [
+          "code",
+          null,
+          "Builds"
+        ],
+        " in the ",
+        [
+          "code",
+          null,
+          "Package"
+        ],
+        " tab."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "performing-a-build"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#performing-a-build"
+        },
+        "Performing a Build"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Click on the ",
+      [
+        "strong",
+        null,
+        "Code"
+      ],
+      " tab of your App, you should be at your ",
+      [
+        "strong",
+        null,
+        "Builds"
+      ],
+      " list. Click on the ",
+      [
+        "strong",
+        null,
+        "Package"
+      ],
+      " button for the Build you'd like to get a Native binary for."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In the Package GUI you'll be able to choose the type of Build you want to perform, and the Cert you'd like to use. You'll then be taken to the History tab while the build completes. After the build completes, click Download and you'll get your native binary!"
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "concurrency-limits"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#concurrency-limits"
+        },
+        "Concurrency limits"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Each account plan has a defined maximum amount of concurrent builds allowed (see ",
+      [
+        "a",
+        {
+          "href": "/pricing"
+        },
+        "Plans Details"
+      ],
+      ").\nThis limit is enforced at the account level across different apps."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When you trigger a build, in the Appflow Dashboard you will notice that a build can have different statuses before it is processed:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Queued"
+        ],
+        ": this means that your build is queued for the next available runner. Usually your build should not be in this state for more than few seconds."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Pending"
+        ],
+        ": this means that you have reached your concurrent build limit and your build will continue when your current builds are completed."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "After the build starts to be processed the statuses are:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Running"
+        ],
+        ": the build is currently being processed. You can read the logs in the build details."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Successful"
+        ],
+        ": the build terminated in a correct state."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Failed"
+        ],
+        ": the build terminated in an incorrect state."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "More concurrent builds can be added to your plan.\nIf you have a Starter or Developer plan, you can get more builds by ",
+      [
+        "a",
+        {
+          "href": "https://dashboard.ionicframework.com/settings/billing"
+        },
+        "upgrading plan"
+      ],
+      ".\nIf you have a Teams or Business plan, please ",
+      [
+        "a",
+        {
+          "href": "https://ionic.zendesk.com/hc/en-us/requests/new"
+        },
+        "contact us"
+      ],
+      "."
+    ]
+  ],
+  "title": "Package Builds",
+  "headings": [
+    {
+      "text": "Overview",
+      "href": "#overview"
+    },
+    {
+      "text": "Performing a Build",
+      "href": "#performing-a-build"
+    },
+    {
+      "text": "Concurrency limits",
+      "href": "#concurrency-limits"
+    }
+  ],
+  "pageClass": "page-appflow-package-builds"
+}

@@ -1,0 +1,5000 @@
+{
+  "path": "/docs/theming/dark-mode",
+  "initialTab": "preview",
+  "inlineHtmlPreviews": true,
+  "previousText": "Themes",
+  "previousUrl": "/docs/theming/themes",
+  "nextText": "Advanced Theming",
+  "nextUrl": "/docs/theming/advanced",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Ionic makes it easy to change the themes of your app, including supporting dark color schemes. With growing support for dark mode in native apps, developers are now looking to add it to their apps to support user preferences."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "using-media-queries"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#using-media-queries"
+        },
+        "Using Media Queries"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The first way to enable dark mode is by using the ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"
+        },
+        "CSS media query for the user's preferred color scheme"
+      ],
+      ". This media query will hook into the system setting of the user's device and apply the theme if a dark mode is enabled."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "css"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token atrule"
+            },
+            [
+              "span",
+              {
+                "class": "token rule"
+              },
+              "@media"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token property"
+              },
+              "prefers-color-scheme"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ":"
+            ],
+            " dark",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            ":root"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/* dark mode variables go here */"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Currently, the ",
+      [
+        "code",
+        null,
+        "prefers-color-scheme"
+      ],
+      " media query has ",
+      [
+        "a",
+        {
+          "href": "https://caniuse.com/#feat=prefers-color-scheme"
+        },
+        "limited browser support"
+      ],
+      ", so users will not be able to benefit from having the dark mode applied using this media query in certain browsers. However, the dark mode can still be applied by using a ",
+      [
+        "a",
+        {
+          "href": "#css-class-fallback"
+        },
+        "CSS class fallback"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "css-class-fallback"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#css-class-fallback"
+        },
+        "CSS Class Fallback"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "As a fallback method for devices that don't support the media query, the dark mode can be applied by styling a CSS selector and applying the class to the document body."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "css"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token atrule"
+            },
+            [
+              "span",
+              {
+                "class": "token rule"
+              },
+              "@media"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token property"
+              },
+              "prefers-color-scheme"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ":"
+            ],
+            " dark",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            ":root"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/* Dark mode variables go here */"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/* Fallback for older browsers or manual mode */"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            "body.dark"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/* Dark mode variables go here */"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "With the variables targeting the ",
+      [
+        "code",
+        null,
+        "body.dark"
+      ],
+      " selector, all that is needed now is to add the class to the ",
+      [
+        "code",
+        null,
+        "<body>"
+      ],
+      " in the app. This can be done in a variety of ways depending on the framework your app is built with."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Notice that the variables should be in both places in this example. We can ",
+      [
+        "a",
+        {
+          "href": "#combining-with-javascript"
+        },
+        "use JavaScript"
+      ],
+      " in order to avoid setting the variables in two places."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "combining-with-javascript"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#combining-with-javascript"
+        },
+        "Combining with JavaScript"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In order to keep the CSS variables written once and avoid having to update them in multiple places, the fallback and class can be combined by using JavaScript to check the value of the ",
+      [
+        "code",
+        null,
+        "prefers-color-scheme"
+      ],
+      " media query and adding the ",
+      [
+        "code",
+        null,
+        "dark"
+      ],
+      " class if the preference is ",
+      [
+        "code",
+        null,
+        "dark"
+      ],
+      ". Here's what the CSS would look like:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "css"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            "body.dark"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/* Dark mode variables go here */"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Notice that the variables above are only in the ",
+      [
+        "code",
+        null,
+        "body.dark"
+      ],
+      " selector now, and the ",
+      [
+        "code",
+        null,
+        "prefers-color-scheme"
+      ],
+      " media query has been removed."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "automatically-enable-dark-mode"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#automatically-enable-dark-mode"
+        },
+        "Automatically Enable Dark Mode"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In the JavaScript, the ",
+      [
+        "code",
+        null,
+        "dark"
+      ],
+      " class can be added to the ",
+      [
+        "code",
+        null,
+        "<body>"
+      ],
+      " by checking if the document matches the media query using ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia"
+        },
+        "matchMedia()"
+      ],
+      ". This will enable dark mode to still work based on the user preference."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "javascript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Use matchMedia to check the user preference"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " prefersDark ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " window",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "matchMedia"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'(prefers-color-scheme: dark)'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "toggleDarkTheme"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "prefersDark",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "matches",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Listen for changes to the prefers-color-scheme media query"
+          ],
+          "\nprefersDark",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addListener"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "mediaQuery"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "toggleDarkTheme"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "mediaQuery",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "matches",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Add or remove the \"dark\" class based on if the media query matches"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "function"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "toggleDarkTheme"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "shouldAdd"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  document",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "body",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "classList",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "toggle"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'dark'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " shouldAdd",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Tip: make sure to view the Codepen below in a ",
+        [
+          "a",
+          {
+            "href": "https://caniuse.com/#feat=prefers-color-scheme"
+          },
+          "supported browser"
+        ],
+        " and then try changing the system preferences on your device between light & dark mode. Here's ",
+        [
+          "a",
+          {
+            "href": "https://blogs.windows.com/windowsexperience/2016/08/08/windows-10-tip-personalize-your-pc-by-enabling-the-dark-theme/"
+          },
+          "how to enable dark mode on Windows 10"
+        ],
+        " and ",
+        [
+          "a",
+          {
+            "href": "https://support.apple.com/en-us/HT208976"
+          },
+          "how to enable it on a Mac"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    "",
+    " ",
+    [
+      "p",
+      null,
+      [
+        "docs-codepen",
+        {
+          "preview": "false",
+          "user": "ionic",
+          "slug": "jONzJpG",
+          "height": "550px",
+          "default-tab": "js,result"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "manually-toggle-dark-mode"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#manually-toggle-dark-mode"
+        },
+        "Manually Toggle Dark Mode"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In addition to calling ",
+      [
+        "code",
+        null,
+        "toggleDarkTheme()"
+      ],
+      " when the app loads and when the media query changes, the ",
+      [
+        "code",
+        null,
+        "toggleDarkTheme()"
+      ],
+      " function could be called by the app, such as when a user changes a toggle, to switch between the light and dark themes:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "javascript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Query for the toggle that is used to change between themes"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " toggle ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " document",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "querySelector"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'#themeToggle'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Listen for the toggle check/uncheck to toggle the dark class on the <body>"
+          ],
+          "\ntoggle",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addEventListener"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ionChange'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "ev"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  document",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "body",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "classList",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "toggle"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'dark'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ev",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "detail",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "checked",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " prefersDark ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " window",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "matchMedia"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'(prefers-color-scheme: dark)'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Listen for changes to the prefers-color-scheme media query"
+          ],
+          "\nprefersDark",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "addListener"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "e"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "checkToggle"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "matches",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Called when the app loads"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "function"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "loadApp"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "checkToggle"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "prefersDark",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "matches",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Called by the media query to check/uncheck the toggle"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "function"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "checkToggle"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "shouldCheck"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  toggle",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "checked ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " shouldCheck",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    "",
+    " ",
+    [
+      "p",
+      null,
+      [
+        "docs-codepen",
+        {
+          "preview": "false",
+          "user": "ionic",
+          "slug": "zYOpQLj",
+          "height": "600px",
+          "default-tab": "js,result"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "adjusting-system-ui-components"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#adjusting-system-ui-components"
+        },
+        "Adjusting System UI Components"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When developing a dark theme, you may notice that certain system UI components are not adjusting to dark mode properly. To fix this you will need to specify the ",
+      [
+        "code",
+        null,
+        "color-scheme"
+      ],
+      ". See the ",
+      [
+        "a",
+        {
+          "href": "https://caniuse.com/#feat=mdn-html_elements_meta_name_color-scheme",
+          "target": "_blank"
+        },
+        "browser compatibility for color-scheme"
+      ],
+      " for details on cross browser support."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "While you may be mainly using Ionic components instead of only native components, ",
+      [
+        "code",
+        null,
+        "color-scheme"
+      ],
+      " can also affect aspects of your application such as the scrollbar. In order to use ",
+      [
+        "code",
+        null,
+        "color-scheme"
+      ],
+      " you will need to add the following HTML to the ",
+      [
+        "code",
+        null,
+        "head"
+      ],
+      " of your application:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "html"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "meta"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "name"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "color-scheme",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "content"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "light dark",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "/>"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This allows the page to indicate which color scheme it is comfortable being rendered with. Alternatively, you can add the following CSS to do this on a per-element basis:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "css"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "color-scheme"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " light dark",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Default scrollbar"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Scrollbar with ",
+            [
+              "code",
+              null,
+              "color-scheme"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "figure",
+              null,
+              [
+                "img",
+                {
+                  "alt": "Application without color-scheme",
+                  "src": "/docs/assets/img/theming/color-scheme-light.png"
+                }
+              ]
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "figure",
+              null,
+              [
+                "img",
+                {
+                  "alt": "Application with color-scheme",
+                  "src": "/docs/assets/img/theming/color-scheme-dark.png"
+                }
+              ]
+            ]
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For more information regarding ",
+      [
+        "code",
+        null,
+        "color-scheme"
+      ],
+      " please see ",
+      [
+        "a",
+        {
+          "href": "https://web.dev/color-scheme/"
+        },
+        "https://web.dev/color-scheme/"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        [
+          "code",
+          null,
+          "color-scheme"
+        ],
+        " does not apply to the keyboard. For details on how dark mode works with the keyboard, see ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/developing/keyboard#dark-mode"
+          },
+          "Keyboard Documentation"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "ionic-dark-theme"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#ionic-dark-theme"
+        },
+        "Ionic Dark Theme"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Ionic has a recommended theme for variables to use in order to get a dark mode based on the device running the app. It can be broken down into the following parts:"
+    ],
+    " ",
+    [
+      "ol",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Changing the default ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/theming/colors"
+          },
+          "Ionic colors"
+        ],
+        " for all ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/theming/platform-styles#ionic-modes"
+          },
+          "modes"
+        ],
+        " to complement the dark background in the ",
+        [
+          "code",
+          null,
+          "body.dark"
+        ],
+        " selector."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Setting variables for the dark theme on ",
+        [
+          "code",
+          null,
+          "ios"
+        ],
+        " devices."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Setting variables for the dark theme on ",
+        [
+          "code",
+          null,
+          "md"
+        ],
+        " devices."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The following code can be copied and pasted into an app to get Ionic's dark theme. We add the ",
+      [
+        "code",
+        null,
+        "dark"
+      ],
+      " class to the document body using JavaScript as mentioned in the ",
+      [
+        "a",
+        {
+          "href": "#combining-with-javascript"
+        },
+        "combining with JavaScript"
+      ],
+      " section. The dark mode will not be enabled until the ",
+      [
+        "code",
+        null,
+        "dark"
+      ],
+      " class is added to the document body."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "For more information on the variables that are being changed, including other variables that can be added to further customize, see ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/theming/themes"
+          },
+          "Themes"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "css"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/*\n * Dark Colors\n * -------------------------------------------\n */"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            "body.dark"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #428cff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 66",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "140",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ffffff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #3a7be0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #5598ff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-secondary"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #50c8ff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-secondary-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 80",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "200",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-secondary-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ffffff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-secondary-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-secondary-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #46b0e0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-secondary-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #62ceff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-tertiary"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #6a64ff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-tertiary-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 106",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "100",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-tertiary-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ffffff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-tertiary-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-tertiary-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #5d58e0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-tertiary-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #7974ff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-success"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #2fdf75",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-success-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 47",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "223",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "117",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-success-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #000000",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-success-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-success-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #29c467",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-success-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #44e283",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-warning"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ffd534",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-warning-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "213",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "52",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-warning-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #000000",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-warning-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-warning-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #e0bb2e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-warning-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ffd948",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-danger"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ff4961",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-danger-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "73",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "97",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-danger-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ffffff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-danger-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-danger-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #e04055",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-danger-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ff5b71",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-dark"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #f4f5f8",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-dark-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 244",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "245",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "248",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-dark-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #000000",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-dark-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-dark-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #d7d8da",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-dark-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #f5f6f9",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-medium"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #989aa2",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-medium-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 152",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "154",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "162",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-medium-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #000000",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-medium-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-medium-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #86888f",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-medium-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #a2a4ab",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-light"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #222428",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-light-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 34",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "36",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "40",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-light-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ffffff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-light-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-light-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #1e2023",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-light-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #383a3e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/*\n * iOS Dark Theme\n * -------------------------------------------\n */"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            ".ios body.dark"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-background-color"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #000000",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-background-color-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-text-color"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ffffff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-text-color-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-50"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #0d0d0d",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-100"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #1a1a1a",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-150"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #262626",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-200"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #333333",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-250"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #404040",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-300"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #4d4d4d",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-350"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #595959",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-400"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #666666",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-450"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #737373",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-500"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #808080",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-550"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #8c8c8c",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-600"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #999999",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-650"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #a6a6a6",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-700"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #b3b3b3",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-750"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #bfbfbf",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-800"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #cccccc",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-850"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #d9d9d9",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-900"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #e6e6e6",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-950"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #f2f2f2",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-toolbar-background"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #0d0d0d",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-item-background"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #000000",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/*\n * Material Design Dark Theme\n * -------------------------------------------\n */"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            ".md body.dark"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-background-color"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #121212",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-background-color-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 18",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "18",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "18",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-text-color"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #ffffff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-text-color-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-border-color"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #222222",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-50"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #1e1e1e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-100"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #2a2a2a",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-150"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #363636",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-200"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #414141",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-250"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #4d4d4d",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-300"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #595959",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-350"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #656565",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-400"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #717171",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-450"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #7d7d7d",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-500"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #898989",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-550"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #949494",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-600"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #a0a0a0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-650"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #acacac",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-700"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #b8b8b8",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-750"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #c4c4c4",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-800"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #d0d0d0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-850"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #dbdbdb",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-900"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #e7e7e7",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-step-950"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #f3f3f3",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-item-background"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #1e1e1e",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-toolbar-background"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #1f1f1f",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-tab-bar-background"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #1f1f1f",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ]
+  ],
+  "title": "Dark Mode",
+  "headings": [
+    {
+      "text": "Using Media Queries",
+      "href": "#using-media-queries"
+    },
+    {
+      "text": "CSS Class Fallback",
+      "href": "#css-class-fallback"
+    },
+    {
+      "text": "Combining with JavaScript",
+      "href": "#combining-with-javascript"
+    },
+    {
+      "text": "Adjusting System UI Components",
+      "href": "#adjusting-system-ui-components"
+    },
+    {
+      "text": "Ionic Dark Theme",
+      "href": "#ionic-dark-theme"
+    }
+  ],
+  "pageClass": "page-theming-dark-mode"
+}

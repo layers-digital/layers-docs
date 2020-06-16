@@ -1,0 +1,393 @@
+{
+  "path": "/docs/appflow/quickstart/package",
+  "title": "Build a Native Binary",
+  "previousText": "Deploy a Live Update",
+  "previousUrl": "/docs/appflow/quickstart/deploy",
+  "nextText": "Create an Automation",
+  "nextUrl": "/docs/appflow/quickstart/automation",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Next we'll build an Android ",
+      [
+        "code",
+        null,
+        "Debug"
+      ],
+      " binary using the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/package/intro"
+        },
+        "Ionic Package"
+      ],
+      " service."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "b",
+        null,
+        "Note:"
+      ],
+      " If you'd like to build an Android ",
+      [
+        "b",
+        null,
+        "Release"
+      ],
+      " binary or ",
+      [
+        "b",
+        null,
+        "any"
+      ],
+      " iOS binary, you'll need to ",
+      [
+        "a",
+        {
+          "href": "/docs/appflow/package/credentials"
+        },
+        "generate signing credentials"
+      ],
+      " and ",
+      [
+        "a",
+        {
+          "href": "/docs/appflow/package/adding-credentials"
+        },
+        "add them to a security profile"
+      ],
+      " in the Appflow Dashboard. "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "start-a-package-build"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#start-a-package-build"
+        },
+        "Start a Package Build"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In order to download a binary of your application, you will first need to create a ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/appflow/package/builds"
+        },
+        "Package build"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "There are two ways to do this:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Click the ",
+        [
+          "code",
+          null,
+          "Start build"
+        ],
+        " icon from the ",
+        [
+          "code",
+          null,
+          "Commits"
+        ],
+        " tab ",
+        [
+          "img",
+          {
+            "src": "/docs/assets/img/appflow/ss-start-package-build-commits.png",
+            "alt": "Start Build from Commits"
+          }
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Click the ",
+        [
+          "code",
+          null,
+          "New build"
+        ],
+        " button in the top right from the ",
+        [
+          "code",
+          null,
+          "Build > Builds"
+        ],
+        " tab ",
+        [
+          "img",
+          {
+            "src": "/docs/assets/img/appflow/ss-new-package-build.png",
+            "alt": "New Build"
+          }
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Select the proper commit for your build. There are several required and\noptional fields you can specify:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "b",
+          null,
+          "Target Platform"
+        ],
+        " - The platform for your build (iOS or Android)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "b",
+          null,
+          "Xcode Version (iOS Only)"
+        ],
+        " - The Xcode version used to build your iOS binary (use the recommended version if possible)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/appflow/package/build-types"
+          },
+          "Build Type"
+        ],
+        " - The type of build for the given platform (See ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/appflow/package/build-types#ios-build-types"
+          },
+          "iOS build types"
+        ],
+        " or ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/appflow/package/build-types#android-build-types"
+          },
+          "Android build types"
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/appflow/package/credentials"
+          },
+          "Security Profile"
+        ],
+        " - The signing credentials for the for the build (if required)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/appflow/automation/environments#custom-environments"
+          },
+          "Environment"
+        ],
+        " - The environment to use to customize your build process"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/appflow/package/native-configs"
+          },
+          "Native Config"
+        ],
+        " - The Native Config to use to customize your app configuration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For the quickstart tutorial, select the ",
+      [
+        "code",
+        null,
+        "Android"
+      ],
+      " platfrom and the ",
+      [
+        "code",
+        null,
+        "Debug"
+      ],
+      " type build which requires\nno other configuration. Once the build begins, you can view the progress and review the\nlogs if you encounter errors."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/gif-start-package-build.gif",
+          "alt": "Running Web Build"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "downloading-the-build"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#downloading-the-build"
+        },
+        "Downloading the Build"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "b",
+        null,
+        "Note:"
+      ],
+      " If you have trouble getting a successful build in the previous step, you can find answers to common Package build errors in ",
+      [
+        "a",
+        {
+          "href": "https://ionic.zendesk.com/hc/en-us/categories/360000410494-Package",
+          "target": "_blank"
+        },
+        "this section of our knowledge base"
+      ],
+      ". "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A successful Package build yields an iOS binary (",
+      [
+        "code",
+        null,
+        ".ipa"
+      ],
+      " or IPA) or an Android binary (",
+      [
+        "code",
+        null,
+        ".apk"
+      ],
+      " or APK) file. Once you have a successful build, you can download it so that you can install it on a device by \nclicking the file name in the ",
+      [
+        "code",
+        null,
+        "Artifacts"
+      ],
+      " section in the right of the build detail page or clicking the ",
+      [
+        "code",
+        null,
+        "Download IPA/APK"
+      ],
+      " icon on the build in the ",
+      [
+        "code",
+        null,
+        "Build > Builds"
+      ],
+      " tab."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/ss-download-package-build.png",
+          "alt": "Download Package Build"
+        }
+      ]
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Start a Package Build",
+      "href": "#start-a-package-build"
+    },
+    {
+      "text": "Downloading the Build",
+      "href": "#downloading-the-build"
+    }
+  ],
+  "pageClass": "page-appflow-quickstart-package"
+}

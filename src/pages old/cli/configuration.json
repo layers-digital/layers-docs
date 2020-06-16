@@ -1,0 +1,2591 @@
+{
+  "path": "/docs/cli/configuration",
+  "body": [
+    "div",
+    null,
+    [
+      "h2",
+      {
+        "id": "files"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#files"
+        },
+        "Files"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Configuration values are stored in JSON files. The Ionic CLI maintains a global configuration file, usually located at ",
+      [
+        "code",
+        null,
+        "~/.ionic/config.json"
+      ],
+      ", and project configuration files, usually at the project's root directory as ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The CLI provides commands for setting and printing config values from project config files and the global CLI config file. See ",
+      [
+        "code",
+        null,
+        "ionic config --help"
+      ],
+      " or see the documentation for usage of ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/cli/commands/config-get"
+        },
+        [
+          "code",
+          null,
+          "ionic config get"
+        ]
+      ],
+      " and ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/cli/commands/config-set"
+        },
+        [
+          "code",
+          null,
+          "ionic config set"
+        ]
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "project-configuration-file"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#project-configuration-file"
+        },
+        "Project Configuration File"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Each Ionic project has a project configuration file, usually at the project's root directory. The following is an annotated ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      " file."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// The human-readable name of the app."
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"My App\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// The project type of the app. The CLI uses this value to determine which"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// commands and command options are available, what to output for help"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// documentation, and what to use for web asset builds and the dev server."
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"angular\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// The App ID for Ionic Appflow."
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"abc123\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Configuration object for integrations such as Cordova and Capacitor."
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"integrations\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"cordova\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ...\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Hook configuration--see the Hooks section below for details."
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"hooks\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ...\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "environment-variables"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#environment-variables"
+        },
+        "Environment Variables"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The CLI will look for the following environment variables:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "IONIC_CONFIG_DIRECTORY"
+        ],
+        ": The directory of the global CLI config. Defaults to ",
+        [
+          "code",
+          null,
+          "~/.ionic"
+        ],
+        "."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "IONIC_HTTP_PROXY"
+        ],
+        ": Set a URL for proxying all CLI requests through. See ",
+        [
+          "a",
+          {
+            "href": "./using-a-proxy"
+          },
+          "Using a Proxy"
+        ],
+        "."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "IONIC_TOKEN"
+        ],
+        ": Automatically authenticates with ",
+        [
+          "a",
+          {
+            "href": "https://ionicframework.com/appflow"
+          },
+          "Ionic Appflow"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "flags"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#flags"
+        },
+        "Flags"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "CLI flags are global options that alter the behavior of a CLI command."
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--help"
+        ],
+        ": Instead of running the command, view its help page."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--verbose"
+        ],
+        ": Show all log messages for debugging purposes."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--quiet"
+        ],
+        ": Only show ",
+        [
+          "code",
+          null,
+          "WARN"
+        ],
+        " and ",
+        [
+          "code",
+          null,
+          "ERROR"
+        ],
+        " log messages."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--no-interactive"
+        ],
+        ": Turn off interactive prompts and fancy outputs. If CI or a non-TTY terminal is detected, the CLI is automatically non-interactive."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "--confirm"
+        ],
+        ": Turn on auto-confirmation of confirmation prompts. Careful: the CLI prompts before doing something potentially harmful. Auto-confirming may have unintended results."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "hooks"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#hooks"
+        },
+        "Hooks"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The CLI can run scripts during certain events, such as before and after builds. To hook into the CLI, the following ",
+      [
+        "a",
+        {
+          "href": "https://docs.npmjs.com/misc/scripts"
+        },
+        "npm scripts"
+      ],
+      " can be used in ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionic:serve:before"
+        ],
+        ": executed before the dev server starts"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionic:serve:after"
+        ],
+        ": executed after the dev server is terminated"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionic:build:before"
+        ],
+        ": executed before a web asset build begins"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionic:build:after"
+        ],
+        ": executed after a web asset build finishes"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionic:capacitor:run:before"
+        ],
+        " : executed on capacitor run before capacitor open is executed"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "code",
+          null,
+          "ionic:capacitor:build:before"
+        ],
+        " : executed on capacitor build before capacitor open is executed"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Capacitor hooks are executed after the ",
+      [
+        "code",
+        null,
+        "ionic:serve"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "ionic:build"
+      ],
+      " hooks. They will only be executed when using the ",
+      [
+        "code",
+        null,
+        "ionic capacitor build"
+      ],
+      " or ",
+      [
+        "code",
+        null,
+        "ionic capacitor run"
+      ],
+      " commands. When using a shell script for any of the hooks, several environment variables are set containing context information."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The following example shows the environment variables that are set for the ",
+      [
+        "code",
+        null,
+        "ionic:capacitor:run:before"
+      ],
+      " and ",
+      [
+        "code",
+        null,
+        "ionic:capacitor:build:before"
+      ],
+      " hooks."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CLI_HOOK_CTX_NAME"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "capacitor:build:before\n",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CLI_HOOK_CTX_BUILD_CORDOVA_ASSETS"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "true\n",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CLI_HOOK_CTX_BUILD_ENGINE"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "browser\n",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CLI_HOOK_CTX_BUILD_PROJECT"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "app\n",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CLI_HOOK_CTX_BUILD_TYPE"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "angular\n",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CLI_HOOK_CTX_BUILD_VERBOSE"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "false\n",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CLI_HOOK_CTX_CAPACITOR_APP_ID"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "io.ionic.starter\n",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CLI_HOOK_CTX_CAPACITOR_APP_NAME"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "ionic-starter-app\n",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CLI_HOOK_CTX_CAPACITOR_VERBOSE"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "false"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Hooks can also be defined in ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      ". Define a ",
+      [
+        "code",
+        null,
+        "hooks"
+      ],
+      " object within the project, where each key is the name of the hook (without the ",
+      [
+        "code",
+        null,
+        "ionic:"
+      ],
+      " prefix), and the value is a path to a JavaScript file or an array of paths."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In the following example, the file is imported and run during the ",
+      [
+        "code",
+        null,
+        "ionic:build:before"
+      ],
+      " hook."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"hooks\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"build:before\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"./scripts/build-before.js\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "JavaScript hook files should export a single function, which is passed a single argument (",
+      [
+        "code",
+        null,
+        "ctx"
+      ],
+      ") whenever the hook executes."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The argument is the context given to the hook file, which differs from hook to hook and with different invocations."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "./scripts/build-before.js"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "javascript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "module",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function-variable function"
+            },
+            "exports"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "function"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "ctx"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  console",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "log"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "ctx",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "multi-app-projects"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#multi-app-projects"
+        },
+        "Multi-app Projects"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "small",
+        null,
+        [
+          "em",
+          null,
+          "Available in CLI 6.2.0+"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The Ionic CLI supports a multi-app configuration setup, which involves multiple Ionic apps and shared code within a single repository, or ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/reference/glossary#monorepo"
+        },
+        "monorepo"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "These docs give an overview of the multi-app feature of the Ionic CLI, but don't really go into details for each framework."
+      ],
+      " ",
+      [
+        "p",
+        null,
+        "If you're using Angular, please see ",
+        [
+          "a",
+          {
+            "href": "https://github.com/ionic-team/ionic-cli/wiki/Angular-Monorepo"
+          },
+          "this article"
+        ],
+        " for examples."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "setup-steps"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#setup-steps"
+        },
+        "Setup Steps"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ol",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "Create a directory and initialize a monorepo (see ",
+          [
+            "a",
+            {
+              "href": "#project-structure"
+            },
+            "Project Structure"
+          ],
+          " for full details)."
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "Initialize the monorepo as an Ionic multi-app project. This will create a multi-app ",
+          [
+            "code",
+            null,
+            "ionic.config.json"
+          ],
+          " file. See ",
+          [
+            "a",
+            {
+              "href": "#config-file"
+            },
+            "Config File"
+          ],
+          " for full details."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "shell"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              [
+                "span",
+                {
+                  "class": "token prompt"
+                },
+                " $ "
+              ],
+              "ionic init --multi-app"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          "Use ",
+          [
+            "code",
+            null,
+            "ionic start"
+          ],
+          " to create Ionic apps or ",
+          [
+            "code",
+            null,
+            "ionic init"
+          ],
+          " to initialize existing apps (see ",
+          [
+            "a",
+            {
+              "href": "#adding-an-app"
+            },
+            "Adding an App"
+          ],
+          " for full details)."
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "project-structure"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#project-structure"
+        },
+        "Project Structure"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In a multi-app project, project structure is flexible. The only requirement is a multi-app ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      " file at the root of the repository."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Below is an example setup, where apps in the ",
+      [
+        "code",
+        null,
+        "apps/"
+      ],
+      " directory are separated from the shared code in the ",
+      [
+        "code",
+        null,
+        "lib/"
+      ],
+      " directory. Notice the root ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      " file and the monorepo's ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      " file."
+    ],
+    " ",
+    [
+      "file-tree",
+      null,
+      " ",
+      [
+        "file-tree-directory",
+        {
+          "name": "apps"
+        },
+        " ",
+        [
+          "file-tree-directory",
+          {
+            "name": "myApp",
+            "collapsed": ""
+          }
+        ],
+        " ",
+        [
+          "file-tree-directory",
+          {
+            "name": "myOtherApp",
+            "collapsed": ""
+          }
+        ],
+        " "
+      ],
+      " ",
+      [
+        "file-tree-directory",
+        {
+          "name": "lib",
+          "collapsed": ""
+        }
+      ],
+      " ",
+      [
+        "file-tree-file",
+        {
+          "name": "ionic.config.json"
+        }
+      ],
+      " ",
+      [
+        "file-tree-file",
+        {
+          "name": "package.json"
+        }
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "config-file"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#config-file"
+        },
+        "Config File"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In a multi-app project, apps share a single ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      " file at the root of the repository instead of each app having their own. The multi-app config file contains the configuration for each app by nesting configuration objects in a ",
+      [
+        "code",
+        null,
+        "projects"
+      ],
+      " object. A default app can be specified using ",
+      [
+        "code",
+        null,
+        "defaultProject"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Below is an example file, which corresponds to the file structure above."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"defaultProject\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"myApp\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"projects\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"myApp\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"My App\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"integrations\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"angular\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"root\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"apps/myApp\""
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"myOtherApp\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"My Other App\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"integrations\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"angular\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"root\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"apps/myOtherApp\""
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "When a multi-app project is detected, the Ionic CLI will operate under the context of an app configured in the root ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      ". Project selection criteria is as follows:"
+    ],
+    " ",
+    [
+      "ol",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "If the global CLI option ",
+        [
+          "code",
+          null,
+          "--project"
+        ],
+        " is specified, the project is looked up by key in the ",
+        [
+          "code",
+          null,
+          "projects"
+        ],
+        " object. For example, ",
+        [
+          "code",
+          null,
+          "--project=myApp"
+        ],
+        " will select the ",
+        [
+          "code",
+          null,
+          "myApp"
+        ],
+        " project."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "If the CLI detects it is being run within a project path, configured with the ",
+        [
+          "code",
+          null,
+          "root"
+        ],
+        " key, it will select the matched project. For example, using the CLI within the ",
+        [
+          "code",
+          null,
+          "apps/myOtherApp/src"
+        ],
+        " directory will select the ",
+        [
+          "code",
+          null,
+          "myOtherApp"
+        ],
+        " project."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "If a ",
+        [
+          "code",
+          null,
+          "defaultProject"
+        ],
+        " is specified in ",
+        [
+          "code",
+          null,
+          "ionic.config.json"
+        ],
+        ", it will select the specified project when the above criteria is not met."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "adding-an-app"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#adding-an-app"
+        },
+        "Adding an App"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Apps can be registered in a multi-app project either by using ",
+      [
+        "code",
+        null,
+        "ionic start"
+      ],
+      " to create new apps or ",
+      [
+        "code",
+        null,
+        "ionic init"
+      ],
+      " to initialize existing apps."
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "using-ionic-start"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#using-ionic-start"
+        },
+        "Using ",
+        [
+          "code",
+          null,
+          "ionic start"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If a multi-app project is detected during ",
+      [
+        "code",
+        null,
+        "ionic start"
+      ],
+      ", the CLI will add the app configuration to the root ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      " file instead of creating a project-specific one."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Dependency installation can be skipped using ",
+      [
+        "code",
+        null,
+        "--no-deps"
+      ],
+      " if dependencies are hoisted to the root of the monorepo."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token builtin class-name"
+            },
+            "cd"
+          ],
+          " apps/\n",
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic start ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"My New App\""
+          ],
+          " --no-deps"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "using-ionic-init"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#using-ionic-init"
+        },
+        "Using ",
+        [
+          "code",
+          null,
+          "ionic init"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If an app was created in a way other than ",
+      [
+        "code",
+        null,
+        "ionic start"
+      ],
+      ", for example by using a prebuilt template, use ",
+      [
+        "code",
+        null,
+        "ionic init"
+      ],
+      " to register the existing app with the multi-app project."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "Make sure the app doesn't have an existing ",
+        [
+          "code",
+          null,
+          "ionic.config.json"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token builtin class-name"
+            },
+            "cd"
+          ],
+          " apps/existing-app/\n",
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          "ionic init"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "advanced-configuration"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#advanced-configuration"
+        },
+        "Advanced Configuration"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "overriding-the-build"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#overriding-the-build"
+        },
+        "Overriding the Build"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Normally, the CLI runs a hard-coded set of commands based on the project type. For example, the standard web asset build for Angular projects is ",
+      [
+        "code",
+        null,
+        "ng run app:build"
+      ],
+      ". The web asset build can be overridden and ",
+      [
+        "code",
+        null,
+        "ionic build"
+      ],
+      " can continue to be used by utilizing the ",
+      [
+        "code",
+        null,
+        "ionic:build"
+      ],
+      " ",
+      [
+        "a",
+        {
+          "href": "https://docs.npmjs.com/misc/scripts"
+        },
+        "npm script"
+      ],
+      ". Similarly, the dev server can be overridden by using the ",
+      [
+        "code",
+        null,
+        "ionic:serve"
+      ],
+      " npm script."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Pay close attention to the flags supplied to the script by the Ionic CLI. Irregularities may occur if options are not respected, especially for livereload on devices."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "command-options"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#command-options"
+        },
+        "Command Options"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Command options can be expressed with environment variables. They are normally set with ",
+      [
+        "code",
+        null,
+        "--opt=value"
+      ],
+      " syntax. The naming of these environment variables follows a pattern: start with ",
+      [
+        "code",
+        null,
+        "IONIC_CMDOPTS_"
+      ],
+      ", add the command name (replacing any spaces with underscores), add the option name (replacing any hyphens with underscores), and then uppercase everything. Boolean flags (command-line options that don't take a value) can be set to ",
+      [
+        "code",
+        null,
+        "1"
+      ],
+      " or ",
+      [
+        "code",
+        null,
+        "0"
+      ],
+      ". Strip the ",
+      [
+        "code",
+        null,
+        "--no-"
+      ],
+      " prefix in boolean flags, if it exists (",
+      [
+        "code",
+        null,
+        "--no-open"
+      ],
+      " in ionic serve can be expressed with ",
+      [
+        "code",
+        null,
+        "IONIC_CMDOPTS_SERVE_OPEN=0"
+      ],
+      ", for example)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For example, the command options in ",
+      [
+        "code",
+        null,
+        "ionic cordova run ios -lc --livereload-port=1234 --host=0.0.0.0"
+      ],
+      " can also be expressed with this series of environment variables:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token builtin class-name"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CMDOPTS_CORDOVA_RUN_LIVERELOAD"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "\n$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token builtin class-name"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CMDOPTS_CORDOVA_RUN_CONSOLELOGS"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "\n$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token builtin class-name"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CMDOPTS_CORDOVA_RUN_LIVERELOAD_PORT"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1234"
+          ],
+          [
+            "span",
+            {
+              "class": "token prompt"
+            },
+            "\n$ "
+          ],
+          [
+            "span",
+            {
+              "class": "token builtin class-name"
+            },
+            "export"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token assign-left variable"
+            },
+            "IONIC_CMDOPTS_CORDOVA_RUN_HOST"
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "0.0"
+          ],
+          ".0.0"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If these variables are set in the environment, ",
+      [
+        "code",
+        null,
+        "ionic cordova build ios"
+      ],
+      " will use new defaults for its options."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "telemetry"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#telemetry"
+        },
+        "Telemetry"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The CLI sends usage data to Ionic to create a better experience. To disable this functionality, run ",
+      [
+        "code",
+        null,
+        "ionic config set -g telemetry false"
+      ],
+      "."
+    ]
+  ],
+  "title": "Configuration",
+  "headings": [
+    {
+      "text": "Files",
+      "href": "#files"
+    },
+    {
+      "text": "Environment Variables",
+      "href": "#environment-variables"
+    },
+    {
+      "text": "Flags",
+      "href": "#flags"
+    },
+    {
+      "text": "Hooks",
+      "href": "#hooks"
+    },
+    {
+      "text": "Multi-app Projects",
+      "href": "#multi-app-projects"
+    },
+    {
+      "text": "Advanced Configuration",
+      "href": "#advanced-configuration"
+    }
+  ],
+  "pageClass": "page-cli-configuration"
+}

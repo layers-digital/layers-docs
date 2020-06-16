@@ -1,0 +1,293 @@
+{
+  "title": "ionic capacitor run",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "ionic capacitor run"
+      ],
+      " will do the following:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Perform ",
+        [
+          "code",
+          null,
+          "ionic build"
+        ],
+        " (or run the dev server from ",
+        [
+          "code",
+          null,
+          "ionic serve"
+        ],
+        " with the ",
+        [
+          "code",
+          null,
+          "--livereload"
+        ],
+        " option)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Copy web assets into the specified native platform"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Open the IDE for your native project (Xcode for iOS, Android Studio for Android)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Once the web assets and configuration are copied into your native project, the app can run on devices and emulators/simulators using the native IDE. Unfortunately, programmatically building and launching the native project is not yet supported."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For Android and iOS, you can setup Remote Debugging on your device with browser development tools using these ",
+      [
+        "a",
+        {
+          "href": "https://ionicframework.com/docs/developer-resources/developer-tips"
+        },
+        "docs"
+      ],
+      "."
+    ]
+  ],
+  "path": "/docs/cli/commands/capacitor-run",
+  "summary": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "Run an Ionic project on a connected device"
+    ]
+  ],
+  "inputs": [
+    {
+      "name": "platform",
+      "summary": "<p>The platform to run (e.g. <code>android</code>, <code>ios</code>)</p>\n",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "name": "consolelogs",
+      "type": "boolean",
+      "summary": "<p>Print app console logs to the terminal</p>\n",
+      "groups": [
+        "advanced",
+        "cordova"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "consolelogs-port",
+      "type": "string",
+      "summary": "<p>Use specific port for console logs server</p>\n",
+      "groups": [
+        "advanced",
+        "cordova"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "port"
+      }
+    },
+    {
+      "name": "ssl",
+      "type": "boolean",
+      "summary": "<p>Use HTTPS for the dev server</p>\n",
+      "groups": [
+        "experimental",
+        "cordova"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "build",
+      "type": "boolean",
+      "summary": "<p>Do not invoke Ionic build</p>\n",
+      "default": true,
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "external",
+      "type": "boolean",
+      "summary": "<p>Host dev server on all network interfaces (i.e. <code>--host=0.0.0.0</code>)</p>\n",
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "host",
+      "type": "string",
+      "summary": "<p>Use specific host for the dev server</p>\n",
+      "default": "localhost",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "host"
+      }
+    },
+    {
+      "name": "port",
+      "type": "string",
+      "summary": "<p>Use specific port for the dev server</p>\n",
+      "default": "8100",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [
+        "p"
+      ],
+      "spec": {
+        "value": "port"
+      }
+    },
+    {
+      "name": "public-host",
+      "type": "string",
+      "summary": "<p>The host used for the browser or web view</p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "host"
+      }
+    },
+    {
+      "name": "livereload",
+      "type": "boolean",
+      "summary": "<p>Spin up dev server to live-reload www files</p>\n",
+      "groups": [],
+      "aliases": [
+        "l"
+      ],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "livereload-url",
+      "type": "string",
+      "summary": "<p>Provide a custom URL to the dev server</p>\n",
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "url"
+      }
+    },
+    {
+      "name": "prod",
+      "type": "boolean",
+      "summary": "<p>Flag to use the <code>production</code> configuration</p>\n",
+      "groups": [
+        "cordova"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "configuration",
+      "type": "string",
+      "summary": "<p>Specify the configuration to use.</p>\n",
+      "groups": [
+        "advanced",
+        "cordova"
+      ],
+      "aliases": [
+        "c"
+      ],
+      "spec": {
+        "value": "conf"
+      }
+    },
+    {
+      "name": "source-map",
+      "type": "boolean",
+      "summary": "<p>Output source maps</p>\n",
+      "groups": [
+        "advanced",
+        "cordova"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "watch",
+      "type": "boolean",
+      "summary": "<p>Rebuild when files change</p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    }
+  ],
+  "skipIntros": true,
+  "template": "cli",
+  "namespace": [
+    "ionic",
+    "capacitor"
+  ],
+  "footnotes": [],
+  "groups": [
+    "beta"
+  ],
+  "exampleCommands": [
+    "ionic capacitor run ",
+    "ionic capacitor run android",
+    "ionic capacitor run android -l",
+    "ionic capacitor run ios --livereload",
+    "ionic capacitor run ios --livereload-url=http://localhost:8100"
+  ],
+  "aliases": [],
+  "type": "project",
+  "headings": [],
+  "pageClass": "page-cli-commands-capacitor-run"
+}

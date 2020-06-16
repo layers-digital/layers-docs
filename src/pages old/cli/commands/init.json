@@ -1,0 +1,169 @@
+{
+  "title": "ionic init",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "This command will initialize an Ionic app within the current directory. Usually, this means an ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      " file is created. If used within a multi-app project, the app is initialized in the root ",
+      [
+        "code",
+        null,
+        "ionic.config.json"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "ionic init"
+      ],
+      " will prompt for a project name and then proceed to determine the type of your project. You can specify the ",
+      [
+        "code",
+        null,
+        "name"
+      ],
+      " argument and ",
+      [
+        "code",
+        null,
+        "--type"
+      ],
+      " option to provide these values via command-line."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If the ",
+      [
+        "code",
+        null,
+        "--multi-app"
+      ],
+      " flag is specified, this command will initialize your project as a multi-app project, allowing for apps within monorepos and unconventional repository structures. See the multi-app ",
+      [
+        "a",
+        {
+          "href": "https://ionicframework.com/docs/cli/configuration#multi-app-projects"
+        },
+        "docs"
+      ],
+      " for details. Once a multi-app project is initialized, you can run ",
+      [
+        "code",
+        null,
+        "ionic init"
+      ],
+      " again within apps in your project to initialize them."
+    ]
+  ],
+  "path": "/docs/cli/commands/init",
+  "summary": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "Initialize existing projects with Ionic"
+    ]
+  ],
+  "inputs": [
+    {
+      "name": "name",
+      "summary": "<p>The name of your project (e.g. <code>myApp</code>, <code>&quot;My App&quot;</code>)</p>\n",
+      "required": false
+    }
+  ],
+  "options": [
+    {
+      "name": "type",
+      "type": "string",
+      "summary": "<p>Type of project (e.g. <code>angular</code>, <code>react</code>, <code>vue</code>, <code>custom</code>)</p>\n",
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "type"
+      }
+    },
+    {
+      "name": "force",
+      "type": "boolean",
+      "summary": "<p>Initialize even if a project already exists</p>\n",
+      "default": false,
+      "groups": [],
+      "aliases": [
+        "f"
+      ],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "multi-app",
+      "type": "boolean",
+      "summary": "<p>Initialize a multi-app project</p>\n",
+      "default": false,
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    },
+    {
+      "name": "project-id",
+      "type": "string",
+      "summary": "<p>Specify a slug for your app</p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "slug"
+      }
+    },
+    {
+      "name": "default",
+      "type": "boolean",
+      "summary": "<p>Mark the initialized app as the default project</p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "true/false"
+      }
+    }
+  ],
+  "skipIntros": true,
+  "template": "cli",
+  "namespace": [
+    "ionic"
+  ],
+  "footnotes": [],
+  "groups": [
+    "beta"
+  ],
+  "exampleCommands": [
+    "ionic init ",
+    "ionic init \"My App\"",
+    "ionic init \"My App\" --type=angular",
+    "ionic init --multi-app"
+  ],
+  "aliases": [],
+  "type": "global",
+  "headings": [],
+  "pageClass": "page-cli-commands-init"
+}

@@ -1,0 +1,4028 @@
+{
+  "path": "/docs/enterprise/statusbar",
+  "title": "Statusbar",
+  "template": "enterprise-plugin",
+  "version": "2.5.0",
+  "minor": "2.5.X",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Status Bar plugin provides the ability to customize the appearance of the native mobile status bar, including setting visibility, background color, and more."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "native-ent-install",
+        {
+          "plugin-id": "statusbar",
+          "variables": "",
+          "capacitor-slug": "status-bar"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "preferences"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#preferences"
+        },
+        "Preferences"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "You can add the following preferences in your ",
+      [
+        "code",
+        null,
+        "config.xml"
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "StatusBarOverlaysWebView"
+          ],
+          " (boolean, defaults to true). Make the statusbar overlay or not overlay the WebView at startup."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              " <preference name=\"StatusBarOverlaysWebView\" value=\"true\" />"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "StatusBarBackgroundColor"
+          ],
+          " (color hex string, no default value). Set the background color of the statusbar by a hex string (#RRGGBB) at startup. If this value is not set, the background color will be transparent."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"StatusBarBackgroundColor\" value=\"#000000\" />"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "StatusBarStyle"
+          ],
+          " (status bar style, defaults to lightcontent). Set the status bar style (e.g. text color). Available options: default, lightcontent, blacktranslucent, blackopaque."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"StatusBarStyle\" value=\"lightcontent\" />"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "StatusBarDefaultScrollToTop"
+          ],
+          " (boolean, defaults to false). On iOS, allows the Cordova WebView to use default scroll-to-top behavior. Defaults to false so you can listen to the \"statusTap\" event (described below) and customize the behavior instead."
+        ],
+        " ",
+        [
+          "docs-code",
+          {
+            "language": "null"
+          },
+          " ",
+          [
+            "pre",
+            null,
+            [
+              "code",
+              null,
+              "  <preference name=\"StatusBarDefaultScrollToTop\" value=\"false\" />"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "index"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#index"
+        },
+        "Index"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#statusbar"
+          },
+          "StatusBar"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "statusbar"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#statusbar"
+        },
+        "StatusBar"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "StatusBar"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "name"
+        ]
+      ],
+      ": Status Bar"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "description"
+        ]
+      ],
+      ": Manage the appearance of the native status bar."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "usage"
+        ]
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " StatusBar ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-enterprise/statusbar/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " statusBar",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " StatusBar"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// let status bar overlay webview"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "statusBar",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "overlaysWebView"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// set status bar to white"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "statusBar",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "backgroundColorByHexString"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'#ffffff'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.isvisible"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "isvisible"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#isvisible"
+        },
+        "isVisible"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "● isVisible"
+      ],
+      ": ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Whether the StatusBar is currently visible or not."
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.backgroundcolorbyhexstring"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "backgroundcolorbyhexstring"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#backgroundcolorbyhexstring"
+        },
+        "backgroundColorByHexString"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "backgroundColorByHexString"
+      ],
+      "(hexString: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Set the status bar to a specific hex color (CSS shorthand supported!)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "iOS note: you must call StatusBar.overlaysWebView(false) to enable color changing."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "hexString"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "The hex value of the color."
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.backgroundcolorbyname"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "backgroundcolorbyname"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#backgroundcolorbyname"
+        },
+        "backgroundColorByName"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "backgroundColorByName"
+      ],
+      "(colorName: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Set the status bar to a specific named color. Valid options: black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "iOS note: you must call StatusBar.overlaysWebView(false) to enable color changing."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "colorName"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "The name of the color (from above)"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.hide"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "hide"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#hide"
+        },
+        "hide"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "hide"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Hide the StatusBar"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.overlayswebview"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "overlayswebview"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#overlayswebview"
+        },
+        "overlaysWebView"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "overlaysWebView"
+      ],
+      "(doesOverlay: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "boolean"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Set whether the status bar overlays the main app view. The default is true."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "doesOverlay"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "boolean"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Whether the status bar overlays the main app view."
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.show"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "show"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#show"
+        },
+        "show"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "show"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Show the StatusBar"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.styleblackopaque"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "styleblackopaque"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#styleblackopaque"
+        },
+        "styleBlackOpaque"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "styleBlackOpaque"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Use the blackOpaque statusbar (light text, for dark backgrounds)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.styleblacktranslucent"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "styleblacktranslucent"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#styleblacktranslucent"
+        },
+        "styleBlackTranslucent"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "styleBlackTranslucent"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Use the blackTranslucent statusbar (light text, for dark backgrounds)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.styledefault"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "styledefault"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#styledefault"
+        },
+        "styleDefault"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "styleDefault"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Use the default statusbar (dark text, for light backgrounds)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "statusbar.stylelightcontent"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "stylelightcontent"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#stylelightcontent"
+        },
+        "styleLightContent"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "styleLightContent"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Use the lightContent statusbar (light text, for dark backgrounds)."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    "  ",
+    [
+      "h3",
+      {
+        "id": "2-5-0-nov-1-2019-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-5-0-nov-1-2019-"
+        },
+        "2.5.0 (Nov 1, 2019)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "fix(ios): make default set black text on iOS 13 too"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix(iOS): Delay resizeWebView on viewWillAppear for correct statusbar height (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/issues/157"
+          },
+          "#157"
+        ],
+        ")"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-4-3-jun-19-2019-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-4-3-jun-19-2019-"
+        },
+        "2.4.3 (Jun 19, 2019)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "docs: Improved documentation and removed text that implies iOS only (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/issues/130"
+          },
+          "#130"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/33e410a"
+          },
+          [
+            "code",
+            null,
+            "33e410a"
+          ]
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/14b1513"
+          },
+          [
+            "code",
+            null,
+            "14b1513"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: Alpha example doesn't match description (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/issues/100"
+          },
+          "#100"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/5b77cae"
+          },
+          [
+            "code",
+            null,
+            "5b77cae"
+          ]
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/9b5baa2"
+          },
+          [
+            "code",
+            null,
+            "9b5baa2"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore(types): remove version from types (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/fade76b"
+          },
+          [
+            "code",
+            null,
+            "fade76b"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore: fix github issues link (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/288bd71"
+          },
+          [
+            "code",
+            null,
+            "288bd71"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: remove outdated translations (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/8dacefa"
+          },
+          [
+            "code",
+            null,
+            "8dacefa"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "build: add ",
+        [
+          "code",
+          null,
+          ".npmignore"
+        ],
+        " to remove unneeded files from npm package (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/84081de"
+          },
+          [
+            "code",
+            null,
+            "84081de"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "build: add ",
+        [
+          "code",
+          null,
+          ".gitattributes"
+        ],
+        " to force LF (instead of possible CRLF on Windows) (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/da6c2a8"
+          },
+          [
+            "code",
+            null,
+            "da6c2a8"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "ci(travis): Update Travis CI configuration for new paramedic (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/issues/139"
+          },
+          "#139"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/a538bfe"
+          },
+          [
+            "code",
+            null,
+            "a538bfe"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "feat: update typings (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/issues/132"
+          },
+          "#132"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/003fa61"
+          },
+          [
+            "code",
+            null,
+            "003fa61"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore: drop Node.js v4 support (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/issues/124"
+          },
+          "#124"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/a07612a"
+          },
+          [
+            "code",
+            null,
+            "a07612a"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "chore(github): Add or update GitHub pull request and issue template (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/727eea3"
+          },
+          [
+            "code",
+            null,
+            "727eea3"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: remove JIRA link (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/adcee9f"
+          },
+          [
+            "code",
+            null,
+            "adcee9f"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "ci(travis): also accept terms for android sdk ",
+        [
+          "code",
+          null,
+          "android-27"
+        ],
+        " (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/c8a13b8"
+          },
+          [
+            "code",
+            null,
+            "c8a13b8"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: remove second title headline (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/ecf8ccd"
+          },
+          [
+            "code",
+            null,
+            "ecf8ccd"
+          ]
+        ],
+        ")"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "docs: Add Android overlay support to README (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/issues/97"
+          },
+          "#97"
+        ],
+        ") (",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/e0256b2"
+          },
+          [
+            "code",
+            null,
+            "e0256b2"
+          ]
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://github.com/apache/cordova-plugin-statusbar/commit/053a902"
+          },
+          [
+            "code",
+            null,
+            "053a902"
+          ]
+        ],
+        ")"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-4-2-apr-12-2018-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-4-2-apr-12-2018-"
+        },
+        "2.4.2 (Apr 12, 2018)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12679"
+          },
+          "CB-12679"
+        ],
+        " Remove Permissions section"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-4-1-dec-27-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-4-1-dec-27-2017-"
+        },
+        "2.4.1 (Dec 27, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13712"
+          },
+          "CB-13712"
+        ],
+        " (iOS): fix overlaysWebView reset on rotation (#92)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-4-0-dec-15-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-4-0-dec-15-2017-"
+        },
+        "2.4.0 (Dec 15, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13623"
+          },
+          "CB-13623"
+        ],
+        " (iOS): Remove ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " 6-7 code"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-3-0-nov-06-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-3-0-nov-06-2017-"
+        },
+        "2.3.0 (Nov 06, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13476"
+          },
+          "CB-13476"
+        ],
+        " (iOS): handle double size statusbar on SDK 10 for ",
+        [
+          "strong",
+          null,
+          "iOS 11"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13394"
+          },
+          "CB-13394"
+        ],
+        " (iOS): fix ",
+        [
+          "code",
+          null,
+          "iPhone X"
+        ],
+        " StatusBar rendering in landscape"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11858"
+          },
+          "CB-11858"
+        ],
+        " (android) Add ",
+        [
+          "code",
+          null,
+          "StatusBarStyle"
+        ],
+        " feature support for ",
+        [
+          "strong",
+          null,
+          "Android M+"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13311"
+          },
+          "CB-13311"
+        ],
+        " (iOS) Statusbar does not overlay correctly on ",
+        [
+          "code",
+          null,
+          "iPhone X"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-13028"
+          },
+          "CB-13028"
+        ],
+        " (CI) ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " builds on Travis and AppVeyor"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12812"
+          },
+          "CB-12812"
+        ],
+        " (browser) Fix statusbar plugin with ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " platform"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12847"
+          },
+          "CB-12847"
+        ],
+        " added ",
+        [
+          "code",
+          null,
+          "bugs"
+        ],
+        " entry to ",
+        [
+          "code",
+          null,
+          "package.json"
+        ],
+        "."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-2-3-apr-27-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-2-3-apr-27-2017-"
+        },
+        "2.2.3 (Apr 27, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12622"
+          },
+          "CB-12622"
+        ],
+        " Added ",
+        [
+          "strong",
+          null,
+          "Android 6.0"
+        ],
+        " build badge to ",
+        [
+          "code",
+          null,
+          "README"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10879"
+          },
+          "CB-10879"
+        ],
+        " Enable overlaysWebView on ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " API 21+"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12685"
+          },
+          "CB-12685"
+        ],
+        " added ",
+        [
+          "code",
+          null,
+          "package.json"
+        ],
+        " to tests folder"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-2-2-feb-28-2017-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-2-2-feb-28-2017-"
+        },
+        "2.2.2 (Feb 28, 2017)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12188"
+          },
+          "CB-12188"
+        ],
+        " Status Bar is not changing in some specific ",
+        [
+          "strong",
+          null,
+          "Android"
+        ],
+        " phone (Red MI 3s Prime)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12369"
+          },
+          "CB-12369"
+        ],
+        " Add plugin typings from ",
+        [
+          "code",
+          null,
+          "DefinitelyTyped"
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12363"
+          },
+          "CB-12363"
+        ],
+        " Added build badges for ",
+        [
+          "strong",
+          null,
+          "iOS 9.3"
+        ],
+        " and ",
+        [
+          "strong",
+          null,
+          "iOS 10.0"
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12196"
+          },
+          "CB-12196"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " fix Status Bar Not Hiding"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12141"
+          },
+          "CB-12141"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " fix white app screen after camera overlay shown on iPad"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12230"
+          },
+          "CB-12230"
+        ],
+        " Removed ",
+        [
+          "strong",
+          null,
+          "Windows 8.1"
+        ],
+        " build badges"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-2-1-dec-07-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-2-1-dec-07-2016-"
+        },
+        "2.2.1 (Dec 07, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-12224"
+          },
+          "CB-12224"
+        ],
+        " Updated version and RELEASENOTES.md for release 2.2.1"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10288"
+          },
+          "CB-10288"
+        ],
+        " statusbar plugin interaction with iOS multitasking"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10158"
+          },
+          "CB-10158"
+        ],
+        " (ios) fix StatusBar issue when recovering from fullscreen video"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10341"
+          },
+          "CB-10341"
+        ],
+        " ios, document statusTap event"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11191"
+          },
+          "CB-11191"
+        ],
+        " Statusbar plugin causing issues with webview size"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11917"
+          },
+          "CB-11917"
+        ],
+        " - Remove pull request template checklist item: \"iCLA has been submitted…\""
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11832"
+          },
+          "CB-11832"
+        ],
+        " Incremented plugin version."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-2-0-sep-08-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-2-0-sep-08-2016-"
+        },
+        "2.2.0 (Sep 08, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11795"
+          },
+          "CB-11795"
+        ],
+        " Add 'protective' entry to cordovaDependencies"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Handle extended status bar on ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Plugin uses ",
+        [
+          "code",
+          null,
+          "Android Log class"
+        ],
+        " and not ",
+        [
+          "code",
+          null,
+          "Cordova LOG class"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11287"
+          },
+          "CB-11287"
+        ],
+        " (",
+        [
+          "strong",
+          null,
+          "ios"
+        ],
+        ") - fix webview resize after modal on ",
+        [
+          "strong",
+          null,
+          "iPhones"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11485"
+          },
+          "CB-11485"
+        ],
+        " fix resize on rotation with popover"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add badges for paramedic builds on Jenkins"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11197"
+          },
+          "CB-11197"
+        ],
+        " Keep status bar hidden when keyboard pops up"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Add pull request template."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10866"
+          },
+          "CB-10866"
+        ],
+        " Adding engine info to ",
+        [
+          "code",
+          null,
+          "package.json"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "patched missing ",
+        [
+          "code",
+          null,
+          "_ready"
+        ],
+        " method, and changed the way the proxy is installed"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10996"
+          },
+          "CB-10996"
+        ],
+        " Adding front matter to ",
+        [
+          "code",
+          null,
+          "README.md"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-1-3-apr-15-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-1-3-apr-15-2016-"
+        },
+        "2.1.3 (Apr 15, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-11018"
+          },
+          "CB-11018"
+        ],
+        " Fix statusbar with ",
+        [
+          "code",
+          null,
+          "inappbrowser"
+        ],
+        " causing incorrect orientation on ",
+        [
+          "strong",
+          null,
+          "iOS8"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10884"
+          },
+          "CB-10884"
+        ],
+        " ",
+        [
+          "code",
+          null,
+          "Inappbrowser"
+        ],
+        " breaks UI while Screen orientation changes from landscape to portrait on ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-1-2-mar-09-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-1-2-mar-09-2016-"
+        },
+        "2.1.2 (Mar 09, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10752"
+          },
+          "CB-10752"
+        ],
+        " for for status bar overlays the webview on ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " 6 in some cases"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10683"
+          },
+          "CB-10683"
+        ],
+        " Fix wrong StatusBar.isVisible initial value on ",
+        [
+          "strong",
+          null,
+          "Windows"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10636"
+          },
+          "CB-10636"
+        ],
+        " Add JSHint for plugins"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10047"
+          },
+          "CB-10047"
+        ],
+        " fix ",
+        [
+          "strong",
+          null,
+          "iOS"
+        ],
+        " 8 deprecated warnings"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-1-1-feb-09-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-1-1-feb-09-2016-"
+        },
+        "2.1.1 (Feb 09, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10102"
+          },
+          "CB-10102"
+        ],
+        " The removeObserver code was wrong and it might crash on plugin deallocation"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-1-0-jan-15-2016-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-1-0-jan-15-2016-"
+        },
+        "2.1.0 (Jan 15, 2016)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9513"
+          },
+          "CB-9513"
+        ],
+        " Allow to show/hide status bar in fullscreen mode."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8720"
+          },
+          "CB-8720"
+        ],
+        " Fix status bar position when app started upside down on ",
+        [
+          "strong",
+          null,
+          "iOS 7"
+        ],
+        "."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10118"
+          },
+          "CB-10118"
+        ],
+        " Fixes plugin loading error for ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " platform"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-0-0-nov-18-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-0-0-nov-18-2015-"
+        },
+        "2.0.0 (Nov 18, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-10035"
+          },
+          "CB-10035"
+        ],
+        " Updated ",
+        [
+          "code",
+          null,
+          "RELEASENOTES"
+        ],
+        " to be newest to oldest"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added ",
+        [
+          "code",
+          null,
+          "weakSelf"
+        ],
+        " reference for block use"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fixes ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-4712"
+          },
+          "CB-4712"
+        ],
+        ", ",
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-5439"
+          },
+          "CB-5439"
+        ],
+        " statusbar issues"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Fixing contribute link."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7965"
+          },
+          "CB-7965"
+        ],
+        " Add cordova-plugin-statusbar support for ",
+        [
+          "strong",
+          null,
+          "Browser"
+        ],
+        " platform"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Don't use ",
+        [
+          "code",
+          null,
+          "IsAtLeastiOSVersion"
+        ],
+        " macro to determine height"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Use correct statusbar height for landscape orientation in iOS >= 8"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "remove travis-ci"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9202"
+          },
+          "CB-9202"
+        ],
+        " updated repo url to github mirror in package.json"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Added verbose install text for users on < cordova 5.0"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "update docs for ",
+        [
+          "code",
+          null,
+          "StatusBarBackgroundColor"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "1-0-1-jun-17-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#1-0-1-jun-17-2015-"
+        },
+        "1.0.1 (Jun 17, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "add auto-tests for basic api"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9180"
+          },
+          "CB-9180"
+        ],
+        " Add correct supported check for ",
+        [
+          "strong",
+          null,
+          "Windows 8.1"
+        ],
+        " desktop"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-9128"
+          },
+          "CB-9128"
+        ],
+        " cordova-plugin-statusbar documentation translation: cordova-plugin-statusbar"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "fix npm md issue"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "1-0-0-apr-15-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#1-0-0-apr-15-2015-"
+        },
+        "1.0.0 (Apr 15, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8746"
+          },
+          "CB-8746"
+        ],
+        " gave plugin major version bump"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8683"
+          },
+          "CB-8683"
+        ],
+        " changed plugin-id to pacakge-name"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8653"
+          },
+          "CB-8653"
+        ],
+        " properly updated translated docs to use new id"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8653"
+          },
+          "CB-8653"
+        ],
+        " updated translated docs to use new id"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Use TRAVIS_BUILD_DIR, install paramedic by npm"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8653"
+          },
+          "CB-8653"
+        ],
+        " Updated Readme"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Use StatusBarBackgroundColor instead of AndroidStatusBarBackgroundColor, and added a quirk to the readme."
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Add support for StatusBar.backgroundColorByHexString (and StatusBar.backgroundColorByName) on Android 5 and up"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Allow setting the statusbar backgroundcolor on Android"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8575"
+          },
+          "CB-8575"
+        ],
+        " Integrate TravisCI"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8438"
+          },
+          "CB-8438"
+        ],
+        " cordova-plugin-statusbar documentation translation: cordova-plugin-statusbar"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8538"
+          },
+          "CB-8538"
+        ],
+        " Added package.json file"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-1-10-feb-04-2015-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-1-10-feb-04-2015-"
+        },
+        "0.1.10 (Feb 04, 2015)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8351"
+          },
+          "CB-8351"
+        ],
+        " ios: Use argumentForIndex rather than NSArray extension"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-1-9-dec-02-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-1-9-dec-02-2014-"
+        },
+        "0.1.9 (Dec 02, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Fix onload attribute within ",
+        [
+          "feature",
+          null,
+          " to be a ",
+          [
+            "param",
+            null
+          ]
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-8010"
+          },
+          "CB-8010"
+        ],
+        " - Statusbar colour does not change to orange"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "added checks for running on windows when StatusBar is NOT available"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7986"
+          },
+          "CB-7986"
+        ],
+        " Add cordova-plugin-statusbar support for ",
+        [
+          "strong",
+          null,
+          "Windows Phone 8.1"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7977"
+          },
+          "CB-7977"
+        ],
+        " Mention ",
+        [
+          "code",
+          null,
+          "deviceready"
+        ],
+        " in plugin docs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7979"
+          },
+          "CB-7979"
+        ],
+        " Each plugin doc should have a ## Installation section"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Inserting leading space after # for consistency"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7549"
+          },
+          "CB-7549"
+        ],
+        " - (Re-fix) ",
+        [
+          "code",
+          null,
+          "StatusBar"
+        ],
+        " ",
+        [
+          "strong",
+          null,
+          "iOS 8"
+        ],
+        " Landscape issue (closes #15)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7700"
+          },
+          "CB-7700"
+        ],
+        " cordova-plugin-statusbar documentation translation: cordova-plugin-statusbar"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7571"
+          },
+          "CB-7571"
+        ],
+        " Bump version of nested plugin to match parent plugin"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-1-8-sep-17-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-1-8-sep-17-2014-"
+        },
+        "0.1.8 (Sep 17, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7549"
+          },
+          "CB-7549"
+        ],
+        " [StatusBar][iOS 8] Landscape issue"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7486"
+          },
+          "CB-7486"
+        ],
+        " Remove StatusBarBackgroundColor intial preference (black background) so background will be initially transparent"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Renamed test dir, added nested plugin.xml"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "added documentation for manual tests, moved background color test below overlay test"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-7195"
+          },
+          "CB-7195"
+        ],
+        " ported statusbar tests to framework"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-1-7-aug-06-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-1-7-aug-06-2014-"
+        },
+        "0.1.7 (Aug 06, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Add LICENSE and NOTICE"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Update statusbar.js"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Update backgroundColorByHexString function"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "ios: Use a persistent callbackId instead of calling sendJs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6626"
+          },
+          "CB-6626"
+        ],
+        " ios: Add a JS event for tapping on statusbar"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "ios: Fix hide to adjust webview's frame only when status bar is not overlaying webview"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6127"
+          },
+          "CB-6127"
+        ],
+        " Updated translations for docs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "android: Fix StatusBar.initialize() not running on UI thread"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-1-6-jun-05-2014-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-1-6-jun-05-2014-"
+        },
+        "0.1.6 (Jun 05, 2014)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6783"
+          },
+          "CB-6783"
+        ],
+        " - added StatusBarStyle config preference,  updated docs (closes #9)"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6812"
+          },
+          "CB-6812"
+        ],
+        " Add license"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6491"
+          },
+          "CB-6491"
+        ],
+        " add CONTRIBUTING.md"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6264"
+          },
+          "CB-6264"
+        ],
+        " minor formatting issue"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Update docs with recent WP changes, remove 'clear' from the loist of named colors in documentation"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6513"
+          },
+          "CB-6513"
+        ],
+        " - Statusbar plugin for Android is not compiling"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "0-1-5-apr-17-2014-first-release-as-a-core-cordova-plugin-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#0-1-5-apr-17-2014-first-release-as-a-core-cordova-plugin-"
+        },
+        "0.1.5 (Apr 17, 2014) (First release as a core Cordova Plugin)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6316"
+          },
+          "CB-6316"
+        ],
+        ": Added README.md which point to the new location for docs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6316"
+          },
+          "CB-6316"
+        ],
+        ": Added license header to the documentation. Added README.md which point to the new location for docs"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6316"
+          },
+          "CB-6316"
+        ],
+        ": Moved StatusBar plugin documentation to docs folder"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6314"
+          },
+          "CB-6314"
+        ],
+        ": [android] Add StatusBar.isVisible support to Android"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "https://issues.apache.org/jira/browse/CB-6460"
+          },
+          "CB-6460"
+        ],
+        ": Update license headers"
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Index",
+      "href": "#index"
+    },
+    {
+      "text": "Classes",
+      "href": "#classes"
+    }
+  ],
+  "pageClass": "page-enterprise-statusbar"
+}

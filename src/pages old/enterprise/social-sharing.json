@@ -1,0 +1,4827 @@
+{
+  "path": "/docs/enterprise/social-sharing",
+  "title": "Social Sharing",
+  "template": "enterprise-plugin",
+  "version": "5.6.3",
+  "minor": "5.6.X",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Social Sharing plugin provides the ability to share text, files, images, and links via social networks, SMS, and email."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "native-ent-install",
+        {
+          "plugin-id": "social-sharing",
+          "variables": ""
+        }
+      ]
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "using-with-androidx-projects-android-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#using-with-androidx-projects-android-"
+        },
+        "Using with AndroidX Projects (Android)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "This plugin relies on the legacy Android Support libraries and will not work in projects using the newer AndroidX libraries without using the ",
+      [
+        "a",
+        {
+          "href": "https://www.npmjs.com/package/jetifier"
+        },
+        "jetifier"
+      ],
+      " tool to patch them."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "shell"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "npm"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "install"
+          ],
+          " jetifier\nnpx jetifier"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To run it automatically when dependencies are installed, add ",
+      [
+        "code",
+        null,
+        "\"postinstall\": \"jetifier\""
+      ],
+      " in the ",
+      [
+        "code",
+        null,
+        "package.json"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "index"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#index"
+        },
+        "Index"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "a",
+          {
+            "href": "#socialsharing"
+          },
+          "SocialSharing"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "classes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#classes"
+        },
+        "Classes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "socialsharing"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#socialsharing"
+        },
+        "SocialSharing"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "SocialSharing"
+      ],
+      ": "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "name"
+        ]
+      ],
+      ": Social Sharing"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "description"
+        ]
+      ],
+      ": Share text, files, images, and links via social networks, sms, and email."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For Browser usage check out the Web Share API docs: ",
+      [
+        "a",
+        {
+          "href": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#5-web-share-api"
+        },
+        "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#5-web-share-api"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        [
+          "strong",
+          null,
+          "usage"
+        ]
+      ],
+      ":"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " SocialSharing ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'@ionic-enterprise/social-sharing/ngx'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " socialSharing",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " SocialSharing"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "..."
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Check if sharing via email is supported"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "socialSharing",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "canShareViaEmail"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Sharing via email is possible"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "catch"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Sharing via email is not possible"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Share via email"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "socialSharing",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "shareViaEmail"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Body'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'Subject'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'recipient@example.org'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Success!"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "catch"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Error!"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.cansharevia"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "cansharevia"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#cansharevia"
+        },
+        "canShareVia"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "canShareVia"
+      ],
+      "(appName: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", message?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", subject?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", image?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", url?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Checks if you can share via a specific app."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "appName"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "App name or package name. Examples: instagram or com.apple.social.facebook"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " subject"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " image"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " url"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.canshareviaemail"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "canshareviaemail"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#canshareviaemail"
+        },
+        "canShareViaEmail"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "canShareViaEmail"
+      ],
+      "(): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Checks if you can share via email"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.savetophotoalbum"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "savetophotoalbum"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#savetophotoalbum"
+        },
+        "saveToPhotoAlbum"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "saveToPhotoAlbum"
+      ],
+      "(fileOrFileArray: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ],
+        " | ",
+        [
+          "code",
+          null,
+          "string"
+        ],
+        "[]"
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Save an array of images to the camera roll"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "fileOrFileArray"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ],
+            " | ",
+            [
+              "code",
+              null,
+              "string"
+            ],
+            "[]"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Single or multiple files"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.setipadpopupcoordinates"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "setipadpopupcoordinates"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#setipadpopupcoordinates"
+        },
+        "setIPadPopupCoordinates"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "setIPadPopupCoordinates"
+      ],
+      "(targetBounds: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "defines the popup position before call the share method."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "targetBounds"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "left, top, width, height"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "void"
+      ]
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.share"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "share"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#share"
+        },
+        "share"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "share"
+      ],
+      "(message?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", subject?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", file?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ],
+        " | ",
+        [
+          "code",
+          null,
+          "string"
+        ],
+        "[]"
+      ],
+      ", url?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Shares using the share sheet"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "The message you would like to share."
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " subject"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "The subject"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " file"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ],
+            " | ",
+            [
+              "code",
+              null,
+              "string"
+            ],
+            "[]"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "URL(s) to file(s) or image(s), local path(s) to file(s) or image(s), or base64 data of an image. Only the first file/image will be used on Windows Phone."
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " url"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "A URL to share"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.sharevia"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "sharevia"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#sharevia"
+        },
+        "shareVia"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareVia"
+      ],
+      "(appName: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", message: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", subject?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", image?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", url?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Share via AppName"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "appName"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "App name or package name. Examples: instagram or com.apple.social.facebook"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " subject"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " image"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " url"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.shareviaemail"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "shareviaemail"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#shareviaemail"
+        },
+        "shareViaEmail"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareViaEmail"
+      ],
+      "(message: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", subject: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", to: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ],
+        "[]"
+      ],
+      ", cc?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ],
+        "[]"
+      ],
+      ", bcc?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ],
+        "[]"
+      ],
+      ", files?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ],
+        " | ",
+        [
+          "code",
+          null,
+          "string"
+        ],
+        "[]"
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Share via Email"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "subject"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "to"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ],
+            "[]"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " cc"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ],
+            "[]"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Optional"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " bcc"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ],
+            "[]"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Optional"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " files"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ],
+            " | ",
+            [
+              "code",
+              null,
+              "string"
+            ],
+            "[]"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Optional URL or local path to file(s) to attach"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.shareviafacebook"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "shareviafacebook"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#shareviafacebook"
+        },
+        "shareViaFacebook"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareViaFacebook"
+      ],
+      "(message: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", image?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", url?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Shares directly to Facebook"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " image"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " url"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.shareviafacebookwithpastemessagehint"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "shareviafacebookwithpastemessagehint"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#shareviafacebookwithpastemessagehint"
+        },
+        "shareViaFacebookWithPasteMessageHint"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareViaFacebookWithPasteMessageHint"
+      ],
+      "(message: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", image?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", url?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", pasteMessageHint?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Shares directly to Facebook with a paste message hint"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " image"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " url"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " pasteMessageHint"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.shareviainstagram"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "shareviainstagram"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#shareviainstagram"
+        },
+        "shareViaInstagram"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareViaInstagram"
+      ],
+      "(message: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", image: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Shares directly to Instagram"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "image"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.shareviasms"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "shareviasms"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#shareviasms"
+        },
+        "shareViaSMS"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareViaSMS"
+      ],
+      "(messge: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", phoneNumber: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Share via SMS"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "messge"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "message to send"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "phoneNumber"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Number or multiple numbers seperated by commas"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.shareviatwitter"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "shareviatwitter"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#shareviatwitter"
+        },
+        "shareViaTwitter"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareViaTwitter"
+      ],
+      "(message: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", image?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", url?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Shares directly to Twitter"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " image"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " url"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.shareviawhatsapp"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "shareviawhatsapp"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#shareviawhatsapp"
+        },
+        "shareViaWhatsApp"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareViaWhatsApp"
+      ],
+      "(message: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", image?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", url?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Shares directly to WhatsApp"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " image"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " url"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "-"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.shareviawhatsapptoreceiver"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "shareviawhatsapptoreceiver"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#shareviawhatsapptoreceiver"
+        },
+        "shareViaWhatsAppToReceiver"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareViaWhatsAppToReceiver"
+      ],
+      "(receiver: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", message: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", image?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      ", url?: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "string"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Shares directly to a WhatsApp Contact"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Description"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "receiver"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Pass phone number on Android, and Addressbook ID (abid) on iOS"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Message to send"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " image"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Image to send (does not work on iOS"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " url"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Link to send"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "a",
+        {
+          "id": "socialsharing.sharewithoptions"
+        }
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "sharewithoptions"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#sharewithoptions"
+        },
+        "shareWithOptions"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "▸ ",
+      [
+        "strong",
+        null,
+        "shareWithOptions"
+      ],
+      "(options: ",
+      [
+        "em",
+        null,
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ],
+      "): ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Shares using the share sheet with additional options and returns a result object or an error message (requires plugin version 5.1.0+)"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Parameters:"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "options: ",
+        [
+          "code",
+          null,
+          "object"
+        ]
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The options object with the message, subject, files, url and chooserTitle properties."
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Name"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Type"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " chooserTitle"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " files"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ],
+            " | ",
+            [
+              "code",
+              null,
+              "string"
+            ],
+            "[]"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " message"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " subject"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "Optional"
+            ],
+            " url"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "string"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Returns:"
+      ],
+      " ",
+      [
+        "code",
+        null,
+        "Promise"
+      ],
+      "<",
+      [
+        "code",
+        null,
+        "any"
+      ],
+      ">"
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ],
+    " ",
+    [
+      "hr",
+      null
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Index",
+      "href": "#index"
+    },
+    {
+      "text": "Classes",
+      "href": "#classes"
+    }
+  ],
+  "pageClass": "page-enterprise-social-sharing"
+}

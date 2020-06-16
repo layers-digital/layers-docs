@@ -1,0 +1,2696 @@
+{
+  "title": "Purchases",
+  "path": "/docs/native/purchases",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Purchases is a cross platform solution for managing in-app subscriptions. A backend is also provided via ",
+      [
+        "a",
+        {
+          "href": "https://www.revenuecat.com"
+        },
+        "RevenueCat"
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "features"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#features"
+        },
+        "Features"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "RevenueCat"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "✅"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Server-side receipt validation"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "➡️"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "a",
+              {
+                "href": "https://docs.revenuecat.com/docs/webhooks"
+              },
+              "Webhooks"
+            ],
+            " - enhanced server-to-server communication with events for purchases, renewals, cancellations, and more"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "🎯"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Subscription status tracking - know whether a user is subscribed whether they're on iOS, Android or web"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "📊"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Analytics - automatic calculation of metrics like conversion, mrr, and churn"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "📝"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "a",
+              {
+                "href": "https://docs.revenuecat.com/docs"
+              },
+              "Online documentation"
+            ],
+            " up to date"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "🔀"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "a",
+              {
+                "href": "https://www.revenuecat.com/integrations"
+              },
+              "Integrations"
+            ],
+            " - over a dozen integrations to easily send purchase data where you need it"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "💯"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Well maintained - ",
+            [
+              "a",
+              {
+                "href": "https://github.com/RevenueCat/purchases-ios/releases"
+              },
+              "frequent releases"
+            ]
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "📮"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Great support - ",
+            [
+              "a",
+              {
+                "href": "https://docs.revenuecat.com/discuss"
+              },
+              "Help Center"
+            ]
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "🤩"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Awesome ",
+            [
+              "a",
+              {
+                "href": "https://trello.com/b/RZRnWRbI/revenuecat-product-roadmap"
+              },
+              "new features"
+            ]
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "getting-started"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#getting-started"
+        },
+        "Getting Started"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "For more detailed information, you can view our complete documentation at ",
+      [
+        "a",
+        {
+          "href": "https://docs.revenuecat.com/docs"
+        },
+        "docs.revenuecat.com"
+      ],
+      "."
+    ]
+  ],
+  "repo": "https://github.com/RevenueCat/cordova-plugin-purchases",
+  "platforms": [
+    "Android",
+    "iOS"
+  ],
+  "codeUsage": [
+    "div",
+    null,
+    [
+      "h4",
+      {
+        "id": "1-get-a-revenuecat-api-key"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#1-get-a-revenuecat-api-key"
+        },
+        "1. Get a RevenueCat API key"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "Log in to the ",
+      [
+        "a",
+        {
+          "href": "https://app.revenuecat.com"
+        },
+        "RevenueCat dashboard"
+      ],
+      " and obtain a free API key for your application."
+    ],
+    "\n\n    ",
+    [
+      "h4",
+      {
+        "id": "2-initialize-the-sdk"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#2-initialize-the-sdk"
+        },
+        "2. Initialize the SDK"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "You should only configure ",
+      [
+        "em",
+        null,
+        "Purchases"
+      ],
+      " once (usually on app launch) as soon as your app has a unique user id for your user. This can be when a user logs in if you have accounts or on launch if you can generate a random user identifier."
+    ],
+    "\n\n",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Platform ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"@ionic/angular\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "import"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " Purchases ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "from"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"@ionic-native/purchases/ngx\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n\n ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "constructor"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "public"
+            ],
+            " platform",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Platform",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "private"
+            ],
+            " purchases",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " Purchases"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n     platform",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "ready"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "then"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n         ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "purchases",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "setDebugLogsEnabled"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Enable to get debug logs"
+          ],
+          "\n         ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "purchases",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "setup"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"my_api_key\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"my_app_user_id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h4",
+      {
+        "id": "3-displaying-available-products"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#3-displaying-available-products"
+        },
+        "3. Displaying Available Products"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        "Purchases"
+      ],
+      " will automatically fetch the latest ",
+      [
+        "em",
+        null,
+        "active"
+      ],
+      " entitlements and get the product information from Apple or Google. This means when users launch your purchase screen, products will already be loaded."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "Below is an example of fetching entitlements and launching an upsell screen."
+    ],
+    "\n\n",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "purchases",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getEntitlements"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "subscribe"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "entitlements"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "error"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h4",
+      {
+        "id": "4-make-a-purchase"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#4-make-a-purchase"
+        },
+        "4. Make a purchase"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "When it comes time to make a purchase, ",
+      [
+        "em",
+        null,
+        "Purchases"
+      ],
+      " has a simple method, ",
+      [
+        "code",
+        null,
+        "makePurchase"
+      ],
+      ". The code sample below shows the process of purchasing a product and confirming it unlocks the \"my_entitlement_identifier\" content."
+    ],
+    "\n\n",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "purchases",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "makePurchase"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"product_id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "subscribe"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "response"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n         ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "if"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "response",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "purchaserInfo",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "activeEntitlements",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "includes"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"my_entitlement_identifier\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n             ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Unlock content"
+          ],
+          "\n         ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " error",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " userCancelled ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Error making purchase. You can check error.userCancelled to check if user cancelled the purchase"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n"
+        ]
+      ],
+      "\n"
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      [
+        "code",
+        null,
+        "makePurchase"
+      ],
+      " handles the underlying framework interaction and automatically validates purchases with Apple and Google through our secure servers. This helps reduce in-app purchase fraud and decreases the complexity of your app. Receipt tokens are stored remotely and always kept up-to-date."
+    ],
+    "\n\n    ",
+    [
+      "h4",
+      {
+        "id": "5-get-subscription-status"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#5-get-subscription-status"
+        },
+        "5. Get Subscription Status"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        "Purchases"
+      ],
+      " makes it easy to check what active subscriptions the current user has. This can\nbe done two ways within the ",
+      [
+        "code",
+        null,
+        ".purchaserInfo"
+      ],
+      " method:"
+    ],
+    "\n",
+    [
+      "ol",
+      null,
+      "\n",
+      [
+        "li",
+        null,
+        "Checking active Entitlements - this lets you see what entitlements (",
+        [
+          "a",
+          {
+            "href": "https://app.revenuecat.com"
+          },
+          "from RevenueCat dashboard"
+        ],
+        ")\nare active for the user."
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "Checking the active subscriptions - this lets you see what product ids (from iTunes Connect or Play Store) are active for the user."
+      ],
+      "\n"
+    ],
+    "\n\n",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "purchases",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "getPurchaserInfo"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "subscribe"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "info"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n         ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Option 1: Check if user has access to entitlement (from RevenueCat dashboard)"
+          ],
+          "\n         ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " isPro ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "\n             info",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "activeEntitlements ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "!=="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"undefined\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "&&"
+          ],
+          "\n             info",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "activeEntitlements",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "includes"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"pro\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n         ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Option 2: Check if user has active subscription (from App Store Connect or Play Store)"
+          ],
+          "\n         ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " isPro ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          "\n             info",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "activeSubscriptions ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "!=="
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"undefined\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "&&"
+          ],
+          "\n             info",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "activeSubscriptions",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "includes"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"my_product_identifier\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "error"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      "\n"
+    ],
+    "\n",
+    [
+      "blockquote",
+      null,
+      "\n",
+      [
+        "p",
+        null,
+        "Since the SDK updates and caches the latest PurchaserInfo when the app becomes active, the completion block in ",
+        [
+          "code",
+          null,
+          ".purchaserInfo"
+        ],
+        " won't need to make a network request in most cases."
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h3",
+      {
+        "id": "restoring-purchases"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#restoring-purchases"
+        },
+        "Restoring Purchases"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "Restoring purchases is a mechanism by which your user can restore their in-app purchases, reactivating any content that had previously been purchased from the same store account (Apple or Google)."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "If two different App User IDs try to restore transactions from the same underlying store account (Apple or Google) RevenueCat will create an alias between the two App User IDs and count them as the same user going forward."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "This is a common if your app does not have accounts and is relying on RevenueCat's random App User IDs."
+    ],
+    "\n\n",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "purchases",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "restore"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "subscribe"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "info"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//... check purchaserInfo to see if entitlement is now active"
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n     ",
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "error"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "=>"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      "\n"
+    ],
+    "\n",
+    [
+      "blockquote",
+      null,
+      "\n",
+      [
+        "p",
+        null,
+        "If you've provided your own App User ID, calling restoreTransactions could alias the logged in user to another generated App User ID that has made a purchase on the same device."
+      ],
+      "\n"
+    ],
+    "\n",
+    [
+      "blockquote",
+      null,
+      "\n",
+      [
+        "p",
+        null,
+        "By default, RevenueCat will not let you reuse an App or Play Store account that already has an active subscription. If you set allowSharingAppStoreAccount = True the SDK will be permissive in accepting shared accounts, creating aliases as needed."
+      ],
+      "\n"
+    ],
+    "\n",
+    [
+      "blockquote",
+      null,
+      "\n",
+      [
+        "p",
+        null,
+        "By default allowSharingAppStoreAccount is True for RevenueCat random App User IDs but must be enabled manually if you want to allow permissive sharing for your own App User IDs."
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h2",
+      {
+        "id": "debugging"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#debugging"
+        },
+        "Debugging"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "You can enabled detailed debug logs by setting ",
+      [
+        "code",
+        null,
+        "debugLogsEnabled = true"
+      ],
+      ". You can set this ",
+      [
+        "strong",
+        null,
+        "before"
+      ],
+      " you configure Purchases."
+    ],
+    "\n\n",
+    [
+      "docs-code",
+      {
+        "language": "typescript"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "purchases",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "setDebugLogsEnabled"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "this"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          "purchases",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "setup"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"my_api_key\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"my_app_user_id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ]
+        ]
+      ],
+      "\n"
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "OS_ACTIVITY_MODE"
+      ]
+    ],
+    "\n",
+    [
+      "blockquote",
+      null,
+      "\n",
+      [
+        "p",
+        null,
+        "On iOS, disabling ",
+        [
+          "code",
+          null,
+          "OS_ACTIVITY_MODE"
+        ],
+        " in your XCode scheme will block debug logs from printing in the console. If you have debug logs enabled, but don't see any output, go to ",
+        [
+          "code",
+          null,
+          "Product -> Scheme -> Edit Scheme..."
+        ],
+        " in Xcode and uncheck the ",
+        [
+          "code",
+          null,
+          "OS_ACTIVITY_MODE"
+        ],
+        " environment variable."
+      ],
+      "\n"
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "Example output:"
+    ],
+    "\n\n",
+    [
+      "docs-code",
+      {
+        "language": "null"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "[Purchases] - DEBUG: Debug logging enabled.\n[Purchases] - DEBUG: SDK Version - 2.0.0\n[Purchases] - DEBUG: Initial App User ID - (null)\n[Purchases] - DEBUG: GET /v1/subscribers/<APP_USER_ID>\n[Purchases] - DEBUG: GET /v1/subscribers/<APP_USER_ID>/products\n[Purchases] - DEBUG: No cached entitlements, fetching\n[Purchases] - DEBUG: Vending purchaserInfo from cache\n[Purchases] - DEBUG: applicationDidBecomeActive\n[Purchases] - DEBUG: GET /v1/subscribers/<APP_USER_ID>/products 200"
+        ]
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h2",
+      {
+        "id": "entitlements"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#entitlements"
+        },
+        "Entitlements"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "An entitlement represents features or content that a user is \"entitled\" to. With Entitlements, you can set up your available in-app products remotely and control their availability without the need to update your app. For more information on configuring entitlements, look at our ",
+      [
+        "a",
+        {
+          "href": "https://docs.revenuecat.com/docs/entitlements"
+        },
+        "entitlements documetation"
+      ],
+      "."
+    ],
+    "\n\n    ",
+    [
+      "h2",
+      {
+        "id": "sample-app"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#sample-app"
+        },
+        "Sample App"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "We've added an ",
+      [
+        "a",
+        {
+          "href": "https://github.com/RevenueCat/purchases-ionic-example"
+        },
+        "example"
+      ],
+      " showing a simple example using ",
+      [
+        "em",
+        null,
+        "Purchases"
+      ],
+      " with the RevenueCat backend. Note that the pre-registered in app purchases in the demo apps are for illustration purposes only and may not be valid in App Store Connect. ",
+      [
+        "a",
+        {
+          "href": "https://docs.revenuecat.com/docs/entitlements"
+        },
+        "Set up your own purchases"
+      ],
+      " with RevenueCat when running the example."
+    ],
+    "\n\n    ",
+    [
+      "h4",
+      {
+        "id": "additional-ios-setup"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#additional-ios-setup"
+        },
+        "Additional iOS Setup"
+      ],
+      "\n    "
+    ],
+    "\n  \n    ",
+    [
+      "h5",
+      {
+        "id": "add-strip-frameworks-phase"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#add-strip-frameworks-phase"
+        },
+        "Add Strip Frameworks Phase"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "The App Store, in it's infinite wisdom, still rejects fat frameworks, so we need to strip our framework before it is deployed. To do this, add the following script phase to your build."
+    ],
+    "\n",
+    [
+      "ol",
+      null,
+      "\n",
+      [
+        "li",
+        null,
+        "In Xcode, in project manager, select your app target."
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "Open the ",
+        [
+          "code",
+          null,
+          "Build Phases"
+        ],
+        " tab"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "Add a new ",
+        [
+          "code",
+          null,
+          "Run Script"
+        ],
+        ", name it ",
+        [
+          "code",
+          null,
+          "Strip Frameworks"
+        ]
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "Add the following command ",
+        [
+          "code",
+          null,
+          "\"${PROJECT_DIR}/../../node_modules/cordova-plugin-purchases/src/ios/strip-frameworks.sh\""
+        ],
+        " (quotes included)"
+      ],
+      "\n"
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "https://media.giphy.com/media/39zTmnsW1CIrJNk5AM/giphy.gif",
+          "alt": ""
+        }
+      ]
+    ],
+    "\n\n    ",
+    [
+      "h2",
+      {
+        "id": "next-steps"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#next-steps"
+        },
+        "Next Steps"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "ul",
+      null,
+      "\n",
+      [
+        "li",
+        null,
+        "Head over to our ",
+        [
+          "strong",
+          null,
+          [
+            "a",
+            {
+              "href": "https://docs.revenuecat.com/docs"
+            },
+            "online documentation"
+          ]
+        ],
+        " for complete setup guides"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "If you haven't already, make sure your products are configured correctly in the RevenueCat dashboard by checking out our ",
+        [
+          "a",
+          {
+            "href": "https://docs.revenuecat.com/docs/entitlements"
+          },
+          "guide on entitlements"
+        ]
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "If you want to use your own user identifiers, read about ",
+        [
+          "a",
+          {
+            "href": "https://docs.revenuecat.com/docs/user-ids"
+          },
+          "setting app user ids"
+        ]
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "If you're moving to RevenueCat from another system, see our guide on ",
+        [
+          "a",
+          {
+            "href": "https://docs.revenuecat.com/docs/migrating-existing-subscriptions"
+          },
+          "migrating your existing subscriptions"
+        ]
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "Once you're ready to test your integration, you can follow our guides on ",
+        [
+          "a",
+          {
+            "href": "https://docs.revenuecat.com/docs/testing-purchases"
+          },
+          "testing purchases"
+        ]
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h2",
+      {
+        "id": "reporting-issues"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#reporting-issues"
+        },
+        "Reporting Issues"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "You can use Github Issues to report any bugs and issues with ",
+      [
+        "em",
+        null,
+        "Purchases"
+      ],
+      ". Here is some advice for users that want to report an issue:"
+    ],
+    "\n",
+    [
+      "ol",
+      null,
+      "\n",
+      [
+        "li",
+        null,
+        "Make sure that you are using the latest version of ",
+        [
+          "em",
+          null,
+          "Purchases"
+        ],
+        ". The issue that you are about to report may be already fixed in the latest master branch version: ",
+        [
+          "a",
+          {
+            "href": "https://github.com/revenuecat/cordova-plugin-purchases/tree/master"
+          },
+          "https://github.com/revenuecat/cordova-plugin-purchases/tree/master"
+        ],
+        "."
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "Providing reproducible steps for the issue will shorten the time it takes for it to be fixed - a Gist is always welcomed!"
+      ],
+      "\n",
+      [
+        "li",
+        null,
+        "Since some issues are Sandbox specific, specifying what environment you encountered the issue might help."
+      ],
+      "\n"
+    ],
+    "\n\n    ",
+    [
+      "h2",
+      {
+        "id": "technical-support-or-questions"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#technical-support-or-questions"
+        },
+        "Technical Support or Questions"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "If you have questions or need help integrating ",
+      [
+        "em",
+        null,
+        "Purchases"
+      ],
+      " please ",
+      [
+        "a",
+        {
+          "href": "https://www.revenuecat.com/contact"
+        },
+        "contact us"
+      ],
+      " or email ",
+      [
+        "em",
+        null,
+        [
+          "a",
+          {
+            "href": "mailto:support@revenuecat.com"
+          },
+          "support@revenuecat.com"
+        ]
+      ],
+      " instead of opening an issue."
+    ],
+    "\n\n    ",
+    [
+      "h2",
+      {
+        "id": "feature-requests"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#feature-requests"
+        },
+        "Feature Requests"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      "If there is something you'd like to see included or feel anything is missing you can add a feature to our ",
+      [
+        "a",
+        {
+          "href": "https://trello.com/b/RZRnWRbI/revenuecat-product-roadmap"
+        },
+        "public roadmap"
+      ],
+      ". If the feature already exists, or you see something else you'd like, upvote it."
+    ],
+    "\n\n    ",
+    [
+      "h2",
+      {
+        "id": "pricing"
+      },
+      "\n      ",
+      [
+        "a",
+        {
+          "href": "#pricing"
+        },
+        "Pricing"
+      ],
+      "\n    "
+    ],
+    "\n  ",
+    [
+      "p",
+      null,
+      [
+        "em",
+        null,
+        "Purchases"
+      ],
+      " SDK is free to use but some features require a paid plan. You can find more about that on our website on the ",
+      [
+        "a",
+        {
+          "href": "https://www.revenuecat.com/pricing"
+        },
+        "pricing plan page"
+      ],
+      "."
+    ]
+  ],
+  "package": "@ionic-native/purchases",
+  "cordova": "cordova-plugin-purchases",
+  "capacitorIncompatible": false,
+  "premierSlug": null,
+  "template": "native",
+  "headings": [
+    {
+      "text": "Features",
+      "href": "#features"
+    },
+    {
+      "text": "Getting Started",
+      "href": "#getting-started"
+    }
+  ],
+  "pageClass": "page-native-purchases"
+}

@@ -1,0 +1,126 @@
+{
+  "title": "ionic deploy build",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "This command creates a deploy build on Ionic Appflow. While the build is running, it prints the remote build log to the terminal."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Customizing the build:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "The ",
+        [
+          "code",
+          null,
+          "--environment"
+        ],
+        " and ",
+        [
+          "code",
+          null,
+          "--channel"
+        ],
+        " options can be used to customize the groups of values exposed to the build."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Apart from ",
+      [
+        "code",
+        null,
+        "--commit"
+      ],
+      ", every option can be specified using the full name setup within the Appflow ",
+      [
+        "a",
+        {
+          "href": "https://dashboard.ionicframework.com"
+        },
+        "Dashboard"
+      ],
+      "."
+    ]
+  ],
+  "path": "/docs/cli/commands/deploy-build",
+  "summary": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      "Create a deploy build on Appflow"
+    ]
+  ],
+  "inputs": [],
+  "options": [
+    {
+      "name": "environment",
+      "type": "string",
+      "summary": "<p>The group of environment variables exposed to your build</p>\n",
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "name"
+      }
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "summary": "<p>The channel you want to auto deploy the build to. This can be repeated multiple times if multiple channels need to be specified.</p>\n",
+      "groups": [],
+      "aliases": [],
+      "spec": {
+        "value": "name"
+      }
+    },
+    {
+      "name": "commit",
+      "type": "string",
+      "summary": "<p>Commit (defaults to HEAD)</p>\n",
+      "groups": [
+        "advanced"
+      ],
+      "aliases": [],
+      "spec": {
+        "value": "sha1"
+      }
+    }
+  ],
+  "skipIntros": true,
+  "template": "cli",
+  "namespace": [
+    "ionic",
+    "deploy"
+  ],
+  "footnotes": [],
+  "groups": [],
+  "exampleCommands": [
+    "ionic deploy build ",
+    "ionic deploy build --environment=\"My Custom Environment Name\"",
+    "ionic deploy build --commit=2345cd3305a1cf94de34e93b73a932f25baac77c",
+    "ionic deploy build --channel=\"Master\"",
+    "ionic deploy build --channel=\"Master\" --channel=\"My Custom Channel\""
+  ],
+  "aliases": [],
+  "type": "project",
+  "headings": [],
+  "pageClass": "page-cli-commands-deploy-build"
+}

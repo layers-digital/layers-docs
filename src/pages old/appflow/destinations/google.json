@@ -1,0 +1,386 @@
+{
+  "path": "/docs/appflow/destinations/google",
+  "title": "Google Play Store",
+  "previousText": "Deploy To Apple App Store",
+  "previousUrl": "/docs/appflow/destinations/apple",
+  "nextText": "Builds/Automations",
+  "nextUrl": "/docs/appflow/destinations/builds",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The Google Play destination allows you to upload your finished binaries to the store for Android."
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        [
+          "strong",
+          null,
+          "Note:"
+        ],
+        " The first upload for a new Android app ",
+        [
+          "b",
+          null,
+          "must"
+        ],
+        " be uploaded from the Google Play Store website."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/appflow/google-overview.png",
+          "alt": "/docs/assets/img/appflow/google-overview.png"
+        }
+      ]
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Track"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "Which track on the Google Play Store the app will be upload into."
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "Package name"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "in reverse domain name format.",
+            [
+              "ul",
+              null,
+              " ",
+              [
+                "li",
+                null,
+                "e.g. com.yourdomain.yourappname"
+              ],
+              " "
+            ],
+            " "
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "JSON key"
+        ],
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            "To upload to the Google Play Store you will need to create a service account and download the JSON file containing security info for the service account.",
+            [
+              "ol",
+              null,
+              " ",
+              [
+                "li",
+                null,
+                "Go to ",
+                [
+                  "a",
+                  {
+                    "href": "https://play.google.com/apps/publish/"
+                  },
+                  "Google Play Console"
+                ]
+              ],
+              " ",
+              [
+                "li",
+                null,
+                "Navigate to ",
+                [
+                  "strong",
+                  null,
+                  "Settings"
+                ],
+                " and then ",
+                [
+                  "strong",
+                  null,
+                  "API access"
+                ]
+              ],
+              " ",
+              [
+                "li",
+                null,
+                "Click ",
+                [
+                  "strong",
+                  null,
+                  [
+                    "code",
+                    null,
+                    "CREATE SERVICE ACCOUNT"
+                  ]
+                ],
+                " "
+              ],
+              " ",
+              [
+                "li",
+                null,
+                "Navigate to the ",
+                [
+                  "strong",
+                  null,
+                  "Google Developers Console"
+                ],
+                " link in the dialog, which opens a new tab/window:",
+                [
+                  "ol",
+                  null,
+                  " ",
+                  [
+                    "li",
+                    null,
+                    "Click the ",
+                    [
+                      "strong",
+                      null,
+                      "CREATE SERVICE ACCOUNT"
+                    ],
+                    " button at the top of the ",
+                    [
+                      "strong",
+                      null,
+                      "Google Developers Console"
+                    ]
+                  ],
+                  " ",
+                  [
+                    "li",
+                    null,
+                    "Enter a ",
+                    [
+                      "code",
+                      null,
+                      "Service account name"
+                    ]
+                  ],
+                  " ",
+                  [
+                    "li",
+                    null,
+                    "Click ",
+                    [
+                      "strong",
+                      null,
+                      "Select a role"
+                    ],
+                    " and choose ",
+                    [
+                      "strong",
+                      null,
+                      "Service Accounts > Service Account User"
+                    ]
+                  ],
+                  " ",
+                  [
+                    "li",
+                    null,
+                    "Check the ",
+                    [
+                      "strong",
+                      null,
+                      "Furnish a new private key"
+                    ],
+                    " checkbox"
+                  ],
+                  " ",
+                  [
+                    "li",
+                    null,
+                    "Make sure ",
+                    [
+                      "strong",
+                      null,
+                      "JSON"
+                    ],
+                    " is selected as the ",
+                    [
+                      "code",
+                      null,
+                      "Key type"
+                    ]
+                  ],
+                  " ",
+                  [
+                    "li",
+                    null,
+                    "Click ",
+                    [
+                      "strong",
+                      null,
+                      "SAVE"
+                    ],
+                    " to close the dialog"
+                  ],
+                  " ",
+                  [
+                    "li",
+                    null,
+                    "Download the JSON file to your computer"
+                  ],
+                  " "
+                ],
+                " "
+              ],
+              " ",
+              [
+                "li",
+                null,
+                "Back on the ",
+                [
+                  "strong",
+                  null,
+                  "Google Play Console"
+                ],
+                ", click ",
+                [
+                  "strong",
+                  null,
+                  "DONE"
+                ],
+                " to close the dialog"
+              ],
+              " ",
+              [
+                "li",
+                null,
+                "Click on ",
+                [
+                  "strong",
+                  null,
+                  "Grant Access"
+                ],
+                " for the newly added service account"
+              ],
+              " ",
+              [
+                "li",
+                null,
+                "Choose ",
+                [
+                  "strong",
+                  null,
+                  "Release Manager"
+                ],
+                " (or ",
+                [
+                  "strong",
+                  null,
+                  "Project Lead"
+                ],
+                ") from the ",
+                [
+                  "code",
+                  null,
+                  "Role"
+                ],
+                " dropdown. (Note that choosing ",
+                [
+                  "strong",
+                  null,
+                  "Release Manager"
+                ],
+                " grants access to the production track and all other tracks. Choosing ",
+                [
+                  "strong",
+                  null,
+                  "Project Lead"
+                ],
+                " grants access to update all tracks ",
+                [
+                  "em",
+                  null,
+                  "except"
+                ],
+                " the production track.)"
+              ],
+              " ",
+              [
+                "li",
+                null,
+                "Click ",
+                [
+                  "strong",
+                  null,
+                  "ADD USER"
+                ],
+                " to close the dialog"
+              ],
+              " "
+            ],
+            " "
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ]
+  ],
+  "headings": [],
+  "pageClass": "page-appflow-destinations-google"
+}

@@ -1,0 +1,549 @@
+{
+  "path": "/docs/developer-resources/guides/first-app-v4/theming",
+  "previousText": "Creating a Photo Gallery with Device Storage",
+  "previousUrl": "/docs/developer-resources/guides/first-app-v4/creating-photo-gallery-device-storage",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Previously, we converted our single use Camera app into an epic photo gallery. Now, let’s explore how to make the photo gallery our own with Ionic theming. The visual design of the app is incredibly important - fortunately, Ionic provides a lot for us out-of-the-box."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Ionic has nine default colors, defined as CSS variables, that can be used to change the color of its UI components:"
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/guides/first-app-v4/theming-defaults.png",
+          "alt": "v4-theming-defaults"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "You can customize each color further by supplying a base, contrast, shade, and tint properties. These provide flexible control over your styles:"
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/guides/first-app-v4/theming-properties.png",
+          "alt": "v4-theming-properties"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "You can find these colors defined in ",
+      [
+        "code",
+        null,
+        "src/theme/variables.scss"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "By changing these variables here and there, you can easily update the entire theme of the application! Try changing a few of them and watch the app update in DevApp. For example, change the default blue color for Primary to purple:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "css"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/** Ionic CSS Variables **/"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            ":root"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/** primary **/"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #b36bff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 179",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "107",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "255",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-contrast"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #000000",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-contrast-rgb"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " 0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-shade"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #9e5ee0",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--ion-color-primary-tint"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #bb7aff",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "The easiest and most powerful way to create custom color palettes for your app’s UI is Ionic's ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/theming/color-generator"
+        },
+        "Color Generator tool"
+      ],
+      ". As you change a color’s hex values, the embedded demo app automatically reflects the new colors. When you've finished making changes, simply copy and paste the generated code directly into your Ionic project."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "But wait, there’s more! Ionic automatically provides platform specific styles based on the device the application is running on, giving that native look and feel your users are used to:"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/guides/first-app-v3/ion-lab-comparison.png",
+          "alt": "ios and android comparison"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In our app, this is clearly visible in how the header and the icons are styled."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "If you want consistency, you can tell Ionic to use the same mode regardless of platform. For example, to apply Material Design (Android’s platform style), set it globally in the App Module class. Open ",
+      [
+        "code",
+        null,
+        "src/app/app.module.ts"
+      ],
+      ", then set the ",
+      [
+        "code",
+        null,
+        "mode"
+      ],
+      " property:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "javascript"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "imports",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    BrowserModule",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    IonicModule",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "forRoot"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      mode",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"md\""
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    IonicStorageModule",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "forRoot"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Now, the iOS version of our app has a Material Design skin!"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "img",
+        {
+          "src": "/docs/assets/img/guides/first-app-v3/ion-lab-md-styling.png",
+          "alt": "ios and android comparison"
+        }
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Creating gorgeous-looking Ionic apps is easy with CSS variables and platform-specific styling. You now have everything you need to get started with Ionic. "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Go forth and build great apps!"
+    ]
+  ],
+  "title": "Make It Your Own! Ionic Theming",
+  "headings": [],
+  "pageClass": "page-developer-resources-guides-first-app-v4-theming"
+}

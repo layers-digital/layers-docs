@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { RouteRenderProps } from '@stencil/router';
 import { Angular } from '../../../icons';
-import OpenApiPayments from '../data/api-payments.json'
+import OpenApiPayments from '../../../data/api-payments.json'
 
 export default (props: RouteRenderProps) => {
   const navItems = items[props.match.params.service] ?? items['service-a']

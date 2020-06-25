@@ -7,6 +7,7 @@ import { Logo } from '../../icons';
 // import appflowTemplate from './templates/appflow';
 // import mainTemplate from './templates/main';
 import apiTemplate, { categories as apiCategories } from './templates/api';
+import guideTemplate, { categories as guideCategories } from './templates/guides';
 
 @Component({
   tag: 'docs-menu',
@@ -29,6 +30,11 @@ export class DocsMenu {
             <select-category options={apiCategories}/>
           </section>
         </stencil-route>
+        <stencil-route url="/docs">
+          <section class="MenuControls">
+            <select-category options={guideCategories}/>
+          </section>
+        </stencil-route>
         <stencil-route></stencil-route>
       </stencil-route-switch>,
       <stencil-route-switch scrollTopOffset={0} class="Menu">
@@ -40,6 +46,7 @@ export class DocsMenu {
         {/* <stencil-route url="/docs/:lang([a-z]{2})?/appflow" routeRender={appflowTemplate}/> */}
         {/* <stencil-route url="/docs/:lang([a-z]{2})?/enterprise" routeRender={() => <docs-menu-enterprise />}/> */}
         <stencil-route url="/docs/api/:service?" routeRender={apiTemplate}/>
+        <stencil-route url="/docs" routeRender={guideTemplate}/>
       </stencil-route-switch>
     ];
   }

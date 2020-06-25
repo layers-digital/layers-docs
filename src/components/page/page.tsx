@@ -128,7 +128,7 @@ export class DocsPage {
     }
 
     const Template = templates[page.template] || templates.default;
-
+    console.log(page.template)
     const content = [
       <main class={hasDemo ? 'has-demo' : 'no-demo'}>
         <Template page={page}/>

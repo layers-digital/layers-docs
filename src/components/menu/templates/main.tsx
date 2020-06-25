@@ -4,9 +4,9 @@ export default () => <docs-nav items={items}/>;
 
 const items = {
   'menu-intro': {
-    'menu-intro-overview': '/docs/',
-    'menu-intro-environment': '/docs/intro/environment',
-    'menu-intro-cli': '/docs/intro/cli',
+    'menu-intro-overview': '/docs/intro',
+    'menu-intro-environment': '/docs/apihub',
+    'menu-intro-cli': '/docs/notifications',
     'menu-intro-cdn': '/docs/intro/cdn',
     'menu-intro-next': '/docs/intro/next',
   },

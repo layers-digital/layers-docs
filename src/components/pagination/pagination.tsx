@@ -29,7 +29,7 @@ export class DocsPagination {
           key="previous"
           class="previous"
           anchorTitle={previousText}>
-            <div class="paggination__title">Previous</div>
+            <div class="paggination__title">Anterior</div>
             <div class="paggination__text">
               <BackArrow/>
               <span>{previousText}</span>
@@ -45,7 +45,7 @@ export class DocsPagination {
           key="next"
           class="next"
           anchorTitle={nextText}>
-            <div class="paggination__title">Next</div>
+            <div class="paggination__title">Próximo</div>
             <div class="paggination__text">
               <span>{nextText}</span>
               <ForwardArrow/>

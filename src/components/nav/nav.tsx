@@ -1,5 +1,5 @@
 import { Build, Component, Element, Prop, h } from '@stencil/core';
-import { link } from './link';
+import { link, NavLink } from './link';
 import { l10n } from '../../l10n';
 import { MenuItems } from '../../definitions';
 
@@ -12,38 +12,57 @@ export class DocsNav {
   @Element() element: HTMLElement;
   @Prop() items: MenuItems;
 
-  private normalizeItems(items) {
-    return Array.isArray(items) ? items : Object.entries(items);
-  }
-
-  toLink = link;
-
-  toItem = (item, level = 0) => {
-    const [id, value] = item;
-    switch (typeof value) {
-      case 'string':
-        // Go ahead...git blame...I know you want TWO :-)
-        if (id.match(/menu-native-[ce]e-show-all/)) {
-         return <li style={{ 'font-style': 'italic' }} key={item}>{this.toLink(item)}</li>;
-        }
-        return <li key={item}>{this.toLink(item)}</li>;
-      case 'object':
-        return <li key={item}>{this.toSection(item, level + 1)}</li>;
-      default:
-        return null;
+  private normalizeItems(items: any): NavLink[] {
+    if (items.href) {
+      return [items]
     }
+
+    if (typeof items === 'object' && !Array.isArray(items)) {
+      return Object
+        .entries(items)
+        .map(([text, value]) => {
+          if (typeof value == 'string') {
+            return {
+              text: text,
+              href: value as string,
+            }
+          } else {
+            return {
+              text,
+              childs: value as string,
+              ... (value as any)
+            }
+          }
+        });
+    }
+
+    return items
   }
 
-  toSection = ([id, value], level) => {
-    const text = l10n.getString(id) || id;
-    const items = this.normalizeItems(value);
+  // toLink = link;
+
+  toItem = (item: NavLink, level = 0) => {
+    if (item.childs) {
+      return <li key={item as any}>{this.toSection(item, level + 1)}</li>;
+    }
+    
+    if (typeof item === 'object') {
+      return <li key={item as any}>{link(item)}</li>;
+    }
+    
+    return null
+  }
+
+  toSection = (item: NavLink, level) => {
+    const text = l10n.getString(item.text) || item.text;
+    const childs = this.normalizeItems(item.childs);
     return (
       <section>
-        { id !== '' && text !== undefined ? <header class="Nav-header">{text}</header> : null }
+        { item.text !== '' && text !== undefined ? <header class="Nav-header">{text}</header> : null }
         <ul
           class="Nav-subnav"
           style={{ '--level': level }}>
-            {items.map(item => this.toItem(item, level))}
+            {childs.map(item => this.toItem(item, level))}
         </ul>
       </section>
     );

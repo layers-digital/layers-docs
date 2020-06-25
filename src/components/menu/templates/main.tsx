@@ -34,7 +34,6 @@ const items = {
     'menu-theming-themes': '/docs/theming/themes',
     'menu-theming-dark-mode': '/docs/theming/dark-mode',
     'menu-theming-advanced': '/docs/theming/advanced',
-    'menu-theming-color-generator': '/docs/theming/color-generator',
   },
   'menu-angular': {
     'menu-angular-overview': '/docs/angular/overview',

@@ -12,7 +12,6 @@ export const config: Config = {
       copy: [
         { src: 'pages/**/*.json' },
         // { src: 'demos', dest: 'demos' },
-        // { src: 'components/color-gen/demo/index.html', dest: 'pages/theming/color-generator/index.html' },
         { src: 'assets', dest: 'assets' },
         { src: 'manifest.json', dest: 'manifest.json' },
         // { src: '../node_modules/@ionic/core/dist', dest: 'assets/ionic' },

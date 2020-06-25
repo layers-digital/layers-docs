@@ -65,7 +65,7 @@ export default (props) => {
       </h1>
       <div class="page-meta">
         <docs-table-of-contents links={headings} basepath={page.path}/>
-        <internal-ad></internal-ad>
+        {/* <internal-ad></internal-ad> */}
       </div>
       <section class="markdown-content">
         {toHypertext(h, page.body)}

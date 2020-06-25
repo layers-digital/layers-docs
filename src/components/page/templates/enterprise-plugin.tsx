@@ -14,7 +14,7 @@ export default (props) => {
       <h4>v{page.version}</h4>
       <div class="page-meta">
         <docs-table-of-contents links={headings.concat([{ 'href': '#previous-versions', text: 'Other Versions' }])} basepath={page.path}/>
-        <internal-ad></internal-ad>
+        {/* <internal-ad></internal-ad> */}
       </div>
 
       <section class="markdown-content">

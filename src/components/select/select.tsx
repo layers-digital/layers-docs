@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Prop, State, Watch, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop, State, Watch, h, Method } from '@stencil/core';
 
 @Component({
   tag: 'docs-select',
@@ -12,7 +12,8 @@ export class DocsSelect {
   @Prop() initializer: (options: string[]) => string;
   @Prop() optionRenderer: (option: string) => any = (option: string) => option;
 
-  select = (option: string) => {
+  @Method() 
+  async select(option: string) {
     this.selected = option;
   }
 

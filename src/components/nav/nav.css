@@ -42,17 +42,19 @@ docs-nav a {
 .Nav-link,
 .Nav-header {
   background-color: rgba(0,0,0, var(--bg-alpha, 0));
-  display: block;
+  display: flex;
   padding-top: var(--item-spacing);
-  padding-right: 20px;
+  padding-right: 4px;
   padding-bottom: var(--item-spacing);
   padding-left: calc(14px + var(--level, 1) * 10px);
 }
 
 .Nav-link {
+  position: relative;
   margin: 0 14px;
   padding-left: calc(var(--level, 1) * 10px);
   border-radius: 4px;
+  
 }
 
 .Nav > li {
@@ -86,12 +88,25 @@ docs-nav a {
   margin-left: 0.25em;
 }
 
-.Nav span {
+.Nav-text {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   letter-spacing: .01em;
+  flex: auto 1 1;
+}
+
+
+.Nav-tag {
+  flex: auto 0 0;
+  margin: 0 4px;
+  padding: 0 4px;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
 }
 
 @media (max-width: 768px), (pointer: coarse) {
@@ -104,4 +119,34 @@ docs-nav a {
     --item-spacing: 6px;
     font-size: 14px;
   }
+}
+
+.Nav-tag {
+  color: rgba(var(--accent-color-rgb), 0.8);
+  background-color: rgba(var(--accent-color-rgb), 0.07);
+}
+
+.Nav-tag.red {
+  color: rgba(241, 65, 65, 0.8);
+  background-color: rgba(241, 65, 65, 0.07);
+}
+
+.Nav-tag.yellow {
+  color: rgba(255, 152, 0, 0.8);
+  background-color: rgba(255, 152, 0, 0.07);
+}
+
+.Nav-tag.green {
+  color: rgba(76, 152, 0, 0.8);
+  background-color: rgba(76, 152, 0, 0.07);
+}
+
+.Nav-tag.purple {
+  color: rgba(103, 53, 183, 0.8);
+  background-color: rgba(103, 53, 183, 0.07);
+}
+
+.Nav-tag.blue {
+  color: rgba(0, 126, 243, 0.8);
+  background-color: rgba(0, 126, 243, 0.07);
 }

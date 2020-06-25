@@ -8,9 +8,6 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
-  ColorVariable,
-} from './components/color-gen/color-variables';
-import {
   JSX,
 } from '@stencil/core';
 import {
@@ -20,8 +17,12 @@ import {
   ReferenceKeys,
 } from './definitions';
 import {
+  LocationSegments,
   RouterHistory,
 } from '@stencil/router';
+import {
+  SelectCategoryOption,
+} from './components/menu/select-category';
 
 export namespace Components {
   interface CodeColor {
@@ -30,26 +31,6 @@ export namespace Components {
     'value': string;
   }
   interface ColorAccordion {}
-  interface ColorGenCssText {
-    'cssText': string;
-    'header': boolean;
-  }
-  interface ColorGenPreview {
-    'cssText': string;
-    'demoMode': string;
-  }
-  interface ColorGenSelectColors {
-    'colors': ColorVariable[];
-  }
-  interface ColorGenVariableSelector {
-    'editable': boolean;
-    'isNew': boolean;
-    'isParentOpen': boolean;
-    'name': string;
-    'property': string;
-    'value': string;
-  }
-  interface ColorGenerator {}
   interface CommandCursor {
     'blink': boolean;
   }
@@ -143,6 +124,7 @@ export namespace Components {
     'initializer': (options: string[]) => string;
     'optionRenderer': (option: string) => any;
     'options': string[];
+    'select': (option: string) => Promise<void>;
   }
   interface DocsTab {
     'selected': boolean;
@@ -164,14 +146,8 @@ export namespace Components {
   interface FileTreeFile {
     'name': string;
   }
-  interface FrameworkSelect {
-    'onToggleClick': (e: Event) => void;
-  }
   interface HeaderMobileCollapse {
     'darkMode': boolean;
-  }
-  interface HubspotForm {
-    'formId': string;
   }
   interface InternalAd {}
   interface IonicSearch {
@@ -183,10 +159,13 @@ export namespace Components {
     'pluginId': string;
     'variables'?: string;
   }
-  interface NewColorGenerator {}
-  interface SteppedColorGenerator {}
-  interface WistiaVideo {
-    'videoId': string;
+  interface SelectCategory {
+    'history': RouterHistory;
+    'location': LocationSegments;
+    'options': SelectCategoryOption[];
+  }
+  interface SelectFramework {
+    'onToggleClick': (e: Event) => void;
   }
 }
 
@@ -203,36 +182,6 @@ declare global {
   var HTMLColorAccordionElement: {
     prototype: HTMLColorAccordionElement;
     new (): HTMLColorAccordionElement;
-  };
-
-  interface HTMLColorGenCssTextElement extends Components.ColorGenCssText, HTMLStencilElement {}
-  var HTMLColorGenCssTextElement: {
-    prototype: HTMLColorGenCssTextElement;
-    new (): HTMLColorGenCssTextElement;
-  };
-
-  interface HTMLColorGenPreviewElement extends Components.ColorGenPreview, HTMLStencilElement {}
-  var HTMLColorGenPreviewElement: {
-    prototype: HTMLColorGenPreviewElement;
-    new (): HTMLColorGenPreviewElement;
-  };
-
-  interface HTMLColorGenSelectColorsElement extends Components.ColorGenSelectColors, HTMLStencilElement {}
-  var HTMLColorGenSelectColorsElement: {
-    prototype: HTMLColorGenSelectColorsElement;
-    new (): HTMLColorGenSelectColorsElement;
-  };
-
-  interface HTMLColorGenVariableSelectorElement extends Components.ColorGenVariableSelector, HTMLStencilElement {}
-  var HTMLColorGenVariableSelectorElement: {
-    prototype: HTMLColorGenVariableSelectorElement;
-    new (): HTMLColorGenVariableSelectorElement;
-  };
-
-  interface HTMLColorGeneratorElement extends Components.ColorGenerator, HTMLStencilElement {}
-  var HTMLColorGeneratorElement: {
-    prototype: HTMLColorGeneratorElement;
-    new (): HTMLColorGeneratorElement;
   };
 
   interface HTMLCommandCursorElement extends Components.CommandCursor, HTMLStencilElement {}
@@ -433,22 +382,10 @@ declare global {
     new (): HTMLFileTreeFileElement;
   };
 
-  interface HTMLFrameworkSelectElement extends Components.FrameworkSelect, HTMLStencilElement {}
-  var HTMLFrameworkSelectElement: {
-    prototype: HTMLFrameworkSelectElement;
-    new (): HTMLFrameworkSelectElement;
-  };
-
   interface HTMLHeaderMobileCollapseElement extends Components.HeaderMobileCollapse, HTMLStencilElement {}
   var HTMLHeaderMobileCollapseElement: {
     prototype: HTMLHeaderMobileCollapseElement;
     new (): HTMLHeaderMobileCollapseElement;
-  };
-
-  interface HTMLHubspotFormElement extends Components.HubspotForm, HTMLStencilElement {}
-  var HTMLHubspotFormElement: {
-    prototype: HTMLHubspotFormElement;
-    new (): HTMLHubspotFormElement;
   };
 
   interface HTMLInternalAdElement extends Components.InternalAd, HTMLStencilElement {}
@@ -475,31 +412,20 @@ declare global {
     new (): HTMLNativeEntInstallElement;
   };
 
-  interface HTMLNewColorGeneratorElement extends Components.NewColorGenerator, HTMLStencilElement {}
-  var HTMLNewColorGeneratorElement: {
-    prototype: HTMLNewColorGeneratorElement;
-    new (): HTMLNewColorGeneratorElement;
+  interface HTMLSelectCategoryElement extends Components.SelectCategory, HTMLStencilElement {}
+  var HTMLSelectCategoryElement: {
+    prototype: HTMLSelectCategoryElement;
+    new (): HTMLSelectCategoryElement;
   };
 
-  interface HTMLSteppedColorGeneratorElement extends Components.SteppedColorGenerator, HTMLStencilElement {}
-  var HTMLSteppedColorGeneratorElement: {
-    prototype: HTMLSteppedColorGeneratorElement;
-    new (): HTMLSteppedColorGeneratorElement;
-  };
-
-  interface HTMLWistiaVideoElement extends Components.WistiaVideo, HTMLStencilElement {}
-  var HTMLWistiaVideoElement: {
-    prototype: HTMLWistiaVideoElement;
-    new (): HTMLWistiaVideoElement;
+  interface HTMLSelectFrameworkElement extends Components.SelectFramework, HTMLStencilElement {}
+  var HTMLSelectFrameworkElement: {
+    prototype: HTMLSelectFrameworkElement;
+    new (): HTMLSelectFrameworkElement;
   };
   interface HTMLElementTagNameMap {
     'code-color': HTMLCodeColorElement;
     'color-accordion': HTMLColorAccordionElement;
-    'color-gen-css-text': HTMLColorGenCssTextElement;
-    'color-gen-preview': HTMLColorGenPreviewElement;
-    'color-gen-select-colors': HTMLColorGenSelectColorsElement;
-    'color-gen-variable-selector': HTMLColorGenVariableSelectorElement;
-    'color-generator': HTMLColorGeneratorElement;
     'command-cursor': HTMLCommandCursorElement;
     'command-line': HTMLCommandLineElement;
     'command-output': HTMLCommandOutputElement;
@@ -533,16 +459,13 @@ declare global {
     'file-tree': HTMLFileTreeElement;
     'file-tree-directory': HTMLFileTreeDirectoryElement;
     'file-tree-file': HTMLFileTreeFileElement;
-    'framework-select': HTMLFrameworkSelectElement;
     'header-mobile-collapse': HTMLHeaderMobileCollapseElement;
-    'hubspot-form': HTMLHubspotFormElement;
     'internal-ad': HTMLInternalAdElement;
     'ionic-search': HTMLIonicSearchElement;
     'layered-colors-select': HTMLLayeredColorsSelectElement;
     'native-ent-install': HTMLNativeEntInstallElement;
-    'new-color-generator': HTMLNewColorGeneratorElement;
-    'stepped-color-generator': HTMLSteppedColorGeneratorElement;
-    'wistia-video': HTMLWistiaVideoElement;
+    'select-category': HTMLSelectCategoryElement;
+    'select-framework': HTMLSelectFrameworkElement;
   }
 }
 
@@ -553,31 +476,6 @@ declare namespace LocalJSX {
     'value'?: string;
   }
   interface ColorAccordion {}
-  interface ColorGenCssText {
-    'cssText'?: string;
-    'header'?: boolean;
-    'onCssTextChange'?: (event: CustomEvent<any>) => void;
-  }
-  interface ColorGenPreview {
-    'cssText'?: string;
-    'demoMode'?: string;
-  }
-  interface ColorGenSelectColors {
-    'colors'?: ColorVariable[];
-  }
-  interface ColorGenVariableSelector {
-    'editable'?: boolean;
-    'isNew'?: boolean;
-    'isParentOpen'?: boolean;
-    'name'?: string;
-    'onColorChange'?: (event: CustomEvent<any>) => void;
-    'onNameChange'?: (event: CustomEvent<any>) => void;
-    'property'?: string;
-    'value'?: string;
-  }
-  interface ColorGenerator {
-    'onDemoMessage'?: (event: CustomEvent<any>) => void;
-  }
   interface CommandCursor {
     'blink'?: boolean;
   }
@@ -692,14 +590,8 @@ declare namespace LocalJSX {
   interface FileTreeFile {
     'name'?: string;
   }
-  interface FrameworkSelect {
-    'onToggleClick'?: (e: Event) => void;
-  }
   interface HeaderMobileCollapse {
     'darkMode'?: boolean;
-  }
-  interface HubspotForm {
-    'formId'?: string;
   }
   interface InternalAd {}
   interface IonicSearch {
@@ -711,20 +603,18 @@ declare namespace LocalJSX {
     'pluginId'?: string;
     'variables'?: string;
   }
-  interface NewColorGenerator {}
-  interface SteppedColorGenerator {}
-  interface WistiaVideo {
-    'videoId'?: string;
+  interface SelectCategory {
+    'history'?: RouterHistory;
+    'location'?: LocationSegments;
+    'options'?: SelectCategoryOption[];
+  }
+  interface SelectFramework {
+    'onToggleClick'?: (e: Event) => void;
   }
 
   interface IntrinsicElements {
     'code-color': CodeColor;
     'color-accordion': ColorAccordion;
-    'color-gen-css-text': ColorGenCssText;
-    'color-gen-preview': ColorGenPreview;
-    'color-gen-select-colors': ColorGenSelectColors;
-    'color-gen-variable-selector': ColorGenVariableSelector;
-    'color-generator': ColorGenerator;
     'command-cursor': CommandCursor;
     'command-line': CommandLine;
     'command-output': CommandOutput;
@@ -758,16 +648,13 @@ declare namespace LocalJSX {
     'file-tree': FileTree;
     'file-tree-directory': FileTreeDirectory;
     'file-tree-file': FileTreeFile;
-    'framework-select': FrameworkSelect;
     'header-mobile-collapse': HeaderMobileCollapse;
-    'hubspot-form': HubspotForm;
     'internal-ad': InternalAd;
     'ionic-search': IonicSearch;
     'layered-colors-select': LayeredColorsSelect;
     'native-ent-install': NativeEntInstall;
-    'new-color-generator': NewColorGenerator;
-    'stepped-color-generator': SteppedColorGenerator;
-    'wistia-video': WistiaVideo;
+    'select-category': SelectCategory;
+    'select-framework': SelectFramework;
   }
 }
 
@@ -779,11 +666,6 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'code-color': LocalJSX.CodeColor & JSXBase.HTMLAttributes<HTMLCodeColorElement>;
       'color-accordion': LocalJSX.ColorAccordion & JSXBase.HTMLAttributes<HTMLColorAccordionElement>;
-      'color-gen-css-text': LocalJSX.ColorGenCssText & JSXBase.HTMLAttributes<HTMLColorGenCssTextElement>;
-      'color-gen-preview': LocalJSX.ColorGenPreview & JSXBase.HTMLAttributes<HTMLColorGenPreviewElement>;
-      'color-gen-select-colors': LocalJSX.ColorGenSelectColors & JSXBase.HTMLAttributes<HTMLColorGenSelectColorsElement>;
-      'color-gen-variable-selector': LocalJSX.ColorGenVariableSelector & JSXBase.HTMLAttributes<HTMLColorGenVariableSelectorElement>;
-      'color-generator': LocalJSX.ColorGenerator & JSXBase.HTMLAttributes<HTMLColorGeneratorElement>;
       'command-cursor': LocalJSX.CommandCursor & JSXBase.HTMLAttributes<HTMLCommandCursorElement>;
       'command-line': LocalJSX.CommandLine & JSXBase.HTMLAttributes<HTMLCommandLineElement>;
       'command-output': LocalJSX.CommandOutput & JSXBase.HTMLAttributes<HTMLCommandOutputElement>;
@@ -817,16 +699,13 @@ declare module "@stencil/core" {
       'file-tree': LocalJSX.FileTree & JSXBase.HTMLAttributes<HTMLFileTreeElement>;
       'file-tree-directory': LocalJSX.FileTreeDirectory & JSXBase.HTMLAttributes<HTMLFileTreeDirectoryElement>;
       'file-tree-file': LocalJSX.FileTreeFile & JSXBase.HTMLAttributes<HTMLFileTreeFileElement>;
-      'framework-select': LocalJSX.FrameworkSelect & JSXBase.HTMLAttributes<HTMLFrameworkSelectElement>;
       'header-mobile-collapse': LocalJSX.HeaderMobileCollapse & JSXBase.HTMLAttributes<HTMLHeaderMobileCollapseElement>;
-      'hubspot-form': LocalJSX.HubspotForm & JSXBase.HTMLAttributes<HTMLHubspotFormElement>;
       'internal-ad': LocalJSX.InternalAd & JSXBase.HTMLAttributes<HTMLInternalAdElement>;
       'ionic-search': LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
       'layered-colors-select': LocalJSX.LayeredColorsSelect & JSXBase.HTMLAttributes<HTMLLayeredColorsSelectElement>;
       'native-ent-install': LocalJSX.NativeEntInstall & JSXBase.HTMLAttributes<HTMLNativeEntInstallElement>;
-      'new-color-generator': LocalJSX.NewColorGenerator & JSXBase.HTMLAttributes<HTMLNewColorGeneratorElement>;
-      'stepped-color-generator': LocalJSX.SteppedColorGenerator & JSXBase.HTMLAttributes<HTMLSteppedColorGeneratorElement>;
-      'wistia-video': LocalJSX.WistiaVideo & JSXBase.HTMLAttributes<HTMLWistiaVideoElement>;
+      'select-category': LocalJSX.SelectCategory & JSXBase.HTMLAttributes<HTMLSelectCategoryElement>;
+      'select-framework': LocalJSX.SelectFramework & JSXBase.HTMLAttributes<HTMLSelectFrameworkElement>;
     }
   }
 }

@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { toHypertext } from '../to-hypertext';
-import components from '../data/api-reference.json';
+import components from '../data/api-payments.json';
 
 
 const listStyle = {

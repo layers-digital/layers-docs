@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { RouteRenderProps } from '@stencil/router';
-import { Angular } from '../../../icons';
+import  { Angular }  from '../../../icons';
 
 export default (props: RouteRenderProps) => {
   const navItems = items[props.match.params.service] ?? items['intro']
@@ -33,6 +33,11 @@ export const categories = [
     icon: Angular,
     url: '/docs/guides/oauth',
     title: 'OAuth'
+  },
+  {
+    icon: Angular,
+    url: '/docs/guides/tickets',
+    title: 'Atendimentos'
   },
   // {
   //   icon: null,
@@ -94,10 +99,17 @@ const items = {
       'Informações da conta': '/docs/guides/oauth/info-conta'
     }
   },
-  'Dados': {
+  'data': {
     'Overview': {
       'Estrutura do Layers': '/docs/guides/data',
+    },
+    'Sincronização': {
       'Sincronizando dados': '/docs/guides/data/sync'
     }
+  },
+  'tickets': {
+    'Estrutura dos Atendimentos': '/docs/guides/tickets',
+    'Criar e editar canais de atendimento': '/docs/guides/tickets/criar-canais-de-atendimento',
+    'Editar atendentes': '/docs/guides/tickets/editar-atendentes'
   }
 }

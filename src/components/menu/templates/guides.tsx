@@ -50,6 +50,9 @@ const items = {
     'Overview': {
       'Feito para EdTechs\'s': '/docs/guides/intro',
       'Funcionalidades': '/docs/guides/intro/funcionalidades',
+    },
+    'Autenticação': {
+      'Criar token': '/docs/guides/intro/autenticacao'
     }
   },
   'apihub': {
@@ -108,8 +111,10 @@ const items = {
     }
   },
   'tickets': {
-    'Estrutura dos Atendimentos': '/docs/guides/tickets',
-    'Criar e editar canais de atendimento': '/docs/guides/tickets/criar-canais-de-atendimento',
-    'Editar atendentes': '/docs/guides/tickets/editar-atendentes'
+    'Overview': {
+      'Estrutura dos Atendimentos': '/docs/guides/tickets',
+      'Criar e editar canais de atendimento': '/docs/guides/tickets/criar-canais-de-atendimento',
+      'Editar atendentes': '/docs/guides/tickets/editar-atendentes'
+    }
   }
 }

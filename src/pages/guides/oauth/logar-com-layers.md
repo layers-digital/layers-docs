@@ -2,7 +2,7 @@
 
 Com o objetivo de tornar o uso da autenticação com o Layers mais simples disponibilizamos um componente do botão de logar com Layers. Para utilizar esse componente na sua aplicação web, siga as instruções abaixo.
 
-### 1 - Importe a biblioteca
+## Importe a biblioteca
 
 Para ter acesso ao componente do botão logar com o Layers será necessário importar o código da biblioteca de autenticação do Layers como mostrado no trecho de código abaixo. É recomendado que isso seja feito dentro da tag head. 
 
@@ -16,7 +16,7 @@ Para ter acesso ao componente do botão logar com o Layers será necessário imp
 </html>
 ```
 
-### 2 - Adicione o botão de autenticação do Layers à sua página
+## Adicione o botão de autenticação do Layers à sua página
 
 ```html
 <layers-auth-button
@@ -57,7 +57,7 @@ Ao usar o atributo ```block``` o botão o botão se tornará flexível, ocupando
 + **inherit-font**:
 A fonte padrão do botão de autenticação é Nunito-Bold. Embora recomendemos o uso dessa fonte para que o botão seja identificado mais facilmente, é possível alterar a fonte através do atributo ```ìnherit-font```. Quando for usado esse atributo, a fonte do botão será herdada do seu componente pai.
 
-### 3 - Escute pelo evento com o resultado da autenticação
+## Escute pelo evento com o resultado da autenticação
 
 Caso você tenha optado por usar o modo ```redirect```, não será possível ouvir o evento como mostrado abaixo. Em vez disso, o código sera passado na chave code dos parâmetros na query.
 
@@ -75,7 +75,7 @@ Para os modos ```embedded```e ```popup``` o código que deve ser usado para obte
   </script>
 ```
 
-### 4 - Use o código para obter o token
+## Use o código para obter o token
 
 Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas [rotas de OAuth disponíveis no Layers](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md).
 

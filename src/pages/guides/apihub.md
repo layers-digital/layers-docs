@@ -8,35 +8,35 @@ O Hub de API's no Layers é o modo pelo qual apps trocam informações. Por meio
 ### Actions disponíveis
 
 <docs-cards>
-  <docs-card header="Calendário" href="/docs/intro/cli" icon="/docs/assets/icons/guide-installation-icon.svg" hover-icon="/docs/assets/icons/guide-installation-icon-hover.svg">
-    <p>Step-by-step guides to setting up your system and installing the framework.</p>
+  <docs-card header="Calendário" href="/docs/guides/apihub/dados-calendario" icon="/docs/assets/icons/guide-installation-icon.svg" hover-icon="/docs/assets/icons/guide-installation-icon-hover.svg">
+    <p>Actions para compartilhar informações de calendário</p>
   </docs-card>
 
-  <docs-card header="Ocorrências" href="/docs/components" icon="/docs/assets/icons/guide-components-icon.svg" hover-icon="/docs/assets/icons/guide-components-icon-hover.svg">
-    <p>Dive into Ionic Framework's beautifully designed UI component library.</p>
+  <docs-card header="Ocorrências" href="/docs/guides/apihub/dados-ocorrencia" icon="/docs/assets/icons/guide-components-icon.svg" hover-icon="/docs/assets/icons/guide-components-icon-hover.svg">
+    <p>Action para compartilhar informações sobre ocorrências</p>
   </docs-card>
 
-  <docs-card header="Frequência" href="/docs/theming/basics" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
-    <p>Learn to easily customize and modify your Ionic app's visual design to fit your brand.</p>
+  <docs-card header="Frequência" href="/docs/guides/apihub/dados-frequencia" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+    <p>Actions para compartilhar informações sobre frequência de alunos</p>
   </docs-card>
 
-  <docs-card header="Notas" href="/docs/theming/basics" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
-    <p>Learn to easily customize and modify your Ionic app's visual design to fit your brand.</p>
+  <docs-card header="Notas" href="/docs/guides/apihub/dados-notas" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+    <p>Actions para compartilhar notas acadêmicas</p>
   </docs-card>
 
-  <docs-card header="Grade Horária" href="/docs/theming/basics" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
-    <p>Learn to easily customize and modify your Ionic app's visual design to fit your brand.</p>
+  <docs-card header="Grade Horária" href="/docs/guides/apihub/dados-grade-horaria" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+    <p>Actions para compartilhar grades horárias de alunos</p>
   </docs-card>
 
-  <docs-card header="Ficha médica" href="/docs/theming/basics" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
-    <p>Learn to easily customize and modify your Ionic app's visual design to fit your brand.</p>
+  <docs-card header="Ficha médica" href="/docs/guides/apihub/dados-ficha-medica" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+    <p>Actions para compartilhar informações médicas</p>
   </docs-card>
 
-  <docs-card header="Cobranças" href="/docs/theming/basics" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
-    <p>Learn to easily customize and modify your Ionic app's visual design to fit your brand.</p>
+  <docs-card header="Cobranças" href="/docs/guides/apihub/dados-cobrancas" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+    <p>Actions para compartilhar informações de cobrança</p>
   </docs-card>
 
-  <docs-card header="Informações da Home" href="/docs/theming/basics" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
-    <p>Learn to easily customize and modify your Ionic app's visual design to fit your brand.</p>
+  <docs-card header="Informações da Home" href="/docs/guides/apihub/dados-home" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+    <p>Actions para definir as informações que o app mostrará na home do Layers</p>
   </docs-card>
 </docs-cards>

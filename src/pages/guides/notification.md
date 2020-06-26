@@ -7,7 +7,7 @@ Através da API do Layers é possível enviar notificações com título e texto
 + Ter funcionalidade API habilitada
 + Ter a permissão `notification:send`
 
-### Faça a requisição para a rota de notificação
+## Faça a requisição para a rota de notificação
 
 ##### POST `/notification/send`
 ```js

@@ -2,34 +2,41 @@
 
 O Layers disponibiliza uma série de funcionalidades que podem ser usadas tanto por apps internos quanto por apps de terceiros que podem ser usadas com um único código tanto na web quanto no aplicativo mobile.
 
-## Dados
+<docs-cards>
+  <docs-card header="Dados" href="/docs/guides/data" icon="/docs/assets/icons/microservices/Data.png">
+    <p>Altere dados no Layers</p>
+  </docs-card>
 
-Os dados de alunos, usuários, grupos e seus vínculos no Layers podem ser lidos e criados por apps com permissão da instituição de ensino que os instala.
+  <docs-card header="Autenticação OAuth" href="/docs/guides/oauth" icon="/docs/assets/icons/microservices/Oauth.png">
+    <p>Utilize a autenticação com Layers para ter acesso a informação</p>
+  </docs-card>
 
-## Atendimentos
+  <docs-card header="Hub de API's" href="/docs/guides/apihub" icon="/docs/assets/icons/microservices/APIhub.png">
+    <p>Conecte sua aplicação</p>
+  </docs-card>
 
-A [funcionalidade de atendimentos](link) permite que seu app tenha acesso aos chats, canais de atendimento e histórico de mensagens trocadas no Layers.
+  <docs-card header="Portais" href="/docs/guides/oauth" icon="/docs/assets/icons/microservices/Portal.png">
+    <p>Insira um portal para a sua solução ao nosso menu</p>
+  </docs-card>
 
-## Comunicados
+  <docs-card header="Pagamentos" href="/docs/guides/oauth" icon="/docs/assets/icons/microservices/Payments.png">
+    <p>Utilize a API de pagamentos do Layers</p>
+  </docs-card>
 
-[Envie informativos, convites para eventos e muito mais](link) publicações automáticamente para a comunidade escolar.
+  <docs-card header="Notificações" href="/docs/guides/notifications" icon="/docs/assets/icons/microservices/Notifications.png">
+    <p>Envie notificações</p>
+  </docs-card>
 
-## Arquivos e mídia
+  <docs-card header="Comunicados" href="/docs/theming/basics" icon="/docs/assets/icons/microservices">
+    <p>Use as funções da API de comunicação</p>
+  </docs-card>
 
-Faça [upload de mídia e arquivos](link) de até 5MB para o Layers para disponibilizá-los no seu app.
+  <docs-card header="Arquivos e Mídia" href="/docs/theming/basics" icon="/docs/assets/icons/guide-theming-icon.svg">
+    <p>Faça upload de arquivos e utilize-os no Layers</p>
+  </docs-card>
 
-## Notificações
+  <docs-card header="Atendimentos" href="/docs/guides/tickets" icon="/docs/assets/icons/microservices/">
+    <p>Crie e edite canais de atendimentos e chats</p>
+  </docs-card>
 
-[Envie notificações](link) com texto e título personalizado para alertar usuários de novidades no seu app.
-
-## Autenticação OAuth
-
-A [autenticação OAuth](link) permite que seu app utilize a funcionalidade "Logar com Layers" e tenha acesso às informações concedidas pelo usuário do Layers.
-
-## E-Commerce
-
-
-
-## Hub de API's
-
-O [Hub de API's](link) do Layers disponibiliza protocolos para que apps troquem informações entre si. Assim, é possível que apps requisitem informações que outros apps instalados na comunidade podem prover por meio de [actions](link).
+</docs-cards>

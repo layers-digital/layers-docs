@@ -30,7 +30,7 @@ export class DocsMenu {
             <select-category options={apiCategories}/>
           </section>
         </stencil-route>
-        <stencil-route url="/docs">
+        <stencil-route url="/docs/(guides)?/:service?">
           <section class="MenuControls">
             <select-category options={guideCategories}/>
           </section>
@@ -46,7 +46,7 @@ export class DocsMenu {
         {/* <stencil-route url="/docs/:lang([a-z]{2})?/appflow" routeRender={appflowTemplate}/> */}
         {/* <stencil-route url="/docs/:lang([a-z]{2})?/enterprise" routeRender={() => <docs-menu-enterprise />}/> */}
         <stencil-route url="/docs/api/:service?" routeRender={apiTemplate}/>
-        <stencil-route url="/docs" routeRender={guideTemplate}/>
+        <stencil-route url="/docs/(guides)?/:service?" routeRender={guideTemplate}/>
       </stencil-route-switch>
     ];
   }

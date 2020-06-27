@@ -2,7 +2,7 @@ import { h } from "@stencil/core";
 import { toHypertext } from "../to-hypertext";
 
 import {OpenAPIObject} from 'openapi3-ts'
-import ApiPaymentsSpec from '../../../data/api-payments.json'
+// import ApiPaymentsSpec from '../../../data/api-payments.json'
 
 
 export default (props) => {
@@ -20,7 +20,7 @@ export default (props) => {
     href: '#schema',
   });
 
-  let spec = (ApiPaymentsSpec as unknown as OpenAPIObject)
+  let spec = ({} as unknown as OpenAPIObject)
 
   return (
     <article>

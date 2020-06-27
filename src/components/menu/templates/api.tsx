@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { RouteRenderProps } from '@stencil/router';
 import { Angular } from '../../../icons';
-import OpenApiPayments from '../../../data/api-payments.json'
+// import OpenApiPayments from '../../../data/api-payments.json'
 
 export default (props: RouteRenderProps) => {
   const navItems = items[props.match.params.service] ?? items['service-a']
@@ -10,7 +10,7 @@ export default (props: RouteRenderProps) => {
 
 export const categories = [
   {
-    icon: Angular,
+    icon: '/docs/assets/icons/microservices/Payments.png',
     url: '/docs/api/payments',
     title: 'Hub de Pagamenos'
   },
@@ -36,7 +36,7 @@ export const categories = [
 ]
 
 const items = {
-  'service-a': GenerateOpenApiNavigation('/docs/api/payments', OpenApiPayments),
+  // 'service-a': GenerateOpenApiNavigation('/docs/api/payments', {}),
   // {
   //   'menu-appflow': '/docs/api/payments',
   //   'teste': {
@@ -204,19 +204,3 @@ function generateSchemaNavLink(base: string, route: DocSchema) {
     }
   }
 }
-
-// a.Nav-link:after {
-//   content: 'DEL';
-//   position: absolute;
-//   right: 4px;
-//   top: 4px;
-//   /* bottom: 6px; */
-//   height: 20px;
-//   line-height: 20px;
-//   padding: 0 4px;
-//   color: #f1414182;
-//   font-size: 12px;
-//   font-weight: bold;
-//   border-radius: 3px;
-//   background: #f1414108;
-// }

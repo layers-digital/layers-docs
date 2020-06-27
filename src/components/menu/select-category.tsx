@@ -8,7 +8,8 @@ export type SelectCategoryOption = {
 }
 
 @Component({
-  tag: 'select-category'
+  tag: 'select-category',
+  styleUrl: 'select-category.css'
 })
 export class SelectCategory{
   @Prop() history: RouterHistory;
@@ -42,7 +43,7 @@ export class SelectCategory{
     const Icon = service.icon
     return (
       <div class="SelectCategory-framework">
-        <Icon class="SelectCategory-icon"/>
+        <img src={Icon} class="SelectCategory-icon"/>
         <span>{item}</span>
       </div>
     )

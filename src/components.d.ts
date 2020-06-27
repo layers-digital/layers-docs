@@ -172,12 +172,6 @@ export namespace Components {
   interface IonicSearch {
     'mobile': boolean;
   }
-  interface LayeredColorsSelect {}
-  interface NativeEntInstall {
-    'capacitorSlug'?: string;
-    'pluginId': string;
-    'variables'?: string;
-  }
   interface SelectCategory {
     'history': RouterHistory;
     'location': LocationSegments;
@@ -413,18 +407,6 @@ declare global {
     new (): HTMLIonicSearchElement;
   };
 
-  interface HTMLLayeredColorsSelectElement extends Components.LayeredColorsSelect, HTMLStencilElement {}
-  var HTMLLayeredColorsSelectElement: {
-    prototype: HTMLLayeredColorsSelectElement;
-    new (): HTMLLayeredColorsSelectElement;
-  };
-
-  interface HTMLNativeEntInstallElement extends Components.NativeEntInstall, HTMLStencilElement {}
-  var HTMLNativeEntInstallElement: {
-    prototype: HTMLNativeEntInstallElement;
-    new (): HTMLNativeEntInstallElement;
-  };
-
   interface HTMLSelectCategoryElement extends Components.SelectCategory, HTMLStencilElement {}
   var HTMLSelectCategoryElement: {
     prototype: HTMLSelectCategoryElement;
@@ -474,8 +456,6 @@ declare global {
     'file-tree-file': HTMLFileTreeFileElement;
     'header-mobile-collapse': HTMLHeaderMobileCollapseElement;
     'ionic-search': HTMLIonicSearchElement;
-    'layered-colors-select': HTMLLayeredColorsSelectElement;
-    'native-ent-install': HTMLNativeEntInstallElement;
     'select-category': HTMLSelectCategoryElement;
     'select-framework': HTMLSelectFrameworkElement;
   }
@@ -619,12 +599,6 @@ declare namespace LocalJSX {
   interface IonicSearch {
     'mobile'?: boolean;
   }
-  interface LayeredColorsSelect {}
-  interface NativeEntInstall {
-    'capacitorSlug'?: string;
-    'pluginId'?: string;
-    'variables'?: string;
-  }
   interface SelectCategory {
     'history'?: RouterHistory;
     'location'?: LocationSegments;
@@ -672,8 +646,6 @@ declare namespace LocalJSX {
     'file-tree-file': FileTreeFile;
     'header-mobile-collapse': HeaderMobileCollapse;
     'ionic-search': IonicSearch;
-    'layered-colors-select': LayeredColorsSelect;
-    'native-ent-install': NativeEntInstall;
     'select-category': SelectCategory;
     'select-framework': SelectFramework;
   }
@@ -722,8 +694,6 @@ declare module "@stencil/core" {
       'file-tree-file': LocalJSX.FileTreeFile & JSXBase.HTMLAttributes<HTMLFileTreeFileElement>;
       'header-mobile-collapse': LocalJSX.HeaderMobileCollapse & JSXBase.HTMLAttributes<HTMLHeaderMobileCollapseElement>;
       'ionic-search': LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
-      'layered-colors-select': LocalJSX.LayeredColorsSelect & JSXBase.HTMLAttributes<HTMLLayeredColorsSelectElement>;
-      'native-ent-install': LocalJSX.NativeEntInstall & JSXBase.HTMLAttributes<HTMLNativeEntInstallElement>;
       'select-category': LocalJSX.SelectCategory & JSXBase.HTMLAttributes<HTMLSelectCategoryElement>;
       'select-framework': LocalJSX.SelectFramework & JSXBase.HTMLAttributes<HTMLSelectFrameworkElement>;
     }

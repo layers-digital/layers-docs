@@ -10,32 +10,32 @@ export default (props: RouteRenderProps) => {
 
 export const categories = [
   {
-    icon: Angular,
+    icon: '/docs/assets/icons/General.svg',
     url: '/docs/guides/intro',
     title: 'Guias Gerais'
   },
   {
-    icon: Angular,
-    url: '/docs/guides/apihub',
-    title: 'Hub de API\'s'
-  },
-  {
-    icon: Angular,
-    url: '/docs/guides/notification',
-    title: 'Notificações'
-  },
-  {
-    icon: Angular,
-    url: '/docs/guides/data',
-    title: 'Dados'
-  },
-  {
-    icon: Angular,
+    icon: '/docs/assets/icons/OAuth.svg',
     url: '/docs/guides/oauth',
     title: 'OAuth'
   },
   {
-    icon: Angular,
+    icon: '/docs/assets/icons/Data.svg',
+    url: '/docs/guides/data',
+    title: 'Dados'
+  },
+  {
+    icon: '/docs/assets/icons/Hub.svg',
+    url: '/docs/guides/apihub',
+    title: 'Hub de API\'s'
+  },
+  {
+    icon: '/docs/assets/icons/Notifications.svg',
+    url: '/docs/guides/notification',
+    title: 'Notificações'
+  },
+  {
+    icon: '/docs/assets/icons/General.svg',
     url: '/docs/guides/tickets',
     title: 'Atendimentos'
   },
@@ -48,7 +48,7 @@ export const categories = [
 const items = {
   'intro': {
     'Overview': {
-      'Feito para EdTechs\'s': '/docs/guides/intro',
+      'Feito para EdTechs\'s': '/docs/',
       'Funcionalidades': '/docs/guides/intro/funcionalidades',
     },
     'Autenticação': {

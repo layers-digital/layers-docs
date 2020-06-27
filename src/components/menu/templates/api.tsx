@@ -58,7 +58,7 @@ const items = {
   // },
   'service-b': {
     'menu-appflow-quickstartb': {
-      'menu-appflow-quickstart-overview': '/docs/api/service-b/quickstart',
+      'menu-appflow-quickstart-overview': '/docs/guides/intro/feito-para-edtech',
       'menu-appflow-quickstart-connect': '/docs/api/service-b/quickstart/connect',
     }
   },

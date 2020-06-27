@@ -18,8 +18,13 @@ export class DocsPageFooter {
   render() {
     const { page } = this;
 
+
+    const paggination = (
+      page.previousText && page.previousUrl || page.nextText && page.nextUrl
+    ) ? <docs-pagination page={page}/> : '';
+
     if (page == null || !page.github) {
-      return null;
+      return paggination;
     }
 
     const {
@@ -37,11 +42,9 @@ export class DocsPageFooter {
     const updatedText = lastUpdated ? new Date(lastUpdated).toISOString().slice(0, 10) : null;
     const contributorHref = (contributor) => `${updatedHref}?author=${contributor}`;
 
-    const paggination = (
-      page.previousText && page.previousUrl || page.nextText && page.nextUrl
-    ) ? <docs-pagination page={page}/> : '';
 
-    // console.log(paggination);
+
+    console.log(paggination);
 
     return [
       paggination,

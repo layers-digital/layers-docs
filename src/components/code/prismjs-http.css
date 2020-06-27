@@ -1,0 +1,62 @@
+docs-code[language="http"] > pre {
+  /* background-color: var(--text-color--dark); */
+  border-radius: 7px;
+  padding: 0 2em 0 0;
+  background: #fafafa;
+  box-shadow: 0 2px 3px -2px rgba(0,0,0,0.1), 0 2px 16px 0px rgba(0,0,0,0.1);
+}
+
+docs-code[language="http"]:before {
+  display: none;
+}
+
+docs-code[language="http"] code {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+docs-code[language="http"] .token {
+  color: inherit;
+}
+
+docs-code[language="http"] .token.method > .token {
+  --color: 119, 161, 250;
+  display: inline-block;
+  padding: 1em;
+  font-weight: bold;
+  color: rgb(var(--color));
+  background-color: rgba(var(--color), 0.15);
+  user-select: none;
+}
+
+docs-code[language="http"] .token.method > .delete {
+  --color: var(--api-red);
+}
+
+docs-code[language="http"] .token.method > .put {
+  --color: var(--api-yellow);
+}
+
+docs-code[language="http"] .token.method > .post {
+  --color: var(--api-blue);
+}
+
+docs-code[language="http"] .token.method > .get {
+  --color: var(--api-green);
+}
+
+docs-code[language="http"] .token.schema {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+docs-code[language="http"] .token.host {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+docs-code[language="http"] .token.path {
+  color: #006ada;
+}
+
+docs-code[language="http"] .token.version {
+  color: rgba(0, 0, 0, 0.7);
+}

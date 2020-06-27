@@ -1,0 +1,136 @@
+/* Tags */
+docs-openapi-schema,
+docs-openapi-schema-nested {
+  display: block;
+}
+
+/* Api Property */
+.Api-property-spec {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 1em;
+}
+
+.Api-property-name {
+  color: var(--api-gray1000) !important;
+  font-size: 13px;
+  /* font-family: var(--code-font-family); */
+  /* font-weight: 700; */
+  font-family: var(--font-family);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.Api-property-name-ancestor {
+  color: var(--api-gray400);
+  font-weight: 400;
+}
+
+.Api-property-name:target {
+  color: rgb(var(--api-purple)) !important;
+}
+.Api-property-name:target .Api-property-name-ancestor {
+  color: inherit;
+}
+
+.Api-property-description {
+  font-size: 12px;
+  color: var(--api-gray500);
+  margin: 0;
+  line-height: 1.5em;
+}
+
+/* Api Property List */
+.Api-property-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Api-property-list-item {
+  padding: 8px 0;
+}
+
+.Api-property-list-item:not(:first-child) {
+  border-top: 1px solid var(--api-gray100);
+}
+
+/* Api Label */
+.Api-label {
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.Api-label-optional {
+  color: var(--api-gray300);
+}
+
+.Api-label-required {
+  color: rgb(var(--api-orange));
+  font-weight: 700;
+}
+
+.Api-label-type {
+  color: rgb(var(--api-gray400));
+  font-weight: 500;
+}
+
+/* Api Util */
+.Api-flex-grow {
+  flex: auto 1 0;
+}
+
+/* Api Nested */
+.Api-nested-section {
+  box-shadow: 0 0 0 1px var(--api-gray100);
+  border-radius: 14px;
+  width: min-content;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.Api-nested-section.active {
+  width: 100%;
+}
+
+.Api-nested-toggle-btn {
+  cursor: pointer;
+  display: block;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  /* height: 28px; */
+  line-height: 100%;
+  border-radius: 100%;
+  white-space: pre;
+  font-family: var(--font-family);
+  color: var(--api-gray400);
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.Api-nested-section > .Api-nested-toggle-btn:hover {
+  color: var(--api-gray500)
+}
+
+
+.Api-nested-toggle-btn:focus {
+  outline: none;
+}
+
+.Api-nested-section .Api-property-list-item {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.Api-nested-section.active > docs-openapi-schema {
+  border-top: 1px solid var(--api-gray100);
+}
+
+

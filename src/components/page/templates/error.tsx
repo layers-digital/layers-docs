@@ -12,33 +12,29 @@ export default (response: Response) => (
 const getHelpfulTitle = (response: Response) => {
   switch (response.status) {
     case 404:
-      return 'Not Found';
+      return 'Não encontrado';
     default:
-      return 'Uh Oh';
+      return 'Ops';
   }
 };
 
 const getHelpfulMessage = (response: Response) => {
   switch (response.status) {
     case 404:
-      return 'Sorry, we couldn\'t find that page.';
+      return 'Ué, não consegui encontrar essa página';
     default:
-      return 'Sorry, something went wrong.';
+      return 'Ops, algo deu errado';
   }
 };
 
 const appropriateEmoji = [
-  '🧐',
   '😕',
   '😟',
   '😑',
   '😧',
-  '🤭',
   '😯',
   '😮',
-  '🤨',
   '🙃',
   '🤕',
-  '🤯',
   '😫'
 ];

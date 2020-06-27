@@ -3,7 +3,7 @@ import { CheckmarkSoft } from '../../icons';
 
 @Component({
   tag: 'docs-code',
-  styleUrl: 'code.css'
+  styleUrls: ['code.css', 'prismjs-theme.css', 'prismjs-shell-theme.css', 'prismjs-http.css']
 })
 export class DocsCode {
   @Element() el: HTMLElement;

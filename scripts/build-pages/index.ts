@@ -3,11 +3,11 @@ import { slugify } from '../../src/utils';
 import fs from 'fs-extra';
 import { createDocument } from '@stencil/core/mock-doc';
 import Listr from 'listr';
-import Static, { ToStaticPageOptions, toPage as toStaticPage } from './page-types/static';
-import API from './page-types/api';
+import Static, { ToStaticPageOptions, toPage as toStaticPage } from './types/static';
+import API from './types/api';
 // import CLI from './page-types/cli';
 // import Native from './page-types/native';
-import { convertHtmlToHypertextData } from './html-to-hypertext-data';
+import { convertHtmlToHypertextData } from './utils';
 
 const tasks = new Listr(
   // { renderer: 'verbose' }

@@ -3,7 +3,7 @@ import { commands } from '../data/cli.json';
 import { join, resolve } from 'path';
 import { keyBy, slugify } from '../../src/utils';
 import Listr from 'listr';
-import fs from 'fs-extra';
+import fs from '../build-pages/types/node_modules/fs-extra';
 
 const MENU_DATA_DIR = resolve(__dirname, '../../src/components/menu/data');
 

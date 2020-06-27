@@ -5,7 +5,7 @@ import templates from './templates';
 
 @Component({
   tag: 'docs-page',
-  styleUrl: 'page.css'
+  styleUrls: ['page.css', 'templates/error.css', 'templates/api.css']
 })
 export class DocsPage {
   @Prop() history: RouterHistory;

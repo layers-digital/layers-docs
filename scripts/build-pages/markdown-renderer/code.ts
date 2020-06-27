@@ -48,3 +48,34 @@ const escapeMap = {
   '"': '&quot;',
   '\'': '&#39;'
 };
+
+// Add http language
+Prism.languages.http = {
+  method: {
+    pattern: /^(GET|POST|HEAD|PUT|DEL(ETE)?)/,
+    inside: {
+      get: /GET/i,
+      post: /POST/i,
+      put: /put/i,
+      delete: /del(ete)?/i,
+      head: /head/i,
+    }
+  },
+
+  url: {
+    pattern: /(https?:\/\/)(([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/,
+    inside: {
+      schema: /^https?:\/\//,
+      host: /([^\/]+(\.[^\/]+)+)/,
+      path: {
+        pattern: /\/\S+/,
+        inside: {
+          version: {
+            pattern: /\/v\d+/,
+            greedy: true,
+          }
+        }
+      }
+    }
+  }
+}

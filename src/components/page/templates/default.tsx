@@ -10,7 +10,6 @@ export default props => {
       {page.tableOfContents !== false ? (
         <div class="page-meta">
           <docs-table-of-contents links={page.headings} basepath={page.path}/>
-          {/* <internal-ad></internal-ad> */}
         </div>
       ) : null}
       <section class="markdown-content">{toHypertext(h, page.body)}</section>

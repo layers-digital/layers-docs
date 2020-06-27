@@ -17,6 +17,15 @@ import {
   ReferenceKeys,
 } from './definitions';
 import {
+  OpenAPIObject,
+} from 'openapi3-ts';
+import {
+  AcessorNode,
+} from './components/openapi/schema';
+import {
+  AcessorNode as AcessorNode1,
+} from './components/openapi/schema';
+import {
   LocationSegments,
   RouterHistory,
 } from '@stencil/router';
@@ -103,6 +112,19 @@ export namespace Components {
   interface DocsNav {
     'items': MenuItems;
   }
+  interface DocsOpenapiSchema {
+    'hideReadOnly': boolean;
+    'hideWriteOnly': boolean;
+    'includeRootName': boolean;
+    'name': string;
+    'node'?: AcessorNode;
+    'spec': OpenAPIObject;
+  }
+  interface DocsOpenapiSchemaNested {
+    'node': AcessorNode;
+    'open': boolean;
+    'spec': OpenAPIObject;
+  }
   interface DocsPage {
     'history': RouterHistory;
     'path': string;
@@ -147,7 +169,6 @@ export namespace Components {
   interface HeaderMobileCollapse {
     'darkMode': boolean;
   }
-  interface InternalAd {}
   interface IonicSearch {
     'mobile': boolean;
   }
@@ -296,6 +317,18 @@ declare global {
     new (): HTMLDocsNavElement;
   };
 
+  interface HTMLDocsOpenapiSchemaElement extends Components.DocsOpenapiSchema, HTMLStencilElement {}
+  var HTMLDocsOpenapiSchemaElement: {
+    prototype: HTMLDocsOpenapiSchemaElement;
+    new (): HTMLDocsOpenapiSchemaElement;
+  };
+
+  interface HTMLDocsOpenapiSchemaNestedElement extends Components.DocsOpenapiSchemaNested, HTMLStencilElement {}
+  var HTMLDocsOpenapiSchemaNestedElement: {
+    prototype: HTMLDocsOpenapiSchemaNestedElement;
+    new (): HTMLDocsOpenapiSchemaNestedElement;
+  };
+
   interface HTMLDocsPageElement extends Components.DocsPage, HTMLStencilElement {}
   var HTMLDocsPageElement: {
     prototype: HTMLDocsPageElement;
@@ -374,12 +407,6 @@ declare global {
     new (): HTMLHeaderMobileCollapseElement;
   };
 
-  interface HTMLInternalAdElement extends Components.InternalAd, HTMLStencilElement {}
-  var HTMLInternalAdElement: {
-    prototype: HTMLInternalAdElement;
-    new (): HTMLInternalAdElement;
-  };
-
   interface HTMLIonicSearchElement extends Components.IonicSearch, HTMLStencilElement {}
   var HTMLIonicSearchElement: {
     prototype: HTMLIonicSearchElement;
@@ -431,6 +458,8 @@ declare global {
     'docs-menu-collapsible': HTMLDocsMenuCollapsibleElement;
     'docs-menu-toggle': HTMLDocsMenuToggleElement;
     'docs-nav': HTMLDocsNavElement;
+    'docs-openapi-schema': HTMLDocsOpenapiSchemaElement;
+    'docs-openapi-schema-nested': HTMLDocsOpenapiSchemaNestedElement;
     'docs-page': HTMLDocsPageElement;
     'docs-page-footer': HTMLDocsPageFooterElement;
     'docs-pagination': HTMLDocsPaginationElement;
@@ -444,7 +473,6 @@ declare global {
     'file-tree-directory': HTMLFileTreeDirectoryElement;
     'file-tree-file': HTMLFileTreeFileElement;
     'header-mobile-collapse': HTMLHeaderMobileCollapseElement;
-    'internal-ad': HTMLInternalAdElement;
     'ionic-search': HTMLIonicSearchElement;
     'layered-colors-select': HTMLLayeredColorsSelectElement;
     'native-ent-install': HTMLNativeEntInstallElement;
@@ -529,6 +557,19 @@ declare namespace LocalJSX {
   interface DocsNav {
     'items'?: MenuItems;
   }
+  interface DocsOpenapiSchema {
+    'hideReadOnly'?: boolean;
+    'hideWriteOnly'?: boolean;
+    'includeRootName'?: boolean;
+    'name'?: string;
+    'node'?: AcessorNode;
+    'spec'?: OpenAPIObject;
+  }
+  interface DocsOpenapiSchemaNested {
+    'node'?: AcessorNode;
+    'open'?: boolean;
+    'spec'?: OpenAPIObject;
+  }
   interface DocsPage {
     'history'?: RouterHistory;
     'path'?: string;
@@ -575,7 +616,6 @@ declare namespace LocalJSX {
   interface HeaderMobileCollapse {
     'darkMode'?: boolean;
   }
-  interface InternalAd {}
   interface IonicSearch {
     'mobile'?: boolean;
   }
@@ -616,6 +656,8 @@ declare namespace LocalJSX {
     'docs-menu-collapsible': DocsMenuCollapsible;
     'docs-menu-toggle': DocsMenuToggle;
     'docs-nav': DocsNav;
+    'docs-openapi-schema': DocsOpenapiSchema;
+    'docs-openapi-schema-nested': DocsOpenapiSchemaNested;
     'docs-page': DocsPage;
     'docs-page-footer': DocsPageFooter;
     'docs-pagination': DocsPagination;
@@ -629,7 +671,6 @@ declare namespace LocalJSX {
     'file-tree-directory': FileTreeDirectory;
     'file-tree-file': FileTreeFile;
     'header-mobile-collapse': HeaderMobileCollapse;
-    'internal-ad': InternalAd;
     'ionic-search': IonicSearch;
     'layered-colors-select': LayeredColorsSelect;
     'native-ent-install': NativeEntInstall;
@@ -665,6 +706,8 @@ declare module "@stencil/core" {
       'docs-menu-collapsible': LocalJSX.DocsMenuCollapsible & JSXBase.HTMLAttributes<HTMLDocsMenuCollapsibleElement>;
       'docs-menu-toggle': LocalJSX.DocsMenuToggle & JSXBase.HTMLAttributes<HTMLDocsMenuToggleElement>;
       'docs-nav': LocalJSX.DocsNav & JSXBase.HTMLAttributes<HTMLDocsNavElement>;
+      'docs-openapi-schema': LocalJSX.DocsOpenapiSchema & JSXBase.HTMLAttributes<HTMLDocsOpenapiSchemaElement>;
+      'docs-openapi-schema-nested': LocalJSX.DocsOpenapiSchemaNested & JSXBase.HTMLAttributes<HTMLDocsOpenapiSchemaNestedElement>;
       'docs-page': LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;
       'docs-page-footer': LocalJSX.DocsPageFooter & JSXBase.HTMLAttributes<HTMLDocsPageFooterElement>;
       'docs-pagination': LocalJSX.DocsPagination & JSXBase.HTMLAttributes<HTMLDocsPaginationElement>;
@@ -678,7 +721,6 @@ declare module "@stencil/core" {
       'file-tree-directory': LocalJSX.FileTreeDirectory & JSXBase.HTMLAttributes<HTMLFileTreeDirectoryElement>;
       'file-tree-file': LocalJSX.FileTreeFile & JSXBase.HTMLAttributes<HTMLFileTreeFileElement>;
       'header-mobile-collapse': LocalJSX.HeaderMobileCollapse & JSXBase.HTMLAttributes<HTMLHeaderMobileCollapseElement>;
-      'internal-ad': LocalJSX.InternalAd & JSXBase.HTMLAttributes<HTMLInternalAdElement>;
       'ionic-search': LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
       'layered-colors-select': LocalJSX.LayeredColorsSelect & JSXBase.HTMLAttributes<HTMLLayeredColorsSelectElement>;
       'native-ent-install': LocalJSX.NativeEntInstall & JSXBase.HTMLAttributes<HTMLNativeEntInstallElement>;

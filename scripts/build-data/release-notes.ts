@@ -4,7 +4,7 @@ import { outputJson } from 'fs-extra';
 import renderMarkdown from '../build-pages/markdown-renderer';
 import fetch from 'node-fetch';
 import url from 'url';
-import { convertHtmlToHypertextData } from '../build-pages/html-to-hypertext-data';
+import { convertHtmlToHypertextData } from '../build-pages/utils';
 import semver from 'semver';
 
 dotenv.config();

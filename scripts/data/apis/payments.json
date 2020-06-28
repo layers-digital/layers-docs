@@ -2336,6 +2336,9 @@
         }
       },
       "Checkout": {
+        "x-tags": [
+          "Checkout"
+        ],
         "type": "object",
         "properties": {
           "token": {
@@ -2386,7 +2389,6 @@
       },
       "CheckoutCustomer": {
         "type": "object",
-        "x-summary": "A entidade Cliente",
         "description": "Detailed customer information",
         "properties": {
           "name": {
@@ -2490,7 +2492,7 @@
           "price": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/StorefrontAmount"
+                "$ref": "#/components/schemas/Amount"
               },
               {
                 "readOnly": true,
@@ -2516,19 +2518,19 @@
         "description": "Individual Totals and grand-total of what is owned",
         "properties": {
           "items": {
-            "$ref": "#/components/schemas/StorefrontAmount"
+            "$ref": "#/components/schemas/Amount"
           },
           "discounts": {
-            "$ref": "#/components/schemas/StorefrontAmount"
+            "$ref": "#/components/schemas/Amount"
           },
           "shipping": {
-            "$ref": "#/components/schemas/StorefrontAmount"
+            "$ref": "#/components/schemas/Amount"
           },
           "taxes": {
-            "$ref": "#/components/schemas/StorefrontAmount"
+            "$ref": "#/components/schemas/Amount"
           },
           "total": {
-            "$ref": "#/components/schemas/StorefrontAmount"
+            "$ref": "#/components/schemas/Amount"
           }
         },
         "example": {
@@ -2595,10 +2597,10 @@
             "example": 2
           },
           "price": {
-            "$ref": "#/components/schemas/StorefrontAmount"
+            "$ref": "#/components/schemas/Amount"
           },
           "subtotal": {
-            "$ref": "#/components/schemas/StorefrontAmount"
+            "$ref": "#/components/schemas/Amount"
           }
         }
       },
@@ -3070,6 +3072,7 @@
         }
       },
       "Item": {
+        "x-tags": ["Items"],
         "type": "object",
         "properties": {
           "id": {

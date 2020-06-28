@@ -1,7 +1,7 @@
 import { Component, h, Prop, State } from "@stencil/core";
 
 import {OpenAPIObject, SchemaObject} from 'openapi3-ts'
-import { normalizeObject, getAcessorPathNames } from "./util";
+import { normalizeObject, getAcessorPathNames, getRefPath } from "./util";
 
 export type AcessorNode = {
   schema: SchemaObject,
@@ -11,12 +11,12 @@ export type AcessorNode = {
 
 @Component({
   tag: 'docs-openapi-schema',
-  styleUrl: 'styles.css',
+  styleUrl: 'schema.css',
 })
 export class DocOpenapiSchema {
 
   @Prop() spec: OpenAPIObject
-  @Prop() name: string
+  @Prop() path: string
   @Prop() node?: AcessorNode
   // @Prop() depthVisibility: number = 1
   @Prop() hideReadOnly: boolean = false
@@ -29,14 +29,15 @@ export class DocOpenapiSchema {
     if (this.node) {
       return this.node
     }
-    // return getRefPath(this.spec, '#/components/schemas/Item/properties/content')
-    let schema = this.spec.components.schemas[this.name]
+    console.log(this.spec)
+    
+    let schema = getRefPath(this.spec, this.path)
     if (!schema) {
       return null
     }
     return {
       schema,
-      name: this.name,
+      name: this.path.split('/').pop(),
     }
   }
 
@@ -142,7 +143,7 @@ export class DocOpenapiSchema {
   render() {
     let node = this.getRootAcessorNode()
     if (!node) {
-      return <div>Entity not found: {this.name}</div>
+      return <div>Entity not found: {this.path}</div>
     }
 
     return this.renderPropertyList(node)

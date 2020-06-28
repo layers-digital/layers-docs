@@ -84,8 +84,7 @@ export class DocsPage {
 
     // Title
     const getTitle = () => {
-      const suffix = /^\/docs\/pages\/appflow.*$/.test(this.path) ?
-        'Ionic Appflow Documentation' : 'Ionic Documentation';
+      const suffix = 'Layers Docs';
       // Favor meta title, else go with auto-title. fallback to generic title
       return meta.title || title ? `${title} - ${suffix}` : suffix;
     };
@@ -104,17 +103,19 @@ export class DocsPage {
 
     // Description
     updateMeta(metaEls.description, () => meta.description ||
-      'Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards');
+      'Layers é a plataforma para Educação e EdTechs. Escale seu produto utilizando API e Serviços da Layers.');
 
     // Sharing Image
-    updateMeta(metaEls.image, () => meta.image ||
-      'https://ionicframework.com/docs/assets/img/meta/open-graph.png');
+    // updateMeta(metaEls.image, () => meta.image ||
+    //   'TODO');
   }
 
   hostData() {
+    let template = this.page.template in templates ? this.page.template : 'default'
     return {
       class: {
-        [this.page.pageClass]: typeof this.page.pageClass === 'string'
+        [this.page.pageClass]: typeof this.page.pageClass === 'string',
+        [template]: true,
       }
     };
   }

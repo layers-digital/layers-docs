@@ -14,7 +14,10 @@ Uma vez que o seu app está instalado e configurado, é possível requisitar inf
 
 O primeiro passo de um app que tem permissão para requisitar uma determinada action é identificar quais são os possíveis provedores daquela informação na comunidade em que está instalado. Isso pode ser feito através da requisição mostrada abaixo: 
 
-###### **GET** ```/services/discover/{action}?version={versao}&_community={idComunidade}```
+```http
+GET /services/discover/{action}?version={versao}&_community={idComunidade}
+```
+
 + **action**: Identificador da notificação 
 + **version**: Versão do app
 + **_community**: Identificador da comunidade

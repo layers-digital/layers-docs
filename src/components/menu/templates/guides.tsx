@@ -1,6 +1,5 @@
 import { h } from '@stencil/core';
 import { RouteRenderProps } from '@stencil/router';
-import  { Angular }  from '../../../icons';
 
 export default (props: RouteRenderProps) => {
   const navItems = items[props.match.params.service] ?? items['intro']
@@ -17,7 +16,7 @@ export const categories = [
   {
     icon: '/docs/assets/icons/OAuth.svg',
     url: '/docs/guides/oauth',
-    title: 'OAuth'
+    title: 'Autenticação OAuth'
   },
   {
     icon: '/docs/assets/icons/Data.svg',
@@ -30,15 +29,20 @@ export const categories = [
     title: 'Hub de API\'s'
   },
   {
+    icon: '/docs/assets/icons/Payments.svg',
+    url: '/docs/guides/payments',
+    title: 'Pagamentos'
+  },
+  {
     icon: '/docs/assets/icons/Notifications.svg',
     url: '/docs/guides/notification',
     title: 'Notificações'
   },
-  {
-    icon: '/docs/assets/icons/General.svg',
-    url: '/docs/guides/tickets',
-    title: 'Atendimentos'
-  },
+  // {
+  //   icon: '/docs/assets/icons/General.svg',
+  //   url: '/docs/guides/tickets',
+  //   title: 'Atendimentos'
+  // },
   // {
   //   icon: null,
   //   title: 'Apps Integráveis'

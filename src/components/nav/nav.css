@@ -68,8 +68,8 @@ docs-nav a {
 }
 
 .Nav-link--active {
-  background-color: #f3f9fe;
-  color: var(--accent-color);
+  background-color: rgba(var(--accent-color-rgb), 0.05);
+  color: rgb(var(--accent-color-rgb));
   font-weight: 500;
 }
 
@@ -107,6 +107,14 @@ docs-nav a {
   border-radius: 3px;
   display: inline-flex;
   align-items: center;
+
+  color: rgb(var(--accent-color-rgb));
+  background-color: rgba(var(--accent-color-rgb), 0.1);
+}
+
+.Nav-tag.large {
+  font-size: 16px;
+  padding: 0.1px 0.5em;
 }
 
 @media (max-width: 768px), (pointer: coarse) {
@@ -119,11 +127,6 @@ docs-nav a {
     --item-spacing: 6px;
     font-size: 14px;
   }
-}
-
-.Nav-tag {
-  color: rgb(var(--accent-color-rgb));
-  background-color: rgba(var(--accent-color-rgb), 0.1);
 }
 
 .Nav-tag.red {

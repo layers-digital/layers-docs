@@ -112,18 +112,26 @@ export namespace Components {
   interface DocsNav {
     'items': MenuItems;
   }
+  interface DocsOpenapiExample {
+    'indents': number;
+    'node'?: AcessorNode;
+    'path': string;
+    'spec': OpenAPIObject;
+  }
   interface DocsOpenapiSchema {
     'hideReadOnly': boolean;
     'hideWriteOnly': boolean;
     'includeRootName': boolean;
-    'name': string;
     'node'?: AcessorNode;
+    'path': string;
     'spec': OpenAPIObject;
   }
   interface DocsOpenapiSchemaNested {
     'node': AcessorNode;
     'open': boolean;
+    'path': string;
     'spec': OpenAPIObject;
+    'text': string;
   }
   interface DocsPage {
     'history': RouterHistory;
@@ -176,9 +184,6 @@ export namespace Components {
     'history': RouterHistory;
     'location': LocationSegments;
     'options': SelectCategoryOption[];
-  }
-  interface SelectFramework {
-    'onToggleClick': (e: Event) => void;
   }
 }
 
@@ -311,6 +316,12 @@ declare global {
     new (): HTMLDocsNavElement;
   };
 
+  interface HTMLDocsOpenapiExampleElement extends Components.DocsOpenapiExample, HTMLStencilElement {}
+  var HTMLDocsOpenapiExampleElement: {
+    prototype: HTMLDocsOpenapiExampleElement;
+    new (): HTMLDocsOpenapiExampleElement;
+  };
+
   interface HTMLDocsOpenapiSchemaElement extends Components.DocsOpenapiSchema, HTMLStencilElement {}
   var HTMLDocsOpenapiSchemaElement: {
     prototype: HTMLDocsOpenapiSchemaElement;
@@ -412,12 +423,6 @@ declare global {
     prototype: HTMLSelectCategoryElement;
     new (): HTMLSelectCategoryElement;
   };
-
-  interface HTMLSelectFrameworkElement extends Components.SelectFramework, HTMLStencilElement {}
-  var HTMLSelectFrameworkElement: {
-    prototype: HTMLSelectFrameworkElement;
-    new (): HTMLSelectFrameworkElement;
-  };
   interface HTMLElementTagNameMap {
     'code-color': HTMLCodeColorElement;
     'color-accordion': HTMLColorAccordionElement;
@@ -440,6 +445,7 @@ declare global {
     'docs-menu-collapsible': HTMLDocsMenuCollapsibleElement;
     'docs-menu-toggle': HTMLDocsMenuToggleElement;
     'docs-nav': HTMLDocsNavElement;
+    'docs-openapi-example': HTMLDocsOpenapiExampleElement;
     'docs-openapi-schema': HTMLDocsOpenapiSchemaElement;
     'docs-openapi-schema-nested': HTMLDocsOpenapiSchemaNestedElement;
     'docs-page': HTMLDocsPageElement;
@@ -457,7 +463,6 @@ declare global {
     'header-mobile-collapse': HTMLHeaderMobileCollapseElement;
     'ionic-search': HTMLIonicSearchElement;
     'select-category': HTMLSelectCategoryElement;
-    'select-framework': HTMLSelectFrameworkElement;
   }
 }
 
@@ -537,18 +542,26 @@ declare namespace LocalJSX {
   interface DocsNav {
     'items'?: MenuItems;
   }
+  interface DocsOpenapiExample {
+    'indents'?: number;
+    'node'?: AcessorNode;
+    'path'?: string;
+    'spec'?: OpenAPIObject;
+  }
   interface DocsOpenapiSchema {
     'hideReadOnly'?: boolean;
     'hideWriteOnly'?: boolean;
     'includeRootName'?: boolean;
-    'name'?: string;
     'node'?: AcessorNode;
+    'path'?: string;
     'spec'?: OpenAPIObject;
   }
   interface DocsOpenapiSchemaNested {
     'node'?: AcessorNode;
     'open'?: boolean;
+    'path'?: string;
     'spec'?: OpenAPIObject;
+    'text'?: string;
   }
   interface DocsPage {
     'history'?: RouterHistory;
@@ -604,9 +617,6 @@ declare namespace LocalJSX {
     'location'?: LocationSegments;
     'options'?: SelectCategoryOption[];
   }
-  interface SelectFramework {
-    'onToggleClick'?: (e: Event) => void;
-  }
 
   interface IntrinsicElements {
     'code-color': CodeColor;
@@ -630,6 +640,7 @@ declare namespace LocalJSX {
     'docs-menu-collapsible': DocsMenuCollapsible;
     'docs-menu-toggle': DocsMenuToggle;
     'docs-nav': DocsNav;
+    'docs-openapi-example': DocsOpenapiExample;
     'docs-openapi-schema': DocsOpenapiSchema;
     'docs-openapi-schema-nested': DocsOpenapiSchemaNested;
     'docs-page': DocsPage;
@@ -647,7 +658,6 @@ declare namespace LocalJSX {
     'header-mobile-collapse': HeaderMobileCollapse;
     'ionic-search': IonicSearch;
     'select-category': SelectCategory;
-    'select-framework': SelectFramework;
   }
 }
 
@@ -678,6 +688,7 @@ declare module "@stencil/core" {
       'docs-menu-collapsible': LocalJSX.DocsMenuCollapsible & JSXBase.HTMLAttributes<HTMLDocsMenuCollapsibleElement>;
       'docs-menu-toggle': LocalJSX.DocsMenuToggle & JSXBase.HTMLAttributes<HTMLDocsMenuToggleElement>;
       'docs-nav': LocalJSX.DocsNav & JSXBase.HTMLAttributes<HTMLDocsNavElement>;
+      'docs-openapi-example': LocalJSX.DocsOpenapiExample & JSXBase.HTMLAttributes<HTMLDocsOpenapiExampleElement>;
       'docs-openapi-schema': LocalJSX.DocsOpenapiSchema & JSXBase.HTMLAttributes<HTMLDocsOpenapiSchemaElement>;
       'docs-openapi-schema-nested': LocalJSX.DocsOpenapiSchemaNested & JSXBase.HTMLAttributes<HTMLDocsOpenapiSchemaNestedElement>;
       'docs-page': LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;
@@ -695,7 +706,6 @@ declare module "@stencil/core" {
       'header-mobile-collapse': LocalJSX.HeaderMobileCollapse & JSXBase.HTMLAttributes<HTMLHeaderMobileCollapseElement>;
       'ionic-search': LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
       'select-category': LocalJSX.SelectCategory & JSXBase.HTMLAttributes<HTMLSelectCategoryElement>;
-      'select-framework': LocalJSX.SelectFramework & JSXBase.HTMLAttributes<HTMLSelectFrameworkElement>;
     }
   }
 }

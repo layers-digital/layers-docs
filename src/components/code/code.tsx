@@ -37,10 +37,10 @@ export class DocsCode {
       <Host>
         { !['shell', 'bash', 'sh'].includes(this.language) ?
           <div class={{ 'code-text__copy': true, 'show-confirmation': this.showCopyConfirmation }} >
-            <a class="code-text__copy-link" onClick={this.copyCodeText.bind(this)}>Copy</a>
+            <a class="code-text__copy-link" onClick={this.copyCodeText.bind(this)}>Copiar</a>
             <span class="code-text__copy-confirmation">
               { CheckmarkSoft({ height: '26px', width: '26px' }) }
-              Copied
+              Copiado
             </span>
           </div>
         : '' }

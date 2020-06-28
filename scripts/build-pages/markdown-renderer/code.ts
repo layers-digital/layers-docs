@@ -62,20 +62,49 @@ Prism.languages.http = {
     }
   },
 
-  url: {
-    pattern: /(https?:\/\/)(([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/,
-    inside: {
-      schema: /^https?:\/\//,
-      host: /([^\/]+(\.[^\/]+)+)/,
+  // url: {
+    // pattern: /(https?:\/\/)?[^\/?#\s]*([^?#]*)(\?([^#]*))?(#(.*))?/,
+    // inside: {
+      schema: {
+        pattern: /https?:\/\//,
+        greedy: true,
+      },
+      // host: {
+      //   pattern: /([^\/]+(\.[^\/]+)+)/,
+      // },
       path: {
-        pattern: /\/\S+/,
+        pattern: /\/[^?#\s]*/,
         inside: {
           version: {
             pattern: /\/v\d+/,
-            greedy: true,
+          },
+
+          param: {
+            pattern: /(\/)[\:\{][^/#?\s]+[\}]?/,
+            lookbehind: true,
+          }
+        }
+      },
+      query: {
+        pattern: /(\?([^#]*))/,
+        inside: {
+          separator: /[?&]/,
+          param: {
+            pattern: /[^?=&]+=?[^?=&]*/,
+            inside: {
+              name: /^[^?=&]+/,
+              value: {
+                pattern: /[^?=&]+$/,
+                inside: {
+                  number: /^[\d\.]+$/,
+                  boolean: /^(true|false)$/,
+                  string: /^[\S]+$/,
+                }
+              }
+            }
           }
         }
       }
-    }
-  }
+    // }
+  // }
 }

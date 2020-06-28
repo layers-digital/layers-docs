@@ -3,19 +3,17 @@ import { slugify } from '../../src/utils';
 import fs from 'fs-extra';
 import { createDocument } from '@stencil/core/mock-doc';
 import Listr from 'listr';
-import Static, { ToStaticPageOptions, toPage as toStaticPage } from './types/static';
-import API from './types/api';
+import Static, { ToStaticPageOptions, toPage as toStaticPage } from './tasks/static';
+import api from './tasks/api';
 // import CLI from './page-types/cli';
 // import Native from './page-types/native';
 import { convertHtmlToHypertextData } from './utils';
 
-const tasks = new Listr(
-  // { renderer: 'verbose' }
-);
-tasks.add(Static);
-tasks.add(API);
-// tasks.add(CLI);
-// tasks.add(Native);
+const tasks = new Listr([
+  Static,
+  api
+]);
+
 export default tasks;
 
 let listrStatus = null;

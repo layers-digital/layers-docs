@@ -34,9 +34,6 @@ export default (props) => {
     <article>
       <h1>{ page.title }</h1>
       <span class="Nav-tag purple large">{"{...}"}</span>
-      {/* <div class="page-meta always-below">
-        <docs-table-of-contents links={headings} basepath={page.path}/>
-      </div> */}
 
       <section class="markdown-content">
         {toHypertext(h, page.body)}
@@ -47,18 +44,14 @@ export default (props) => {
           <h2 id="schema">
             <a href="#schema">Especificação</a>
           </h2>
-          <docs-openapi-schema-nested
-            spec={service.spec}
-            path={`#/components/schemas/${schema.name}`}
-            text="Propriedades da Entidade"
-            open={true}/>
+          <docs-openapi-schema spec={service.spec} path={`#/components/schemas/${schema.name}`}></docs-openapi-schema>
         </section>
 
         <section>
           <h2 id="example">
             <a href="#example">Exemplo</a>
           </h2>
-          <docs-openapi-example spec={service.spec} path={`#/components/schemas/${schema.name}`}></docs-openapi-example>
+          {/* <docs-openapi-example spec={service.spec} name={`#/components/schemas/${schema.name}`}></docs-openapi-example> */}
         </section>
       </section>
 

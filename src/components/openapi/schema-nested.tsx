@@ -1,21 +1,42 @@
 import { Component, h, Prop, State } from "@stencil/core";
 import { AcessorNode } from "./schema";
-import { normalizeObject, getAcessorPathNames } from "./util";
+import { normalizeObject, getAcessorPathNames, getRefPath } from "./util";
 import {OpenAPIObject} from 'openapi3-ts'
-import { Close } from "../../icons";
 
 @Component({
-  tag: 'docs-openapi-schema-nested'
+  tag: 'docs-openapi-schema-nested',
+  styleUrl: 'schema-nested.css',
 })
 export class DocsOpenapiSchemaNested {
   @Prop() spec: OpenAPIObject
+  @Prop() path: string
   @Prop() node: AcessorNode
+
+  @Prop() text: string
 
   @Prop() open: boolean = false
   @State() isOpen: boolean = false
 
+  private getRootAcessorNode(): AcessorNode {
+    if (this.node) {
+      return this.node
+    }
+    console.log(this.spec)
+    
+    let schema = getRefPath(this.spec, this.path)
+    if (!schema) {
+      return null
+    }
+    return {
+      schema,
+      name: this.path.split('/').pop(),
+    }
+  }
+
   componentWillLoad() {
-    let path = getAcessorPathNames(this.node, true).join('.')
+    let node = this.getRootAcessorNode()
+
+    let path = getAcessorPathNames(node, true).join('.')
     console.log({path})
     if (window.location.hash.startsWith('#' + path)) {
       this.isOpen = true
@@ -29,7 +50,7 @@ export class DocsOpenapiSchemaNested {
   }
 
   render() {
-    let node: AcessorNode = this.node
+    let node: AcessorNode = this.getRootAcessorNode()
     if (node.schema.type == 'array') {
       node = {
         name: '[]',
@@ -38,11 +59,15 @@ export class DocsOpenapiSchemaNested {
       }
     }
 
+    if (typeof node.schema.properties != 'object') {
+      return <section class="Api-nested-section">
+        <button class="Api-nested-toggle-btn">Erro: Entidade inválida</button>
+      </section>
+    }
+
     let count = Object.keys(node.schema.properties).length
 
-    console.log('type', node.schema.type, {node})
-
-    let text = this.isOpen ? 'Ocultar Propriedades' : `Mostrar ${count} propriedade${count>1 ? 's': ''}`
+    let text = this.text ?? (this.isOpen ? 'Ocultar Propriedades' : `Mostrar ${count} propriedade${count>1 ? 's': ''}`)
     return (
     <section class={`Api-nested-section ${this.isOpen ? 'active' : ''}`}>
       <button class="Api-nested-toggle-btn" onClick={() => this.toggle()}>

@@ -6,7 +6,7 @@ import { Logo } from '../../icons';
 // import studioTemplate from './templates/studio';
 // import appflowTemplate from './templates/appflow';
 // import mainTemplate from './templates/main';
-import apiTemplate, { categories as apiCategories } from './templates/api';
+import api from './templates/api';
 import guideTemplate, { categories as guideCategories } from './templates/guides';
 
 @Component({
@@ -27,7 +27,7 @@ export class DocsMenu {
       <stencil-route-switch>
         <stencil-route url="/docs/api">
           <section class="MenuControls">
-            <select-category options={apiCategories}/>
+            <select-category options={api.categories}/>
           </section>
         </stencil-route>
         <stencil-route url="/docs/(guides)?/:service?">
@@ -45,7 +45,7 @@ export class DocsMenu {
         {/* <stencil-route url="/docs/:lang([a-z]{2})?/native" routeRender={() => <docs-menu-native />}/> */}
         {/* <stencil-route url="/docs/:lang([a-z]{2})?/appflow" routeRender={appflowTemplate}/> */}
         {/* <stencil-route url="/docs/:lang([a-z]{2})?/enterprise" routeRender={() => <docs-menu-enterprise />}/> */}
-        <stencil-route url="/docs/api/:service?" routeRender={apiTemplate}/>
+        <stencil-route url="/docs/api/:service?" routeRender={api.template}/>
         <stencil-route url="/docs/(guides)?/:service?" routeRender={guideTemplate}/>
       </stencil-route-switch>
     ];

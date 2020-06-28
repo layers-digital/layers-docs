@@ -11,7 +11,7 @@ docs-code[language="http"]:before {
 }
 
 docs-code[language="http"] code {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 13px;
 }
 
@@ -19,7 +19,9 @@ docs-code[language="http"] .token {
   color: inherit;
 }
 
-docs-code[language="http"] .token.method > .token {
+
+/* URL Method */
+docs-code[language="http"] .method > .token {
   --color: 119, 161, 250;
   display: inline-block;
   padding: 1em;
@@ -29,34 +31,64 @@ docs-code[language="http"] .token.method > .token {
   user-select: none;
 }
 
-docs-code[language="http"] .token.method > .delete {
+docs-code[language="http"] .method .delete {
   --color: var(--api-red);
 }
 
-docs-code[language="http"] .token.method > .put {
+docs-code[language="http"] .method .put {
   --color: var(--api-yellow);
 }
 
-docs-code[language="http"] .token.method > .post {
+docs-code[language="http"] .method .post {
   --color: var(--api-blue);
 }
 
-docs-code[language="http"] .token.method > .get {
+docs-code[language="http"] .method .get {
   --color: var(--api-green);
 }
 
+/* URL Schema */
 docs-code[language="http"] .token.schema {
   color: rgba(0, 0, 0, 0.4);
 }
 
+/* URL Host */
 docs-code[language="http"] .token.host {
   color: rgba(0, 0, 0, 0.7);
 }
 
+/* URL Path */
 docs-code[language="http"] .token.path {
-  color: #006ada;
+  color: dodgerblue;
 }
 
-docs-code[language="http"] .token.version {
+docs-code[language="http"] .token.path .version {
   color: rgba(0, 0, 0, 0.7);
+}
+
+docs-code[language="http"] .token.path .param {
+  /* color: #006ada; */
+  color: #42b983
+}
+
+/* URL Query Params */
+docs-code[language="http"] .token.query .separator {
+  color: darkgray;
+} 
+
+docs-code[language="http"] .token.query .param {
+  color: #8454ff;
+}
+
+docs-code[language="http"] .token.query .param .key {
+  font-weight: bold;
+}
+
+docs-code[language="http"] .token.query .param .value {
+  color: #42b983;
+}
+
+docs-code[language="http"] .token.query .param .value .number {
+  color: #4caf50;
+  font-weight: bold;
 }

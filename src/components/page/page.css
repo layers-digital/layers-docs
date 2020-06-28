@@ -133,7 +133,7 @@ docs-page aside {
 }
 
 @media (min-width: 1234px) {
-  docs-page main.no-demo .page-meta {
+  docs-page main.no-demo .page-meta:not(.always-below) {
     position: fixed;
     right: 0;
     top: 100px;
@@ -141,7 +141,7 @@ docs-page aside {
     transition: .2s transform ease;
   }
 
-  docs-header.hidden ~ stencil-route docs-page main.no-demo .page-meta {
+  docs-header.hidden ~ stencil-route docs-page main.no-demo .page-meta:not(.always-below) {
     transform: translateY(-60px);
   }
 }

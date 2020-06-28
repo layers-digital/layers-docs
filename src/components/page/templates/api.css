@@ -1,5 +1,45 @@
+docs-page.api-object,
+docs-page.api-route {
+  --page-width: 1040px;
+}
 
 docs-code[language="json"].api-example pre{
-  max-height: 400px;
+  max-height: 800px;
   padding: 1em;
+}
+
+.Api-two-column {
+  display: grid;
+  grid-gap: 32px;
+  /* grid-template-columns: minmax(400px, var(--page-width, 720px)) minmax(400px, var(--page-width, 720px)); */
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+/* Top Tags */
+docs-page .page-heading-tag {
+  text-transform: uppercase;
+
+  background: transparent;
+  color: #2d4665;
+
+  border: 1px solid #dee3ea;
+  border-radius: 14px;
+  height: 24px;
+  padding: 2px 8px;
+
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 14px;
+  display: inline-flex;
+  align-items: center;
+
+  align-self: center;
+  justify-self: flex-end;
+
+  letter-spacing: 0.08em;
+  /* float: right; */
+}
+
+docs-page .page-heading-tag:hover {
+  border-color: #92a1b3;
 }

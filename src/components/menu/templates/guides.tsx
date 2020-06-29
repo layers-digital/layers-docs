@@ -109,9 +109,11 @@ const items = {
   'data': {
     'Overview': {
       'Estrutura do Layers': '/docs/guides/data',
+      'Perfis padrão': '/docs/guides/data/roles'
     },
     'Sincronização': {
-      'Sincronizando dados': '/docs/guides/data/sync'
+      'Automática': '/docs/guides/data/sync',
+      'Manual': '/docs/guides/data/sync-manual'
     }
   },
   'tickets': {

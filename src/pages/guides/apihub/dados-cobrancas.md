@@ -4,7 +4,7 @@ A action `@layers:payments:Payables:getRelated` é usada para obter dados de cob
 
 O app que requisita informações deve enviar uma requisição `POST` no formato abaixo:
 
-## Requisição:
+## Requisição
 
 ```js
 {
@@ -30,7 +30,7 @@ O app que requisita informações deve enviar uma requisição `POST` no formato
 
 O app que provê os dados de cobranças de um usuário específico deve, por sua vez, receber uma requisição no formato acima e responder conforme o padrão mostrado abaixo.
 
-## Resposta:
+## Resposta
 
 ```js
 {

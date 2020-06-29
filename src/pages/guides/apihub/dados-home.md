@@ -4,7 +4,7 @@ A action `@layers:getHomeInfo` é usada para obter dados da tela de "Home" do La
 
 O app deve receber uma requisição `POST` com a seguinte estrutura de dados:
 
-## Requisição:
+## Requisição
 
 ```js
 {

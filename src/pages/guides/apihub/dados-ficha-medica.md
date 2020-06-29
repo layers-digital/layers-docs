@@ -4,7 +4,7 @@ A action `@layers:health:MedicalRecord:getRelated` é usada para obter dados de 
 
 O app que requisita informações deve enviar uma requisição `POST` no formato abaixo:
 
-## Requisição:
+## Requisição
 
 ```js
 {

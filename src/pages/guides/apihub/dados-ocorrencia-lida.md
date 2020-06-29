@@ -4,7 +4,7 @@ A action `@layers:education:AcademicRecords:markRecordsAsViewed` é usada para m
 
 O app que requisita informações deve enviar uma requisição `POST` no formato abaixo:
 
-## Requisição:
+## Requisição
 
 ```js
 {
@@ -34,7 +34,7 @@ O app que requisita informações deve enviar uma requisição `POST` no formato
 }
 ```
 
-## Resposta:
+## Resposta
 
 A API deve retornar apenas status 200 confirmando que a operação foi efetuada.
 

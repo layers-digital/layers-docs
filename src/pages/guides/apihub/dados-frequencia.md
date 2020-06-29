@@ -9,7 +9,7 @@ As categorias podem ser utilizadas para agrupadar registros de frequência e lis
 
 Deve haver uma API que recebe uma requisição `POST` com a seguinte estrutura de dados:
 
-## Requisição:
+## Requisição
 
 ```js
 {
@@ -119,7 +119,7 @@ Deve haver uma API que recebe uma requisição `POST` com a seguinte estrutura d
 }
 ```
 
-## Resposta:
+## Resposta
 
 **Obs:** Caso algum erro ocorra, retornar códigos HTTP na faixa 4xx-5xx
 

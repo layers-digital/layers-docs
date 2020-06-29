@@ -79,8 +79,11 @@ Para os modos ```embedded```e ```popup``` o código que deve ser usado para obte
 
 Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas [rotas de OAuth disponíveis no Layers](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md).
 
-##### **POST** `/oauth/token`
-###### Requisição do tipo FORM URL Encoded:
+```http
+POST /oauth/token
+```
+
+Requisição do tipo FORM URL Encoded:
 ```js
 {
     "grant_type": "authorization_code",
@@ -89,8 +92,11 @@ Por fim, use o código obtido para na requisição abaixo a para obter o token q
     "redirect_uri": "{{redirect_uri}}"
 }
 ```
+
+## Resposta:
+
 A API deve retornar um JSON com o seguinte formato:
-###### Resposta:
+
 ```js
 {
     "access_token": "{{jwtToken}}",

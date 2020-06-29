@@ -9,7 +9,10 @@ Através da API do Layers é possível enviar notificações com título e texto
 
 ## Faça a requisição para a rota de notificação
 
-##### POST `/notification/send`
+```http
+POST /notification/send
+```
+
 ```js
 {
     "title": "Título da notificação",

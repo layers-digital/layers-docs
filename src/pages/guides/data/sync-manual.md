@@ -46,7 +46,7 @@ A API do Layers retornará o usuário criado no seguinte formato;
   "createdAt": "2018-11-29T13:27:14.096Z",
   "updatedAt": "2018-11-29T13:27:14.096Z",
   "activatedAt": null,
-  "_id": "5bffe932ea476f5c760ce99a",
+  "id": "5bffe932ea476f5c760ce99a",
   "status": "INVITED",
   "invitationCount": 0,
   "lastSentInvitation": null,
@@ -87,7 +87,7 @@ A API retornará o membro criado no seguinte formato:
 
 ```js
 {
-  "_id": "5bffead1ea476f5c760d09cb",
+  "id": "5bffead1ea476f5c760d09cb",
   "updatedAt": "2018-11-29T13:34:09.374Z",
   "createdAt": "2018-11-29T13:34:09.374Z",
   "active": true,
@@ -97,6 +97,42 @@ A API retornará o membro criado no seguinte formato:
   "birth": "2018-11-29T13:27:14.096Z",
   "accessCount": 0,
   "enrollments": null
+}
+```
+
+## Criar grupos
+
+Grupos no Layers são a representação de turmas ou salas de aula. Seu app pode criar um grupo através da requisição abaixo.
+
+> **Atenção:** para realizar essa requisição seu app deve ter a permissão `group:write`
+
+```http
+POST /groups
+```
+
+```js
+{
+  name: 'nome da turma'
+}
+```
+
+A API do Layers retornará o grupo criada no seguinte formato:
+
+```js
+{
+  "id":"5efa29590a85d90001071d50",
+  "createdAt":"2020-06-29T17:48:09.136Z",
+  "updatedAt":"2020-06-29T17:48:09.136Z",
+  "active":true,
+  "name":"nome da turma",
+  "tags":[],
+  "admins":[],
+  "members":[],
+  "enrollments":null,
+  "type":"classroom",
+  "syncedAt":null,
+  "enrollmentsCount":null,
+  "adminsCount":0
 }
 ```
 
@@ -126,7 +162,7 @@ A API do Layers retornará então o vínculo criado no seguinte formato:
 ```js
 [
     {
-        "_id": "5bfff038ea476f5c760d6c57",
+        "id": "5bfff038ea476f5c760d6c57",
         "createdAt": "2018-11-29T13:57:12.996Z",
         "updatedAt": "2018-11-29T13:57:12.996Z",
         "kind": "member",

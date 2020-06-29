@@ -37,7 +37,10 @@ Essa requisição retorna os provedores que podem responder a action especificad
 
 Uma vez que o app sabe qual provedor irá usar, o app deve realizar uma requisição seguindo o formato especificado na documentação da action para a rota abaixo. Nesse exemplo, a requisição é para obter informações de calendário.
 
-###### **POST** ```/services/call/{action}/{provider}?version={versao}&_community={idComunidade}```
+```http
+POST /services/call/{action}/{provider}?version={versao}&_community={idComunidade}
+```
+
 ```js
 {
   "context": {

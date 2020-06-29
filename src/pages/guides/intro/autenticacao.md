@@ -9,7 +9,9 @@ Todas as rotas na API do Layers exigem autentiçãopor meio de token com o objet
 
 Para gerar um token no Layers, seu app deve realizar a seguinte requisição na qual `appId` é o identificador do seu app cadastrado.
 
-##### **GET** `/appmaker/apps/:appId/token`
+```http
+GET /appmaker/apps/:appId/token
+```
 
 A resposta será da API será:
 

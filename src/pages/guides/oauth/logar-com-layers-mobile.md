@@ -16,7 +16,9 @@ Uma vez que o usuário realizou o Login e aceitou os escopos pedidos pelo app, e
 
 Para realizar a autenticação com o layers então o app deve realizar a requisição abaixo.
 
-##### POST `/oauth/token`
+```http
+POST /oauth/token
+```
 
 ```js
 {

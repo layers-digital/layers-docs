@@ -1,0 +1,1078 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Soicitações",
+    "description": "A API de solicitações permite que você envie mensagens e administre canais de atendimento no Layers",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.layers.digital/v1"
+    }
+  ],
+  "paths": {
+    "/tickets/channels/{channelId}/agents/{userId}": {
+      "put": {
+        "tags": [
+          "Atendentes"
+        ],
+        "summary": "Adicionar atendentes",
+        "description": "Adicionar usuário cujo identificador foi passado como parâmetro na URL como atentende no canal de atendimento especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathChannelId"
+          },
+          {
+            "$ref": "#/components/parameters/PathUserId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do usuário"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Nome do usuário",
+                      "exmaple": "Pedro Silva"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "E-mail do usuário"
+                    },
+                    "roles": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "Nome do perfil do usuário",
+                        "example": "guardian"
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ACTIVE",
+                        "UNSENT",
+                        "INVITED"
+                      ],
+                      "description": "Indica se o usuário está ativo, convidado ou não convidado"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Atendentes"
+        ],
+        "summary": "Remover atendentes",
+        "description": "Remover usuário cujo identificador foi passado como parâmetro na URL dos atentendes no canal de atendimento especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathChannelId"
+          },
+          {
+            "$ref": "#/components/parameters/PathUserId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/tickets/channels/{channelId}": {
+      "delete": {
+        "tags": [
+          "Canais de atendimentos"
+        ],
+        "summary": "Remover canal de atendimento",
+        "description": "Remover o canal de atendimento especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathChannelId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Canais de atendimentos"
+        ],
+        "summary": "Editar canal de atendimento",
+        "description": "Editar informações do canal de atendimento especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathChannelId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Channel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Channel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Canais de atendimentos"
+        ],
+        "summary": "Visualizar canal de atendimento",
+        "description": "Visualizar informações do canal de atendimento especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathChannelId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:agent"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Channel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/channels": {
+      "post": {
+        "tags": [
+          "Canais de atendimentos"
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "user",
+              "apps"
+            ]
+          }
+        ],
+        "summary": "Criar canal de atendimento",
+        "description": "Criar e configurar um canal de atendimento na sua comunidade",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Channel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Channel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Canais de atendimentos"
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:agent"
+            ],
+            "x-layers-context": [
+              "user",
+              "apps"
+            ]
+          }
+        ],
+        "summary": "Listar canais de atendimento",
+        "description": "Listar os canais de atendimentos da sua comunidade",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Channel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets": {
+      "post": {
+        "tags": [
+          "Mensagens"
+        ],
+        "summary": "Criar mensagem",
+        "description": "Enviar mensagem no Layers Education",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "layers-permissions": [
+              "ticket:agent"
+            ],
+            "layers-context": [
+              "user",
+              "app"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Ticket"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "note": {
+                        "type": "string",
+                        "description": "Nota interna que aparece somente para os atendentes"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticket"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/search": {
+      "get": {
+        "tags": [
+          "Mensagens"
+        ],
+        "summary": "Buscar mensagens",
+        "description": "Buscar mensagens no Layers Education",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/CreatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/Status"
+          },
+          {
+            "$ref": "#/components/parameters/Agent"
+          },
+          {
+            "$ref": "#/components/parameters/Channel"
+          },
+          {
+            "$ref": "#/components/parameters/MessageAuthorId"
+          },
+          {
+            "$ref": "#/components/parameters/MessageAuthorName"
+          },
+          {
+            "$ref": "#/components/parameters/MessageAuthorEmail"
+          },
+          {
+            "$ref": "#/components/parameters/Subject"
+          },
+          {
+            "$ref": "#/components/parameters/SourceType"
+          },
+          {
+            "$ref": "#/components/parameters/SourceAlias"
+          },
+          {
+            "$ref": "#/components/parameters/SourceId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "layers-permissions": [
+              "ticket:agent"
+            ],
+            "layers-context": [
+              "user",
+              "app"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticket"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/{ticketId}": {
+      "put": {
+        "tags": [
+          "Mensagens"
+        ],
+        "summary": "Editar mensagem",
+        "description": "Editar mensagem no Layers Education",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "layers-permissions": [
+              "ticket:agent"
+            ],
+            "layers-context": [
+              "user",
+              "app"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticket"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/{code}": {
+      "get": {
+        "tags": [
+          "Mensagens"
+        ],
+        "summary": "Visualizar mensagem",
+        "description": "Visualizar a mensagem especificada",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "layers-permissions": [
+              "ticket:agent"
+            ],
+            "layers-context": [
+              "user",
+              "app"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Ticket"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "events": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "ticketId": {
+                                "type": "string",
+                                "format": "ObjectId",
+                                "description": "Identificador do último ticket com o mesmo code"
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Data de criação da mensagem"
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "note",
+                                  "message"
+                                ],
+                                "description": "Indica se o ticket é uma mensagem ou uma nota interna"
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Texto da mensagem",
+                                "example": "Bom dia!"
+                              },
+                              "author": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "format": "ObjectId",
+                                    "description": "Identificador do autor"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Nome do autor",
+                                    "example": "Joao Pedro Paulino"
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "format": "email",
+                                    "description": "E-mail do autor da mensagem"
+                                  }
+                                }
+                              },
+                              "sender": {
+                                "type": "string",
+                                "description": "indica quem enviou a mensagem"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Channel": {
+        "type": "object",
+        "description": "Estrutura de um canal de atendimento",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador do canal de atendimento",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do canal de atendimento",
+            "example": "Pedagógico",
+            "readOnly": false
+          },
+          "public": {
+            "type": "boolean",
+            "description": "Indica se o canal de atendimento aparece para usuários (`true`) ou é interno (`false`)",
+            "readOnly": false
+          },
+          "agents": {
+            "type": "array",
+            "readOnly": false,
+            "items": {
+              "type": "string",
+              "format": "ObjectId",
+              "description": "Identificadores dos usuários que são atentendentes desse canal"
+            }
+          },
+          "subjects": {
+            "type": "array",
+            "readOnly": false,
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "Título do assunto",
+                  "example": "Revisão de provas"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Descrição do assunto",
+                  "example": "Discuta correções e erros de soma de notas"
+                }
+              }
+            }
+          },
+          "allowAudio": {
+            "type": "boolean",
+            "description": "Indica se o canal de atendimento aceita receber mensagens de áudio"
+          },
+          "targets": {
+            "type": "object",
+            "description": "Quais usuários tem permissão para enviar mensagens para essa canal de atendimento",
+            "readOnly": false,
+            "properties": {
+              "roles": {
+                "type": "array",
+                "description": "Permissões que podem mandar mensagens para esse canal",
+                "items": {
+                  "type": "string",
+                  "description": "Nome da permissão",
+                  "example": "guardian"
+                }
+              },
+              "tags": {
+                "type": "array",
+                "description": "Identificadores das tags cujos usuários podem mandar mensagem para o canal",
+                "items": {
+                  "type": "string",
+                  "format": "ObjectId",
+                  "description": "Identidicador da tag"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Ticket": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador da mensagem",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data na qual a mensagem foi criada",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última edição da mensagem",
+            "readOnly": true
+          },
+          "interactedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última interação com a mensagem",
+            "readOnly": true
+          },
+          "code": {
+            "type": "string",
+            "description": "Identificador sequencial da conversa",
+            "example": 12
+          },
+          "source": {
+            "type": "object",
+            "readOnly": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador da fonte da mensagem"
+              },
+              "type": {
+                "type": "string",
+                "description": "Tipo da fonte da mensagem",
+                "example": "app"
+              },
+              "alias": {
+                "type": "string",
+                "description": "Identificador da fonte da mensagem na comunidade"
+              }
+            }
+          },
+          "author": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do autor da mensagem"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "description": "E-mail do autor da mensagem",
+                "readOnly": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome do autor da mensagem",
+                "example": "autor@email.com",
+                "readOnly": true
+              }
+            }
+          },
+          "subject": {
+            "type": "string",
+            "description": "Assunto da conversa",
+            "example": "Revisão de provas"
+          },
+          "subjectHistory": {
+            "type": "array",
+            "readOnly": true,
+            "description": "Lista de assunto que a conversa já teve",
+            "items": {
+              "type": "string",
+              "description": "Assunto da conversa"
+            }
+          },
+          "message": {
+            "type": "string",
+            "description": "Texto da mensagem",
+            "example": "Boa tarde! Gostaria de saber o que errei na prova de português do dia 30/06. Obrigado!"
+          },
+          "status": {
+            "type": "string",
+            "description": "Situação da mensagem",
+            "example": "pending"
+          },
+          "statusN": {
+            "type": "number",
+            "description": "Representação numérica da situação da mensagem",
+            "example": 3,
+            "readOnly": true
+          },
+          "priority": {
+            "type": "string",
+            "description": "Descrição do nível de prioridade da mensagem",
+            "default": "normal",
+            "exmaple": "normal"
+          },
+          "finished": {
+            "type": "boolean",
+            "description": "Indica se a conversa foi encerrada",
+            "default": null
+          },
+          "finishedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data e hora na qual a conversa foi fechada",
+            "readOnly": true,
+            "default": null
+          },
+          "durationTotal": {
+            "type": "number",
+            "format": "integer",
+            "description": "Duração total da conversa em segundos",
+            "readOnly": true,
+            "default": null
+          },
+          "durationEfective": {
+            "type": "number",
+            "format": "integer",
+            "description": "Duração total da conversa contando apenas horas de funcionamento do canal de atendimento",
+            "readOnly": true,
+            "default": null
+          },
+          "firstReplyAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data e hora da primeira resposta",
+            "readOnly": true,
+            "default": null
+          },
+          "firstReplyDelayTotal": {
+            "type": "number",
+            "format": "integer",
+            "description": "Tempo até a primeira resposta em segundos",
+            "readOnly": true,
+            "default": null
+          },
+          "firstReplyDelayToalEffective": {
+            "type": "number",
+            "format": "integer",
+            "description": "Tempo até a primeira resposta contanto apenas horas de funcionamento do canal de atendimento",
+            "readOnly": true,
+            "default": null
+          },
+          "agent": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do atendente"
+              },
+              "name": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Nome do atendente",
+                "example": "Jorge Farias",
+                "readOnly": true
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "description": "E-mail do atendente",
+                "readOnly": true
+              }
+            }
+          },
+          "channel": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identidicador do canal de atendimento"
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome do canal de atendimento",
+                "example": "Pedagógico",
+                "readOnly": true
+              },
+              "allowAudio": {
+                "type": "boolean",
+                "description": "Indica se o canal de atendimento aceita receber mensagens de áudio",
+                "readOnly": true
+              }
+            }
+          },
+          "events": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "ticketId": {
+                  "type": "string",
+                  "format": "ObjectId",
+                  "description": "Identificador do último ticket com o mesmo code"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data de criação da mensagem"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "note",
+                    "message"
+                  ],
+                  "description": "Indica se o ticket é uma mensagem ou uma nota interna"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "Texto da mensagem",
+                  "example": "Bom dia!"
+                },
+                "author": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do autor"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Nome do autor",
+                      "example": "Joao Pedro Paulino"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "E-mail do autor da mensagem"
+                    }
+                  }
+                },
+                "sender": {
+                  "type": "string",
+                  "description": "indica quem enviou a mensagem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "Community-id": {
+        "name": "community-id",
+        "in": "header",
+        "description": "Identificador da comunidade",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "test"
+        }
+      },
+      "Code": {
+        "name": "code",
+        "in": "query",
+        "description": "Identificador da conversa",
+        "schema": {
+          "type": "number",
+          "format": "integer"
+        }
+      },
+      "Agent": {
+        "name": "agent",
+        "in": "query",
+        "description": "Identificador do atendente",
+        "schema": {
+          "type": "string",
+          "format": "ObjectId"
+        }
+      },
+      "Channel": {
+        "name": "channel",
+        "in": "query",
+        "description": "Identificador do canal de atendimento",
+        "schema": {
+          "type": "string",
+          "format": "ObjectId"
+        }
+      },
+      "SourceType": {
+        "name": "source.type",
+        "in": "query",
+        "description": "Tipo da fonte da mensagem",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "SourceId": {
+        "name": "source.id",
+        "in": "query",
+        "description": "Identificador da fonte da mensagem",
+        "schema": {
+          "type": "string",
+          "format": "ObjectId"
+        }
+      },
+      "SourceAlias": {
+        "name": "source.alias",
+        "in": "query",
+        "description": "Identificador da fonte da mensagem na comunidade",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "MessageAuthorName": {
+        "name": "author.name",
+        "in": "query",
+        "description": "Nome do autor da mensagem",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "MessageAuthorId": {
+        "name": "author.id",
+        "in": "query",
+        "description": "Identificador do autor da mensagem",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "MessageAuthorEmail": {
+        "name": "author.email",
+        "in": "query",
+        "description": "E-mail do autor da mensagem",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Subject": {
+        "name": "subject",
+        "in": "query",
+        "description": "Assunto da conversa",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "MessageStatus": {
+        "name": "status",
+        "in": "query",
+        "description": "Status da mensagem",
+        "schema": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "x-nav": [
+    {
+      "name": "Canais de atendimento",
+      "schemas": [
+        "Channel"
+      ],
+      "tags": [
+        "Canais de atendimento"
+      ]
+    },
+    {
+      "name": "Atendentes",
+      "tags": [
+        "Atentendetes"
+      ]
+    },
+    {
+      "name": "Mensagens",
+      "schemas": [
+        "Ticket"
+      ],
+      "tags": [
+        "Mensagens"
+      ]
+    }
+  ]
+}

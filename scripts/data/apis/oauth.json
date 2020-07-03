@@ -1,0 +1,440 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de OAuth",
+    "description": "A API de OAuth do Layers permite que você acesse informações da conta do usuário bem como de seus membros e grupos relacionados com o consentimento do usuário",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.layers.digital/v1"
+    }
+  ],
+  "paths": {
+    "/oauth/account/info": {
+      "get": {
+        "tags": [
+          "Informações de conta"
+        ],
+        "summary": "Informações de conta",
+        "description": "Visualizar informações da conta do usuário. As informações que serão retornadas dependem do escopo do seu app.",
+        "security": [
+          {
+            "OAuth2": [
+              "openid",
+              "profile",
+              "fullname",
+              "email",
+              "related.communities"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responseBodies/AccountInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/oauth/user/info": {
+      "get": {
+        "tags": [
+          "Informações de usuário"
+        ],
+        "summary": "Informações de usuário",
+        "description": "Visualizar informações de um usuário. As informações que serão retornadas dependem do escopo do seu app.",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responseBodies/UserInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "Community-id": {
+        "name": "community-id",
+        "in": "header",
+        "description": "Identificador da comunidade",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "test"
+        }
+      }
+    },
+    "responseBodies": {
+      "AccountInfo": {
+        "type": "object",
+        "description": "Informações da conta para o escopo `profile`",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação da conta"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última modificação da conta"
+          },
+          "language": {
+            "type": "string",
+            "description": "Língua da conta",
+            "example": "pt-BR"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Fusorário da conta",
+            "example": "America/Sao_Paulo"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "Primeiro nome da conta",
+            "example": "João"
+          },
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "identificador da conta"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Último sobrenome da conta",
+            "example": "Silva"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome completo da conta",
+            "example": "João Silva"
+          },
+          "communities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "color": {
+                  "type": "string",
+                  "description": "Cor principal da comunidade"
+                },
+                "community": {
+                  "type": "string",
+                  "description": "Identificador da comunidade",
+                  "example": "test"
+                },
+                "icon": {
+                  "type": "string",
+                  "description": "Logo da comunidade"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nome da comunidade"
+                }
+              }
+            }
+          }
+        }
+      },
+      "UserInfo": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "lastSeenAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Data da ultima vez que o usuário visualizou o app"
+              },
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do usuário"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Data de criação do usuário"
+              },
+              "UpdatedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Data da última edição do usuário"
+              },
+              "Alias": {
+                "type": "string",
+                "description": "Identidicador do usuário na comunidade",
+                "example": "user1"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Perfis do usuário na comunidade"
+                }
+              },
+              "permissions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "permissões de usuário na comunidade"
+                }
+              }
+            }
+          },
+          "community": {
+            "type": "object",
+            "properties": {
+              "color": {
+                "type": "string",
+                "description": "Cor principal da comunidade"
+              },
+              "community": {
+                "type": "string",
+                "description": "Identificador da comunidade",
+                "example": "test"
+              },
+              "icon": {
+                "type": "string",
+                "description": "Logo da comunidade"
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome da comunidade"
+              }
+            }
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "ObjectId",
+                  "description": "Identificador do grupo"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nome do grupo",
+                  "example": "Primeiro Ano"
+                },
+                "alias": {
+                  "type": "string",
+                  "description": "Identificador do grupo na comunidade",
+                  "example": "primeiro-ano"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data de criação do grupo"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data da última modificação do grupo"
+                },
+                "season": {
+                  "type": "string",
+                  "description": "Periodo escolar ao qual o grupo pertence",
+                  "example": 2020
+                },
+                "enrollment": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador da matrícula"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "description": "Tipo da entidade à qual pertence a matrícula",
+                      "example": "member"
+                    },
+                    "entity": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador da entidade matriculada"
+                    },
+                    "group": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do grupo à qual pertence a matrícula"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Data de criação da matrícula"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Data da última modificação do grupo"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Nome do membro",
+                  "example": "João Pedro Silva"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data de criação do membro"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data da última modificação do membro"
+                },
+                "alias": {
+                  "type": "string",
+                  "description": "Identificador do membro na comunidade",
+                  "example": "member1"
+                },
+                "id": {
+                  "type": "string",
+                  "format": "ObjectId",
+                  "description": "Identificador do membrp"
+                },
+                "groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificador do grupo"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome do grupo",
+                        "example": "Primeiro Ano"
+                      },
+                      "alias": {
+                        "type": "string",
+                        "description": "Identificador do grupo na comunidade",
+                        "example": "primeiro-ano"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Data de criação do grupo"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Data da última modificação do grupo"
+                      },
+                      "season": {
+                        "type": "string",
+                        "description": "Periodo escolar ao qual o grupo pertence",
+                        "example": 2020
+                      },
+                      "enrollment": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "ObjectId",
+                            "description": "Identificador da matrícula"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "description": "Tipo da entidade à qual pertence a matrícula",
+                            "example": "member"
+                          },
+                          "entity": {
+                            "type": "string",
+                            "format": "ObjectId",
+                            "description": "Identificador da entidade matriculada"
+                          },
+                          "group": {
+                            "type": "string",
+                            "format": "ObjectId",
+                            "description": "Identificador do grupo à qual pertence a matrícula"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data de criação da matrícula"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Data da última modificação do grupo"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "OAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://id.layers.digital",
+            "tokenUrl": "https://api.layers.digital/oauth/token",
+            "scopes": {
+              "openid": "Garante acesso ao id da conta do usuário",
+              "profile": "Garante acesso às informações do perfil do usuário",
+              "fullname": "Garante acesso ao nome do usuário",
+              "email": "Garante acesso ao e-mail do usuário",
+              "related.communities": "Garante acesso a informações das comunidades às quais o usuário está vinculado",
+              "related.groups": "Garante acesso a informações dos grupos aos quais o usuário está vinculado",
+              "related.members": "Garante acesso a informações dos alunos vinculados ao usuário",
+              "related.members.groups": "Garante acesso a informações dos grupos aos quais alunos vinculados com o usuário estão vinculados"
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-nav": [
+    {
+      "name": "Autenticação OAuth",
+      "tags": [
+        "Informações de conta",
+        "Informações de usuário"
+      ]
+    }
+  ]
+}

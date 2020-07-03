@@ -1,0 +1,631 @@
+{
+  "openapi": "3",
+  "servers": [
+    {
+      "url": "http://192.168.0.48:8009/v1",
+      "description": "Layers API"
+    }
+  ],
+  "info": {
+    "title": "Layers API",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Tenda Developers",
+      "email": "developers+layers@tenda.digital",
+      "url": "https://github.com/TendaDigital"
+    },
+    "x-logo": {
+      "url": "https://cdn.edu.tenda.digital/admin/uploads/4004839a-5b46-440a-aed0-65a7ae9e8aba/Icon-iOS-TendaEdu.png",
+      "altText": "Layers"
+    }
+  },
+  "x-tagGroups": [
+    {
+      "name": "Layers Communication",
+      "tags": [
+        "Posts"
+      ]
+    },
+    {
+      "name": "Store Admin",
+      "tags": [
+        "Items",
+        "Store"
+      ]
+    }
+  ],
+  "paths": {
+    "/store/items": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Create an Item",
+        "description": "TODO",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "Bearer Authentication": [
+              "store:item:write"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Item"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/errors/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: name: Path `name` is required"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/store/items/{itemId}": {
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Read an Item",
+        "description": "TODO",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/errors/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: name: Path `name` is required"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Update an Item",
+        "description": "TODO",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Item"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/errors/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: name: Path `name` is required"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/info": {
+      "get": {
+        "tags": [
+          "Store"
+        ],
+        "summary": "Store Information",
+        "description": "TODO",
+        "parameters": [
+          {
+            "$ref": "#/components/middlewares/XStore"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StoreInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "errors": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Error status code"
+          },
+          "name": {
+            "type": "string",
+            "enum": [
+              "BadRequest",
+              "NotFound",
+              "Conflict"
+            ],
+            "description": "Error name"
+          },
+          "type": {
+            "type": "string",
+            "description": "Error type"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error Message"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer Authentication": {
+        "description": "Get access to data while protecting your account credentials.\nGenerate a user token with scoped access to the users permissions.\n\nGenerate a token in /auth/token with the email and password to get a scoped user access token.\n\nThis token allows switching between unified communities\n",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "middlewares": {
+      "XStore": {
+        "in": "header",
+        "name": "X-Store-Id",
+        "description": "Store identification (slug)",
+        "schema": {
+          "type": "string"
+        },
+        "required": true
+      },
+      "XStoreSession": {
+        "in": "header",
+        "name": "X-Store-Session",
+        "description": "Token of the session of the store",
+        "schema": {
+          "type": "string"
+        },
+        "required": true
+      },
+      "XCommunity": {
+        "in": "header",
+        "name": "X-Community",
+        "description": "Community identification",
+        "schema": {
+          "type": "string"
+        },
+        "required": true
+      }
+    },
+    "schemas": {
+      "StoreInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the store channel",
+            "example": "5bc6b8eb7c3a5f75375e6c1a",
+            "readOnly": true
+          },
+          "slug": {
+            "type": "string",
+            "description": "Global identification of the store",
+            "example": "my-awesome-store",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the store",
+            "example": "My Awesome store!"
+          },
+          "template": {
+            "type": "string",
+            "description": "Default template to render the store",
+            "example": "default",
+            "default": "default"
+          },
+          "marchant": {
+            "$ref": "#/components/schemas/StoreMerchant"
+          }
+        }
+      },
+      "StoreMerchant": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the owner of the store",
+            "example": "Tenda Digital"
+          },
+          "color": {
+            "type": "string",
+            "description": "Main color of the Merchant that can be used for personalization",
+            "example": "#53d0e9"
+          },
+          "icon": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the Merchant Icon (squared)",
+            "example": "https://cdn.edu.tenda.digital/admin/uploads/bc82f06a-e8ae-483b-ac3c-0042d5871736/TEdu%20_%20Ícone%20Sem%20Borda%201024px%20(1).png"
+          },
+          "uploads_brand": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the Merchant's Brand (free aspect)"
+          },
+          "community": {
+            "type": "string",
+            "description": "Public identification of the merchant",
+            "example": "tenda"
+          }
+        }
+      },
+      "Amount": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Currency"
+              },
+              {
+                "readOnly": true
+              }
+            ]
+          },
+          "amount": {
+            "type": "integer",
+            "example": 10000,
+            "description": "Integer value of amount in cents without fractions. '10.00' becomes '1000'",
+            "min": 1,
+            "max": 1000000
+          }
+        },
+        "example": {
+          "amount": 1000
+        }
+      },
+      "Currency": {
+        "type": "string",
+        "example": "BRL",
+        "description": "ISO Code of the Currency. Will be inherited from document if set",
+        "enum": [
+          "BRL"
+        ]
+      },
+      "Item": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "Id of document",
+            "example": "5bb2575199d7179dfe85be02",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Document creation date",
+            "example": "2018-05-29T15:34:11.118Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Last customer update date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Product Name",
+            "example": "6-Person dome Tent",
+            "minLength": 3,
+            "maxLength": 100
+          },
+          "caption": {
+            "type": "string",
+            "description": "Product Caption",
+            "example": "Polyester tent for camping that supports up to 6 person",
+            "maxLength": 100
+          },
+          "currency": {
+            "allOf": [
+              {
+                "description": "ISO Code of the Currency."
+              },
+              {
+                "$ref": "#/components/schemas/Currency"
+              }
+            ]
+          },
+          "defaultPrice": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Amount"
+              },
+              {
+                "description": "Helps you set default price to apply to all Sku's during creation. Property will not persist.",
+                "writeOnly": true
+              }
+            ]
+          },
+          "skus": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemSku"
+            }
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemOption"
+            }
+          },
+          "channels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemChannel"
+            }
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "ItemChannel": {
+        "type": "object",
+        "description": "Each sale channel is a binding to some Community or Store that overrides variants, prices and visibility.",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "store",
+              "community"
+            ],
+            "description": "The kind of entity that this channel is associated",
+            "example": "store"
+          },
+          "entity": {
+            "type": "string",
+            "description": "ObjectId of the specified model.",
+            "example": "5bb2575199d7179dfe85be02"
+          },
+          "overrides": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemChannelOverride"
+            }
+          }
+        },
+        "required": [
+          "kind",
+          "entity"
+        ],
+        "example": {
+          "kind": "store",
+          "entity": "5bb2575199d7179dfe85be02",
+          "overrides": [
+            {
+              "skuId": "5bb2575199d7179dfe85be03",
+              "price": {
+                "amount": 1000
+              }
+            },
+            {
+              "skuId": "5bb2575199d7179dfe85be04",
+              "invisible": true
+            }
+          ]
+        }
+      },
+      "ItemChannelOverride": {
+        "type": "object",
+        "description": "Each sale channel is a binding to some Community or Store that overrides variants, prices and visibility.",
+        "properties": {
+          "skuId": {
+            "type": "string",
+            "description": "The _id of referenced Sku",
+            "example": "5bb2575199d7179dfe85be02"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "priceFrom": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "invisible": {
+            "type": "boolean",
+            "default": false,
+            "description": "Removes this sku from the channel if enabled"
+          }
+        },
+        "required": [
+          "skuId"
+        ],
+        "example": {
+          "skuId": "5bb2575199d7179dfe85be02",
+          "price": {
+            "amount": 10000
+          }
+        }
+      },
+      "ItemOption": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "color",
+            "description": "Identification of this Option. Defaults to a slug of the name"
+          },
+          "name": {
+            "type": "string",
+            "example": "Color",
+            "description": "The name of this attribute",
+            "minLength": "1,",
+            "maxLength": "32,"
+          }
+        },
+        "example": [
+          {
+            "key": "color",
+            "name": "Color"
+          },
+          {
+            "key": "custom-id",
+            "name": "Size"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "ItemSku": {
+        "type": "object",
+        "description": "Represents a sellable variant of an item. An Sku is what applies pricing to an item.",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "Internal item unique identifier for the Sku. Set to a random uuid if you need to create an item with attributes and list options at once.\n"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Define your own Sku code here."
+          },
+          "price": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemSkuAttribute"
+            },
+            "description": "A list of attribute-value that characterize this variant Sku",
+            "example": [
+              {
+                "key": "color",
+                "optionName": "Color",
+                "value": "Blue"
+              },
+              {
+                "key": "custom-id",
+                "optionName": "Size",
+                "value": "Super Large"
+              }
+            ]
+          }
+        }
+      },
+      "ItemSkuAttribute": {
+        "type": "object",
+        "description": "Specifies a tupple of option id and value to form an Sku's attribute-value pair",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The id of the ItemOption"
+          },
+          "optionName": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The Name of the option"
+          },
+          "value": {
+            "type": "string",
+            "description": "The Value of the attribute."
+          }
+        },
+        "example": {
+          "key": "attr-color",
+          "value": "Blue"
+        }
+      }
+    }
+  },
+  "tags": []
+}

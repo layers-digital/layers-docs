@@ -4,14 +4,14 @@ import fs from 'fs-extra';
 import { createDocument } from '@stencil/core/mock-doc';
 import Listr from 'listr';
 import Static, { ToStaticPageOptions, toPage as toStaticPage } from './tasks/static';
-import api from './tasks/api';
+import Apis from './tasks/apis';
 // import CLI from './page-types/cli';
 // import Native from './page-types/native';
 import { convertHtmlToHypertextData } from './utils';
 
 const tasks = new Listr([
   Static,
-  api
+  Apis
 ]);
 
 export default tasks;
@@ -85,15 +85,15 @@ function patchBody(page: Page): Page {
   const prefix = /^\/docs\/([a-z]{2}\b)?/;
   const pageClass = `page-${slugify(page.path.replace(prefix, ''))}`;
 
-  const [, language] = prefix.exec(page.path) || 'pt';
-  if (language && language !== 'pt') {
-    if (page.previousUrl) {
-      page.previousUrl = page.previousUrl.replace(prefix, `/docs/${language}/`);
-    }
-    if (page.nextUrl) {
-      page.nextUrl = page.nextUrl.replace(prefix, `/docs/${language}/`);
-    }
-  }
+  // const [, language] = prefix.exec(page.path) || 'pt';
+  // if (language && language !== 'pt') {
+  //   if (page.previousUrl) {
+  //     page.previousUrl = page.previousUrl.replace(prefix, `/docs/${language}/`);
+  //   }
+  //   if (page.nextUrl) {
+  //     page.nextUrl = page.nextUrl.replace(prefix, `/docs/${language}/`);
+  //   }
+  // }
 
   return {
     ...page,
@@ -113,6 +113,9 @@ export function updatePageHtmlToHypertext(page: Page) {
   }
   if (page.codeUsage) {
     page.codeUsage = convertHtmlToHypertextData(page.codeUsage);
+  }
+  if (page.example) {
+    page.example = convertHtmlToHypertextData(page.example);
   }
   if (page.usage) {
     const hypertextUsage = {};

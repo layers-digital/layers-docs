@@ -1,6 +1,6 @@
 # Funcionalidades para Apps
 
-O Layers disponibiliza uma série de funcionalidades que podem ser usadas tanto por apps internos quanto por apps de terceiros que podem ser usadas com um único código tanto na web quanto no aplicativo mobile.
+O Layers disponibiliza uma série de funcionalidades que podem ser usadas tanto por apps internos quanto por apps de terceiros que podem ser usadas com um único código tanto na web quanto no aplicativo **mobile**.
 
 <docs-cards>
   <docs-card header="Dados" href="/docs/guides/data" icon="/docs/assets/icons/Data.svg">

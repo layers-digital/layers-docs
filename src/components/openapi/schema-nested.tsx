@@ -1,7 +1,7 @@
 import { Component, h, Prop, State } from "@stencil/core";
-import { AcessorNode } from "./schema";
-import { normalizeObject, getAcessorPathNames, getRefPath } from "./util";
+import { normalizeObject, getAcessorPathNames, getRefPath, AcessorNode } from "./util";
 import {OpenAPIObject} from 'openapi3-ts'
+import { Plus } from "../../icons";
 
 @Component({
   tag: 'docs-openapi-schema-nested',
@@ -15,13 +15,13 @@ export class DocsOpenapiSchemaNested {
   @Prop() text: string
 
   @Prop() open: boolean = false
+  @Prop() canClose: boolean = true
   @State() isOpen: boolean = false
 
   private getRootAcessorNode(): AcessorNode {
     if (this.node) {
       return this.node
     }
-    console.log(this.spec)
     
     let schema = getRefPath(this.spec, this.path)
     if (!schema) {
@@ -46,7 +46,11 @@ export class DocsOpenapiSchemaNested {
   }
 
   toggle() {
-    this.isOpen = !this.isOpen
+    if (!this.canClose) {
+      this.isOpen = true
+    } else {
+      this.isOpen = !this.isOpen
+    }
   }
 
   render() {
@@ -71,8 +75,8 @@ export class DocsOpenapiSchemaNested {
     return (
     <section class={`Api-nested-section ${this.isOpen ? 'active' : ''}`}>
       <button class="Api-nested-toggle-btn" onClick={() => this.toggle()}>
-        {/* <Close/> */}
-        {text}
+        {this.canClose ? <Plus class="icon"/> : null}
+        <span class="text">{text}</span>
       </button>
       {this.isOpen ? 
         <docs-openapi-schema node={node} spec={this.spec}/> :

@@ -1,7 +1,6 @@
 import { Component, Prop, h } from "@stencil/core";
 import { OpenAPIObject } from "openapi3-ts";
-import { AcessorNode } from "./schema";
-import { generateExample, getRefPath } from "./util";
+import { generateExample, getRefPath, AcessorNode } from "./util";
 
 @Component({
   tag: 'docs-openapi-example',

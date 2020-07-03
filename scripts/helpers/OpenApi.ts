@@ -1,4 +1,6 @@
 import { OpenAPIObject, OperationObject, SchemaObject, ReferenceObject } from "openapi3-ts"
+import { normalizeObject } from "../../src/components/openapi/util"
+export * from '../../src/components/openapi/util'
 
 export interface DocRoute {
   type: 'route',
@@ -81,13 +83,14 @@ export function GetRoutes({paths}: OpenAPIObject): DocRoute[] {
   return docs
 }
 
-export function GetSchemas(spec: OpenAPIObject): DocSchema[] {
+export function GetSchemas(obj: OpenAPIObject): DocSchema[] {
   let docs: DocSchema[] = []
   
-  let schemas = spec.components.schemas
+  let schemas = obj.components.schemas
   for (let name in schemas) {
-    let spec = schemas[name]
-    let summary = spec['x-summary'] ?? `Entidade ${name}`
+    let spec = normalizeObject(obj, schemas[name])
+    let type = spec.type == 'object' ? 'Entidade' : (spec.enum ? 'Enum' : 'Schema')
+    let summary = spec['x-summary'] ?? `${type} ${name}`
     
     let tags = spec['x-tags'] ?? []
     if (!Array.isArray(tags) && !!tags) {
@@ -147,9 +150,9 @@ export function GetRouteMenu(base: string, route: DocRoute): DocMenu {
 
 export function GetSchemaMenu(base: string, schema: DocSchema): DocMenu {
   let name = schema.name
-    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-    .map(x => x.toLowerCase())
-    .join('_')
+    // .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    // .map(x => x.toLowerCase())
+    // .join('_')
   let path = '/' + name + '/object'
   
   return {

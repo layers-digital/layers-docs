@@ -1,5 +1,10 @@
 import {OpenAPIObject, SchemaObject} from 'openapi3-ts'
-import { AcessorNode } from './schema';
+
+export interface AcessorNode {
+  schema: SchemaObject,
+  name: string | null,
+  parent?: AcessorNode
+}
 
 export type OperationType = 'READ' | 'WRITE'
 
@@ -55,18 +60,26 @@ export function getAcessorPathNames(node: AcessorNode, includeSelf: boolean = fa
   return path
 }
 
+const normalizedObjectMaps = new WeakMap()
 export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaObject {
-  obj = getRef(spec, obj)
-
   if (!obj) {
     return {}
   }
-
-  if (obj.allOf) {
-    return obj.allOf.reduce((prev, obj) => Object.assign(prev, normalizeObject(spec, obj)), {})
+   
+  if (normalizedObjectMaps.has(obj)) {
+    return normalizedObjectMaps.get(obj)
   }
 
-  return obj
+  let out = getRef(spec, obj)
+
+  if (!out) {
+    out = {}
+  } else if (out.allOf) {
+    out = out.allOf.reduce((prev, out) => Object.assign(prev, normalizeObject(spec, out)), {})
+  }
+
+  normalizedObjectMaps.set(obj, out)
+  return out
 }
 
 export function generateExample(spec: OpenAPIObject, node: AcessorNode, operation: OperationType = 'READ') {
@@ -82,29 +95,33 @@ export function generateExample(spec: OpenAPIObject, node: AcessorNode, operatio
     return
   }
 
-  if (example) {
+  if (Array.isArray(example)) {
     return example
   }
 
   if (schema.type == 'object') {
-    let obj = {}
+    let obj = typeof example == 'object' ? {...example} : {}
     for (let key in schema.properties) {
       let prop = schema.properties[key]
       obj[key] = generateExample(spec, {
         name: key,
         parent: node,
         schema: prop
-      })
+      }, operation)
     }
     return obj
   }
 
+  if (example) {
+    return example
+  }
+  
   if (schema.type == 'array') {
     return [generateExample(spec, {
       name: '[]',
       parent: node,
       schema: schema.items,
-    })]
+    }, operation)]
   }
 
   return getDefaultTypeExample(node)

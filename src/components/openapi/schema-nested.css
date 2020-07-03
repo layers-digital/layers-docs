@@ -1,10 +1,10 @@
 /* Api Nested */
 .Api-nested-section {
   box-shadow: 0 0 0 1px var(--api-gray100);
-  border-radius: 14px;
+  border-radius: 12px;
   width: min-content;
   margin-top: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .Api-nested-section.active {
@@ -14,24 +14,50 @@
 
 .Api-nested-toggle-btn {
   cursor: pointer;
-  display: block;
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   width: 100%;
   text-align: left;
-  /* height: 28px; */
+  border-radius: 12px;
   line-height: 100%;
   white-space: pre;
   font-family: var(--font-family);
-  color: var(--api-gray400);
   font-size: 13px;
-  padding: 6px 12px;
+  padding-right: 12px;
+  height: 26px;
+
+  --color-bg: transparent;
+  background-color: var(--color-bg);
+
+  --color: var(--api-gray400);
+  color: var(--color);
+}
+
+.Api-nested-toggle-btn > .icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease-in-out;
+  fill: var(--color);
+}
+
+.Api-nested-toggle-btn > .text {
+  padding-top: 2px;
+  margin-left: 4px;
+}
+.Api-nested-section.active > .Api-nested-toggle-btn {
+  border-radius: 12px 12px 0 0;
 }
 
 .Api-nested-section.active > .Api-nested-toggle-btn,
-.Api-nested-section:not(.active):hover > .Api-nested-toggle-btn {
-  background: rgba(0,0,0,0.02);
-  color: var(--api-gray500)
+.Api-nested-section:hover  > .Api-nested-toggle-btn{
+  --color-bg: rgba(0,0,0,0.02);
+  --color: var(--api-gray500);
+}
+
+.Api-nested-section.active > .Api-nested-toggle-btn > .icon {
+  transform: rotateZ(45deg);
 }
 
 .Api-nested-toggle-btn:focus {
@@ -39,8 +65,8 @@
 }
 
 .Api-nested-section .Api-property-list-item {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .Api-nested-section.active > docs-openapi-schema {

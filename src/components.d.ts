@@ -21,10 +21,7 @@ import {
 } from 'openapi3-ts';
 import {
   AcessorNode,
-} from './components/openapi/schema';
-import {
-  AcessorNode as AcessorNode1,
-} from './components/openapi/schema';
+} from './components/openapi/util';
 import {
   LocationSegments,
   RouterHistory,
@@ -127,6 +124,7 @@ export namespace Components {
     'spec': OpenAPIObject;
   }
   interface DocsOpenapiSchemaNested {
+    'canClose': boolean;
     'node': AcessorNode;
     'open': boolean;
     'path': string;
@@ -557,6 +555,7 @@ declare namespace LocalJSX {
     'spec'?: OpenAPIObject;
   }
   interface DocsOpenapiSchemaNested {
+    'canClose'?: boolean;
     'node'?: AcessorNode;
     'open'?: boolean;
     'path'?: string;

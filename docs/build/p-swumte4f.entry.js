@@ -1,1 +1,0 @@
-import{r as e,h as t}from"./p-ce7c30ce.js";const r=class{constructor(t){e(this,t)}render(){return t("slot",null)}static get style(){return"file-tree{display:block;background-color:#111722;border-radius:7px;padding:2em;font-size:14px;font-weight:500;letter-spacing:normal;line-height:2;color:hsla(0,0%,100%,.9);overflow:scroll}"}};export{r as file_tree};

@@ -71,7 +71,7 @@ const items = {
     },
     'Registro acadêmico': {
       'Registros relacionados': '/docs/guides/apihub/dados-ocorrencia',
-      'Marcar como lida': 'docs/guides/apihub/dados-ocorrencia-lida'
+      'Marcar como lida': '/docs/guides/apihub/dados-ocorrencia-lida'
     },
     'Cobranças': {
       'Cobranças relacionados': '/docs/guides/apihub/dados-cobrancas',
@@ -92,7 +92,7 @@ const items = {
     }
   },
   'oauth': {
-    'Overview': { 
+    'Overview': {
       'OAuth no Layers': '/docs/guides/oauth',
       'Escopos': '/docs/guides/oauth/escopos',
     },

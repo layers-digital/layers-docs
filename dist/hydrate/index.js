@@ -5982,31 +5982,6 @@ class CommandLine {
     constructor(hostRef) {
         registerInstance(this, hostRef);
     }
-    renderButtons() {
-        return (h("svg", { viewBox: "0 0 400 100" }, h("circle", { r: "50", cx: "50", cy: "50" }), h("circle", { r: "50", cx: "200", cy: "50" }), h("circle", { r: "50", cx: "350", cy: "50" })));
-    }
-    render() {
-        return [
-            this.nobuttons ? null : this.renderButtons(),
-            h("slot", null)
-        ];
-    }
-    static get cmpMeta() { return {
-        "$flags$": 4,
-        "$tagName$": "command-line",
-        "$members$": {
-            "nobuttons": [516]
-        },
-        "$listeners$": undefined,
-        "$lazyBundleIds$": "-",
-        "$attrsToReflect$": []
-    }; }
-}
-
-class CommandLine$1 {
-    constructor(hostRef) {
-        registerInstance(this, hostRef);
-    }
     hostData() {
         return {
             class: { blink: this.blink },
@@ -6026,6 +6001,31 @@ class CommandLine$1 {
         "$attrsToReflect$": []
     }; }
     render() { return h(Host, this.hostData(), this.__stencil_render()); }
+}
+
+class CommandLine$1 {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+    }
+    renderButtons() {
+        return (h("svg", { viewBox: "0 0 400 100" }, h("circle", { r: "50", cx: "50", cy: "50" }), h("circle", { r: "50", cx: "200", cy: "50" }), h("circle", { r: "50", cx: "350", cy: "50" })));
+    }
+    render() {
+        return [
+            this.nobuttons ? null : this.renderButtons(),
+            h("slot", null)
+        ];
+    }
+    static get cmpMeta() { return {
+        "$flags$": 4,
+        "$tagName$": "command-line",
+        "$members$": {
+            "nobuttons": [516]
+        },
+        "$listeners$": undefined,
+        "$lazyBundleIds$": "-",
+        "$attrsToReflect$": []
+    }; }
 }
 
 class CommandOutput {
@@ -8213,8 +8213,210 @@ class DocsItemList {
     }; }
 }
 
+var data = {
+	"Usuários": [
+		{
+			text: "Entidade User",
+			href: "/docs/api/data/User/object",
+			tag: {
+				color: "purple",
+				text: "{...}"
+			}
+		}
+	],
+	Membros: [
+		{
+			text: "Entidade Member",
+			href: "/docs/api/data/Member/object",
+			tag: {
+				color: "purple",
+				text: "{...}"
+			}
+		},
+		{
+			text: "Criar Membro",
+			href: "/docs/api/data/members/post",
+			tag: {
+				color: "blue",
+				text: "POST"
+			}
+		},
+		{
+			text: "Listar Membros",
+			href: "/docs/api/data/members",
+			tag: {
+				color: "green",
+				text: "GET"
+			}
+		},
+		{
+			text: "Deletar membro",
+			href: "/docs/api/data/members/memberId/delete",
+			tag: {
+				color: "red",
+				text: "DELETE"
+			}
+		},
+		{
+			text: "Atualizar Membro",
+			href: "/docs/api/data/members/memberId/put",
+			tag: {
+				color: "yellow",
+				text: "PUT"
+			}
+		},
+		{
+			text: "Visualizar membro",
+			href: "/docs/api/data/members/memberId",
+			tag: {
+				color: "green",
+				text: "GET"
+			}
+		},
+		{
+			text: "Vincular usuário a um membro",
+			href: "/docs/api/data/members/memberId/users/put",
+			tag: {
+				color: "yellow",
+				text: "PUT"
+			}
+		},
+		{
+			text: "Buscar membros",
+			href: "/docs/api/data/members/search",
+			tag: {
+				color: "green",
+				text: "GET"
+			}
+		}
+	],
+	Grupos: [
+		{
+			text: "Entidade Group",
+			href: "/docs/api/data/Group/object",
+			tag: {
+				color: "purple",
+				text: "{...}"
+			}
+		},
+		{
+			text: "Criar Grupo",
+			href: "/docs/api/data/group/post",
+			tag: {
+				color: "blue",
+				text: "POST"
+			}
+		},
+		{
+			text: "Remover administradores",
+			href: "/docs/api/data/groups/groupId/admins/userId/delete",
+			tag: {
+				color: "red",
+				text: "DELETE"
+			}
+		},
+		{
+			text: "Listar administradores",
+			href: "/docs/api/data/groups/groupId/admins",
+			tag: {
+				color: "green",
+				text: "GET"
+			}
+		},
+		{
+			text: "Editar administradores",
+			href: "/docs/api/data/groups/groupId/admins/put",
+			tag: {
+				color: "yellow",
+				text: "PUT"
+			}
+		},
+		{
+			text: "Deletar grupo",
+			href: "/docs/api/data/groups/groupId/delete",
+			tag: {
+				color: "red",
+				text: "DELETE"
+			}
+		},
+		{
+			text: "Editar Grupo",
+			href: "/docs/api/data/groups/groupId/put",
+			tag: {
+				color: "yellow",
+				text: "PUT"
+			}
+		},
+		{
+			text: "Visualizar Grupo",
+			href: "/docs/api/data/groups/groupId",
+			tag: {
+				color: "green",
+				text: "GET"
+			}
+		},
+		{
+			text: "Listar grupos",
+			href: "/docs/api/data/groups",
+			tag: {
+				color: "green",
+				text: "GET"
+			}
+		},
+		{
+			text: "Buscar administradores",
+			href: "/docs/api/data/groups/search",
+			tag: {
+				color: "green",
+				text: "GET"
+			}
+		}
+	],
+	"Matrículas": [
+		{
+			text: "Entidade Enrollment",
+			href: "/docs/api/data/Enrollment/object",
+			tag: {
+				color: "purple",
+				text: "{...}"
+			}
+		},
+		{
+			text: "Criar matricula",
+			href: "/docs/api/data/groups/groupId/enrollments/post",
+			tag: {
+				color: "blue",
+				text: "POST"
+			}
+		},
+		{
+			text: "Listar matriculas",
+			href: "/docs/api/data/groups/groupId/enrollments",
+			tag: {
+				color: "green",
+				text: "GET"
+			}
+		},
+		{
+			text: "Remover matricula",
+			href: "/docs/api/data/groups/groupId/enrollments/enrollmentId/delete",
+			tag: {
+				color: "red",
+				text: "DELETE"
+			}
+		}
+	]
+};
 var payments = {
 	Clientes: [
+		{
+			text: "Entidade CheckoutCustomer",
+			href: "/docs/api/payments/CheckoutCustomer/object",
+			tag: {
+				color: "purple",
+				text: "{...}"
+			}
+		},
 		{
 			text: "Create customer",
 			href: "/docs/api/payments/customers/post",
@@ -8265,22 +8467,6 @@ var payments = {
 		}
 	],
 	Itens: [
-		{
-			text: "Entidade CheckoutItem",
-			href: "/docs/api/payments/CheckoutItem/object",
-			tag: {
-				color: "purple",
-				text: "{...}"
-			}
-		},
-		{
-			text: "Entidade Item",
-			href: "/docs/api/payments/Item/object",
-			tag: {
-				color: "purple",
-				text: "{...}"
-			}
-		},
 		{
 			text: "Remove item",
 			href: "/docs/api/payments/items/itemId/delete",
@@ -8528,14 +8714,6 @@ var payments = {
 			}
 		},
 		{
-			text: "Entidade Checkout",
-			href: "/docs/api/payments/Checkout/object",
-			tag: {
-				color: "purple",
-				text: "{...}"
-			}
-		},
-		{
 			text: "Create Checkout",
 			href: "/docs/api/payments/storefront/checkout/post",
 			tag: {
@@ -8573,18 +8751,6 @@ var apihub = {
 		}
 	]
 };
-var notification = {
-	"Notificações": [
-		{
-			text: "Enviar notificação",
-			href: "/docs/api/notification/notify/post",
-			tag: {
-				color: "blue",
-				text: "POST"
-			}
-		}
-	]
-};
 var auth = {
 	"Autenticação OAuth": [
 		{
@@ -8607,10 +8773,26 @@ var auth = {
 };
 var tickets = {
 	"Canais de atendimento": [
+		{
+			text: "Entidade Channel",
+			href: "/docs/api/tickets/Channel/object",
+			tag: {
+				color: "purple",
+				text: "{...}"
+			}
+		}
 	],
 	Atendentes: [
 	],
 	Mensagens: [
+		{
+			text: "Entidade Ticket",
+			href: "/docs/api/tickets/Ticket/object",
+			tag: {
+				color: "purple",
+				text: "{...}"
+			}
+		},
 		{
 			text: "Criar mensagem",
 			href: "/docs/api/tickets/tickets/post",
@@ -8645,236 +8827,38 @@ var tickets = {
 		}
 	]
 };
-var media = {
-	"Mídia": [
+var communication = {
+	"Publicações": [
 		{
-			text: "Fazer upload",
-			href: "/docs/api/media/media/upload/post",
+			text: "Entidade Event",
+			href: "/docs/api/communication/Event/object",
 			tag: {
-				color: "blue",
-				text: "POST"
+				color: "purple",
+				text: "{...}"
 			}
 		}
 	]
 };
-var data = {
-	Membros: [
+var notifications = {
+	"Notificações": [
 		{
-			text: "Criar Membro",
-			href: "/docs/api/data/members/post",
+			text: "Enviar notificação",
+			href: "/docs/api/notifications/notify/post",
 			tag: {
 				color: "blue",
 				text: "POST"
-			}
-		},
-		{
-			text: "Listar Membros",
-			href: "/docs/api/data/members",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		},
-		{
-			text: "Deletar membro",
-			href: "/docs/api/data/members/memberId/delete",
-			tag: {
-				color: "red",
-				text: "DELETE"
-			}
-		},
-		{
-			text: "Atualizar Membro",
-			href: "/docs/api/data/members/memberId/put",
-			tag: {
-				color: "yellow",
-				text: "PUT"
-			}
-		},
-		{
-			text: "Visualizar membro",
-			href: "/docs/api/data/members/memberId",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		},
-		{
-			text: "Vincular usuário a um membro",
-			href: "/docs/api/data/members/memberId/users/put",
-			tag: {
-				color: "yellow",
-				text: "PUT"
-			}
-		},
-		{
-			text: "Buscar membros",
-			href: "/docs/api/data/members/search",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		}
-	],
-	"Usuários": [
-		{
-			text: "Criar Usuário",
-			href: "/docs/api/data/users/post",
-			tag: {
-				color: "blue",
-				text: "POST"
-			}
-		},
-		{
-			text: "Listar usuários",
-			href: "/docs/api/data/users",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		},
-		{
-			text: "Buscar usuários",
-			href: "/docs/api/data/users/search",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		},
-		{
-			text: "Deletar usuário",
-			href: "/docs/api/data/users/usersId/delete",
-			tag: {
-				color: "red",
-				text: "DELETE"
-			}
-		},
-		{
-			text: "Atualizar informações do usuário",
-			href: "/docs/api/data/users/userId/put",
-			tag: {
-				color: "yellow",
-				text: "PUT"
-			}
-		},
-		{
-			text: "Visualizar informações do usuário",
-			href: "/docs/api/data/users/userId",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		}
-	],
-	Grupos: [
-		{
-			text: "Criar Grupo",
-			href: "/docs/api/data/group/post",
-			tag: {
-				color: "blue",
-				text: "POST"
-			}
-		},
-		{
-			text: "Remover administradores",
-			href: "/docs/api/data/groups/groupId/admins/userId/delete",
-			tag: {
-				color: "red",
-				text: "DELETE"
-			}
-		},
-		{
-			text: "Listar administradores",
-			href: "/docs/api/data/groups/groupId/admins",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		},
-		{
-			text: "Editar administradores",
-			href: "/docs/api/data/groups/groupId/admins/put",
-			tag: {
-				color: "yellow",
-				text: "PUT"
-			}
-		},
-		{
-			text: "Deletar grupo",
-			href: "/docs/api/data/groups/groupId/delete",
-			tag: {
-				color: "red",
-				text: "DELETE"
-			}
-		},
-		{
-			text: "Editar Grupo",
-			href: "/docs/api/data/groups/groupId/put",
-			tag: {
-				color: "yellow",
-				text: "PUT"
-			}
-		},
-		{
-			text: "Visualizar Grupo",
-			href: "/docs/api/data/groups/groupId",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		},
-		{
-			text: "Listar grupos",
-			href: "/docs/api/data/groups",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		},
-		{
-			text: "Buscar administradores",
-			href: "/docs/api/data/groups/search",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		}
-	],
-	"Matrículas": [
-		{
-			text: "Criar matricula",
-			href: "/docs/api/data/groups/groupId/enrollments/post",
-			tag: {
-				color: "blue",
-				text: "POST"
-			}
-		},
-		{
-			text: "Listar matriculas",
-			href: "/docs/api/data/groups/groupId/enrollments",
-			tag: {
-				color: "green",
-				text: "GET"
-			}
-		},
-		{
-			text: "Remover matricula",
-			href: "/docs/api/data/groups/groupId/enrollments/enrollmentId/delete",
-			tag: {
-				color: "red",
-				text: "DELETE"
 			}
 		}
 	]
 };
 var menuData = {
+	data: data,
 	payments: payments,
 	apihub: apihub,
-	notification: notification,
 	auth: auth,
 	tickets: tickets,
-	media: media,
-	data: data
+	communication: communication,
+	notifications: notifications
 };
 
 const Template = {
@@ -8898,7 +8882,7 @@ const Template = {
         {
             icon: '/docs/assets/icons/OAuth.svg',
             url: '/docs/api/auth',
-            title: 'Autenticação',
+            title: 'Autenticação OAuth',
         },
         {
             icon: '/docs/assets/icons/Data.svg',
@@ -8912,7 +8896,7 @@ const Template = {
         },
         {
             icon: '/docs/assets/icons/Notifications.svg',
-            url: '/docs/api/notification',
+            url: '/docs/api/notifications',
             title: 'Notificações'
         },
         {
@@ -8920,47 +8904,30 @@ const Template = {
             url: '/docs/api/payments',
             title: 'Pagamentos'
         },
+        {
+            icon: '/docs/assets/icons/Payments.svg',
+            url: '/docs/api/communication',
+            title: 'Comunicação'
+        },
+        {
+            icon: '/docs/assets/icons/Payments.svg',
+            url: '/docs/api/tickets',
+            title: 'Atendimentos'
+        },
+        {
+            icon: '/docs/assets/icons/Payments.svg',
+            url: '/docs/api/tickets',
+            title: 'Atendimentos'
+        },
     ],
 };
 
-var guideTemplate = (props) => {
-    var _a;
-    const navItems = (_a = items[props.match.params.service], (_a !== null && _a !== void 0 ? _a : items['intro']));
-    console.log(items[props.match.params.service]);
-    return h("docs-nav", { items: navItems });
+// import { RouteRenderProps } from '@stencil/router';
+var guideTemplate = () => {
+    // const navItems = items[props.match.params.service] ?? items['intro']
+    // console.log(items[props.match.params.service])
+    return h("docs-nav", { items: items });
 };
-const categories = [
-    {
-        icon: '/docs/assets/icons/General.svg',
-        url: '/docs/guides/intro',
-        title: 'Guias Gerais'
-    },
-    {
-        icon: '/docs/assets/icons/OAuth.svg',
-        url: '/docs/guides/oauth',
-        title: 'Autenticação OAuth'
-    },
-    {
-        icon: '/docs/assets/icons/Data.svg',
-        url: '/docs/guides/data',
-        title: 'Dados'
-    },
-    {
-        icon: '/docs/assets/icons/Hub.svg',
-        url: '/docs/guides/apihub',
-        title: 'Hub de API\'s'
-    },
-    {
-        icon: '/docs/assets/icons/Payments.svg',
-        url: '/docs/guides/payments',
-        title: 'Pagamentos'
-    },
-    {
-        icon: '/docs/assets/icons/Notifications.svg',
-        url: '/docs/guides/notification',
-        title: 'Notificações'
-    },
-];
 const items = {
     'intro': {
         'Overview': {
@@ -8983,7 +8950,7 @@ const items = {
         },
         'Registro acadêmico': {
             'Registros relacionados': '/docs/guides/apihub/dados-ocorrencia',
-            'Marcar como lida': 'docs/guides/apihub/dados-ocorrencia-lida'
+            'Marcar como lida': '/docs/guides/apihub/dados-ocorrencia-lida'
         },
         'Cobranças': {
             'Cobranças relacionados': '/docs/guides/apihub/dados-cobrancas',
@@ -9044,7 +9011,7 @@ class DocsMenu {
     render() {
         return [
             h("header", null, h("docs-menu-toggle", { onClick: this.onToggleClick }), h("stencil-route-link", { url: "/docs/" }, h(Logo, { class: "MenuLogo" }))),
-            h("stencil-route-switch", null, h("stencil-route", { url: "/docs/api" }, h("section", { class: "MenuControls" }, h("select-category", { options: Template.categories }))), h("stencil-route", { url: "/docs/(guides)?/:service?" }, h("section", { class: "MenuControls" }, h("select-category", { options: categories }))), h("stencil-route", null)),
+            h("stencil-route-switch", null, h("stencil-route", { url: "/docs/api" }, h("section", { class: "MenuControls" }, h("select-category", { options: Template.categories }))), h("stencil-route", null)),
             h("stencil-route-switch", { scrollTopOffset: 0, class: "Menu" }, h("stencil-route", { url: "/docs/api/:service?", routeRender: Template.template }), h("stencil-route", { url: "/docs/(guides)?/:service?", routeRender: guideTemplate }))
         ];
     }
@@ -9675,6 +9642,2059 @@ const renderPremier = (premierSlug) => {
                 h("docs-button", { class: "native-ee-detail" }, "Available here")))));
 };
 
+var data$1 = {
+	title: "Dados",
+	id: "data",
+	spec: {
+		openapi: "3.0.0",
+		info: {
+			title: "API de Dados",
+			description: "A API de dados permite que você administre usuários, membros, grupos, matrículas e seus vínculos",
+			version: "1.0"
+		},
+		servers: [
+			{
+				url: "https://api.layers.digital/v1"
+			}
+		],
+		paths: {
+			"/group": {
+				post: {
+					tags: [
+						"Grupos"
+					],
+					summary: "Criar Grupo",
+					description: "Criar um novo grupo no Layers Education.",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:write"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					requestBody: {
+						content: {
+							"application/json": {
+								schema: {
+									$ref: "#/components/schemas/Group"
+								}
+							}
+						}
+					},
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/Group"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Criar Grupo",
+						url: "/docs/api/data/group/post"
+					}
+				}
+			},
+			"/groups/{groupId}/admins/{userId}": {
+				"delete": {
+					tags: [
+						"Grupos"
+					],
+					summary: "Remover administradores",
+					description: "Remover administradores especificado do grupo específicado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathGroupId"
+						},
+						{
+							$ref: "#/components/parameters/PathUserId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:write"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK"
+						}
+					},
+					externalDocs: {
+						description: "Remover administradores",
+						url: "/docs/api/data/groups/groupId/admins/userId/delete"
+					}
+				}
+			},
+			"/groups/{groupId}/admins": {
+				get: {
+					tags: [
+						"Grupos"
+					],
+					summary: "Listar administradores",
+					description: "Listar administradores do grupo específicado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathGroupId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:read",
+								"group:read:scoped"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										type: "array",
+										items: {
+											type: "object",
+											properties: {
+												id: {
+													type: "string",
+													format: "ObjectId",
+													description: "Identificador do usuário administrador da turma"
+												},
+												user: {
+													$ref: "#/components/schemas/User"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Listar administradores",
+						url: "/docs/api/data/groups/groupId/admins"
+					}
+				},
+				put: {
+					tags: [
+						"Grupos"
+					],
+					summary: "Editar administradores",
+					description: "Adicionar administradores ao grupo especificado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathGroupId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:write"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					requestBody: {
+						content: {
+							type: "object",
+							properties: {
+								users: {
+									type: "array",
+									items: {
+										type: "string",
+										format: "ObjectId",
+										description: "Identificadores dos usuários que devem ser adicionados como administradores ao grupo"
+									}
+								}
+							}
+						}
+					},
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/User"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Editar administradores",
+						url: "/docs/api/data/groups/groupId/admins/put"
+					}
+				}
+			},
+			"/groups/{groupId}": {
+				"delete": {
+					tags: [
+						"Grupos"
+					],
+					summary: "Deletar grupo",
+					description: "Remover um grupo do Layers. Essa ação **pode** ser revertida.",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathGroupId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:write"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/Group"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Deletar grupo",
+						url: "/docs/api/data/groups/groupId/delete"
+					}
+				},
+				put: {
+					tags: [
+						"Grupos"
+					],
+					summary: "Editar Grupo",
+					description: "Editar informações do grupo especificado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathGroupId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:write"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					requestBody: {
+						content: {
+							"application/json": {
+								schema: {
+									$ref: "#/components/schemas/Group"
+								}
+							}
+						}
+					},
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/User"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Editar Grupo",
+						url: "/docs/api/data/groups/groupId/put"
+					}
+				},
+				get: {
+					tags: [
+						"Grupos"
+					],
+					summary: "Visualizar Grupo",
+					description: "Visualizar informações do grupo especificado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathGroupId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:read"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/User"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Visualizar Grupo",
+						url: "/docs/api/data/groups/groupId"
+					}
+				}
+			},
+			"/groups/{groupId}/enrollments": {
+				post: {
+					tags: [
+						"Matrículas"
+					],
+					summary: "Criar matricula",
+					description: "Criar uma matrícula no grupo especificado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathGroupId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:write",
+								"group:write:scoped"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					requestBody: {
+						content: {
+							"application/json": {
+								schema: {
+									type: "object",
+									properties: {
+										enrollments: {
+											type: "array",
+											items: {
+												$ref: "#/components/schemas/Enrollment"
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/Enrollment"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Criar matricula",
+						url: "/docs/api/data/groups/groupId/enrollments/post"
+					}
+				},
+				get: {
+					tags: [
+						"Matrículas"
+					],
+					summary: "Listar matriculas",
+					description: "Listar matriculas do grupo especificado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathGroupId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:read",
+								"group:read:scoped"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										type: "array",
+										items: {
+											type: "object",
+											properties: {
+												id: {
+													type: "string",
+													format: "ObjectId",
+													description: "Identificador do documento da matrícula",
+													readOnly: true
+												},
+												createdAt: {
+													type: "string",
+													description: "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
+													example: "2020-01-01T00:00:00.000Z",
+													readOnly: true
+												},
+												updatedAt: {
+													type: "string",
+													description: "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
+													example: "2020-01-01T00:00:00.000Z",
+													readOnly: true
+												},
+												community: {
+													type: "string",
+													description: "Identificador da comunidade da matrícula",
+													example: "test",
+													readOnly: true
+												},
+												kind: {
+													type: "string",
+													description: "Tipo de entidade que está vinculada ao grupo",
+													example: "member"
+												},
+												entity: {
+													$ref: "#/components/schemas/Member"
+												},
+												group: {
+													type: "string",
+													format: "ObjectId",
+													description: "Identificador do grupo à qual a entidade está matriculada",
+													readOnly: true
+												},
+												active: {
+													type: "boolean",
+													description: "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
+													example: true
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Listar matriculas",
+						url: "/docs/api/data/groups/groupId/enrollments"
+					}
+				}
+			},
+			"/groups/{groupId}/enrollments/{enrollmentId}": {
+				"delete": {
+					tags: [
+						"Matrículas"
+					],
+					summary: "Remover matricula",
+					description: "Remover uma matrícula no grupo especificado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathGroupId"
+						},
+						{
+							$ref: "#/components/parameters/PathEnrollmentId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:write",
+								"group:write:scoped"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										type: "array",
+										items: {
+											$ref: "#/components/schemas/Enrollment"
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Remover matricula",
+						url: "/docs/api/data/groups/groupId/enrollments/enrollmentId/delete"
+					}
+				}
+			},
+			"/groups": {
+				get: {
+					tags: [
+						"Grupos"
+					],
+					summary: "Listar grupos",
+					description: "Listar grupos existentes no Layers",
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:read",
+								"group:read:scoped"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/CreatedAt"
+						},
+						{
+							$ref: "#/components/parameters/Active"
+						},
+						{
+							$ref: "#/components/parameters/Name"
+						},
+						{
+							$ref: "#/components/parameters/GroupAdmin"
+						},
+						{
+							$ref: "#/components/parameters/Season"
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										type: "array",
+										items: {
+											$ref: "#/components/schemas/Group"
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Listar grupos",
+						url: "/docs/api/data/groups"
+					}
+				}
+			},
+			"/groups/search": {
+				get: {
+					tags: [
+						"Grupos"
+					],
+					summary: "Buscar administradores",
+					description: "Buscar grupos usando texto livre no parametro q e outros parâmetros de filtro.",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/CreatedAt"
+						},
+						{
+							$ref: "#/components/parameters/Active"
+						},
+						{
+							$ref: "#/components/parameters/Name"
+						},
+						{
+							$ref: "#/components/parameters/GroupAdmin"
+						},
+						{
+							$ref: "#/components/parameters/Season"
+						},
+						{
+							name: "q",
+							"in": "query",
+							description: "Texto de busca. Pode ser o nome ou identificador do grupos.",
+							required: false,
+							schema: {
+								type: "string"
+							}
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"group:read"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										type: "object",
+										properties: {
+											total: {
+												type: "number",
+												format: "integer",
+												description: "Número de resultados encontrados para uma determinada Buscar"
+											},
+											hits: {
+												type: "array",
+												description: "array contendo os resultados da busca ordenados pelos que mais se encaixam nos termos da busca",
+												items: {
+													$ref: "#/components/schemas/Group"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Buscar administradores",
+						url: "/docs/api/data/groups/search"
+					}
+				}
+			},
+			"/members": {
+				post: {
+					tags: [
+						"Membros"
+					],
+					summary: "Criar Membro",
+					description: "Criar um novo membro no Layers Education.",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"member:write"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					requestBody: {
+						content: {
+							"application/json": {
+								schema: {
+									$ref: "#/components/schemas/Member"
+								}
+							}
+						}
+					},
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/Member"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Criar Membro",
+						url: "/docs/api/data/members/post"
+					}
+				},
+				get: {
+					tags: [
+						"Membros"
+					],
+					summary: "Listar Membros",
+					description: "Listar membros.",
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"member:read"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/CreatedAt"
+						},
+						{
+							$ref: "#/components/parameters/UpdatedAt"
+						},
+						{
+							$ref: "#/components/parameters/QueryId"
+						},
+						{
+							$ref: "#/components/parameters/Active"
+						},
+						{
+							$ref: "#/components/parameters/Alias"
+						},
+						{
+							$ref: "#/components/parameters/Name"
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										type: "array",
+										items: {
+											$ref: "#/components/schemas/Member"
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Listar Membros",
+						url: "/docs/api/data/members"
+					}
+				}
+			},
+			"/members/{memberId}": {
+				"delete": {
+					tags: [
+						"Membros"
+					],
+					summary: "Deletar membro",
+					description: "Remover o membro específicado do Layers. Essa ação **pode** ser revertida.",
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"member:write"
+							],
+							"x-layers-context": [
+								"user",
+								"member"
+							]
+						}
+					],
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathMemberId"
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/Member"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Deletar membro",
+						url: "/docs/api/data/members/memberId/delete"
+					}
+				},
+				put: {
+					tags: [
+						"Membros"
+					],
+					summary: "Atualizar Membro",
+					description: "Atualizar informações do membro especificado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathMemberId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"member:read"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					requestBody: {
+						content: {
+							"application/json": {
+								schema: {
+									$ref: "#/components/schemas/Member"
+								}
+							}
+						}
+					},
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/Member"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Atualizar Membro",
+						url: "/docs/api/data/members/memberId/put"
+					}
+				},
+				get: {
+					tags: [
+						"Membros"
+					],
+					summary: "Visualizar membro",
+					description: "Visualizar informações do membro especificado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathMemberId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permission": [
+								"member:read"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										$ref: "#/components/schemas/Member"
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Visualizar membro",
+						url: "/docs/api/data/members/memberId"
+					}
+				}
+			},
+			"/members/{memberId}/users": {
+				put: {
+					tags: [
+						"Membros"
+					],
+					summary: "Vincular usuário a um membro",
+					description: "Vincular usuário ao membro especificado",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/PathMemberId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"member:write"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					requestBody: {
+						content: {
+							"application/json": {
+								schema: {
+									type: "object",
+									properties: {
+										users: {
+											type: "array",
+											description: "Array contendo os identificadores de documento dos usuários que serão vinculados com o membro",
+											items: {
+												type: "string"
+											},
+											example: [
+												"12345678"
+											]
+										}
+									}
+								}
+							}
+						}
+					},
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										type: "array",
+										items: {
+											type: "object",
+											properties: {
+												permissions: {
+													type: "array",
+													items: {
+														type: "string"
+													}
+												},
+												user: {
+													type: "object",
+													properties: {
+														email: {
+															type: "string",
+															description: "Email do usuário",
+															example: "exemplo@tenda.digital"
+														},
+														name: {
+															type: "string",
+															description: "Nome do usuário",
+															example: "Gabriel Raniere"
+														},
+														roles: {
+															type: "array",
+															description: "Array contendo as permissões do usuário na plataforma",
+															items: {
+																type: "string"
+															},
+															example: [
+																"guardian"
+															]
+														},
+														status: {
+															type: "string",
+															description: "Status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (UNSENT)",
+															example: "ACTIVE"
+														},
+														_id: {
+															type: "string",
+															description: "Identificador do documento do usuário",
+															example: "12345678"
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Vincular usuário a um membro",
+						url: "/docs/api/data/members/memberId/users/put"
+					}
+				}
+			},
+			"/members/search": {
+				get: {
+					tags: [
+						"Membros"
+					],
+					summary: "Buscar membros",
+					description: "Buscar membros. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						},
+						{
+							$ref: "#/components/parameters/CreatedAt"
+						},
+						{
+							$ref: "#/components/parameters/UpdatedAt"
+						},
+						{
+							$ref: "#/components/parameters/Status"
+						},
+						{
+							$ref: "#/components/parameters/Active"
+						},
+						{
+							name: "q",
+							"in": "query",
+							description: "Texto de busca. Pode ser o nome ou alias do membro.",
+							required: false,
+							schema: {
+								type: "string"
+							}
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"member:read"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
+						}
+					],
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										type: "object",
+										properties: {
+											total: {
+												type: "number",
+												description: "Número de membros encontrados",
+												example: 1
+											},
+											hits: {
+												type: "array",
+												items: {
+													$ref: "#/components/schemas/Member"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Buscar membros",
+						url: "/docs/api/data/members/search"
+					}
+				}
+			},
+			"/sync": {
+				post: {
+					tags: [
+						"Sincronização"
+					],
+					summary: "Sincronizar Dados",
+					description: "Cria membros, usuários, grupos e seus vínculos",
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"sync:manage"
+							],
+							"x-layers-contexts": [
+								"user",
+								"app"
+							]
+						}
+					],
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						}
+					],
+					requestBody: {
+						description: "Objeto que contem informações de turmas, alunos e usuários",
+						required: true,
+						content: {
+							"application/json": {
+								schema: {
+									type: "object",
+									properties: {
+										users: {
+											type: "object",
+											properties: {
+												data: {
+													description: "Array contendo todos os usuários a serem criados",
+													type: "array",
+													items: {
+														type: "object",
+														properties: {
+															active: {
+																type: "boolean",
+																description: "Indica se o usuário deve ser criado ativo ou não",
+																example: true
+															},
+															invite: {
+																type: "boolean",
+																description: "Indica se o usuário deve ser convidado quando for criado",
+																example: false
+															},
+															roleSet: {
+																type: "object",
+																description: "Objeto indicando quais devem ser as permissões desse usuário",
+																properties: {
+																	role: {
+																		type: "boolean",
+																		description: "Chave com o nome da permissão e tem um valor com o booleano indicando se esse usuário tem essa permissão",
+																		example: true
+																	}
+																}
+															},
+															alias: {
+																type: "string",
+																description: "Identificador do usuário",
+																example: "123abc"
+															},
+															email: {
+																type: "string",
+																description: "Email do usuário",
+																example: "gabriel.raniere@layers.education"
+															},
+															name: {
+																type: "string",
+																description: "Nome do usuário",
+																example: "Gabriel Raniere"
+															},
+															birth: {
+																type: "string",
+																description: "Data de nascimento do usuário no formato brasileiro",
+																example: "05/12/2000"
+															}
+														}
+													}
+												},
+												cleanSync: {
+													type: "boolean",
+													description: "Iindica se os dados de usuários já registrados devem ser apagados",
+													example: false
+												}
+											}
+										},
+										members: {
+											type: "object",
+											properties: {
+												data: {
+													type: "array",
+													description: "Array contendo todos os membros a serem criados",
+													items: {
+														type: "object",
+														properties: {
+															active: {
+																type: "boolean",
+																description: "Indica se o membro deve ser criado ativo",
+																example: true
+															},
+															users: {
+																type: "array",
+																description: "Array contendo os emails dos usuários vinculados com esse membro",
+																items: {
+																	type: "string",
+																	example: "gabriel.raniere@layers.education"
+																}
+															},
+															alias: {
+																type: "string",
+																description: "Identificador do aluno",
+																example: "456def"
+															},
+															birth: {
+																type: "string",
+																description: "Data de nascimento do membro no formato brasileiro",
+																example: "22/08/2004"
+															},
+															name: {
+																type: "string",
+																description: "Nome do membro",
+																example: "Rafael Teles"
+															}
+														}
+													}
+												},
+												cleanSync: {
+													type: "boolean",
+													description: "Iindica se os dados de membros já registrados devem ser apagados",
+													example: false
+												}
+											}
+										},
+										classrooms: {
+											type: "object",
+											properties: {
+												data: {
+													type: "array",
+													description: "Array contendo todos os grupos a serem criados",
+													items: {
+														type: "object",
+														properties: {
+															active: {
+																type: "boolean",
+																description: "Indica se o grupo deve ser criado ativo",
+																example: false
+															},
+															alias: {
+																type: "boolean",
+																description: "Identificador do grupo",
+																example: "2ANOEM"
+															},
+															name: {
+																type: "string",
+																description: "Nome do grupo",
+																example: "2˚ Ano do Ensino Médio"
+															},
+															members: {
+																type: "array",
+																description: "Array contendo os Identificadores de todos os membros que estão matriculados nesse grupo",
+																items: {
+																	type: "string",
+																	example: "123abc"
+																}
+															},
+															admins: {
+																type: "array",
+																description: "Array contendo os emails de todos os usuários que serão administradores desse grupo",
+																items: {
+																	type: "string",
+																	example: "gabriel.raniere@layers.education"
+																}
+															},
+															tags: {
+																type: "array",
+																description: "Array contendo os nomes de todas as tags que devem conter esse grupo",
+																items: {
+																	type: "string",
+																	example: "Ensino Medio"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					responses: {
+						"200": {
+							description: "OK",
+							content: {
+								"application/json": {
+									schema: {
+										type: "object",
+										properties: {
+											users: {
+												type: "array",
+												description: "Array contendo os identificadores dos documentos de usuários criados",
+												items: {
+													type: "string"
+												}
+											},
+											members: {
+												type: "array",
+												description: "Array contendo os identificadores dos documentos de membros criados",
+												items: {
+													type: "string"
+												}
+											},
+											groups: {
+												type: "array",
+												description: "Array contendo os identificadores dos documentos de grupos criados",
+												items: {
+													type: "string"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Sincronizar Dados",
+						url: "/docs/api/data/sync/post"
+					}
+				}
+			}
+		},
+		components: {
+			schemas: {
+				User: {
+					type: "object",
+					properties: {
+						id: {
+							type: "string",
+							format: "ObjectId",
+							description: "Identificador do documento do usuário",
+							readOnly: true
+						},
+						createdAt: {
+							type: "string",
+							description: "Data de criação do usuário em UTC corrigido para o fuso da comunidade",
+							example: "2020-01-01T00:00:00.000Z",
+							readOnly: true
+						},
+						updatedAt: {
+							type: "string",
+							description: "Data da última modificação do usuário em UTC corrido para o fuso da comunidade",
+							example: "2020-01-01T00:00:00.000Z",
+							readOnly: true
+						},
+						active: {
+							type: "boolean",
+							description: "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
+							example: true,
+							readOnly: true
+						},
+						community: {
+							type: "string",
+							description: "Identificador da communidade do usuário",
+							example: "test",
+							readOnly: true
+						},
+						status: {
+							type: "string",
+							"enum": [
+								"ACTIVE",
+								"INVITED",
+								"UNSENT"
+							],
+							description: "Status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (UNSENT)",
+							example: "ACTIVE",
+							readOnly: true
+						},
+						invitationCount: {
+							type: "number",
+							description: "Numero de convites enviados para o usuário",
+							example: 2,
+							readOnly: true
+						},
+						email: {
+							type: "string",
+							description: "Email do usuário",
+							example: "exemplo@tenda.digital"
+						},
+						name: {
+							type: "string",
+							description: "Nome do usuário",
+							example: "Gabriel Raniere"
+						},
+						roles: {
+							type: "array",
+							description: "Array contendo as permissões do usuário na plataforma",
+							items: {
+								type: "string"
+							},
+							example: [
+								"guardian",
+								"professor"
+							]
+						},
+						address: {
+							type: "object",
+							properties: {
+								code: {
+									type: "string",
+									description: "CEP do usuário",
+									example: "01414-001"
+								},
+								state: {
+									type: "string",
+									description: "Estado do usuário",
+									example: "SP"
+								},
+								city: {
+									type: "string",
+									description: "Cidade do usuário",
+									example: "São Caetano do Sul"
+								},
+								district: {
+									type: "string",
+									description: "Bairro do usuário",
+									example: "Centro"
+								},
+								address: {
+									type: "string",
+									description: "Rua do usuário",
+									example: "Rua Pará"
+								},
+								number: {
+									type: "string",
+									description: "Numero da casa do usuário",
+									example: "79"
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Entidade User",
+						url: "/docs/api/data/User/object"
+					}
+				},
+				Member: {
+					type: "object",
+					properties: {
+						id: {
+							type: "string",
+							description: "Identificador do documento do membro",
+							example: "12345678",
+							readOnly: true
+						},
+						createdAt: {
+							type: "string",
+							description: "Data de criação do membro em UTC corrigido para o fuso da comunidade",
+							example: "2020-01-01T00:00:00.000Z",
+							readOnly: true
+						},
+						updatedAt: {
+							type: "string",
+							description: "Data da última modificação do membro em UTC corrido para o fuso da comunidade",
+							example: "2020-01-01T00:00:00.000Z",
+							readOnly: true
+						},
+						active: {
+							type: "boolean",
+							description: "Chave que indica se o membro está ativo (quando o membro é apagado, essa chave é mudada para false)",
+							example: true,
+							readOnly: true
+						},
+						community: {
+							type: "string",
+							description: "Identificador da communidade do membro",
+							example: "test",
+							readOnly: true
+						},
+						access: {
+							type: "array",
+							items: {
+								type: "object",
+								properties: {
+									permissions: {
+										type: "array",
+										items: {
+											type: "string",
+											description: "Permissões do usuário atrelado a esse membro",
+											example: "guardian"
+										}
+									},
+									user: {
+										type: "string",
+										description: "Identificador do documento do usuário"
+									}
+								}
+							}
+						},
+						name: {
+							type: "string",
+							description: "Nome do membro",
+							example: "Gabriel Raniere"
+						},
+						alias: {
+							type: "string",
+							description: "RA do membro",
+							example: "abc123d"
+						},
+						birth: {
+							type: "string",
+							description: "Data de nascimento",
+							example: "2010-04-10T00:00:00.000Z"
+						}
+					},
+					externalDocs: {
+						description: "Entidade Member",
+						url: "/docs/api/data/Member/object"
+					}
+				},
+				Group: {
+					type: "object",
+					properties: {
+						id: {
+							type: "string",
+							format: "ObjectId",
+							description: "identificador do documento do grupo",
+							readOnly: true
+						},
+						createdAt: {
+							type: "string",
+							description: "Data de criação do grupo em UTC corrigido para o fuso da comunidade",
+							example: "2020-01-01T00:00:00.000Z",
+							readOnly: true
+						},
+						updatedAt: {
+							type: "string",
+							description: "Data da última modificação do grupo em UTC corrido para o fuso da comunidade",
+							example: "2020-01-01T00:00:00.000Z",
+							readOnly: true
+						},
+						community: {
+							type: "string",
+							description: "Identificador da communidade do grupo",
+							example: "test",
+							readOnly: true
+						},
+						name: {
+							type: "string",
+							description: "Nome do grupo",
+							example: "Terceiro ano A"
+						},
+						tags: {
+							type: "array",
+							description: "tags às quais esse grupo pertence",
+							items: {
+								type: "object",
+								properties: {
+									id: {
+										type: "string",
+										description: "Identificador do documento da tag"
+									},
+									name: {
+										type: "string",
+										description: "Nome da tag",
+										example: "Ensino Fundamental"
+									}
+								}
+							}
+						},
+						admins: {
+							type: "array",
+							description: "administradores do grupo",
+							items: {
+								type: "object",
+								properties: {
+									user: {
+										type: "string"
+									}
+								}
+							}
+						},
+						active: {
+							type: "boolean",
+							description: "Chave que indica se o grupo está ativo (quando o grupo é apagado, essa chave é mudada para false)",
+							example: true
+						},
+						syncedAt: {
+							type: "string",
+							description: "data da última vez que esse grupo foi modificado pela rota /sync",
+							example: "2020-03-01T00:00:00.000Z",
+							readOnly: true
+						},
+						season: {
+							type: "string",
+							description: "temporada à qual esse grupo pertence",
+							example: "Ano letivo 2020"
+						}
+					},
+					externalDocs: {
+						description: "Entidade Group",
+						url: "/docs/api/data/Group/object"
+					}
+				},
+				Tag: {
+					type: "object",
+					properties: {
+						id: {
+							type: "string",
+							format: "ObjectId",
+							description: "Identificador do documento da tag",
+							readOnly: true
+						},
+						name: {
+							type: "string",
+							description: "Nome da tag",
+							example: "Ensino Fundamental"
+						},
+						community: {
+							type: "string",
+							description: "Identificador da comunidade da tag",
+							example: "test",
+							readOnly: true
+						}
+					},
+					externalDocs: {
+						description: "Entidade Tag",
+						url: "/docs/api/data/Tag/object"
+					}
+				},
+				Enrollment: {
+					type: "object",
+					properties: {
+						id: {
+							type: "string",
+							format: "ObjectId",
+							description: "Identificador do documento da matrícula",
+							readOnly: true
+						},
+						createdAt: {
+							type: "string",
+							description: "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
+							example: "2020-01-01T00:00:00.000Z",
+							readOnly: true
+						},
+						updatedAt: {
+							type: "string",
+							description: "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
+							example: "2020-01-01T00:00:00.000Z",
+							readOnly: true
+						},
+						community: {
+							type: "string",
+							description: "Identificador da comunidade da matrícula",
+							example: "test",
+							readOnly: true
+						},
+						kind: {
+							type: "string",
+							description: "Tipo de entidade que está vinculada ao grupo",
+							example: "member"
+						},
+						entity: {
+							type: "string",
+							format: "ObjectId",
+							description: "Identificador do documento da entidade à qual pertence essa matrícula"
+						},
+						group: {
+							type: "string",
+							format: "ObjectId",
+							description: "Identificador do grupo à qual a entidade está matriculada",
+							readOnly: true
+						},
+						active: {
+							type: "boolean",
+							description: "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
+							example: true
+						}
+					},
+					externalDocs: {
+						description: "Entidade Enrollment",
+						url: "/docs/api/data/Enrollment/object"
+					}
+				}
+			},
+			parameters: {
+				"Community-id": {
+					name: "community-id",
+					"in": "header",
+					description: "Identificador da comunidade",
+					required: true,
+					schema: {
+						type: "string",
+						example: "test"
+					}
+				},
+				CreatedAt: {
+					name: "createdAt",
+					"in": "query",
+					description: "Data de criação do documento",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				UpdatedAt: {
+					name: "updateAt",
+					"in": "query",
+					description: "Data da última modificação do documento",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				ViewAt: {
+					name: "viewAt",
+					"in": "query",
+					description: "Data na qual a publicação ficou visível para o público alvo",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				Season: {
+					name: "season",
+					"in": "query",
+					description: "Temporada do documento. Geralmente é o ano letivo.",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				Status: {
+					name: "status",
+					"in": "query",
+					description: "Indicador do status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (INACTIVE)",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				Active: {
+					name: "active",
+					"in": "query",
+					description: "Indicador do estado do documento. Quando verdadeiro o documento está ativo e quando falso o documento está apagado.",
+					required: false,
+					schema: {
+						type: "boolean"
+					}
+				},
+				Roles: {
+					name: "roles",
+					"in": "query",
+					description: "Permissão que o usuário possui.",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				PathUserId: {
+					name: "userId",
+					"in": "path",
+					description: "Identificador do usuário.",
+					required: true,
+					schema: {
+						type: "string"
+					}
+				},
+				PathMemberId: {
+					name: "memberId",
+					"in": "path",
+					description: "Identificador do membro.",
+					required: true,
+					schema: {
+						type: "string"
+					}
+				},
+				PathGroupId: {
+					name: "groupId",
+					"in": "path",
+					description: "Identificador do grupo.",
+					required: true,
+					schema: {
+						type: "string"
+					}
+				},
+				PathPostId: {
+					name: "postId",
+					"in": "path",
+					description: "Identificador da publicação",
+					required: true,
+					schema: {
+						type: "string"
+					}
+				},
+				PathEnrollmentId: {
+					name: "enrollmentId",
+					"in": "path",
+					description: "Identificador da matrícula",
+					required: true,
+					schema: {
+						type: "string"
+					}
+				},
+				PathChannelId: {
+					name: "channelId",
+					"in": "path",
+					description: "Identificador do canal de atendimento",
+					required: true,
+					schema: {
+						type: "string"
+					}
+				},
+				QueryId: {
+					name: "userId",
+					"in": "query",
+					description: "Identificador do documento.",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				Title: {
+					name: "title",
+					"in": "query",
+					description: "Título da publicação",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				Type: {
+					name: "title",
+					"in": "query",
+					description: "Array contendo tipos de publicação",
+					required: true,
+					schema: {
+						type: "array",
+						items: {
+							type: "string"
+						}
+					}
+				},
+				Tags: {
+					name: "tags",
+					"in": "query",
+					description: "Array contendo os identificadores de todo publico alvo que pode ver essa publicação (grupos, usuarios, alunos e turmas)",
+					required: false,
+					schema: {
+						type: "array",
+						items: {
+							type: "string"
+						}
+					}
+				},
+				"Date": {
+					name: "date",
+					"in": "query",
+					description: "Data da publicação. (Apenas para publicações da agenda e eventos)",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				Approved: {
+					name: "approved",
+					"in": "query",
+					description: "Indica se o post já foi aprovado para ser publicado ou ainda aguarda autorização.",
+					required: false,
+					schema: {
+						type: "boolean"
+					}
+				},
+				Name: {
+					name: "name",
+					"in": "query",
+					description: "Nome",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				Alias: {
+					name: "alias",
+					description: "Identificador no Layers Education",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				AuthorName: {
+					name: "author.name",
+					"in": "query",
+					description: "Nome do autor da publicação",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				AuthorId: {
+					name: "author.id",
+					"in": "query",
+					description: "Id do autor da publicação",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				},
+				GroupAdmin: {
+					name: "admins.user",
+					"in": "query",
+					description: "Id de um dos administradores do grupo",
+					required: false,
+					schema: {
+						type: "string"
+					}
+				}
+			},
+			securitySchemes: {
+				Bearer: {
+					description: "Generate a token",
+					type: "http",
+					scheme: "bearer",
+					bearerFormat: "JWT",
+					"x-layers-permissions": {
+						type: "array"
+					},
+					"x-layers-contexts": {
+						type: "array"
+					}
+				}
+			}
+		},
+		"x-nav": [
+			{
+				name: "Usuários",
+				schemas: [
+					"User"
+				],
+				tags: [
+					"Usuários"
+				]
+			},
+			{
+				name: "Membros",
+				schemas: [
+					"Member"
+				],
+				tags: [
+					"Membros"
+				]
+			},
+			{
+				name: "Grupos",
+				schemas: [
+					"Group"
+				],
+				tags: [
+					"Grupos"
+				]
+			},
+			{
+				name: "Matrículas",
+				schemas: [
+					"Enrollment"
+				],
+				tags: [
+					"Matrículas"
+				]
+			}
+		]
+	}
+};
 var payments$1 = {
 	title: "Pagamentos",
 	id: "payments",
@@ -14819,200 +16839,8 @@ var apihub$1 = {
 		]
 	}
 };
-var notification$1 = {
-	title: "Notificações",
-	id: "notification",
-	spec: {
-		openapi: "3.0.0",
-		info: {
-			title: "API de Notificações",
-			description: "A API de notificações permite que você envie notificações push para qualquer plataforma",
-			version: "1.0"
-		},
-		servers: [
-			{
-				url: "https://api.layers.digital/v1"
-			}
-		],
-		paths: {
-			"/notify": {
-				post: {
-					tags: [
-						"Notificações"
-					],
-					summary: "Enviar notificação",
-					description: "Enviar notificações push para usuários via web, android e ios.",
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"notification:send"
-							],
-							"x-layers-contexts": [
-								"user",
-								"app"
-							]
-						}
-					],
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						}
-					],
-					requestBody: {
-						required: true,
-						content: {
-							"application/json": {
-								schema: {
-									type: "object",
-									properties: {
-										targets: {
-											type: "array",
-											items: {
-												oneOf: [
-													{
-														type: "object",
-														properties: {
-															id: {
-																type: "string",
-																description: "Identificador do membro, usuário, turma ou tag"
-															},
-															kind: {
-																type: "string",
-																description: "Tipo do publico especificado. Pode ser user, member, group ou tag."
-															}
-														}
-													},
-													{
-														type: "object",
-														properties: {
-															email: {
-																type: "string",
-																description: "Email do usuário"
-															},
-															kind: {
-																type: "string",
-																description: "Tipo do publico especificado. Pode ser user, member, group ou tag."
-															}
-														}
-													},
-													{
-														type: "object",
-														properties: {
-															alias: {
-																type: "string",
-																description: "Alias do membro, usuário ou grupo."
-															},
-															kind: {
-																type: "string",
-																description: "Tipo do publico especificado. Pode ser user, member, group ou tag."
-															}
-														}
-													}
-												]
-											}
-										},
-										userIds: {
-											type: "array",
-											items: {
-												type: "string"
-											}
-										},
-										roles: {
-											type: "array",
-											items: {
-												type: "string"
-											}
-										},
-										body: {
-											type: "string"
-										}
-									}
-								}
-							}
-						}
-					},
-					responses: {
-						"200": {
-							description: "Notificações enviadas"
-						},
-						"400": {
-							description: "Bad Request",
-							content: {
-								"application/json": {
-									schema: {
-										type: "object",
-										properties: {
-											status: {
-												type: "string",
-												example: "400"
-											},
-											type: {
-												type: "string",
-												example: "invalidParameter"
-											},
-											name: {
-												type: "string",
-												example: "Bad Request"
-											},
-											error: {
-												type: "string",
-												example: "Targets not provided"
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Enviar notificação",
-						url: "/docs/api/notification/notify/post"
-					}
-				}
-			}
-		},
-		components: {
-			parameters: {
-				"Community-id": {
-					name: "community-id",
-					"in": "header",
-					description: "Identificador da comunidade",
-					required: true,
-					schema: {
-						type: "string",
-						example: "test"
-					}
-				}
-			},
-			securitySchemes: {
-				Bearer: {
-					description: "Generate a token",
-					type: "http",
-					scheme: "bearer",
-					bearerFormat: "JWT",
-					"x-layers-permissions": {
-						type: "array"
-					},
-					"x-layers-contexts": {
-						type: "array"
-					}
-				}
-			}
-		},
-		"x-nav": [
-			{
-				name: "Notificações",
-				tags: [
-					"Notificações"
-				]
-			}
-		]
-	}
-};
 var auth$1 = {
-	title: "OAuth no Layers",
+	title: "Autenticação OAuth",
 	id: "auth",
 	spec: {
 		openapi: "3.0.0",
@@ -15465,7 +17293,7 @@ var auth$1 = {
 	}
 };
 var tickets$1 = {
-	title: "Solicitações",
+	title: "Atendimentos",
 	id: "tickets",
 	spec: {
 		openapi: "3.0.0",
@@ -16609,14 +18437,14 @@ var tickets$1 = {
 		]
 	}
 };
-var media$1 = {
-	title: "Arquivos e mídia",
-	id: "media",
+var communication$1 = {
+	title: "Comunicação",
+	id: "communication",
 	spec: {
 		openapi: "3.0.0",
 		info: {
-			title: "API de Arquivos e Mídia",
-			description: "A API de arquivos e mídia permite que você faça upload de arquivos de até 5MB que podem ser usados nas outras API's do Layers",
+			title: "API comunicação",
+			description: "A API de comunicação permite que você envie publicações para a linha do tempo ou agenda do app",
 			version: "1.0"
 		},
 		servers: [
@@ -16625,16 +18453,24 @@ var media$1 = {
 			}
 		],
 		paths: {
-			"/media/upload": {
+			"/post": {
 				post: {
 					tags: [
-						"Arquivos e Mídia"
+						"Publicações"
 					],
-					summary: "Fazer upload",
-					Description: "Faça upload de arquivos de até 5MB que podem ser referenciados quando necessário",
+					summary: "Criar uma publicação",
+					description: "Criar uma publicação na linha do tempo ou agenda.",
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						}
+					],
 					security: [
 						{
 							Bearer: [
+							],
+							"x-layers-permissions": [
+								"user:write"
 							],
 							"x-layers-context": [
 								"user",
@@ -16646,14 +18482,7 @@ var media$1 = {
 						content: {
 							"application/json": {
 								schema: {
-									type: "object",
-									properties: {
-										item: {
-											type: "string",
-											format: "binary",
-											description: "String do arquivo em formato binário"
-										}
-									}
+									$ref: "#/components/schemas/Event"
 								}
 							}
 						}
@@ -16664,894 +18493,23 @@ var media$1 = {
 							content: {
 								"application/json": {
 									schema: {
-										type: "object",
-										properties: {
-											mime: {
-												type: "string",
-												description: "Tipo do mime do arquivo",
-												example: "image/jpeg"
-											},
-											path: {
-												type: "string",
-												description: "Endereço do arquivo",
-												example: "/tendaedu/uploads/906981ff-2253-4e67-be27-4825bd23d939/minha_imagem.jpg"
-											},
-											thumb: {
-												type: "string",
-												description: "URL da thumb do arquivo",
-												example: "https://api.layers.digital/v1/media/thumb/jpeg:1024x1024/tendaedu/uploads/906981ff-2253-4e67-be27-4825bd23d939/minha_imagem.jpg"
-											},
-											url: {
-												type: "string",
-												description: "URL da imagem",
-												example: "https://cdn.layers.digital/tendaedu/uploads/906981ff-2253-4e67-be27-4825bd23d939/minha_imagem.jpg"
-											},
-											size: {
-												type: "number",
-												format: "integer",
-												description: "Tamanho do Arquivo",
-												exmaple: 64302
-											},
-											height: {
-												type: "number",
-												format: "integer",
-												description: "Altura da imagem",
-												"default": null,
-												example: 1024
-											},
-											width: {
-												type: "number",
-												format: "integer",
-												description: "Largura da imagem",
-												"default": null,
-												example: 702
-											}
-										}
+										$ref: "#/components/schemas/Event"
 									}
 								}
 							}
 						}
 					},
 					externalDocs: {
-						description: "Fazer upload",
-						url: "/docs/api/media/media/upload/post"
-					}
-				}
-			}
-		},
-		components: {
-			parameters: {
-				"Community-id": {
-					name: "community-id",
-					"in": "header",
-					description: "Identificador da comunidade",
-					required: true,
-					schema: {
-						type: "string",
-						example: "test"
-					}
-				}
-			},
-			securitySchemes: {
-				Bearer: {
-					description: "Generate a token",
-					type: "http",
-					scheme: "bearer",
-					bearerFormat: "JWT",
-					"x-layers-permissions": {
-						type: "array"
-					},
-					"x-layers-contexts": {
-						type: "array"
-					}
-				}
-			}
-		},
-		"x-nav": [
-			{
-				name: "Mídia",
-				tags: [
-					"Arquivos e Mídia"
-				]
-			}
-		]
-	}
-};
-var data$1 = {
-	title: "Dados",
-	id: "data",
-	spec: {
-		openapi: "3.0.0",
-		info: {
-			title: "API de Dados",
-			description: "A API de dados permite que você administre usuários, membros, grupos, matrículas e seus vínculos",
-			version: "1.0"
-		},
-		servers: [
-			{
-				url: "https://api.layers.digital/v1"
-			}
-		],
-		paths: {
-			"/group": {
-				post: {
-					tags: [
-						"Grupos"
-					],
-					summary: "Criar Grupo",
-					description: "Criar um novo grupo no Layers Education.",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:write"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					requestBody: {
-						content: {
-							"application/json": {
-								schema: {
-									$ref: "#/components/schemas/Group"
-								}
-							}
-						}
-					},
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/Group"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Criar Grupo",
-						url: "/docs/api/data/group/post"
-					}
-				}
-			},
-			"/groups/{groupId}/admins/{userId}": {
-				"delete": {
-					tags: [
-						"Grupos"
-					],
-					summary: "Remover administradores",
-					description: "Remover administradores especificado do grupo específicado",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathGroupId"
-						},
-						{
-							$ref: "#/components/parameters/PathUserId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:write"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK"
-						}
-					},
-					externalDocs: {
-						description: "Remover administradores",
-						url: "/docs/api/data/groups/groupId/admins/userId/delete"
-					}
-				}
-			},
-			"/groups/{groupId}/admins": {
-				get: {
-					tags: [
-						"Grupos"
-					],
-					summary: "Listar administradores",
-					description: "Listar administradores do grupo específicado",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathGroupId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:read",
-								"group:read:scoped"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										type: "array",
-										items: {
-											type: "object",
-											properties: {
-												id: {
-													type: "string",
-													format: "ObjectId",
-													description: "Identificador do usuário administrador da turma"
-												},
-												user: {
-													$ref: "#/components/schemas/User"
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Listar administradores",
-						url: "/docs/api/data/groups/groupId/admins"
-					}
-				},
-				put: {
-					tags: [
-						"Grupos"
-					],
-					summary: "Editar administradores",
-					description: "Adicionar administradores ao grupo especificado",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathGroupId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:write"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					requestBody: {
-						content: {
-							type: "object",
-							properties: {
-								users: {
-									type: "array",
-									items: {
-										type: "string",
-										format: "ObjectId",
-										description: "Identificadores dos usuários que devem ser adicionados como administradores ao grupo"
-									}
-								}
-							}
-						}
-					},
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Editar administradores",
-						url: "/docs/api/data/groups/groupId/admins/put"
-					}
-				}
-			},
-			"/groups/{groupId}": {
-				"delete": {
-					tags: [
-						"Grupos"
-					],
-					summary: "Deletar grupo",
-					description: "Remover um grupo do Layers. Essa ação **pode** ser revertida.",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathGroupId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:write"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/Group"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Deletar grupo",
-						url: "/docs/api/data/groups/groupId/delete"
-					}
-				},
-				put: {
-					tags: [
-						"Grupos"
-					],
-					summary: "Editar Grupo",
-					description: "Editar informações do grupo especificado",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathGroupId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:write"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					requestBody: {
-						content: {
-							"application/json": {
-								schema: {
-									$ref: "#/components/schemas/Group"
-								}
-							}
-						}
-					},
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Editar Grupo",
-						url: "/docs/api/data/groups/groupId/put"
+						description: "Criar uma publicação",
+						url: "/docs/api/communication/post/post"
 					}
 				},
 				get: {
 					tags: [
-						"Grupos"
+						"Publicações"
 					],
-					summary: "Visualizar Grupo",
-					description: "Visualizar informações do grupo especificado",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathGroupId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:read"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Visualizar Grupo",
-						url: "/docs/api/data/groups/groupId"
-					}
-				}
-			},
-			"/groups/{groupId}/enrollments": {
-				post: {
-					tags: [
-						"Matrículas"
-					],
-					summary: "Criar matricula",
-					description: "Criar uma matrícula no grupo especificado",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathGroupId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:write",
-								"group:write:scoped"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					requestBody: {
-						content: {
-							"application/json": {
-								schema: {
-									type: "object",
-									properties: {
-										enrollments: {
-											type: "array",
-											items: {
-												$ref: "#/components/schemas/Enrollment"
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/Enrollment"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Criar matricula",
-						url: "/docs/api/data/groups/groupId/enrollments/post"
-					}
-				},
-				get: {
-					tags: [
-						"Matrículas"
-					],
-					summary: "Listar matriculas",
-					description: "Listar matriculas do grupo especificado",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathGroupId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:read",
-								"group:read:scoped"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										type: "array",
-										items: {
-											type: "object",
-											properties: {
-												id: {
-													type: "string",
-													format: "ObjectId",
-													description: "Identificador do documento da matrícula",
-													readOnly: true
-												},
-												createdAt: {
-													type: "string",
-													description: "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
-													example: "2020-01-01T00:00:00.000Z",
-													readOnly: true
-												},
-												updatedAt: {
-													type: "string",
-													description: "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
-													example: "2020-01-01T00:00:00.000Z",
-													readOnly: true
-												},
-												community: {
-													type: "string",
-													description: "Identificador da comunidade da matrícula",
-													example: "test",
-													readOnly: true
-												},
-												kind: {
-													type: "string",
-													description: "Tipo de entidade que está vinculada ao grupo",
-													example: "member"
-												},
-												entity: {
-													$ref: "#/components/schemas/Member"
-												},
-												group: {
-													type: "string",
-													format: "ObjectId",
-													description: "Identificador do grupo à qual a entidade está matriculada",
-													readOnly: true
-												},
-												active: {
-													type: "boolean",
-													description: "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
-													example: true
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Listar matriculas",
-						url: "/docs/api/data/groups/groupId/enrollments"
-					}
-				}
-			},
-			"/groups/{groupId}/enrollments/{enrollmentId}": {
-				"delete": {
-					tags: [
-						"Matrículas"
-					],
-					summary: "Remover matricula",
-					description: "Remover uma matrícula no grupo especificado",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathGroupId"
-						},
-						{
-							$ref: "#/components/parameters/PathEnrollmentId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:write",
-								"group:write:scoped"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										type: "array",
-										items: {
-											$ref: "#/components/schemas/Enrollment"
-										}
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Remover matricula",
-						url: "/docs/api/data/groups/groupId/enrollments/enrollmentId/delete"
-					}
-				}
-			},
-			"/groups": {
-				get: {
-					tags: [
-						"Grupos"
-					],
-					summary: "Listar grupos",
-					description: "Listar grupos existentes no Layers",
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:read",
-								"group:read:scoped"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/CreatedAt"
-						},
-						{
-							$ref: "#/components/parameters/Active"
-						},
-						{
-							$ref: "#/components/parameters/Name"
-						},
-						{
-							$ref: "#/components/parameters/GroupAdmin"
-						},
-						{
-							$ref: "#/components/parameters/Season"
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										type: "array",
-										items: {
-											$ref: "#/components/schemas/Group"
-										}
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Listar grupos",
-						url: "/docs/api/data/groups"
-					}
-				}
-			},
-			"/groups/search": {
-				get: {
-					tags: [
-						"Grupos"
-					],
-					summary: "Buscar administradores",
-					description: "Buscar grupos usando texto livre no parametro q e outros parâmetros de filtro.",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/CreatedAt"
-						},
-						{
-							$ref: "#/components/parameters/Active"
-						},
-						{
-							$ref: "#/components/parameters/Name"
-						},
-						{
-							$ref: "#/components/parameters/GroupAdmin"
-						},
-						{
-							$ref: "#/components/parameters/Season"
-						},
-						{
-							name: "q",
-							"in": "query",
-							description: "Texto de busca. Pode ser o nome ou identificador do grupos.",
-							required: false,
-							schema: {
-								type: "string"
-							}
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"group:read"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										type: "object",
-										properties: {
-											total: {
-												type: "number",
-												format: "integer",
-												description: "Número de resultados encontrados para uma determinada Buscar"
-											},
-											hits: {
-												type: "array",
-												description: "array contendo os resultados da busca ordenados pelos que mais se encaixam nos termos da busca",
-												items: {
-													$ref: "#/components/schemas/Group"
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Buscar administradores",
-						url: "/docs/api/data/groups/search"
-					}
-				}
-			},
-			"/members": {
-				post: {
-					tags: [
-						"Membros"
-					],
-					summary: "Criar Membro",
-					description: "Criar um novo membro no Layers Education.",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"member:write"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					requestBody: {
-						content: {
-							"application/json": {
-								schema: {
-									$ref: "#/components/schemas/Member"
-								}
-							}
-						}
-					},
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/Member"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Criar Membro",
-						url: "/docs/api/data/members/post"
-					}
-				},
-				get: {
-					tags: [
-						"Membros"
-					],
-					summary: "Listar Membros",
-					description: "Listar membros.",
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"member:read"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
+					summary: "Listar Publicações",
+					description: "Lista as Publicações.",
 					parameters: [
 						{
 							$ref: "#/components/parameters/Community-id"
@@ -17561,6 +18519,12 @@ var data$1 = {
 						},
 						{
 							$ref: "#/components/parameters/UpdatedAt"
+						},
+						{
+							$ref: "#/components/parameters/ViewAt"
+						},
+						{
+							$ref: "#/components/parameters/Date"
 						},
 						{
 							$ref: "#/components/parameters/QueryId"
@@ -17569,10 +18533,41 @@ var data$1 = {
 							$ref: "#/components/parameters/Active"
 						},
 						{
-							$ref: "#/components/parameters/Alias"
+							$ref: "#/components/parameters/Approved"
 						},
 						{
-							$ref: "#/components/parameters/Name"
+							$ref: "#/components/parameters/Roles"
+						},
+						{
+							$ref: "#/components/parameters/Season"
+						},
+						{
+							$ref: "#/components/parameters/Tags"
+						},
+						{
+							$ref: "#/components/parameters/UpdatedAt"
+						},
+						{
+							$ref: "#/components/parameters/UpdatedAt"
+						},
+						{
+							$ref: "#/components/parameters/AuthorName"
+						},
+						{
+							$ref: "#/components/parameters/AuthorId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"member:read"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
 						}
 					],
 					responses: {
@@ -17583,7 +18578,7 @@ var data$1 = {
 									schema: {
 										type: "array",
 										items: {
-											$ref: "#/components/schemas/Member"
+											$ref: "#/components/schemas/Event"
 										}
 									}
 								}
@@ -17591,37 +18586,37 @@ var data$1 = {
 						}
 					},
 					externalDocs: {
-						description: "Listar Membros",
-						url: "/docs/api/data/members"
+						description: "Listar Publicações",
+						url: "/docs/api/communication/post"
 					}
 				}
 			},
-			"/members/{memberId}": {
+			"/post/{postId}": {
 				"delete": {
 					tags: [
-						"Membros"
+						"Publicações"
 					],
-					summary: "Deletar membro",
-					description: "Remover o membro específicado do Layers. Essa ação **pode** ser revertida.",
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"member:write"
-							],
-							"x-layers-context": [
-								"user",
-								"member"
-							]
-						}
-					],
+					summary: "Remover publicação",
+					description: "Remover a publicação especificada",
 					parameters: [
 						{
 							$ref: "#/components/parameters/Community-id"
 						},
 						{
-							$ref: "#/components/parameters/PathMemberId"
+							$ref: "#/components/parameters/PathPostId"
+						}
+					],
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"post:write"
+							],
+							"x-layers-context": [
+								"user",
+								"app"
+							]
 						}
 					],
 					responses: {
@@ -17630,29 +18625,29 @@ var data$1 = {
 							content: {
 								"application/json": {
 									schema: {
-										$ref: "#/components/schemas/Member"
+										$ref: "#/components/schemas/Event"
 									}
 								}
 							}
 						}
 					},
 					externalDocs: {
-						description: "Deletar membro",
-						url: "/docs/api/data/members/memberId/delete"
+						description: "Remover publicação",
+						url: "/docs/api/communication/post/postId/delete"
 					}
 				},
 				put: {
 					tags: [
-						"Membros"
+						"Publicações"
 					],
-					summary: "Atualizar Membro",
-					description: "Atualizar informações do membro especificado",
+					summary: "Atualizar publicação",
+					description: "Atualizar informações de uma publicação",
 					parameters: [
 						{
 							$ref: "#/components/parameters/Community-id"
 						},
 						{
-							$ref: "#/components/parameters/PathMemberId"
+							$ref: "#/components/parameters/PathPostId"
 						}
 					],
 					security: [
@@ -17660,7 +18655,7 @@ var data$1 = {
 							Bearer: [
 							],
 							"x-layers-permissions": [
-								"member:read"
+								"post:write"
 							],
 							"x-layers-context": [
 								"user",
@@ -17672,7 +18667,7 @@ var data$1 = {
 						content: {
 							"application/json": {
 								schema: {
-									$ref: "#/components/schemas/Member"
+									$ref: "#/components/schemas/Event"
 								}
 							}
 						}
@@ -17683,75 +18678,29 @@ var data$1 = {
 							content: {
 								"application/json": {
 									schema: {
-										$ref: "#/components/schemas/Member"
+										$ref: "#/components/schemas/Event"
 									}
 								}
 							}
 						}
 					},
 					externalDocs: {
-						description: "Atualizar Membro",
-						url: "/docs/api/data/members/memberId/put"
+						description: "Atualizar publicação",
+						url: "/docs/api/communication/post/postId/put"
 					}
 				},
 				get: {
 					tags: [
-						"Membros"
+						"Publicações"
 					],
-					summary: "Visualizar membro",
-					description: "Visualizar informações do membro especificado",
+					summary: "Visualizar uma Publicação",
+					description: "Visualizar informações da publicação específicado.",
 					parameters: [
 						{
 							$ref: "#/components/parameters/Community-id"
 						},
 						{
-							$ref: "#/components/parameters/PathMemberId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permission": [
-								"member:read"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/Member"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Visualizar membro",
-						url: "/docs/api/data/members/memberId"
-					}
-				}
-			},
-			"/members/{memberId}/users": {
-				put: {
-					tags: [
-						"Membros"
-					],
-					summary: "Vincular usuário a um membro",
-					description: "Vincular usuário ao membro especificado",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathMemberId"
+							$ref: "#/components/parameters/PathPostId"
 						}
 					],
 					security: [
@@ -17759,7 +18708,7 @@ var data$1 = {
 							Bearer: [
 							],
 							"x-layers-permissions": [
-								"member:write"
+								"user:write"
 							],
 							"x-layers-context": [
 								"user",
@@ -17767,98 +18716,30 @@ var data$1 = {
 							]
 						}
 					],
-					requestBody: {
-						content: {
-							"application/json": {
-								schema: {
-									type: "object",
-									properties: {
-										users: {
-											type: "array",
-											description: "Array contendo os identificadores de documento dos usuários que serão vinculados com o membro",
-											items: {
-												type: "string"
-											},
-											example: [
-												"12345678"
-											]
-										}
-									}
-								}
-							}
-						}
-					},
 					responses: {
 						"200": {
-							description: "OK",
 							content: {
 								"application/json": {
 									schema: {
-										type: "array",
-										items: {
-											type: "object",
-											properties: {
-												permissions: {
-													type: "array",
-													items: {
-														type: "string"
-													}
-												},
-												user: {
-													type: "object",
-													properties: {
-														email: {
-															type: "string",
-															description: "Email do usuário",
-															example: "exemplo@tenda.digital"
-														},
-														name: {
-															type: "string",
-															description: "Nome do usuário",
-															example: "Gabriel Raniere"
-														},
-														roles: {
-															type: "array",
-															description: "Array contendo as permissões do usuário na plataforma",
-															items: {
-																type: "string"
-															},
-															example: [
-																"guardian"
-															]
-														},
-														status: {
-															type: "string",
-															description: "Status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (UNSENT)",
-															example: "ACTIVE"
-														},
-														_id: {
-															type: "string",
-															description: "Identificador do documento do usuário",
-															example: "12345678"
-														}
-													}
-												}
-											}
-										}
+										$ref: "#/components/schemas/Event"
 									}
 								}
 							}
 						}
 					},
 					externalDocs: {
-						description: "Vincular usuário a um membro",
-						url: "/docs/api/data/members/memberId/users/put"
+						description: "Visualizar uma Publicação",
+						url: "/docs/api/communication/post/postId"
 					}
 				}
 			},
-			"/members/search": {
+			"/post/search": {
 				get: {
 					tags: [
-						"Membros"
+						"Publicações"
 					],
-					summary: "Buscar membros",
-					description: "Buscar membros. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
+					summary: "Buscar Publicações",
+					description: "Busca de publicações. Podem ser aplicados filtros bem como busca de texto livre através do parametro q na query",
 					parameters: [
 						{
 							$ref: "#/components/parameters/Community-id"
@@ -17870,15 +18751,45 @@ var data$1 = {
 							$ref: "#/components/parameters/UpdatedAt"
 						},
 						{
-							$ref: "#/components/parameters/Status"
+							$ref: "#/components/parameters/ViewAt"
+						},
+						{
+							$ref: "#/components/parameters/Date"
+						},
+						{
+							$ref: "#/components/parameters/QueryId"
 						},
 						{
 							$ref: "#/components/parameters/Active"
 						},
 						{
+							$ref: "#/components/parameters/Approved"
+						},
+						{
+							$ref: "#/components/parameters/Roles"
+						},
+						{
+							$ref: "#/components/parameters/Season"
+						},
+						{
+							$ref: "#/components/parameters/Tags"
+						},
+						{
+							$ref: "#/components/parameters/UpdatedAt"
+						},
+						{
+							$ref: "#/components/parameters/UpdatedAt"
+						},
+						{
+							$ref: "#/components/parameters/AuthorName"
+						},
+						{
+							$ref: "#/components/parameters/AuthorId"
+						},
+						{
 							name: "q",
 							"in": "query",
-							description: "Texto de busca. Pode ser o nome ou alias do membro.",
+							description: "Texto de busca. Pode ser o título da publicação ou nome de algum dos targets",
 							required: false,
 							schema: {
 								type: "string"
@@ -17890,7 +18801,7 @@ var data$1 = {
 							Bearer: [
 							],
 							"x-layers-permissions": [
-								"member:read"
+								"user:read"
 							],
 							"x-layers-context": [
 								"user",
@@ -17908,13 +18819,13 @@ var data$1 = {
 										properties: {
 											total: {
 												type: "number",
-												description: "Número de membros encontrados",
+												description: "Número total de posts que se encaixam nos filtros aplicados na query",
 												example: 1
 											},
 											hits: {
 												type: "array",
 												items: {
-													$ref: "#/components/schemas/Member"
+													$ref: "#/components/schemas/Event"
 												}
 											}
 										}
@@ -17924,948 +18835,143 @@ var data$1 = {
 						}
 					},
 					externalDocs: {
-						description: "Buscar membros",
-						url: "/docs/api/data/members/search"
-					}
-				}
-			},
-			"/sync": {
-				post: {
-					tags: [
-						"Sincronização"
-					],
-					summary: "Sincronizar Dados",
-					description: "Cria membros, usuários, grupos e seus vínculos",
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"sync:manage"
-							],
-							"x-layers-contexts": [
-								"user",
-								"app"
-							]
-						}
-					],
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						}
-					],
-					requestBody: {
-						description: "Objeto que contem informações de turmas, alunos e usuários",
-						required: true,
-						content: {
-							"application/json": {
-								schema: {
-									type: "object",
-									properties: {
-										users: {
-											type: "object",
-											properties: {
-												data: {
-													description: "Array contendo todos os usuários a serem criados",
-													type: "array",
-													items: {
-														type: "object",
-														properties: {
-															active: {
-																type: "boolean",
-																description: "Indica se o usuário deve ser criado ativo ou não",
-																example: true
-															},
-															invite: {
-																type: "boolean",
-																description: "Indica se o usuário deve ser convidado quando for criado",
-																example: false
-															},
-															roleSet: {
-																type: "object",
-																description: "Objeto indicando quais devem ser as permissões desse usuário",
-																properties: {
-																	role: {
-																		type: "boolean",
-																		description: "Chave com o nome da permissão e tem um valor com o booleano indicando se esse usuário tem essa permissão",
-																		example: true
-																	}
-																}
-															},
-															alias: {
-																type: "string",
-																description: "Identificador do usuário",
-																example: "123abc"
-															},
-															email: {
-																type: "string",
-																description: "Email do usuário",
-																example: "gabriel.raniere@layers.education"
-															},
-															name: {
-																type: "string",
-																description: "Nome do usuário",
-																example: "Gabriel Raniere"
-															},
-															birth: {
-																type: "string",
-																description: "Data de nascimento do usuário no formato brasileiro",
-																example: "05/12/2000"
-															}
-														}
-													}
-												},
-												cleanSync: {
-													type: "boolean",
-													description: "Iindica se os dados de usuários já registrados devem ser apagados",
-													example: false
-												}
-											}
-										},
-										members: {
-											type: "object",
-											properties: {
-												data: {
-													type: "array",
-													description: "Array contendo todos os membros a serem criados",
-													items: {
-														type: "object",
-														properties: {
-															active: {
-																type: "boolean",
-																description: "Indica se o membro deve ser criado ativo",
-																example: true
-															},
-															users: {
-																type: "array",
-																description: "Array contendo os emails dos usuários vinculados com esse membro",
-																items: {
-																	type: "string",
-																	example: "gabriel.raniere@layers.education"
-																}
-															},
-															alias: {
-																type: "string",
-																description: "Identificador do aluno",
-																example: "456def"
-															},
-															birth: {
-																type: "string",
-																description: "Data de nascimento do membro no formato brasileiro",
-																example: "22/08/2004"
-															},
-															name: {
-																type: "string",
-																description: "Nome do membro",
-																example: "Rafael Teles"
-															}
-														}
-													}
-												},
-												cleanSync: {
-													type: "boolean",
-													description: "Iindica se os dados de membros já registrados devem ser apagados",
-													example: false
-												}
-											}
-										},
-										classrooms: {
-											type: "object",
-											properties: {
-												data: {
-													type: "array",
-													description: "Array contendo todos os grupos a serem criados",
-													items: {
-														type: "object",
-														properties: {
-															active: {
-																type: "boolean",
-																description: "Indica se o grupo deve ser criado ativo",
-																example: false
-															},
-															alias: {
-																type: "boolean",
-																description: "Identificador do grupo",
-																example: "2ANOEM"
-															},
-															name: {
-																type: "string",
-																description: "Nome do grupo",
-																example: "2˚ Ano do Ensino Médio"
-															},
-															members: {
-																type: "array",
-																description: "Array contendo os Identificadores de todos os membros que estão matriculados nesse grupo",
-																items: {
-																	type: "string",
-																	example: "123abc"
-																}
-															},
-															admins: {
-																type: "array",
-																description: "Array contendo os emails de todos os usuários que serão administradores desse grupo",
-																items: {
-																	type: "string",
-																	example: "gabriel.raniere@layers.education"
-																}
-															},
-															tags: {
-																type: "array",
-																description: "Array contendo os nomes de todas as tags que devem conter esse grupo",
-																items: {
-																	type: "string",
-																	example: "Ensino Medio"
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										type: "object",
-										properties: {
-											users: {
-												type: "array",
-												description: "Array contendo os identificadores dos documentos de usuários criados",
-												items: {
-													type: "string"
-												}
-											},
-											members: {
-												type: "array",
-												description: "Array contendo os identificadores dos documentos de membros criados",
-												items: {
-													type: "string"
-												}
-											},
-											groups: {
-												type: "array",
-												description: "Array contendo os identificadores dos documentos de grupos criados",
-												items: {
-													type: "string"
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Sincronizar Dados",
-						url: "/docs/api/data/sync/post"
-					}
-				}
-			},
-			"/users": {
-				post: {
-					tags: [
-						"Usuários"
-					],
-					summary: "Criar Usuário",
-					description: "Criar uma conta de acesso para um usuário do Layers Education",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"user:write"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					requestBody: {
-						content: {
-							"application/json": {
-								schema: {
-									$ref: "#/components/schemas/User"
-								}
-							}
-						}
-					},
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Criar Usuário",
-						url: "/docs/api/data/users/post"
-					}
-				},
-				get: {
-					tags: [
-						"Usuários"
-					],
-					summary: "Listar usuários",
-					description: "Listar contas de acesso de usuários.",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/CreatedAt"
-						},
-						{
-							$ref: "#/components/parameters/UpdatedAt"
-						},
-						{
-							$ref: "#/components/parameters/Status"
-						},
-						{
-							$ref: "#/components/parameters/Active"
-						},
-						{
-							$ref: "#/components/parameters/Roles"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"user:read"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										type: "object",
-										properties: {
-											total: {
-												type: "number",
-												description: "Número de Usuários encontrados",
-												example: 10
-											},
-											hits: {
-												type: "array",
-												items: {
-													$ref: "#/components/schemas/User"
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Listar usuários",
-						url: "/docs/api/data/users"
-					}
-				}
-			},
-			"/users/search": {
-				get: {
-					tags: [
-						"Usuários"
-					],
-					summary: "Buscar usuários",
-					description: "Buscar contas de acesso de usuários. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/CreatedAt"
-						},
-						{
-							$ref: "#/components/parameters/UpdatedAt"
-						},
-						{
-							$ref: "#/components/parameters/Status"
-						},
-						{
-							$ref: "#/components/parameters/Active"
-						},
-						{
-							$ref: "#/components/parameters/Roles"
-						},
-						{
-							name: "q",
-							"in": "query",
-							description: "Texto de busca. Pode ser o nome, e-mail ou alias do usuário.",
-							required: false,
-							schema: {
-								type: "string"
-							}
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"user:read"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										type: "object",
-										properties: {
-											total: {
-												type: "number",
-												description: "Número de Usuários encontrados",
-												example: 10
-											},
-											hits: {
-												type: "array",
-												items: {
-													$ref: "#/components/schemas/User"
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Buscar usuários",
-						url: "/docs/api/data/users/search"
-					}
-				}
-			},
-			"/users/{usersId}": {
-				"delete": {
-					tags: [
-						"Usuários"
-					],
-					summary: "Deletar usuário",
-					description: "Remover o usuário específicado do Layers. Essa ação **pode** ser revertida.",
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"user:write"
-							],
-							"x-layers-context": [
-								"user",
-								"member"
-							]
-						}
-					],
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathUserId"
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Deletar usuário",
-						url: "/docs/api/data/users/usersId/delete"
-					}
-				}
-			},
-			"/users/{userId}": {
-				put: {
-					tags: [
-						"Usuários"
-					],
-					summary: "Atualizar informações do usuário",
-					description: "Atualizar informações de contas de acesso do usuário.",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathUserId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"user:write"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					requestBody: {
-						content: {
-							"application/json": {
-								schema: {
-									$ref: "#/components/schemas/User"
-								}
-							}
-						}
-					},
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Atualizar informações do usuário",
-						url: "/docs/api/data/users/userId/put"
-					}
-				},
-				get: {
-					tags: [
-						"Usuários"
-					],
-					summary: "Visualizar informações do usuário",
-					description: "Visualizar informações da conta de acesso do usuário especificado.",
-					parameters: [
-						{
-							$ref: "#/components/parameters/Community-id"
-						},
-						{
-							$ref: "#/components/parameters/PathUserId"
-						}
-					],
-					security: [
-						{
-							Bearer: [
-							],
-							"x-layers-permissions": [
-								"user:read"
-							],
-							"x-layers-context": [
-								"user",
-								"app"
-							]
-						}
-					],
-					responses: {
-						"200": {
-							description: "OK",
-							content: {
-								"application/json": {
-									schema: {
-										$ref: "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Visualizar informações do usuário",
-						url: "/docs/api/data/users/userId"
+						description: "Buscar Publicações",
+						url: "/docs/api/communication/post/search"
 					}
 				}
 			}
 		},
 		components: {
 			schemas: {
-				User: {
+				BasePost: {
 					type: "object",
+					description: "Estrutura básica de um post no Layers Education",
 					properties: {
 						id: {
 							type: "string",
 							format: "ObjectId",
-							description: "Identificador do documento do usuário",
+							description: "Identificador do documento da publicação",
 							readOnly: true
 						},
 						createdAt: {
 							type: "string",
-							description: "Data de criação do usuário em UTC corrigido para o fuso da comunidade",
-							example: "2020-01-01T00:00:00.000Z",
+							format: "date-time",
+							description: "Data de criação da publicação",
 							readOnly: true
 						},
-						updatedAt: {
+						updateAt: {
 							type: "string",
-							description: "Data da última modificação do usuário em UTC corrido para o fuso da comunidade",
-							example: "2020-01-01T00:00:00.000Z",
+							format: "date-time",
+							description: "Data da ultima edição da publicação",
 							readOnly: true
 						},
-						active: {
-							type: "boolean",
-							description: "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
-							example: true,
-							readOnly: true
-						},
-						community: {
+						type: {
 							type: "string",
-							description: "Identificador da communidade do usuário",
-							example: "test",
-							readOnly: true
+							description: "Tipo da publicação"
 						},
-						status: {
+						title: {
 							type: "string",
-							"enum": [
-								"ACTIVE",
-								"INVITED",
-								"UNSENT"
-							],
-							description: "Status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (UNSENT)",
-							example: "ACTIVE",
-							readOnly: true
+							description: "Título da publicação"
 						},
-						invitationCount: {
-							type: "number",
-							description: "Numero de convites enviados para o usuário",
-							example: 2,
-							readOnly: true
-						},
-						email: {
+						text: {
 							type: "string",
-							description: "Email do usuário",
-							example: "exemplo@tenda.digital"
+							description: "Texto de corpo da publicação"
 						},
-						name: {
-							type: "string",
-							description: "Nome do usuário",
-							example: "Gabriel Raniere"
+						targets: {
+							type: "array",
+							description: "Público alvo da publicação",
+							items: {
+								oneOf: [
+									{
+										type: "object",
+										properties: {
+											id: {
+												type: "string",
+												description: "Identificador do membro, usuário, turma ou tag"
+											},
+											kind: {
+												type: "string",
+												description: "Tipo do publico especificado. Pode ser user, member, group ou tag."
+											}
+										}
+									},
+									{
+										type: "object",
+										properties: {
+											email: {
+												type: "string",
+												description: "Email do usuário"
+											},
+											kind: {
+												type: "string",
+												description: "Tipo do publico especificado. Pode ser user, member, group ou tag."
+											}
+										}
+									},
+									{
+										type: "object",
+										properties: {
+											alias: {
+												type: "string",
+												description: "Alias do membro, usuário ou grupo."
+											},
+											kind: {
+												type: "string",
+												description: "Tipo do publico especificado. Pode ser user, member, group ou tag."
+											}
+										}
+									}
+								]
+							}
 						},
 						roles: {
-							type: "array",
-							description: "Array contendo as permissões do usuário na plataforma",
+							type: "Array",
+							description: "Perfís de usuários no público alvo que poderão ver essa publicação.",
 							items: {
 								type: "string"
 							},
 							example: [
-								"guardian",
-								"professor"
+								"guardian"
 							]
 						},
-						address: {
+						viewAt: {
+							type: "string",
+							description: "Data quando a publicação deve ser vista."
+						}
+					},
+					externalDocs: {
+						description: "Entidade BasePost",
+						url: "/docs/api/communication/BasePost/object"
+					}
+				},
+				Event: {
+					allOf: [
+						{
+							$ref: "#/components/schemas/BasePost"
+						},
+						{
 							type: "object",
 							properties: {
-								code: {
+								date: {
 									type: "string",
-									description: "CEP do usuário",
-									example: "01414-001"
+									description: "Data do evento"
 								},
-								state: {
-									type: "string",
-									description: "Estado do usuário",
-									example: "SP"
-								},
-								city: {
-									type: "string",
-									description: "Cidade do usuário",
-									example: "São Caetano do Sul"
-								},
-								district: {
-									type: "string",
-									description: "Bairro do usuário",
-									example: "Centro"
-								},
-								address: {
-									type: "string",
-									description: "Rua do usuário",
-									example: "Rua Pará"
-								},
-								number: {
-									type: "string",
-									description: "Numero da casa do usuário",
-									example: "79"
-								}
-							}
-						}
-					},
-					externalDocs: {
-						description: "Entidade User",
-						url: "/docs/api/data/User/object"
-					}
-				},
-				Member: {
-					type: "object",
-					properties: {
-						id: {
-							type: "string",
-							description: "Identificador do documento do membro",
-							example: "12345678",
-							readOnly: true
-						},
-						createdAt: {
-							type: "string",
-							description: "Data de criação do membro em UTC corrigido para o fuso da comunidade",
-							example: "2020-01-01T00:00:00.000Z",
-							readOnly: true
-						},
-						updatedAt: {
-							type: "string",
-							description: "Data da última modificação do membro em UTC corrido para o fuso da comunidade",
-							example: "2020-01-01T00:00:00.000Z",
-							readOnly: true
-						},
-						active: {
-							type: "boolean",
-							description: "Chave que indica se o membro está ativo (quando o membro é apagado, essa chave é mudada para false)",
-							example: true,
-							readOnly: true
-						},
-						community: {
-							type: "string",
-							description: "Identificador da communidade do membro",
-							example: "test",
-							readOnly: true
-						},
-						access: {
-							type: "array",
-							items: {
-								type: "object",
-								properties: {
-									permissions: {
-										type: "array",
-										items: {
+								event: {
+									type: "object",
+									properties: {
+										endDate: {
 											type: "string",
-											description: "Permissões do usuário atrelado a esse membro",
-											example: "guardian"
+											description: "Data do fim do evento"
+										},
+										allDay: {
+											type: "boolean",
+											description: "Indica se o evento deve durar o dia todo"
 										}
-									},
-									user: {
-										type: "string",
-										description: "Identificador do documento do usuário"
 									}
 								}
 							}
-						},
-						name: {
-							type: "string",
-							description: "Nome do membro",
-							example: "Gabriel Raniere"
-						},
-						alias: {
-							type: "string",
-							description: "RA do membro",
-							example: "abc123d"
-						},
-						birth: {
-							type: "string",
-							description: "Data de nascimento",
-							example: "2010-04-10T00:00:00.000Z"
 						}
-					},
-					externalDocs: {
-						description: "Entidade Member",
-						url: "/docs/api/data/Member/object"
-					}
-				},
-				Group: {
-					type: "object",
-					properties: {
-						id: {
-							type: "string",
-							format: "ObjectId",
-							description: "identificador do documento do grupo",
-							readOnly: true
-						},
-						createdAt: {
-							type: "string",
-							description: "Data de criação do grupo em UTC corrigido para o fuso da comunidade",
-							example: "2020-01-01T00:00:00.000Z",
-							readOnly: true
-						},
-						updatedAt: {
-							type: "string",
-							description: "Data da última modificação do grupo em UTC corrido para o fuso da comunidade",
-							example: "2020-01-01T00:00:00.000Z",
-							readOnly: true
-						},
-						community: {
-							type: "string",
-							description: "Identificador da communidade do grupo",
-							example: "test",
-							readOnly: true
-						},
-						name: {
-							type: "string",
-							description: "Nome do grupo",
-							example: "Terceiro ano A"
-						},
-						tags: {
-							type: "array",
-							description: "tags às quais esse grupo pertence",
-							items: {
-								type: "object",
-								properties: {
-									id: {
-										type: "string",
-										description: "Identificador do documento da tag"
-									},
-									name: {
-										type: "string",
-										description: "Nome da tag",
-										example: "Ensino Fundamental"
-									}
-								}
-							}
-						},
-						admins: {
-							type: "array",
-							description: "administradores do grupo",
-							items: {
-								type: "object",
-								properties: {
-									user: {
-										type: "string"
-									}
-								}
-							}
-						},
-						active: {
-							type: "boolean",
-							description: "Chave que indica se o grupo está ativo (quando o grupo é apagado, essa chave é mudada para false)",
-							example: true
-						},
-						syncedAt: {
-							type: "string",
-							description: "data da última vez que esse grupo foi modificado pela rota /sync",
-							example: "2020-03-01T00:00:00.000Z",
-							readOnly: true
-						},
-						season: {
-							type: "string",
-							description: "temporada à qual esse grupo pertence",
-							example: "Ano letivo 2020"
-						}
-					},
-					externalDocs: {
-						description: "Entidade Group",
-						url: "/docs/api/data/Group/object"
-					}
-				},
-				Tag: {
-					type: "object",
-					properties: {
-						id: {
-							type: "string",
-							format: "ObjectId",
-							description: "Identificador do documento da tag",
-							readOnly: true
-						},
-						name: {
-							type: "string",
-							description: "Nome da tag",
-							example: "Ensino Fundamental"
-						},
-						community: {
-							type: "string",
-							description: "Identificador da comunidade da tag",
-							example: "test",
-							readOnly: true
-						}
-					},
-					externalDocs: {
-						description: "Entidade Tag",
-						url: "/docs/api/data/Tag/object"
-					}
-				},
-				Enrollment: {
-					type: "object",
-					properties: {
-						id: {
-							type: "string",
-							format: "ObjectId",
-							description: "Identificador do documento da matrícula",
-							readOnly: true
-						},
-						createdAt: {
-							type: "string",
-							description: "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
-							example: "2020-01-01T00:00:00.000Z",
-							readOnly: true
-						},
-						updatedAt: {
-							type: "string",
-							description: "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
-							example: "2020-01-01T00:00:00.000Z",
-							readOnly: true
-						},
-						community: {
-							type: "string",
-							description: "Identificador da comunidade da matrícula",
-							example: "test",
-							readOnly: true
-						},
-						kind: {
-							type: "string",
-							description: "Tipo de entidade que está vinculada ao grupo",
-							example: "member"
-						},
-						entity: {
-							type: "string",
-							format: "ObjectId",
-							description: "Identificador do documento da entidade à qual pertence essa matrícula"
-						},
-						group: {
-							type: "string",
-							format: "ObjectId",
-							description: "Identificador do grupo à qual a entidade está matriculada",
-							readOnly: true
-						},
-						active: {
-							type: "boolean",
-							description: "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
-							example: true
-						}
-					},
-					externalDocs: {
-						description: "Entidade Enrollment",
-						url: "/docs/api/data/Enrollment/object"
-					}
+					]
 				}
 			},
 			parameters: {
@@ -18942,33 +19048,6 @@ var data$1 = {
 						type: "string"
 					}
 				},
-				PathUserId: {
-					name: "userId",
-					"in": "path",
-					description: "Identificador do usuário.",
-					required: true,
-					schema: {
-						type: "string"
-					}
-				},
-				PathMemberId: {
-					name: "memberId",
-					"in": "path",
-					description: "Identificador do membro.",
-					required: true,
-					schema: {
-						type: "string"
-					}
-				},
-				PathGroupId: {
-					name: "groupId",
-					"in": "path",
-					description: "Identificador do grupo.",
-					required: true,
-					schema: {
-						type: "string"
-					}
-				},
 				PathPostId: {
 					name: "postId",
 					"in": "path",
@@ -18982,15 +19061,6 @@ var data$1 = {
 					name: "enrollmentId",
 					"in": "path",
 					description: "Identificador da matrícula",
-					required: true,
-					schema: {
-						type: "string"
-					}
-				},
-				PathChannelId: {
-					name: "channelId",
-					"in": "path",
-					description: "Identificador do canal de atendimento",
 					required: true,
 					schema: {
 						type: "string"
@@ -19050,7 +19120,7 @@ var data$1 = {
 				Approved: {
 					name: "approved",
 					"in": "query",
-					description: "Indica se o post já foi aprovado para ser publicado ou ainda aguarda autorização.",
+					description: "Indica se o post já foi aprovado para ser publicado ou ainda aguarda autorização",
 					required: false,
 					schema: {
 						type: "boolean"
@@ -19090,14 +19160,199 @@ var data$1 = {
 					schema: {
 						type: "string"
 					}
-				},
-				GroupAdmin: {
-					name: "admins.user",
-					"in": "query",
-					description: "Id de um dos administradores do grupo",
-					required: false,
+				}
+			},
+			securitySchemes: {
+				Bearer: {
+					description: "Generate a token",
+					type: "http",
+					scheme: "bearer",
+					bearerFormat: "JWT",
+					"x-layers-permissions": {
+						type: "array"
+					},
+					"x-layers-contexts": {
+						type: "array"
+					}
+				}
+			}
+		},
+		"x-nav": [
+			{
+				name: "Publicações",
+				schemas: [
+					"Event"
+				]
+			}
+		]
+	}
+};
+var notifications$1 = {
+	title: "Notificações",
+	id: "notifications",
+	spec: {
+		openapi: "3.0.0",
+		info: {
+			title: "API de Notificações",
+			description: "A API de notificações permite que você envie notificações push para qualquer plataforma",
+			version: "1.0"
+		},
+		servers: [
+			{
+				url: "https://api.layers.digital/v1"
+			}
+		],
+		paths: {
+			"/notify": {
+				post: {
+					tags: [
+						"Notificações"
+					],
+					summary: "Enviar notificação",
+					description: "Enviar notificações push para usuários via web, android e ios.",
+					security: [
+						{
+							Bearer: [
+							],
+							"x-layers-permissions": [
+								"notification:send"
+							],
+							"x-layers-contexts": [
+								"user",
+								"app"
+							]
+						}
+					],
+					parameters: [
+						{
+							$ref: "#/components/parameters/Community-id"
+						}
+					],
+					requestBody: {
+						description: "Informações da notificação",
+						required: true,
+						content: {
+							"application/json": {
+								schema: {
+									type: "object",
+									properties: {
+										targets: {
+											type: "array",
+											description: "Público alvo da publicação",
+											items: {
+												oneOf: [
+													{
+														type: "object",
+														properties: {
+															id: {
+																type: "string",
+																description: "Identificador do membro, usuário, turma ou tag"
+															},
+															kind: {
+																type: "string",
+																description: "Tipo do publico especificado. Pode ser user, member, group ou tag."
+															}
+														}
+													},
+													{
+														type: "object",
+														properties: {
+															email: {
+																type: "string",
+																description: "Email do usuário"
+															},
+															kind: {
+																type: "string",
+																description: "Tipo do publico especificado. Pode ser user, member, group ou tag."
+															}
+														}
+													},
+													{
+														type: "object",
+														properties: {
+															alias: {
+																type: "string",
+																description: "Alias do membro, usuário ou grupo."
+															},
+															kind: {
+																type: "string",
+																description: "Tipo do publico especificado. Pode ser user, member, group ou tag."
+															}
+														}
+													}
+												]
+											}
+										},
+										userIds: {
+											type: "array",
+											items: {
+												type: "string"
+											}
+										},
+										roles: {
+											type: "array",
+											items: {
+												type: "string"
+											}
+										},
+										body: {
+											type: "string"
+										}
+									}
+								}
+							}
+						}
+					},
+					responses: {
+						"200": {
+							description: "Notificações enviadas"
+						},
+						"400": {
+							description: "Bad Request",
+							content: {
+								"application/json": {
+									schema: {
+										type: "object",
+										properties: {
+											status: {
+												type: "string",
+												example: "400"
+											},
+											type: {
+												type: "string",
+												example: "invalidParameter"
+											},
+											name: {
+												type: "string",
+												example: "Bad Request"
+											},
+											error: {
+												type: "string",
+												example: "Targets not provided"
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					externalDocs: {
+						description: "Enviar notificação",
+						url: "/docs/api/notifications/notify/post"
+					}
+				}
+			}
+		},
+		components: {
+			parameters: {
+				"Community-id": {
+					name: "community-id",
+					"in": "header",
+					description: "Identificador da comunidade",
+					required: true,
 					schema: {
-						type: "string"
+						type: "string",
+						example: "test"
 					}
 				}
 			},
@@ -19118,52 +19373,22 @@ var data$1 = {
 		},
 		"x-nav": [
 			{
-				name: "Membros",
-				schemas: [
-					"Member"
-				],
+				name: "Notificações",
 				tags: [
-					"Membros"
-				]
-			},
-			{
-				name: "Usuários",
-				schemas: [
-					"User"
-				],
-				tags: [
-					"Usuários"
-				]
-			},
-			{
-				name: "Grupos",
-				schemas: [
-					"Group"
-				],
-				tags: [
-					"Grupos"
-				]
-			},
-			{
-				name: "Matrículas",
-				schemas: [
-					"Enrollment"
-				],
-				tags: [
-					"Matrículas"
+					"Notificações"
 				]
 			}
 		]
 	}
 };
 var ApiServices = {
+	data: data$1,
 	payments: payments$1,
 	apihub: apihub$1,
-	notification: notification$1,
 	auth: auth$1,
 	tickets: tickets$1,
-	media: media$1,
-	data: data$1
+	communication: communication$1,
+	notifications: notifications$1
 };
 
 // import ApiPaymentsSpec from '../../../data/api-payments.json'
@@ -29692,6 +29917,644 @@ ActiveRouter.injectProps(RouteTitle, [
     'titleSuffix',
 ]);
 
+const ROUTER_INTENT_NONE = 'root';
+const ROUTER_INTENT_FORWARD = 'forward';
+const ROUTER_INTENT_BACK = 'back';
+
+const generatePath = (segments) => {
+    const path = segments
+        .filter(s => s.length > 0)
+        .join('/');
+    return '/' + path;
+};
+const chainToPath = (chain) => {
+    const path = [];
+    for (const route of chain) {
+        for (const segment of route.path) {
+            if (segment[0] === ':') {
+                const param = route.params && route.params[segment.slice(1)];
+                if (!param) {
+                    return null;
+                }
+                path.push(param);
+            }
+            else if (segment !== '') {
+                path.push(segment);
+            }
+        }
+    }
+    return path;
+};
+const writePath = (history, root, useHash, path, direction, state, queryString) => {
+    let url = generatePath([
+        ...parsePath$1(root),
+        ...path
+    ]);
+    if (useHash) {
+        url = '#' + url;
+    }
+    if (queryString !== undefined) {
+        url = url + '?' + queryString;
+    }
+    if (direction === ROUTER_INTENT_FORWARD) {
+        history.pushState(state, '', url);
+    }
+    else {
+        history.replaceState(state, '', url);
+    }
+};
+const removePrefix = (prefix, path) => {
+    if (prefix.length > path.length) {
+        return null;
+    }
+    if (prefix.length <= 1 && prefix[0] === '') {
+        return path;
+    }
+    for (let i = 0; i < prefix.length; i++) {
+        if (prefix[i].length > 0 && prefix[i] !== path[i]) {
+            return null;
+        }
+    }
+    if (path.length === prefix.length) {
+        return [''];
+    }
+    return path.slice(prefix.length);
+};
+const readPath = (loc, root, useHash) => {
+    let pathname = loc.pathname;
+    if (useHash) {
+        const hash = loc.hash;
+        pathname = (hash[0] === '#')
+            ? hash.slice(1)
+            : '';
+    }
+    const prefix = parsePath$1(root);
+    const path = parsePath$1(pathname);
+    return removePrefix(prefix, path);
+};
+const parsePath$1 = (path) => {
+    if (path == null) {
+        return [''];
+    }
+    const removeQueryString = path.split('?')[0];
+    const segments = removeQueryString.split('/')
+        .map(s => s.trim())
+        .filter(s => s.length > 0);
+    if (segments.length === 0) {
+        return [''];
+    }
+    else {
+        return segments;
+    }
+};
+
+const printRoutes = (routes) => {
+    console.group(`[ion-core] ROUTES[${routes.length}]`);
+    for (const chain of routes) {
+        const path = [];
+        chain.forEach(r => path.push(...r.path));
+        const ids = chain.map(r => r.id);
+        console.debug(`%c ${generatePath(path)}`, 'font-weight: bold; padding-left: 20px', '=>\t', `(${ids.join(', ')})`);
+    }
+    console.groupEnd();
+};
+const printRedirects = (redirects) => {
+    console.group(`[ion-core] REDIRECTS[${redirects.length}]`);
+    for (const redirect of redirects) {
+        if (redirect.to) {
+            console.debug('FROM: ', `$c ${generatePath(redirect.from)}`, 'font-weight: bold', ' TO: ', `$c ${generatePath(redirect.to)}`, 'font-weight: bold');
+        }
+    }
+    console.groupEnd();
+};
+
+const writeNavState = async (root, chain, direction, index, changed = false) => {
+    try {
+        // find next navigation outlet in the DOM
+        const outlet = searchNavNode(root);
+        // make sure we can continue interacting the DOM, otherwise abort
+        if (index >= chain.length || !outlet) {
+            return changed;
+        }
+        await outlet.componentOnReady();
+        const route = chain[index];
+        const result = await outlet.setRouteId(route.id, route.params, direction);
+        // if the outlet changed the page, reset navigation to neutral (no direction)
+        // this means nested outlets will not animate
+        if (result.changed) {
+            direction = ROUTER_INTENT_NONE;
+            changed = true;
+        }
+        // recursively set nested outlets
+        changed = await writeNavState(result.element, chain, direction, index + 1, changed);
+        // once all nested outlets are visible let's make the parent visible too,
+        // using markVisible prevents flickering
+        if (result.markVisible) {
+            await result.markVisible();
+        }
+        return changed;
+    }
+    catch (e) {
+        console.error(e);
+        return false;
+    }
+};
+const readNavState = async (root) => {
+    const ids = [];
+    let outlet;
+    let node = root;
+    // tslint:disable-next-line:no-constant-condition
+    while (true) {
+        outlet = searchNavNode(node);
+        if (outlet) {
+            const id = await outlet.getRouteId();
+            if (id) {
+                node = id.element;
+                id.element = undefined;
+                ids.push(id);
+            }
+            else {
+                break;
+            }
+        }
+        else {
+            break;
+        }
+    }
+    return { ids, outlet };
+};
+const waitUntilNavNode = () => {
+    if (searchNavNode(document.body)) {
+        return Promise.resolve();
+    }
+    return new Promise(resolve => {
+        window.addEventListener('ionNavWillLoad', resolve, { once: true });
+    });
+};
+const QUERY = ':not([no-router]) ion-nav, :not([no-router]) ion-tabs, :not([no-router]) ion-router-outlet';
+const searchNavNode = (root) => {
+    if (!root) {
+        return undefined;
+    }
+    if (root.matches(QUERY)) {
+        return root;
+    }
+    const outlet = root.querySelector(QUERY);
+    return outlet ? outlet : undefined;
+};
+
+const matchesRedirect = (input, route) => {
+    const { from, to } = route;
+    if (to === undefined) {
+        return false;
+    }
+    if (from.length > input.length) {
+        return false;
+    }
+    for (let i = 0; i < from.length; i++) {
+        const expected = from[i];
+        if (expected === '*') {
+            return true;
+        }
+        if (expected !== input[i]) {
+            return false;
+        }
+    }
+    return from.length === input.length;
+};
+const routeRedirect = (path, routes) => {
+    return routes.find(route => matchesRedirect(path, route));
+};
+const matchesIDs = (ids, chain) => {
+    const len = Math.min(ids.length, chain.length);
+    let i = 0;
+    for (; i < len; i++) {
+        if (ids[i].toLowerCase() !== chain[i].id) {
+            break;
+        }
+    }
+    return i;
+};
+const matchesPath = (inputPath, chain) => {
+    const segments = new RouterSegments(inputPath);
+    let matchesDefault = false;
+    let allparams;
+    for (let i = 0; i < chain.length; i++) {
+        const path = chain[i].path;
+        if (path[0] === '') {
+            matchesDefault = true;
+        }
+        else {
+            for (const segment of path) {
+                const data = segments.next();
+                // data param
+                if (segment[0] === ':') {
+                    if (data === '') {
+                        return null;
+                    }
+                    allparams = allparams || [];
+                    const params = allparams[i] || (allparams[i] = {});
+                    params[segment.slice(1)] = data;
+                }
+                else if (data !== segment) {
+                    return null;
+                }
+            }
+            matchesDefault = false;
+        }
+    }
+    const matches = (matchesDefault)
+        ? matchesDefault === (segments.next() === '')
+        : true;
+    if (!matches) {
+        return null;
+    }
+    if (allparams) {
+        return chain.map((route, i) => ({
+            id: route.id,
+            path: route.path,
+            params: mergeParams(route.params, allparams[i])
+        }));
+    }
+    return chain;
+};
+const mergeParams = (a, b) => {
+    if (!a && b) {
+        return b;
+    }
+    else if (a && !b) {
+        return a;
+    }
+    else if (a && b) {
+        return Object.assign(Object.assign({}, a), b);
+    }
+    return undefined;
+};
+const routerIDsToChain = (ids, chains) => {
+    let match = null;
+    let maxMatches = 0;
+    const plainIDs = ids.map(i => i.id);
+    for (const chain of chains) {
+        const score = matchesIDs(plainIDs, chain);
+        if (score > maxMatches) {
+            match = chain;
+            maxMatches = score;
+        }
+    }
+    if (match) {
+        return match.map((route, i) => ({
+            id: route.id,
+            path: route.path,
+            params: mergeParams(route.params, ids[i] && ids[i].params)
+        }));
+    }
+    return null;
+};
+const routerPathToChain = (path, chains) => {
+    let match = null;
+    let matches = 0;
+    for (const chain of chains) {
+        const matchedChain = matchesPath(path, chain);
+        if (matchedChain !== null) {
+            const score = computePriority(matchedChain);
+            if (score > matches) {
+                matches = score;
+                match = matchedChain;
+            }
+        }
+    }
+    return match;
+};
+const computePriority = (chain) => {
+    let score = 1;
+    let level = 1;
+    for (const route of chain) {
+        for (const path of route.path) {
+            if (path[0] === ':') {
+                score += Math.pow(1, level);
+            }
+            else if (path !== '') {
+                score += Math.pow(2, level);
+            }
+            level++;
+        }
+    }
+    return score;
+};
+class RouterSegments {
+    constructor(path) {
+        this.path = path.slice();
+    }
+    next() {
+        if (this.path.length > 0) {
+            return this.path.shift();
+        }
+        return '';
+    }
+}
+
+const readRedirects = (root) => {
+    return Array.from(root.children)
+        .filter(el => el.tagName === 'ION-ROUTE-REDIRECT')
+        .map(el => {
+        const to = readProp(el, 'to');
+        return {
+            from: parsePath$1(readProp(el, 'from')),
+            to: to == null ? undefined : parsePath$1(to),
+        };
+    });
+};
+const readRoutes = (root) => {
+    return flattenRouterTree(readRouteNodes(root));
+};
+const readRouteNodes = (root, node = root) => {
+    return Array.from(node.children)
+        .filter(el => el.tagName === 'ION-ROUTE' && el.component)
+        .map(el => {
+        const component = readProp(el, 'component');
+        if (component == null) {
+            throw new Error('component missing in ion-route');
+        }
+        return {
+            path: parsePath$1(readProp(el, 'url')),
+            id: component.toLowerCase(),
+            params: el.componentProps,
+            children: readRouteNodes(root, el)
+        };
+    });
+};
+const readProp = (el, prop) => {
+    if (prop in el) {
+        return el[prop];
+    }
+    if (el.hasAttribute(prop)) {
+        return el.getAttribute(prop);
+    }
+    return null;
+};
+const flattenRouterTree = (nodes) => {
+    const routes = [];
+    for (const node of nodes) {
+        flattenNode([], routes, node);
+    }
+    return routes;
+};
+const flattenNode = (chain, routes, node) => {
+    const s = chain.slice();
+    s.push({
+        id: node.id,
+        path: node.path,
+        params: node.params
+    });
+    if (node.children.length === 0) {
+        routes.push(s);
+        return;
+    }
+    for (const sub of node.children) {
+        flattenNode(s, routes, sub);
+    }
+};
+
+class Router {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+        this.previousPath = null;
+        this.busy = false;
+        this.state = 0;
+        this.lastState = 0;
+        /**
+         * By default `ion-router` will match the routes at the root path ("/").
+         * That can be changed when
+         *
+         */
+        this.root = '/';
+        /**
+         * The router can work in two "modes":
+         * - With hash: `/index.html#/path/to/page`
+         * - Without hash: `/path/to/page`
+         *
+         * Using one or another might depend in the requirements of your app and/or where it's deployed.
+         *
+         * Usually "hash-less" navigation works better for SEO and it's more user friendly too, but it might
+         * requires additional server-side configuration in order to properly work.
+         *
+         * On the otherside hash-navigation is much easier to deploy, it even works over the file protocol.
+         *
+         * By default, this property is `true`, change to `false` to allow hash-less URLs.
+         */
+        this.useHash = true;
+        this.ionRouteWillChange = createEvent(this, "ionRouteWillChange", 7);
+        this.ionRouteDidChange = createEvent(this, "ionRouteDidChange", 7);
+    }
+    async componentWillLoad() {
+        console.debug('[ion-router] router will load');
+        await waitUntilNavNode();
+        console.debug('[ion-router] found nav');
+        await this.onRoutesChanged();
+    }
+    componentDidLoad() {
+        window.addEventListener('ionRouteRedirectChanged', debounce(this.onRedirectChanged.bind(this), 10));
+        window.addEventListener('ionRouteDataChanged', debounce(this.onRoutesChanged.bind(this), 100));
+    }
+    onPopState() {
+        const direction = this.historyDirection();
+        const path = this.getPath();
+        console.debug('[ion-router] URL changed -> update nav', path, direction);
+        return this.writeNavStateRoot(path, direction);
+    }
+    onBackButton(ev) {
+        ev.detail.register(0, processNextHandler => {
+            this.back();
+            processNextHandler();
+        });
+    }
+    /**
+     * Navigate to the specified URL.
+     *
+     * @param url The url to navigate to.
+     * @param direction The direction of the animation. Defaults to `"forward"`.
+     */
+    push(url, direction = 'forward') {
+        if (url.startsWith('.')) {
+            url = (new URL(url, window.location.href)).pathname;
+        }
+        console.debug('[ion-router] URL pushed -> updating nav', url, direction);
+        const path = parsePath$1(url);
+        const queryString = url.split('?')[1];
+        this.setPath(path, direction, queryString);
+        return this.writeNavStateRoot(path, direction);
+    }
+    /**
+     * Go back to previous page in the window.history.
+     */
+    back() {
+        window.history.back();
+        return Promise.resolve(this.waitPromise);
+    }
+    /** @internal */
+    async printDebug() {
+        console.debug('CURRENT PATH', this.getPath());
+        console.debug('PREVIOUS PATH', this.previousPath);
+        printRoutes(readRoutes(this.el));
+        printRedirects(readRedirects(this.el));
+    }
+    /** @internal */
+    async navChanged(direction) {
+        if (this.busy) {
+            console.warn('[ion-router] router is busy, navChanged was cancelled');
+            return false;
+        }
+        const { ids, outlet } = await readNavState(window.document.body);
+        const routes = readRoutes(this.el);
+        const chain = routerIDsToChain(ids, routes);
+        if (!chain) {
+            console.warn('[ion-router] no matching URL for ', ids.map(i => i.id));
+            return false;
+        }
+        const path = chainToPath(chain);
+        if (!path) {
+            console.warn('[ion-router] router could not match path because some required param is missing');
+            return false;
+        }
+        console.debug('[ion-router] nav changed -> update URL', ids, path);
+        this.setPath(path, direction);
+        await this.safeWriteNavState(outlet, chain, ROUTER_INTENT_NONE, path, null, ids.length);
+        return true;
+    }
+    onRedirectChanged() {
+        const path = this.getPath();
+        if (path && routeRedirect(path, readRedirects(this.el))) {
+            this.writeNavStateRoot(path, ROUTER_INTENT_NONE);
+        }
+    }
+    onRoutesChanged() {
+        return this.writeNavStateRoot(this.getPath(), ROUTER_INTENT_NONE);
+    }
+    historyDirection() {
+        const win = window;
+        if (win.history.state === null) {
+            this.state++;
+            win.history.replaceState(this.state, win.document.title, win.document.location && win.document.location.href);
+        }
+        const state = win.history.state;
+        const lastState = this.lastState;
+        this.lastState = state;
+        if (state > lastState) {
+            return ROUTER_INTENT_FORWARD;
+        }
+        else if (state < lastState) {
+            return ROUTER_INTENT_BACK;
+        }
+        else {
+            return ROUTER_INTENT_NONE;
+        }
+    }
+    async writeNavStateRoot(path, direction) {
+        if (!path) {
+            console.error('[ion-router] URL is not part of the routing set');
+            return false;
+        }
+        // lookup redirect rule
+        const redirects = readRedirects(this.el);
+        const redirect = routeRedirect(path, redirects);
+        let redirectFrom = null;
+        if (redirect) {
+            this.setPath(redirect.to, direction);
+            redirectFrom = redirect.from;
+            path = redirect.to;
+        }
+        // lookup route chain
+        const routes = readRoutes(this.el);
+        const chain = routerPathToChain(path, routes);
+        if (!chain) {
+            console.error('[ion-router] the path does not match any route');
+            return false;
+        }
+        // write DOM give
+        return this.safeWriteNavState(document.body, chain, direction, path, redirectFrom);
+    }
+    async safeWriteNavState(node, chain, direction, path, redirectFrom, index = 0) {
+        const unlock = await this.lock();
+        let changed = false;
+        try {
+            changed = await this.writeNavState(node, chain, direction, path, redirectFrom, index);
+        }
+        catch (e) {
+            console.error(e);
+        }
+        unlock();
+        return changed;
+    }
+    async lock() {
+        const p = this.waitPromise;
+        let resolve;
+        this.waitPromise = new Promise(r => resolve = r);
+        if (p !== undefined) {
+            await p;
+        }
+        return resolve;
+    }
+    async writeNavState(node, chain, direction, path, redirectFrom, index = 0) {
+        if (this.busy) {
+            console.warn('[ion-router] router is busy, transition was cancelled');
+            return false;
+        }
+        this.busy = true;
+        // generate route event and emit will change
+        const routeEvent = this.routeChangeEvent(path, redirectFrom);
+        if (routeEvent) {
+            this.ionRouteWillChange.emit(routeEvent);
+        }
+        const changed = await writeNavState(node, chain, direction, index);
+        this.busy = false;
+        if (changed) {
+            console.debug('[ion-router] route changed', path);
+        }
+        // emit did change
+        if (routeEvent) {
+            this.ionRouteDidChange.emit(routeEvent);
+        }
+        return changed;
+    }
+    setPath(path, direction, queryString) {
+        this.state++;
+        writePath(window.history, this.root, this.useHash, path, direction, this.state, queryString);
+    }
+    getPath() {
+        return readPath(window.location, this.root, this.useHash);
+    }
+    routeChangeEvent(path, redirectFromPath) {
+        const from = this.previousPath;
+        const to = generatePath(path);
+        this.previousPath = to;
+        if (to === from) {
+            return null;
+        }
+        const redirectedFrom = redirectFromPath ? generatePath(redirectFromPath) : null;
+        return {
+            from,
+            redirectedFrom,
+            to,
+        };
+    }
+    get el() { return getElement(this); }
+    static get cmpMeta() { return {
+        "$flags$": 0,
+        "$tagName$": "ion-router",
+        "$members$": {
+            "root": [1],
+            "useHash": [4, "use-hash"],
+            "push": [64],
+            "back": [64],
+            "printDebug": [64],
+            "navChanged": [64]
+        },
+        "$listeners$": [[8, "popstate", "onPopState"], [4, "ionBackButton", "onBackButton"]],
+        "$lazyBundleIds$": "-",
+        "$attrsToReflect$": []
+    }; }
+}
+
 const warning = (value, ...args) => {
     if (!value) {
         console.warn(...args);
@@ -30265,7 +31128,7 @@ const HISTORIES = {
   * @module ionic
   * @description
  */
-class Router {
+class Router$1 {
     constructor(hostRef) {
         registerInstance(this, hostRef);
         this.root = '/';
@@ -30337,644 +31200,6 @@ class Router {
             "history": [32]
         },
         "$listeners$": undefined,
-        "$lazyBundleIds$": "-",
-        "$attrsToReflect$": []
-    }; }
-}
-
-const ROUTER_INTENT_NONE = 'root';
-const ROUTER_INTENT_FORWARD = 'forward';
-const ROUTER_INTENT_BACK = 'back';
-
-const generatePath = (segments) => {
-    const path = segments
-        .filter(s => s.length > 0)
-        .join('/');
-    return '/' + path;
-};
-const chainToPath = (chain) => {
-    const path = [];
-    for (const route of chain) {
-        for (const segment of route.path) {
-            if (segment[0] === ':') {
-                const param = route.params && route.params[segment.slice(1)];
-                if (!param) {
-                    return null;
-                }
-                path.push(param);
-            }
-            else if (segment !== '') {
-                path.push(segment);
-            }
-        }
-    }
-    return path;
-};
-const writePath = (history, root, useHash, path, direction, state, queryString) => {
-    let url = generatePath([
-        ...parsePath$1(root),
-        ...path
-    ]);
-    if (useHash) {
-        url = '#' + url;
-    }
-    if (queryString !== undefined) {
-        url = url + '?' + queryString;
-    }
-    if (direction === ROUTER_INTENT_FORWARD) {
-        history.pushState(state, '', url);
-    }
-    else {
-        history.replaceState(state, '', url);
-    }
-};
-const removePrefix = (prefix, path) => {
-    if (prefix.length > path.length) {
-        return null;
-    }
-    if (prefix.length <= 1 && prefix[0] === '') {
-        return path;
-    }
-    for (let i = 0; i < prefix.length; i++) {
-        if (prefix[i].length > 0 && prefix[i] !== path[i]) {
-            return null;
-        }
-    }
-    if (path.length === prefix.length) {
-        return [''];
-    }
-    return path.slice(prefix.length);
-};
-const readPath = (loc, root, useHash) => {
-    let pathname = loc.pathname;
-    if (useHash) {
-        const hash = loc.hash;
-        pathname = (hash[0] === '#')
-            ? hash.slice(1)
-            : '';
-    }
-    const prefix = parsePath$1(root);
-    const path = parsePath$1(pathname);
-    return removePrefix(prefix, path);
-};
-const parsePath$1 = (path) => {
-    if (path == null) {
-        return [''];
-    }
-    const removeQueryString = path.split('?')[0];
-    const segments = removeQueryString.split('/')
-        .map(s => s.trim())
-        .filter(s => s.length > 0);
-    if (segments.length === 0) {
-        return [''];
-    }
-    else {
-        return segments;
-    }
-};
-
-const printRoutes = (routes) => {
-    console.group(`[ion-core] ROUTES[${routes.length}]`);
-    for (const chain of routes) {
-        const path = [];
-        chain.forEach(r => path.push(...r.path));
-        const ids = chain.map(r => r.id);
-        console.debug(`%c ${generatePath(path)}`, 'font-weight: bold; padding-left: 20px', '=>\t', `(${ids.join(', ')})`);
-    }
-    console.groupEnd();
-};
-const printRedirects = (redirects) => {
-    console.group(`[ion-core] REDIRECTS[${redirects.length}]`);
-    for (const redirect of redirects) {
-        if (redirect.to) {
-            console.debug('FROM: ', `$c ${generatePath(redirect.from)}`, 'font-weight: bold', ' TO: ', `$c ${generatePath(redirect.to)}`, 'font-weight: bold');
-        }
-    }
-    console.groupEnd();
-};
-
-const writeNavState = async (root, chain, direction, index, changed = false) => {
-    try {
-        // find next navigation outlet in the DOM
-        const outlet = searchNavNode(root);
-        // make sure we can continue interacting the DOM, otherwise abort
-        if (index >= chain.length || !outlet) {
-            return changed;
-        }
-        await outlet.componentOnReady();
-        const route = chain[index];
-        const result = await outlet.setRouteId(route.id, route.params, direction);
-        // if the outlet changed the page, reset navigation to neutral (no direction)
-        // this means nested outlets will not animate
-        if (result.changed) {
-            direction = ROUTER_INTENT_NONE;
-            changed = true;
-        }
-        // recursively set nested outlets
-        changed = await writeNavState(result.element, chain, direction, index + 1, changed);
-        // once all nested outlets are visible let's make the parent visible too,
-        // using markVisible prevents flickering
-        if (result.markVisible) {
-            await result.markVisible();
-        }
-        return changed;
-    }
-    catch (e) {
-        console.error(e);
-        return false;
-    }
-};
-const readNavState = async (root) => {
-    const ids = [];
-    let outlet;
-    let node = root;
-    // tslint:disable-next-line:no-constant-condition
-    while (true) {
-        outlet = searchNavNode(node);
-        if (outlet) {
-            const id = await outlet.getRouteId();
-            if (id) {
-                node = id.element;
-                id.element = undefined;
-                ids.push(id);
-            }
-            else {
-                break;
-            }
-        }
-        else {
-            break;
-        }
-    }
-    return { ids, outlet };
-};
-const waitUntilNavNode = () => {
-    if (searchNavNode(document.body)) {
-        return Promise.resolve();
-    }
-    return new Promise(resolve => {
-        window.addEventListener('ionNavWillLoad', resolve, { once: true });
-    });
-};
-const QUERY = ':not([no-router]) ion-nav, :not([no-router]) ion-tabs, :not([no-router]) ion-router-outlet';
-const searchNavNode = (root) => {
-    if (!root) {
-        return undefined;
-    }
-    if (root.matches(QUERY)) {
-        return root;
-    }
-    const outlet = root.querySelector(QUERY);
-    return outlet ? outlet : undefined;
-};
-
-const matchesRedirect = (input, route) => {
-    const { from, to } = route;
-    if (to === undefined) {
-        return false;
-    }
-    if (from.length > input.length) {
-        return false;
-    }
-    for (let i = 0; i < from.length; i++) {
-        const expected = from[i];
-        if (expected === '*') {
-            return true;
-        }
-        if (expected !== input[i]) {
-            return false;
-        }
-    }
-    return from.length === input.length;
-};
-const routeRedirect = (path, routes) => {
-    return routes.find(route => matchesRedirect(path, route));
-};
-const matchesIDs = (ids, chain) => {
-    const len = Math.min(ids.length, chain.length);
-    let i = 0;
-    for (; i < len; i++) {
-        if (ids[i].toLowerCase() !== chain[i].id) {
-            break;
-        }
-    }
-    return i;
-};
-const matchesPath = (inputPath, chain) => {
-    const segments = new RouterSegments(inputPath);
-    let matchesDefault = false;
-    let allparams;
-    for (let i = 0; i < chain.length; i++) {
-        const path = chain[i].path;
-        if (path[0] === '') {
-            matchesDefault = true;
-        }
-        else {
-            for (const segment of path) {
-                const data = segments.next();
-                // data param
-                if (segment[0] === ':') {
-                    if (data === '') {
-                        return null;
-                    }
-                    allparams = allparams || [];
-                    const params = allparams[i] || (allparams[i] = {});
-                    params[segment.slice(1)] = data;
-                }
-                else if (data !== segment) {
-                    return null;
-                }
-            }
-            matchesDefault = false;
-        }
-    }
-    const matches = (matchesDefault)
-        ? matchesDefault === (segments.next() === '')
-        : true;
-    if (!matches) {
-        return null;
-    }
-    if (allparams) {
-        return chain.map((route, i) => ({
-            id: route.id,
-            path: route.path,
-            params: mergeParams(route.params, allparams[i])
-        }));
-    }
-    return chain;
-};
-const mergeParams = (a, b) => {
-    if (!a && b) {
-        return b;
-    }
-    else if (a && !b) {
-        return a;
-    }
-    else if (a && b) {
-        return Object.assign(Object.assign({}, a), b);
-    }
-    return undefined;
-};
-const routerIDsToChain = (ids, chains) => {
-    let match = null;
-    let maxMatches = 0;
-    const plainIDs = ids.map(i => i.id);
-    for (const chain of chains) {
-        const score = matchesIDs(plainIDs, chain);
-        if (score > maxMatches) {
-            match = chain;
-            maxMatches = score;
-        }
-    }
-    if (match) {
-        return match.map((route, i) => ({
-            id: route.id,
-            path: route.path,
-            params: mergeParams(route.params, ids[i] && ids[i].params)
-        }));
-    }
-    return null;
-};
-const routerPathToChain = (path, chains) => {
-    let match = null;
-    let matches = 0;
-    for (const chain of chains) {
-        const matchedChain = matchesPath(path, chain);
-        if (matchedChain !== null) {
-            const score = computePriority(matchedChain);
-            if (score > matches) {
-                matches = score;
-                match = matchedChain;
-            }
-        }
-    }
-    return match;
-};
-const computePriority = (chain) => {
-    let score = 1;
-    let level = 1;
-    for (const route of chain) {
-        for (const path of route.path) {
-            if (path[0] === ':') {
-                score += Math.pow(1, level);
-            }
-            else if (path !== '') {
-                score += Math.pow(2, level);
-            }
-            level++;
-        }
-    }
-    return score;
-};
-class RouterSegments {
-    constructor(path) {
-        this.path = path.slice();
-    }
-    next() {
-        if (this.path.length > 0) {
-            return this.path.shift();
-        }
-        return '';
-    }
-}
-
-const readRedirects = (root) => {
-    return Array.from(root.children)
-        .filter(el => el.tagName === 'ION-ROUTE-REDIRECT')
-        .map(el => {
-        const to = readProp(el, 'to');
-        return {
-            from: parsePath$1(readProp(el, 'from')),
-            to: to == null ? undefined : parsePath$1(to),
-        };
-    });
-};
-const readRoutes = (root) => {
-    return flattenRouterTree(readRouteNodes(root));
-};
-const readRouteNodes = (root, node = root) => {
-    return Array.from(node.children)
-        .filter(el => el.tagName === 'ION-ROUTE' && el.component)
-        .map(el => {
-        const component = readProp(el, 'component');
-        if (component == null) {
-            throw new Error('component missing in ion-route');
-        }
-        return {
-            path: parsePath$1(readProp(el, 'url')),
-            id: component.toLowerCase(),
-            params: el.componentProps,
-            children: readRouteNodes(root, el)
-        };
-    });
-};
-const readProp = (el, prop) => {
-    if (prop in el) {
-        return el[prop];
-    }
-    if (el.hasAttribute(prop)) {
-        return el.getAttribute(prop);
-    }
-    return null;
-};
-const flattenRouterTree = (nodes) => {
-    const routes = [];
-    for (const node of nodes) {
-        flattenNode([], routes, node);
-    }
-    return routes;
-};
-const flattenNode = (chain, routes, node) => {
-    const s = chain.slice();
-    s.push({
-        id: node.id,
-        path: node.path,
-        params: node.params
-    });
-    if (node.children.length === 0) {
-        routes.push(s);
-        return;
-    }
-    for (const sub of node.children) {
-        flattenNode(s, routes, sub);
-    }
-};
-
-class Router$1 {
-    constructor(hostRef) {
-        registerInstance(this, hostRef);
-        this.previousPath = null;
-        this.busy = false;
-        this.state = 0;
-        this.lastState = 0;
-        /**
-         * By default `ion-router` will match the routes at the root path ("/").
-         * That can be changed when
-         *
-         */
-        this.root = '/';
-        /**
-         * The router can work in two "modes":
-         * - With hash: `/index.html#/path/to/page`
-         * - Without hash: `/path/to/page`
-         *
-         * Using one or another might depend in the requirements of your app and/or where it's deployed.
-         *
-         * Usually "hash-less" navigation works better for SEO and it's more user friendly too, but it might
-         * requires additional server-side configuration in order to properly work.
-         *
-         * On the otherside hash-navigation is much easier to deploy, it even works over the file protocol.
-         *
-         * By default, this property is `true`, change to `false` to allow hash-less URLs.
-         */
-        this.useHash = true;
-        this.ionRouteWillChange = createEvent(this, "ionRouteWillChange", 7);
-        this.ionRouteDidChange = createEvent(this, "ionRouteDidChange", 7);
-    }
-    async componentWillLoad() {
-        console.debug('[ion-router] router will load');
-        await waitUntilNavNode();
-        console.debug('[ion-router] found nav');
-        await this.onRoutesChanged();
-    }
-    componentDidLoad() {
-        window.addEventListener('ionRouteRedirectChanged', debounce(this.onRedirectChanged.bind(this), 10));
-        window.addEventListener('ionRouteDataChanged', debounce(this.onRoutesChanged.bind(this), 100));
-    }
-    onPopState() {
-        const direction = this.historyDirection();
-        const path = this.getPath();
-        console.debug('[ion-router] URL changed -> update nav', path, direction);
-        return this.writeNavStateRoot(path, direction);
-    }
-    onBackButton(ev) {
-        ev.detail.register(0, processNextHandler => {
-            this.back();
-            processNextHandler();
-        });
-    }
-    /**
-     * Navigate to the specified URL.
-     *
-     * @param url The url to navigate to.
-     * @param direction The direction of the animation. Defaults to `"forward"`.
-     */
-    push(url, direction = 'forward') {
-        if (url.startsWith('.')) {
-            url = (new URL(url, window.location.href)).pathname;
-        }
-        console.debug('[ion-router] URL pushed -> updating nav', url, direction);
-        const path = parsePath$1(url);
-        const queryString = url.split('?')[1];
-        this.setPath(path, direction, queryString);
-        return this.writeNavStateRoot(path, direction);
-    }
-    /**
-     * Go back to previous page in the window.history.
-     */
-    back() {
-        window.history.back();
-        return Promise.resolve(this.waitPromise);
-    }
-    /** @internal */
-    async printDebug() {
-        console.debug('CURRENT PATH', this.getPath());
-        console.debug('PREVIOUS PATH', this.previousPath);
-        printRoutes(readRoutes(this.el));
-        printRedirects(readRedirects(this.el));
-    }
-    /** @internal */
-    async navChanged(direction) {
-        if (this.busy) {
-            console.warn('[ion-router] router is busy, navChanged was cancelled');
-            return false;
-        }
-        const { ids, outlet } = await readNavState(window.document.body);
-        const routes = readRoutes(this.el);
-        const chain = routerIDsToChain(ids, routes);
-        if (!chain) {
-            console.warn('[ion-router] no matching URL for ', ids.map(i => i.id));
-            return false;
-        }
-        const path = chainToPath(chain);
-        if (!path) {
-            console.warn('[ion-router] router could not match path because some required param is missing');
-            return false;
-        }
-        console.debug('[ion-router] nav changed -> update URL', ids, path);
-        this.setPath(path, direction);
-        await this.safeWriteNavState(outlet, chain, ROUTER_INTENT_NONE, path, null, ids.length);
-        return true;
-    }
-    onRedirectChanged() {
-        const path = this.getPath();
-        if (path && routeRedirect(path, readRedirects(this.el))) {
-            this.writeNavStateRoot(path, ROUTER_INTENT_NONE);
-        }
-    }
-    onRoutesChanged() {
-        return this.writeNavStateRoot(this.getPath(), ROUTER_INTENT_NONE);
-    }
-    historyDirection() {
-        const win = window;
-        if (win.history.state === null) {
-            this.state++;
-            win.history.replaceState(this.state, win.document.title, win.document.location && win.document.location.href);
-        }
-        const state = win.history.state;
-        const lastState = this.lastState;
-        this.lastState = state;
-        if (state > lastState) {
-            return ROUTER_INTENT_FORWARD;
-        }
-        else if (state < lastState) {
-            return ROUTER_INTENT_BACK;
-        }
-        else {
-            return ROUTER_INTENT_NONE;
-        }
-    }
-    async writeNavStateRoot(path, direction) {
-        if (!path) {
-            console.error('[ion-router] URL is not part of the routing set');
-            return false;
-        }
-        // lookup redirect rule
-        const redirects = readRedirects(this.el);
-        const redirect = routeRedirect(path, redirects);
-        let redirectFrom = null;
-        if (redirect) {
-            this.setPath(redirect.to, direction);
-            redirectFrom = redirect.from;
-            path = redirect.to;
-        }
-        // lookup route chain
-        const routes = readRoutes(this.el);
-        const chain = routerPathToChain(path, routes);
-        if (!chain) {
-            console.error('[ion-router] the path does not match any route');
-            return false;
-        }
-        // write DOM give
-        return this.safeWriteNavState(document.body, chain, direction, path, redirectFrom);
-    }
-    async safeWriteNavState(node, chain, direction, path, redirectFrom, index = 0) {
-        const unlock = await this.lock();
-        let changed = false;
-        try {
-            changed = await this.writeNavState(node, chain, direction, path, redirectFrom, index);
-        }
-        catch (e) {
-            console.error(e);
-        }
-        unlock();
-        return changed;
-    }
-    async lock() {
-        const p = this.waitPromise;
-        let resolve;
-        this.waitPromise = new Promise(r => resolve = r);
-        if (p !== undefined) {
-            await p;
-        }
-        return resolve;
-    }
-    async writeNavState(node, chain, direction, path, redirectFrom, index = 0) {
-        if (this.busy) {
-            console.warn('[ion-router] router is busy, transition was cancelled');
-            return false;
-        }
-        this.busy = true;
-        // generate route event and emit will change
-        const routeEvent = this.routeChangeEvent(path, redirectFrom);
-        if (routeEvent) {
-            this.ionRouteWillChange.emit(routeEvent);
-        }
-        const changed = await writeNavState(node, chain, direction, index);
-        this.busy = false;
-        if (changed) {
-            console.debug('[ion-router] route changed', path);
-        }
-        // emit did change
-        if (routeEvent) {
-            this.ionRouteDidChange.emit(routeEvent);
-        }
-        return changed;
-    }
-    setPath(path, direction, queryString) {
-        this.state++;
-        writePath(window.history, this.root, this.useHash, path, direction, this.state, queryString);
-    }
-    getPath() {
-        return readPath(window.location, this.root, this.useHash);
-    }
-    routeChangeEvent(path, redirectFromPath) {
-        const from = this.previousPath;
-        const to = generatePath(path);
-        this.previousPath = to;
-        if (to === from) {
-            return null;
-        }
-        const redirectedFrom = redirectFromPath ? generatePath(redirectFromPath) : null;
-        return {
-            from,
-            redirectedFrom,
-            to,
-        };
-    }
-    get el() { return getElement(this); }
-    static get cmpMeta() { return {
-        "$flags$": 0,
-        "$tagName$": "ion-router",
-        "$members$": {
-            "root": [1],
-            "useHash": [4, "use-hash"],
-            "push": [64],
-            "back": [64],
-            "printDebug": [64],
-            "navChanged": [64]
-        },
-        "$listeners$": [[8, "popstate", "onPopState"], [4, "ionBackButton", "onBackButton"]],
         "$lazyBundleIds$": "-",
         "$attrsToReflect$": []
     }; }
@@ -35147,8 +35372,8 @@ styles.set('sc-ion-chip-md','/*!\@:host*/.sc-ion-chip-md-h{--background:rgba(var
 styles.set('sc-ion-col','/*!\@:host*/.sc-ion-col-h{padding-left:var(--ion-grid-column-padding-xs,var(--ion-grid-column-padding,5px));padding-right:var(--ion-grid-column-padding-xs,var(--ion-grid-column-padding,5px));padding-top:var(--ion-grid-column-padding-xs,var(--ion-grid-column-padding,5px));padding-bottom:var(--ion-grid-column-padding-xs,var(--ion-grid-column-padding,5px));margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative;-ms-flex-preferred-size:0;flex-basis:0;-ms-flex-positive:1;flex-grow:1;width:100%;max-width:100%;min-height:1px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){/*!\@:host*/.sc-ion-col-h{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--ion-grid-column-padding-xs,var(--ion-grid-column-padding,5px));padding-inline-start:var(--ion-grid-column-padding-xs,var(--ion-grid-column-padding,5px));-webkit-padding-end:var(--ion-grid-column-padding-xs,var(--ion-grid-column-padding,5px));padding-inline-end:var(--ion-grid-column-padding-xs,var(--ion-grid-column-padding,5px))}}\@media (min-width:576px){/*!\@:host*/.sc-ion-col-h{padding-left:var(--ion-grid-column-padding-sm,var(--ion-grid-column-padding,5px));padding-right:var(--ion-grid-column-padding-sm,var(--ion-grid-column-padding,5px));padding-top:var(--ion-grid-column-padding-sm,var(--ion-grid-column-padding,5px));padding-bottom:var(--ion-grid-column-padding-sm,var(--ion-grid-column-padding,5px))}/*!\@\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0)*/\@supports.sc-ion-col ((-webkit-margin-start.sc-ion-col:0) or.sc-ion-col (margin-inline-start.sc-ion-col:0)) or.sc-ion-col (-webkit-margin-start.sc-ion-col:0){.sc-ion-col-h{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--ion-grid-column-padding-sm,var(--ion-grid-column-padding,5px));padding-inline-start:var(--ion-grid-column-padding-sm,var(--ion-grid-column-padding,5px));-webkit-padding-end:var(--ion-grid-column-padding-sm,var(--ion-grid-column-padding,5px));padding-inline-end:var(--ion-grid-column-padding-sm,var(--ion-grid-column-padding,5px))}}}\@media (min-width:768px){/*!\@:host*/.sc-ion-col-h{padding-left:var(--ion-grid-column-padding-md,var(--ion-grid-column-padding,5px));padding-right:var(--ion-grid-column-padding-md,var(--ion-grid-column-padding,5px));padding-top:var(--ion-grid-column-padding-md,var(--ion-grid-column-padding,5px));padding-bottom:var(--ion-grid-column-padding-md,var(--ion-grid-column-padding,5px))}/*!\@\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0)*/\@supports.sc-ion-col ((-webkit-margin-start.sc-ion-col:0) or.sc-ion-col (margin-inline-start.sc-ion-col:0)) or.sc-ion-col (-webkit-margin-start.sc-ion-col:0){.sc-ion-col-h{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--ion-grid-column-padding-md,var(--ion-grid-column-padding,5px));padding-inline-start:var(--ion-grid-column-padding-md,var(--ion-grid-column-padding,5px));-webkit-padding-end:var(--ion-grid-column-padding-md,var(--ion-grid-column-padding,5px));padding-inline-end:var(--ion-grid-column-padding-md,var(--ion-grid-column-padding,5px))}}}\@media (min-width:992px){/*!\@:host*/.sc-ion-col-h{padding-left:var(--ion-grid-column-padding-lg,var(--ion-grid-column-padding,5px));padding-right:var(--ion-grid-column-padding-lg,var(--ion-grid-column-padding,5px));padding-top:var(--ion-grid-column-padding-lg,var(--ion-grid-column-padding,5px));padding-bottom:var(--ion-grid-column-padding-lg,var(--ion-grid-column-padding,5px))}/*!\@\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0)*/\@supports.sc-ion-col ((-webkit-margin-start.sc-ion-col:0) or.sc-ion-col (margin-inline-start.sc-ion-col:0)) or.sc-ion-col (-webkit-margin-start.sc-ion-col:0){.sc-ion-col-h{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--ion-grid-column-padding-lg,var(--ion-grid-column-padding,5px));padding-inline-start:var(--ion-grid-column-padding-lg,var(--ion-grid-column-padding,5px));-webkit-padding-end:var(--ion-grid-column-padding-lg,var(--ion-grid-column-padding,5px));padding-inline-end:var(--ion-grid-column-padding-lg,var(--ion-grid-column-padding,5px))}}}\@media (min-width:1200px){/*!\@:host*/.sc-ion-col-h{padding-left:var(--ion-grid-column-padding-xl,var(--ion-grid-column-padding,5px));padding-right:var(--ion-grid-column-padding-xl,var(--ion-grid-column-padding,5px));padding-top:var(--ion-grid-column-padding-xl,var(--ion-grid-column-padding,5px));padding-bottom:var(--ion-grid-column-padding-xl,var(--ion-grid-column-padding,5px))}/*!\@\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0)*/\@supports.sc-ion-col ((-webkit-margin-start.sc-ion-col:0) or.sc-ion-col (margin-inline-start.sc-ion-col:0)) or.sc-ion-col (-webkit-margin-start.sc-ion-col:0){.sc-ion-col-h{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--ion-grid-column-padding-xl,var(--ion-grid-column-padding,5px));padding-inline-start:var(--ion-grid-column-padding-xl,var(--ion-grid-column-padding,5px));-webkit-padding-end:var(--ion-grid-column-padding-xl,var(--ion-grid-column-padding,5px));padding-inline-end:var(--ion-grid-column-padding-xl,var(--ion-grid-column-padding,5px))}}}');
 styles.set('sc-color-accordion','color-accordion{display:block;padding-top:20px;margin-bottom:80px}.color-menu,.color-submenu{display:block;margin:0;padding:0;list-style-type:none}.color-menu-item{display:list-item;position:relative;margin-bottom:5px;list-style-type:none;font-family:var(--code-font-family);font-size:14px}.color-menu-item .color-menu-text{height:55px}.color-menu-text{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center}.color-menu-item>.color-menu-text{cursor:pointer}.color-menu-item svg{-webkit-transition:-webkit-transform .1s;transition:-webkit-transform .1s;transition:transform .1s;transition:transform .1s,-webkit-transform .1s;position:absolute;top:24px;right:12px;pointer-events:none}.color-submenu{height:0;opacity:0}.color-submenu-item{display:list-item;margin:0;font-family:var(--code-font-family);font-size:13px;pointer-events:none;-webkit-transition:height .16s,opacity .16s;transition:height .16s,opacity .16s}.color-submenu-item .color-menu-text{height:40px}.color-menu-value{margin-left:auto;padding-right:40px}.color-menu-text{padding-left:20px}.color-menu-item-active svg{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.color-menu-item-active .color-submenu{height:80px;opacity:1;pointer-events:all}');
 styles.set('sc-code-color','code-color{display:inline-block;vertical-align:bottom}.code-color-block{display:inline-block;width:20px;height:20px;margin-right:2px;border:1px solid var(--line-rule-color);border-radius:4px}.code-color-block,.code-color-value{vertical-align:middle}');
-styles.set('sc-command-line','command-line{background-color:var(--text-color--dark);border-radius:7px;color:hsla(0,0%,100%,.7);display:block;font-family:var(--code-font-family);font-size:13px;letter-spacing:normal;line-height:1.5;margin:0 0 2rem 0;overflow:scroll;padding:1.25em 2em 2em}command-line[nobuttons]{padding:2em}command-line svg{height:13px;margin-bottom:1em;margin-left:-.3em}command-line>svg>circle:first-child{fill:#fc5e64}command-line>svg>circle:nth-child(2){fill:#fdba46}command-line>svg>circle:nth-child(3){fill:#2ec64f}');
 styles.set('sc-command-cursor','command-cursor{color:#fbb47d}command-cursor.blink{-webkit-animation:blink 1s step-start infinite;animation:blink 1s step-start infinite}\@-webkit-keyframes blink{50%{opacity:0}}\@keyframes blink{50%{opacity:0}}');
+styles.set('sc-command-line','command-line{background-color:var(--text-color--dark);border-radius:7px;color:hsla(0,0%,100%,.7);display:block;font-family:var(--code-font-family);font-size:13px;letter-spacing:normal;line-height:1.5;margin:0 0 2rem 0;overflow:scroll;padding:1.25em 2em 2em}command-line[nobuttons]{padding:2em}command-line svg{height:13px;margin-bottom:1em;margin-left:-.3em}command-line>svg>circle:first-child{fill:#fc5e64}command-line>svg>circle:nth-child(2){fill:#fdba46}command-line>svg>circle:nth-child(3){fill:#2ec64f}');
 styles.set('sc-command-output','command-output span.bold,command-output span.bold a{font-family:var(--code-font-family);font-weight:700;color:#fff}command-output span.green{color:#8ae26e}command-output span.cyan{color:#c3b3f9}command-output span.yellow{color:#fffdb2}');
 styles.set('sc-command-prompt','command-prompt{display:block;white-space:nowrap}command-prompt:before{content:\"$ \";color:#fb96f9}');
 styles.set('sc-ion-content','/*!\@:host*/.sc-ion-content-h{--background:var(--ion-background-color,#fff);--color:var(--ion-text-color,#000);--padding-top:0px;--padding-bottom:0px;--padding-start:0px;--padding-end:0px;--keyboard-offset:0px;--offset-top:0px;--offset-bottom:0px;--overflow:auto;display:block;position:relative;-ms-flex:1;flex:1;width:100%;height:100%;margin:0!important;padding:0!important;font-family:var(--ion-font-family,inherit);contain:size style}/*!\@:host(.ion-color) .inner-scroll*/.ion-color.sc-ion-content-h .inner-scroll.sc-ion-content{background:var(--ion-color-base);color:var(--ion-color-contrast)}/*!\@:host(.outer-content)*/.outer-content.sc-ion-content-h{--background:var(--ion-color-step-50,#f2f2f2)}/*!\@#background-content*/#background-content.sc-ion-content{background:var(--background)}/*!\@#background-content,.inner-scroll*/#background-content.sc-ion-content, .inner-scroll.sc-ion-content{left:0;right:0;top:calc(var(--offset-top) * -1);bottom:calc(var(--offset-bottom) * -1);position:absolute}/*!\@.inner-scroll*/.inner-scroll.sc-ion-content{padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:calc(var(--padding-top) + var(--offset-top));padding-bottom:calc(var(--padding-bottom) + var(--keyboard-offset) + var(--offset-bottom));color:var(--color);-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){/*!\@.inner-scroll*/.inner-scroll.sc-ion-content{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}/*!\@.scroll-x,.scroll-y*/.scroll-x.sc-ion-content, .scroll-y.sc-ion-content{-webkit-overflow-scrolling:touch;will-change:scroll-position}/*!\@.scroll-y*/.scroll-y.sc-ion-content{-ms-touch-action:pan-y;touch-action:pan-y;overflow-y:var(--overflow);overscroll-behavior-y:contain}/*!\@.scroll-x*/.scroll-x.sc-ion-content{-ms-touch-action:pan-x;touch-action:pan-x;overflow-x:var(--overflow);overscroll-behavior-x:contain}/*!\@.scroll-x.scroll-y*/.scroll-x.scroll-y.sc-ion-content{-ms-touch-action:auto;touch-action:auto}/*!\@.overscroll:after,.overscroll:before*/.overscroll.sc-ion-content:after, .overscroll.sc-ion-content:before{position:absolute;width:1px;height:1px;content:\"\"}/*!\@.overscroll:before*/.overscroll.sc-ion-content:before{bottom:-1px}/*!\@.overscroll:after*/.overscroll.sc-ion-content:after{top:-1px}/*!\@:host(.content-sizing)*/.content-sizing.sc-ion-content-h{contain:none}/*!\@:host(.content-sizing) .inner-scroll*/.content-sizing.sc-ion-content-h .inner-scroll.sc-ion-content{position:relative}/*!\@.transition-effect*/.transition-effect.sc-ion-content{display:none;position:absolute;left:-100%;width:100%;height:100vh;opacity:0;pointer-events:none}/*!\@.transition-cover*/.transition-cover.sc-ion-content{width:100%;background:#000;opacity:.1}/*!\@.transition-cover,.transition-shadow*/.transition-cover.sc-ion-content, .transition-shadow.sc-ion-content{position:absolute;right:0;height:100%}/*!\@.transition-shadow*/.transition-shadow.sc-ion-content{display:block;width:10px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAgCAYAAAAIXrg4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTE3MDgzRkQ5QTkyMTFFOUEwNzQ5MkJFREE1NUY2MjQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTE3MDgzRkU5QTkyMTFFOUEwNzQ5MkJFREE1NUY2MjQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxMTcwODNGQjlBOTIxMUU5QTA3NDkyQkVEQTU1RjYyNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxMTcwODNGQzlBOTIxMUU5QTA3NDkyQkVEQTU1RjYyNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmePEuQAAABNSURBVHjaYvz//z8DIxAwMDAwATGMhmFmPDQuOSZks0AMmoJBaQHjkPfB0Lfg/2gQjVow+HPy/yHvg9GiYjQfjMbBqAWjFgy/4hogwADYqwdzxy5BuwAAAABJRU5ErkJggg==);background-repeat:repeat-y;background-size:10px 16px}/*!\@::slotted([slot=fixed])*/.sc-ion-content-s > [slot=fixed]{position:absolute}');

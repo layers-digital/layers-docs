@@ -48,11 +48,17 @@ export function GenerateOpenApiNavigation(base: string, spec: OpenAPIObject) {
 
   for (let group of spec["x-nav"]) {
     let items: any = []
-    for (let tag of group.tags) {
-      // Join Schemas
-      for (let schema of schemasByTag.get(tag) ?? []) {
+    // Join Schemas
+    for (let tag of (group.schemas || [])) {
+      let schema = schemas.find(s => s.name == tag)
+      if (schema) {
         items.push(GetSchemaMenu(base, schema))
       }
+    }
+    for (let tag of (group.tags || [])) {
+      // for (let schema of schemasByTag.get(tag) ?? []) {
+      //   items.push(GetSchemaMenu(base, schema))
+      // }
       // Join Routes
       for (let route of routesByTag.get(tag) ?? []) {
         items.push(GetRouteMenu(base, route))

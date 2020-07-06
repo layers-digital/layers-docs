@@ -1,10 +1,10 @@
 import { h } from '@stencil/core';
-import { RouteRenderProps } from '@stencil/router';
+// import { RouteRenderProps } from '@stencil/router';
 
-export default (props: RouteRenderProps) => {
-  const navItems = items[props.match.params.service] ?? items['intro']
-  console.log(items[props.match.params.service])
-  return <docs-nav items={navItems} />
+export default () => {
+  // const navItems = items[props.match.params.service] ?? items['intro']
+  // console.log(items[props.match.params.service])
+  return <docs-nav items={items} />
 };
 
 export const categories = [

@@ -7,7 +7,7 @@ import { Logo } from '../../icons';
 // import appflowTemplate from './templates/appflow';
 // import mainTemplate from './templates/main';
 import api from './templates/api';
-import guideTemplate, { categories as guideCategories } from './templates/guides';
+import guideTemplate from './templates/guides';
 
 @Component({
   tag: 'docs-menu',
@@ -30,11 +30,11 @@ export class DocsMenu {
             <select-category options={api.categories}/>
           </section>
         </stencil-route>
-        <stencil-route url="/docs/(guides)?/:service?">
+        {/* <stencil-route url="/docs/(guides)?/:service?">
           <section class="MenuControls">
             <select-category options={guideCategories}/>
           </section>
-        </stencil-route>
+        </stencil-route> */}
         <stencil-route></stencil-route>
       </stencil-route-switch>,
       <stencil-route-switch scrollTopOffset={0} class="Menu">

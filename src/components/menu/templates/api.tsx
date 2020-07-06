@@ -27,7 +27,7 @@ const Template = {
     {
       icon: '/docs/assets/icons/OAuth.svg',
       url: '/docs/api/auth',
-      title: 'Autenticação',
+      title: 'Autenticação OAuth',
     },
     {
       icon: '/docs/assets/icons/Data.svg',
@@ -41,13 +41,28 @@ const Template = {
     },
     {
       icon: '/docs/assets/icons/Notifications.svg',
-      url: '/docs/api/notification',
+      url: '/docs/api/notifications',
       title: 'Notificações'
     },
     {
       icon: '/docs/assets/icons/Payments.svg',
       url: '/docs/api/payments',
       title: 'Pagamentos'
+    },
+    {
+      icon: '/docs/assets/icons/Payments.svg',
+      url: '/docs/api/communication',
+      title: 'Comunicação'
+    },
+    {
+      icon: '/docs/assets/icons/Payments.svg',
+      url: '/docs/api/tickets',
+      title: 'Atendimentos'
+    },
+    {
+      icon: '/docs/assets/icons/Payments.svg',
+      url: '/docs/api/tickets',
+      title: 'Atendimentos'
     },
   ],
 }

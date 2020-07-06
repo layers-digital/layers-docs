@@ -1,0 +1,152 @@
+{
+  "template": "api-route",
+  "title": "Lists channels linked to item",
+  "path": "/docs/api/payments/items/itemId/links",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Lists channels linked to item (returns only published channels)"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/items/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{itemId}"
+            ],
+            "/links"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/items/{itemId}/links",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Items"
+      ],
+      "summary": "Lists channels linked to item",
+      "description": "Lists channels linked to item (returns only published channels)",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "itemId to list linked channels",
+          "name": "itemId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/params/ChannelLink"
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 400,
+                "name": "BadRequest",
+                "type": "InvalidParameter",
+                "error": "Validation failed: document: Path `name` is required"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Lists channels linked to item",
+        "url": "/docs/api/payments/items/itemId/links"
+      }
+    },
+    "tags": [
+      "Items"
+    ],
+    "summary": "Lists channels linked to item"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-items-itemid-links"
+}

@@ -1,0 +1,143 @@
+{
+  "template": "api-route",
+  "title": "Listar grupos",
+  "path": "/docs/api/data/groups",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Listar grupos existentes no Layers"
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/groups"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/groups",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Listar grupos",
+      "description": "Listar grupos existentes no Layers",
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:read",
+            "group:read:scoped"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/CreatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/Active"
+        },
+        {
+          "$ref": "#/components/parameters/Name"
+        },
+        {
+          "$ref": "#/components/parameters/GroupAdmin"
+        },
+        {
+          "$ref": "#/components/parameters/Season"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Listar grupos",
+        "url": "/docs/api/data/groups"
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Listar grupos"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-groups"
+}

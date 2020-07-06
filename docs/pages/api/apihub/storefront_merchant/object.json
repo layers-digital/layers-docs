@@ -1,0 +1,50 @@
+{
+  "template": "api-object",
+  "title": "Entidade StorefrontMerchant",
+  "path": "/docs/api/apihub/storefront_merchant/object",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "A simplified version of the Merchant (community) that can be accessed publicly"
+    ]
+  ],
+  "serviceId": "apihub",
+  "schema": {
+    "type": "schema",
+    "name": "StorefrontMerchant",
+    "spec": {
+      "type": "object",
+      "description": "A simplified version of the Merchant (community) that can be accessed publicly",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Merchant most known name",
+          "example": "Jaqueline Uniformes"
+        },
+        "legal": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Legal name of this Merchant",
+              "example": "Jaqueline vendas de Uniformes LTDA."
+            },
+            "document": {
+              "$ref": "#/components/schemas/TaxDocument"
+            }
+          }
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade StorefrontMerchant"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-storefront_merchant-object"
+}

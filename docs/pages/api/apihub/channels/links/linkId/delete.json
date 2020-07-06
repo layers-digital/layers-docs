@@ -1,0 +1,82 @@
+{
+  "template": "api-route",
+  "title": "Remove channel link",
+  "path": "/docs/api/apihub/channels/links/linkId/delete",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Remove channel link"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/channels/links/{linkId}",
+    "method": "delete",
+    "spec": {
+      "tags": [
+        "Channel Links"
+      ],
+      "summary": "Remove channel link",
+      "description": "Remove channel link",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "Id of channel link to be viewed",
+          "name": "linkId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/params/ChannelLink"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 404,
+                "name": "NotFound",
+                "type": "NotFound",
+                "error": "ChannelLink was not Found"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Channel Links"
+    ],
+    "summary": "Remove channel link"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-channels-links-linkid-delete"
+}

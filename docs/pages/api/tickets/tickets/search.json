@@ -1,0 +1,157 @@
+{
+  "template": "api-route",
+  "title": "Buscar mensagens",
+  "path": "/docs/api/tickets/tickets/search",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Buscar mensagens no Layers Education"
+    ]
+  ],
+  "serviceId": "tickets",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/tickets/search"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/tickets/search",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Mensagens"
+      ],
+      "summary": "Buscar mensagens",
+      "description": "Buscar mensagens no Layers Education",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/CreatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/Status"
+        },
+        {
+          "$ref": "#/components/parameters/Agent"
+        },
+        {
+          "$ref": "#/components/parameters/Channel"
+        },
+        {
+          "$ref": "#/components/parameters/MessageAuthorId"
+        },
+        {
+          "$ref": "#/components/parameters/MessageAuthorName"
+        },
+        {
+          "$ref": "#/components/parameters/MessageAuthorEmail"
+        },
+        {
+          "$ref": "#/components/parameters/Subject"
+        },
+        {
+          "$ref": "#/components/parameters/SourceType"
+        },
+        {
+          "$ref": "#/components/parameters/SourceAlias"
+        },
+        {
+          "$ref": "#/components/parameters/SourceId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "layers-permissions": [
+            "ticket:agent"
+          ],
+          "layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Buscar mensagens",
+        "url": "/docs/api/tickets/tickets/search"
+      }
+    },
+    "tags": [
+      "Mensagens"
+    ],
+    "summary": "Buscar mensagens"
+  },
+  "headings": [],
+  "pageClass": "page-api-tickets-tickets-search"
+}

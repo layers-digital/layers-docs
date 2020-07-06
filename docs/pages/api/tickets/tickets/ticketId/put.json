@@ -1,0 +1,140 @@
+{
+  "template": "api-route",
+  "title": "Editar mensagem",
+  "path": "/docs/api/tickets/tickets/ticketId/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Editar mensagem no Layers Education"
+    ]
+  ],
+  "serviceId": "tickets",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token put"
+              },
+              "PUT"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/tickets/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{ticketId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/tickets/{ticketId}",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Mensagens"
+      ],
+      "summary": "Editar mensagem",
+      "description": "Editar mensagem no Layers Education",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "layers-permissions": [
+            "ticket:agent"
+          ],
+          "layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Ticket"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Editar mensagem",
+        "url": "/docs/api/tickets/tickets/ticketId/put"
+      }
+    },
+    "tags": [
+      "Mensagens"
+    ],
+    "summary": "Editar mensagem"
+  },
+  "headings": [],
+  "pageClass": "page-api-tickets-tickets-ticketid-put"
+}

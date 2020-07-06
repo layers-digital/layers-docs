@@ -1,0 +1,134 @@
+{
+  "template": "api-route",
+  "title": "Visualizar informações do usuário",
+  "path": "/docs/api/data/users/userId",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Visualizar informações da conta de acesso do usuário especificado."
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/users/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{userId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/users/{userId}",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Usuários"
+      ],
+      "summary": "Visualizar informações do usuário",
+      "description": "Visualizar informações da conta de acesso do usuário especificado.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathUserId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "user:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Visualizar informações do usuário",
+        "url": "/docs/api/data/users/userId"
+      }
+    },
+    "tags": [
+      "Usuários"
+    ],
+    "summary": "Visualizar informações do usuário"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-users-userid"
+}

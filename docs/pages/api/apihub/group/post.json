@@ -1,0 +1,73 @@
+{
+  "template": "api-route",
+  "title": "Criar Grupo",
+  "path": "/docs/api/apihub/group/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Criar um novo grupo no Layers Education."
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/group",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Criar Grupo",
+      "description": "Criar um novo grupo no Layers Education.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Group"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Group"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Criar Grupo"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-group-post"
+}

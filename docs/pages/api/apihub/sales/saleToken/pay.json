@@ -1,0 +1,79 @@
+{
+  "template": "api-route",
+  "title": "Sale bank slip",
+  "path": "/docs/api/apihub/sales/saleToken/pay",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Returns the sale bank slip"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/sales/{saleToken}/pay",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Sales"
+      ],
+      "summary": "Sale bank slip",
+      "description": "Returns the sale bank slip\n",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "sale token",
+          "name": "saleToken",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hits": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Sale"
+                    }
+                  },
+                  "total": {
+                    "type": "integer",
+                    "description": "Total of items in the database"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Sales"
+    ],
+    "summary": "Sale bank slip"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-sales-saletoken-pay"
+}

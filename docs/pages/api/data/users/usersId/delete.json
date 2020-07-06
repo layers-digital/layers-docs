@@ -1,0 +1,140 @@
+{
+  "template": "api-route",
+  "title": "Deletar usuário",
+  "path": "/docs/api/data/users/usersId/delete",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Remover o usuário específicado do Layers. Essa ação ",
+      [
+        "strong",
+        null,
+        "pode"
+      ],
+      " ser revertida."
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token delete"
+              },
+              "DELETE"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/users/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{usersId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/users/{usersId}",
+    "method": "delete",
+    "spec": {
+      "tags": [
+        "Usuários"
+      ],
+      "summary": "Deletar usuário",
+      "description": "Remover o usuário específicado do Layers. Essa ação **pode** ser revertida.",
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "user:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "member"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathUserId"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Deletar usuário",
+        "url": "/docs/api/data/users/usersId/delete"
+      }
+    },
+    "tags": [
+      "Usuários"
+    ],
+    "summary": "Deletar usuário"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-users-usersid-delete"
+}

@@ -1,0 +1,3974 @@
+{
+  "title": "ion-content",
+  "path": "/docs/api/content",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "The content component provides an easy to use content area with some useful methods\nto control the scrollable area. There should only be one content in a single\nview."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Content, along with many other Ionic components, can be customized to modify its padding, margin, and more using the global styles provided in the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/layout/css-utilities"
+        },
+        "CSS Utilities"
+      ],
+      " or by individually styling it using CSS and the available ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/api/content/#css-custom-properties"
+        },
+        "CSS Custom Properties"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "fixed-content"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#fixed-content"
+        },
+        "Fixed Content"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "In order to place elements outside of the scrollable area, ",
+      [
+        "code",
+        null,
+        "slot=\"fixed\""
+      ],
+      " can be added to the element. This will absolutely position the element placing it in the top left. In order to place the element in a different position, style it using ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/position"
+        },
+        "top, right, bottom, and left"
+      ],
+      "."
+    ]
+  ],
+  "usage": {
+    "angular": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "html"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-content"
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "[scrollEvents]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "true",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "(ionScrollStart)"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "logScrollStart()",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "(ionScroll)"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "logScrolling($event)",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              "\n  ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "(ionScrollEnd)"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "logScrollEnd()",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "Main Content",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "div"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "slot"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "fixed",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "Fixed Content",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "div"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ]
+          ]
+        ],
+        "\n"
+      ]
+    ],
+    "javascript": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "html"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "Main Content",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "div"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "slot"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "fixed",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "Fixed Content",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "div"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ]
+          ]
+        ],
+        "\n"
+      ],
+      "\n\n",
+      [
+        "docs-code",
+        {
+          "language": "javascript"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "var"
+            ],
+            " content ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " document",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "querySelector"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'ion-content'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\ncontent",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            "scrollEvents ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token boolean"
+              },
+              "true"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\ncontent",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "addEventListener"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'ionScrollStart'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "=>"
+            ],
+            " console",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "log"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'scroll start'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\ncontent",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "addEventListener"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'ionScroll'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token parameter"
+              },
+              "ev"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "=>"
+            ],
+            " console",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "log"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'scroll'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ev",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            "detail",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\ncontent",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "addEventListener"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'ionScrollEnd'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "=>"
+            ],
+            " console",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "log"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'scroll end'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ]
+          ]
+        ],
+        "\n"
+      ]
+    ],
+    "react": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "tsx"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " React ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'react'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " IonContent ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'@ionic/react'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "const"
+            ],
+            " ContentExample",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " React",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function-variable function"
+              },
+              "FC"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "=>"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token class-name"
+                  },
+                  "IonContent"
+                ]
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "scrollEvents"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token boolean"
+                  },
+                  "true"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "onIonScrollStart"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  "=>"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "onIonScroll"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  "=>"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "onIonScrollEnd"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  "=>"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n      "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "Main Content"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n\n      "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "div"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "slot"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "fixed",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n        "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "Fixed Content"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n      "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "div"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n  "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token class-name"
+                  },
+                  "IonContent"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ]
+          ]
+        ],
+        "\n"
+      ]
+    ],
+    "stencil": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "tsx"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " Component",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " h ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'@stencil/core'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n@",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "Component"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  tag",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'content-example'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  styleUrl",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'content-example.css'"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "export"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "class"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token class-name"
+              },
+              "ContentExample"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "logScrollStart"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token builtin"
+              },
+              "console"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "log"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'Scroll start'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n\n  ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "logScrolling"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token parameter"
+              },
+              "ev"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token builtin"
+              },
+              "console"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "log"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'Scrolling'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ev",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n\n  ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "logScrollEnd"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token builtin"
+              },
+              "console"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "log"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'Scroll end'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n\n  ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "render"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "["
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-content"
+              ],
+              "\n        ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "scrollEvents"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token boolean"
+                  },
+                  "true"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              "\n        ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "onIonScrollStart"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  "=>"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "this"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "."
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token function"
+                  },
+                  "logScrollStart"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              "\n        ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "onIonScroll"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token parameter"
+                  },
+                  "ev"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  "=>"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "this"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "."
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token function"
+                  },
+                  "logScrolling"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                "ev",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              "\n        ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "onIonScrollEnd"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  "=>"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "this"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "."
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token function"
+                  },
+                  "logScrollEnd"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n          "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "Main Content"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n\n          "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "div"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "slot"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "fixed",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n            "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "Fixed Content"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n          "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "div"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n      "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "]"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ]
+          ]
+        ],
+        "\n"
+      ]
+    ],
+    "vue": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "html"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "template"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-content"
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                ":scrollEvents"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "true",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "@ionScrollStart"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "logScrollStart()",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "@ionScroll"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "logScrolling($event)",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              "\n    ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "@ionScrollEnd"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "logScrollEnd()",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "Main Content",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "div"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "slot"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ],
+                "fixed",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "\""
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n        ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "Fixed Content",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "h1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "div"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "template"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ]
+          ]
+        ],
+        "\n"
+      ]
+    ]
+  },
+  "props": [
+    {
+      "name": "color",
+      "type": "string | undefined",
+      "mutable": false,
+      "attr": "color",
+      "reflectToAttr": false,
+      "docs": "<p>The color to use from your application&#39;s color palette.\nDefault options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;tertiary&quot;</code>, <code>&quot;success&quot;</code>, <code>&quot;warning&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, <code>&quot;medium&quot;</code>, and <code>&quot;dark&quot;</code>.\nFor more information on colors, see <stencil-route-link url=/docs/theming/basics >theming</stencil-route-link>.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "forceOverscroll",
+      "type": "boolean | undefined",
+      "mutable": true,
+      "attr": "force-overscroll",
+      "reflectToAttr": false,
+      "docs": "<p>If <code>true</code> and the content does not cause an overflow scroll, the scroll interaction will cause a bounce.\nIf the content exceeds the bounds of ionContent, nothing will change.\nNote, the does not disable the system bounce on iOS. That is an OS level setting.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "fullscreen",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "fullscreen",
+      "reflectToAttr": false,
+      "docs": "<p>If <code>true</code>, the content will scroll behind the headers\nand footers. This effect can easily be seen by setting the toolbar\nto transparent.</p>\n",
+      "docsTags": [],
+      "default": "false",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "scrollEvents",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "scroll-events",
+      "reflectToAttr": false,
+      "docs": "<p>Because of performance reasons, ionScroll events are disabled by default, in order to enable them\nand start listening from (ionScroll), set this property to <code>true</code>.</p>\n",
+      "docsTags": [],
+      "default": "false",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "scrollX",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "scroll-x",
+      "reflectToAttr": false,
+      "docs": "<p>If you want to enable the content scrolling in the X axis, set this property to <code>true</code>.</p>\n",
+      "docsTags": [],
+      "default": "false",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "scrollY",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "scroll-y",
+      "reflectToAttr": false,
+      "docs": "<p>If you want to disable the content scrolling in the Y axis, set this property to <code>false</code>.</p>\n",
+      "docsTags": [],
+      "default": "true",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    }
+  ],
+  "methods": [
+    {
+      "name": "getScrollElement",
+      "returns": {
+        "type": "Promise<HTMLElement>",
+        "docs": ""
+      },
+      "signature": "getScrollElement() => Promise<HTMLElement>",
+      "parameters": [],
+      "docs": "<p>Get the element where the actual scrolling takes place.\nThis element can be used to subscribe to <code>scroll</code> events or manually modify\n<code>scrollTop</code>. However, it&#39;s recommended to use the API provided by <code>ion-content</code>:</p>\n<p>i.e. Using <code>ionScroll</code>, <code>ionScrollStart</code>, <code>ionScrollEnd</code> for scrolling events\nand <code>scrollToPoint()</code> to scroll the content into a certain point.</p>\n",
+      "docsTags": []
+    },
+    {
+      "name": "scrollByPoint",
+      "returns": {
+        "type": "Promise<void>",
+        "docs": ""
+      },
+      "signature": "scrollByPoint(x: number, y: number, duration: number) => Promise<void>",
+      "parameters": [],
+      "docs": "<p>Scroll by a specified X/Y distance in the component.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "x The amount to scroll by on the horizontal axis."
+        },
+        {
+          "name": "param",
+          "text": "y The amount to scroll by on the vertical axis."
+        },
+        {
+          "name": "param",
+          "text": "duration The amount of time to take scrolling by that amount."
+        }
+      ]
+    },
+    {
+      "name": "scrollToBottom",
+      "returns": {
+        "type": "Promise<void>",
+        "docs": ""
+      },
+      "signature": "scrollToBottom(duration?: number) => Promise<void>",
+      "parameters": [],
+      "docs": "<p>Scroll to the bottom of the component.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "duration The amount of time to take scrolling to the bottom. Defaults to `0`."
+        }
+      ]
+    },
+    {
+      "name": "scrollToPoint",
+      "returns": {
+        "type": "Promise<void>",
+        "docs": ""
+      },
+      "signature": "scrollToPoint(x: number | null | undefined, y: number | null | undefined, duration?: number) => Promise<void>",
+      "parameters": [],
+      "docs": "<p>Scroll to a specified X/Y location in the component.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "x The point to scroll to on the horizontal axis."
+        },
+        {
+          "name": "param",
+          "text": "y The point to scroll to on the vertical axis."
+        },
+        {
+          "name": "param",
+          "text": "duration The amount of time to take scrolling to that point. Defaults to `0`."
+        }
+      ]
+    },
+    {
+      "name": "scrollToTop",
+      "returns": {
+        "type": "Promise<void>",
+        "docs": ""
+      },
+      "signature": "scrollToTop(duration?: number) => Promise<void>",
+      "parameters": [],
+      "docs": "<p>Scroll to the top of the component.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "duration The amount of time to take scrolling to the top. Defaults to `0`."
+        }
+      ]
+    }
+  ],
+  "template": "api",
+  "filePath": "./src/components/content/content.tsx",
+  "encapsulation": "shadow",
+  "tag": "ion-content",
+  "docs": [
+    "div",
+    null,
+    "The content component provides an easy to use content area with some useful methods\nto control the scrollable area. There should only be one content in a single\nview.\n\nContent, along with many other Ionic components, can be customized to modify its padding, margin, and more using the global styles provided in the [CSS Utilities](/docs/layout/css-utilities) or by individually styling it using CSS and the available [CSS Custom Properties](#css-custom-properties)."
+  ],
+  "docsTags": [
+    {
+      "text": "- Content is placed in the scrollable area if provided without a slot.",
+      "name": "slot"
+    },
+    {
+      "text": "fixed - Should be used for fixed content that should not scroll.",
+      "name": "slot"
+    },
+    {
+      "text": "background - The background of the content.",
+      "name": "part"
+    },
+    {
+      "text": "scroll - The scrollable container of the content.",
+      "name": "part"
+    }
+  ],
+  "events": [
+    {
+      "event": "ionScroll",
+      "detail": "ScrollDetail",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": "Emitted while scrolling. This event is disabled by default.\nLook at the property: `scrollEvents`",
+      "docsTags": []
+    },
+    {
+      "event": "ionScrollEnd",
+      "detail": "ScrollBaseDetail",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": "Emitted when the scroll has ended.",
+      "docsTags": []
+    },
+    {
+      "event": "ionScrollStart",
+      "detail": "ScrollBaseDetail",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": "Emitted when the scroll has started.",
+      "docsTags": []
+    }
+  ],
+  "listeners": [
+    {
+      "event": "appload",
+      "target": "window",
+      "capture": false,
+      "passive": false
+    },
+    {
+      "event": "click",
+      "capture": true,
+      "passive": false
+    }
+  ],
+  "styles": [
+    {
+      "name": "--background",
+      "annotation": "prop",
+      "docs": "Background of the content"
+    },
+    {
+      "name": "--color",
+      "annotation": "prop",
+      "docs": "Color of the content"
+    },
+    {
+      "name": "--keyboard-offset",
+      "annotation": "prop",
+      "docs": "Keyboard offset of the content"
+    },
+    {
+      "name": "--offset-bottom",
+      "annotation": "prop",
+      "docs": "Offset bottom of the content"
+    },
+    {
+      "name": "--offset-top",
+      "annotation": "prop",
+      "docs": "Offset top of the content"
+    },
+    {
+      "name": "--padding-bottom",
+      "annotation": "prop",
+      "docs": "Bottom padding of the content"
+    },
+    {
+      "name": "--padding-end",
+      "annotation": "prop",
+      "docs": "Right padding if direction is left-to-right, and left padding if direction is right-to-left of the content"
+    },
+    {
+      "name": "--padding-start",
+      "annotation": "prop",
+      "docs": "Left padding if direction is left-to-right, and right padding if direction is right-to-left of the content"
+    },
+    {
+      "name": "--padding-top",
+      "annotation": "prop",
+      "docs": "Top padding of the content"
+    }
+  ],
+  "slots": [
+    {
+      "name": "",
+      "docs": "Content is placed in the scrollable area if provided without a slot."
+    },
+    {
+      "name": "fixed",
+      "docs": "Should be used for fixed content that should not scroll."
+    }
+  ],
+  "dependents": [],
+  "dependencies": [],
+  "dependencyGraph": {},
+  "headings": [
+    {
+      "text": "Fixed Content",
+      "href": "#fixed-content"
+    }
+  ],
+  "pageClass": "page-api-content"
+}

@@ -1,0 +1,158 @@
+{
+  "template": "api-route",
+  "title": "Update form",
+  "path": "/docs/api/payments/forms/formId/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Update form"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token put"
+              },
+              "PUT"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/forms/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{formId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/forms/{formId}",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Forms"
+      ],
+      "summary": "Update form",
+      "description": "Update form",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "formId to be updated",
+          "name": "formId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/params/Form"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/params/Form"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 404,
+                "name": "NotFound",
+                "type": "NotFound",
+                "error": "Form was not Found"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Update form",
+        "url": "/docs/api/payments/forms/formId/put"
+      }
+    },
+    "tags": [
+      "Forms"
+    ],
+    "summary": "Update form"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-forms-formid-put"
+}

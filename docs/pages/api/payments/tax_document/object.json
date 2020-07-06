@@ -1,0 +1,46 @@
+{
+  "template": "api-object",
+  "title": "Entidade TaxDocument",
+  "path": "/docs/api/payments/tax_document/object",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "A document that matches a company or person. The kind of document will automatically be assigned given a valid value"
+    ]
+  ],
+  "serviceId": "payments",
+  "schema": {
+    "type": "schema",
+    "name": "TaxDocument",
+    "spec": {
+      "type": "object",
+      "description": "A document that matches a company or person. The kind of document will automatically be assigned given a valid value",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "Kind of document.",
+          "example": "cnpj",
+          "enum": [
+            "cpf",
+            "cnpj"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "Number of the document",
+          "example": "54.732.169/0001-65"
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade TaxDocument"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-tax_document-object"
+}

@@ -1,0 +1,67 @@
+{
+  "template": "api-route",
+  "title": "Visualizar membro",
+  "path": "/docs/api/apihub/members/memberId",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Visualizar informações do membro especificado"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/members/{memberId}",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Membros"
+      ],
+      "summary": "Visualizar membro",
+      "description": "Visualizar informações do membro especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathMemberId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permission": [
+            "member:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Member"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Membros"
+    ],
+    "summary": "Visualizar membro"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-members-memberid"
+}

@@ -1,0 +1,56 @@
+{
+  "template": "api-object",
+  "title": "Entidade CreditCardResponse",
+  "path": "/docs/api/payments/credit_card_response/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "payments",
+  "schema": {
+    "type": "schema",
+    "name": "CreditCardResponse",
+    "spec": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaymentMethod"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "number": {
+              "type": "string",
+              "description": "Credit card number (masked)",
+              "example": "XXXX-XXXX-XXXX-1234"
+            },
+            "lastDigits": {
+              "type": "string",
+              "description": "Last credit card digits",
+              "example": "1234"
+            },
+            "name": {
+              "type": "string",
+              "description": "Credit card holder name",
+              "example": "John Doe"
+            },
+            "month": {
+              "type": "string",
+              "description": "Expiration month",
+              "example": 2
+            },
+            "year": {
+              "type": "string",
+              "description": "Expiration year",
+              "example": 2022
+            }
+          }
+        }
+      ]
+    },
+    "tags": [],
+    "summary": "Entidade CreditCardResponse"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-credit_card_response-object"
+}

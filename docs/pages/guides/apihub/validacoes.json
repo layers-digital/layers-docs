@@ -1,0 +1,142 @@
+{
+  "path": "/docs/guides/apihub/validacoes",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Embora o Layers valide o formato das payloads de apps trocando informações por meio do Hub de API's é importante que o provedor de informações realize algumas validações para garantir que não há problemas na requisição por dados."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "valida-es-importantes"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#valida-es-importantes"
+        },
+        "Validações Importantes"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "O valor da chave ",
+        [
+          "code",
+          null,
+          "secret"
+        ],
+        " é idêntico àquele salvo no código"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "A action em ",
+        [
+          "code",
+          null,
+          "context.action"
+        ],
+        " é uma action válida?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "valida-es-desej-veis"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#valida-es-desej-veis"
+        },
+        "Validações Desejáveis"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "A comunidade em ",
+        [
+          "code",
+          null,
+          "context.community"
+        ],
+        " é uma comunidade válida?"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "O usuário em ",
+        [
+          "code",
+          null,
+          "data.user"
+        ],
+        " possui permissão para acessar o recurso que está solicitando?"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "O usuário em ",
+        [
+          "code",
+          null,
+          "data.user"
+        ],
+        " pertence à comunidade ",
+        [
+          "code",
+          null,
+          "context.community"
+        ],
+        "?"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Caso a requisição não passe em todas essas validações retorne um erro com código na faixa 4XX - 5XX"
+    ]
+  ],
+  "title": "Validando requisições",
+  "headings": [
+    {
+      "text": "Validações Importantes",
+      "href": "#valida-es-importantes"
+    },
+    {
+      "text": "Validações Desejáveis",
+      "href": "#valida-es-desej-veis"
+    }
+  ],
+  "pageClass": "page-guides-apihub-validacoes"
+}

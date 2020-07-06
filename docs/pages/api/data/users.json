@@ -1,0 +1,152 @@
+{
+  "template": "api-route",
+  "title": "Listar usuários",
+  "path": "/docs/api/data/users",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Listar contas de acesso de usuários."
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/users"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/users",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Usuários"
+      ],
+      "summary": "Listar usuários",
+      "description": "Listar contas de acesso de usuários.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/CreatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/UpdatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/Status"
+        },
+        {
+          "$ref": "#/components/parameters/Active"
+        },
+        {
+          "$ref": "#/components/parameters/Roles"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "user:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "number",
+                    "description": "Número de Usuários encontrados",
+                    "example": 10
+                  },
+                  "hits": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Listar usuários",
+        "url": "/docs/api/data/users"
+      }
+    },
+    "tags": [
+      "Usuários"
+    ],
+    "summary": "Listar usuários"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-users"
+}

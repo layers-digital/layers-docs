@@ -1,0 +1,84 @@
+{
+  "template": "api-route",
+  "title": "Lists channels linked to list",
+  "path": "/docs/api/apihub/lists/listId/links",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Lists channels linked to list (returns only published channels)"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/lists/{listId}/links",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Lists"
+      ],
+      "summary": "Lists channels linked to list",
+      "description": "Lists channels linked to list (returns only published channels)",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "listId to list linked channels",
+          "name": "listId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/params/ChannelLink"
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 400,
+                "name": "BadRequest",
+                "type": "InvalidParameter",
+                "error": "Validation failed: document: Path `listId` is required"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Lists"
+    ],
+    "summary": "Lists channels linked to list"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-lists-listid-links"
+}

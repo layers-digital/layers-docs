@@ -1,0 +1,162 @@
+{
+  "template": "api-route",
+  "title": "Buscar administradores",
+  "path": "/docs/api/data/groups/search",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Buscar grupos usando texto livre no parametro q e outros parâmetros de filtro."
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/groups/search"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/groups/search",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Buscar administradores",
+      "description": "Buscar grupos usando texto livre no parametro q e outros parâmetros de filtro.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/CreatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/Active"
+        },
+        {
+          "$ref": "#/components/parameters/Name"
+        },
+        {
+          "$ref": "#/components/parameters/GroupAdmin"
+        },
+        {
+          "$ref": "#/components/parameters/Season"
+        },
+        {
+          "name": "q",
+          "in": "query",
+          "description": "Texto de busca. Pode ser o nome ou identificador do grupos.",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Número de resultados encontrados para uma determinada Buscar"
+                  },
+                  "hits": {
+                    "type": "array",
+                    "description": "array contendo os resultados da busca ordenados pelos que mais se encaixam nos termos da busca",
+                    "items": {
+                      "$ref": "#/components/schemas/Group"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Buscar administradores",
+        "url": "/docs/api/data/groups/search"
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Buscar administradores"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-groups-search"
+}

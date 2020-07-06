@@ -1,0 +1,134 @@
+{
+  "template": "api-route",
+  "title": "Visualizar Grupo",
+  "path": "/docs/api/data/groups/groupId",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Visualizar informações do grupo especificado"
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/groups/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{groupId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/groups/{groupId}",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Visualizar Grupo",
+      "description": "Visualizar informações do grupo especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathGroupId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Visualizar Grupo",
+        "url": "/docs/api/data/groups/groupId"
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Visualizar Grupo"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-groups-groupid"
+}

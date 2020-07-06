@@ -1,0 +1,460 @@
+{
+  "title": "ion-nav",
+  "path": "/docs/api/nav",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Nav is a standalone component for loading arbitrary components and pushing new components on to the stack."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Unlike Router Outlet, Nav is not tied to a particular router. This means that if we load a Nav component, and push other components to the stack, they will not affect the app's overall router. This fits use cases where you could have a modal, which needs its own sub-navigation, without making it tied to the apps URL."
+    ]
+  ],
+  "usage": {},
+  "props": [
+    {
+      "name": "animated",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "animated",
+      "reflectToAttr": false,
+      "docs": "<p>If <code>true</code>, the nav should animate the transition of components.</p>\n",
+      "docsTags": [],
+      "default": "true",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "animation",
+      "type": "((baseEl: any, opts?: any) => Animation) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>By default <code>ion-nav</code> animates transition between pages based in the mode (ios or material design).\nHowever, this property allows to create custom transition using <code>AnimateBuilder</code> functions.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((baseEl: any, opts?: any) => Animation)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "root",
+      "type": "Function | HTMLElement | ViewController | null | string | undefined",
+      "mutable": false,
+      "attr": "root",
+      "reflectToAttr": false,
+      "docs": "<p>Root NavComponent to load</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "Function"
+        },
+        {
+          "type": "HTMLElement"
+        },
+        {
+          "type": "ViewController"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "rootParams",
+      "type": "undefined | { [key: string]: any; }",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>Any parameters for the root component</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "undefined"
+        },
+        {
+          "type": "{ [key: string]: any; }"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "swipeGesture",
+      "type": "boolean | undefined",
+      "mutable": true,
+      "attr": "swipe-gesture",
+      "reflectToAttr": false,
+      "docs": "<p>If the nav component should allow for swipe-to-go-back.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    }
+  ],
+  "methods": [
+    {
+      "name": "canGoBack",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "canGoBack(view?: ViewController | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Returns <code>true</code> if the current view can go back.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "view The view to check."
+        }
+      ]
+    },
+    {
+      "name": "getActive",
+      "returns": {
+        "type": "Promise<ViewController | undefined>",
+        "docs": ""
+      },
+      "signature": "getActive() => Promise<ViewController | undefined>",
+      "parameters": [],
+      "docs": "<p>Get the active view.</p>\n",
+      "docsTags": []
+    },
+    {
+      "name": "getByIndex",
+      "returns": {
+        "type": "Promise<ViewController | undefined>",
+        "docs": ""
+      },
+      "signature": "getByIndex(index: number) => Promise<ViewController | undefined>",
+      "parameters": [],
+      "docs": "<p>Get the view at the specified index.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "index The index of the view."
+        }
+      ]
+    },
+    {
+      "name": "getPrevious",
+      "returns": {
+        "type": "Promise<ViewController | undefined>",
+        "docs": ""
+      },
+      "signature": "getPrevious(view?: ViewController | undefined) => Promise<ViewController | undefined>",
+      "parameters": [],
+      "docs": "<p>Get the previous view.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "view The view to get."
+        }
+      ]
+    },
+    {
+      "name": "insert",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "insert<T extends NavComponent>(insertIndex: number, component: T, componentProps?: ComponentProps<T> | null | undefined, opts?: NavOptions | null | undefined, done?: TransitionDoneFn | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Inserts a component into the navigation stack at the specified index.\nThis is useful to add a component at any point in the navigation stack.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "insertIndex The index to insert the component at in the stack."
+        },
+        {
+          "name": "param",
+          "text": "component The component to insert into the navigation stack."
+        },
+        {
+          "name": "param",
+          "text": "componentProps Any properties of the component."
+        },
+        {
+          "name": "param",
+          "text": "opts The navigation options."
+        },
+        {
+          "name": "param",
+          "text": "done The transition complete function."
+        }
+      ]
+    },
+    {
+      "name": "insertPages",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "insertPages(insertIndex: number, insertComponents: NavComponent[], opts?: NavOptions | null | undefined, done?: TransitionDoneFn | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Inserts an array of components into the navigation stack at the specified index.\nThe last component in the array will become instantiated as a view, and animate\nin to become the active view.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "insertIndex The index to insert the components at in the stack."
+        },
+        {
+          "name": "param",
+          "text": "insertComponents The components to insert into the navigation stack."
+        },
+        {
+          "name": "param",
+          "text": "opts The navigation options."
+        },
+        {
+          "name": "param",
+          "text": "done The transition complete function."
+        }
+      ]
+    },
+    {
+      "name": "pop",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "pop(opts?: NavOptions | null | undefined, done?: TransitionDoneFn | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Pop a component off of the navigation stack. Navigates back from the current\ncomponent.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "opts The navigation options."
+        },
+        {
+          "name": "param",
+          "text": "done The transition complete function."
+        }
+      ]
+    },
+    {
+      "name": "popTo",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "popTo(indexOrViewCtrl: number | ViewController, opts?: NavOptions | null | undefined, done?: TransitionDoneFn | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Pop to a specific index in the navigation stack.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "indexOrViewCtrl The index or view controller to pop to."
+        },
+        {
+          "name": "param",
+          "text": "opts The navigation options."
+        },
+        {
+          "name": "param",
+          "text": "done The transition complete function."
+        }
+      ]
+    },
+    {
+      "name": "popToRoot",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "popToRoot(opts?: NavOptions | null | undefined, done?: TransitionDoneFn | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Navigate back to the root of the stack, no matter how far back that is.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "opts The navigation options."
+        },
+        {
+          "name": "param",
+          "text": "done The transition complete function."
+        }
+      ]
+    },
+    {
+      "name": "push",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "push<T extends NavComponent>(component: T, componentProps?: ComponentProps<T> | null | undefined, opts?: NavOptions | null | undefined, done?: TransitionDoneFn | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Push a new component onto the current navigation stack. Pass any additional\ninformation along as an object. This additional information is accessible\nthrough NavParams.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "component The component to push onto the navigation stack."
+        },
+        {
+          "name": "param",
+          "text": "componentProps Any properties of the component."
+        },
+        {
+          "name": "param",
+          "text": "opts The navigation options."
+        },
+        {
+          "name": "param",
+          "text": "done The transition complete function."
+        }
+      ]
+    },
+    {
+      "name": "removeIndex",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "removeIndex(startIndex: number, removeCount?: number, opts?: NavOptions | null | undefined, done?: TransitionDoneFn | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Removes a component from the navigation stack at the specified index.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "startIndex The number to begin removal at."
+        },
+        {
+          "name": "param",
+          "text": "removeCount The number of components to remove."
+        },
+        {
+          "name": "param",
+          "text": "opts The navigation options."
+        },
+        {
+          "name": "param",
+          "text": "done The transition complete function."
+        }
+      ]
+    },
+    {
+      "name": "setPages",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "setPages(views: any[], opts?: NavOptions | null | undefined, done?: TransitionDoneFn | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Set the views of the current navigation stack and navigate to the last view.\nBy default animations are disabled, but they can be enabled by passing options\nto the navigation controller. Navigation parameters can also be passed to the\nindividual pages in the array.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "views The list of views to set as the navigation stack."
+        },
+        {
+          "name": "param",
+          "text": "opts The navigation options."
+        },
+        {
+          "name": "param",
+          "text": "done The transition complete function."
+        }
+      ]
+    },
+    {
+      "name": "setRoot",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "setRoot<T extends NavComponent>(component: T, componentProps?: ComponentProps<T> | null | undefined, opts?: NavOptions | null | undefined, done?: TransitionDoneFn | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Set the root for the current navigation stack to a component.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "component The component to set as the root of the navigation stack."
+        },
+        {
+          "name": "param",
+          "text": "componentProps Any properties of the component."
+        },
+        {
+          "name": "param",
+          "text": "opts The navigation options."
+        },
+        {
+          "name": "param",
+          "text": "done The transition complete function."
+        }
+      ]
+    }
+  ],
+  "template": "api",
+  "filePath": "./src/components/nav/nav.tsx",
+  "encapsulation": "shadow",
+  "tag": "ion-nav",
+  "docs": [
+    "div",
+    null,
+    "Nav is a standalone component for loading arbitrary components and pushing new components on to the stack.\n\nUnlike Router Outlet, Nav is not tied to a particular router. This means that if we load a Nav component, and push other components to the stack, they will not affect the app's overall router. This fits use cases where you could have a modal, which needs its own sub-navigation, without making it tied to the apps URL."
+  ],
+  "docsTags": [],
+  "events": [
+    {
+      "event": "ionNavDidChange",
+      "detail": "void",
+      "bubbles": false,
+      "cancelable": true,
+      "composed": true,
+      "docs": "Event fired when the nav has changed components",
+      "docsTags": []
+    },
+    {
+      "event": "ionNavWillChange",
+      "detail": "void",
+      "bubbles": false,
+      "cancelable": true,
+      "composed": true,
+      "docs": "Event fired when the nav will change components",
+      "docsTags": []
+    }
+  ],
+  "listeners": [],
+  "styles": [],
+  "slots": [],
+  "dependents": [],
+  "dependencies": [],
+  "dependencyGraph": {},
+  "headings": [],
+  "pageClass": "page-api-nav"
+}

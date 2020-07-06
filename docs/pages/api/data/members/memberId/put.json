@@ -1,0 +1,143 @@
+{
+  "template": "api-route",
+  "title": "Atualizar Membro",
+  "path": "/docs/api/data/members/memberId/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Atualizar informações do membro especificado"
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token put"
+              },
+              "PUT"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/members/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{memberId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/members/{memberId}",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Membros"
+      ],
+      "summary": "Atualizar Membro",
+      "description": "Atualizar informações do membro especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathMemberId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "member:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Member"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Member"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Atualizar Membro",
+        "url": "/docs/api/data/members/memberId/put"
+      }
+    },
+    "tags": [
+      "Membros"
+    ],
+    "summary": "Atualizar Membro"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-members-memberid-put"
+}

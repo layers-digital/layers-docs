@@ -1,0 +1,83 @@
+{
+  "template": "api-route",
+  "title": "Create Special Condition",
+  "path": "/docs/api/apihub/conditions/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Create Special Condition"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/conditions",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Special Conditions"
+      ],
+      "summary": "Create Special Condition",
+      "description": "Create Special Condition",
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "channel"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "$ref": "#/components/schemas/SpecialCondition"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/SpecialCondition"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 400,
+                "name": "BadRequest",
+                "type": "InvalidParameter",
+                "error": "Validation failed: document: Path `kind` is required"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Special Conditions"
+    ],
+    "summary": "Create Special Condition"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-conditions-post"
+}

@@ -1,0 +1,67 @@
+{
+  "template": "api-route",
+  "title": "Visualizar Grupo",
+  "path": "/docs/api/apihub/groups/groupId",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Visualizar informações do grupo especificado"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/groups/{groupId}",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Visualizar Grupo",
+      "description": "Visualizar informações do grupo especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathGroupId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Visualizar Grupo"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-groups-groupid"
+}

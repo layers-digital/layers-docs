@@ -1,0 +1,1589 @@
+{
+  "path": "/docs/guides/apihub/dados-frequencia",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "A action ",
+      [
+        "code",
+        null,
+        "@layers:education:Attendance:getRelated"
+      ],
+      " é usada para retornar a frequência de um ou mais alunos relacionados. Essa intent contempla 3 visões de frequência:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        "Visão geral da frequência do curso"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Visão geral por disciplinas"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        "Visão geral por categorias (ou períodos)"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "As categorias podem ser utilizadas para agrupadar registros de frequência e listar uma visão geral dessa categoria relacionando com a disciplina. Ex: Faltas e Carga Horária do 1º bimestre de Matemática."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Deve haver uma API que recebe uma requisição ",
+      [
+        "code",
+        null,
+        "POST"
+      ],
+      " com a seguinte estrutura de dados:"
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "requisi-o"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#requisi-o"
+        },
+        "Requisição"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"result\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Frequência de um determinado aluno"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ID interno do histórico, para possível fetch individual futuro (opcional)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"0001\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome do aluno (obrigatório)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"student\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Marília Castelli\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Curso que o aluno está matrículado (obrigatório)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"course\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"9º Ano - Ensino Fundamental\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Visão geral da frequência do curso (opcional)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"overall\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Carga de trabalho geral (apenas valores positivos)"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"workload\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1600"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo: Integer (opcional)"
+          ],
+          "\n\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Unidade da carga de trabalho. Valores possíveis: \"h\", \"m\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"workloadUnit\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"h\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor padrão: \"h\" (opcional)"
+          ],
+          "\n\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Percentual total de frequência "
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"presencePercentage\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "0.10"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor de 0 - 1 (opcional)"
+          ],
+          "\n\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Total de faltas"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"absenceTotal\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "10"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo: Integer (opcional)"
+          ],
+          "\n\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Indica se a frequência está boa (nota verde), ruim (nota vermelha) ou neutra (opcional)"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valores possíveis: \"neutral\", \"attention\", \"good\", \"bad\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"mood\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"bad\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor padrão: \"neutral\" (opcional)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Total de frequência computada por disciplina (opcional)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"subjects\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome da disciplina (obrigatório)"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Lingua Portuguesa\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " \n\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Visão geral da disciplina (opcional)"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"overall\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Carga de trabalho total da disciplina (apenas valores positivos)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"workload\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "40"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo: Integer (opcional)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Unidade da carga de trabalho. Valores possíveis: \"h\", \"m\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"workloadUnit\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"h\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor padrão: \"h\" (opcional)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Percentual total de frequência "
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"presencePercentage\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "0.10"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor de 0 - 1 (opcional)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Total de faltas"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"absenceTotal\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "10"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo: Integer (opcional)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Indica se a frequência está boa (nota verde), ruim (nota vermelha) ou neutra (opcional)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valores possíveis: \"neutral\", \"attention\", \"good\", \"bad\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"mood\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"bad\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor padrão: \"neutral\" (opcional)"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// A frequência geral de uma disciplina pode ser agrupada em categorias"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// essas categorias podem ser \"bimestres\", \"trimestres\", \"horal/escrita\", \"prática/teórica\" \"termos\"..."
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// (opcional)"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"categories\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " \n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome da categoria"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"1º bimestre\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Carga de trabalho total da disciplina (apenas valores positivos)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"workload\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "40"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo: Integer (opcional)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Unidade da carga de trabalho. Valores possíveis: \"h\", \"m\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"workloadUnit\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"h\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor padrão: \"h\" (opcional)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Percentual total de frequência "
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"presencePercentage\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "0.10"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor de 0 - 1 (opcional)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Total de faltas"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"absenceTotal\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "10"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo: Integer (opcional)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Indica se a frequência está boa (nota verde), ruim (nota vermelha) ou neutra (opcional)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valores possíveis: \"neutral\", \"attention\", \"good\", \"bad\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"mood\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"bad\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor padrão: \"neutral\" (opcional)"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Registro de frequência por data (opcional)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"records\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo da frequência, podendo ser \"Presente\", \"Falta\", \"Falta justificada\" ou \"Dispensado\", "
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valores possíveis: \"present\", \"absent\", \"justified_absency\", \"excused\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"absent\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valor padrão: absent (opcional)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Data em que aconteceu a falta (obrigatório)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"date\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2020-04-04\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ISO 8601 - (date: YYYY-MM-DD)"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Disciplina em que ocorreu a falta (obrigatório)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"subject\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Lingua Portuguesa\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Descrição da frequência (opcional)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"caption\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"09h30 - 10h30\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// String"
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Categoria da falta, meio pelo qual ela pode ser agrupada. Ex: 1º bimestre (opcional)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"category\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"1º bimestre\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "resposta"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#resposta"
+        },
+        "Resposta"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Obs:"
+      ],
+      " Caso algum erro ocorra, retornar códigos HTTP na faixa 4xx-5xx"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ATENÇÃO:"
+      ],
+      " Os comentários foram adicionados apenas para explicar as estruturas de dados, nem a requisição e nem a resposta devem ter comentários, ambos devem ser JSONs válidos."
+    ]
+  ],
+  "title": "Dados de frequência",
+  "headings": [
+    {
+      "text": "Requisição",
+      "href": "#requisi-o"
+    },
+    {
+      "text": "Resposta",
+      "href": "#resposta"
+    }
+  ],
+  "pageClass": "page-guides-apihub-dados-frequencia"
+}

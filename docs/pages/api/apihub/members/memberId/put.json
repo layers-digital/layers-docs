@@ -1,0 +1,76 @@
+{
+  "template": "api-route",
+  "title": "Atualizar Membro",
+  "path": "/docs/api/apihub/members/memberId/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Atualizar informações do membro especificado"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/members/{memberId}",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Membros"
+      ],
+      "summary": "Atualizar Membro",
+      "description": "Atualizar informações do membro especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathMemberId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "member:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Member"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Member"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Membros"
+    ],
+    "summary": "Atualizar Membro"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-members-memberid-put"
+}

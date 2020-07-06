@@ -1,0 +1,143 @@
+{
+  "template": "api-object",
+  "title": "Entidade Item",
+  "path": "/docs/api/apihub/item/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "apihub",
+  "schema": {
+    "type": "schema",
+    "name": "Item",
+    "spec": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Id of document [Link](/docs/api/test) teste",
+          "example": "5bb2575199d7179dfe85be02",
+          "readOnly": true
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of this item",
+          "enum": [
+            "product"
+          ],
+          "example": "product"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Document creation date",
+          "example": "2018-05-29T15:34:11.118Z",
+          "readOnly": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last customer update date",
+          "example": "2018-05-30T17:34:11.118Z",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "description": "Product Name",
+          "example": "6-Person dome Tent",
+          "minLength": 3,
+          "maxLength": 100
+        },
+        "published": {
+          "type": "Boolean",
+          "description": "Indicates if product is visible in associated channels",
+          "default": true
+        },
+        "content": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ItemContent"
+            },
+            {
+              "description": "Content/description of the item."
+            }
+          ]
+        },
+        "caption": {
+          "type": "string",
+          "description": "Product Caption",
+          "example": "Polyester tent for camping that supports up to 6 person",
+          "maxLength": 100
+        },
+        "currency": {
+          "allOf": [
+            {
+              "description": "ISO Code of the Currency."
+            },
+            {
+              "$ref": "#/components/schemas/Currency"
+            }
+          ]
+        },
+        "defaultPrice": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Amount"
+            },
+            {
+              "description": "Helps you set default price to apply to all Sku's during creation. Property will not persist.",
+              "writeOnly": true
+            }
+          ]
+        },
+        "shippable": {
+          "type": "boolean",
+          "description": "If this item must be shipped",
+          "example": false
+        },
+        "package": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Package"
+            },
+            {
+              "description": "Shipping package specifications."
+            }
+          ]
+        },
+        "skus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ItemSku"
+          }
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ItemOption"
+          }
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Media"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formId": {
+          "type": "string",
+          "description": "Id of the form asked to client on the store",
+          "format": "object id"
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade Item"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-item-object"
+}

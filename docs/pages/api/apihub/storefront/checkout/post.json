@@ -1,0 +1,54 @@
+{
+  "template": "api-route",
+  "title": "Create Checkout",
+  "path": "/docs/api/apihub/storefront/checkout/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Creates and returns a new checkout for the provided store channel"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/storefront/checkout",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Storefront",
+        "Checkout"
+      ],
+      "summary": "Create Checkout",
+      "description": "Creates and returns a new checkout for the provided store channel\n",
+      "security": [
+        {
+          "X-Store-Id": []
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Checkout"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Storefront",
+      "Checkout"
+    ],
+    "summary": "Create Checkout"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-storefront-checkout-post"
+}

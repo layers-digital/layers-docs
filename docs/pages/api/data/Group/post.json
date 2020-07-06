@@ -1,0 +1,133 @@
+{
+  "template": "api-route",
+  "title": "Criar Grupo",
+  "path": "/docs/api/data/group/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Criar um novo grupo no Layers Education."
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/group"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/group",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Criar Grupo",
+      "description": "Criar um novo grupo no Layers Education.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Group"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Group"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Criar Grupo",
+        "url": "/docs/api/data/group/post"
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Criar Grupo"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-group-post"
+}

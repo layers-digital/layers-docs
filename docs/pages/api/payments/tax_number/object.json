@@ -1,0 +1,41 @@
+{
+  "template": "api-object",
+  "title": "Entidade taxNumber",
+  "path": "/docs/api/payments/tax_number/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "payments",
+  "schema": {
+    "type": "schema",
+    "name": "taxNumber",
+    "spec": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "taxNumber kind",
+          "enum": [
+            "cpf",
+            "cnpj"
+          ],
+          "example": "cpf"
+        },
+        "value": {
+          "type": "string",
+          "example": "585.341.527-13",
+          "description": "taxNumber value"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "tags": [],
+    "summary": "Entidade taxNumber"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-tax_number-object"
+}

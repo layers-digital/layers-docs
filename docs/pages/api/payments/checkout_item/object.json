@@ -1,0 +1,78 @@
+{
+  "template": "api-object",
+  "title": "Entidade CheckoutItem",
+  "path": "/docs/api/payments/checkout_item/object",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Represents an item in checkout"
+    ]
+  ],
+  "serviceId": "payments",
+  "schema": {
+    "type": "schema",
+    "name": "CheckoutItem",
+    "spec": {
+      "type": "object",
+      "x-tags": [
+        "Items"
+      ],
+      "description": "Represents an item in checkout",
+      "properties": {
+        "variantId": {
+          "type": "string",
+          "description": "The identification of the item variant",
+          "example": "81778d07-92ee-4f13-b177-043905322cd3"
+        },
+        "itemId": {
+          "type": "string",
+          "description": "The identification of the item",
+          "exmaple": "507f1f77bcf86cd799439011",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the item",
+          "example": "Uniforme masculino"
+        },
+        "caption": {
+          "type": "string",
+          "description": "Extra information about the item",
+          "example": "Tamanho: M"
+        },
+        "shippable": {
+          "type": "boolean",
+          "description": "Defines if this item is shippable",
+          "example": true
+        },
+        "media": {
+          "$ref": "#/components/schemas/Media"
+        },
+        "quantity": {
+          "type": "number",
+          "default": 1,
+          "description": "Quantity of items to purshase",
+          "example": 2
+        },
+        "price": {
+          "$ref": "#/components/schemas/Amount"
+        },
+        "subtotal": {
+          "$ref": "#/components/schemas/Amount"
+        }
+      }
+    },
+    "tags": [
+      "Items"
+    ],
+    "summary": "Entidade CheckoutItem"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-checkout_item-object"
+}

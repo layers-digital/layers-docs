@@ -1,0 +1,59 @@
+{
+  "template": "api-object",
+  "title": "Entidade ListItem",
+  "path": "/docs/api/apihub/list_item/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "apihub",
+  "schema": {
+    "type": "schema",
+    "name": "ListItem",
+    "spec": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "description": "Id of the item document",
+          "example": "5bb2575199d7179dfe85be02",
+          "readOnly": true
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Document creation date",
+          "example": "2018-05-29T15:34:11.118Z",
+          "readOnly": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last customer update date",
+          "example": "2018-05-30T17:34:11.118Z",
+          "readOnly": true
+        },
+        "required": {
+          "type": "Boolean",
+          "description": "Indicates if this item can be removed from the list by the client",
+          "default": true
+        },
+        "selectedSkus": {
+          "type": "array",
+          "description": "Array of skus that will be available to client",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allSkus": {
+          "type": "Boolean",
+          "description": "Indicates if all skus will be available to client (Is set to true automatically if selectedSkus is empty)",
+          "default": true
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade ListItem"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-list_item-object"
+}

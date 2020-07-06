@@ -1,0 +1,86 @@
+{
+  "template": "api-route",
+  "title": "Remove item",
+  "path": "/docs/api/apihub/items/itemId/delete",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Remove item"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/items/{itemId}",
+    "method": "delete",
+    "spec": {
+      "tags": [
+        "Items"
+      ],
+      "summary": "Remove item",
+      "description": "Remove item",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "itemId to be removed",
+          "name": "itemId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "itemId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 404,
+                "name": "NotFound",
+                "type": "NotFound",
+                "error": "Item was not Found"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Items"
+    ],
+    "summary": "Remove item"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-items-itemid-delete"
+}

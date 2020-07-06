@@ -1,0 +1,76 @@
+{
+  "template": "api-route",
+  "title": "Editar Grupo",
+  "path": "/docs/api/apihub/groups/groupId/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Editar informações do grupo especificado"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/groups/{groupId}",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Editar Grupo",
+      "description": "Editar informações do grupo especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathGroupId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Group"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Editar Grupo"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-groups-groupid-put"
+}

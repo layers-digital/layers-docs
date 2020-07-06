@@ -1,0 +1,149 @@
+{
+  "template": "api-route",
+  "title": "Remove Special Conditions",
+  "path": "/docs/api/payments/conditions/conditionId/delete",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Remove Special Conditions"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token delete"
+              },
+              "DELETE"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/conditions/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              ":conditionId"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/conditions/:conditionId",
+    "method": "delete",
+    "spec": {
+      "tags": [
+        "Special Conditions"
+      ],
+      "summary": "Remove Special Conditions",
+      "description": "Remove Special Conditions",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "conditionId to be viewed",
+          "name": "conditionId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "channel"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/SpecialCondition"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 404,
+                "name": "NotFound",
+                "type": "NotFound",
+                "error": "Special condition was not Found"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Remove Special Conditions",
+        "url": "/docs/api/payments/conditions/conditionId/delete"
+      }
+    },
+    "tags": [
+      "Special Conditions"
+    ],
+    "summary": "Remove Special Conditions"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-conditions-conditionid-delete"
+}

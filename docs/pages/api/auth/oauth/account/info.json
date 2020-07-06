@@ -1,0 +1,118 @@
+{
+  "template": "api-route",
+  "title": "Informações de conta",
+  "path": "/docs/api/auth/oauth/account/info",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Visualizar informações da conta do usuário. As informações que serão retornadas dependem do escopo do seu app."
+    ]
+  ],
+  "serviceId": "auth",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/oauth/account/info"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/oauth/account/info",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Informações de conta"
+      ],
+      "summary": "Informações de conta",
+      "description": "Visualizar informações da conta do usuário. As informações que serão retornadas dependem do escopo do seu app.",
+      "security": [
+        {
+          "OAuth2": [
+            "openid",
+            "profile",
+            "fullname",
+            "email",
+            "related.communities"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/responseBodies/AccountInfo"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Informações de conta",
+        "url": "/docs/api/auth/oauth/account/info"
+      }
+    },
+    "tags": [
+      "Informações de conta"
+    ],
+    "summary": "Informações de conta"
+  },
+  "headings": [],
+  "pageClass": "page-api-auth-oauth-account-info"
+}

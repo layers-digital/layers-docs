@@ -1,0 +1,320 @@
+{
+  "template": "api-route",
+  "title": "Sincronizar Dados",
+  "path": "/docs/api/data/sync/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Cria membros, usuários, grupos e seus vínculos"
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/sync"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/sync",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Sincronização"
+      ],
+      "summary": "Sincronizar Dados",
+      "description": "Cria membros, usuários, grupos e seus vínculos",
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "sync:manage"
+          ],
+          "x-layers-contexts": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        }
+      ],
+      "requestBody": {
+        "description": "Objeto que contem informações de turmas, alunos e usuários",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "users": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "description": "Array contendo todos os usuários a serem criados",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean",
+                            "description": "Indica se o usuário deve ser criado ativo ou não",
+                            "example": true
+                          },
+                          "invite": {
+                            "type": "boolean",
+                            "description": "Indica se o usuário deve ser convidado quando for criado",
+                            "example": false
+                          },
+                          "roleSet": {
+                            "type": "object",
+                            "description": "Objeto indicando quais devem ser as permissões desse usuário",
+                            "properties": {
+                              "role": {
+                                "type": "boolean",
+                                "description": "Chave com o nome da permissão e tem um valor com o booleano indicando se esse usuário tem essa permissão",
+                                "example": true
+                              }
+                            }
+                          },
+                          "alias": {
+                            "type": "string",
+                            "description": "Identificador do usuário",
+                            "example": "123abc"
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "Email do usuário",
+                            "example": "gabriel.raniere@layers.education"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Nome do usuário",
+                            "example": "Gabriel Raniere"
+                          },
+                          "birth": {
+                            "type": "string",
+                            "description": "Data de nascimento do usuário no formato brasileiro",
+                            "example": "05/12/2000"
+                          }
+                        }
+                      }
+                    },
+                    "cleanSync": {
+                      "type": "boolean",
+                      "description": "Iindica se os dados de usuários já registrados devem ser apagados",
+                      "example": false
+                    }
+                  }
+                },
+                "members": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "description": "Array contendo todos os membros a serem criados",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean",
+                            "description": "Indica se o membro deve ser criado ativo",
+                            "example": true
+                          },
+                          "users": {
+                            "type": "array",
+                            "description": "Array contendo os emails dos usuários vinculados com esse membro",
+                            "items": {
+                              "type": "string",
+                              "example": "gabriel.raniere@layers.education"
+                            }
+                          },
+                          "alias": {
+                            "type": "string",
+                            "description": "Identificador do aluno",
+                            "example": "456def"
+                          },
+                          "birth": {
+                            "type": "string",
+                            "description": "Data de nascimento do membro no formato brasileiro",
+                            "example": "22/08/2004"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Nome do membro",
+                            "example": "Rafael Teles"
+                          }
+                        }
+                      }
+                    },
+                    "cleanSync": {
+                      "type": "boolean",
+                      "description": "Iindica se os dados de membros já registrados devem ser apagados",
+                      "example": false
+                    }
+                  }
+                },
+                "classrooms": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "description": "Array contendo todos os grupos a serem criados",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean",
+                            "description": "Indica se o grupo deve ser criado ativo",
+                            "example": false
+                          },
+                          "alias": {
+                            "type": "boolean",
+                            "description": "Identificador do grupo",
+                            "example": "2ANOEM"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Nome do grupo",
+                            "example": "2˚ Ano do Ensino Médio"
+                          },
+                          "members": {
+                            "type": "array",
+                            "description": "Array contendo os Identificadores de todos os membros que estão matriculados nesse grupo",
+                            "items": {
+                              "type": "string",
+                              "example": "123abc"
+                            }
+                          },
+                          "admins": {
+                            "type": "array",
+                            "description": "Array contendo os emails de todos os usuários que serão administradores desse grupo",
+                            "items": {
+                              "type": "string",
+                              "example": "gabriel.raniere@layers.education"
+                            }
+                          },
+                          "tags": {
+                            "type": "array",
+                            "description": "Array contendo os nomes de todas as tags que devem conter esse grupo",
+                            "items": {
+                              "type": "string",
+                              "example": "Ensino Medio"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "users": {
+                    "type": "array",
+                    "description": "Array contendo os identificadores dos documentos de usuários criados",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "members": {
+                    "type": "array",
+                    "description": "Array contendo os identificadores dos documentos de membros criados",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "groups": {
+                    "type": "array",
+                    "description": "Array contendo os identificadores dos documentos de grupos criados",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Sincronizar Dados",
+        "url": "/docs/api/data/sync/post"
+      }
+    },
+    "tags": [
+      "Sincronização"
+    ],
+    "summary": "Sincronizar Dados"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-sync-post"
+}

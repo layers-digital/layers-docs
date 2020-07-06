@@ -1,0 +1,102 @@
+{
+  "template": "api-route",
+  "title": "Buscar administradores",
+  "path": "/docs/api/apihub/groups/search",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Buscar grupos usando texto livre no parametro q e outros parâmetros de filtro."
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/groups/search",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Buscar administradores",
+      "description": "Buscar grupos usando texto livre no parametro q e outros parâmetros de filtro.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/CreatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/Active"
+        },
+        {
+          "$ref": "#/components/parameters/Name"
+        },
+        {
+          "$ref": "#/components/parameters/GroupAdmin"
+        },
+        {
+          "$ref": "#/components/parameters/Season"
+        },
+        {
+          "name": "q",
+          "in": "query",
+          "description": "Texto de busca. Pode ser o nome ou identificador do grupos.",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Número de resultados encontrados para uma determinada Buscar"
+                  },
+                  "hits": {
+                    "type": "array",
+                    "description": "array contendo os resultados da busca ordenados pelos que mais se encaixam nos termos da busca",
+                    "items": {
+                      "$ref": "#/components/schemas/Group"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Buscar administradores"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-groups-search"
+}

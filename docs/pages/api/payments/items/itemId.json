@@ -1,0 +1,149 @@
+{
+  "template": "api-route",
+  "title": "View item",
+  "path": "/docs/api/payments/items/itemId",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "View item"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/items/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{itemId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/items/{itemId}",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Items"
+      ],
+      "summary": "View item",
+      "description": "View item",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "itemId to be viewed",
+          "name": "itemId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Item"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 404,
+                "name": "NotFound",
+                "type": "NotFound",
+                "error": "Item was not Found"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "View item",
+        "url": "/docs/api/payments/items/itemId"
+      }
+    },
+    "tags": [
+      "Items"
+    ],
+    "summary": "View item"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-items-itemid"
+}

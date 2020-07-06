@@ -1,0 +1,69 @@
+{
+  "template": "api-object",
+  "title": "Entidade Enrollment",
+  "path": "/docs/api/apihub/enrollment/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "apihub",
+  "schema": {
+    "type": "schema",
+    "name": "Enrollment",
+    "spec": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "ObjectId",
+          "description": "Identificador do documento da matrícula",
+          "readOnly": true
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
+          "example": "2020-01-01T00:00:00.000Z",
+          "readOnly": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
+          "example": "2020-01-01T00:00:00.000Z",
+          "readOnly": true
+        },
+        "community": {
+          "type": "string",
+          "description": "Identificador da comunidade da matrícula",
+          "example": "test",
+          "readOnly": true
+        },
+        "kind": {
+          "type": "string",
+          "description": "Tipo de entidade que está vinculada ao grupo",
+          "example": "member"
+        },
+        "entity": {
+          "type": "string",
+          "format": "ObjectId",
+          "description": "Identificador do documento da entidade à qual pertence essa matrícula"
+        },
+        "group": {
+          "type": "string",
+          "format": "ObjectId",
+          "description": "Identificador do grupo à qual a entidade está matriculada",
+          "readOnly": true
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
+          "example": true
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade Enrollment"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-enrollment-object"
+}

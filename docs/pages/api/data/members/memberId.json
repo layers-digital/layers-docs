@@ -1,0 +1,134 @@
+{
+  "template": "api-route",
+  "title": "Visualizar membro",
+  "path": "/docs/api/data/members/memberId",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Visualizar informações do membro especificado"
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/members/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{memberId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/members/{memberId}",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Membros"
+      ],
+      "summary": "Visualizar membro",
+      "description": "Visualizar informações do membro especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathMemberId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permission": [
+            "member:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Member"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Visualizar membro",
+        "url": "/docs/api/data/members/memberId"
+      }
+    },
+    "tags": [
+      "Membros"
+    ],
+    "summary": "Visualizar membro"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-members-memberid"
+}

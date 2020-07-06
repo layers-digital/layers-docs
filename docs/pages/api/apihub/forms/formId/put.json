@@ -1,0 +1,91 @@
+{
+  "template": "api-route",
+  "title": "Update form",
+  "path": "/docs/api/apihub/forms/formId/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Update form"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/forms/{formId}",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Forms"
+      ],
+      "summary": "Update form",
+      "description": "Update form",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "formId to be updated",
+          "name": "formId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/params/Form"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/params/Form"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 404,
+                "name": "NotFound",
+                "type": "NotFound",
+                "error": "Form was not Found"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Forms"
+    ],
+    "summary": "Update form"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-forms-formid-put"
+}

@@ -1,0 +1,86 @@
+{
+  "template": "api-schema",
+  "title": "Schema MagneticMedia",
+  "path": "/docs/api/payments/MagneticMedia/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "schema": {
+    "type": "schema",
+    "name": "MagneticMedia",
+    "spec": {
+      "pattern": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Pattern image url"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Scale of the pattern image"
+          }
+        }
+      },
+      "gradient": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Gradient initial position"
+          },
+          "to": {
+            "type": "string",
+            "description": "Gradient final position"
+          },
+          "angle": {
+            "type": "number",
+            "description": "Gradient angle"
+          }
+        }
+      },
+      "media": {
+        "allOf": [
+          {
+            "description": "Media object with image properties."
+          },
+          {
+            "$ref": "#/components/schemas/Media"
+          }
+        ]
+      },
+      "externalDocs": {
+        "description": "Schema MagneticMedia",
+        "url": "/docs/api/payments/MagneticMedia/object"
+      }
+    },
+    "tags": [],
+    "summary": "Schema MagneticMedia"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-magneticmedia-object"
+}

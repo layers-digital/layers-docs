@@ -1,0 +1,143 @@
+{
+  "template": "api-route",
+  "title": "Editar canal de atendimento",
+  "path": "/docs/api/tickets/tickets/channels/channelId/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Editar informações do canal de atendimento especificado"
+    ]
+  ],
+  "serviceId": "tickets",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token put"
+              },
+              "PUT"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/tickets/channels/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{channelId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/tickets/channels/{channelId}",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Canais de atendimentos"
+      ],
+      "summary": "Editar canal de atendimento",
+      "description": "Editar informações do canal de atendimento especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathChannelId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "ticket:manage"
+          ],
+          "x-layers-context": [
+            "app",
+            "user"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Channel"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Channel"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Editar canal de atendimento",
+        "url": "/docs/api/tickets/tickets/channels/channelId/put"
+      }
+    },
+    "tags": [
+      "Canais de atendimentos"
+    ],
+    "summary": "Editar canal de atendimento"
+  },
+  "headings": [],
+  "pageClass": "page-api-tickets-tickets-channels-channelid-put"
+}

@@ -1,0 +1,82 @@
+{
+  "template": "api-route",
+  "title": "View item",
+  "path": "/docs/api/apihub/items/itemId",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "View item"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/items/{itemId}",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Items"
+      ],
+      "summary": "View item",
+      "description": "View item",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "itemId to be viewed",
+          "name": "itemId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Item"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 404,
+                "name": "NotFound",
+                "type": "NotFound",
+                "error": "Item was not Found"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Items"
+    ],
+    "summary": "View item"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-items-itemid"
+}

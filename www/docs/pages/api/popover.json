@@ -1,0 +1,4183 @@
+{
+  "title": "ion-popover",
+  "path": "/docs/api/popover",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "A Popover is a dialog that appears on top of the current page. It can be used for anything, but generally it is used for overflow actions that don't fit in the navigation bar."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "presenting"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#presenting"
+        },
+        "Presenting"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "To present a popover, call the ",
+      [
+        "code",
+        null,
+        "present"
+      ],
+      " method on a popover instance. In order to position the popover relative to the element clicked, a click event needs to be passed into the options of the the ",
+      [
+        "code",
+        null,
+        "present"
+      ],
+      " method. If the event is not passed, the popover will be positioned in the center of the viewport."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "customization"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#customization"
+        },
+        "Customization"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Popover uses scoped encapsulation, which means it will automatically scope its CSS by appending each of the styles with an additional class at runtime. Overriding scoped selectors in CSS requires a ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity"
+        },
+        "higher specificity"
+      ],
+      " selector."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "We recommend passing a custom class to ",
+      [
+        "code",
+        null,
+        "cssClass"
+      ],
+      " in the ",
+      [
+        "code",
+        null,
+        "create"
+      ],
+      " method and using that to add custom styles to the host and inner elements. This property can also accept multiple classes separated by spaces. View the ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/api/popover/#usage"
+        },
+        "Usage"
+      ],
+      " section for an example of how to pass a class using ",
+      [
+        "code",
+        null,
+        "cssClass"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "css"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/* DOES NOT WORK - not specific enough */"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            ".popover-content"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "background"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #222",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n\n",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "/* Works - pass \"my-custom-class\" in cssClass to increase specificity */"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            ".my-custom-class .popover-content"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "background"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #222",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Any of the defined ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/api/popover/#css-custom-properties"
+        },
+        "CSS Custom Properties"
+      ],
+      " can be used to style the Popover without needing to target individual elements:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "css"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token selector"
+            },
+            ".my-custom-class"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "--background"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ":"
+          ],
+          " #222",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ";"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "blockquote",
+      null,
+      " ",
+      [
+        "p",
+        null,
+        "If you are building an Ionic Angular app, the styles need to be added to a global stylesheet file. Read ",
+        [
+          "stencil-route-link",
+          {
+            "url": "/docs/api/popover/#style-placement"
+          },
+          "Style Placement"
+        ],
+        " in the Angular section below for more information."
+      ],
+      " "
+    ]
+  ],
+  "usage": {
+    "angular": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "typescript"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " Component ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'@angular/core'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " PopoverController ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'@ionic/angular'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " PopoverComponent ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'../../component/popover/popover.component'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n@",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "Component"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  selector",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'popover-example'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  templateUrl",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'popover-example.html'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  styleUrls",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "["
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'./popover-example.css'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "]"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "export"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "class"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token class-name"
+              },
+              "PopoverExample"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "constructor"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token parameter"
+              },
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "public"
+              ],
+              " popoverController",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " PopoverController"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "async"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "presentPopover"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token parameter"
+              },
+              "ev",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token builtin"
+                },
+                "any"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "const"
+            ],
+            " popover ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "await"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "this"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            "popoverController",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "create"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n      component",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " PopoverComponent",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n      cssClass",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'my-custom-class'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n      event",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ev",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n      translucent",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token boolean"
+              },
+              "true"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "await"
+            ],
+            " popover",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "present"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ]
+          ]
+        ],
+        "\n"
+      ],
+      "\n\n    ",
+      [
+        "h3",
+        {
+          "id": "style-placement"
+        },
+        "\n      ",
+        [
+          "a",
+          {
+            "href": "#style-placement"
+          },
+          "Style Placement"
+        ],
+        "\n    "
+      ],
+      "\n  ",
+      [
+        "p",
+        null,
+        "In Angular, the CSS of a specific page is scoped only to elements of that page. Even though the Popover can be presented from within a page, the ",
+        [
+          "code",
+          null,
+          "ion-popover"
+        ],
+        " element is appended outside of the current page. This means that any custom styles need to go in a global stylesheet file. In an Ionic Angular starter this can be the ",
+        [
+          "code",
+          null,
+          "src/global.scss"
+        ],
+        " file or you can register a new global style file by ",
+        [
+          "a",
+          {
+            "href": "https://angular.io/guide/workspace-config#style-script-config"
+          },
+          "adding to the ",
+          [
+            "code",
+            null,
+            "styles"
+          ],
+          " build option in ",
+          [
+            "code",
+            null,
+            "angular.json"
+          ]
+        ],
+        "."
+      ]
+    ],
+    "javascript": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "javascript"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "function"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "presentPopover"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token parameter"
+              },
+              "ev"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "const"
+            ],
+            " popover ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " Object",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "assign"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            "document",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "createElement"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'ion-popover'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    component",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'popover-example-page'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n    cssClass",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'my-custom-class'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n    event",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ev",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n    translucent",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token boolean"
+              },
+              "true"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  document",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            "body",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "appendChild"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            "popover",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " popover",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "present"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ]
+          ]
+        ],
+        "\n"
+      ]
+    ],
+    "react": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "tsx"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " React",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " useState ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'react'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " IonPopover",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " IonButton ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'@ionic/react'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "export"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "const"
+            ],
+            " PopoverExample",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " React",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function-variable function"
+              },
+              "FC"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "=>"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "const"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "["
+            ],
+            "showPopover",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " setShowPopover",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "]"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "useState"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token boolean"
+              },
+              "false"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n      "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token class-name"
+                  },
+                  "IonPopover"
+                ]
+              ],
+              "\n        ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "isOpen"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                "showPopover",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              "\n        ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "cssClass"
+              ],
+              [
+                "span",
+                {
+                  "class": "token attr-value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "'"
+                ],
+                "my-custom-class",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "'"
+                ]
+              ],
+              "\n        ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "onDidDismiss"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token parameter"
+                  },
+                  "e"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  "=>"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token function"
+                  },
+                  "setShowPopover"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token boolean"
+                  },
+                  "false"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              "\n      ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n        "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "p"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "This is popover content"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "p"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n      "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token class-name"
+                  },
+                  "IonPopover"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n      "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token class-name"
+                  },
+                  "IonButton"
+                ]
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "onClick"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  "=>"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token function"
+                  },
+                  "setShowPopover"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token boolean"
+                  },
+                  "true"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "Show Popover"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token class-name"
+                  },
+                  "IonButton"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n    "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ]
+          ]
+        ],
+        "\n"
+      ]
+    ],
+    "stencil": [
+      "div",
+      null,
+      [
+        "docs-code",
+        {
+          "language": "tsx"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " Component",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " h ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'@stencil/core'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " popoverController ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'@ionic/core'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n@",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "Component"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  tag",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'popover-example'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  styleUrl",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'popover-example.css'"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "export"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "class"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token class-name"
+              },
+              "PopoverExample"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "async"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "presentPopover"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token parameter"
+              },
+              "ev",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token builtin"
+                },
+                "any"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "const"
+            ],
+            " popover ",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              "="
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "await"
+            ],
+            " popoverController",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "create"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n      component",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'page-popover'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n      cssClass",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'my-custom-class'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n      event",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ev",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n      translucent",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token boolean"
+              },
+              "true"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "await"
+            ],
+            " popover",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "."
+            ],
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "present"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n\n  ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "render"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "["
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n        "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-button"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token attr-name"
+                },
+                "onClick"
+              ],
+              [
+                "span",
+                {
+                  "class": "token script language-javascript"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token script-punctuation punctuation"
+                  },
+                  "="
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "{"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token parameter"
+                  },
+                  "ev"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token operator"
+                  },
+                  "=>"
+                ],
+                " ",
+                [
+                  "span",
+                  {
+                    "class": "token keyword"
+                  },
+                  "this"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "."
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token function"
+                  },
+                  "presentPopover"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "("
+                ],
+                "ev",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ")"
+                ],
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "}"
+                ]
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "Present Popover"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-button"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n      "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-content"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "]"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ]
+          ]
+        ],
+        "\n"
+      ],
+      "\n\n",
+      [
+        "docs-code",
+        {
+          "language": "tsx"
+        },
+        "\n  ",
+        [
+          "pre",
+          null,
+          [
+            "code",
+            null,
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "import"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            " Component",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            " h ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "from"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'@stencil/core'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n\n@",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "Component"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  tag",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'page-popover'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n  styleUrl",
+            [
+              "span",
+              {
+                "class": "token operator"
+              },
+              ":"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token string"
+              },
+              "'page-popover.css'"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ","
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "export"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "class"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token class-name"
+              },
+              "PagePopover"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token function"
+              },
+              "render"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "("
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ")"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "{"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token keyword"
+              },
+              "return"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "["
+            ],
+            "\n      ",
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-list"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n        "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-item"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n          "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-label"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "Documentation"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-label"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n        "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-item"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n        "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-item"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n          "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-label"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "Feedback"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-label"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n        "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-item"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n        "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-item"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n          "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "<"
+                ],
+                "ion-label"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "Settings"
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-label"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n        "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-item"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token plain-text"
+              },
+              "\n      "
+            ],
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token tag"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  "</"
+                ],
+                "ion-list"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ">"
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "]"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ";"
+            ],
+            "\n  ",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "}"
+            ]
+          ]
+        ],
+        "\n"
+      ]
+    ]
+  },
+  "props": [
+    {
+      "name": "animated",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "animated",
+      "reflectToAttr": false,
+      "docs": "<p>If <code>true</code>, the popover will animate.</p>\n",
+      "docsTags": [],
+      "default": "true",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "backdropDismiss",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "backdrop-dismiss",
+      "reflectToAttr": false,
+      "docs": "<p>If <code>true</code>, the popover will be dismissed when the backdrop is clicked.</p>\n",
+      "docsTags": [],
+      "default": "true",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "component",
+      "type": "Function | HTMLElement | null | string",
+      "mutable": false,
+      "attr": "component",
+      "reflectToAttr": false,
+      "docs": "<p>The component to display inside of the popover.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "Function"
+        },
+        {
+          "type": "HTMLElement"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "optional": false,
+      "required": true
+    },
+    {
+      "name": "componentProps",
+      "type": "undefined | { [key: string]: any; }",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>The data to pass to the popover component.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "undefined"
+        },
+        {
+          "type": "{ [key: string]: any; }"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "cssClass",
+      "type": "string | string[] | undefined",
+      "mutable": false,
+      "attr": "css-class",
+      "reflectToAttr": false,
+      "docs": "<p>Additional classes to apply for custom CSS. If multiple classes are\nprovided they should be separated by spaces.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string[]"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "enterAnimation",
+      "type": "((baseEl: any, opts?: any) => Animation) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>Animation to use when the popover is presented.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((baseEl: any, opts?: any) => Animation)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "event",
+      "type": "any",
+      "mutable": false,
+      "attr": "event",
+      "reflectToAttr": false,
+      "docs": "<p>The event to pass to the popover animation.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "any"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "keyboardClose",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "keyboard-close",
+      "reflectToAttr": false,
+      "docs": "<p>If <code>true</code>, the keyboard will be automatically dismissed when the overlay is presented.</p>\n",
+      "docsTags": [],
+      "default": "true",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "leaveAnimation",
+      "type": "((baseEl: any, opts?: any) => Animation) | undefined",
+      "mutable": false,
+      "reflectToAttr": false,
+      "docs": "<p>Animation to use when the popover is dismissed.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "type": "((baseEl: any, opts?: any) => Animation)"
+        },
+        {
+          "type": "undefined"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "mode",
+      "type": "\"ios\" | \"md\"",
+      "mutable": false,
+      "attr": "mode",
+      "reflectToAttr": false,
+      "docs": "<p>The mode determines which platform styles to use.</p>\n",
+      "docsTags": [],
+      "values": [
+        {
+          "value": "ios",
+          "type": "string"
+        },
+        {
+          "value": "md",
+          "type": "string"
+        }
+      ],
+      "optional": true,
+      "required": false
+    },
+    {
+      "name": "showBackdrop",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "show-backdrop",
+      "reflectToAttr": false,
+      "docs": "<p>If <code>true</code>, a backdrop will be displayed behind the popover.</p>\n",
+      "docsTags": [],
+      "default": "true",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    },
+    {
+      "name": "translucent",
+      "type": "boolean",
+      "mutable": false,
+      "attr": "translucent",
+      "reflectToAttr": false,
+      "docs": "<p>If <code>true</code>, the popover will be translucent.\nOnly applies when the mode is <code>&quot;ios&quot;</code> and the device supports\n<a href=https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility ><code>backdrop-filter</code></a>.</p>\n",
+      "docsTags": [],
+      "default": "false",
+      "values": [
+        {
+          "type": "boolean"
+        }
+      ],
+      "optional": false,
+      "required": false
+    }
+  ],
+  "methods": [
+    {
+      "name": "dismiss",
+      "returns": {
+        "type": "Promise<boolean>",
+        "docs": ""
+      },
+      "signature": "dismiss(data?: any, role?: string | undefined) => Promise<boolean>",
+      "parameters": [],
+      "docs": "<p>Dismiss the popover overlay after it has been presented.</p>\n",
+      "docsTags": [
+        {
+          "name": "param",
+          "text": "data Any data to emit in the dismiss events."
+        },
+        {
+          "name": "param",
+          "text": "role The role of the element that is dismissing the popover. For example, 'cancel' or 'backdrop'."
+        }
+      ]
+    },
+    {
+      "name": "onDidDismiss",
+      "returns": {
+        "type": "Promise<OverlayEventDetail<any>>",
+        "docs": ""
+      },
+      "signature": "onDidDismiss() => Promise<OverlayEventDetail<any>>",
+      "parameters": [],
+      "docs": "<p>Returns a promise that resolves when the popover did dismiss.</p>\n",
+      "docsTags": []
+    },
+    {
+      "name": "onWillDismiss",
+      "returns": {
+        "type": "Promise<OverlayEventDetail<any>>",
+        "docs": ""
+      },
+      "signature": "onWillDismiss() => Promise<OverlayEventDetail<any>>",
+      "parameters": [],
+      "docs": "<p>Returns a promise that resolves when the popover will dismiss.</p>\n",
+      "docsTags": []
+    },
+    {
+      "name": "present",
+      "returns": {
+        "type": "Promise<void>",
+        "docs": ""
+      },
+      "signature": "present() => Promise<void>",
+      "parameters": [],
+      "docs": "<p>Present the popover overlay after it has been created.</p>\n",
+      "docsTags": []
+    }
+  ],
+  "template": "api",
+  "filePath": "./src/components/popover/popover.tsx",
+  "encapsulation": "scoped",
+  "tag": "ion-popover",
+  "docs": [
+    "div",
+    null,
+    "A Popover is a dialog that appears on top of the current page. It can be used for anything, but generally it is used for overflow actions that don't fit in the navigation bar."
+  ],
+  "docsTags": [
+    {
+      "text": "{\"ios\" | \"md\"} mode - The mode determines which platform styles to use.",
+      "name": "virtualProp"
+    }
+  ],
+  "events": [
+    {
+      "event": "ionPopoverDidDismiss",
+      "detail": "OverlayEventDetail<any>",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": "Emitted after the popover has dismissed.",
+      "docsTags": []
+    },
+    {
+      "event": "ionPopoverDidPresent",
+      "detail": "void",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": "Emitted after the popover has presented.",
+      "docsTags": []
+    },
+    {
+      "event": "ionPopoverWillDismiss",
+      "detail": "OverlayEventDetail<any>",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": "Emitted before the popover has dismissed.",
+      "docsTags": []
+    },
+    {
+      "event": "ionPopoverWillPresent",
+      "detail": "void",
+      "bubbles": true,
+      "cancelable": true,
+      "composed": true,
+      "docs": "Emitted before the popover has presented.",
+      "docsTags": []
+    }
+  ],
+  "listeners": [],
+  "styles": [
+    {
+      "name": "--backdrop-opacity",
+      "annotation": "prop",
+      "docs": "Opacity of the backdrop"
+    },
+    {
+      "name": "--background",
+      "annotation": "prop",
+      "docs": "Background of the popover"
+    },
+    {
+      "name": "--box-shadow",
+      "annotation": "prop",
+      "docs": "Box shadow of the popover"
+    },
+    {
+      "name": "--height",
+      "annotation": "prop",
+      "docs": "Height of the popover"
+    },
+    {
+      "name": "--max-height",
+      "annotation": "prop",
+      "docs": "Maximum height of the popover"
+    },
+    {
+      "name": "--max-width",
+      "annotation": "prop",
+      "docs": "Maximum width of the popover"
+    },
+    {
+      "name": "--min-height",
+      "annotation": "prop",
+      "docs": "Minimum height of the popover"
+    },
+    {
+      "name": "--min-width",
+      "annotation": "prop",
+      "docs": "Minimum width of the popover"
+    },
+    {
+      "name": "--width",
+      "annotation": "prop",
+      "docs": "Width of the popover"
+    }
+  ],
+  "slots": [],
+  "dependents": [],
+  "dependencies": [
+    "ion-backdrop"
+  ],
+  "dependencyGraph": {
+    "ion-popover": [
+      "ion-backdrop"
+    ]
+  },
+  "headings": [],
+  "pageClass": "page-api-popover"
+}

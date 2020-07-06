@@ -1,0 +1,79 @@
+{
+  "template": "api-route",
+  "title": "List Sales",
+  "path": "/docs/api/apihub/sales/",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Returns a list of sales"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/sales/",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Sales"
+      ],
+      "summary": "List Sales",
+      "description": "Returns a list of sales\n",
+      "parameters": [
+        {
+          "in": "query",
+          "description": "The numbers of items to return",
+          "name": "limit",
+          "type": "integer",
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hits": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Sale"
+                    }
+                  },
+                  "total": {
+                    "type": "integer",
+                    "description": "Total of items in the database"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Sales"
+    ],
+    "summary": "List Sales"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-sales-"
+}

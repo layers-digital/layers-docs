@@ -1,0 +1,138 @@
+{
+  "template": "api-route",
+  "title": "Remover atendentes",
+  "path": "/docs/api/tickets/tickets/channels/channelId/agents/userId/delete",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Remover usuário cujo identificador foi passado como parâmetro na URL dos atentendes no canal de atendimento especificado"
+    ]
+  ],
+  "serviceId": "tickets",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token delete"
+              },
+              "DELETE"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/tickets/channels/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{channelId}"
+            ],
+            "/agents/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{userId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/tickets/channels/{channelId}/agents/{userId}",
+    "method": "delete",
+    "spec": {
+      "tags": [
+        "Atendentes"
+      ],
+      "summary": "Remover atendentes",
+      "description": "Remover usuário cujo identificador foi passado como parâmetro na URL dos atentendes no canal de atendimento especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathChannelId"
+        },
+        {
+          "$ref": "#/components/parameters/PathUserId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "ticket:manage"
+          ],
+          "x-layers-context": [
+            "app",
+            "user"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
+        }
+      },
+      "externalDocs": {
+        "description": "Remover atendentes",
+        "url": "/docs/api/tickets/tickets/channels/channelId/agents/userId/delete"
+      }
+    },
+    "tags": [
+      "Atendentes"
+    ],
+    "summary": "Remover atendentes"
+  },
+  "headings": [],
+  "pageClass": "page-api-tickets-tickets-channels-channelid-agents-userid-delete"
+}

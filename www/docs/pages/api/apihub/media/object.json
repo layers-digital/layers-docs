@@ -1,0 +1,76 @@
+{
+  "template": "api-object",
+  "title": "Entidade Media",
+  "path": "/docs/api/apihub/media/object",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Represents any uploaded media"
+    ]
+  ],
+  "serviceId": "apihub",
+  "schema": {
+    "type": "schema",
+    "name": "Media",
+    "spec": {
+      "type": "object",
+      "description": "Represents any uploaded media",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Uploaded name of the file",
+          "example": "Icon-iOS-TendaEdu.png"
+        },
+        "path": {
+          "type": "string",
+          "description": "relative path of this file in CDN",
+          "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+        },
+        "url": {
+          "type": "string",
+          "format": "url",
+          "description": "formated URL of the path pointing to CDN",
+          "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+        },
+        "thumb": {
+          "type": "string",
+          "format": "url",
+          "description": "URL of a 1024x1024 contained image in case the file supports it",
+          "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+        },
+        "size": {
+          "type": "Number",
+          "description": "Size in bytes of the file",
+          "example": 56878
+        },
+        "mime": {
+          "type": "string",
+          "description": "Mime type of the file",
+          "example": "image/png"
+        },
+        "width": {
+          "type": "Number",
+          "description": "The width in pixels in case the file is an image"
+        },
+        "height": {
+          "type": "Number",
+          "description": "The height in pixels in case the file is an image"
+        },
+        "orientation": {
+          "type": "String",
+          "description": "The orientation of the image"
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade Media"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-media-object"
+}

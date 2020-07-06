@@ -1,0 +1,138 @@
+{
+  "template": "api-route",
+  "title": "Remover administradores",
+  "path": "/docs/api/data/groups/groupId/admins/userId/delete",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Remover administradores especificado do grupo específicado"
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token delete"
+              },
+              "DELETE"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/groups/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{groupId}"
+            ],
+            "/admins/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{userId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/groups/{groupId}/admins/{userId}",
+    "method": "delete",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Remover administradores",
+      "description": "Remover administradores especificado do grupo específicado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathGroupId"
+        },
+        {
+          "$ref": "#/components/parameters/PathUserId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
+        }
+      },
+      "externalDocs": {
+        "description": "Remover administradores",
+        "url": "/docs/api/data/groups/groupId/admins/userId/delete"
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Remover administradores"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-groups-groupid-admins-userid-delete"
+}

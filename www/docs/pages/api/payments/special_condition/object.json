@@ -1,0 +1,67 @@
+{
+  "template": "api-object",
+  "title": "Entidade SpecialCondition",
+  "path": "/docs/api/payments/special_condition/object",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Represents an payment kind special condition"
+    ]
+  ],
+  "serviceId": "payments",
+  "schema": {
+    "type": "schema",
+    "name": "SpecialCondition",
+    "spec": {
+      "type": "object",
+      "description": "Represents an payment kind special condition",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "payment_method_discount"
+          ],
+          "description": "Special condition kind"
+        },
+        "name": {
+          "type": "string",
+          "description": "Special condition name"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency used in special condition"
+        },
+        "payment_method_rule": {
+          "type": "object",
+          "description": "Rules to apply special condition.",
+          "properties": {
+            "installments": {
+              "type": "number",
+              "description": "Number of installments",
+              "example": 6
+            },
+            "method": {
+              "type": "string",
+              "description": "Payment method",
+              "example": "bank_slip"
+            }
+          }
+        },
+        "discount": {
+          "type": "Object",
+          "$ref": "#/components/params/Discount"
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade SpecialCondition"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-special_condition-object"
+}

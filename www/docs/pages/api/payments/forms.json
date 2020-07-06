@@ -1,0 +1,145 @@
+{
+  "template": "api-route",
+  "title": "List forms",
+  "path": "/docs/api/payments/forms/",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "List forms"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/forms/"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/forms/",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Forms"
+      ],
+      "summary": "List forms",
+      "description": "List forms",
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "number",
+                    "description": "Total quantity of forms in the database",
+                    "example": 42
+                  },
+                  "hits": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/params/Form"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 400,
+                "name": "BadRequest",
+                "type": "InvalidParameter",
+                "error": "Validation failed: document: Path `name` is required"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "List forms",
+        "url": "/docs/api/payments/forms/"
+      }
+    },
+    "tags": [
+      "Forms"
+    ],
+    "summary": "List forms"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-forms-"
+}

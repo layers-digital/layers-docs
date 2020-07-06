@@ -1,0 +1,149 @@
+{
+  "template": "api-route",
+  "title": "View channel link",
+  "path": "/docs/api/payments/channels/links/linkId",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "View channel link"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/channels/links/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{linkId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/channels/links/{linkId}",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Channel Links"
+      ],
+      "summary": "View channel link",
+      "description": "View channel link",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "Id of channel link to be viewed",
+          "name": "linkId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/params/ChannelLink"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 404,
+                "name": "NotFound",
+                "type": "NotFound",
+                "error": "ChannelLink was not Found"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "View channel link",
+        "url": "/docs/api/payments/channels/links/linkId"
+      }
+    },
+    "tags": [
+      "Channel Links"
+    ],
+    "summary": "View channel link"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-channels-links-linkid"
+}

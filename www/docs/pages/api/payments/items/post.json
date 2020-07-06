@@ -1,0 +1,152 @@
+{
+  "template": "api-route",
+  "title": "Create List",
+  "path": "/docs/api/payments/items/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Creates a list of items"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/items"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/items",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Lists"
+      ],
+      "summary": "Create List",
+      "description": "Creates a list of items",
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/List"
+                },
+                {
+                  "required": [
+                    "name",
+                    "caption"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/List"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 400,
+                "name": "BadRequest",
+                "type": "InvalidParameter",
+                "error": "Validation failed: document: Path `name` is required"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Create List",
+        "url": "/docs/api/payments/items/post"
+      }
+    },
+    "tags": [
+      "Lists"
+    ],
+    "summary": "Create List"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-items-post"
+}

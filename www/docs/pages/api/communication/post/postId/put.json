@@ -1,0 +1,143 @@
+{
+  "template": "api-route",
+  "title": "Atualizar publicação",
+  "path": "/docs/api/communication/post/postId/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Atualizar informações de uma publicação"
+    ]
+  ],
+  "serviceId": "communication",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token put"
+              },
+              "PUT"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/post/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{postId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/post/{postId}",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Publicações"
+      ],
+      "summary": "Atualizar publicação",
+      "description": "Atualizar informações de uma publicação",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathPostId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "post:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Event"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Event"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Atualizar publicação",
+        "url": "/docs/api/communication/post/postId/put"
+      }
+    },
+    "tags": [
+      "Publicações"
+    ],
+    "summary": "Atualizar publicação"
+  },
+  "headings": [],
+  "pageClass": "page-api-communication-post-postid-put"
+}

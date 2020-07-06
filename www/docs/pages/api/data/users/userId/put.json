@@ -1,0 +1,143 @@
+{
+  "template": "api-route",
+  "title": "Atualizar informações do usuário",
+  "path": "/docs/api/data/users/userId/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Atualizar informações de contas de acesso do usuário."
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token put"
+              },
+              "PUT"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/users/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{userId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/users/{userId}",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Usuários"
+      ],
+      "summary": "Atualizar informações do usuário",
+      "description": "Atualizar informações de contas de acesso do usuário.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathUserId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "user:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/User"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Atualizar informações do usuário",
+        "url": "/docs/api/data/users/userId/put"
+      }
+    },
+    "tags": [
+      "Usuários"
+    ],
+    "summary": "Atualizar informações do usuário"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-users-userid-put"
+}

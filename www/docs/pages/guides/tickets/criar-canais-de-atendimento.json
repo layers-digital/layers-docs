@@ -1,0 +1,726 @@
+{
+  "path": "/docs/guides/tickets/criar-canais-de-atendimento",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Canais de atendimento no Layers são a maneira de organizar mensagens em grupos por departamento ou assunto. É possível também escopar quais atendentes tem permissão para responder determinadas mensagens através dos vínculos entre atendentes e canais de atendimento uma vez que um atendente só pode responder mensagens de canais aos quais está vinculado."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "A requisição abaixp cria um canal de atendimento no Layers"
+    ],
+    " ",
+    [
+      "h5",
+      {
+        "id": "post-tickets-channels"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#post-tickets-channels"
+        },
+        [
+          "strong",
+          null,
+          "POST"
+        ],
+        " ",
+        [
+          "code",
+          null,
+          "/tickets/channels"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String \n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "name"
+        ],
+        ": nome do canal de atendimento"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Essa requisição retorna a seguinte resposta:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"_id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"public\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Boolean",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"agents\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"allowAudio\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Boolean",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"subjects\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"description\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "_id"
+        ],
+        ": identificador do documento do canal de atendimento"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "public"
+        ],
+        ": indica se o canal será público ou interno. Se for público aparecerá para usuários quando forem criar uma solicitaçõa"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "name"
+        ],
+        ": nome do canal de atendimento"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "agents"
+        ],
+        ": array contendo os identificadores de documentos de usuários que podem responder mensagens para esse canal"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "allowAudio"
+        ],
+        ": indica se esse canal deve permitir o envio de mensagens de áudio"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "subjects"
+        ],
+        ": array contendo um objeto para cada assunto sugerido",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            [
+              "strong",
+              null,
+              "title"
+            ],
+            ": título do assunto "
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "strong",
+              null,
+              "description"
+            ],
+            ": descrição do assunto"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Com exceção do ",
+      [
+        "code",
+        null,
+        "_id"
+      ],
+      " e dos ",
+      [
+        "code",
+        null,
+        "agents"
+      ],
+      " todas as propriedades podem ser editadas por meio da requisição abaixo:"
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "put-tickets-channels-channelid-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#put-tickets-channels-channelid-"
+        },
+        [
+          "strong",
+          null,
+          "PUT"
+        ],
+        " ",
+        [
+          "code",
+          null,
+          "/tickets/channels/{channelId}"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"public\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Boolean",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"allowAudio\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Boolean",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"subjects\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"description\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "É possível adicionar ou remover atendentes de um canal. Isso pode ser feito como explicado no guia ",
+      [
+        "a",
+        {
+          "href": "https://github.com/layers-digital/docs/blob/master/articles/editar-atendentes.md"
+        },
+        "Associando e removendo atendentes de canais de atendimento"
+      ],
+      "."
+    ]
+  ],
+  "title": "Criando canais de atendimento",
+  "headings": [],
+  "pageClass": "page-guides-tickets-criar-canais-de-atendimento"
+}

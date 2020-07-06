@@ -1,0 +1,1547 @@
+{
+  "path": "/docs/guides/oauth/botao-logar-com-layers",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Com o objetivo de tornar o uso da autenticação com o Layers mais simples disponibilizamos um componente do botão de logar com Layers. Para utilizar esse componente na sua aplicação web, siga as instruções abaixo."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "1-importe-a-biblioteca"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#1-importe-a-biblioteca"
+        },
+        "1 - Importe a biblioteca"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Para ter acesso ao componente do botão logar com o Layers será necessário importar o código da biblioteca de autenticação do Layers como mostrado no trecho de código abaixo. É recomendado que isso seja feito dentro da tag head. "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "html"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token doctype"
+            },
+            "<!DOCTYPE HTML>"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "html"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "head"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "title"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "Minha Pagina",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "title"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "script"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "src"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "https://js.layers.digital/v1/LayersAuth.js",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token script"
+            }
+          ],
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "script"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "head"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "html"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "2-adicione-o-bot-o-de-autentica-o-do-layers-sua-p-gina"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#2-adicione-o-bot-o-de-autentica-o-do-layers-sua-p-gina"
+        },
+        "2 - Adicione o botão de autenticação do Layers à sua página"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "html"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "layers-auth-button"
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "client-id"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "myapp",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              ","
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "scope"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "identity:basic:read",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "response-type"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "code",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "redirect-uri"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "https://myapp.com",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            "\n    ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "label"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "Continuar com",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            "\n",
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "layers-auth-button"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Uma vez importada a bibioteca, adicione o componente do botão à sua página passando os atributos obrigatórios:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "client-id"
+        ],
+        ": \nDeve conter o identificador do seu app no Layers Education."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "scope"
+        ],
+        ":\nDeve conter os escopos de autorização que o usuário deve ceder permissão para o uso do seu app. Para mais informações sobre os escopos disponíveis, clique ",
+        [
+          "a",
+          {
+            "href": "https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md"
+          },
+          "aqui"
+        ],
+        "."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "mode"
+        ],
+        ":\nExistem três valores possíveis para o atributo ",
+        [
+          "code",
+          null,
+          "mode"
+        ],
+        ":",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            [
+              "code",
+              null,
+              "embedded"
+            ],
+            ": Abre um dialog na sua página com a tela de login do Layers para que o usuário digite suas credenciais."
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "code",
+              null,
+              "popup"
+            ],
+            ": Abre um popup em outra janela com a tela de login do Layers para que o usuário digite suas credenciais."
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "code",
+              null,
+              "redirect"
+            ],
+            ": Redireciona o usuário para a tela de login do Layers e depois redireciona de volta para o seu app passando o código como parametro na query."
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "redirect-uri"
+        ],
+        ":\nDeve conter a url de redirecionamento para o seu app quando for usado o ",
+        [
+          "code",
+          null,
+          "mode=\"redirect\""
+        ],
+        "."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "label"
+        ],
+        ":\nSerá usada como texto do botão na forma ",
+        [
+          "code",
+          null,
+          "label"
+        ],
+        "+ Layers."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Além dos atributos obrigatórios, estão disponíveis também atributos de estilo para que o botão se adeque ao design na sua página. São eles:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "dark | light"
+        ],
+        ":\nEsses atributos especificam a cor do botão. Usar o atributo ",
+        [
+          "code",
+          null,
+          "dark"
+        ],
+        " resulta no botão verde enquanto usar o atributo ",
+        [
+          "code",
+          null,
+          "light"
+        ],
+        "ou não usar nenhum dos dois resulta no botão branco."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "size"
+        ],
+        ": \nExistem quatro opções de tamanho para o botão de autenticação com Layers: ",
+        [
+          "code",
+          null,
+          "small"
+        ],
+        ", ",
+        [
+          "code",
+          null,
+          "normal"
+        ],
+        ", ",
+        [
+          "code",
+          null,
+          "medium"
+        ],
+        "e ",
+        [
+          "code",
+          null,
+          "large"
+        ],
+        ". Para especificar o tamanho basta usar ",
+        [
+          "code",
+          null,
+          "size=\"tamanho\""
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "flat"
+        ],
+        ":\nPor padrão o componente do botão logar com Layers tem uma borda. Para remover essa borda use o atributo ",
+        [
+          "code",
+          null,
+          "flat"
+        ]
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "raised"
+        ],
+        ":\nPor padrão o botão de logar com Layers não tem drop-shaddow. Se preferir um botão com elevação, basta usar o attributo ",
+        [
+          "code",
+          null,
+          "raised"
+        ],
+        "."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "block"
+        ],
+        ":\nAo usar o atributo ",
+        [
+          "code",
+          null,
+          "block"
+        ],
+        " o botão o botão se tornará flexível, ocupando todo o espaço horizontal do seu container."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "inherit-font"
+        ],
+        ":\nA fonte padrão do botão de autenticação é Nunito-Bold. Embora recomendemos o uso dessa fonte para que o botão seja identificado mais facilmente, é possível alterar a fonte através do atributo ",
+        [
+          "code",
+          null,
+          "ìnherit-font"
+        ],
+        ". Quando for usado esse atributo, a fonte do botão será herdada do seu componente pai."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "3-escute-pelo-evento-com-o-resultado-da-autentica-o"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#3-escute-pelo-evento-com-o-resultado-da-autentica-o"
+        },
+        "3 - Escute pelo evento com o resultado da autenticação"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Caso você tenha optado por usar o modo ",
+      [
+        "code",
+        null,
+        "redirect"
+      ],
+      ", não será possível ouvir o evento como mostrado abaixo. Em vez disso, o código sera passado na chave code dos parâmetros na query."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Para os modos ",
+      [
+        "code",
+        null,
+        "embedded"
+      ],
+      "e ",
+      [
+        "code",
+        null,
+        "popup"
+      ],
+      " o código que deve ser usado para obter o token de acesso do usuário pode ser obtido ouvindo a resposta do evento LayersAuth como mostrado no trecho de código abaixo. "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "html"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "  ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "script"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token script"
+            },
+            [
+              "span",
+              {
+                "class": "token language-javascript"
+              },
+              "\n      LayersAuth",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "onResult"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "error",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ","
+                ],
+                " data"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "=>"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n          ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "if"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "error",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n              ",
+              [
+                "span",
+                {
+                  "class": "token comment"
+                },
+                "//handle error"
+              ],
+              "\n          ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n          ",
+              [
+                "span",
+                {
+                  "class": "token comment"
+                },
+                "//use code to generate an OAuth token for the user"
+              ],
+              "\n          ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "const"
+              ],
+              " code ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " data",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "code\n      ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              "\n  "
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "script"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "4-use-o-c-digo-para-obter-o-token"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#4-use-o-c-digo-para-obter-o-token"
+        },
+        "4 - Use o código para obter o token"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas ",
+      [
+        "a",
+        {
+          "href": "https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md"
+        },
+        "rotas de OAuth disponíveis no Layers"
+      ],
+      "."
+    ],
+    " ",
+    [
+      "h5",
+      {
+        "id": "post-oauth-token"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#post-oauth-token"
+        },
+        [
+          "strong",
+          null,
+          "POST"
+        ],
+        " ",
+        [
+          "code",
+          null,
+          "/oauth/token"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h6",
+      {
+        "id": "requisi-o-do-tipo-form-url-encoded-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#requisi-o-do-tipo-form-url-encoded-"
+        },
+        "Requisição do tipo FORM URL Encoded:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"grant_type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"authorization_code\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"client_id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"{{client_id}}\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"code\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"{{code}}\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"redirect_uri\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"{{redirect_uri}}\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A API deve retornar um JSON com o seguinte formato:"
+    ],
+    " ",
+    [
+      "h6",
+      {
+        "id": "resposta-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#resposta-"
+        },
+        "Resposta:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"access_token\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"{{jwtToken}}\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"token_type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Bearer\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"expires_in\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Number ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Em quanto tempo irá expirar este token,"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"state\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Irá retornar o mesmo valor caso tenha sido utilizado na primeira chamada"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ]
+  ],
+  "title": "Botão logar com Layers",
+  "headings": [],
+  "pageClass": "page-guides-oauth-botao-logar-com-layers"
+}

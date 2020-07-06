@@ -1,0 +1,136 @@
+{
+  "template": "api-schema",
+  "title": "Entidade Amount",
+  "path": "/docs/api/payments/Amount/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"amount\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "10000"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"currency\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"BRL\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "schema": {
+    "type": "schema",
+    "name": "Amount",
+    "spec": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Currency"
+            },
+            {
+              "readOnly": true
+            }
+          ]
+        },
+        "amount": {
+          "type": "integer",
+          "example": 10000,
+          "description": "Integer value of amount in cents without fractions. '10.00' becomes '1000'",
+          "min": 1,
+          "max": 10000000
+        }
+      },
+      "example": {
+        "amount": 1000
+      },
+      "externalDocs": {
+        "description": "Entidade Amount",
+        "url": "/docs/api/payments/Amount/object"
+      }
+    },
+    "tags": [],
+    "summary": "Entidade Amount"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-amount-object"
+}

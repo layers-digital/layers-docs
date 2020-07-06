@@ -1,0 +1,89 @@
+{
+  "template": "api-object",
+  "title": "Entidade Member",
+  "path": "/docs/api/apihub/member/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "apihub",
+  "schema": {
+    "type": "schema",
+    "name": "Member",
+    "spec": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identificador do documento do membro",
+          "example": "12345678",
+          "readOnly": true
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Data de criação do membro em UTC corrigido para o fuso da comunidade",
+          "example": "2020-01-01T00:00:00.000Z",
+          "readOnly": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Data da última modificação do membro em UTC corrido para o fuso da comunidade",
+          "example": "2020-01-01T00:00:00.000Z",
+          "readOnly": true
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Chave que indica se o membro está ativo (quando o membro é apagado, essa chave é mudada para false)",
+          "example": true,
+          "readOnly": true
+        },
+        "community": {
+          "type": "string",
+          "description": "Identificador da communidade do membro",
+          "example": "test",
+          "readOnly": true
+        },
+        "access": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "permissions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Permissões do usuário atrelado a esse membro",
+                  "example": "guardian"
+                }
+              },
+              "user": {
+                "type": "string",
+                "description": "Identificador do documento do usuário"
+              }
+            }
+          }
+        },
+        "name": {
+          "type": "string",
+          "description": "Nome do membro",
+          "example": "Gabriel Raniere"
+        },
+        "alias": {
+          "type": "string",
+          "description": "RA do membro",
+          "example": "abc123d"
+        },
+        "birth": {
+          "type": "string",
+          "description": "Data de nascimento",
+          "example": "2010-04-10T00:00:00.000Z"
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade Member"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-member-object"
+}

@@ -1,0 +1,109 @@
+{
+  "template": "api-object",
+  "title": "Entidade ItemSku",
+  "path": "/docs/api/payments/item_sku/object",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Represents a sellable variant of an item. An Sku is what applies pricing to an item."
+    ]
+  ],
+  "serviceId": "payments",
+  "schema": {
+    "type": "schema",
+    "name": "ItemSku",
+    "spec": {
+      "type": "object",
+      "description": "Represents a sellable variant of an item. An Sku is what applies pricing to an item.",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "description": "Internal item unique identifier for the Sku. Set to a random uuid if you need to create an item with attributes and list options at once.\n",
+          "format": "uuid"
+        },
+        "alias": {
+          "type": "string",
+          "description": "Define your own Sku code here."
+        },
+        "price": {
+          "$ref": "#/components/schemas/Amount"
+        },
+        "priceFrom": {
+          "$ref": "#/components/schemas/Amount"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ItemSkuAttribute"
+          },
+          "description": "A list of attribute-value that characterize this variant Sku",
+          "example": [
+            {
+              "key": "color",
+              "optionName": "Color",
+              "value": "Blue"
+            },
+            {
+              "key": "custom-id",
+              "optionName": "Size",
+              "value": "Super Large"
+            }
+          ]
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Media"
+          }
+        },
+        "caption": {
+          "type": "string",
+          "description": "Sku Caption",
+          "example": "Polyester tent for camping that supports up to 6 person",
+          "maxLength": 100
+        },
+        "plan": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Plan"
+            },
+            {
+              "description": "Represents a recurrence model to the sku."
+            },
+            {
+              "default": null
+            }
+          ]
+        },
+        "inventoryId": {
+          "type": "string",
+          "description": "Inventory id of this sku",
+          "format": "object id"
+        },
+        "reference": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ItemSkuReference"
+            },
+            {
+              "description": "Additional extenral reference to this sku that might be used to connect external real-time inventory tracking capabilities to this sku"
+            },
+            {
+              "default": null
+            }
+          ]
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade ItemSku"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-item_sku-object"
+}

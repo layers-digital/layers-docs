@@ -1,0 +1,50 @@
+{
+  "template": "api-object",
+  "title": "Entidade ItemSkuReference",
+  "path": "/docs/api/apihub/item_sku_reference/object",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Additional external reference to sku that might be used to connect external real-time inventory tracking capabilities"
+    ]
+  ],
+  "serviceId": "apihub",
+  "schema": {
+    "type": "schema",
+    "name": "ItemSkuReference",
+    "spec": {
+      "type": "object",
+      "description": "Additional external reference to sku that might be used to connect external real-time inventory tracking capabilities",
+      "properties": {
+        "resourceKind": {
+          "type": "string",
+          "description": "Defines the kind of the external resource/api",
+          "enum": [
+            "layers:group"
+          ]
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "dynamicInventory": {
+          "type": "boolean",
+          "default": true
+        },
+        "dynamicForm": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "tags": [],
+    "summary": "Entidade ItemSkuReference"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-item_sku_reference-object"
+}

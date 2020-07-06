@@ -1,0 +1,161 @@
+{
+  "template": "api-route",
+  "title": "Buscar usuários",
+  "path": "/docs/api/data/users/search",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Buscar contas de acesso de usuários. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q."
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/users/search"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/users/search",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Usuários"
+      ],
+      "summary": "Buscar usuários",
+      "description": "Buscar contas de acesso de usuários. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/CreatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/UpdatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/Status"
+        },
+        {
+          "$ref": "#/components/parameters/Active"
+        },
+        {
+          "$ref": "#/components/parameters/Roles"
+        },
+        {
+          "name": "q",
+          "in": "query",
+          "description": "Texto de busca. Pode ser o nome, e-mail ou alias do usuário.",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "user:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "number",
+                    "description": "Número de Usuários encontrados",
+                    "example": 10
+                  },
+                  "hits": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Buscar usuários",
+        "url": "/docs/api/data/users/search"
+      }
+    },
+    "tags": [
+      "Usuários"
+    ],
+    "summary": "Buscar usuários"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-users-search"
+}

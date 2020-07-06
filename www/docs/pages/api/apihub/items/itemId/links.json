@@ -1,0 +1,84 @@
+{
+  "template": "api-route",
+  "title": "Lists channels linked to item",
+  "path": "/docs/api/apihub/items/itemId/links",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Lists channels linked to item (returns only published channels)"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/items/{itemId}/links",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Items"
+      ],
+      "summary": "Lists channels linked to item",
+      "description": "Lists channels linked to item (returns only published channels)",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "itemId to list linked channels",
+          "name": "itemId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/params/ChannelLink"
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 400,
+                "name": "BadRequest",
+                "type": "InvalidParameter",
+                "error": "Validation failed: document: Path `name` is required"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Items"
+    ],
+    "summary": "Lists channels linked to item"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-items-itemid-links"
+}

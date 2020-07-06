@@ -1,0 +1,83 @@
+{
+  "template": "api-route",
+  "title": "Listar grupos",
+  "path": "/docs/api/apihub/groups",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Listar grupos existentes no Layers"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/groups",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Listar grupos",
+      "description": "Listar grupos existentes no Layers",
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:read",
+            "group:read:scoped"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/CreatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/Active"
+        },
+        {
+          "$ref": "#/components/parameters/Name"
+        },
+        {
+          "$ref": "#/components/parameters/GroupAdmin"
+        },
+        {
+          "$ref": "#/components/parameters/Season"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Listar grupos"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-groups"
+}

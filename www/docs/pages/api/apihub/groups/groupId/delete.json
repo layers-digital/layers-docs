@@ -1,0 +1,73 @@
+{
+  "template": "api-route",
+  "title": "Deletar grupo",
+  "path": "/docs/api/apihub/groups/groupId/delete",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Remover um grupo do Layers. Essa ação ",
+      [
+        "strong",
+        null,
+        "pode"
+      ],
+      " ser revertida."
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/groups/{groupId}",
+    "method": "delete",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Deletar grupo",
+      "description": "Remover um grupo do Layers. Essa ação **pode** ser revertida.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathGroupId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Group"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Deletar grupo"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-groups-groupid-delete"
+}

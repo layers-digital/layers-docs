@@ -1,0 +1,1874 @@
+{
+  "path": "/docs/guides/apihub/dados-ficha-medica",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "A action ",
+      [
+        "code",
+        null,
+        "@layers:health:MedicalRecord:getRelated"
+      ],
+      " é usada para obter dados de ficha médica de uma ou mais pessoas."
+    ],
+    " ",
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "O app que requisita informações deve enviar uma requisição ",
+      [
+        "code",
+        null,
+        "POST"
+      ],
+      " no formato abaixo:"
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "requisi-o"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#requisi-o"
+        },
+        "Requisição"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"context\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"issuedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Quando a chamada foi feita"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"@layers:health:MedicalRecord:getRelated\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Comunidade do usuário"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"data\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"user\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ID do usuário"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome do usuário"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "|"
+          ],
+          " Number ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "|"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "null"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Alias do usuário"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"timezone\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Fuso horário do usuário"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"language\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Língua preferencial do usuário"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"accountId\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ID da account do usuário"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"secret\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Chave secreta"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "O app que provê os dados da ficha médica de um usuário específico deve, por sua vez, receber uma requisição no formato acima e responder conforme o padrão mostrado abaixo."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Resposta:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"result\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Prontuários médicos (medical records)"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// ID interno do prontuário (opcional)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"0001\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome da pessoa do prontuário (obrigatório)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Ivan Seidel\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Última atualização do prontuário (opcional)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2020-10-31T09:00:00Z\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n      ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Seções do prontuário (obrigatório)"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"sections\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Título da seção do prontuário (obrigatório)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Contato de emergencia\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n          ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Campos do da seção do prontuário (obrigatório)"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"fields\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Os \"fields\" tem 4 tipos (\"types\") possíveis: \"number\", \"text\", \"tags\" e \"attachment\""
+          ],
+          "\n\n            ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Field \"type\": \"number\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Campos aceitos: \"title\", \"caption\", \"number\", \"unit\" e \"loinc\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " \n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"number\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// obrigatório"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Peso\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// obrigatório"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"caption\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"(Medido com roupa)\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// opcional"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"number\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "57.5"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipos aceitos: Number ou String (obrigatório)"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"unit\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"kg\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// opcional"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"loinc\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"3141-9\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// LOINC Code Reference: https://loinc.org/3141-9/ (opcional)"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n            ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Field \"type\": \"text\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Campos aceitos: \"title\", \"caption\", \"number\", \"unit\" e \"loinc\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " \n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"text\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// obrigatório"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Paulo Yoko Amancio\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// obrigatório"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"caption\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Responsável legal\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// opcional"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"text\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"+55 11 99331-6662 (cel)\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo aceito: String (obrigatório)"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"loinc\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"54136-7\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// LOINC Code Reference: https://loinc.org/54136-7/ (opcional)"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n            ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Field \"type\": \"tags\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Campos aceitos: \"title\", \"tags\", \"mood\" e \"loinc\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " \n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"tags\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// obrigatório"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Tipo sanguineo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// obrigatório"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"tags\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"O-\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"B-\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipos aceitos: String ou Array String (obrigatório)"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"mood\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"neutral\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valores possíveis: neutral, good, attention e bad (obrigatório)"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"loinc\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"34532-2\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// LOINC Code Reference: https://loinc.org/34532-2/ (opcional)"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n\n            ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Field \"type\": \"attachment\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Campos aceitos: \"title\", \"attachment\", \"attachment.title\", \"attachment.type\" e \"attachment.url\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " \n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"attachment\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"attachment\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Cálculo de notas.pdf\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Título do anexo"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"file\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Valores possíveis: \"file\" | \"link\" | \"image\""
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"url\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"https://hospitalexample.com.br/prontuariojaneiro.pdf\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// URL para baixar o anexo"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "Obs:"
+      ],
+      " Caso algum erro ocorra, retornar códigos HTTP na faixa 4xx-5xx"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ATENÇÃO:"
+      ],
+      ": Os comentários foram adicionados apenas para explicar as estruturas de dados, nem a requisição e nem a resposta devem ter comentários, ambos devem ser JSONs válidos."
+    ]
+  ],
+  "title": "Dados de ficha médica",
+  "headings": [
+    {
+      "text": "Requisição",
+      "href": "#requisi-o"
+    }
+  ],
+  "pageClass": "page-guides-apihub-dados-ficha-medica"
+}

@@ -1,0 +1,158 @@
+{
+  "template": "api-route",
+  "title": "Buscar membros",
+  "path": "/docs/api/data/members/search",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Buscar membros. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q."
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/members/search"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/members/search",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Membros"
+      ],
+      "summary": "Buscar membros",
+      "description": "Buscar membros. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/CreatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/UpdatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/Status"
+        },
+        {
+          "$ref": "#/components/parameters/Active"
+        },
+        {
+          "name": "q",
+          "in": "query",
+          "description": "Texto de busca. Pode ser o nome ou alias do membro.",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "member:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "number",
+                    "description": "Número de membros encontrados",
+                    "example": 1
+                  },
+                  "hits": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Member"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Buscar membros",
+        "url": "/docs/api/data/members/search"
+      }
+    },
+    "tags": [
+      "Membros"
+    ],
+    "summary": "Buscar membros"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-members-search"
+}

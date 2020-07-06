@@ -1,0 +1,1 @@
+import{i as t,w as o}from"./p-ce7c30ce.js";const n=()=>{const n=window;n.addEventListener("statusTap",()=>{t(()=>{const t=document.elementFromPoint(n.innerWidth/2,n.innerHeight/2);if(!t)return;const c=t.closest("ion-content");c&&c.componentOnReady().then(()=>{o(()=>c.scrollToTop(300))})})})};export{n as startStatusTap};

@@ -1,0 +1,150 @@
+{
+  "template": "api-route",
+  "title": "Editar administradores",
+  "path": "/docs/api/data/groups/groupId/admins/put",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Adicionar administradores ao grupo especificado"
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token put"
+              },
+              "PUT"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/groups/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{groupId}"
+            ],
+            "/admins"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/groups/{groupId}/admins",
+    "method": "put",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Editar administradores",
+      "description": "Adicionar administradores ao grupo especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathGroupId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "type": "object",
+          "properties": {
+            "users": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificadores dos usuários que devem ser adicionados como administradores ao grupo"
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Editar administradores",
+        "url": "/docs/api/data/groups/groupId/admins/put"
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Editar administradores"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-groups-groupid-admins-put"
+}

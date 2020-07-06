@@ -1,0 +1,115 @@
+{
+  "template": "api-route",
+  "title": "Read Checkout",
+  "path": "/docs/api/payments/storefront/checkout",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Returns the scoped checkout"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/storefront/checkout"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/storefront/checkout",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Storefront",
+        "Checkout"
+      ],
+      "summary": "Read Checkout",
+      "description": "Returns the scoped checkout\n",
+      "security": [
+        {
+          "X-Store-Id": [],
+          "X-Checkout-Token": []
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Checkout"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Read Checkout",
+        "url": "/docs/api/payments/storefront/checkout"
+      }
+    },
+    "tags": [
+      "Storefront",
+      "Checkout"
+    ],
+    "summary": "Read Checkout"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-storefront-checkout"
+}

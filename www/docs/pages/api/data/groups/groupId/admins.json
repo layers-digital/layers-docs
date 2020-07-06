@@ -1,0 +1,149 @@
+{
+  "template": "api-route",
+  "title": "Listar administradores",
+  "path": "/docs/api/data/groups/groupId/admins",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Listar administradores do grupo específicado"
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/groups/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{groupId}"
+            ],
+            "/admins"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/groups/{groupId}/admins",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Grupos"
+      ],
+      "summary": "Listar administradores",
+      "description": "Listar administradores do grupo específicado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathGroupId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:read",
+            "group:read:scoped"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do usuário administrador da turma"
+                    },
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Listar administradores",
+        "url": "/docs/api/data/groups/groupId/admins"
+      }
+    },
+    "tags": [
+      "Grupos"
+    ],
+    "summary": "Listar administradores"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-groups-groupid-admins"
+}

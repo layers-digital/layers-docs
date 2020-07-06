@@ -1,0 +1,153 @@
+{
+  "template": "api-route",
+  "title": "Criar matricula",
+  "path": "/docs/api/data/groups/groupId/enrollments/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Criar uma matrícula no grupo especificado"
+    ]
+  ],
+  "serviceId": "data",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/groups/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{groupId}"
+            ],
+            "/enrollments"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/groups/{groupId}/enrollments",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Matrículas"
+      ],
+      "summary": "Criar matricula",
+      "description": "Criar uma matrícula no grupo especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathGroupId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:write",
+            "group:write:scoped"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "enrollments": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Enrollment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Enrollment"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Criar matricula",
+        "url": "/docs/api/data/groups/groupId/enrollments/post"
+      }
+    },
+    "tags": [
+      "Matrículas"
+    ],
+    "summary": "Criar matricula"
+  },
+  "headings": [],
+  "pageClass": "page-api-data-groups-groupid-enrollments-post"
+}

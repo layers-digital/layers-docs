@@ -1,0 +1,134 @@
+{
+  "template": "api-route",
+  "title": "Create customer",
+  "path": "/docs/api/payments/customers/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Create customer"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/customers"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "route": {
+    "type": "route",
+    "path": "/customers",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Customers"
+      ],
+      "summary": "Create customer",
+      "description": "Create customer",
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/params/Customer"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 400,
+                "name": "BadRequest",
+                "type": "InvalidParameter",
+                "error": "Validation failed: document: Path `document` is required"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Create customer",
+        "url": "/docs/api/payments/customers/post"
+      }
+    },
+    "tags": [
+      "Customers"
+    ],
+    "summary": "Create customer"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-customers-post"
+}

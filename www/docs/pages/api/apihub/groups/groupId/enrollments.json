@@ -1,0 +1,116 @@
+{
+  "template": "api-route",
+  "title": "Listar matriculas",
+  "path": "/docs/api/apihub/groups/groupId/enrollments",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Listar matriculas do grupo especificado"
+    ]
+  ],
+  "serviceId": "apihub",
+  "route": {
+    "type": "route",
+    "path": "/groups/{groupId}/enrollments",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "Matrículas"
+      ],
+      "summary": "Listar matriculas",
+      "description": "Listar matriculas do grupo especificado",
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathGroupId"
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:read",
+            "group:read:scoped"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do documento da matrícula",
+                      "readOnly": true
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "description": "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
+                      "example": "2020-01-01T00:00:00.000Z",
+                      "readOnly": true
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "description": "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
+                      "example": "2020-01-01T00:00:00.000Z",
+                      "readOnly": true
+                    },
+                    "community": {
+                      "type": "string",
+                      "description": "Identificador da comunidade da matrícula",
+                      "example": "test",
+                      "readOnly": true
+                    },
+                    "kind": {
+                      "type": "string",
+                      "description": "Tipo de entidade que está vinculada ao grupo",
+                      "example": "member"
+                    },
+                    "entity": {
+                      "$ref": "#/components/schemas/Member"
+                    },
+                    "group": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do grupo à qual a entidade está matriculada",
+                      "readOnly": true
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      "Matrículas"
+    ],
+    "summary": "Listar matriculas"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-groups-groupid-enrollments"
+}

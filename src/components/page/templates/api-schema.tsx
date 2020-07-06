@@ -2,7 +2,7 @@ import { h } from "@stencil/core";
 import { toHypertext } from "../to-hypertext";
 
 import ApiServices from '../../../data/api-services.json'
-import { AcessorNode } from "../../openapi/util";
+// import { AcessorNode } from "../../openapi/util";
 // import ApiPaymentsSpec from '../../../data/api-payments.json'
 
 
@@ -31,96 +31,96 @@ export default (props) => {
     return <div>Page is missing object schema property</div>
   }
 
-  const node: AcessorNode = {
-    name: 'Root',
-    schema: {
-      "type": "object",
-      "properties": {
-        "result": {
-          "type": "array",
-          "items": [
-            {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "summary": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "timezone": {
-                  "type": "string"
-                },
-                "events": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": ["string", "number"]
-                        },
-                        "summary": {
-                          "type": "string"
-                        },
-                        "start": {
-                          "type": ["date", "date-time"]
-                        },
-                        "end": {
-                          "type": ["date", "date-time"]
-                        },
-                        "category": {
-                          "type": "string"
-                        },
-                        "color": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "summary",
-                        "start",
-                        "end"
-                      ]
-                    }
-                  ]
-                },
-                "categories": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "color": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "color"
-                      ]
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "summary",
-                "events"
-              ]
-            }
-          ]
-        }
-      },
-      "required": [
-        "result"
-      ]
-    },
-  }
+  // const node: AcessorNode = {
+  //   name: 'Root',
+  //   schema: {
+  //     "type": "object",
+  //     "properties": {
+  //       "result": {
+  //         "type": "array",
+  //         "items": [
+  //           {
+  //             "type": "object",
+  //             "properties": {
+  //               "id": {
+  //                 "type": "string"
+  //               },
+  //               "summary": {
+  //                 "type": "string"
+  //               },
+  //               "description": {
+  //                 "type": "string"
+  //               },
+  //               "timezone": {
+  //                 "type": "string"
+  //               },
+  //               "events": {
+  //                 "type": "array",
+  //                 "items": [
+  //                   {
+  //                     "type": "object",
+  //                     "properties": {
+  //                       "id": {
+  //                         "type": ["string", "number"]
+  //                       },
+  //                       "summary": {
+  //                         "type": "string"
+  //                       },
+  //                       "start": {
+  //                         "type": ["date", "date-time"]
+  //                       },
+  //                       "end": {
+  //                         "type": ["date", "date-time"]
+  //                       },
+  //                       "category": {
+  //                         "type": "string"
+  //                       },
+  //                       "color": {
+  //                         "type": "string"
+  //                       }
+  //                     },
+  //                     "required": [
+  //                       "summary",
+  //                       "start",
+  //                       "end"
+  //                     ]
+  //                   }
+  //                 ]
+  //               },
+  //               "categories": {
+  //                 "type": "array",
+  //                 "items": [
+  //                   {
+  //                     "type": "object",
+  //                     "properties": {
+  //                       "name": {
+  //                         "type": "string"
+  //                       },
+  //                       "color": {
+  //                         "type": "string"
+  //                       }
+  //                     },
+  //                     "required": [
+  //                       "name",
+  //                       "color"
+  //                     ]
+  //                   }
+  //                 ]
+  //               }
+  //             },
+  //             "required": [
+  //               "summary",
+  //               "events"
+  //             ]
+  //           }
+  //         ]
+  //       }
+  //     },
+  //     "required": [
+  //       "result"
+  //     ]
+  //   },
+  // }
 
   return (
     <article>

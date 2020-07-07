@@ -34,9 +34,10 @@ export class DocsHeader {
 
   renderMenu(section: 'Docs') {
     return [
-      ['Docs'].includes(section) ? 
+      ['Docs'].includes(section) ?
       <div class="SectionNav-tabs">
-        <stencil-route-link url="/docs/" urlMatch={[/^\/docs(?!\/(api|sdk|status|suporte)).*$/]}>Guias</stencil-route-link>
+        <stencil-route-link url="/docs/" urlMatch={[/^\/docs(?!\/(tutorial|api|sdk|status|suporte)).*$/]}>Conceitos</stencil-route-link>
+        <stencil-route-link url="/docs/tutorial" urlMatch={['/docs/tutorial']}>Tutoriais</stencil-route-link>
         <stencil-route-link url="/docs/api" urlMatch={['/docs/api']}>APIs</stencil-route-link>
         <stencil-route-link url="/docs/sdk" urlMatch={['/docs/sdk']}>SDKs</stencil-route-link>
         <stencil-route-link url="/status">Status</stencil-route-link>
@@ -92,7 +93,7 @@ export class DocsHeader {
                 <a href="tel:011999999999" target="_blank">(011) 99999-9999</a>
               </section>
             </docs-dropdown>
-            
+
             <a href="https://github.com/layers-digital" target="_blank">
               <ion-icon name="logo-github" class="lg-only"></ion-icon>
               <span class="sm-only">GitHub <ForwardArrow class="Dropdown-arrow"/></span>

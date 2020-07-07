@@ -6,11 +6,11 @@ const Template = {
   menu: {
     "general": {
       'Grupo': {
-        'article 1': '/docs/api/general/article-1',
-        'article 2': '/docs/api/general/article-2',
+        'article 1': '/docs/api',
+        'article 2': '/docs/api',
       }
     },
-    ...menuData, 
+    ...menuData,
   },
 
   template(props: RouteRenderProps) {

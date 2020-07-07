@@ -7,7 +7,8 @@ import { Logo } from '../../icons';
 // import appflowTemplate from './templates/appflow';
 // import mainTemplate from './templates/main';
 import api from './templates/api';
-import guideTemplate from './templates/guides';
+import conceptsTemplate from './templates/concepts';
+import tutorialsTemplate from './templates/tutorials';
 
 @Component({
   tag: 'docs-menu',
@@ -38,15 +39,9 @@ export class DocsMenu {
         <stencil-route></stencil-route>
       </stencil-route-switch>,
       <stencil-route-switch scrollTopOffset={0} class="Menu">
-        {/* <stencil-route url="/docs/:lang([a-z]{2})?/(components|api)" routeRender={componentsTemplate}/> */}
-        {/* <stencil-route url="/docs/:lang([a-z]{2})?/cli" routeRender={cliTemplate}/> */}
-        {/* <stencil-route url="/docs/:lang([a-z]{2})?/studio" routeRender={studioTemplate}/> */}
-        {/* <stencil-route url="/docs/:lang([a-z]{2})?/native/:plugin" routeRender={() => <docs-menu-native />}/> */}
-        {/* <stencil-route url="/docs/:lang([a-z]{2})?/native" routeRender={() => <docs-menu-native />}/> */}
-        {/* <stencil-route url="/docs/:lang([a-z]{2})?/appflow" routeRender={appflowTemplate}/> */}
-        {/* <stencil-route url="/docs/:lang([a-z]{2})?/enterprise" routeRender={() => <docs-menu-enterprise />}/> */}
         <stencil-route url="/docs/api/:service?" routeRender={api.template}/>
-        <stencil-route url="/docs/(guides)?/:service?" routeRender={guideTemplate}/>
+        <stencil-route url="/docs/tutorial/:service?" routeRender={tutorialsTemplate}/>
+        <stencil-route url="/docs/(concepts)?/:service?" routeRender={conceptsTemplate}/>
       </stencil-route-switch>
     ];
   }

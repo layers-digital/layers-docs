@@ -125,7 +125,7 @@ export class DocsPage {
     const hasDemo = typeof page.demoUrl === 'string';
 
     if (this.badFetch) {
-      return templates.error(this.badFetch);
+      throw new Error('not found ' + this.path);
     }
 
     const Template = templates[page.template] || templates.default;

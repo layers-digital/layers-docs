@@ -217,7 +217,7 @@ export class IonicSearch {
   getDefaultContent() {
     return (
       <div class="Search__Defaults">
-        <div class="Search__Defaults__Section">
+        {/* <div class="Search__Defaults__Section">
           <h4>Getting Started</h4>
           <ul>
             <li><a href="/docs/intro/cli"><Book/><strong>Installation Guide</strong> | Installation</a></li>
@@ -252,7 +252,7 @@ export class IonicSearch {
             <li><a href="/docs/native/firebase"><Book/><strong>Firebase</strong> | Native CE</a></li>
             <li><a href="/docs/native/barcode-scanner"><Book/><strong>Barcode Scanner</strong> | Native CE</a></li>
           </ul>
-        </div>
+        </div> */}
       </div>
     );
   }

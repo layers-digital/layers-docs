@@ -1,3 +1,0 @@
-# OAuth no Layers
-
-A funcionalidade de OAuth no Layers permite que um app autentique um usuário por meio da sua conta do Layers. Além disso, o app pode também acessar [informações contidas nos escopos](/oauth/escopos) consentidos  para proporcionar a melhor experiência para seus usuários. Por meio do botão logar com Layers na [web](/oauth/logar-com-layers) ou [mobile](/oauth/logar-com-layers-mobile) é possível gerar o token de acesso para que seu app acesse [informações de contas](/oauth/info-conta) ou [usuário](/oauth/info-usuario).

@@ -1,7 +1,10 @@
-on: push
-name: Deploy to Github Pages
+name: Publish to Github Pages
+on:
+  push:
+    branches:
+      - master
 jobs:
-  lint-and-test:
+  publish:
     name: Test
     runs-on: ubuntu-latest
     steps:
@@ -19,5 +22,5 @@ jobs:
       env:
         REPO: self
         BRANCH: gh-pages
-        FOLDER: build
+        FOLDER: www
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

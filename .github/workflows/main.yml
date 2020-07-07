@@ -20,7 +20,10 @@ jobs:
     - name: mv www build
       uses: jcblw/bash@master
       with:
-        args: ["mv www build"]
+        args:
+          - mv
+          - www
+          - build
     - name: publish
       uses: s0/git-publish-subdir-action@develop
       env:

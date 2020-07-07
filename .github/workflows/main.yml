@@ -17,10 +17,14 @@ jobs:
       uses: CultureHQ/actions-yarn@master
       with:
         args: run build.ci
+    - name: mv www build
+      uses: jcblw/bash@master
+      with:
+        args: mv www build
     - name: publish
       uses: s0/git-publish-subdir-action@develop
       env:
         REPO: self
         BRANCH: gh-pages
-        FOLDER: www
+        FOLDER: build
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

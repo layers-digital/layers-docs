@@ -5,15 +5,15 @@ O Layers oferece para startups as ferramentas e funcionalidades necessárias par
 ## Principais funcionalidades
 
 <docs-cards>
-  <docs-card header="Logar com Layers" href="/docs/concepts/logar-com-layers" icon="/docs/assets/icons/guide-installation-icon.svg" hover-icon="/docs/assets/icons/guide-installation-icon-hover.svg">
+  <docs-card header="Logar com Layers" href="/docs/concepts/funcionalidades/logar-com-layers" icon="/docs/assets/icons/guide-installation-icon.svg" hover-icon="/docs/assets/icons/guide-installation-icon-hover.svg">
     <p>Autentique usuários com o Layers e acesse informações com seu consentimento</p>
   </docs-card>
 
-  <docs-card header="Portais" href="/docs/concepts/portais" icon="/docs/assets/icons/guide-native-icon.svg" hover-icon="/docs/assets/icons/guide-native-icon-hover.svg">
+  <docs-card header="Portais" href="/docs/concepts/funcionalidades/portais" icon="/docs/assets/icons/guide-native-icon.svg" hover-icon="/docs/assets/icons/guide-native-icon-hover.svg">
     <p>Permitir que seu app seja acessado dentro do Layers</p>
   </docs-card>
 
-  <docs-card header="Notificações" href="/docs/concepts/fornecedores" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+  <docs-card header="Notificações" href="/docs/concepts/funcionalidades/notificacoes" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
     <p>Mandar notificações push para android, ios e web</p>
   </docs-card>
 </docs-cards>

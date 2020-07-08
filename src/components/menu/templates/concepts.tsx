@@ -25,6 +25,7 @@ const items = {
     'Notificações': '/docs/concepts/funcionalidades/notificacoes',
     'E-commerce': '/docs/concepts/funcionalidades/e-commerce',
     'Login Federado': '/docs/concepts/funcionalidades/login-federado',
+    'Comunicação': '/docs/concepts/funcionalidades/comunicacao'
   },
 
   'Construindo Apps': {

@@ -11,9 +11,32 @@ tableOfContents: false
 
 # Feito para EdTech's
 
-O [ecossistema Layers Education](/docs/concepts/ecossistema-layers) é uma plataforma web e mobile que contém dados e conecta soluções educacionais que uma instituição de ensino utiliza. Por meio de apps, instituições de ensino podem personalizar sua expreriência por meio de apps dos serviços que utilizam como ERP's, EdTech's e soluções internas.
+O [ecossistema Layers Education](/docs/concepts/ecossistema-layers) é uma plataforma web e mobile que contém dados e conecta soluções educacionais de instituições de ensino. Por meio de apps, as instituições de ensino podem personalizar sua expreriência no Layers através de integrações dos serviços que utilizam como ERP's, EdTech's ou mesmo soluções internas.
 
-Para desenvolvedores desse serviços, integrar sua solução ao Layers significa [criar um app](#) único  com as [funcionalidades disponibilizadas](/docs/concepts/funcionalidades). Esse app poderá ser utilizado por qualquer instituição que utilize o Layers sem necessidade de realizar novas integrações ou desenvolvimento específico para cada instituição.
+Para desenvolvedores desse serviços, integrar sua solução ao Layers significa [criar um app](#) único que poderá ser utilizado por qualquer instituição que utilize o Layers sem necessidade de realizar novas integrações ou desenvolvimento específico para cada instituição usando uma ou mais funcionalidades disponiblizadas pelo Layers. 
+
+
+<docs-cards>
+  <docs-card header="ERPs" href="/docs/concepts/erps" icon="/docs/assets/icons/guide-installation-icon.svg" hover-icon="/docs/assets/icons/guide-installation-icon-hover.svg">
+    <p>Funcionalidades do Layers para ERPs</p>
+  </docs-card>
+
+  <docs-card header="Startups" href="/docs/concepts/startups" icon="/docs/assets/icons/guide-components-icon.svg" hover-icon="/docs/assets/icons/guide-components-icon-hover.svg">
+    <p>Funcionalidades do Layers para Startups</p>
+  </docs-card>
+
+  <docs-card header="Instituições de ensino" href="/docs/concepts/instituicoes-de-ensino" icon="/docs/assets/icons/guide-native-icon.svg" hover-icon="/docs/assets/icons/guide-native-icon-hover.svg">
+    <p>Funcionalidades do Layers para instituições de ensino</p>
+  </docs-card>
+
+  <docs-card header="Fornecedores" href="/docs/concepts/fornecedores" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+    <p>Funcionalidades do Layers para fornecedores</p>
+  </docs-card>
+</docs-cards>
+
+
+
+
 
 ## Instituições de ensino
 
@@ -21,7 +44,7 @@ O Layers oferece a instituições de ensino um ambiente completo e unificado ond
 
 ## ERP's
 
-Para ERP's o Layers oferece uma série de funcionalidades como o [Hub de API's](/docs/concepts/funcionalidades/hub-de-apis) que facilitam a integração com diversas instituições de ensino pormeio de um único app além de diversos apps de visualização com foco na experiência do usuário que consome as informações do ERP.
+
 
 ## Startup's 
 

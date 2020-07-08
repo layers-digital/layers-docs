@@ -93,7 +93,7 @@ export class DocOpenapiSchema {
         }))
 
       return (
-        <ul class="Api-property-list" key={name}>{props}</ul>
+        <ul class="Api-property-list" key={node.name}>{props}</ul>
       )
     }
   }

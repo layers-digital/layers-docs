@@ -23,8 +23,7 @@ export class DocOpenapiSchema {
     if (this.node) {
       return this.node
     }
-    console.log(this.spec)
-    
+
     let schema = getRefPath(this.spec, this.path)
     if (!schema) {
       return null
@@ -49,7 +48,6 @@ export class DocOpenapiSchema {
     }
 
     let path = getAcessorPathNames(node)
-    console.log({path})
     let ancestors = (this.includeRootName ? path : path.slice(1)).join('.')
     let href = path.join('.') + '.' + node.name
     let hasProperties = this.hasProperties(node)
@@ -71,7 +69,7 @@ export class DocOpenapiSchema {
 
         {node.schema.description && <p class="Api-property-description">{node.schema.description}</p>}
         {hasProperties && <docs-openapi-schema-nested node={node} spec={this.spec}></docs-openapi-schema-nested>}
-        
+
         {/* {hasProperties ? <docs-openapi-object class="Api-object-nested" name={node.name} node={node} key={href+'/object'}></docs-openapi-object> : null} */}
       </li>
     )
@@ -100,9 +98,10 @@ export class DocOpenapiSchema {
 
   buildIsRequiredLabel(node: AcessorNode) {
     let isRequired = node.parent?.schema.required?.includes(node.name) ?? false
-    return isRequired ? 
-      <span class="Api-label Api-label-required">obrigatório</span> : 
-      <span class="Api-label Api-label-optional">opcional</span>
+
+    if (isRequired) {
+      return <span class="Api-label Api-label-required">obrigatório</span>
+    }
   }
 
   hasProperties(node: AcessorNode) {
@@ -121,7 +120,7 @@ export class DocOpenapiSchema {
 
   buildEnumLabel(node: AcessorNode) {
     let list = node.schema.enum
-    
+
     if (!list) {
       return null
     }
@@ -142,7 +141,7 @@ export class DocOpenapiSchema {
     if (type == 'object' && title) {
       typeStr = title || typeStr
     }
-    
+
     // Append array type name
     if (type == 'array') {
       let subtype: AcessorNode = {
@@ -155,12 +154,12 @@ export class DocOpenapiSchema {
     }
     // Append nullable option
     typeStr += (nullable ? '?' : '') + (sufix ?? '')
-    
+
     // Return link if available
     if (type == 'object' && externalDocs?.url) {
       typeStr = <stencil-route-link url={externalDocs.url}>{typeStr}</stencil-route-link>
     }
-    
+
     return <span class="Api-label Api-label-type">{typeStr}</span>
   }
 
@@ -179,14 +178,14 @@ export class DocOpenapiSchema {
   buildConstraintsLabel({schema}: AcessorNode) {
     let tags = []
 
-    if (schema.minItems !== undefined && schema.maxItems !== undefined) 
+    if (schema.minItems !== undefined && schema.maxItems !== undefined)
       tags.push(`De ${schema.minItems} até ${schema.maxItems} Itens`)
     else if (schema.minItems !== undefined)
       tags.push(`Pelo menos ${schema.minItems}' Itens`)
     else if (schema.maxItems !== undefined)
       tags.push(`Até ${schema.maxItems} Itens`)
 
-    if (schema.minLength !== undefined && schema.maxLength !== undefined) 
+    if (schema.minLength !== undefined && schema.maxLength !== undefined)
       tags.push(`De ${schema.minLength} até ${schema.maxLength} caracteres`)
     else if (schema.minLength !== undefined)
       tags.push(`Pelo menos ${schema.minLength}' caracteres`)
@@ -198,16 +197,16 @@ export class DocOpenapiSchema {
 
     if (schema.maximum !== undefined)
       tags.push(`${schema.exclusiveMaximum ? '<' : '<='} ${schema.maximum}`)
-    
+
     if (schema.pattern !== undefined)
       tags.push(`/${schema.pattern}/`)
-    
+
     if (schema.uniqueItems)
       tags.push(`Itens Únicos`)
 
     if (!tags.length)
       return null
-    
+
     return <span class="Api-label Api-label-option">
       REGRAS
       <span class="Api-label-tooltip">

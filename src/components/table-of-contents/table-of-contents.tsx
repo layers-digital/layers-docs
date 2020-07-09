@@ -12,7 +12,7 @@ interface ItemOffset {
 })
 export class DocsTableOfContents {
   @Prop() links: Link[] = [];
-  @Prop() label = 'Contents';
+  @Prop() label = 'Conteúdo';
   @Prop() basepath = '';
   @State() itemOffsets: ItemOffset[] = [];
   @State() selectedId: string = null;

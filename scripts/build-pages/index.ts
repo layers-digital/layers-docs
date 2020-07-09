@@ -104,18 +104,11 @@ function patchBody(page: Page): Page {
 }
 
 export function updatePageHtmlToHypertext(page: Page) {
-  page.body = convertHtmlToHypertextData(page.body);
-  if (page.docs) {
-    page.docs = convertHtmlToHypertextData(page.docs);
-  }
-  if (page.summary) {
-    page.summary = convertHtmlToHypertextData(page.summary);
-  }
-  if (page.codeUsage) {
-    page.codeUsage = convertHtmlToHypertextData(page.codeUsage);
-  }
-  if (page.example) {
-    page.example = convertHtmlToHypertextData(page.example);
+  const keys = ['body', 'docs', 'summary', 'codeUsage', 'example', 'requestExample', 'responseExample']
+  for (const key of keys) {
+    if (page[key]) {
+      page[key] = convertHtmlToHypertextData(page[key])
+    }
   }
   if (page.usage) {
     const hypertextUsage = {};

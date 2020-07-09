@@ -1,3 +1,3 @@
 # Hub de API's
 
-O Hub de API's do Layers permite que apps troquem informações por meio de actions: protocolos que especificam o formato de requisição e resposta aceitos para uma determinada informação. Apps podem requisitar e responder informações através de actions. Para isso, o app deve estar registrado no Layers com permissão para usar o Hub de APIs além de terem especificado quais actions vão responder e quais vão requisitar.
+O Hub de API's do Layers permite que apps troquem informações entre si seguindo o formato especificado por uma das actions do Layers: protocolos que especificam o formato de requisição e resposta aceitos para uma determinada informação. Apps podem requisitar e responder informações através de actions. Para qualquer que seja o papel que o app deseja exercer, ele deve estar registrado no Layers com permissão para usar o Hub de APIs além de ter especificado quais actions vão responder e quais vão requisitar.

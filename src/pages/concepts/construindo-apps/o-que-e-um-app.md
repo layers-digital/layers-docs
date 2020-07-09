@@ -4,7 +4,7 @@ Assim como aplicativos para um celular são maneiras de adicionar funcionalidade
 
 ## Identidade
 
-A identidade de um app no Layers diz respeito ao nome e ao ícone do app. Essas informações poderão ser exibidas na Layers Store e também nas comunidades nas quais o app está instalado quando usuários interagirem com o app ou com informações providas por ele.
+A identidade de um app no Layers diz respeito ao nome, ícone, identificador e à descrição do app. Essas informações poderão ser exibidas na Layers Store e também nas comunidades nas quais o app está instalado quando usuários interagirem com o app ou com informações providas por ele.
 
 ## Funcionalidades
 

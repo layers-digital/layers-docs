@@ -22,7 +22,7 @@ export class DocsOpenapiSchemaNested {
     if (this.node) {
       return this.node
     }
-    
+
     let schema = getRefPath(this.spec, this.path)
     if (!schema) {
       return null
@@ -37,7 +37,6 @@ export class DocsOpenapiSchemaNested {
     let node = this.getRootAcessorNode()
 
     let path = getAcessorPathNames(node, true).join('.')
-    console.log({path})
     if (window.location.hash.startsWith('#' + path)) {
       this.isOpen = true
     } else {
@@ -64,6 +63,7 @@ export class DocsOpenapiSchemaNested {
     }
 
     if (typeof node.schema.properties != 'object') {
+      console.log('schema', node.schema);
       return <section class="Api-nested-section">
         <button class="Api-nested-toggle-btn">Erro: Entidade inválida</button>
       </section>
@@ -78,7 +78,7 @@ export class DocsOpenapiSchemaNested {
         {this.canClose ? <Plus class="icon"/> : null}
         <span class="text">{text}</span>
       </button>
-      {this.isOpen ? 
+      {this.isOpen ?
         <docs-openapi-schema node={node} spec={this.spec}/> :
         null}
     </section>

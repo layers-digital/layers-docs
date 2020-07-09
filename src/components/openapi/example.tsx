@@ -15,7 +15,7 @@ export class DocsOpenapiExample {
     if (this.node) {
       return this.node
     }
-    
+
     let schema = getRefPath(this.spec, this.path)
     if (!schema) {
       return null
@@ -29,8 +29,9 @@ export class DocsOpenapiExample {
 
   render() {
     let example = generateExample(this.spec, this.getRootAcessorNode())
-    let json = JSON.stringify(example, null, this.indents)
+    if (!example) return
 
+    let json = JSON.stringify(example, null, this.indents)
     return <docs-code language="json" class="api-example">
       <pre><code>{json}</code></pre>
     </docs-code>

@@ -1,63 +1,52 @@
 import { h } from "@stencil/core";
 import { toHypertext } from "../to-hypertext";
 
-import ApiServices from '../../../data/api-services.json'
+import ApiServices from "../../../data/api-services.json";
 import { OpenAPIObject } from "openapi3-ts";
 import { normalizeObject } from "../../openapi/util";
-// import ApiPaymentsSpec from '../../../data/api-payments.json'
-
 
 export default (props) => {
   const { page } = props;
 
-  let headings = [...page.headings]
-
-  headings.push({
-    text: 'Exemplo',
-    href: '#example',
-  });
-
-  headings.push({
-    text: 'Especificação',
-    href: '#schema',
-  });
-
-  let service = ApiServices[page.serviceId]?.spec as OpenAPIObject
+  let service = ApiServices[page.serviceId]?.spec as OpenAPIObject;
   if (!service) {
-    return <div>Page has invalid or missing serviceId property: {String(service)}</div>
+    return (
+      <div>
+        Page has invalid or missing serviceId property: {String(service)}
+      </div>
+    );
   }
 
-  let route = page.route
+  let route = page.route;
   if (!route) {
-    return <div>Page is missing object route property</div>
+    return <div>Page is missing object route property</div>;
   }
 
-  const PathSpec = service.paths[route.path as string][route.method as string]
-  // const parameters = PathSpec?.parameters
+  const PathSpec = service.paths[route.path as string][route.method as string];
   const requestBody = {
-    name: 'Requisição',
-    schema: normalizeObject(service, PathSpec?.requestBody?.content?.['application/json']?.schema)
-  }
-  
+    name: "Requisição",
+    schema: normalizeObject(
+      service,
+      PathSpec?.requestBody?.content?.["application/json"]?.schema
+    ),
+  };
 
   const response = {
-    name: 'Resposta',
-    schema: normalizeObject(service, PathSpec?.responses?.['200']?.content?.['application/json']?.schema)
-  }
+    name: "Resposta",
+    schema: normalizeObject(
+      service,
+      PathSpec?.responses?.["200"]?.content?.["application/json"]?.schema
+    ),
+  };
 
-  console.log({requestBody, response})
+  console.log(page)
 
   return (
     <article>
-      <h1>{ page.title }</h1>
+      <h1>{page.title}</h1>
       <span class="Nav-tag purple large">{"{...}"}</span>
-      {/* <div class="page-meta always-below">
-        <docs-table-of-contents links={headings} basepath={page.path}/>
-      </div> */}
 
-      <section class="markdown-content">
-        {toHypertext(h, page.body)}
-      </section>
+      <section class="markdown-content">{toHypertext(h, page.body)}</section>
 
       {toHypertext(h, page.example)}
 
@@ -66,32 +55,51 @@ export default (props) => {
           <h2 id="schema">
             <a href="#schema">Especificação</a>
           </h2>
-          <docs-openapi-schema-nested
-            spec={service.spec}
-            node={{name: 'Requisição', schema: requestBody}}
-            text={requestBody.name}
-            open={true}
-            canClose={false}/>
-
-          <docs-openapi-schema-nested
-            spec={service.spec}
-            path={`#/components/schemas/${route.name}`}
-            node={response}
-            text={response.name}
-            open={true}
-            canClose={false}/>
+          {Object.keys(requestBody.schema).length > 0 && (
+            <docs-openapi-schema-nested
+              spec={service.spec}
+              node={requestBody}
+              text={requestBody.name}
+              open={true}
+              canClose={false}
+            />
+          )}
         </section>
 
         <section>
           <h2 id="example">
             <a href="#example">Exemplo</a>
           </h2>
-          <docs-openapi-example spec={service.spec} node={requestBody}></docs-openapi-example>
-          <docs-openapi-example spec={service.spec} node={response}></docs-openapi-example>
+          {toHypertext(h, page.requestExample)}
+        </section>
+      </section>
+
+      <section class="Api-two-column">
+        <section>
+          <h2 id="schema">
+            <a href="#schema">Especificação</a>
+          </h2>
+          {Object.keys(response.schema).length > 0 && (
+            <docs-openapi-schema-nested
+              spec={service.spec}
+              path={`#/components/schemas/${route.name}`}
+              node={response}
+              text={response.name}
+              open={true}
+              canClose={false}
+            />
+          )}
+        </section>
+
+        <section>
+          <h2 id="example">
+            <a href="#example">Exemplo</a>
+          </h2>
+          {toHypertext(h, page.responseExample)}
         </section>
       </section>
 
       <docs-page-footer page={page} />
     </article>
-  )
-}
+  );
+};

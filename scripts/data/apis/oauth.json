@@ -13,22 +13,11 @@
   "paths": {
     "/oauth/account/info": {
       "get": {
-        "parameters": [
-          {
-            "name": "includes",
-            "in": "query",
-            "description": "Texto de busca. Pode ser o nome ou identificador do grupos.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "tags": [
           "Informações de conta"
         ],
         "summary": "Informações de conta",
-        "description": "Visualizar informações da conta do usuário. É possível obter informações sobre as comunidades associadas à conta do usuário com o parâmetro `?includes=communities`",
+        "description": "Visualizar informações da conta do usuário. As informações que serão retornadas dependem do escopo do seu app e também da chave `includes` na querystring. Para ver informações de grupos seu app deve ter um escopo que conceda essa permissão além de passar na chave includes o valor `group`",
         "security": [
           {
             "OAuth2": [
@@ -42,7 +31,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Informações de conta cujo escopo do app dá acesso",
             "content": {
               "application/json": {
                 "schema": {
@@ -60,7 +49,7 @@
           "Informações de usuário"
         ],
         "summary": "Informações de usuário",
-        "description": "Visualizar informações de um usuário. As informações que serão retornadas dependem do escopo do seu app.",
+        "description": "Visualizar informações de um usuário. As informações que serão retornadas dependem do escopo do seu app bem como dos valores passados na chave `includes`. Para que a rota retorne as informações de membros, grupos ou comunidades relacionadas seu app deve passar na chave `includes` da querystring os valores `members`, `groups` ou `community`. Caso deseje retornar mais de uma dessas informações separe os valores por vírgulas na chave `includes`.",
         "security": [
           {
             "OAuth2": []
@@ -68,7 +57,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Informações de usuário cujo escopo do app dá acesso",
             "content": {
               "application/json": {
                 "schema": {
@@ -146,23 +135,20 @@
               "properties": {
                 "color": {
                   "type": "string",
-                  "description": "Cor principal da comunidade",
-                  "example": "#53d0e9"
+                  "description": "Cor principal da comunidade"
                 },
                 "community": {
                   "type": "string",
                   "description": "Identificador da comunidade",
-                  "example": "demo-escola"
+                  "example": "test"
                 },
                 "icon": {
                   "type": "string",
-                  "description": "Ícone da comunidade",
-                  "example": "https://cdn.layers.digital/admin/uploads/e38fc6cb-4991-41cd-8e59-29154315f41d/School_logo.png"
+                  "description": "Logo da comunidade"
                 },
                 "name": {
                   "type": "string",
-                  "description": "Nome da comunidade",
-                  "example": "Colégio Walter White"
+                  "description": "Nome da comunidade"
                 }
               }
             }

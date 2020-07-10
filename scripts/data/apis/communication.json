@@ -46,7 +46,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Publicação criada",
             "content": {
               "application/json": {
                 "schema": {
@@ -62,7 +62,7 @@
           "Publicações"
         ],
         "summary": "Listar Publicações",
-        "description": "Lista as Publicações.",
+        "description": "Listar as publicações existentes",
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
@@ -124,7 +124,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Lista de publicações",
             "content": {
               "application/json": {
                 "schema": {
@@ -145,7 +145,7 @@
           "Publicações"
         ],
         "summary": "Remover publicação",
-        "description": "Remover a publicação especificada",
+        "description": "Remover a publicação especificada. Essse processo **pode** ser revertido por meio da rota de atualizar publicação trocando o valor da chave `active` de `false` para `true`",
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
@@ -168,7 +168,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Publicação removida",
             "content": {
               "application/json": {
                 "schema": {
@@ -184,7 +184,7 @@
           "Publicações"
         ],
         "summary": "Atualizar publicação",
-        "description": "Atualizar informações de uma publicação",
+        "description": "Atualizar informações da publicação especificada",
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
@@ -216,7 +216,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Publicação editada",
             "content": {
               "application/json": {
                 "schema": {
@@ -231,7 +231,7 @@
         "tags": [
           "Publicações"
         ],
-        "summary": "Visualizar uma Publicação",
+        "summary": "Visualizar informações da publicação especificada",
         "description": "Visualizar informações da publicação específicado.",
         "parameters": [
           {
@@ -255,6 +255,7 @@
         ],
         "responses": {
           "200": {
+            "description": "informações da publicação",
             "content": {
               "application/json": {
                 "schema": {
@@ -343,7 +344,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Número e lista de publicações encontradas",
             "content": {
               "application/json": {
                 "schema": {
@@ -356,6 +357,7 @@
                     },
                     "hits": {
                       "type": "array",
+                      "description": "Publicações encontradas ordenadas por quão bem se encaixam na busca",
                       "items": {
                         "$ref": "#/components/schemas/Event"
                       }
@@ -706,6 +708,9 @@
       "name": "Publicações",
       "schemas": [
         "Event"
+      ],
+      "tags": [
+        "Publicações"
       ]
     }
   ]

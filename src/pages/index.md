@@ -28,7 +28,7 @@ Para desenvolvedores desse serviços, integrar sua solução ao Layers significa
     <p>Funcionalidades para instituições de ensino</p>
   </docs-card>
 
-  <docs-card header="fornecedores" href="/docs/concepts/fornecedores" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+  <!-- <docs-card header="fornecedores" href="/docs/concepts/fornecedores" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
     <p>Funcionalidades para fornecedores</p>
-  </docs-card>
+  </docs-card> -->
 </docs-cards>

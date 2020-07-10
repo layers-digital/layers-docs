@@ -1,3 +1,11 @@
+---
+template: default
+title: Layers para instituições de ensino
+tableOfContents: false
+# nextText: 'Environment Setup'
+# nextUrl: '/docs/guides/intro'
+---
+
 # Layers para Instituições de Ensino
 
 O Layers oferece para instituições de ensino um único ambiente no qual é possível integrar soluções internas como um sistema de gestão próprio, bem como inserir outras plataformas educacionais para o ambiente do Layers por meio de portais ou mesmo automatizar o envio de comunicados e notificações para, alunos, pais e familiares.

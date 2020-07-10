@@ -1,3 +1,11 @@
+---
+template: default
+title: Contas de usuário
+tableOfContents: false
+# nextText: 'Environment Setup'
+# nextUrl: '/docs/guides/intro'
+---
+
 # Contas de usuário
 
 Pessoas que acessam dados no Layers tem duas representações: contas e usuários. Cada pessoa pode ter atrelada ao seu e-mail somente uma conta à qual podem estar vinculados diversos usuários em diferentes comunidades que compartilham o mesmo e-mail da conta.

@@ -1,3 +1,11 @@
+---
+template: default
+title: Apps no Layers
+tableOfContents: false
+# nextText: 'Environment Setup'
+# nextUrl: '/docs/guides/intro'
+---
+
 # Apps no Layers
 
 Assim como aplicativos para um celular são maneiras de adicionar funcionalidades ao celular, um app no Layers é uma maneira de adicionar funcionalidades ao Layers. Apps no Layers Education tem três principais características: [Identidade](#Identidade), [funcionalidades](#Funcionalidades) e [visibilidade](#Visibilidade). 

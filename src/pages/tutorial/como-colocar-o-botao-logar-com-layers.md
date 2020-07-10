@@ -1,3 +1,11 @@
+---
+template: default
+title: Implementandoo botão logar com Layers
+tableOfContents: false
+# nextText: 'Environment Setup'
+# nextUrl: '/docs/guides/intro'
+---
+
 # Implementação do botão logar com o Layers
 
 Com o objetivo de tornar o uso da autenticação com o Layers mais simples disponibilizamos um componente do botão do Layers. Para utilizar esse componente na sua aplicação, siga as instruções abaixo.

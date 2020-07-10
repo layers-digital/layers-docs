@@ -1,3 +1,11 @@
+---
+template: default
+title: Ecossistema Layers
+tableOfContents: false
+# nextText: 'Environment Setup'
+# nextUrl: '/docs/guides/intro'
+---
+
 # Ecossistema Layers
 
 O ecossistema Layers Education é composto por EdTechs que desenvolvem [apps](./ecossistema-layers/apps) e Instituições de ensino que os utilizam. Para isso, instituições de ensino devem instalar os apps em suas [comunidades](./ecossistema-layers/comunidades): unidades de organização no Layers que contém os dados e apps usados pela instituição.

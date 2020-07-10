@@ -1,3 +1,11 @@
+---
+template: default
+title: Membros e Grupos
+tableOfContents: false
+# nextText: 'Environment Setup'
+# nextUrl: '/docs/guides/intro'
+---
+
 # Membros e Grupos
 
 ## Membros

@@ -1,3 +1,11 @@
+---
+template: default
+title: Comunidades no Layers
+tableOfContents: false
+# nextText: 'Environment Setup'
+# nextUrl: '/docs/guides/intro'
+---
+
 # Comunidades no Layers
 
 Comunidades são a maior unidade de organização no Layers. Cada instituição de ensino, desenvolvedor de app ou fornecedor é representada por uma comunidade no Layers que contém seus dados e na qual são instalados os apps que adicionarão funcionalidades escolhidas pelos administradores da comunidade.

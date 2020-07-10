@@ -1,15 +1,12 @@
 ---
 template: default
-title: Feito para EdTechs
-meta:
-  image: /docs/assets/img/meta/open-graph.png
-  description: Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards
+title: Introdução à Layers Education
 tableOfContents: false
 # nextText: 'Environment Setup'
 # nextUrl: '/docs/guides/intro'
 ---
 
-# Feito para EdTech's
+# Introdução à Layers Education
 
 O [ecossistema Layers Education](/docs/concepts/ecossistema-layers) é uma plataforma web e mobile que contém dados os dados e conecta soluções educacionais utilizadas por instituições de ensino. Por meio de apps, instituições de ensino podem personalizar sua expreriência por meio de apps dos serviços que utilizam como ERP's, EdTech's e soluções internas.
 

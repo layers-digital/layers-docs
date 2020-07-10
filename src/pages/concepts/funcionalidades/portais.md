@@ -1,3 +1,11 @@
+---
+template: default
+title: Portais no Layers
+tableOfContents: false
+# nextText: 'Environment Setup'
+# nextUrl: '/docs/guides/intro'
+---
+
 # Portais no Layers
 
 A funcionalidade de Portais no Layers permite que apps coloquem telas personalizadas ao Layers mobile ou web. Para isso, o app deve disponibilizar o link de uma página que utilize o SDK de portais do Layers, que permite que o app receba eventos quando o app estiver pronto e quando estiver conectado. 

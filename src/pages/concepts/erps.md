@@ -1,3 +1,11 @@
+---
+template: default
+title: Layers para ERPs
+tableOfContents: false
+# nextText: 'Environment Setup'
+# nextUrl: '/docs/guides/intro'
+---
+
 # Layers para ERPs
 
 O Layers oferece um conjunto de ferramentas que permitem que sistemas de gestão se integrem com diversas instituições de ensino. Por meio de um único app o ERP pode sincronizar dados de pais, alunos e turmas com o Layers, expor as informações suportadas pelo hub de APIs, enviar comunicados importantes ou mesmo notificações de novas informações disponíveis.

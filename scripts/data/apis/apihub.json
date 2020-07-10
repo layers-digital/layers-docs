@@ -52,7 +52,29 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": null
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/responseBodies/@layers:Calendar:getRelated"
+                    },
+                    {
+                      "$ref": "#/components/responseBodies/@layers:education:AcademicRecords:getRelated"
+                    },
+                    {
+                      "$ref": "#/components/responseBodies/@layers:education:GradeBooks:getRelated"
+                    },
+                    {
+                      "$ref": "#/components/responseBodies/@layers:education:Timetables:getRelated"
+                    },
+                    {
+                      "$ref": "#/components/responseBodies/@layers:education:Timetables:getRelated@layers:getHomeInfo"
+                    },
+                    {
+                      "$ref": "#/components/responseBodies/@layers:health:MedicalRecord:getRelated"
+                    },
+                    {
+                      "$ref": "#/components/responseBodies/@layers:payments:Payables:getRelated"
+                    }
+                  ]
                 }
               }
             }
@@ -175,7 +197,18 @@
         "description": "Identificador da action",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "@layers:Calendar:getRelated",
+            "@layers:education:AcademicRecords:getRelated",
+            "@layers:education:AcademicRecords:markRecordsAsViewed",
+            "@layers:education:Attendance:getRelated",
+            "@layers:education:Timetables:getRelated",
+            "@layers:education:GradeBooks:getRelated",
+            "@layers:getHomeInfo",
+            "@layers:health:MedicalRecord:getRelated",
+            "@layers:payments:Payables:getRelated"
+          ]
         }
       },
       "Provider": {
@@ -189,7 +222,7 @@
       }
     },
     "requestBodies": {
-      "@layers:Calendar:getRelated-provide": {
+      "Context": {
         "type": "object",
         "properties": {
           "context": {
@@ -212,51 +245,26 @@
               }
             }
           },
-          "data": {
-            "type": "object",
-            "properties": {
-              "user": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "format": "ObjectId",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "Carlos Pereira"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador do usuário na comunidade",
-                    "example": "user2"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua do usuário",
-                    "example": "pt/BR"
-                  },
-                  "acconuntId": {
-                    "type": "string",
-                    "format": "ObjectId",
-                    "description": "Identificador da conta do usuário"
-                  }
-                }
-              }
-            }
-          },
           "secret": {
             "type": "string",
             "description": "Chave secreta específica do app"
           }
         }
+      },
+      "@layers:Calendar:getRelated-provide": {
+        "allOf": [
+          {
+            "$ref": "#/components/requestBodies/Context"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "$ref": "#/components/requestBodies/@layers:Calendar:getRelated-request"
+              }
+            }
+          }
+        ]
       },
       "@layers:Calendar:getRelated-request": {
         "type": "object",

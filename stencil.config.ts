@@ -6,7 +6,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'www',
-      baseUrl: 'https://layers.digital/docs',
+      baseUrl: 'https://developers.layers.education/docs',
       prerenderConfig: 'prerender.config.js',
       serviceWorker: null,
       copy: [
@@ -15,6 +15,7 @@ export const config: Config = {
         // { src: 'components/color-gen/demo/index.html', dest: 'pages/theming/color-generator/index.html' },
         { src: 'assets', dest: 'assets' },
         { src: 'manifest.json', dest: 'manifest.json' },
+        { src: 'CNAME', dest: '../CNAME' },
         // { src: '../node_modules/@ionic/core/dist', dest: 'assets/ionic' },
       ]
     }

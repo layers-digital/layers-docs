@@ -14,19 +14,19 @@ const Template = {
   },
 
   template(props: RouteRenderProps) {
-    const navItems = Template.menu[props.match.params.service] ?? Template.menu['general']
+    const navItems = Template.menu[props.match.params.service] ?? Template.menu['auth']
     return <docs-nav items={navItems} />
   },
 
   categories: [
-    {
-      icon: '/docs/assets/icons/General.svg',
-      url: '/docs/api/intro',
-      title: 'Guias Gerais',
-    },
+    // {
+    //   icon: '/docs/assets/icons/General.svg',
+    //   url: '/docs/api/intro',
+    //   title: 'Guias Gerais',
+    // },
     {
       icon: '/docs/assets/icons/OAuth.svg',
-      url: '/docs/api/auth',
+      url: '/docs/api/auth/oauth/account/info',
       title: 'Autenticação OAuth',
     },
     {

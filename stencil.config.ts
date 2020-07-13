@@ -6,7 +6,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'www',
-      baseUrl: 'https://layers.digital/docs',
+      baseUrl: 'https://developers.layers.education/docs',
       prerenderConfig: 'prerender.config.js',
       serviceWorker: null,
       copy: [

@@ -36,10 +36,11 @@ export class DocsHeader {
     return [
       ['Docs'].includes(section) ?
       <div class="SectionNav-tabs">
-        <stencil-route-link url="/docs/" urlMatch={[/^\/docs(?!\/(api|sdk|status|suporte)).*$/]}>Conceitos</stencil-route-link>
+        <stencil-route-link url="/docs/" urlMatch={[/^\/docs(?!\/(api|sdk|status|register|suporte)).*$/]}>Conceitos</stencil-route-link>
         <stencil-route-link url="/docs/api" urlMatch={['/docs/api']}>APIs</stencil-route-link>
         <stencil-route-link url="/docs/sdk" urlMatch={['/docs/sdk']}>SDKs</stencil-route-link>
         <stencil-route-link url="/status">Status</stencil-route-link>
+        <stencil-route-link url="docs/register" urlMatch={['/register']}>Registre seu app</stencil-route-link>
       </div> : null,
     ];
   }

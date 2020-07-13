@@ -52,7 +52,7 @@ O Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
     <p>Prover informações sobre horários, frequência, cobranças e mais</p>
   </docs-card>
 
-  <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronização de dados" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+  <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronizacao-de-dados" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
     <p>Manter os dados do Layers atualizados com as informações do ERP</p>
   </docs-card>
 

@@ -40,7 +40,7 @@ export class DocsHeader {
         <stencil-route-link url="/docs/api" urlMatch={['/docs/api']}>APIs</stencil-route-link>
         <stencil-route-link url="/docs/sdk" urlMatch={['/docs/sdk']}>SDKs</stencil-route-link>
         <stencil-route-link url="/status">Status</stencil-route-link>
-        <stencil-route-link url="docs/register" urlMatch={['/register']}>Registre seu app</stencil-route-link>
+        <stencil-route-link url="/docs/register" urlMatch={['/docs/register']}>Registre seu app</stencil-route-link>
       </div> : null,
     ];
   }

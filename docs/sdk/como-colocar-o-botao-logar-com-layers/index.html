@@ -1,5 +1,5 @@
 <!doctype html><html lang=en class="plt-tablet plt-desktop md hydrated" mode=md><head><meta charset="UTF-8">
-<title>Layers Docs</title>
+<title>Implementando o botão logar com Layers - Layers Docs</title>
 <style sty-id="sc-docs-root">.Layout{display:-ms-flexbox;display:flex;overflow-x:hidden}.Layout>stencil-route{width:100%}.Layout.is-menu-toggled{--menu-transform:translateX(calc(-1 * var(--menu-width)));--page-margin-left:0}@media (max-width:768px){.Layout{--menu-transform:translateX(calc(-1 * var(--menu-width)));--page-padding:1.5rem;--page-margin-left:0}.Layout.is-menu-toggled{--menu-transform:none;--page-transform:translateX(var(--menu-width))}.Layout.is-menu-toggled docs-page>*{opacity:.2;pointer-events:none}body.scroll-lock{overflow-y:hidden}}</style>
 <style sty-id="sc-stencil-route">stencil-route.inactive{display:none}</style>
 <style sty-id="sc-docs-header">docs-header{background-color:var(--background);-webkit-box-shadow:0 1px 3px rgba(2,8,20,.06),0 1px 2px rgba(2,8,20,.04);box-shadow:0 1px 3px rgba(2,8,20,.06),0 1px 2px rgba(2,8,20,.04);color:var(--text-color--light);display:block;font-size:16px;font-weight:500;line-height:1;position:fixed;top:0;left:0;-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:-webkit-transform .2s ease;transition:-webkit-transform .2s ease;transition:transform .2s ease;transition:transform .2s ease,-webkit-transform .2s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:100%;white-space:nowrap;z-index:2}@media (min-width:768px){.Layout:not(.is-menu-toggled) docs-header.hidden{-webkit-transform:translateY(-100%);transform:translateY(-100%)}}@media (max-width:768px){.Layout.is-menu-toggled docs-header.hidden{-webkit-transform:translateY(-100%);transform:translateY(-100%)}}docs-header header{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;height:var(--header-height);padding:0 1.4rem 0 .8rem}docs-header a{color:inherit;font-weight:500;padding:10px 0}docs-header ion-icon{font-size:16px;color:#b2becd}docs-header .link-active{color:var(--text-color--dark)}@media (hover:hover){docs-header a:not(.link-active):hover{color:var(--text-color)}}docs-header docs-menu-toggle{-ms-flex:none;flex:none;margin-right:.75em}.HeaderLogo,docs-header .MenuLogo{color:var(--text-color--dark);font-family:var(--heading-font-family);height:25px}.HeaderLogo{margin-right:.125em}.SectionNav stencil-route{display:-ms-flexbox;display:flex}.SectionNav .Dropdown{-ms-flex-item-align:center;align-self:center;color:var(--text-color);margin-right:.75em}.SectionNav .Dropdown-button{border:1px solid #dee3ea;border-radius:6px;color:var(--text-color--dark);padding:10px;-webkit-transition:border-color .1s ease;transition:border-color .1s ease}.SectionNav .Dropdown.is-open .Dropdown-button{border-color:var(--line-rule-color)}.SectionNav .Dropdown-panel{min-width:180px}.SectionNav .Dropdown-panel a{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}.SectionNav .Dropdown-panel svg{height:1em;width:1em}.SectionNav .Dropdown-panel .Nav-link{margin-left:0;margin-right:0}.SectionNav-tabs>*{-ms-flex-align:center;align-items:center;display:-ms-inline-flexbox;display:inline-flex;height:var(--header-height);margin-right:.5em;padding:0 12px;position:relative}.SectionNav-tabs .link-active:after{background-color:currentColor;bottom:0;content:"";display:block;height:3px;left:0;position:absolute;border-radius:4px 4px 0 0;width:100%}.UtilNav{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;font-size:14px;margin-left:auto}.UtilNav>*{margin-left:1em}.UtilNav .Dropdown.is-open{color:var(--text-color)}.UtilNav .Dropdown-button{padding:10px 0}@media (hover:hover){.UtilNav .Dropdown-button:hover{color:var(--text-color)}}.UtilNav .Dropdown-panel{font-size:14px}</style>
@@ -13,18 +13,18 @@
 <style sty-id="sc-docs-nav">docs-nav{display:block}docs-nav ul{list-style:none;margin:0;padding:0}docs-nav a{color:inherit;font-weight:inherit}.Nav{--item-spacing:10px;color:var(--text-color--dark);font-size:14px;font-weight:500;line-height:1.25;padding:1rem 0 .3rem}.Nav-subnav{--item-spacing:6px;color:var(--text-color--light);font-size:13px}.Nav-header{font-size:15px;font-weight:600;color:#27323f;letter-spacing:.02em}.Nav-header,.Nav-link{background-color:rgba(0,0,0,var(--bg-alpha,0));display:-ms-flexbox;display:flex;padding-top:var(--item-spacing);padding-right:4px;padding-bottom:var(--item-spacing);padding-left:calc(14px + var(--level, 1) * 10px)}.Nav-link{position:relative;margin:0 14px;padding-left:calc(var(--level, 1) * 10px);border-radius:4px}.Nav>li{padding-bottom:16px}@media (hover:hover){.Nav-link:not(.Nav-link--active):hover{color:var(--text-color)}}.Nav-link--active{background-color:rgba(var(--accent-color-rgb),.05);color:rgb(var(--accent-color-rgb));font-weight:500}.Nav-subnav .Nav-header{color:var(--text-color);font-weight:600}.Nav-link.outbound{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex}.Nav-link.outbound svg{-ms-flex:none;flex:none;margin-left:.25em}.Nav-text{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.01em;-ms-flex:auto 1 1;flex:auto 1 1}.Nav-tag{-ms-flex:auto 0 0px;flex:auto 0 0;margin:0 4px;padding:0 4px;font-size:10px;font-weight:700;border-radius:3px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;color:rgb(var(--accent-color-rgb));background-color:rgba(var(--accent-color-rgb),.1)}.Nav-tag.large{font-size:16px;padding:.1px .5em}@media (max-width:768px),(pointer:coarse){.Nav{--item-spacing:12px;font-size:15px}.Nav-subnav{--item-spacing:6px;font-size:14px}}.Nav-tag.red{color:rgb(var(--api-red));background-color:rgba(var(--api-red),.1)}.Nav-tag.yellow{color:rgb(var(--api-yellow));background-color:rgba(var(--api-yellow),.1)}.Nav-tag.green{color:rgb(var(--api-green));background-color:rgba(var(--api-green),.1)}.Nav-tag.purple{color:rgb(var(--api-purple));background-color:rgba(var(--api-purple),.1)}.Nav-tag.blue{color:rgb(var(--api-blue));background-color:rgba(var(--api-blue),.1)}</style>
 <style sty-id="sc-docs-select">.Select{cursor:pointer;display:inline-block;font-weight:500}.Select .Dropdown-button{-ms-flex-align:center;align-items:center;border:1px solid #dee3ea;border-radius:6px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:justify;justify-content:space-between;min-width:100px;padding:.5em 1em}.Select .Dropdown-panel{padding:.5em 0}.Select .Dropdown-arrow{margin-left:.5em}.Select-option{--bg-alpha:0;background-color:rgba(0,0,0,var(--bg-alpha));padding:.5em 1.5em}.Select-option:focus{--bg-alpha:0.025;outline:none}.Select-option--selected{--bg-alpha:0.05}.Select-option--selected:focus{--bg-alpha:0.075}@media (hover:hover){.Select-option:hover{--bg-alpha:0.025}.Select-option--selected:hover{--bg-alpha:0.075}}</style>
 <style sty-id="sc-docs-page">docs-page{display:grid;font-size:16px;grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr;line-height:2;margin-left:var(--page-margin-left);margin-top:var(--header-height);overflow-x:hidden;-webkit-transform:var(--page-transform,none);transform:var(--page-transform,none);-webkit-transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1),-webkit-transform .2s cubic-bezier(.2,1,.2,1)}@media (min-width:1234px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 3fr}}@media (min-width:1800px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr 240px}}docs-page>main{grid-column:2;margin-bottom:3rem;padding:var(--page-padding,2rem 3rem);position:relative}docs-page docs-demo{margin-right:auto}docs-page docs-pagination{grid-column:1/-1}docs-page .full-screen{grid-column:1/-1;height:calc(100vh - var(--header-height));margin-bottom:0;overflow:hidden;padding:0}docs-page .page-heading-encapsulation{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em;float:right}docs-page .page-heading-encapsulation:hover{border-color:#92a1b3}docs-page h1{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;margin-top:2rem;margin-bottom:1rem}docs-page h2 a[href^="#"],docs-page h3 a[href^="#"],docs-page h4 a[href^="#"],docs-page h5 a[href^="#"],docs-page h6 a[href^="#"]{color:inherit;position:relative}docs-page h2 a[href^="#"]:before,docs-page h3 a[href^="#"]:before,docs-page h4 a[href^="#"]:before,docs-page h5 a[href^="#"]:before,docs-page h6 a[href^="#"]:before{content:"#";opacity:0;padding-right:1px;position:absolute;right:100%;-webkit-transition:opacity .1s ease;transition:opacity .1s ease}docs-page h2 a[href^="#"]:hover:before,docs-page h2 a[href^="#"]:target:before,docs-page h3 a[href^="#"]:hover:before,docs-page h3 a[href^="#"]:target:before,docs-page h4 a[href^="#"]:hover:before,docs-page h4 a[href^="#"]:target:before,docs-page h5 a[href^="#"]:hover:before,docs-page h5 a[href^="#"]:target:before,docs-page h6 a[href^="#"]:hover:before,docs-page h6 a[href^="#"]:target:before{opacity:1}docs-page h2 code,docs-page h3 code,docs-page h4 code,docs-page h5 code,docs-page h6 code{background:none;font-size:inherit}docs-page aside{float:right;margin-left:20px;margin-bottom:20px}@media (min-width:1234px){docs-page main.no-demo .page-meta:not(.always-below){position:fixed;right:0;top:100px;width:240px;-webkit-transition:transform .2s ease;transition:transform .2s ease}docs-header.hidden~stencil-route docs-page main.no-demo .page-meta:not(.always-below){-webkit-transform:translateY(-60px);transform:translateY(-60px)}}docs-page main.has-demo .page-meta internal-ad{display:none}.Error{-ms-flex-align:center;align-items:center;background-color:var(--offset-background);color:var(--text-color--light);display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;line-height:1;white-space:nowrap}.Error.full-screen{padding-bottom:3rem}.Error>*{margin:10px}.Error div,.Error h1{color:inherit;font-size:3rem}.Error div{text-shadow:3px 3px 3px rgba(0,0,0,.1)}.Error p{font-size:18px}docs-page.api-route,docs-page.api-schema{--page-width:1040px}docs-page.api-schema docs-code[language=json] pre{max-height:calc(100vh - 150px);padding:1em}.Api-two-column{display:grid;grid-gap:32px;grid-template-columns:repeat(auto-fill,minmax(400px,1fr))}docs-page .page-heading-tag{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em}docs-page .page-heading-tag:hover{border-color:#92a1b3}</style>
-<style sty-id="sc-docs-table-of-contents">docs-table-of-contents{display:block;font-size:13px;margin-bottom:2rem}docs-table-of-contents .Nav-header{color:var(--text-color--lighter);font-size:.75em;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding-left:0}docs-table-of-contents ul{padding:0;list-style:none;line-height:1.23em}docs-table-of-contents .Nav-link{padding-left:0;margin-left:0}docs-table-of-contents a{color:inherit;display:inline-block;-webkit-transition:color .2s,transform .3s ease-out;transition:color .2s,transform .3s ease-out}docs-table-of-contents .Nav-link.selected a{color:rgb(var(--accent-color-rgb));-webkit-transform:translateX(2px);transform:translateX(2px)}</style>
+<style sty-id="sc-docs-code">docs-code{display:block;position:relative}docs-code:before{color:#bdc5d1;content:attr(language);font-family:var(--code-font-family);font-size:10px;letter-spacing:.05em;line-height:1;padding:.75em;position:absolute;right:0;text-transform:uppercase;top:0}docs-code[language=shell] pre{white-space:pre-wrap}.code-text__copy{position:absolute;right:0;top:-1.6rem;height:20px}.code-text__copy-confirmation,.code-text__copy-link{padding:4px 5px;font-size:12px;line-height:12px;font-weight:600;position:absolute;right:0;top:0}.code-text__copy-link{-webkit-transition:opacity .2s,color .2s,-webkit-transform .2s;transition:opacity .2s,color .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s,color .2s;transition:transform .2s,opacity .2s,color .2s,-webkit-transform .2s;color:#70a4ff;background-color:#e0eeff;border-radius:4px;display:inline-block;cursor:pointer;opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0);z-index:5}.code-text__copy-link:hover{color:var(--blue)}.code-text__copy-confirmation{-webkit-transition:opacity .2s,-webkit-transform .2s;transition:opacity .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s;transition:transform .2s,opacity .2s,-webkit-transform .2s;color:#0ec254;opacity:0;-webkit-transform:translate3d(0,5px,0);transform:translate3d(0,5px,0);z-index:1;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;height:20px;padding:0}.code-text__copy-confirmation svg{fill:#0ec254;margin-right:-4px}.show-confirmation .code-text__copy-link{opacity:0;-webkit-transform:translate3d(0,-5px,0);transform:translate3d(0,-5px,0);pointer-events:none}.show-confirmation .code-text__copy-confirmation{opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0)}docs-code[language=shell]>pre{background-color:var(--text-color--dark);border-radius:7px}docs-code[language=shell]:before{display:none}docs-code[language=shell] code{color:hsla(0,0%,100%,.7);font-size:13px}docs-code[language=shell] .token{color:inherit}docs-code[language=shell] .token.prompt{color:#fb96f9;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=shell] .token.comment{color:hsla(0,0%,100%,.45)}docs-code[language=http]>pre{border-radius:7px;padding:0 2em 0 0;background:#fafafa;-webkit-box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1);box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1)}docs-code[language=http]:before{display:none}docs-code[language=http] code{color:rgba(0,0,0,.7);font-size:13px}docs-code[language=http] .token{color:inherit}docs-code[language=http] .method>.token{--color:119,161,250;display:inline-block;padding:1em;font-weight:700;color:rgb(var(--color));background-color:rgba(var(--color),.15);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=http] .method .delete{--color:var(--api-red)}docs-code[language=http] .method .put{--color:var(--api-yellow)}docs-code[language=http] .method .post{--color:var(--api-blue)}docs-code[language=http] .method .get{--color:var(--api-green)}docs-code[language=http] .token.schema{color:rgba(0,0,0,.4)}docs-code[language=http] .token.host{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path{color:#1e90ff}docs-code[language=http] .token.path .version{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path .param{color:#42b983}docs-code[language=http] .token.query .separator{color:#a9a9a9}docs-code[language=http] .token.query .param{color:#8454ff}docs-code[language=http] .token.query .param .key{font-weight:700}docs-code[language=http] .token.query .param .value{color:#42b983}docs-code[language=http] .token.query .param .value .number{color:#4caf50;font-weight:700}code[class*=language-],pre[class*=language-]{text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;color:#90a4ae;background:#fafafa;font-family:Roboto Mono,monospace;font-size:1em;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{background:#cceae7;color:#263238}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{white-space:normal;border-radius:.2em;padding:.1em}pre[class*=language-]{overflow:auto;position:relative;margin:.5em 0;padding:1.25em 1em}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#8d45d4}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}</style>
 <style sty-id="sc-docs-page-footer">docs-page-footer{margin-top:6rem}docs-page-footer contributor-list{margin-right:.5em}docs-page-footer .last-updated{color:var(--text-color--light);font-weight:400;margin-left:auto;text-decoration:underline}docs-page-footer .page-footer__row{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;font-size:12px;margin-top:2rem}</style>
-<link rel=modulepreload href="/docs/build/p-5udskm6a.js">
+<link rel=modulepreload href="/docs/build/p-ab3dzmgy.js">
 <link rel=modulepreload href="/docs/build/p-17dc16c8.js">
 <link rel=modulepreload href="/docs/build/p-43f818cb.js">
 <link rel=modulepreload href="/docs/build/p-72181234.js">
 <link rel=modulepreload href="/docs/build/p-737e0558.js">
 <link rel=modulepreload href="/docs/build/p-e35a9f40.js">
-<link rel=modulepreload href="/docs/build/p-wuzkbtyr.entry.js">
-<link rel=modulepreload href="/docs/build/p-7hsn6tkn.entry.js">
+<link rel=modulepreload href="/docs/build/p-wqnzpsyn.entry.js">
+<link rel=modulepreload href="/docs/build/p-xnndc2cq.entry.js">
 <link rel=modulepreload href="/docs/build/p-wqfi30vh.entry.js">
-<script type=module src="/docs/build/p-5udskm6a.js" data-resources-url="/docs/build/"
+<script type=module src="/docs/build/p-ab3dzmgy.js" data-resources-url="/docs/build/"
 data-stencil-namespace=app></script>
 <script nomodule src="/docs/build/app.js"></script>
 <link rel=stylesheet href="/docs/build/p-aqpvpsfz.css">
@@ -32,12 +32,13 @@ data-stencil-namespace=app></script>
 <meta name=viewport content="width=device-width, minimum-scale=1, initial-scale=1">
 <meta name="theme-color" content=#4d8dff>
 <link rel=manifest href="/docs/manifest.json">
-<meta itemprop=name content="Layers Docs" class="meta-title">
+<meta itemprop=name content="Implementando o botão logar com Layers - Layers Docs" class="meta-title">
 <meta itemprop=description content="Layers é a plataforma para Educação e EdTechs. Escale seu produto utilizando API e Serviços da Layers."
 class="meta-description">
-<meta property=og:title content="Layers Docs" class="meta-title">
+<meta property=og:title content="Implementando o botão logar com Layers - Layers Docs" class="meta-title">
 <meta property=og:type content=article>
-<meta property=og:url content="https://layers.digital/docs/tutorial" class="meta-url">
+<meta property=og:url content="https://layers.digital/docs/sdk/como-colocar-o-botao-logar-com-layers"
+class="meta-url">
 <meta property=og:description content="Layers é a plataforma para Educação e EdTechs. Escale seu produto utilizando API e Serviços da Layers."
 class="meta-description">
 <meta property=og:site_name content="Layers Docs">
@@ -57,8 +58,9 @@ class="meta-description">
 <link rel=icon type="image/png" href="/docs/assets/img/meta/favicon-16x16.png" sizes=16x16>
 <link rel=icon type="image/png" href="/docs/assets/img/meta/favicon-32x32.png" sizes=32x32>
 <link rel=icon type="image/png" href="/docs/assets/img/meta/favicon-96x96.png" sizes=96x96>
-<link rel=alternate hreflang="x-default" href="https://layers.digital/docs/tutorial" class="meta-url">
-<link rel=canonical href="https://developers.layers.education/docs/tutorial">
+<link rel=alternate hreflang="x-default" href="https://layers.digital/docs/sdk/como-colocar-o-botao-logar-com-layers"
+class="meta-url">
+<link rel=canonical href="https://developers.layers.education/docs/sdk/como-colocar-o-botao-logar-com-layers">
 </head>
 <body> <docs-root class=hydrated s-id=1><!--r.1--><stencil-router class="Layout hydrated" c-id=1.0.0.0
 s-id=2><!--r.2--><!--o.1.1--><!--o.1.2--><!--o.1.3--><!--o.1.4--><!--s.2.0.0.0.--><stencil-route class=hydrated
@@ -75,7 +77,7 @@ fill=#405261 c-id=4.7.3.3></path><path d="M373.504 147.95C365.704 147.95 358.854
 fill=#405261 c-id=4.8.3.4></path><path d="M460.338 147.95C452.738 147.95 446.088 146.4 440.388 143.3C434.688 140.2 430.288 135.8 427.188 130.1C424.188 124.4 422.688 117.7 422.688 110C422.688 102.3 424.288 95.55 427.488 89.75C430.788 83.85 435.388 79.3 441.288 76.1C447.188 72.9 453.988 71.3 461.688 71.3C465.688 71.3 469.688 71.85 473.688 72.95C477.788 74.05 481.438 75.6 484.638 77.6C487.738 79.5 489.288 82.3 489.288 86C489.288 88.6 488.688 90.75 487.488 92.45C486.288 94.05 484.688 94.85 482.688 94.85C481.388 94.85 480.138 94.65 478.938 94.25C477.838 93.75 476.338 93.05 474.438 92.15C472.338 91.05 470.438 90.2 468.738 89.6C467.138 89 465.288 88.7 463.188 88.7C457.588 88.7 453.288 90.5 450.288 94.1C447.388 97.6 445.938 102.75 445.938 109.55C445.938 116.35 447.388 121.55 450.288 125.15C453.288 128.75 457.588 130.55 463.188 130.55C465.288 130.55 467.138 130.3 468.738 129.8C470.338 129.2 472.288 128.3 474.588 127.1C476.488 126.2 477.988 125.55 479.088 125.15C480.188 124.65 481.388 124.4 482.688 124.4C484.588 124.4 486.138 125.25 487.338 126.95C488.638 128.65 489.288 130.8 489.288 133.4C489.288 137.1 487.738 139.85 484.638 141.65C481.438 143.65 477.738 145.2 473.538 146.3C469.338 147.4 464.938 147.95 460.338 147.95Z"
 fill=#405261 c-id=4.9.3.5></path><path d="M528.309 147.95C522.209 147.95 516.909 147.45 512.409 146.45C507.909 145.45 503.959 143.85 500.559 141.65C499.059 140.75 497.909 139.55 497.109 138.05C496.309 136.55 495.909 134.85 495.909 132.95C495.909 130.65 496.559 128.75 497.859 127.25C499.159 125.65 500.759 124.85 502.659 124.85C503.959 124.85 505.259 125.1 506.559 125.6C507.859 126 509.209 126.5 510.609 127.1C513.409 128.4 516.159 129.45 518.859 130.25C521.559 130.95 524.909 131.3 528.909 131.3C532.409 131.3 535.109 130.75 537.009 129.65C539.009 128.55 540.009 127.05 540.009 125.15C540.009 123.75 539.559 122.65 538.659 121.85C537.859 120.95 536.309 120.15 534.009 119.45C531.709 118.75 528.059 117.9 523.059 116.9C514.159 115.2 507.759 112.65 503.859 109.25C499.959 105.85 498.009 101.1 498.009 95C498.009 90.5 499.359 86.45 502.059 82.85C504.859 79.25 508.659 76.45 513.459 74.45C518.259 72.35 523.659 71.3 529.659 71.3C533.959 71.3 538.159 71.85 542.259 72.95C546.359 74.05 550.009 75.6 553.209 77.6C556.309 79.5 557.859 82.3 557.859 86C557.859 88.4 557.209 90.4 555.909 92C554.609 93.6 553.009 94.4 551.109 94.4C548.809 94.4 546.059 93.5 542.859 91.7C540.359 90.4 538.059 89.45 535.959 88.85C533.959 88.15 531.559 87.8 528.759 87.8C525.659 87.8 523.209 88.4 521.409 89.6C519.609 90.7 518.709 92.25 518.709 94.25C518.709 96.35 519.759 97.95 521.859 99.05C523.959 100.15 528.009 101.25 534.009 102.35C540.709 103.65 545.959 105.25 549.759 107.15C553.559 108.95 556.309 111.25 558.009 114.05C559.709 116.85 560.559 120.4 560.559 124.7C560.559 131.8 557.609 137.45 551.709 141.65C545.909 145.85 538.109 147.95 528.309 147.95Z"
 fill=#405261 c-id=4.10.3.6></path></svg></a></stencil-route-link><!--t.4.11.1.2-->,<header-mobile-collapse
-class=hydrated c-id=4.12.1.3 s-id=7><!--r.7--><!--o.4.13--><!--o.4.27--><div class="header-mobile-collapse__backdrop"
+class=hydrated c-id=4.12.1.3 s-id=7><!--r.7--><!--o.4.13--><!--o.4.25--><div class="header-mobile-collapse__backdrop"
 c-id=7.0.0.0></div><ionic-search class=hydrated c-id=7.1.0.1 s-id=8><!--r.8--><div class="search-box"
 c-id=8.0.0.0><input type=text placeholder="Search Ionic.." c-id=8.1.1.0><svg viewBox="0 0 512 512" class="search-static"
 c-id=8.2.1.1><path d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
@@ -93,88 +95,301 @@ fill=#5B708B c-id=7.4.2.0></path></svg></a><div class="header-mobile-collapse__c
 class=SectionNav c-id=4.13.2.0><stencil-route-switch class=hydrated c-id=4.14.3.0 s-id=10><!--r.10--><!--o.4.15--><!--s.10.0.0.0.--><stencil-route
 class=hydrated c-id=4.15.4.0 s-id=11><!--r.11--><div class="SectionNav-tabs" c-id=4.16.5.0><stencil-route-link
 class=hydrated c-id=4.17.6.0 s-id=12><!--r.12--><!--o.4.18--><a href="/docs/" c-id=12.0.0.0><!--s.12.1.1.0.--><!--t.4.18.7.0-->Conceitos</a></stencil-route-link><stencil-route-link
-class=hydrated c-id=4.19.6.1 s-id=13><!--r.13--><!--o.4.20--><a class="link-active" href="/docs/tutorial"
-c-id=13.0.0.0><!--s.13.1.1.0.--><!--t.4.20.7.0-->Tutoriais</a></stencil-route-link><stencil-route-link
-class=hydrated c-id=4.21.6.2 s-id=14><!--r.14--><!--o.4.22--><a href="/docs/api" c-id=14.0.0.0><!--s.14.1.1.0.--><!--t.4.22.7.0-->APIs</a></stencil-route-link><stencil-route-link
-class=hydrated c-id=4.23.6.3 s-id=15><!--r.15--><!--o.4.24--><a href="/docs/sdk" c-id=15.0.0.0><!--s.15.1.1.0.--><!--t.4.24.7.0-->SDKs</a></stencil-route-link><stencil-route-link
-class=hydrated c-id=4.25.6.4 s-id=16><!--r.16--><!--o.4.26--><a href="/status" c-id=16.0.0.0><!--s.16.1.1.0.--><!--t.4.26.7.0-->Status</a></stencil-route-link></div></stencil-route></stencil-route-switch></nav><nav
-class=UtilNav c-id=4.27.2.1><docs-dropdown tabindex=0 class="Dropdown Dropdown--right hydrated" c-id=4.28.3.0
-s-id=17><!--r.17--><!--o.4.29--><!--o.4.38--><button tabindex="-1" class="Dropdown-button" aria-haspopup=menu
-aria-expanded=false c-id=17.0.0.0><span class="Dropdown-button-label" c-id=17.1.1.0><!--t.17.2.2.0-->Suporte</span><svg
-viewBox="0 0 512 512" class="Dropdown-arrow" c-id=17.3.1.1><path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-c-id=17.4.2.0></path></svg></button><div role=menu class="Dropdown-panel" c-id=17.5.0.1><!--s.17.6.1.0.--><section
-c-id=4.29.4.0><a href="https://id.layers.digital" target=_blank c-id=4.30.5.0><!--t.4.31.6.0-->Acessar Plataforma</a><a
-href="/create" target=_blank c-id=4.32.5.1><!--t.4.33.6.0-->Registrar App</a><a href="/create" target=_blank
-c-id=4.34.5.2><!--t.4.35.6.0-->Começar a Integrar</a><a href="/create" target=_blank c-id=4.36.5.3><!--t.4.37.6.0-->Acessar Sandbox</a></section><section
-c-id=4.38.4.1><a href="/" target=_blank c-id=4.39.5.0><!--t.4.40.6.0-->Entre em contato</a><a href="mailto:devs@layers.education?subject=Layers Docs"
-target=_blank c-id=4.41.5.1><!--t.4.42.6.0-->devs@layers.education</a><a href=tel:011999999999 target=_blank
-c-id=4.43.5.2><!--t.4.44.6.0-->(011) 99999-9999</a></section></div></docs-dropdown><a href="https://github.com/layers-digital"
-target=_blank c-id=4.45.3.1><ion-icon class="lg-only sc-ion-icon-h md hydrated" role=img c-id=4.46.4.0
-s-id=18><!--r.18--><div class="icon-inner sc-ion-icon" c-id=18.0.0.0></div></ion-icon><span class="sm-only"
-c-id=4.47.4.1><!--t.4.48.5.0-->GitHub <svg viewBox="0 0 512 512" class="Dropdown-arrow" c-id=4.49.5.1><path
+class=hydrated c-id=4.19.6.1 s-id=13><!--r.13--><!--o.4.20--><a href="/docs/api" c-id=13.0.0.0><!--s.13.1.1.0.--><!--t.4.20.7.0-->APIs</a></stencil-route-link><stencil-route-link
+class=hydrated c-id=4.21.6.2 s-id=14><!--r.14--><!--o.4.22--><a class="link-active" href="/docs/sdk" c-id=14.0.0.0><!--s.14.1.1.0.--><!--t.4.22.7.0-->SDKs</a></stencil-route-link><stencil-route-link
+class=hydrated c-id=4.23.6.3 s-id=15><!--r.15--><!--o.4.24--><a href="/status" c-id=15.0.0.0><!--s.15.1.1.0.--><!--t.4.24.7.0-->Status</a></stencil-route-link></div></stencil-route></stencil-route-switch></nav><nav
+class=UtilNav c-id=4.25.2.1><docs-dropdown tabindex=0 class="Dropdown Dropdown--right hydrated" c-id=4.26.3.0
+s-id=16><!--r.16--><!--o.4.27--><!--o.4.36--><button tabindex="-1" class="Dropdown-button" aria-haspopup=menu
+aria-expanded=false c-id=16.0.0.0><span class="Dropdown-button-label" c-id=16.1.1.0><!--t.16.2.2.0-->Suporte</span><svg
+viewBox="0 0 512 512" class="Dropdown-arrow" c-id=16.3.1.1><path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+c-id=16.4.2.0></path></svg></button><div role=menu class="Dropdown-panel" c-id=16.5.0.1><!--s.16.6.1.0.--><section
+c-id=4.27.4.0><a href="https://id.layers.digital" target=_blank c-id=4.28.5.0><!--t.4.29.6.0-->Acessar Plataforma</a><a
+href="/create" target=_blank c-id=4.30.5.1><!--t.4.31.6.0-->Registrar App</a><a href="/create" target=_blank
+c-id=4.32.5.2><!--t.4.33.6.0-->Começar a Integrar</a><a href="/create" target=_blank c-id=4.34.5.3><!--t.4.35.6.0-->Acessar Sandbox</a></section><section
+c-id=4.36.4.1><a href="/" target=_blank c-id=4.37.5.0><!--t.4.38.6.0-->Entre em contato</a><a href="mailto:devs@layers.education?subject=Layers Docs"
+target=_blank c-id=4.39.5.1><!--t.4.40.6.0-->devs@layers.education</a><a href=tel:011999999999 target=_blank
+c-id=4.41.5.2><!--t.4.42.6.0-->(011) 99999-9999</a></section></div></docs-dropdown><a href="https://github.com/layers-digital"
+target=_blank c-id=4.43.3.1><ion-icon class="lg-only sc-ion-icon-h md hydrated" role=img c-id=4.44.4.0
+s-id=17><!--r.17--><div class="icon-inner sc-ion-icon" c-id=17.0.0.0></div></ion-icon><span class="sm-only"
+c-id=4.45.4.1><!--t.4.46.5.0-->GitHub <svg viewBox="0 0 512 512" class="Dropdown-arrow" c-id=4.47.5.1><path
 d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"
-c-id=4.50.6.0></path></svg></span></a></nav></div></header-mobile-collapse></header></docs-header><docs-menu
-class=hydrated c-id=1.3.1.2 s-id=19><!--r.19--><header c-id=19.0.0.0><docs-menu-toggle role=button
-tabindex=0 aria-label="Toggle Menu" class=hydrated c-id=19.1.1.0 s-id=20><!--r.20--><svg viewBox="0 0 512 512"
-c-id=20.0.0.0><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"
-c-id=20.1.1.0></path></svg></docs-menu-toggle><stencil-route-link class=hydrated c-id=19.2.1.1 s-id=21><!--r.21--><!--o.19.3--><a
-class="link-active" href="/docs/" c-id=21.0.0.0><!--s.21.1.1.0.--><svg class=MenuLogo viewBox="0 0 618 182"
-fill=none xmlns="http://www.w3.org/2000/svg" c-id=19.3.2.0><rect width=618 height=182 fill=white c-id=19.4.3.0></rect><path
+c-id=4.48.6.0></path></svg></span></a></nav></div></header-mobile-collapse></header></docs-header><docs-menu
+class=hydrated c-id=1.3.1.2 s-id=18><!--r.18--><header c-id=18.0.0.0><docs-menu-toggle role=button
+tabindex=0 aria-label="Toggle Menu" class=hydrated c-id=18.1.1.0 s-id=19><!--r.19--><svg viewBox="0 0 512 512"
+c-id=19.0.0.0><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"
+c-id=19.1.1.0></path></svg></docs-menu-toggle><stencil-route-link class=hydrated c-id=18.2.1.1 s-id=20><!--r.20--><!--o.18.3--><a
+class="link-active" href="/docs/" c-id=20.0.0.0><!--s.20.1.1.0.--><svg class=MenuLogo viewBox="0 0 618 182"
+fill=none xmlns="http://www.w3.org/2000/svg" c-id=18.3.2.0><rect width=618 height=182 fill=white c-id=18.4.3.0></rect><path
 opacity=0.7 fill-rule=evenodd clip-rule=evenodd d="M59.0703 38.4928C59.0703 24.0196 48.3355 12.147 34.4368 10.2247C35.9057 10.2247 37.3747 10.2247 38.7307 10.3378C45.9626 10.3378 53.1944 10.9032 60.3133 12.0339C60.3307 12.0339 60.3454 12.0366 60.3583 12.0415C71.0757 13.7391 81.3428 16.7892 91.3845 20.9666C107.43 27.7509 121.894 37.4752 134.324 49.9131C146.754 62.3511 156.471 76.8244 163.251 92.8806C167.529 102.793 170.461 113.042 172.159 123.628C172.204 123.669 172.249 123.709 172.294 123.75C173.424 130.874 173.989 138.11 173.989 145.46V145.461C173.989 147.27 173.989 149.079 173.876 150.887C172.633 136.188 160.316 124.768 145.4 124.768H114.1C113.093 120.85 111.754 117.154 110.083 113.46H110.029C106.187 104.866 100.763 97.0643 93.9835 90.28C87.0906 83.3826 79.0677 77.9551 70.4799 74.1106V73.9961C66.752 72.3007 63.0241 70.9443 59.0703 69.927V38.4928ZM114.1 113.461V113.46H145.398C145.501 113.46 145.604 113.46 145.707 113.461C145.667 113.461 145.626 113.461 145.586 113.461C145.562 113.461 145.537 113.461 145.513 113.461H114.1Z"
-fill=#405261 c-id=19.5.3.1></path><path d="M173.87 150.888C172.627 136.302 160.31 124.768 145.395 124.768H114.094H68.6689C63.358 124.768 59.177 120.472 59.177 115.27V70.0414V38.6073C59.177 24.134 48.4422 12.2614 34.5435 10.3392C33.1875 10.1131 31.8315 10 30.5885 10C27.7636 10 25.0516 10.4523 22.4527 11.1307C10.5879 14.636 2 25.604 2 38.6073V76.4866V153.376C2 169.206 14.7688 181.983 30.5885 181.983H107.879H145.395C158.841 181.983 170.254 172.598 173.192 160.047C173.644 157.899 173.983 155.75 173.983 153.489C173.983 152.584 173.87 151.68 173.87 150.888Z"
-fill=#405261 c-id=19.6.3.2></path><path d="M236.45 146.75C232.95 146.75 230.25 145.8 228.35 143.9C226.45 142 225.5 139.3 225.5 135.8V51.95C225.5 48.45 226.45 45.75 228.35 43.85C230.25 41.95 232.95 41 236.45 41H266.6C278.1 41 288 43.1 296.3 47.3C304.6 51.5 310.95 57.55 315.35 65.45C319.75 73.35 321.95 82.8 321.95 93.8C321.95 104.8 319.75 114.3 315.35 122.3C311.05 130.2 304.75 136.25 296.45 140.45C288.15 144.65 278.2 146.75 266.6 146.75H236.45ZM264.95 127.85C287.45 127.85 298.7 116.5 298.7 93.8C298.7 71.2 287.45 59.9 264.95 59.9H248.9V127.85H264.95Z"
-fill=#405261 c-id=19.7.3.3></path><path d="M373.504 147.95C365.704 147.95 358.854 146.4 352.954 143.3C347.054 140.1 342.504 135.65 339.304 129.95C336.104 124.15 334.504 117.35 334.504 109.55C334.504 101.75 336.104 95 339.304 89.3C342.504 83.5 347.054 79.05 352.954 75.95C358.854 72.85 365.704 71.3 373.504 71.3C381.304 71.3 388.154 72.85 394.054 75.95C399.954 79.05 404.504 83.5 407.704 89.3C410.904 95 412.504 101.75 412.504 109.55C412.504 117.35 410.904 124.15 407.704 129.95C404.504 135.65 399.954 140.1 394.054 143.3C388.154 146.4 381.304 147.95 373.504 147.95ZM373.504 130.7C384.504 130.7 390.004 123.65 390.004 109.55C390.004 102.45 388.554 97.15 385.654 93.65C382.854 90.15 378.804 88.4 373.504 88.4C362.504 88.4 357.004 95.45 357.004 109.55C357.004 123.65 362.504 130.7 373.504 130.7Z"
-fill=#405261 c-id=19.8.3.4></path><path d="M460.338 147.95C452.738 147.95 446.088 146.4 440.388 143.3C434.688 140.2 430.288 135.8 427.188 130.1C424.188 124.4 422.688 117.7 422.688 110C422.688 102.3 424.288 95.55 427.488 89.75C430.788 83.85 435.388 79.3 441.288 76.1C447.188 72.9 453.988 71.3 461.688 71.3C465.688 71.3 469.688 71.85 473.688 72.95C477.788 74.05 481.438 75.6 484.638 77.6C487.738 79.5 489.288 82.3 489.288 86C489.288 88.6 488.688 90.75 487.488 92.45C486.288 94.05 484.688 94.85 482.688 94.85C481.388 94.85 480.138 94.65 478.938 94.25C477.838 93.75 476.338 93.05 474.438 92.15C472.338 91.05 470.438 90.2 468.738 89.6C467.138 89 465.288 88.7 463.188 88.7C457.588 88.7 453.288 90.5 450.288 94.1C447.388 97.6 445.938 102.75 445.938 109.55C445.938 116.35 447.388 121.55 450.288 125.15C453.288 128.75 457.588 130.55 463.188 130.55C465.288 130.55 467.138 130.3 468.738 129.8C470.338 129.2 472.288 128.3 474.588 127.1C476.488 126.2 477.988 125.55 479.088 125.15C480.188 124.65 481.388 124.4 482.688 124.4C484.588 124.4 486.138 125.25 487.338 126.95C488.638 128.65 489.288 130.8 489.288 133.4C489.288 137.1 487.738 139.85 484.638 141.65C481.438 143.65 477.738 145.2 473.538 146.3C469.338 147.4 464.938 147.95 460.338 147.95Z"
-fill=#405261 c-id=19.9.3.5></path><path d="M528.309 147.95C522.209 147.95 516.909 147.45 512.409 146.45C507.909 145.45 503.959 143.85 500.559 141.65C499.059 140.75 497.909 139.55 497.109 138.05C496.309 136.55 495.909 134.85 495.909 132.95C495.909 130.65 496.559 128.75 497.859 127.25C499.159 125.65 500.759 124.85 502.659 124.85C503.959 124.85 505.259 125.1 506.559 125.6C507.859 126 509.209 126.5 510.609 127.1C513.409 128.4 516.159 129.45 518.859 130.25C521.559 130.95 524.909 131.3 528.909 131.3C532.409 131.3 535.109 130.75 537.009 129.65C539.009 128.55 540.009 127.05 540.009 125.15C540.009 123.75 539.559 122.65 538.659 121.85C537.859 120.95 536.309 120.15 534.009 119.45C531.709 118.75 528.059 117.9 523.059 116.9C514.159 115.2 507.759 112.65 503.859 109.25C499.959 105.85 498.009 101.1 498.009 95C498.009 90.5 499.359 86.45 502.059 82.85C504.859 79.25 508.659 76.45 513.459 74.45C518.259 72.35 523.659 71.3 529.659 71.3C533.959 71.3 538.159 71.85 542.259 72.95C546.359 74.05 550.009 75.6 553.209 77.6C556.309 79.5 557.859 82.3 557.859 86C557.859 88.4 557.209 90.4 555.909 92C554.609 93.6 553.009 94.4 551.109 94.4C548.809 94.4 546.059 93.5 542.859 91.7C540.359 90.4 538.059 89.45 535.959 88.85C533.959 88.15 531.559 87.8 528.759 87.8C525.659 87.8 523.209 88.4 521.409 89.6C519.609 90.7 518.709 92.25 518.709 94.25C518.709 96.35 519.759 97.95 521.859 99.05C523.959 100.15 528.009 101.25 534.009 102.35C540.709 103.65 545.959 105.25 549.759 107.15C553.559 108.95 556.309 111.25 558.009 114.05C559.709 116.85 560.559 120.4 560.559 124.7C560.559 131.8 557.609 137.45 551.709 141.65C545.909 145.85 538.109 147.95 528.309 147.95Z"
-fill=#405261 c-id=19.10.3.6></path></svg></a></stencil-route-link></header><stencil-route-switch class=hydrated
-c-id=19.11.0.1 s-id=22><!--r.22--><!--o.19.12--><!--o.19.15--><!--s.22.0.0.0.--><stencil-route class=hydrated
-c-id=19.12.1.0 s-id=23 style="display: none;"><!--r.23--><section class=MenuControls c-id=19.13.2.0><select-category
-class=hydrated c-id=19.14.3.0 s-id=24><!--r.24--><docs-select class="SelectCategory Select hydrated" c-id=24.0.0.0
-s-id=25><!--r.25--><docs-dropdown tabindex=0 class="Dropdown Dropdown--left hydrated" c-id=25.0.0.0 s-id=26><!--r.26--><!--o.25.1--><!--o.25.6--><!--o.25.11--><!--o.25.16--><!--o.25.21--><!--o.25.26--><!--o.25.31--><!--o.25.36--><!--o.25.41--><button
-tabindex="-1" class="Dropdown-button" aria-haspopup=menu aria-expanded=false c-id=26.0.0.0><span class="Dropdown-button-label"
-c-id=26.1.1.0><div class="SelectCategory-framework" c-id=26.2.2.0><img src="/docs/assets/icons/General.svg"
-class="SelectCategory-icon" c-id=26.3.3.0><span c-id=26.4.3.1><!--t.26.5.4.0-->Guias Gerais</span></div></span><svg
-viewBox="0 0 512 512" class="Dropdown-arrow" c-id=26.6.1.1><path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-c-id=26.7.2.0></path></svg></button><div role=menu class="Dropdown-panel" c-id=26.8.0.1><!--s.26.9.1.0.--><div
-class="Select-option Select-option--selected" role=menuitemradio aria-checked=true tabindex=0 c-id=25.1.1.0><div
-class="SelectCategory-framework" c-id=25.2.2.0><img src="/docs/assets/icons/General.svg" class="SelectCategory-icon"
-c-id=25.3.3.0><span c-id=25.4.3.1><!--t.25.5.4.0-->Guias Gerais</span></div></div><div class="Select-option"
-role=menuitemradio aria-checked=false tabindex=0 c-id=25.6.1.1><div class="SelectCategory-framework"
-c-id=25.7.2.0><img src="/docs/assets/icons/OAuth.svg" class="SelectCategory-icon" c-id=25.8.3.0><span
-c-id=25.9.3.1><!--t.25.10.4.0-->Autenticação OAuth</span></div></div><div class="Select-option" role=menuitemradio
-aria-checked=false tabindex=0 c-id=25.11.1.2><div class="SelectCategory-framework" c-id=25.12.2.0><img src="/docs/assets/icons/Data.svg"
-class="SelectCategory-icon" c-id=25.13.3.0><span c-id=25.14.3.1><!--t.25.15.4.0-->Dados</span></div></div><div
-class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=25.16.1.3><div class="SelectCategory-framework"
-c-id=25.17.2.0><img src="/docs/assets/icons/Hub.svg" class="SelectCategory-icon" c-id=25.18.3.0><span
-c-id=25.19.3.1><!--t.25.20.4.0-->Hub de API's</span></div></div><div class="Select-option" role=menuitemradio
-aria-checked=false tabindex=0 c-id=25.21.1.4><div class="SelectCategory-framework" c-id=25.22.2.0><img src="/docs/assets/icons/Notifications.svg"
-class="SelectCategory-icon" c-id=25.23.3.0><span c-id=25.24.3.1><!--t.25.25.4.0-->Notificações</span></div></div><div
-class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=25.26.1.5><div class="SelectCategory-framework"
-c-id=25.27.2.0><img src="/docs/assets/icons/Payments.svg" class="SelectCategory-icon" c-id=25.28.3.0><span
-c-id=25.29.3.1><!--t.25.30.4.0-->Pagamentos</span></div></div><div class="Select-option" role=menuitemradio
-aria-checked=false tabindex=0 c-id=25.31.1.6><div class="SelectCategory-framework" c-id=25.32.2.0><img src="/docs/assets/icons/Payments.svg"
-class="SelectCategory-icon" c-id=25.33.3.0><span c-id=25.34.3.1><!--t.25.35.4.0-->Comunicação</span></div></div><div
-class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=25.36.1.7><div class="SelectCategory-framework"
-c-id=25.37.2.0><img src="/docs/assets/icons/Payments.svg" class="SelectCategory-icon" c-id=25.38.3.0><span
-c-id=25.39.3.1><!--t.25.40.4.0-->Atendimentos</span></div></div><div class="Select-option" role=menuitemradio
-aria-checked=false tabindex=0 c-id=25.41.1.8><div class="SelectCategory-framework" c-id=25.42.2.0><img src="/docs/assets/icons/Payments.svg"
-class="SelectCategory-icon" c-id=25.43.3.0><span c-id=25.44.3.1><!--t.25.45.4.0-->Atendimentos</span></div></div></div></docs-dropdown></docs-select></select-category></section></stencil-route><stencil-route
-class=hydrated c-id=19.15.1.1 s-id=27><!--r.27--></stencil-route></stencil-route-switch><stencil-route-switch
-class="Menu hydrated" c-id=19.16.0.2 s-id=28><!--r.28--><!--o.19.17--><!--o.19.18--><!--o.19.19--><!--s.28.0.0.0.--><stencil-route
-class=hydrated c-id=19.17.1.0 s-id=29 style="display: none;"><!--r.29--></stencil-route><stencil-route
-class=hydrated c-id=19.18.1.1 s-id=30><!--r.30--><docs-nav role=navigation class=hydrated c-id=30.0.0.0
-s-id=31><!--r.31--><ul class=Nav c-id=31.0.0.0><li c-id=31.1.1.0><section c-id=31.2.2.0><header class="Nav-header"
-c-id=31.3.3.0><!--t.31.4.4.0-->Tutoriais</header><ul class="Nav-subnav" c-id=31.5.3.1
-style="--level: 1;"><li c-id=31.6.4.0><stencil-route-link class=hydrated c-id=31.7.5.0 s-id=32><!--r.32--><!--o.31.8--><a
-class="Nav-link" href="/docs/tutorial/como-criar-um-app" c-id=32.0.0.0><!--s.32.1.1.0.--><span class="Nav-text"
-c-id=31.8.6.0><!--t.31.9.7.0-->Como criar um App</span></a></stencil-route-link></li><li c-id=31.10.4.1><stencil-route-link
-class=hydrated c-id=31.11.5.0 s-id=33><!--r.33--><!--o.31.12--><a class="Nav-link" href="/docs/tutorial/como-colocar-o-botao-logar-com-layers"
-c-id=33.0.0.0><!--s.33.1.1.0.--><span class="Nav-text" c-id=31.12.6.0><!--t.31.13.7.0-->Como colocar o botão "Logar com Layers"</span></a></stencil-route-link></li></ul></section></li></ul></docs-nav></stencil-route><stencil-route
-class=hydrated c-id=19.19.1.2 s-id=34 style="display: none;"><!--r.34--></stencil-route></stencil-route-switch></docs-menu><stencil-route
-class=hydrated c-id=1.4.1.3 s-id=35><!--r.35--><docs-page class="page-tutorial default hydrated" c-id=35.0.0.0
-s-id=36><!--r.36--><main class="no-demo" c-id=36.0.0.0><article c-id=36.1.1.0><h1 c-id=36.2.2.0></h1><div
-class="page-meta" c-id=36.3.2.1><docs-table-of-contents class=hydrated c-id=36.4.3.0 s-id=37><!--r.37--></docs-table-of-contents></div><section
-class="markdown-content" c-id=36.5.2.2><div c-id=36.6.3.0></div></section><docs-page-footer role=contentinfo
-class=hydrated c-id=36.7.2.3 s-id=38><!--r.38--><!--t.38.0.0.0--> </docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
-</body>
+fill=#405261 c-id=18.5.3.1></path><path d="M173.87 150.888C172.627 136.302 160.31 124.768 145.395 124.768H114.094H68.6689C63.358 124.768 59.177 120.472 59.177 115.27V70.0414V38.6073C59.177 24.134 48.4422 12.2614 34.5435 10.3392C33.1875 10.1131 31.8315 10 30.5885 10C27.7636 10 25.0516 10.4523 22.4527 11.1307C10.5879 14.636 2 25.604 2 38.6073V76.4866V153.376C2 169.206 14.7688 181.983 30.5885 181.983H107.879H145.395C158.841 181.983 170.254 172.598 173.192 160.047C173.644 157.899 173.983 155.75 173.983 153.489C173.983 152.584 173.87 151.68 173.87 150.888Z"
+fill=#405261 c-id=18.6.3.2></path><path d="M236.45 146.75C232.95 146.75 230.25 145.8 228.35 143.9C226.45 142 225.5 139.3 225.5 135.8V51.95C225.5 48.45 226.45 45.75 228.35 43.85C230.25 41.95 232.95 41 236.45 41H266.6C278.1 41 288 43.1 296.3 47.3C304.6 51.5 310.95 57.55 315.35 65.45C319.75 73.35 321.95 82.8 321.95 93.8C321.95 104.8 319.75 114.3 315.35 122.3C311.05 130.2 304.75 136.25 296.45 140.45C288.15 144.65 278.2 146.75 266.6 146.75H236.45ZM264.95 127.85C287.45 127.85 298.7 116.5 298.7 93.8C298.7 71.2 287.45 59.9 264.95 59.9H248.9V127.85H264.95Z"
+fill=#405261 c-id=18.7.3.3></path><path d="M373.504 147.95C365.704 147.95 358.854 146.4 352.954 143.3C347.054 140.1 342.504 135.65 339.304 129.95C336.104 124.15 334.504 117.35 334.504 109.55C334.504 101.75 336.104 95 339.304 89.3C342.504 83.5 347.054 79.05 352.954 75.95C358.854 72.85 365.704 71.3 373.504 71.3C381.304 71.3 388.154 72.85 394.054 75.95C399.954 79.05 404.504 83.5 407.704 89.3C410.904 95 412.504 101.75 412.504 109.55C412.504 117.35 410.904 124.15 407.704 129.95C404.504 135.65 399.954 140.1 394.054 143.3C388.154 146.4 381.304 147.95 373.504 147.95ZM373.504 130.7C384.504 130.7 390.004 123.65 390.004 109.55C390.004 102.45 388.554 97.15 385.654 93.65C382.854 90.15 378.804 88.4 373.504 88.4C362.504 88.4 357.004 95.45 357.004 109.55C357.004 123.65 362.504 130.7 373.504 130.7Z"
+fill=#405261 c-id=18.8.3.4></path><path d="M460.338 147.95C452.738 147.95 446.088 146.4 440.388 143.3C434.688 140.2 430.288 135.8 427.188 130.1C424.188 124.4 422.688 117.7 422.688 110C422.688 102.3 424.288 95.55 427.488 89.75C430.788 83.85 435.388 79.3 441.288 76.1C447.188 72.9 453.988 71.3 461.688 71.3C465.688 71.3 469.688 71.85 473.688 72.95C477.788 74.05 481.438 75.6 484.638 77.6C487.738 79.5 489.288 82.3 489.288 86C489.288 88.6 488.688 90.75 487.488 92.45C486.288 94.05 484.688 94.85 482.688 94.85C481.388 94.85 480.138 94.65 478.938 94.25C477.838 93.75 476.338 93.05 474.438 92.15C472.338 91.05 470.438 90.2 468.738 89.6C467.138 89 465.288 88.7 463.188 88.7C457.588 88.7 453.288 90.5 450.288 94.1C447.388 97.6 445.938 102.75 445.938 109.55C445.938 116.35 447.388 121.55 450.288 125.15C453.288 128.75 457.588 130.55 463.188 130.55C465.288 130.55 467.138 130.3 468.738 129.8C470.338 129.2 472.288 128.3 474.588 127.1C476.488 126.2 477.988 125.55 479.088 125.15C480.188 124.65 481.388 124.4 482.688 124.4C484.588 124.4 486.138 125.25 487.338 126.95C488.638 128.65 489.288 130.8 489.288 133.4C489.288 137.1 487.738 139.85 484.638 141.65C481.438 143.65 477.738 145.2 473.538 146.3C469.338 147.4 464.938 147.95 460.338 147.95Z"
+fill=#405261 c-id=18.9.3.5></path><path d="M528.309 147.95C522.209 147.95 516.909 147.45 512.409 146.45C507.909 145.45 503.959 143.85 500.559 141.65C499.059 140.75 497.909 139.55 497.109 138.05C496.309 136.55 495.909 134.85 495.909 132.95C495.909 130.65 496.559 128.75 497.859 127.25C499.159 125.65 500.759 124.85 502.659 124.85C503.959 124.85 505.259 125.1 506.559 125.6C507.859 126 509.209 126.5 510.609 127.1C513.409 128.4 516.159 129.45 518.859 130.25C521.559 130.95 524.909 131.3 528.909 131.3C532.409 131.3 535.109 130.75 537.009 129.65C539.009 128.55 540.009 127.05 540.009 125.15C540.009 123.75 539.559 122.65 538.659 121.85C537.859 120.95 536.309 120.15 534.009 119.45C531.709 118.75 528.059 117.9 523.059 116.9C514.159 115.2 507.759 112.65 503.859 109.25C499.959 105.85 498.009 101.1 498.009 95C498.009 90.5 499.359 86.45 502.059 82.85C504.859 79.25 508.659 76.45 513.459 74.45C518.259 72.35 523.659 71.3 529.659 71.3C533.959 71.3 538.159 71.85 542.259 72.95C546.359 74.05 550.009 75.6 553.209 77.6C556.309 79.5 557.859 82.3 557.859 86C557.859 88.4 557.209 90.4 555.909 92C554.609 93.6 553.009 94.4 551.109 94.4C548.809 94.4 546.059 93.5 542.859 91.7C540.359 90.4 538.059 89.45 535.959 88.85C533.959 88.15 531.559 87.8 528.759 87.8C525.659 87.8 523.209 88.4 521.409 89.6C519.609 90.7 518.709 92.25 518.709 94.25C518.709 96.35 519.759 97.95 521.859 99.05C523.959 100.15 528.009 101.25 534.009 102.35C540.709 103.65 545.959 105.25 549.759 107.15C553.559 108.95 556.309 111.25 558.009 114.05C559.709 116.85 560.559 120.4 560.559 124.7C560.559 131.8 557.609 137.45 551.709 141.65C545.909 145.85 538.109 147.95 528.309 147.95Z"
+fill=#405261 c-id=18.10.3.6></path></svg></a></stencil-route-link></header><stencil-route-switch class=hydrated
+c-id=18.11.0.1 s-id=21><!--r.21--><!--o.18.12--><!--o.18.15--><!--s.21.0.0.0.--><stencil-route class=hydrated
+c-id=18.12.1.0 s-id=22 style="display: none;"><!--r.22--><section class=MenuControls c-id=18.13.2.0><select-category
+class=hydrated c-id=18.14.3.0 s-id=23><!--r.23--><docs-select class="SelectCategory Select hydrated" c-id=23.0.0.0
+s-id=24><!--r.24--><docs-dropdown tabindex=0 class="Dropdown Dropdown--left hydrated" c-id=24.0.0.0 s-id=25><!--r.25--><!--o.24.1--><!--o.24.6--><!--o.24.11--><!--o.24.16--><!--o.24.21--><!--o.24.26--><!--o.24.31--><!--o.24.36--><button
+tabindex="-1" class="Dropdown-button" aria-haspopup=menu aria-expanded=false c-id=25.0.0.0><span class="Dropdown-button-label"
+c-id=25.1.1.0><div class="SelectCategory-framework" c-id=25.2.2.0><img src="/docs/assets/icons/OAuth.svg"
+class="SelectCategory-icon" c-id=25.3.3.0><span c-id=25.4.3.1><!--t.25.5.4.0-->Autenticação OAuth</span></div></span><svg
+viewBox="0 0 512 512" class="Dropdown-arrow" c-id=25.6.1.1><path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+c-id=25.7.2.0></path></svg></button><div role=menu class="Dropdown-panel" c-id=25.8.0.1><!--s.25.9.1.0.--><div
+class="Select-option Select-option--selected" role=menuitemradio aria-checked=true tabindex=0 c-id=24.1.1.0><div
+class="SelectCategory-framework" c-id=24.2.2.0><img src="/docs/assets/icons/OAuth.svg" class="SelectCategory-icon"
+c-id=24.3.3.0><span c-id=24.4.3.1><!--t.24.5.4.0-->Autenticação OAuth</span></div></div><div class="Select-option"
+role=menuitemradio aria-checked=false tabindex=0 c-id=24.6.1.1><div class="SelectCategory-framework"
+c-id=24.7.2.0><img src="/docs/assets/icons/Data.svg" class="SelectCategory-icon" c-id=24.8.3.0><span
+c-id=24.9.3.1><!--t.24.10.4.0-->Dados</span></div></div><div class="Select-option" role=menuitemradio
+aria-checked=false tabindex=0 c-id=24.11.1.2><div class="SelectCategory-framework" c-id=24.12.2.0><img src="/docs/assets/icons/Hub.svg"
+class="SelectCategory-icon" c-id=24.13.3.0><span c-id=24.14.3.1><!--t.24.15.4.0-->Hub de API's</span></div></div><div
+class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=24.16.1.3><div class="SelectCategory-framework"
+c-id=24.17.2.0><img src="/docs/assets/icons/Notifications.svg" class="SelectCategory-icon" c-id=24.18.3.0><span
+c-id=24.19.3.1><!--t.24.20.4.0-->Notificações</span></div></div><div class="Select-option" role=menuitemradio
+aria-checked=false tabindex=0 c-id=24.21.1.4><div class="SelectCategory-framework" c-id=24.22.2.0><img src="/docs/assets/icons/Payments.svg"
+class="SelectCategory-icon" c-id=24.23.3.0><span c-id=24.24.3.1><!--t.24.25.4.0-->Pagamentos</span></div></div><div
+class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=24.26.1.5><div class="SelectCategory-framework"
+c-id=24.27.2.0><img src="/docs/assets/icons/Payments.svg" class="SelectCategory-icon" c-id=24.28.3.0><span
+c-id=24.29.3.1><!--t.24.30.4.0-->Comunicação</span></div></div><div class="Select-option" role=menuitemradio
+aria-checked=false tabindex=0 c-id=24.31.1.6><div class="SelectCategory-framework" c-id=24.32.2.0><img src="/docs/assets/icons/Payments.svg"
+class="SelectCategory-icon" c-id=24.33.3.0><span c-id=24.34.3.1><!--t.24.35.4.0-->Atendimentos</span></div></div><div
+class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=24.36.1.7><div class="SelectCategory-framework"
+c-id=24.37.2.0><img src="/docs/assets/icons/Payments.svg" class="SelectCategory-icon" c-id=24.38.3.0><span
+c-id=24.39.3.1><!--t.24.40.4.0-->Atendimentos</span></div></div></div></docs-dropdown></docs-select></select-category></section></stencil-route><stencil-route
+class=hydrated c-id=18.15.1.1 s-id=26><!--r.26--></stencil-route></stencil-route-switch><stencil-route-switch
+class="Menu hydrated" c-id=18.16.0.2 s-id=27><!--r.27--><!--o.18.17--><!--o.18.18--><!--o.18.19--><!--s.27.0.0.0.--><stencil-route
+class=hydrated c-id=18.17.1.0 s-id=28 style="display: none;"><!--r.28--></stencil-route><stencil-route
+class=hydrated c-id=18.18.1.1 s-id=29><!--r.29--><docs-nav role=navigation class=hydrated c-id=29.0.0.0
+s-id=30><!--r.30--><ul class=Nav c-id=30.0.0.0><li c-id=30.1.1.0><section c-id=30.2.2.0><header class="Nav-header"
+c-id=30.3.3.0><!--t.30.4.4.0-->Logar com Layers</header><ul class="Nav-subnav" c-id=30.5.3.1
+style="--level: 1;"><li c-id=30.6.4.0><stencil-route-link class=hydrated c-id=30.7.5.0 s-id=31><!--r.31--><!--o.30.8--><a
+class="Nav-link--active Nav-link" href="/docs/sdk/como-colocar-o-botao-logar-com-layers" c-id=31.0.0.0><!--s.31.1.1.0.--><span
+class="Nav-text" c-id=30.8.6.0><!--t.30.9.7.0-->Botão "Logar com Layers"</span></a></stencil-route-link></li></ul></section></li></ul></docs-nav></stencil-route><stencil-route
+class=hydrated c-id=18.19.1.2 s-id=32 style="display: none;"><!--r.32--></stencil-route></stencil-route-switch></docs-menu><stencil-route
+class=hydrated c-id=1.4.1.3 s-id=33><!--r.33--><docs-page class="page-sdk-como-colocar-o-botao-logar-com-layers default hydrated"
+c-id=33.0.0.0 s-id=34><!--r.34--><main class="no-demo" c-id=34.0.0.0><article c-id=34.1.1.0><h1 c-id=34.2.2.0><!--t.34.3.3.0-->Implementando o botão logar com Layers</h1><section
+class="markdown-content" c-id=34.4.2.1><div c-id=34.5.3.0><p class=intro c-id=34.6.4.0><!--t.34.7.5.0-->Com o objetivo de tornar o uso da autenticação com o Layers mais simples disponibilizamos um componente do botão do Layers. Para utilizar esse componente na sua aplicação, siga as instruções abaixo.</p><!--t.34.8.4.1-->
+<h3 id="1-importe-a-biblioteca" c-id=34.9.4.2><!--t.34.10.5.0--> <a href="#1-importe-a-biblioteca"
+c-id=34.11.5.1><!--t.34.12.6.0-->1 - Importe a biblioteca</a><!--t.34.13.5.2--> </h3><!--t.34.14.4.3--> <p
+c-id=34.15.4.4><!--t.34.16.5.0-->Para ter acesso ao componente do botão logar com o Layers será necessário importar o código da biblioteca de autenticação do Layers como mostrado no trecho de código abaixo. A importação do código deve ser feita na tag head para evitar que o recurso seja requisitado antes que ele tenha sido carregado.</p><!--t.34.17.4.5-->
+<docs-code class=hydrated c-id=34.18.4.6 s-id=35><!--r.35--><!--t.34.19.5.0--> <pre c-id=34.20.5.1><code
+c-id=34.21.6.0><span class="token doctype" c-id=34.22.7.0><!--t.34.23.8.0-->&lt;!DOCTYPE HTML&gt;</span><!--t.34.24.7.1-->
+<span
+class="token tag" c-id=34.25.7.2><span class="token tag" c-id=34.26.8.0><span class="token punctuation"
+c-id=34.27.9.0><!--t.34.28.10.0-->&lt;</span><!--t.34.29.9.1-->html</span><span class="token punctuation"
+c-id=34.30.8.1><!--t.34.31.9.0-->&gt;</span></span><!--t.34.32.7.3-->
+    <span class="token tag" c-id=34.33.7.4><span
+class="token tag" c-id=34.34.8.0><span class="token punctuation" c-id=34.35.9.0><!--t.34.36.10.0-->&lt;</span><!--t.34.37.9.1-->head</span><span
+class="token punctuation" c-id=34.38.8.1><!--t.34.39.9.0-->&gt;</span></span><!--t.34.40.7.5-->
+        <span
+class="token tag" c-id=34.41.7.6><span class="token tag" c-id=34.42.8.0><span class="token punctuation"
+c-id=34.43.9.0><!--t.34.44.10.0-->&lt;</span><!--t.34.45.9.1-->title</span><span class="token punctuation"
+c-id=34.46.8.1><!--t.34.47.9.0-->&gt;</span></span><!--t.34.48.7.7-->Minha Pagina<span class="token tag"
+c-id=34.49.7.8><span class="token tag" c-id=34.50.8.0><span class="token punctuation" c-id=34.51.9.0><!--t.34.52.10.0-->&lt;/</span><!--t.34.53.9.1-->title</span><span
+class="token punctuation" c-id=34.54.8.1><!--t.34.55.9.0-->&gt;</span></span><!--t.34.56.7.9-->
+        <span
+class="token tag" c-id=34.57.7.10><span class="token tag" c-id=34.58.8.0><span class="token punctuation"
+c-id=34.59.9.0><!--t.34.60.10.0-->&lt;</span><!--t.34.61.9.1-->script</span><!--t.34.62.8.1--> <span class="token attr-name"
+c-id=34.63.8.2><!--t.34.64.9.0-->src</span><span class="token attr-value" c-id=34.65.8.3><span class="token punctuation"
+c-id=34.66.9.0><!--t.34.67.10.0-->=</span><span class="token punctuation" c-id=34.68.9.1><!--t.34.69.10.0-->"</span><!--t.34.70.9.2-->https://js.layers.digital/v1/LayersAuth.js<span
+class="token punctuation" c-id=34.71.9.3><!--t.34.72.10.0-->"</span></span><span class="token punctuation"
+c-id=34.73.8.4><!--t.34.74.9.0-->&gt;</span></span><span class="token script" c-id=34.75.7.11></span><span
+class="token tag" c-id=34.76.7.12><span class="token tag" c-id=34.77.8.0><span class="token punctuation"
+c-id=34.78.9.0><!--t.34.79.10.0-->&lt;/</span><!--t.34.80.9.1-->script</span><span class="token punctuation"
+c-id=34.81.8.1><!--t.34.82.9.0-->&gt;</span></span><!--t.34.83.7.13-->
+    <span class="token tag" c-id=34.84.7.14><span
+class="token tag" c-id=34.85.8.0><span class="token punctuation" c-id=34.86.9.0><!--t.34.87.10.0-->&lt;/</span><!--t.34.88.9.1-->head</span><span
+class="token punctuation" c-id=34.89.8.1><!--t.34.90.9.0-->&gt;</span></span><!--t.34.91.7.15-->
+<span class="token tag"
+c-id=34.92.7.16><span class="token tag" c-id=34.93.8.0><span class="token punctuation" c-id=34.94.9.0><!--t.34.95.10.0-->&lt;/</span><!--t.34.96.9.1-->html</span><span
+class="token punctuation" c-id=34.97.8.1><!--t.34.98.9.0-->&gt;</span></span></code></pre><!--t.34.99.5.2-->
+<div class="code-text__copy" c-id=35.0.0.0><a class="code-text__copy-link" c-id=35.1.1.0><!--t.35.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=35.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=35.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=35.5.3.0></path></svg><!--t.35.6.2.1-->Copiado</span></div></docs-code><!--t.34.100.4.7--> <h3 id="2-adicione-o-bot-o-de-autentica-o-do-layers-sua-p-gina"
+c-id=34.101.4.8><!--t.34.102.5.0--> <a href="#2-adicione-o-bot-o-de-autentica-o-do-layers-sua-p-gina"
+c-id=34.103.5.1><!--t.34.104.6.0-->2 - Adicione o botão de autenticação do Layers à sua página</a><!--t.34.105.5.2-->
+</h3><!--t.34.106.4.9--> <docs-code class=hydrated c-id=34.107.4.10 s-id=36><!--r.36--><!--t.34.108.5.0-->
+<pre c-id=34.109.5.1><code c-id=34.110.6.0><span class="token tag" c-id=34.111.7.0><span class="token tag"
+c-id=34.112.8.0><span class="token punctuation" c-id=34.113.9.0><!--t.34.114.10.0-->&lt;</span><!--t.34.115.9.1-->layers-auth-button</span><!--t.34.116.8.1-->
+  <span
+class="token attr-name" c-id=34.117.8.2><!--t.34.118.9.0-->client-id</span><span class="token attr-value"
+c-id=34.119.8.3><span class="token punctuation" c-id=34.120.9.0><!--t.34.121.10.0-->=</span><span class="token punctuation"
+c-id=34.122.9.1><!--t.34.123.10.0-->"</span><!--t.34.124.9.2-->myapp<span class="token punctuation" c-id=34.125.9.3><!--t.34.126.10.0-->"</span></span><span
+class="token attr-name" c-id=34.127.8.4><!--t.34.128.9.0-->,</span><!--t.34.129.8.5-->
+  <span class="token attr-name"
+c-id=34.130.8.6><!--t.34.131.9.0-->scope</span><span class="token attr-value" c-id=34.132.8.7><span
+class="token punctuation" c-id=34.133.9.0><!--t.34.134.10.0-->=</span><span class="token punctuation"
+c-id=34.135.9.1><!--t.34.136.10.0-->"</span><!--t.34.137.9.2-->identity:basic:read<span class="token punctuation"
+c-id=34.138.9.3><!--t.34.139.10.0-->"</span></span><!--t.34.140.8.8-->
+  <span class="token attr-name"
+c-id=34.141.8.9><!--t.34.142.9.0-->response-type</span><span class="token attr-value" c-id=34.143.8.10><span
+class="token punctuation" c-id=34.144.9.0><!--t.34.145.10.0-->=</span><span class="token punctuation"
+c-id=34.146.9.1><!--t.34.147.10.0-->"</span><!--t.34.148.9.2-->code<span class="token punctuation" c-id=34.149.9.3><!--t.34.150.10.0-->"</span></span><!--t.34.151.8.11-->
+  <span
+class="token attr-name" c-id=34.152.8.12><!--t.34.153.9.0-->redirect-uri</span><span class="token attr-value"
+c-id=34.154.8.13><span class="token punctuation" c-id=34.155.9.0><!--t.34.156.10.0-->=</span><span class="token punctuation"
+c-id=34.157.9.1><!--t.34.158.10.0-->"</span><!--t.34.159.9.2-->https://myapp.com<span class="token punctuation"
+c-id=34.160.9.3><!--t.34.161.10.0-->"</span></span><!--t.34.162.8.14-->
+  <span class="token attr-name"
+c-id=34.163.8.15><!--t.34.164.9.0-->label</span><span class="token attr-value" c-id=34.165.8.16><span
+class="token punctuation" c-id=34.166.9.0><!--t.34.167.10.0-->=</span><span class="token punctuation"
+c-id=34.168.9.1><!--t.34.169.10.0-->"</span><!--t.34.170.9.2-->Continuar com<span class="token punctuation"
+c-id=34.171.9.3><!--t.34.172.10.0-->"</span></span><!--t.34.173.8.17-->
+<span class="token punctuation"
+c-id=34.174.8.18><!--t.34.175.9.0-->&gt;</span></span><span class="token tag" c-id=34.176.7.1><span class="token tag"
+c-id=34.177.8.0><span class="token punctuation" c-id=34.178.9.0><!--t.34.179.10.0-->&lt;/</span><!--t.34.180.9.1-->layers-auth-button</span><span
+class="token punctuation" c-id=34.181.8.1><!--t.34.182.9.0-->&gt;</span></span></code></pre><!--t.34.183.5.2-->
+<div class="code-text__copy" c-id=36.0.0.0><a class="code-text__copy-link" c-id=36.1.1.0><!--t.36.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=36.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=36.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=36.5.3.0></path></svg><!--t.36.6.2.1-->Copiado</span></div></docs-code><!--t.34.184.4.11--> <p c-id=34.185.4.12><!--t.34.186.5.0-->Uma vez importada a bibioteca, adicione o componente do botão à sua página passando os atributos obrigatórios:</p><!--t.34.187.4.13-->
+<ul c-id=34.188.4.14><!--t.34.189.5.0--> <li c-id=34.190.5.1><strong c-id=34.191.6.0><!--t.34.192.7.0-->client-id</strong><!--t.34.193.6.1-->: 
+Deve conter o identificador do seu app no Layers Education.</li><!--t.34.194.5.2-->
+<li c-id=34.195.5.3><strong c-id=34.196.6.0><!--t.34.197.7.0-->scope</strong><!--t.34.198.6.1-->:
+Deve conter os
+<a href="https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md" c-id=34.199.6.2><!--t.34.200.7.0-->escopos</a><!--t.34.201.6.3-->. de autorização que o usuário deve ceder permissão para o uso do seu app.</li><!--t.34.202.5.4-->
+<li c-id=34.203.5.5><strong c-id=34.204.6.0><!--t.34.205.7.0-->mode</strong><!--t.34.206.6.1-->:
+Existem três valores possíveis para o atributo
+<code c-id=34.207.6.2><!--t.34.208.7.0-->mode</code><!--t.34.209.6.3-->:<ul
+c-id=34.210.6.4><!--t.34.211.7.0--> <li c-id=34.212.7.1><code c-id=34.213.8.0><!--t.34.214.9.0-->embedded</code><!--t.34.215.8.1-->: Abre um dialog na sua página com a tela de login do Layers para que o usuário digite suas credenciais.</li><!--t.34.216.7.2-->
+<li c-id=34.217.7.3><code c-id=34.218.8.0><!--t.34.219.9.0-->popup</code><!--t.34.220.8.1-->: Abre um popup em outra janela com a tela de login do Layers para que o usuário digite suas credenciais.</li><!--t.34.221.7.4-->
+<li c-id=34.222.7.5><code c-id=34.223.8.0><!--t.34.224.9.0-->redirect</code><!--t.34.225.8.1-->: Redireciona o usuário para a tela de login do Layers e depois redireciona de volta para o seu app passando o código como parâmetro na query.</li><!--t.34.226.7.6-->
+</ul><!--t.34.227.6.5--> </li><!--t.34.228.5.6--> <li c-id=34.229.5.7><strong c-id=34.230.6.0><!--t.34.231.7.0-->redirect-uri</strong><!--t.34.232.6.1-->:
+Deve conter a url de redirecionamento para o seu app quando for usado o
+<code c-id=34.233.6.2><!--t.34.234.7.0-->mode="redirect"</code><!--t.34.235.6.3-->.</li><!--t.34.236.5.8-->
+<li c-id=34.237.5.9><strong c-id=34.238.6.0><!--t.34.239.7.0-->label</strong><!--t.34.240.6.1-->:
+Será usada como texto do botão na forma
+<code c-id=34.241.6.2><!--t.34.242.7.0-->label</code><!--t.34.243.6.3-->+ Layers.</li><!--t.34.244.5.10-->
+</ul><!--t.34.245.4.15--> <p c-id=34.246.4.16><!--t.34.247.5.0-->Além dos atributos obrigatórios, estão disponíveis também atributos de estilo para que o botão se adeque ao design na sua página. São eles:</p><!--t.34.248.4.17-->
+<ul c-id=34.249.4.18><!--t.34.250.5.0--> <li c-id=34.251.5.1><strong c-id=34.252.6.0><!--t.34.253.7.0-->dark | light</strong><!--t.34.254.6.1-->:
+Esses atributos especificam a cor do botão. Usar o atributo
+<code c-id=34.255.6.2><!--t.34.256.7.0-->dark</code><!--t.34.257.6.3--> resulta no botão verde enquanto usar o atributo
+<code c-id=34.258.6.4><!--t.34.259.7.0-->light</code><!--t.34.260.6.5-->ou não usar nenhum dos dois resulta no botão branco.</li><!--t.34.261.5.2-->
+<li c-id=34.262.5.3><strong c-id=34.263.6.0><!--t.34.264.7.0-->size</strong><!--t.34.265.6.1-->: 
+Existem quatro opções de tamanho para o botão de autenticação com Layers:
+<code c-id=34.266.6.2><!--t.34.267.7.0-->small</code><!--t.34.268.6.3-->,
+<code c-id=34.269.6.4><!--t.34.270.7.0-->normal</code><!--t.34.271.6.5-->, <code c-id=34.272.6.6><!--t.34.273.7.0-->medium</code><!--t.34.274.6.7-->e
+<code c-id=34.275.6.8><!--t.34.276.7.0-->large</code><!--t.34.277.6.9-->. Para especificar o tamanho basta usar
+<code c-id=34.278.6.10><!--t.34.279.7.0-->size="tamanho"</code></li><!--t.34.280.5.4-->
+<li c-id=34.281.5.5><strong c-id=34.282.6.0><!--t.34.283.7.0-->flat</strong><!--t.34.284.6.1-->:
+Por padrão o componente do botão logar com Layers tem uma borda. Para remover essa borda use o atributo
+<code
+c-id=34.285.6.2><!--t.34.286.7.0-->flat</code></li><!--t.34.287.5.6--> <li c-id=34.288.5.7><strong c-id=34.289.6.0><!--t.34.290.7.0-->raised</strong><!--t.34.291.6.1-->:
+Por padrão o botão de logar com Layers não tem drop-shaddow. Se preferir um botão com elevação, basta usar o attributo
+<code
+c-id=34.292.6.2><!--t.34.293.7.0-->raised</code><!--t.34.294.6.3-->.</li><!--t.34.295.5.8--> <li c-id=34.296.5.9><strong
+c-id=34.297.6.0><!--t.34.298.7.0-->block</strong><!--t.34.299.6.1-->:
+Ao usar o atributo <code c-id=34.300.6.2><!--t.34.301.7.0-->block</code><!--t.34.302.6.3--> o botão o botão se tornará flexível, ocupando todo o espaço horizontal do seu container.</li><!--t.34.303.5.10-->
+<li c-id=34.304.5.11><strong c-id=34.305.6.0><!--t.34.306.7.0-->inherit-font</strong><!--t.34.307.6.1-->:
+A fonte padrão do botão de autenticação é Nunito-Bold. Embora recomendemos o uso dessa fonte para que o botão seja identificado mais facilmente, é possível alterar a fonte através do atributo
+<code
+c-id=34.308.6.2><!--t.34.309.7.0-->ìnherit-font</code><!--t.34.310.6.3-->. Quando for usado esse atributo, a fonte do botão será herdada do seu componente pai.</li><!--t.34.311.5.12-->
+</ul><!--t.34.312.4.19--> <h3 id="3-escute-pelo-evento-com-o-resultado-da-autentica-o" c-id=34.313.4.20><!--t.34.314.5.0-->
+<a href="#3-escute-pelo-evento-com-o-resultado-da-autentica-o" c-id=34.315.5.1><!--t.34.316.6.0-->3 - Escute pelo evento com o resultado da autenticação</a><!--t.34.317.5.2-->
+</h3><!--t.34.318.4.21--> <p c-id=34.319.4.22><!--t.34.320.5.0-->Caso você tenha optado por usar o modo
+<code c-id=34.321.5.1><!--t.34.322.6.0-->redirect</code><!--t.34.323.5.2-->, não será possível ouvir o evento como mostrado abaixo. Em vez disso, o código sera passado na chave code dos parâmetros na query.</p><!--t.34.324.4.23-->
+<p c-id=34.325.4.24><!--t.34.326.5.0-->Para os modos <code c-id=34.327.5.1><!--t.34.328.6.0-->embedded</code><!--t.34.329.5.2-->e
+<code c-id=34.330.5.3><!--t.34.331.6.0-->popup</code><!--t.34.332.5.4--> o código que deve ser usado para obter o token de acesso do usuário pode ser obtido ouvindo a resposta do evento LayersAuth como mostrado no trecho de código abaixo.
+</p><!--t.34.333.4.25-->
+<docs-code class=hydrated c-id=34.334.4.26 s-id=37><!--r.37--><!--t.34.335.5.0--> <pre c-id=34.336.5.1><code
+c-id=34.337.6.0><span class="token tag" c-id=34.338.7.0><span class="token tag" c-id=34.339.8.0><span
+class="token punctuation" c-id=34.340.9.0><!--t.34.341.10.0-->&lt;</span><!--t.34.342.9.1-->script</span><span
+class="token punctuation" c-id=34.343.8.1><!--t.34.344.9.0-->&gt;</span></span><span class="token script"
+c-id=34.345.7.1><span class="token language-javascript" c-id=34.346.8.0><!--t.34.347.9.0-->
+  LayersAuth<span
+class="token punctuation" c-id=34.348.9.1><!--t.34.349.10.0-->.</span><span class="token function" c-id=34.350.9.2><!--t.34.351.10.0-->onResult</span><span
+class="token punctuation" c-id=34.352.9.3><!--t.34.353.10.0-->(</span><span class="token punctuation"
+c-id=34.354.9.4><!--t.34.355.10.0-->(</span><span class="token parameter" c-id=34.356.9.5><!--t.34.357.10.0-->error<span
+class="token punctuation" c-id=34.358.10.1><!--t.34.359.11.0-->,</span><!--t.34.360.10.2--> data</span><span
+class="token punctuation" c-id=34.361.9.6><!--t.34.362.10.0-->)</span><!--t.34.363.9.7--> <span class="token operator"
+c-id=34.364.9.8><!--t.34.365.10.0-->=&gt;</span><!--t.34.366.9.9--> <span class="token punctuation" c-id=34.367.9.10><!--t.34.368.10.0-->{</span><!--t.34.369.9.11-->
+    <span
+class="token keyword" c-id=34.370.9.12><!--t.34.371.10.0-->if</span><!--t.34.372.9.13--> <span class="token punctuation"
+c-id=34.373.9.14><!--t.34.374.10.0-->(</span><!--t.34.375.9.15-->error<span class="token punctuation"
+c-id=34.376.9.16><!--t.34.377.10.0-->)</span><!--t.34.378.9.17--> <span class="token punctuation" c-id=34.379.9.18><!--t.34.380.10.0-->{</span><!--t.34.381.9.19-->
+      <span
+class="token comment" c-id=34.382.9.20><!--t.34.383.10.0-->//handle error</span><!--t.34.384.9.21-->
+    <span
+class="token punctuation" c-id=34.385.9.22><!--t.34.386.10.0-->}</span><!--t.34.387.9.23-->
+    <span
+class="token comment" c-id=34.388.9.24><!--t.34.389.10.0-->//use code to generate an OAuth token for the user</span><!--t.34.390.9.25-->
+    <span
+class="token keyword" c-id=34.391.9.26><!--t.34.392.10.0-->const</span><!--t.34.393.9.27--> code <span
+class="token operator" c-id=34.394.9.28><!--t.34.395.10.0-->=</span><!--t.34.396.9.29--> data<span class="token punctuation"
+c-id=34.397.9.30><!--t.34.398.10.0-->.</span><!--t.34.399.9.31-->code
+  <span class="token punctuation"
+c-id=34.400.9.32><!--t.34.401.10.0-->}</span><span class="token punctuation" c-id=34.402.9.33><!--t.34.403.10.0-->)</span><!--t.34.404.9.34-->
+</span></span><span
+class="token tag" c-id=34.405.7.2><span class="token tag" c-id=34.406.8.0><span class="token punctuation"
+c-id=34.407.9.0><!--t.34.408.10.0-->&lt;/</span><!--t.34.409.9.1-->script</span><span class="token punctuation"
+c-id=34.410.8.1><!--t.34.411.9.0-->&gt;</span></span></code></pre><!--t.34.412.5.2--> <div class="code-text__copy"
+c-id=37.0.0.0><a class="code-text__copy-link" c-id=37.1.1.0><!--t.37.2.2.0-->Copiar</a><span class="code-text__copy-confirmation"
+c-id=37.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=37.4.2.0><path d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=37.5.3.0></path></svg><!--t.37.6.2.1-->Copiado</span></div></docs-code><!--t.34.413.4.27--> <h3 id="4-use-o-c-digo-para-obter-o-token"
+c-id=34.414.4.28><!--t.34.415.5.0--> <a href="#4-use-o-c-digo-para-obter-o-token" c-id=34.416.5.1><!--t.34.417.6.0-->4 - Use o código para obter o token</a><!--t.34.418.5.2-->
+</h3><!--t.34.419.4.29--> <p c-id=34.420.4.30><!--t.34.421.5.0-->Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas
+<a
+href="https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md" c-id=34.422.5.1><!--t.34.423.6.0-->rotas de OAuth disponíveis no Layers</a><!--t.34.424.5.2-->.</p><!--t.34.425.4.31-->
+<docs-code class=hydrated c-id=34.426.4.32 s-id=38><!--r.38--><!--t.34.427.5.0--> <pre c-id=34.428.5.1><code
+c-id=34.429.6.0><span class="token method" c-id=34.430.7.0><span class="token post" c-id=34.431.8.0><!--t.34.432.9.0-->POST</span></span><!--t.34.433.7.1--> <span
+class="token path" c-id=34.434.7.2><!--t.34.435.8.0-->/oauth/token</span></code></pre><!--t.34.436.5.2-->
+<div class="code-text__copy" c-id=38.0.0.0><a class="code-text__copy-link" c-id=38.1.1.0><!--t.38.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=38.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=38.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=38.5.3.0></path></svg><!--t.38.6.2.1-->Copiado</span></div></docs-code><!--t.34.437.4.33--> <docs-code
+class=hydrated c-id=34.438.4.34 s-id=39><!--r.39--><!--t.34.439.5.0--> <pre c-id=34.440.5.1><code c-id=34.441.6.0><span
+class="token punctuation" c-id=34.442.7.0><!--t.34.443.8.0-->{</span><!--t.34.444.7.1-->
+  <span class="token string"
+c-id=34.445.7.2><!--t.34.446.8.0-->"grant_type"</span><span class="token operator" c-id=34.447.7.3><!--t.34.448.8.0-->:</span><!--t.34.449.7.4--> <span
+class="token string" c-id=34.450.7.5><!--t.34.451.8.0-->"authorization_code"</span><span class="token punctuation"
+c-id=34.452.7.6><!--t.34.453.8.0-->,</span><!--t.34.454.7.7-->
+  <span class="token string" c-id=34.455.7.8><!--t.34.456.8.0-->"client_id"</span><span
+class="token operator" c-id=34.457.7.9><!--t.34.458.8.0-->:</span><!--t.34.459.7.10--> String
+  <span
+class="token string" c-id=34.460.7.11><!--t.34.461.8.0-->"code"</span><span class="token operator" c-id=34.462.7.12><!--t.34.463.8.0-->:</span><!--t.34.464.7.13--> <span
+class="token string" c-id=34.465.7.14><!--t.34.466.8.0-->"{{code}}"</span><span class="token punctuation"
+c-id=34.467.7.15><!--t.34.468.8.0-->,</span><!--t.34.469.7.16-->
+  <span class="token string" c-id=34.470.7.17><!--t.34.471.8.0-->"redirect_uri"</span><span
+class="token operator" c-id=34.472.7.18><!--t.34.473.8.0-->:</span><!--t.34.474.7.19--> <span class="token string"
+c-id=34.475.7.20><!--t.34.476.8.0-->"{{redirect_uri}}"</span><!--t.34.477.7.21-->
+<span class="token punctuation"
+c-id=34.478.7.22><!--t.34.479.8.0-->}</span></code></pre><!--t.34.480.5.2--> <div class="code-text__copy"
+c-id=39.0.0.0><a class="code-text__copy-link" c-id=39.1.1.0><!--t.39.2.2.0-->Copiar</a><span class="code-text__copy-confirmation"
+c-id=39.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=39.4.2.0><path d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=39.5.3.0></path></svg><!--t.39.6.2.1-->Copiado</span></div></docs-code><!--t.34.481.4.35--> <ul
+c-id=34.482.4.36><!--t.34.483.5.0--> <li c-id=34.484.5.1><strong c-id=34.485.6.0><!--t.34.486.7.0-->grant_type</strong><!--t.34.487.6.1-->: Tipo de fluxo</li><!--t.34.488.5.2-->
+<li c-id=34.489.5.3><strong c-id=34.490.6.0><!--t.34.491.7.0-->client_id</strong><!--t.34.492.6.1-->: Identificador do app</li><!--t.34.493.5.4-->
+<li c-id=34.494.5.5><strong c-id=34.495.6.0><!--t.34.496.7.0-->code</strong><!--t.34.497.6.1-->: Código recebido</li><!--t.34.498.5.6-->
+<li c-id=34.499.5.7><strong c-id=34.500.6.0><!--t.34.501.7.0-->redirect_uri</strong><!--t.34.502.6.1-->: URI para a qual o usuário deve ser redirecionado ao fim da autenticação
+</li><!--t.34.503.5.8--> </ul><!--t.34.504.4.37-->
+<p c-id=34.505.4.38><!--t.34.506.5.0-->A API deve retornar um JSON com o seguinte formato:</p><!--t.34.507.4.39-->
+<h6 id="resposta-" c-id=34.508.4.40><!--t.34.509.5.0--> <a href="#resposta-" c-id=34.510.5.1><!--t.34.511.6.0-->Resposta:</a><!--t.34.512.5.2-->
+</h6><!--t.34.513.4.41--> <docs-code class=hydrated c-id=34.514.4.42 s-id=40><!--r.40--><!--t.34.515.5.0-->
+<pre c-id=34.516.5.1><code c-id=34.517.6.0><span class="token punctuation" c-id=34.518.7.0><!--t.34.519.8.0-->{</span><!--t.34.520.7.1-->
+  <span
+class="token string" c-id=34.521.7.2><!--t.34.522.8.0-->"access_token"</span><span class="token operator"
+c-id=34.523.7.3><!--t.34.524.8.0-->:</span><!--t.34.525.7.4--> <span class="token string" c-id=34.526.7.5><!--t.34.527.8.0-->"{{jwtToken}}"</span><span
+class="token punctuation" c-id=34.528.7.6><!--t.34.529.8.0-->,</span><!--t.34.530.7.7-->
+  <span class="token string"
+c-id=34.531.7.8><!--t.34.532.8.0-->"token_type"</span><span class="token operator" c-id=34.533.7.9><!--t.34.534.8.0-->:</span><!--t.34.535.7.10--> Number<span
+class="token punctuation" c-id=34.536.7.11><!--t.34.537.8.0-->,</span><!--t.34.538.7.12-->
+  <span class="token string"
+c-id=34.539.7.13><!--t.34.540.8.0-->"expires_in"</span><span class="token operator" c-id=34.541.7.14><!--t.34.542.8.0-->:</span><!--t.34.543.7.15--> Number<span
+class="token punctuation" c-id=34.544.7.16><!--t.34.545.8.0-->,</span><!--t.34.546.7.17-->
+  <span class="token string"
+c-id=34.547.7.18><!--t.34.548.8.0-->"state"</span><span class="token operator" c-id=34.549.7.19><!--t.34.550.8.0-->:</span><!--t.34.551.7.20--> String
+<span
+class="token punctuation" c-id=34.552.7.21><!--t.34.553.8.0-->}</span></code></pre><!--t.34.554.5.2--> <div
+class="code-text__copy" c-id=40.0.0.0><a class="code-text__copy-link" c-id=40.1.1.0><!--t.40.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=40.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=40.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=40.5.3.0></path></svg><!--t.40.6.2.1-->Copiado</span></div></docs-code><!--t.34.555.4.43--> <ul
+c-id=34.556.4.44><!--t.34.557.5.0--> <li c-id=34.558.5.1><strong c-id=34.559.6.0><!--t.34.560.7.0-->access_token</strong><!--t.34.561.6.1-->: Token de acesso</li><!--t.34.562.5.2-->
+<li c-id=34.563.5.3><strong c-id=34.564.6.0><!--t.34.565.7.0-->token_type</strong><!--t.34.566.6.1-->: Tipo de token</li><!--t.34.567.5.4-->
+<li c-id=34.568.5.5><strong c-id=34.569.6.0><!--t.34.570.7.0-->expires_in</strong><!--t.34.571.6.1-->: Tempo até o token expirar em segundos</li><!--t.34.572.5.6-->
+<li c-id=34.573.5.7><strong c-id=34.574.6.0><!--t.34.575.7.0-->state</strong><!--t.34.576.6.1-->: Mensagem adicional que pode ser utilizada para ser retornado na rota de token de acesso</li><!--t.34.577.5.8-->
+</ul></div></section><docs-page-footer role=contentinfo class=hydrated c-id=34.578.2.2 s-id=41><!--r.41--><!--t.41.0.0.0-->
+</docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root> </body>
 </html>

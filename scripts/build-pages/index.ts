@@ -104,12 +104,15 @@ function patchBody(page: Page): Page {
 }
 
 export function updatePageHtmlToHypertext(page: Page) {
-  const keys = ['body', 'docs', 'summary', 'codeUsage', 'example', 'requestExample', 'responseExample']
+  page.body = convertHtmlToHypertextData(page.body);
+
+  const keys = ['docs', 'summary', 'codeUsage', 'example', 'requestExample', 'responseExample']
   for (const key of keys) {
     if (page[key]) {
       page[key] = convertHtmlToHypertextData(page[key])
     }
   }
+
   if (page.usage) {
     const hypertextUsage = {};
     Object.keys(page.usage).forEach(key => {

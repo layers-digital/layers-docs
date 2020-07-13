@@ -1,0 +1,438 @@
+{
+  "template": "api-route",
+  "title": "Enviar notificação",
+  "path": "/docs/api/notifications/notication/send/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Enviar notificações push para usuários via web, android e ios."
+    ]
+  ],
+  "serviceId": "notifications",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/notication/send"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "requestExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"targets\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token null keyword"
+            },
+            "null"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"userIds\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"roles\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"body\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseSchema": {},
+  "route": {
+    "type": "route",
+    "path": "/notication/send",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Notificações"
+      ],
+      "summary": "Enviar notificação",
+      "description": "Enviar notificações push para usuários via web, android e ios.",
+      "security": [
+        {
+          "Bearer": [],
+          "x-layers-permissions": [
+            "notification:send"
+          ],
+          "x-layers-contexts": [
+            "user",
+            "app"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/Community-id"
+        }
+      ],
+      "requestBody": {
+        "description": "Informações da notificação",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "targets": {
+                  "type": "array",
+                  "description": "Público alvo da publicação",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Identificador do membro, usuário, turma ou tag"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "email": {
+                            "type": "string",
+                            "description": "Email do usuário"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "Alias do membro, usuário ou grupo."
+                          },
+                          "kind": {
+                            "type": "string",
+                            "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "userIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "body": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Notificações enviadas"
+        },
+        "400": {
+          "description": "Bad Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "example": "400"
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "invalidParameter"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Bad Request"
+                  },
+                  "error": {
+                    "type": "string",
+                    "example": "Targets not provided"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Enviar notificação",
+        "url": "/docs/api/notifications/notication/send/post"
+      }
+    },
+    "tags": [
+      "Notificações"
+    ],
+    "summary": "Enviar notificação"
+  },
+  "headings": [],
+  "pageClass": "page-api-notifications-notication-send-post"
+}

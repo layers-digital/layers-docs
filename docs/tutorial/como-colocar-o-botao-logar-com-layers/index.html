@@ -1,5 +1,5 @@
 <!doctype html><html lang=en class="plt-tablet plt-desktop md hydrated" mode=md><head><meta charset="UTF-8">
-<title>Layers Docs</title>
+<title>Implementandoo botão logar com Layers - Layers Docs</title>
 <style sty-id="sc-docs-root">.Layout{display:-ms-flexbox;display:flex;overflow-x:hidden}.Layout>stencil-route{width:100%}.Layout.is-menu-toggled{--menu-transform:translateX(calc(-1 * var(--menu-width)));--page-margin-left:0}@media (max-width:768px){.Layout{--menu-transform:translateX(calc(-1 * var(--menu-width)));--page-padding:1.5rem;--page-margin-left:0}.Layout.is-menu-toggled{--menu-transform:none;--page-transform:translateX(var(--menu-width))}.Layout.is-menu-toggled docs-page>*{opacity:.2;pointer-events:none}body.scroll-lock{overflow-y:hidden}}</style>
 <style sty-id="sc-stencil-route">stencil-route.inactive{display:none}</style>
 <style sty-id="sc-docs-header">docs-header{background-color:var(--background);-webkit-box-shadow:0 1px 3px rgba(2,8,20,.06),0 1px 2px rgba(2,8,20,.04);box-shadow:0 1px 3px rgba(2,8,20,.06),0 1px 2px rgba(2,8,20,.04);color:var(--text-color--light);display:block;font-size:16px;font-weight:500;line-height:1;position:fixed;top:0;left:0;-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:-webkit-transform .2s ease;transition:-webkit-transform .2s ease;transition:transform .2s ease;transition:transform .2s ease,-webkit-transform .2s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:100%;white-space:nowrap;z-index:2}@media (min-width:768px){.Layout:not(.is-menu-toggled) docs-header.hidden{-webkit-transform:translateY(-100%);transform:translateY(-100%)}}@media (max-width:768px){.Layout.is-menu-toggled docs-header.hidden{-webkit-transform:translateY(-100%);transform:translateY(-100%)}}docs-header header{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;height:var(--header-height);padding:0 1.4rem 0 .8rem}docs-header a{color:inherit;font-weight:500;padding:10px 0}docs-header ion-icon{font-size:16px;color:#b2becd}docs-header .link-active{color:var(--text-color--dark)}@media (hover:hover){docs-header a:not(.link-active):hover{color:var(--text-color)}}docs-header docs-menu-toggle{-ms-flex:none;flex:none;margin-right:.75em}.HeaderLogo,docs-header .MenuLogo{color:var(--text-color--dark);font-family:var(--heading-font-family);height:25px}.HeaderLogo{margin-right:.125em}.SectionNav stencil-route{display:-ms-flexbox;display:flex}.SectionNav .Dropdown{-ms-flex-item-align:center;align-self:center;color:var(--text-color);margin-right:.75em}.SectionNav .Dropdown-button{border:1px solid #dee3ea;border-radius:6px;color:var(--text-color--dark);padding:10px;-webkit-transition:border-color .1s ease;transition:border-color .1s ease}.SectionNav .Dropdown.is-open .Dropdown-button{border-color:var(--line-rule-color)}.SectionNav .Dropdown-panel{min-width:180px}.SectionNav .Dropdown-panel a{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}.SectionNav .Dropdown-panel svg{height:1em;width:1em}.SectionNav .Dropdown-panel .Nav-link{margin-left:0;margin-right:0}.SectionNav-tabs>*{-ms-flex-align:center;align-items:center;display:-ms-inline-flexbox;display:inline-flex;height:var(--header-height);margin-right:.5em;padding:0 12px;position:relative}.SectionNav-tabs .link-active:after{background-color:currentColor;bottom:0;content:"";display:block;height:3px;left:0;position:absolute;border-radius:4px 4px 0 0;width:100%}.UtilNav{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;font-size:14px;margin-left:auto}.UtilNav>*{margin-left:1em}.UtilNav .Dropdown.is-open{color:var(--text-color)}.UtilNav .Dropdown-button{padding:10px 0}@media (hover:hover){.UtilNav .Dropdown-button:hover{color:var(--text-color)}}.UtilNav .Dropdown-panel{font-size:14px}</style>
@@ -13,18 +13,18 @@
 <style sty-id="sc-docs-nav">docs-nav{display:block}docs-nav ul{list-style:none;margin:0;padding:0}docs-nav a{color:inherit;font-weight:inherit}.Nav{--item-spacing:10px;color:var(--text-color--dark);font-size:14px;font-weight:500;line-height:1.25;padding:1rem 0 .3rem}.Nav-subnav{--item-spacing:6px;color:var(--text-color--light);font-size:13px}.Nav-header{font-size:15px;font-weight:600;color:#27323f;letter-spacing:.02em}.Nav-header,.Nav-link{background-color:rgba(0,0,0,var(--bg-alpha,0));display:-ms-flexbox;display:flex;padding-top:var(--item-spacing);padding-right:4px;padding-bottom:var(--item-spacing);padding-left:calc(14px + var(--level, 1) * 10px)}.Nav-link{position:relative;margin:0 14px;padding-left:calc(var(--level, 1) * 10px);border-radius:4px}.Nav>li{padding-bottom:16px}@media (hover:hover){.Nav-link:not(.Nav-link--active):hover{color:var(--text-color)}}.Nav-link--active{background-color:rgba(var(--accent-color-rgb),.05);color:rgb(var(--accent-color-rgb));font-weight:500}.Nav-subnav .Nav-header{color:var(--text-color);font-weight:600}.Nav-link.outbound{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex}.Nav-link.outbound svg{-ms-flex:none;flex:none;margin-left:.25em}.Nav-text{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.01em;-ms-flex:auto 1 1;flex:auto 1 1}.Nav-tag{-ms-flex:auto 0 0px;flex:auto 0 0;margin:0 4px;padding:0 4px;font-size:10px;font-weight:700;border-radius:3px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;color:rgb(var(--accent-color-rgb));background-color:rgba(var(--accent-color-rgb),.1)}.Nav-tag.large{font-size:16px;padding:.1px .5em}@media (max-width:768px),(pointer:coarse){.Nav{--item-spacing:12px;font-size:15px}.Nav-subnav{--item-spacing:6px;font-size:14px}}.Nav-tag.red{color:rgb(var(--api-red));background-color:rgba(var(--api-red),.1)}.Nav-tag.yellow{color:rgb(var(--api-yellow));background-color:rgba(var(--api-yellow),.1)}.Nav-tag.green{color:rgb(var(--api-green));background-color:rgba(var(--api-green),.1)}.Nav-tag.purple{color:rgb(var(--api-purple));background-color:rgba(var(--api-purple),.1)}.Nav-tag.blue{color:rgb(var(--api-blue));background-color:rgba(var(--api-blue),.1)}</style>
 <style sty-id="sc-docs-select">.Select{cursor:pointer;display:inline-block;font-weight:500}.Select .Dropdown-button{-ms-flex-align:center;align-items:center;border:1px solid #dee3ea;border-radius:6px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:justify;justify-content:space-between;min-width:100px;padding:.5em 1em}.Select .Dropdown-panel{padding:.5em 0}.Select .Dropdown-arrow{margin-left:.5em}.Select-option{--bg-alpha:0;background-color:rgba(0,0,0,var(--bg-alpha));padding:.5em 1.5em}.Select-option:focus{--bg-alpha:0.025;outline:none}.Select-option--selected{--bg-alpha:0.05}.Select-option--selected:focus{--bg-alpha:0.075}@media (hover:hover){.Select-option:hover{--bg-alpha:0.025}.Select-option--selected:hover{--bg-alpha:0.075}}</style>
 <style sty-id="sc-docs-page">docs-page{display:grid;font-size:16px;grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr;line-height:2;margin-left:var(--page-margin-left);margin-top:var(--header-height);overflow-x:hidden;-webkit-transform:var(--page-transform,none);transform:var(--page-transform,none);-webkit-transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1),-webkit-transform .2s cubic-bezier(.2,1,.2,1)}@media (min-width:1234px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 3fr}}@media (min-width:1800px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr 240px}}docs-page>main{grid-column:2;margin-bottom:3rem;padding:var(--page-padding,2rem 3rem);position:relative}docs-page docs-demo{margin-right:auto}docs-page docs-pagination{grid-column:1/-1}docs-page .full-screen{grid-column:1/-1;height:calc(100vh - var(--header-height));margin-bottom:0;overflow:hidden;padding:0}docs-page .page-heading-encapsulation{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em;float:right}docs-page .page-heading-encapsulation:hover{border-color:#92a1b3}docs-page h1{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;margin-top:2rem;margin-bottom:1rem}docs-page h2 a[href^="#"],docs-page h3 a[href^="#"],docs-page h4 a[href^="#"],docs-page h5 a[href^="#"],docs-page h6 a[href^="#"]{color:inherit;position:relative}docs-page h2 a[href^="#"]:before,docs-page h3 a[href^="#"]:before,docs-page h4 a[href^="#"]:before,docs-page h5 a[href^="#"]:before,docs-page h6 a[href^="#"]:before{content:"#";opacity:0;padding-right:1px;position:absolute;right:100%;-webkit-transition:opacity .1s ease;transition:opacity .1s ease}docs-page h2 a[href^="#"]:hover:before,docs-page h2 a[href^="#"]:target:before,docs-page h3 a[href^="#"]:hover:before,docs-page h3 a[href^="#"]:target:before,docs-page h4 a[href^="#"]:hover:before,docs-page h4 a[href^="#"]:target:before,docs-page h5 a[href^="#"]:hover:before,docs-page h5 a[href^="#"]:target:before,docs-page h6 a[href^="#"]:hover:before,docs-page h6 a[href^="#"]:target:before{opacity:1}docs-page h2 code,docs-page h3 code,docs-page h4 code,docs-page h5 code,docs-page h6 code{background:none;font-size:inherit}docs-page aside{float:right;margin-left:20px;margin-bottom:20px}@media (min-width:1234px){docs-page main.no-demo .page-meta:not(.always-below){position:fixed;right:0;top:100px;width:240px;-webkit-transition:transform .2s ease;transition:transform .2s ease}docs-header.hidden~stencil-route docs-page main.no-demo .page-meta:not(.always-below){-webkit-transform:translateY(-60px);transform:translateY(-60px)}}docs-page main.has-demo .page-meta internal-ad{display:none}.Error{-ms-flex-align:center;align-items:center;background-color:var(--offset-background);color:var(--text-color--light);display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;line-height:1;white-space:nowrap}.Error.full-screen{padding-bottom:3rem}.Error>*{margin:10px}.Error div,.Error h1{color:inherit;font-size:3rem}.Error div{text-shadow:3px 3px 3px rgba(0,0,0,.1)}.Error p{font-size:18px}docs-page.api-route,docs-page.api-schema{--page-width:1040px}docs-page.api-schema docs-code[language=json] pre{max-height:calc(100vh - 150px);padding:1em}.Api-two-column{display:grid;grid-gap:32px;grid-template-columns:repeat(auto-fill,minmax(400px,1fr))}docs-page .page-heading-tag{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em}docs-page .page-heading-tag:hover{border-color:#92a1b3}</style>
-<style sty-id="sc-docs-table-of-contents">docs-table-of-contents{display:block;font-size:13px;margin-bottom:2rem}docs-table-of-contents .Nav-header{color:var(--text-color--lighter);font-size:.75em;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding-left:0}docs-table-of-contents ul{padding:0;list-style:none;line-height:1.23em}docs-table-of-contents .Nav-link{padding-left:0;margin-left:0}docs-table-of-contents a{color:inherit;display:inline-block;-webkit-transition:color .2s,transform .3s ease-out;transition:color .2s,transform .3s ease-out}docs-table-of-contents .Nav-link.selected a{color:rgb(var(--accent-color-rgb));-webkit-transform:translateX(2px);transform:translateX(2px)}</style>
+<style sty-id="sc-docs-code">docs-code{display:block;position:relative}docs-code:before{color:#bdc5d1;content:attr(language);font-family:var(--code-font-family);font-size:10px;letter-spacing:.05em;line-height:1;padding:.75em;position:absolute;right:0;text-transform:uppercase;top:0}docs-code[language=shell] pre{white-space:pre-wrap}.code-text__copy{position:absolute;right:0;top:-1.6rem;height:20px}.code-text__copy-confirmation,.code-text__copy-link{padding:4px 5px;font-size:12px;line-height:12px;font-weight:600;position:absolute;right:0;top:0}.code-text__copy-link{-webkit-transition:opacity .2s,color .2s,-webkit-transform .2s;transition:opacity .2s,color .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s,color .2s;transition:transform .2s,opacity .2s,color .2s,-webkit-transform .2s;color:#70a4ff;background-color:#e0eeff;border-radius:4px;display:inline-block;cursor:pointer;opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0);z-index:5}.code-text__copy-link:hover{color:var(--blue)}.code-text__copy-confirmation{-webkit-transition:opacity .2s,-webkit-transform .2s;transition:opacity .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s;transition:transform .2s,opacity .2s,-webkit-transform .2s;color:#0ec254;opacity:0;-webkit-transform:translate3d(0,5px,0);transform:translate3d(0,5px,0);z-index:1;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;height:20px;padding:0}.code-text__copy-confirmation svg{fill:#0ec254;margin-right:-4px}.show-confirmation .code-text__copy-link{opacity:0;-webkit-transform:translate3d(0,-5px,0);transform:translate3d(0,-5px,0);pointer-events:none}.show-confirmation .code-text__copy-confirmation{opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0)}docs-code[language=shell]>pre{background-color:var(--text-color--dark);border-radius:7px}docs-code[language=shell]:before{display:none}docs-code[language=shell] code{color:hsla(0,0%,100%,.7);font-size:13px}docs-code[language=shell] .token{color:inherit}docs-code[language=shell] .token.prompt{color:#fb96f9;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=shell] .token.comment{color:hsla(0,0%,100%,.45)}docs-code[language=http]>pre{border-radius:7px;padding:0 2em 0 0;background:#fafafa;-webkit-box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1);box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1)}docs-code[language=http]:before{display:none}docs-code[language=http] code{color:rgba(0,0,0,.7);font-size:13px}docs-code[language=http] .token{color:inherit}docs-code[language=http] .method>.token{--color:119,161,250;display:inline-block;padding:1em;font-weight:700;color:rgb(var(--color));background-color:rgba(var(--color),.15);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=http] .method .delete{--color:var(--api-red)}docs-code[language=http] .method .put{--color:var(--api-yellow)}docs-code[language=http] .method .post{--color:var(--api-blue)}docs-code[language=http] .method .get{--color:var(--api-green)}docs-code[language=http] .token.schema{color:rgba(0,0,0,.4)}docs-code[language=http] .token.host{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path{color:#1e90ff}docs-code[language=http] .token.path .version{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path .param{color:#42b983}docs-code[language=http] .token.query .separator{color:#a9a9a9}docs-code[language=http] .token.query .param{color:#8454ff}docs-code[language=http] .token.query .param .key{font-weight:700}docs-code[language=http] .token.query .param .value{color:#42b983}docs-code[language=http] .token.query .param .value .number{color:#4caf50;font-weight:700}code[class*=language-],pre[class*=language-]{text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;color:#90a4ae;background:#fafafa;font-family:Roboto Mono,monospace;font-size:1em;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{background:#cceae7;color:#263238}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{white-space:normal;border-radius:.2em;padding:.1em}pre[class*=language-]{overflow:auto;position:relative;margin:.5em 0;padding:1.25em 1em}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#8d45d4}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}</style>
 <style sty-id="sc-docs-page-footer">docs-page-footer{margin-top:6rem}docs-page-footer contributor-list{margin-right:.5em}docs-page-footer .last-updated{color:var(--text-color--light);font-weight:400;margin-left:auto;text-decoration:underline}docs-page-footer .page-footer__row{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;font-size:12px;margin-top:2rem}</style>
-<link rel=modulepreload href="/docs/build/p-jkmp3oql.js">
+<link rel=modulepreload href="/docs/build/p-5udskm6a.js">
 <link rel=modulepreload href="/docs/build/p-17dc16c8.js">
 <link rel=modulepreload href="/docs/build/p-43f818cb.js">
 <link rel=modulepreload href="/docs/build/p-72181234.js">
 <link rel=modulepreload href="/docs/build/p-737e0558.js">
 <link rel=modulepreload href="/docs/build/p-e35a9f40.js">
-<link rel=modulepreload href="/docs/build/p-qluoazgk.entry.js">
-<link rel=modulepreload href="/docs/build/p-3qpz0wkh.entry.js">
+<link rel=modulepreload href="/docs/build/p-wuzkbtyr.entry.js">
+<link rel=modulepreload href="/docs/build/p-xnndc2cq.entry.js">
 <link rel=modulepreload href="/docs/build/p-wqfi30vh.entry.js">
-<script type=module src="/docs/build/p-jkmp3oql.js" data-resources-url="/docs/build/"
+<script type=module src="/docs/build/p-5udskm6a.js" data-resources-url="/docs/build/"
 data-stencil-namespace=app></script>
 <script nomodule src="/docs/build/app.js"></script>
 <link rel=stylesheet href="/docs/build/p-aqpvpsfz.css">
@@ -32,10 +32,10 @@ data-stencil-namespace=app></script>
 <meta name=viewport content="width=device-width, minimum-scale=1, initial-scale=1">
 <meta name="theme-color" content=#4d8dff>
 <link rel=manifest href="/docs/manifest.json">
-<meta itemprop=name content="Layers Docs" class="meta-title">
+<meta itemprop=name content="Implementandoo botão logar com Layers - Layers Docs" class="meta-title">
 <meta itemprop=description content="Layers é a plataforma para Educação e EdTechs. Escale seu produto utilizando API e Serviços da Layers."
 class="meta-description">
-<meta property=og:title content="Layers Docs" class="meta-title">
+<meta property=og:title content="Implementandoo botão logar com Layers - Layers Docs" class="meta-title">
 <meta property=og:type content=article>
 <meta property=og:url content="https://layers.digital/docs/tutorial/como-colocar-o-botao-logar-com-layers"
 class="meta-url">
@@ -60,7 +60,7 @@ class="meta-description">
 <link rel=icon type="image/png" href="/docs/assets/img/meta/favicon-96x96.png" sizes=96x96>
 <link rel=alternate hreflang="x-default" href="https://layers.digital/docs/tutorial/como-colocar-o-botao-logar-com-layers"
 class="meta-url">
-<link rel=canonical href="https://layers.digital/docs/tutorial/como-colocar-o-botao-logar-com-layers">
+<link rel=canonical href="https://developers.layers.education/docs/tutorial/como-colocar-o-botao-logar-com-layers">
 </head>
 <body> <docs-root class=hydrated s-id=1><!--r.1--><stencil-router class="Layout hydrated" c-id=1.0.0.0
 s-id=2><!--r.2--><!--o.1.1--><!--o.1.2--><!--o.1.3--><!--o.1.4--><!--s.2.0.0.0.--><stencil-route class=hydrated
@@ -174,9 +174,229 @@ class=hydrated c-id=31.11.5.0 s-id=33><!--r.33--><!--o.31.12--><a class="Nav-lin
 c-id=33.0.0.0><!--s.33.1.1.0.--><span class="Nav-text" c-id=31.12.6.0><!--t.31.13.7.0-->Como colocar o botão "Logar com Layers"</span></a></stencil-route-link></li></ul></section></li></ul></docs-nav></stencil-route><stencil-route
 class=hydrated c-id=19.19.1.2 s-id=34 style="display: none;"><!--r.34--></stencil-route></stencil-route-switch></docs-menu><stencil-route
 class=hydrated c-id=1.4.1.3 s-id=35><!--r.35--><docs-page class="page-tutorial-como-colocar-o-botao-logar-com-layers default hydrated"
-c-id=35.0.0.0 s-id=36><!--r.36--><main class="no-demo" c-id=36.0.0.0><article c-id=36.1.1.0><h1 c-id=36.2.2.0></h1><div
-class="page-meta" c-id=36.3.2.1><docs-table-of-contents class=hydrated c-id=36.4.3.0 s-id=37><!--r.37--></docs-table-of-contents></div><section
-class="markdown-content" c-id=36.5.2.2><div c-id=36.6.3.0></div></section><docs-page-footer role=contentinfo
-class=hydrated c-id=36.7.2.3 s-id=38><!--r.38--><!--t.38.0.0.0--> </docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
-</body>
+c-id=35.0.0.0 s-id=36><!--r.36--><main class="no-demo" c-id=36.0.0.0><article c-id=36.1.1.0><h1 c-id=36.2.2.0><!--t.36.3.3.0-->Implementandoo botão logar com Layers</h1><section
+class="markdown-content" c-id=36.4.2.1><div c-id=36.5.3.0><p class=intro c-id=36.6.4.0><!--t.36.7.5.0-->Com o objetivo de tornar o uso da autenticação com o Layers mais simples disponibilizamos um componente do botão do Layers. Para utilizar esse componente na sua aplicação, siga as instruções abaixo.</p><!--t.36.8.4.1-->
+<h3 id="1-importe-a-biblioteca" c-id=36.9.4.2><!--t.36.10.5.0--> <a href="#1-importe-a-biblioteca"
+c-id=36.11.5.1><!--t.36.12.6.0-->1 - Importe a biblioteca</a><!--t.36.13.5.2--> </h3><!--t.36.14.4.3--> <p
+c-id=36.15.4.4><!--t.36.16.5.0-->Para ter acesso ao componente do botão logar com o Layers será necessário importar o código da biblioteca de autenticação do Layers como mostrado no trecho de código abaixo. A importação do código deve ser feita na tag head para evitar que o recurso seja requisitado antes que ele tenha sido carregado.</p><!--t.36.17.4.5-->
+<docs-code class=hydrated c-id=36.18.4.6 s-id=37><!--r.37--><!--t.36.19.5.0--> <pre c-id=36.20.5.1><code
+c-id=36.21.6.0><span class="token doctype" c-id=36.22.7.0><!--t.36.23.8.0-->&lt;!DOCTYPE HTML&gt;</span><!--t.36.24.7.1-->
+<span
+class="token tag" c-id=36.25.7.2><span class="token tag" c-id=36.26.8.0><span class="token punctuation"
+c-id=36.27.9.0><!--t.36.28.10.0-->&lt;</span><!--t.36.29.9.1-->html</span><span class="token punctuation"
+c-id=36.30.8.1><!--t.36.31.9.0-->&gt;</span></span><!--t.36.32.7.3-->
+    <span class="token tag" c-id=36.33.7.4><span
+class="token tag" c-id=36.34.8.0><span class="token punctuation" c-id=36.35.9.0><!--t.36.36.10.0-->&lt;</span><!--t.36.37.9.1-->head</span><span
+class="token punctuation" c-id=36.38.8.1><!--t.36.39.9.0-->&gt;</span></span><!--t.36.40.7.5-->
+        <span
+class="token tag" c-id=36.41.7.6><span class="token tag" c-id=36.42.8.0><span class="token punctuation"
+c-id=36.43.9.0><!--t.36.44.10.0-->&lt;</span><!--t.36.45.9.1-->title</span><span class="token punctuation"
+c-id=36.46.8.1><!--t.36.47.9.0-->&gt;</span></span><!--t.36.48.7.7-->Minha Pagina<span class="token tag"
+c-id=36.49.7.8><span class="token tag" c-id=36.50.8.0><span class="token punctuation" c-id=36.51.9.0><!--t.36.52.10.0-->&lt;/</span><!--t.36.53.9.1-->title</span><span
+class="token punctuation" c-id=36.54.8.1><!--t.36.55.9.0-->&gt;</span></span><!--t.36.56.7.9-->
+        <span
+class="token tag" c-id=36.57.7.10><span class="token tag" c-id=36.58.8.0><span class="token punctuation"
+c-id=36.59.9.0><!--t.36.60.10.0-->&lt;</span><!--t.36.61.9.1-->script</span><!--t.36.62.8.1--> <span class="token attr-name"
+c-id=36.63.8.2><!--t.36.64.9.0-->src</span><span class="token attr-value" c-id=36.65.8.3><span class="token punctuation"
+c-id=36.66.9.0><!--t.36.67.10.0-->=</span><span class="token punctuation" c-id=36.68.9.1><!--t.36.69.10.0-->"</span><!--t.36.70.9.2-->https://js.layers.digital/v1/LayersAuth.js<span
+class="token punctuation" c-id=36.71.9.3><!--t.36.72.10.0-->"</span></span><span class="token punctuation"
+c-id=36.73.8.4><!--t.36.74.9.0-->&gt;</span></span><span class="token script" c-id=36.75.7.11></span><span
+class="token tag" c-id=36.76.7.12><span class="token tag" c-id=36.77.8.0><span class="token punctuation"
+c-id=36.78.9.0><!--t.36.79.10.0-->&lt;/</span><!--t.36.80.9.1-->script</span><span class="token punctuation"
+c-id=36.81.8.1><!--t.36.82.9.0-->&gt;</span></span><!--t.36.83.7.13-->
+    <span class="token tag" c-id=36.84.7.14><span
+class="token tag" c-id=36.85.8.0><span class="token punctuation" c-id=36.86.9.0><!--t.36.87.10.0-->&lt;/</span><!--t.36.88.9.1-->head</span><span
+class="token punctuation" c-id=36.89.8.1><!--t.36.90.9.0-->&gt;</span></span><!--t.36.91.7.15-->
+<span class="token tag"
+c-id=36.92.7.16><span class="token tag" c-id=36.93.8.0><span class="token punctuation" c-id=36.94.9.0><!--t.36.95.10.0-->&lt;/</span><!--t.36.96.9.1-->html</span><span
+class="token punctuation" c-id=36.97.8.1><!--t.36.98.9.0-->&gt;</span></span></code></pre><!--t.36.99.5.2-->
+<div class="code-text__copy" c-id=37.0.0.0><a class="code-text__copy-link" c-id=37.1.1.0><!--t.37.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=37.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=37.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=37.5.3.0></path></svg><!--t.37.6.2.1-->Copiado</span></div></docs-code><!--t.36.100.4.7--> <h3 id="2-adicione-o-bot-o-de-autentica-o-do-layers-sua-p-gina"
+c-id=36.101.4.8><!--t.36.102.5.0--> <a href="#2-adicione-o-bot-o-de-autentica-o-do-layers-sua-p-gina"
+c-id=36.103.5.1><!--t.36.104.6.0-->2 - Adicione o botão de autenticação do Layers à sua página</a><!--t.36.105.5.2-->
+</h3><!--t.36.106.4.9--> <docs-code class=hydrated c-id=36.107.4.10 s-id=38><!--r.38--><!--t.36.108.5.0-->
+<pre c-id=36.109.5.1><code c-id=36.110.6.0><span class="token tag" c-id=36.111.7.0><span class="token tag"
+c-id=36.112.8.0><span class="token punctuation" c-id=36.113.9.0><!--t.36.114.10.0-->&lt;</span><!--t.36.115.9.1-->layers-auth-button</span><!--t.36.116.8.1-->
+    <span
+class="token attr-name" c-id=36.117.8.2><!--t.36.118.9.0-->client-id</span><span class="token attr-value"
+c-id=36.119.8.3><span class="token punctuation" c-id=36.120.9.0><!--t.36.121.10.0-->=</span><span class="token punctuation"
+c-id=36.122.9.1><!--t.36.123.10.0-->"</span><!--t.36.124.9.2-->myapp<span class="token punctuation" c-id=36.125.9.3><!--t.36.126.10.0-->"</span></span><span
+class="token attr-name" c-id=36.127.8.4><!--t.36.128.9.0-->,</span><!--t.36.129.8.5-->
+    <span class="token attr-name"
+c-id=36.130.8.6><!--t.36.131.9.0-->scope</span><span class="token attr-value" c-id=36.132.8.7><span
+class="token punctuation" c-id=36.133.9.0><!--t.36.134.10.0-->=</span><span class="token punctuation"
+c-id=36.135.9.1><!--t.36.136.10.0-->"</span><!--t.36.137.9.2-->identity:basic:read<span class="token punctuation"
+c-id=36.138.9.3><!--t.36.139.10.0-->"</span></span><!--t.36.140.8.8-->
+    <span class="token attr-name"
+c-id=36.141.8.9><!--t.36.142.9.0-->response-type</span><span class="token attr-value" c-id=36.143.8.10><span
+class="token punctuation" c-id=36.144.9.0><!--t.36.145.10.0-->=</span><span class="token punctuation"
+c-id=36.146.9.1><!--t.36.147.10.0-->"</span><!--t.36.148.9.2-->code<span class="token punctuation" c-id=36.149.9.3><!--t.36.150.10.0-->"</span></span><!--t.36.151.8.11-->
+    <span
+class="token attr-name" c-id=36.152.8.12><!--t.36.153.9.0-->redirect-uri</span><span class="token attr-value"
+c-id=36.154.8.13><span class="token punctuation" c-id=36.155.9.0><!--t.36.156.10.0-->=</span><span class="token punctuation"
+c-id=36.157.9.1><!--t.36.158.10.0-->"</span><!--t.36.159.9.2-->https://myapp.com<span class="token punctuation"
+c-id=36.160.9.3><!--t.36.161.10.0-->"</span></span><!--t.36.162.8.14-->
+    <span class="token attr-name"
+c-id=36.163.8.15><!--t.36.164.9.0-->label</span><span class="token attr-value" c-id=36.165.8.16><span
+class="token punctuation" c-id=36.166.9.0><!--t.36.167.10.0-->=</span><span class="token punctuation"
+c-id=36.168.9.1><!--t.36.169.10.0-->"</span><!--t.36.170.9.2-->Continuar com<span class="token punctuation"
+c-id=36.171.9.3><!--t.36.172.10.0-->"</span></span><!--t.36.173.8.17-->
+<span class="token punctuation"
+c-id=36.174.8.18><!--t.36.175.9.0-->&gt;</span></span><span class="token tag" c-id=36.176.7.1><span class="token tag"
+c-id=36.177.8.0><span class="token punctuation" c-id=36.178.9.0><!--t.36.179.10.0-->&lt;/</span><!--t.36.180.9.1-->layers-auth-button</span><span
+class="token punctuation" c-id=36.181.8.1><!--t.36.182.9.0-->&gt;</span></span></code></pre><!--t.36.183.5.2-->
+<div class="code-text__copy" c-id=38.0.0.0><a class="code-text__copy-link" c-id=38.1.1.0><!--t.38.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=38.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=38.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=38.5.3.0></path></svg><!--t.38.6.2.1-->Copiado</span></div></docs-code><!--t.36.184.4.11--> <p c-id=36.185.4.12><!--t.36.186.5.0-->Uma vez importada a bibioteca, adicione o componente do botão à sua página passando os atributos obrigatórios:</p><!--t.36.187.4.13-->
+<ul c-id=36.188.4.14><!--t.36.189.5.0--> <li c-id=36.190.5.1><strong c-id=36.191.6.0><!--t.36.192.7.0-->client-id</strong><!--t.36.193.6.1-->: 
+Deve conter o identificador do seu app no Layers Education.</li><!--t.36.194.5.2-->
+<li c-id=36.195.5.3><strong c-id=36.196.6.0><!--t.36.197.7.0-->scope</strong><!--t.36.198.6.1-->:
+Deve conter os
+<a href="https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md" c-id=36.199.6.2><!--t.36.200.7.0-->escopos</a><!--t.36.201.6.3-->. de autorização que o usuário deve ceder permissão para o uso do seu app.</li><!--t.36.202.5.4-->
+<li c-id=36.203.5.5><strong c-id=36.204.6.0><!--t.36.205.7.0-->mode</strong><!--t.36.206.6.1-->:
+Existem três valores possíveis para o atributo
+<code c-id=36.207.6.2><!--t.36.208.7.0-->mode</code><!--t.36.209.6.3-->:<ul
+c-id=36.210.6.4><!--t.36.211.7.0--> <li c-id=36.212.7.1><code c-id=36.213.8.0><!--t.36.214.9.0-->embedded</code><!--t.36.215.8.1-->: Abre um dialog na sua página com a tela de login do Layers para que o usuário digite suas credenciais.</li><!--t.36.216.7.2-->
+<li c-id=36.217.7.3><code c-id=36.218.8.0><!--t.36.219.9.0-->popup</code><!--t.36.220.8.1-->: Abre um popup em outra janela com a tela de login do Layers para que o usuário digite suas credenciais.</li><!--t.36.221.7.4-->
+<li c-id=36.222.7.5><code c-id=36.223.8.0><!--t.36.224.9.0-->redirect</code><!--t.36.225.8.1-->: Redireciona o usuário para a tela de login do Layers e depois redireciona de volta para o seu app passando o código como parâmetro na query.</li><!--t.36.226.7.6-->
+</ul><!--t.36.227.6.5--> </li><!--t.36.228.5.6--> <li c-id=36.229.5.7><strong c-id=36.230.6.0><!--t.36.231.7.0-->redirect-uri</strong><!--t.36.232.6.1-->:
+Deve conter a url de redirecionamento para o seu app quando for usado o
+<code c-id=36.233.6.2><!--t.36.234.7.0-->mode="redirect"</code><!--t.36.235.6.3-->.</li><!--t.36.236.5.8-->
+<li c-id=36.237.5.9><strong c-id=36.238.6.0><!--t.36.239.7.0-->label</strong><!--t.36.240.6.1-->:
+Será usada como texto do botão na forma
+<code c-id=36.241.6.2><!--t.36.242.7.0-->label</code><!--t.36.243.6.3-->+ Layers.</li><!--t.36.244.5.10-->
+</ul><!--t.36.245.4.15--> <p c-id=36.246.4.16><!--t.36.247.5.0-->Além dos atributos obrigatórios, estão disponíveis também atributos de estilo para que o botão se adeque ao design na sua página. São eles:</p><!--t.36.248.4.17-->
+<ul c-id=36.249.4.18><!--t.36.250.5.0--> <li c-id=36.251.5.1><strong c-id=36.252.6.0><!--t.36.253.7.0-->dark | light</strong><!--t.36.254.6.1-->:
+Esses atributos especificam a cor do botão. Usar o atributo
+<code c-id=36.255.6.2><!--t.36.256.7.0-->dark</code><!--t.36.257.6.3--> resulta no botão verde enquanto usar o atributo
+<code c-id=36.258.6.4><!--t.36.259.7.0-->light</code><!--t.36.260.6.5-->ou não usar nenhum dos dois resulta no botão branco.</li><!--t.36.261.5.2-->
+<li c-id=36.262.5.3><strong c-id=36.263.6.0><!--t.36.264.7.0-->size</strong><!--t.36.265.6.1-->: 
+Existem quatro opções de tamanho para o botão de autenticação com Layers:
+<code c-id=36.266.6.2><!--t.36.267.7.0-->small</code><!--t.36.268.6.3-->,
+<code c-id=36.269.6.4><!--t.36.270.7.0-->normal</code><!--t.36.271.6.5-->, <code c-id=36.272.6.6><!--t.36.273.7.0-->medium</code><!--t.36.274.6.7-->e
+<code c-id=36.275.6.8><!--t.36.276.7.0-->large</code><!--t.36.277.6.9-->. Para especificar o tamanho basta usar
+<code c-id=36.278.6.10><!--t.36.279.7.0-->size="tamanho"</code></li><!--t.36.280.5.4-->
+<li c-id=36.281.5.5><strong c-id=36.282.6.0><!--t.36.283.7.0-->flat</strong><!--t.36.284.6.1-->:
+Por padrão o componente do botão logar com Layers tem uma borda. Para remover essa borda use o atributo
+<code
+c-id=36.285.6.2><!--t.36.286.7.0-->flat</code></li><!--t.36.287.5.6--> <li c-id=36.288.5.7><strong c-id=36.289.6.0><!--t.36.290.7.0-->raised</strong><!--t.36.291.6.1-->:
+Por padrão o botão de logar com Layers não tem drop-shaddow. Se preferir um botão com elevação, basta usar o attributo
+<code
+c-id=36.292.6.2><!--t.36.293.7.0-->raised</code><!--t.36.294.6.3-->.</li><!--t.36.295.5.8--> <li c-id=36.296.5.9><strong
+c-id=36.297.6.0><!--t.36.298.7.0-->block</strong><!--t.36.299.6.1-->:
+Ao usar o atributo <code c-id=36.300.6.2><!--t.36.301.7.0-->block</code><!--t.36.302.6.3--> o botão o botão se tornará flexível, ocupando todo o espaço horizontal do seu container.</li><!--t.36.303.5.10-->
+<li c-id=36.304.5.11><strong c-id=36.305.6.0><!--t.36.306.7.0-->inherit-font</strong><!--t.36.307.6.1-->:
+A fonte padrão do botão de autenticação é Nunito-Bold. Embora recomendemos o uso dessa fonte para que o botão seja identificado mais facilmente, é possível alterar a fonte através do atributo
+<code
+c-id=36.308.6.2><!--t.36.309.7.0-->ìnherit-font</code><!--t.36.310.6.3-->. Quando for usado esse atributo, a fonte do botão será herdada do seu componente pai.</li><!--t.36.311.5.12-->
+</ul><!--t.36.312.4.19--> <h3 id="3-escute-pelo-evento-com-o-resultado-da-autentica-o" c-id=36.313.4.20><!--t.36.314.5.0-->
+<a href="#3-escute-pelo-evento-com-o-resultado-da-autentica-o" c-id=36.315.5.1><!--t.36.316.6.0-->3 - Escute pelo evento com o resultado da autenticação</a><!--t.36.317.5.2-->
+</h3><!--t.36.318.4.21--> <p c-id=36.319.4.22><!--t.36.320.5.0-->Caso você tenha optado por usar o modo
+<code c-id=36.321.5.1><!--t.36.322.6.0-->redirect</code><!--t.36.323.5.2-->, não será possível ouvir o evento como mostrado abaixo. Em vez disso, o código sera passado na chave code dos parâmetros na query.</p><!--t.36.324.4.23-->
+<p c-id=36.325.4.24><!--t.36.326.5.0-->Para os modos <code c-id=36.327.5.1><!--t.36.328.6.0-->embedded</code><!--t.36.329.5.2-->e
+<code c-id=36.330.5.3><!--t.36.331.6.0-->popup</code><!--t.36.332.5.4--> o código que deve ser usado para obter o token de acesso do usuário pode ser obtido ouvindo a resposta do evento LayersAuth como mostrado no trecho de código abaixo.
+</p><!--t.36.333.4.25-->
+<docs-code class=hydrated c-id=36.334.4.26 s-id=39><!--r.39--><!--t.36.335.5.0--> <pre c-id=36.336.5.1><code
+c-id=36.337.6.0><!--t.36.338.7.0-->  <span class="token tag" c-id=36.339.7.1><span class="token tag"
+c-id=36.340.8.0><span class="token punctuation" c-id=36.341.9.0><!--t.36.342.10.0-->&lt;</span><!--t.36.343.9.1-->script</span><span
+class="token punctuation" c-id=36.344.8.1><!--t.36.345.9.0-->&gt;</span></span><span class="token script"
+c-id=36.346.7.2><span class="token language-javascript" c-id=36.347.8.0><!--t.36.348.9.0-->
+      LayersAuth<span
+class="token punctuation" c-id=36.349.9.1><!--t.36.350.10.0-->.</span><span class="token function" c-id=36.351.9.2><!--t.36.352.10.0-->onResult</span><span
+class="token punctuation" c-id=36.353.9.3><!--t.36.354.10.0-->(</span><span class="token punctuation"
+c-id=36.355.9.4><!--t.36.356.10.0-->(</span><span class="token parameter" c-id=36.357.9.5><!--t.36.358.10.0-->error<span
+class="token punctuation" c-id=36.359.10.1><!--t.36.360.11.0-->,</span><!--t.36.361.10.2--> data</span><span
+class="token punctuation" c-id=36.362.9.6><!--t.36.363.10.0-->)</span><!--t.36.364.9.7--> <span class="token operator"
+c-id=36.365.9.8><!--t.36.366.10.0-->=&gt;</span><!--t.36.367.9.9--> <span class="token punctuation" c-id=36.368.9.10><!--t.36.369.10.0-->{</span><!--t.36.370.9.11-->
+          <span
+class="token keyword" c-id=36.371.9.12><!--t.36.372.10.0-->if</span><!--t.36.373.9.13--> <span class="token punctuation"
+c-id=36.374.9.14><!--t.36.375.10.0-->(</span><!--t.36.376.9.15-->error<span class="token punctuation"
+c-id=36.377.9.16><!--t.36.378.10.0-->)</span><!--t.36.379.9.17--> <span class="token punctuation" c-id=36.380.9.18><!--t.36.381.10.0-->{</span><!--t.36.382.9.19-->
+              <span
+class="token comment" c-id=36.383.9.20><!--t.36.384.10.0-->//handle error</span><!--t.36.385.9.21-->
+          <span
+class="token punctuation" c-id=36.386.9.22><!--t.36.387.10.0-->}</span><!--t.36.388.9.23-->
+          <span
+class="token comment" c-id=36.389.9.24><!--t.36.390.10.0-->//use code to generate an OAuth token for the user</span><!--t.36.391.9.25-->
+          <span
+class="token keyword" c-id=36.392.9.26><!--t.36.393.10.0-->const</span><!--t.36.394.9.27--> code <span
+class="token operator" c-id=36.395.9.28><!--t.36.396.10.0-->=</span><!--t.36.397.9.29--> data<span class="token punctuation"
+c-id=36.398.9.30><!--t.36.399.10.0-->.</span><!--t.36.400.9.31-->code
+      <span class="token punctuation"
+c-id=36.401.9.32><!--t.36.402.10.0-->}</span><span class="token punctuation" c-id=36.403.9.33><!--t.36.404.10.0-->)</span><!--t.36.405.9.34-->
+  </span></span><span
+class="token tag" c-id=36.406.7.3><span class="token tag" c-id=36.407.8.0><span class="token punctuation"
+c-id=36.408.9.0><!--t.36.409.10.0-->&lt;/</span><!--t.36.410.9.1-->script</span><span class="token punctuation"
+c-id=36.411.8.1><!--t.36.412.9.0-->&gt;</span></span></code></pre><!--t.36.413.5.2--> <div class="code-text__copy"
+c-id=39.0.0.0><a class="code-text__copy-link" c-id=39.1.1.0><!--t.39.2.2.0-->Copiar</a><span class="code-text__copy-confirmation"
+c-id=39.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=39.4.2.0><path d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=39.5.3.0></path></svg><!--t.39.6.2.1-->Copiado</span></div></docs-code><!--t.36.414.4.27--> <h3 id="4-use-o-c-digo-para-obter-o-token"
+c-id=36.415.4.28><!--t.36.416.5.0--> <a href="#4-use-o-c-digo-para-obter-o-token" c-id=36.417.5.1><!--t.36.418.6.0-->4 - Use o código para obter o token</a><!--t.36.419.5.2-->
+</h3><!--t.36.420.4.29--> <p c-id=36.421.4.30><!--t.36.422.5.0-->Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas
+<a
+href="https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md" c-id=36.423.5.1><!--t.36.424.6.0-->rotas de OAuth disponíveis no Layers</a><!--t.36.425.5.2-->.</p><!--t.36.426.4.31-->
+<docs-code class=hydrated c-id=36.427.4.32 s-id=40><!--r.40--><!--t.36.428.5.0--> <pre c-id=36.429.5.1><code
+c-id=36.430.6.0><span class="token method" c-id=36.431.7.0><span class="token post" c-id=36.432.8.0><!--t.36.433.9.0-->POST</span></span><!--t.36.434.7.1--> <span
+class="token path" c-id=36.435.7.2><!--t.36.436.8.0-->/oauth/token</span></code></pre><!--t.36.437.5.2-->
+<div class="code-text__copy" c-id=40.0.0.0><a class="code-text__copy-link" c-id=40.1.1.0><!--t.40.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=40.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=40.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=40.5.3.0></path></svg><!--t.40.6.2.1-->Copiado</span></div></docs-code><!--t.36.438.4.33--> <docs-code
+class=hydrated c-id=36.439.4.34 s-id=41><!--r.41--><!--t.36.440.5.0--> <pre c-id=36.441.5.1><code c-id=36.442.6.0><span
+class="token punctuation" c-id=36.443.7.0><!--t.36.444.8.0-->{</span><!--t.36.445.7.1-->
+    <span class="token string"
+c-id=36.446.7.2><!--t.36.447.8.0-->"grant_type"</span><span class="token operator" c-id=36.448.7.3><!--t.36.449.8.0-->:</span><!--t.36.450.7.4--> <span
+class="token string" c-id=36.451.7.5><!--t.36.452.8.0-->"authorization_code"</span><span class="token punctuation"
+c-id=36.453.7.6><!--t.36.454.8.0-->,</span><!--t.36.455.7.7-->
+    <span class="token string" c-id=36.456.7.8><!--t.36.457.8.0-->"client_id"</span><span
+class="token operator" c-id=36.458.7.9><!--t.36.459.8.0-->:</span><!--t.36.460.7.10--> String
+    <span
+class="token string" c-id=36.461.7.11><!--t.36.462.8.0-->"code"</span><span class="token operator" c-id=36.463.7.12><!--t.36.464.8.0-->:</span><!--t.36.465.7.13--> <span
+class="token string" c-id=36.466.7.14><!--t.36.467.8.0-->"{{code}}"</span><span class="token punctuation"
+c-id=36.468.7.15><!--t.36.469.8.0-->,</span><!--t.36.470.7.16-->
+    <span class="token string" c-id=36.471.7.17><!--t.36.472.8.0-->"redirect_uri"</span><span
+class="token operator" c-id=36.473.7.18><!--t.36.474.8.0-->:</span><!--t.36.475.7.19--> <span class="token string"
+c-id=36.476.7.20><!--t.36.477.8.0-->"{{redirect_uri}}"</span><!--t.36.478.7.21-->
+<span class="token punctuation"
+c-id=36.479.7.22><!--t.36.480.8.0-->}</span></code></pre><!--t.36.481.5.2--> <div class="code-text__copy"
+c-id=41.0.0.0><a class="code-text__copy-link" c-id=41.1.1.0><!--t.41.2.2.0-->Copiar</a><span class="code-text__copy-confirmation"
+c-id=41.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=41.4.2.0><path d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=41.5.3.0></path></svg><!--t.41.6.2.1-->Copiado</span></div></docs-code><!--t.36.482.4.35--> <ul
+c-id=36.483.4.36><!--t.36.484.5.0--> <li c-id=36.485.5.1><strong c-id=36.486.6.0><!--t.36.487.7.0-->grant_type</strong><!--t.36.488.6.1-->: Tipo de fluxo</li><!--t.36.489.5.2-->
+<li c-id=36.490.5.3><strong c-id=36.491.6.0><!--t.36.492.7.0-->client_id</strong><!--t.36.493.6.1-->: Identificador do app</li><!--t.36.494.5.4-->
+<li c-id=36.495.5.5><strong c-id=36.496.6.0><!--t.36.497.7.0-->code</strong><!--t.36.498.6.1-->: Código recebido</li><!--t.36.499.5.6-->
+<li c-id=36.500.5.7><strong c-id=36.501.6.0><!--t.36.502.7.0-->redirect_uri</strong><!--t.36.503.6.1-->: URI para a qual o usuário deve ser redirecionado ao fim da autenticação
+</li><!--t.36.504.5.8--> </ul><!--t.36.505.4.37-->
+<p c-id=36.506.4.38><!--t.36.507.5.0-->A API deve retornar um JSON com o seguinte formato:</p><!--t.36.508.4.39-->
+<h6 id="resposta-" c-id=36.509.4.40><!--t.36.510.5.0--> <a href="#resposta-" c-id=36.511.5.1><!--t.36.512.6.0-->Resposta:</a><!--t.36.513.5.2-->
+</h6><!--t.36.514.4.41--> <docs-code class=hydrated c-id=36.515.4.42 s-id=42><!--r.42--><!--t.36.516.5.0-->
+<pre c-id=36.517.5.1><code c-id=36.518.6.0><span class="token punctuation" c-id=36.519.7.0><!--t.36.520.8.0-->{</span><!--t.36.521.7.1-->
+    <span
+class="token string" c-id=36.522.7.2><!--t.36.523.8.0-->"access_token"</span><span class="token operator"
+c-id=36.524.7.3><!--t.36.525.8.0-->:</span><!--t.36.526.7.4--> <span class="token string" c-id=36.527.7.5><!--t.36.528.8.0-->"{{jwtToken}}"</span><span
+class="token punctuation" c-id=36.529.7.6><!--t.36.530.8.0-->,</span><!--t.36.531.7.7-->
+    <span class="token string"
+c-id=36.532.7.8><!--t.36.533.8.0-->"token_type"</span><span class="token operator" c-id=36.534.7.9><!--t.36.535.8.0-->:</span><!--t.36.536.7.10--> Number<span
+class="token punctuation" c-id=36.537.7.11><!--t.36.538.8.0-->,</span><!--t.36.539.7.12-->
+    <span
+class="token string" c-id=36.540.7.13><!--t.36.541.8.0-->"expires_in"</span><span class="token operator"
+c-id=36.542.7.14><!--t.36.543.8.0-->:</span><!--t.36.544.7.15--> Number<span class="token punctuation"
+c-id=36.545.7.16><!--t.36.546.8.0-->,</span><!--t.36.547.7.17-->
+    <span class="token string" c-id=36.548.7.18><!--t.36.549.8.0-->"state"</span><span
+class="token operator" c-id=36.550.7.19><!--t.36.551.8.0-->:</span><!--t.36.552.7.20--> String
+<span
+class="token punctuation" c-id=36.553.7.21><!--t.36.554.8.0-->}</span></code></pre><!--t.36.555.5.2--> <div
+class="code-text__copy" c-id=42.0.0.0><a class="code-text__copy-link" c-id=42.1.1.0><!--t.42.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=42.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=42.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=42.5.3.0></path></svg><!--t.42.6.2.1-->Copiado</span></div></docs-code><!--t.36.556.4.43--> <ul
+c-id=36.557.4.44><!--t.36.558.5.0--> <li c-id=36.559.5.1><strong c-id=36.560.6.0><!--t.36.561.7.0-->access_token</strong><!--t.36.562.6.1-->: Token de acesso</li><!--t.36.563.5.2-->
+<li c-id=36.564.5.3><strong c-id=36.565.6.0><!--t.36.566.7.0-->token_type</strong><!--t.36.567.6.1-->: Tipo de token</li><!--t.36.568.5.4-->
+<li c-id=36.569.5.5><strong c-id=36.570.6.0><!--t.36.571.7.0-->expires_in</strong><!--t.36.572.6.1-->: Tempo até o token expirar em segundos</li><!--t.36.573.5.6-->
+<li c-id=36.574.5.7><strong c-id=36.575.6.0><!--t.36.576.7.0-->state</strong><!--t.36.577.6.1-->: Mensagem adicional que pode ser utilizada para ser retornado na rota de token de acesso</li><!--t.36.578.5.8-->
+</ul></div></section><docs-page-footer role=contentinfo class=hydrated c-id=36.579.2.2 s-id=43><!--r.43--><!--t.43.0.0.0-->
+</docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root> </body>
 </html>

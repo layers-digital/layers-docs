@@ -492,11 +492,13 @@
         "name": {
           "type": "string",
           "description": "Nome do grupo",
-          "example": "Terceiro ano A"
+          "example": "Terceiro ano A",
+          "required": true
         },
         "tags": {
           "type": "array",
           "description": "tags às quais esse grupo pertence",
+          "required": false,
           "items": {
             "type": "object",
             "properties": {
@@ -515,6 +517,7 @@
         "admins": {
           "type": "array",
           "description": "administradores do grupo",
+          "required": false,
           "items": {
             "type": "object",
             "properties": {
@@ -527,7 +530,8 @@
         "active": {
           "type": "boolean",
           "description": "Chave que indica se o grupo está ativo (quando o grupo é apagado, essa chave é mudada para false)",
-          "example": true
+          "example": true,
+          "required": false
         },
         "syncedAt": {
           "type": "string",
@@ -538,7 +542,8 @@
         "season": {
           "type": "string",
           "description": "temporada à qual esse grupo pertence",
-          "example": "Ano letivo 2020"
+          "example": "Ano letivo 2020",
+          "readOnly": true
         }
       },
       "externalDocs": {

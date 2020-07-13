@@ -8,7 +8,8 @@ import { Logo } from '../../icons';
 // import mainTemplate from './templates/main';
 import api from './templates/api';
 import conceptsTemplate from './templates/concepts';
-import tutorialsTemplate from './templates/tutorials';
+// import tutorialsTemplate from './templates/tutorials';
+import sdksTemplate from './templates/sdk';
 
 @Component({
   tag: 'docs-menu',
@@ -40,7 +41,7 @@ export class DocsMenu {
       </stencil-route-switch>,
       <stencil-route-switch scrollTopOffset={0} class="Menu">
         <stencil-route url="/docs/api/:service?" routeRender={api.template}/>
-        <stencil-route url="/docs/tutorial/:service?" routeRender={tutorialsTemplate}/>
+        <stencil-route url="/docs/sdk" routeRender={sdksTemplate}/>
         <stencil-route url="/docs/(concepts)?/:service?" routeRender={conceptsTemplate}/>
       </stencil-route-switch>
     ];

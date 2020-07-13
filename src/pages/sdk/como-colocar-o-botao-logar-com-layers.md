@@ -1,6 +1,6 @@
 ---
 template: default
-title: Implementandoo botão logar com Layers
+title: Implementando o botão logar com Layers
 tableOfContents: false
 # nextText: 'Environment Setup'
 # nextUrl: '/docs/guides/intro'
@@ -29,11 +29,11 @@ Para ter acesso ao componente do botão logar com o Layers será necessário imp
 
 ```html
 <layers-auth-button
-    client-id="myapp",
-    scope="identity:basic:read"
-    response-type="code"
-    redirect-uri="https://myapp.com"
-    label="Continuar com"
+  client-id="myapp",
+  scope="identity:basic:read"
+  response-type="code"
+  redirect-uri="https://myapp.com"
+  label="Continuar com"
 ></layers-auth-button>
 ```
 
@@ -73,15 +73,15 @@ Caso você tenha optado por usar o modo ```redirect```, não será possível ouv
 Para os modos ```embedded```e ```popup``` o código que deve ser usado para obter o token de acesso do usuário pode ser obtido ouvindo a resposta do evento LayersAuth como mostrado no trecho de código abaixo. 
 
 ```html
-  <script>
-      LayersAuth.onResult((error, data) => {
-          if (error) {
-              //handle error
-          }
-          //use code to generate an OAuth token for the user
-          const code = data.code
-      })
-  </script>
+<script>
+  LayersAuth.onResult((error, data) => {
+    if (error) {
+      //handle error
+    }
+    //use code to generate an OAuth token for the user
+    const code = data.code
+  })
+</script>
 ```
 
 ### 4 - Use o código para obter o token
@@ -94,10 +94,10 @@ POST /oauth/token
 
 ```js
 {
-    "grant_type": "authorization_code",
-    "client_id": String
-    "code": "{{code}}",
-    "redirect_uri": "{{redirect_uri}}"
+  "grant_type": "authorization_code",
+  "client_id": String
+  "code": "{{code}}",
+  "redirect_uri": "{{redirect_uri}}"
 }
 ```
 
@@ -111,10 +111,10 @@ A API deve retornar um JSON com o seguinte formato:
 ###### Resposta:
 ```js
 {
-    "access_token": "{{jwtToken}}",
-    "token_type": Number,
-    "expires_in": Number,
-    "state": String
+  "access_token": "{{jwtToken}}",
+  "token_type": Number,
+  "expires_in": Number,
+  "state": String
 }
 ```
 

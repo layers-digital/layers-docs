@@ -27,9 +27,7 @@ jobs:
       with:
         args: run build.ci
 
-    - run: mv www build
-
-    - run: sudo echo "developers.layers.education" > build/CNAME
+    - run: mv www build; echo "developers.layers.education" > ./build/CNAME
 
     - name: publish
       uses: s0/git-publish-subdir-action@develop

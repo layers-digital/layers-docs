@@ -11,12 +11,9 @@ export const config: Config = {
       serviceWorker: null,
       copy: [
         { src: 'pages/**/*.json' },
-        // { src: 'demos', dest: 'demos' },
-        // { src: 'components/color-gen/demo/index.html', dest: 'pages/theming/color-generator/index.html' },
         { src: 'assets', dest: 'assets' },
         { src: 'manifest.json', dest: 'manifest.json' },
-        { src: 'CNAME', dest: '../CNAME' },
-        // { src: '../node_modules/@ionic/core/dist', dest: 'assets/ionic' },
+        { src: 'www-root/*', dest: '..' },
       ]
     }
   ]

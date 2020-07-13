@@ -11,6 +11,7 @@ import conceptsTemplate from './templates/concepts';
 // import tutorialsTemplate from './templates/tutorials';
 import sdksTemplate from './templates/sdk';
 import registerTemplate from './templates/register';
+import statusTemplate from './templates/status';
 
 @Component({
   tag: 'docs-menu',
@@ -44,6 +45,7 @@ export class DocsMenu {
         <stencil-route url="/docs/api/:service?" routeRender={api.template}/>
         <stencil-route url="/docs/sdk" routeRender={sdksTemplate}/>
         <stencil-route url="/docs/register" routeRender={registerTemplate}/>
+        <stencil-route url="/docs/status" routeRender={statusTemplate}/>
         <stencil-route url="/docs/(concepts)?/:service?" routeRender={conceptsTemplate}/>
       </stencil-route-switch>
     ];

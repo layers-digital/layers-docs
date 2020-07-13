@@ -29,9 +29,6 @@ jobs:
 
     - run: mv www build
 
-    - run: chmod 777 ./build
-    - run: echo "developers.layers.education" > ./build/CNAME
-
     - name: publish
       uses: s0/git-publish-subdir-action@develop
       env:

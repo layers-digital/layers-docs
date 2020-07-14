@@ -129,7 +129,13 @@ export function generateExample(spec: OpenAPIObject, node: AcessorNode, operatio
 
 let EXAMPLE_DATE = new Date()
 export function getDefaultTypeExample({schema}: AcessorNode) {
-  let type = schema.type?.toLowerCase()
+  let type
+  try {
+    type = schema.type?.toLowerCase()
+  } catch (error) {
+    console.log(schema)
+  }
+  
   if (!type) {
     return
   }

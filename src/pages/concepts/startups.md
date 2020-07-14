@@ -21,7 +21,7 @@ O Layers oferece para startups as ferramentas e funcionalidades necessárias par
     <p>Permitir que seu app seja acessado dentro do Layers</p>
   </docs-card>
 
-  <docs-card header="Notificações" href="/docs/concepts/funcionalidades/notificacoes" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+  <docs-card header="Notificações" href="/docs/concepts/funcionalidades/notificacoes" icon="/docs/assets/icons/Notifications.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
     <p>Mandar notificações push para android, ios e web</p>
   </docs-card>
 </docs-cards>

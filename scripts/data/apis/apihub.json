@@ -41,7 +41,29 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/requestBodies/@layers:Calendar:getRelated-request"
+                "anyOf": [
+                  {
+                    "$ref": "#/components/requestBodies/@layers:Calendar:getRelated"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:getRelated"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:education:GradeBooks:getRelated"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:education:Timetables:getRelated"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:education:Timetables:getRelated@layers:getHomeInfo"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:health:MedicalRecord:getRelated"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:payments:Payables:getRelated"
+                  }
+                ]
               }
             }
           }
@@ -180,6 +202,53 @@
     }
   },
   "components": {
+    "schemas": {
+      "Calendário - Data": {
+        "$ref": "#/components/requestBodies/@layers:Calendar:getRelated"
+      },
+      "Calendário - Resposta": {
+        "$ref": "#/components/responseBodies/@layers:Calendar:getRelated"
+      },
+      "Registro acadêmico - Data": {
+        "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:getRelated"
+      },
+      "Registro acadêmico - Resposta": {
+        "$ref": "#/components/responseBodies/@layers:education:AcademicRecords:getRelated"
+      },
+      "Marcar registro acadêmico como visto - Data": {
+        "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:markRecordsAsViewed"
+      },
+      "Notas acadêmicas - Data": {
+        "$ref": "#/components/requestBodies/@layers:education:GradeBooks:getRelated"
+      },
+      "Notas acadêmicas - Resposta": {
+        "$ref": "#/components/responseBodies/@layers:education:GradeBooks:getRelated"
+      },
+      "Grade horária - Data": {
+        "$ref": "#/components/requestBodies/@layers:education:Timetables:getRelated"
+      },
+      "Grade horária - Resposta": {
+        "$ref": "#/components/responseBodies/@layers:education:Timetables:getRelated"
+      },
+      "Informações da Home - Data": {
+        "$ref": "#/components/requestBodies/@layers:getHomeInfo"
+      },
+      "Informações da Home - Resposta": {
+        "$ref": "#/components/responseBodies/@layers:getHomeInfo"
+      },
+      "Ficha médica - Data": {
+        "$ref": "#/components/requestBodies/@layers:health:MedicalRecord:getRelated"
+      },
+      "Ficha médica - Resposta": {
+        "$ref": "#/components/responseBodies/@layers:health:MedicalRecord:getRelated"
+      },
+      "Cobranças - Data": {
+        "$ref": "#/components/requestBodies/@layers:payments:Payables:getRelated"
+      },
+      "Cobranças - Resposta": {
+        "$ref": "#/components/responseBodies/@layers:payments:Payables:getRelated"
+      }
+    },
     "parameters": {
       "Community-id": {
         "name": "community-id",
@@ -266,7 +335,7 @@
           }
         ]
       },
-      "@layers:Calendar:getRelated-request": {
+      "@layers:Calendar:getRelated": {
         "type": "object",
         "properties": {
           "user": {
@@ -275,32 +344,410 @@
               "id": {
                 "type": "string",
                 "format": "ObjectId",
-                "description": "Identificador do usuário"
+                "description": "Identificador do usuário",
+                "required": true
               },
               "name": {
                 "type": "string",
                 "description": "Nome do usuário",
-                "example": "Carlos Pereira"
+                "example": "Carlos Pereira",
+                "required": true
               },
               "alias": {
                 "type": "string",
                 "description": "Identificador do usuário na comunidade",
-                "example": "user2"
+                "example": "user2",
+                "required": true
               },
               "timezone": {
                 "type": "string",
                 "description": "Fuso horário do usuário",
-                "example": "America/Sao_Paulo"
+                "example": "America/Sao_Paulo",
+                "required": true
               },
               "language": {
                 "type": "string",
                 "description": "Língua do usuário",
+                "example": "pt/BR",
+                "required": true
+              },
+              "acconuntId": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador da conta do usuário",
+                "required": true
+              }
+            }
+          }
+        }
+      },
+      "@layers:education:AcademicRecords:getRelated": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do usuário",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome do usuário",
+                "required": true,
+                "example": "João Pedro"
+              },
+              "alias": {
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Fuso horário do usuário",
+                "required": true,
+                "example": "America/Sao_Paulo"
+              },
+              "language": {
+                "type": "string",
+                "description": "Língua preferencial do usuário",
+                "required": true,
                 "example": "pt/BR"
               },
               "acconuntId": {
                 "type": "string",
                 "format": "ObjectId",
-                "description": "Identificador da conta do usuário"
+                "description": "Identificador da conta do usuário",
+                "required": true
+              }
+            }
+          },
+          "createdAfter": {
+            "type": [
+              "string",
+              null
+            ],
+            "format": "date",
+            "description": "Se não for null a resposta deve conter apenas registros criados depois dessa data"
+          }
+        }
+      },
+      "@layers:education:AcademicRecords:markRecordsAsViewed": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do usuário",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome do usuário",
+                "example": "Carlos Pereira",
+                "required": true
+              },
+              "alias": {
+                "type": "string",
+                "description": "Identificador do usuário na comunidade",
+                "example": "user2",
+                "required": true
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Fuso horário do usuário",
+                "example": "America/Sao_Paulo",
+                "required": true
+              },
+              "language": {
+                "type": "string",
+                "description": "Língua do usuário",
+                "example": "pt/BR",
+                "required": true
+              },
+              "acconuntId": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador da conta do usuário",
+                "required": true
+              }
+            }
+          },
+          "groupId": {
+            "type": [
+              "string",
+              null
+            ],
+            "description": "Identificador único do grupo de registros",
+            "required": true,
+            "example": "grupo_de_registros_1"
+          },
+          "recordsIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Identificadores únicos dos registros individuais",
+              "required": true,
+              "example": "id_do_registro_A"
+            }
+          }
+        }
+      },
+      "@layers:education:GradeBooks:getRelated": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do usuário",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome do usuário",
+                "required": true,
+                "example": "João Pedro"
+              },
+              "alias": {
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Fuso horário do usuário",
+                "required": true,
+                "example": "America/Sao_Paulo"
+              },
+              "language": {
+                "type": "string",
+                "description": "Língua preferencial do usuário",
+                "required": true,
+                "example": "pt/BR"
+              },
+              "acconuntId": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador da conta do usuário",
+                "required": true
+              }
+            }
+          }
+        }
+      },
+      "@layers:education:Timetables:getRelated": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do usuário",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome do usuário",
+                "required": true,
+                "example": "João Pedro"
+              },
+              "alias": {
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Fuso horário do usuário",
+                "required": true,
+                "example": "America/Sao_Paulo"
+              },
+              "language": {
+                "type": "string",
+                "description": "Língua preferencial do usuário",
+                "required": true,
+                "example": "pt/BR"
+              },
+              "acconuntId": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador da conta do usuário",
+                "required": true
+              }
+            }
+          }
+        }
+      },
+      "@layers:getHomeInfo": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do usuário",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome do usuário",
+                "required": true,
+                "example": "João Pedro"
+              },
+              "alias": {
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Fuso horário do usuário",
+                "required": true,
+                "example": "America/Sao_Paulo"
+              },
+              "language": {
+                "type": "string",
+                "description": "Língua preferencial do usuário",
+                "required": true,
+                "example": "pt/BR"
+              },
+              "acconuntId": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador da conta do usuário",
+                "required": true
+              }
+            }
+          }
+        }
+      },
+      "@layers:health:MedicalRecord:getRelated": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do usuário",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome do usuário",
+                "required": true,
+                "example": "João Pedro"
+              },
+              "alias": {
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Fuso horário do usuário",
+                "required": true,
+                "example": "America/Sao_Paulo"
+              },
+              "language": {
+                "type": "string",
+                "description": "Língua preferencial do usuário",
+                "required": true,
+                "example": "pt/BR"
+              },
+              "acconuntId": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador da conta do usuário",
+                "required": true
+              }
+            }
+          }
+        }
+      },
+      "@layers:payments:Payables:getRelated": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do usuário",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome do usuário",
+                "required": true,
+                "example": "João Pedro"
+              },
+              "alias": {
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Fuso horário do usuário",
+                "required": true,
+                "example": "America/Sao_Paulo"
+              },
+              "language": {
+                "type": "string",
+                "description": "Língua preferencial do usuário",
+                "required": true,
+                "example": "pt/BR"
+              },
+              "acconuntId": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador da conta do usuário",
+                "required": true
               }
             }
           }
@@ -1515,9 +1962,64 @@
   },
   "x-nav": [
     {
-      "name": "Hub de APIs",
+      "name": "Rotas",
       "tags": [
         "API Hub"
+      ]
+    },
+    {
+      "name": "@layers:Calendar:getRelated",
+      "schemas": [
+        "Calendário - Data",
+        "Calendário - Resposta"
+      ]
+    },
+    {
+      "name": "@layers:education:AcademicRecords:getRelated",
+      "schemas": [
+        "Registro acadêmico - Data",
+        "Registro acadêmico - Resposta"
+      ]
+    },
+    {
+      "name": "@layers:education:AcademicRecords:markRecordsAsViewed",
+      "schemas": [
+        "Marcar registro acadêmico como visto - Data"
+      ]
+    },
+    {
+      "name": "@layers:education:GradeBooks:getRelated",
+      "schemas": [
+        "Notas acadêmicas - Data",
+        "Notas acadêmicas - Resposta"
+      ]
+    },
+    {
+      "name": "@layers:education:Timetables:getRelated",
+      "schemas": [
+        "Grade horária - Data",
+        "Grade horária - Resposta"
+      ]
+    },
+    {
+      "name": "@layers:getHomeInfo",
+      "schemas": [
+        "Informações da Home - Data",
+        "Informações da Home - Resposta"
+      ]
+    },
+    {
+      "name": "@layers:health:MedicalRecord:getRelated",
+      "schemas": [
+        "Ficha médica - Data",
+        "Ficha médica - Resposta"
+      ]
+    },
+    {
+      "name": "@layers:payments:Payables:getRelated",
+      "schemas": [
+        "Cobranças - Data",
+        "Cobranças - Respostas"
       ]
     }
   ]

@@ -1,0 +1,321 @@
+{
+  "template": "api-schema",
+  "title": "Entidade Registro acadêmico - Data",
+  "path": "/docs/api/apihub/Registro acadêmico - Data/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "apihub",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"user\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"5bb2575199d7179dfe85be02\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"João Pedro\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"0001\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"timezone\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"America/Sao_Paulo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"language\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"pt/BR\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"acconuntId\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"5bb2575199d7179dfe85be02\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "schema": {
+    "type": "schema",
+    "name": "Registro acadêmico - Data",
+    "spec": {
+      "title": "@layers:education:AcademicRecords:getRelated",
+      "type": "object",
+      "properties": {
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "ObjectId",
+              "description": "Identificador do usuário",
+              "required": true
+            },
+            "name": {
+              "type": "string",
+              "description": "Nome do usuário",
+              "required": true,
+              "example": "João Pedro"
+            },
+            "alias": {
+              "type": [
+                "string",
+                "number",
+                null
+              ],
+              "description": "Identificador interno do usuário",
+              "required": true,
+              "example": "0001"
+            },
+            "timezone": {
+              "type": "string",
+              "description": "Fuso horário do usuário",
+              "required": true,
+              "example": "America/Sao_Paulo"
+            },
+            "language": {
+              "type": "string",
+              "description": "Língua preferencial do usuário",
+              "required": true,
+              "example": "pt/BR"
+            },
+            "acconuntId": {
+              "type": "string",
+              "format": "ObjectId",
+              "description": "Identificador da conta do usuário",
+              "required": true
+            }
+          }
+        },
+        "createdAfter": {
+          "type": [
+            "string",
+            null
+          ],
+          "format": "date",
+          "description": "Se não for null a resposta deve conter apenas registros criados depois dessa data"
+        }
+      },
+      "externalDocs": {
+        "description": "Entidade Registro acadêmico - Data",
+        "url": "/docs/api/apihub/Registro acadêmico - Data/object"
+      }
+    },
+    "tags": [],
+    "summary": "Entidade Registro acadêmico - Data"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-registro-acad-mico-data-object"
+}

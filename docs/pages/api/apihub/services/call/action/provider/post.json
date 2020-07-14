@@ -106,225 +106,7 @@
         [
           "code",
           null,
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "{"
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"user\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "{"
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"id\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"5bb2575199d7179dfe85be02\""
-          ],
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            ","
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"name\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"Carlos Pereira\""
-          ],
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            ","
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"alias\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"user2\""
-          ],
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            ","
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"timezone\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"America/Sao_Paulo\""
-          ],
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            ","
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"language\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"pt/BR\""
-          ],
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            ","
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"acconuntId\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"5bb2575199d7179dfe85be02\""
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "}"
-          ],
-          "\n",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "}"
-          ]
+          "undefined"
         ]
       ],
       "\n"
@@ -409,7 +191,29 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/requestBodies/@layers:Calendar:getRelated-request"
+              "anyOf": [
+                {
+                  "$ref": "#/components/requestBodies/@layers:Calendar:getRelated"
+                },
+                {
+                  "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:getRelated"
+                },
+                {
+                  "$ref": "#/components/requestBodies/@layers:education:GradeBooks:getRelated"
+                },
+                {
+                  "$ref": "#/components/requestBodies/@layers:education:Timetables:getRelated"
+                },
+                {
+                  "$ref": "#/components/requestBodies/@layers:education:Timetables:getRelated@layers:getHomeInfo"
+                },
+                {
+                  "$ref": "#/components/requestBodies/@layers:health:MedicalRecord:getRelated"
+                },
+                {
+                  "$ref": "#/components/requestBodies/@layers:payments:Payables:getRelated"
+                }
+              ]
             }
           }
         }

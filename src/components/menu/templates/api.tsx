@@ -31,39 +31,39 @@ const Template = {
     },
     {
       icon: '/docs/assets/icons/Data.svg',
-      url: '/docs/api/data',
+      url: '/docs/api/data/Member/object',
       title: 'Dados'
     },
     {
       icon: '/docs/assets/icons/Hub.svg',
-      url: '/docs/api/apihub',
+      url: '/docs/api/apihub/@layersCalendargetRelated/post',
       title: 'Hub de API\'s'
     },
     {
       icon: '/docs/assets/icons/Notifications.svg',
-      url: '/docs/api/notifications',
+      url: '/docs/api/notifications/notication/send/post',
       title: 'Notificações'
     },
+    // {
+    //   icon: '/docs/assets/icons/Payments.svg',
+    //   url: '/docs/api/payments',
+    //   title: 'Pagamentos'
+    // },
     {
-      icon: '/docs/assets/icons/Payments.svg',
-      url: '/docs/api/payments',
-      title: 'Pagamentos'
-    },
-    {
-      icon: '/docs/assets/icons/Payments.svg',
-      url: '/docs/api/communication',
+      icon: '/docs/assets/icons/Comunicação.svg',
+      url: '/docs/api/communication/Event/object',
       title: 'Comunicação'
     },
     {
-      icon: '/docs/assets/icons/Payments.svg',
-      url: '/docs/api/tickets',
+      icon: '/docs/assets/icons/Atendimento.svg',
+      url: '/docs/api/tickets/Channel/object',
       title: 'Atendimentos'
     },
-    {
-      icon: '/docs/assets/icons/Payments.svg',
-      url: '/docs/api/tickets',
-      title: 'Atendimentos'
-    },
+    // {
+    //   icon: '/docs/assets/icons/Payments.svg',
+    //   url: '/docs/api/tickets',
+    //   title: 'Atendimentos'
+    // },
   ],
 }
 

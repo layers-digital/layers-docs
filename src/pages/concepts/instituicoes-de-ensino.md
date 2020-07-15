@@ -13,19 +13,19 @@ O Layers oferece para instituições de ensino um único ambiente no qual é pos
 ## Principais funcionalidades
 
 <docs-cards>
-  <docs-card header="Hub de APIs" href="/docs/concepts/funcionalidades/hub-de-apis" icon="/docs/assets/icons/Hub.svg" hover-icon="/docs/assets/icons/guide-installation-icon-hover.svg">
+  <docs-card header="Hub de APIs" href="/docs/concepts/funcionalidades/hub-de-apis" icon="/docs/assets/icons/Hub.svg">
     <p>Prover informações sobre horários, frequência, cobranças e mais</p>
   </docs-card>
 
-  <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg" hover-icon="/docs/assets/icons/guide-components-icon-hover.svg">
+  <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg">
     <p>Manter os dados do Layers atualizados com as informações do ERP</p>
   </docs-card>
 
-  <docs-card header="Comunicação" href="/docs/concepts/funcionalidades/comunicacao" icon="/docs/assets/icons/Comunicação.svg" hover-icon="/docs/assets/icons/guide-native-icon-hover.svg">
+  <docs-card header="Comunicação" href="/docs/concepts/funcionalidades/comunicacao" icon="/docs/assets/icons/Comunicação.svg">
     <p>Enviar comunicados para a comunidade escolar</p>
   </docs-card>
 
-  <docs-card header="Login Federado" href="/docs/concepts/funcionalidades/login-federado" icon="/docs/assets/icons/guide-theming-icon.svg" hover-icon="/docs/assets/icons/guide-theming-icon-hover.svg">
+  <docs-card header="Login Federado" href="/docs/concepts/funcionalidades/login-federado" icon="/docs/assets/icons/guide-theming-icon.svg">
     <p>Autenticar usuários em serviços externos como Google, Microsoft ou sua própria API</p>
   </docs-card>
 </docs-cards>

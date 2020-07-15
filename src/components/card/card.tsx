@@ -9,7 +9,6 @@ export class DocsCard {
   @Prop() href: string;
   @Prop() header: string;
   @Prop() icon: string;
-  @Prop() hoverIcon: string;
   @Prop() iconset: string;
   @Prop() ionicon: string;
   @Prop() img: string;
@@ -57,13 +56,11 @@ export class DocsCard {
         { this.header } { isOutbound ? <Outbound/> : null }
       </header>
     );
-    const hoverIcon = this.hoverIcon || this.icon;
 
     const content = [
       this.img && <img src={this.img} class="Card-image"/>,
       <div class="Card-container">
         { this.icon && <img src={this.icon} class="Card-icon Card-icon-default"/> }
-        { hoverIcon && <img src={hoverIcon} class="Card-icon Card-icon-hover"/> }
         { this.ionicon && <ion-icon name={this.ionicon} class="Card-ionicon"></ion-icon>}
         { this.iconset && <div class="Card-iconset__container">
           {this.iconset.split(',').map((icon, index) =>

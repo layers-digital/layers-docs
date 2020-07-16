@@ -10,7 +10,7 @@
       {
         "class": "intro"
       },
-      "Buscar alunos. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q."
+      "Buscar membros. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q."
     ]
   ],
   "serviceId": "data",
@@ -569,7 +569,7 @@
       },
       "hits": {
         "type": "array",
-        "description": "Lista de alunos encontrados ordenados por quão bem se encaixam na busca",
+        "description": "Lista de membros encontrados ordenados por quão bem se encaixam na busca",
         "items": {
           "$ref": "#/components/schemas/Member"
         }
@@ -585,7 +585,7 @@
         "Membros"
       ],
       "summary": "Buscar membros",
-      "description": "Buscar alunos. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
+      "description": "Buscar membros. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
       "parameters": [
         {
           "$ref": "#/components/parameters/Community-id"
@@ -605,7 +605,7 @@
         {
           "name": "q",
           "in": "query",
-          "description": "Texto de busca. Pode ser o nome ou alias do aluno.",
+          "description": "Texto de busca. Pode ser o nome ou alias do membro.",
           "required": false,
           "schema": {
             "type": "string"
@@ -626,7 +626,7 @@
       ],
       "responses": {
         "200": {
-          "description": "Número e lista de alunos encontrados.",
+          "description": "Número e lista de membros encontrados.",
           "content": {
             "application/json": {
               "schema": {
@@ -639,7 +639,7 @@
                   },
                   "hits": {
                     "type": "array",
-                    "description": "Lista de alunos encontrados ordenados por quão bem se encaixam na busca",
+                    "description": "Lista de membros encontrados ordenados por quão bem se encaixam na busca",
                     "items": {
                       "$ref": "#/components/schemas/Member"
                     }

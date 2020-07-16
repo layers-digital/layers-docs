@@ -1,6 +1,6 @@
 {
   "template": "api-route",
-  "title": "Prover informações",
+  "title": "Prover notas acadêmicas",
   "path": "/docs/api/apihub/@layerseducationGradeBooksgetRelated/post",
   "body": [
     "div",
@@ -97,6 +97,157 @@
               "class": "token punctuation"
             },
             "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"context\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"issuedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2020-07-16T18:36:43.687Z\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"@layers:identificador_da_action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"test\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"secret\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
           ],
           "\n  ",
           [
@@ -600,7 +751,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-15\""
+            "\"2020-07-16\""
           ],
           [
             "span",
@@ -630,7 +781,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-15\""
+            "\"2020-07-16\""
           ],
           [
             "span",
@@ -902,7 +1053,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-15\""
+            "\"2020-07-16\""
           ],
           [
             "span",
@@ -1052,7 +1203,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-15\""
+            "\"2020-07-16\""
           ],
           "\n                ",
           [
@@ -1953,7 +2104,7 @@
       "tags": [
         "GradeBooks:getRelated"
       ],
-      "summary": "Prover informações",
+      "summary": "Prover notas acadêmicas",
       "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de notas acadêmicas por meio da action `@layers:education:GradeBooks:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
       "security": [
         {
@@ -1967,7 +2118,14 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/requestBodies/@layers:education:GradeBooks:getRelated"
+              "allOf": [
+                {
+                  "$ref": "#/components/requestBodies/Context"
+                },
+                {
+                  "$ref": "#/components/requestBodies/@layers:education:GradeBooks:getRelated"
+                }
+              ]
             }
           }
         }
@@ -1985,14 +2143,14 @@
         }
       },
       "externalDocs": {
-        "description": "Prover informações",
+        "description": "Prover notas acadêmicas",
         "url": "/docs/api/apihub/@layerseducationGradeBooksgetRelated/post"
       }
     },
     "tags": [
       "GradeBooks:getRelated"
     ],
-    "summary": "Prover informações"
+    "summary": "Prover notas acadêmicas"
   },
   "headings": [],
   "pageClass": "page-api-apihub-layerseducationgradebooksgetrelated-post"

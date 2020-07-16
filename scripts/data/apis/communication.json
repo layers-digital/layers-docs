@@ -480,6 +480,7 @@
             "properties": {
               "date": {
                 "type": "string",
+                "format": "date-time",
                 "description": "Data do evento"
               },
               "event": {
@@ -487,11 +488,14 @@
                 "properties": {
                   "endDate": {
                     "type": "string",
+                    "format": "date-time",
                     "description": "Data do fim do evento"
                   },
                   "allDay": {
                     "type": "boolean",
-                    "description": "Indica se o evento deve durar o dia todo"
+                    "description": "Indica se o evento deve durar o dia todo",
+                    "example": false,
+                    "default": false
                   }
                 }
               }

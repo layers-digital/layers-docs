@@ -717,7 +717,7 @@
           "Membros"
         ],
         "summary": "Listar Membros",
-        "description": "Listar alunos existentes.",
+        "description": "Listar membros existentes.",
         "security": [
           {
             "Bearer": [],
@@ -755,7 +755,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Alunos ordenador por data de criação",
+            "description": "Membros ordenador por data de criação",
             "content": {
               "application/json": {
                 "schema": {
@@ -775,7 +775,7 @@
         "tags": [
           "Membros"
         ],
-        "summary": "Deletar aluno especificado.",
+        "summary": "Deletar membro especificado",
         "description": "Remover o membro específicado do Layers. Esse processo **pode** ser revertido por meio da rota de editar membro altetando a chave `active` de `false` para `true`.",
         "security": [
           {
@@ -815,7 +815,7 @@
           "Membros"
         ],
         "summary": "Atualizar Membro",
-        "description": "Atualizar informações do aluno especificado",
+        "description": "Atualizar informações do membro especificado",
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
@@ -847,7 +847,7 @@
         },
         "responses": {
           "200": {
-            "description": "Aluno atualizado",
+            "description": "Membro atualizado",
             "content": {
               "application/json": {
                 "schema": {
@@ -863,7 +863,7 @@
           "Membros"
         ],
         "summary": "Visualizar membro",
-        "description": "Visualizar informações do aluno especificado",
+        "description": "Visualizar informações do membro especificado",
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
@@ -886,7 +886,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Informações do aluno especificado",
+            "description": "Informações do membro especificado",
             "content": {
               "application/json": {
                 "schema": {
@@ -904,7 +904,7 @@
           "Membros"
         ],
         "summary": "Vincular usuário a um membro",
-        "description": "Vincular usuário ao aluno especificado",
+        "description": "Vincular usuário ao membro especificado",
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
@@ -948,7 +948,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Usuários relacionados com o membro",
             "content": {
               "application/json": {
                 "schema": {
@@ -1012,7 +1012,7 @@
           "Membros"
         ],
         "summary": "Buscar membros",
-        "description": "Buscar alunos. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
+        "description": "Buscar membros. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
@@ -1032,7 +1032,7 @@
           {
             "name": "q",
             "in": "query",
-            "description": "Texto de busca. Pode ser o nome ou alias do aluno.",
+            "description": "Texto de busca. Pode ser o nome ou alias do membro.",
             "required": false,
             "schema": {
               "type": "string"
@@ -1053,7 +1053,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Número e lista de alunos encontrados.",
+            "description": "Número e lista de membros encontrados.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1066,7 +1066,7 @@
                     },
                     "hits": {
                       "type": "array",
-                      "description": "Lista de alunos encontrados ordenados por quão bem se encaixam na busca",
+                      "description": "Lista de membros encontrados ordenados por quão bem se encaixam na busca",
                       "items": {
                         "$ref": "#/components/schemas/Member"
                       }

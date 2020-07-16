@@ -16,7 +16,7 @@
         "tags": [
           "Calendar:getRelated"
         ],
-        "summary": "Prover informações de calendário",
+        "summary": "Prover Calendário",
         "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de calendário por meio da action `@layers:Calendar:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
         "security": [
           {
@@ -30,7 +30,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/requestBodies/@layers:Calendar:getRelated"
+                "allOf": [
+                  {
+                    "$ref": "#/components/requestBodies/Context"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:Calendar:getRelated"
+                  }
+                ]
               }
             }
           }
@@ -54,7 +61,7 @@
         "tags": [
           "AcademicRecords:getRelated"
         ],
-        "summary": "Prover informações",
+        "summary": "Prover registros acadêmicos",
         "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de registros acadêmicos por meio da action `@layers:education:AcademicRecords:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
         "security": [
           {
@@ -68,7 +75,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:getRelated"
+                "allOf": [
+                  {
+                    "$ref": "#/components/requestBodies/Context"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:getRelated"
+                  }
+                ]
               }
             }
           }
@@ -106,7 +120,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:markRecordsAsViewed"
+                "allOf": [
+                  {
+                    "$ref": "#/components/requestBodies/Context"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:markRecordsAsViewed"
+                  }
+                ]
               }
             }
           }
@@ -123,7 +144,7 @@
         "tags": [
           "GradeBooks:getRelated"
         ],
-        "summary": "Prover informações",
+        "summary": "Prover notas acadêmicas",
         "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de notas acadêmicas por meio da action `@layers:education:GradeBooks:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
         "security": [
           {
@@ -137,7 +158,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/requestBodies/@layers:education:GradeBooks:getRelated"
+                "allOf": [
+                  {
+                    "$ref": "#/components/requestBodies/Context"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:education:GradeBooks:getRelated"
+                  }
+                ]
               }
             }
           }
@@ -161,7 +189,7 @@
         "tags": [
           "Timetables:getRelated"
         ],
-        "summary": "Prover informações",
+        "summary": "Prover grades horárias",
         "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de grade horária por meio da action `@layers:education:Timetables:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
         "security": [
           {
@@ -175,7 +203,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/requestBodies/@layers:education:Timetables:getRelated"
+                "allOf": [
+                  {
+                    "$ref": "#/components/requestBodies/Context"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:education:Timetables:getRelated"
+                  }
+                ]
               }
             }
           }
@@ -199,7 +234,7 @@
         "tags": [
           "getHomeInfo"
         ],
-        "summary": "Prover informações",
+        "summary": "Prover informações da home",
         "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de grade horária por meio da action `@layers:education:Timetables:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
         "security": [
           {
@@ -213,7 +248,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/requestBodies/@layers:getHomeInfo"
+                "allOf": [
+                  {
+                    "$ref": "#/components/requestBodies/Context"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:getHomeInfo"
+                  }
+                ]
               }
             }
           }
@@ -237,7 +279,7 @@
         "tags": [
           "MedicalRecord:getRelated"
         ],
-        "summary": "Prover informações",
+        "summary": "Prover ficha médica",
         "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de ficha horária por meio da action `@layers:health:MedicalRecord:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
         "security": [
           {
@@ -251,7 +293,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/requestBodies/@layers:health:MedicalRecord:getRelated"
+                "allOf": [
+                  {
+                    "$ref": "#/components/requestBodies/Context"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:health:MedicalRecord:getRelated"
+                  }
+                ]
               }
             }
           }
@@ -275,7 +324,7 @@
         "tags": [
           "Payables:getRelated"
         ],
-        "summary": "Prover informações",
+        "summary": "Prover cobranças",
         "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de cobranças por meio da action `@layers:payments:Payables:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
         "security": [
           {
@@ -289,7 +338,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/requestBodies/@layers:payments:Payables:getRelated"
+                "allOf": [
+                  {
+                    "$ref": "#/components/requestBodies/Context"
+                  },
+                  {
+                    "$ref": "#/components/requestBodies/@layers:payments:Payables:getRelated"
+                  }
+                ]
               }
             }
           }
@@ -301,291 +357,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/responseBodies/@layers:payments:Payables:getRelated"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "undefined": {
-      "undefined": {
-        "/@layers:Calendar:getRelated": {
-          "tags": [
-            "Calendar:getRelated"
-          ],
-          "summary": "Prover informações de calendário",
-          "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de calendário por meio da action `@layers:Calendar:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
-          "security": [
-            {
-              "Bearer": [],
-              "layers-context": [
-                "app"
-              ]
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/requestBodies/@layers:Calendar:getRelated"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/responseBodies/@layers:Calendar:getRelated"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "/@layers:education:AcademicRecords:getRelated": {
-          "tags": [
-            "AcademicRecords:getRelated"
-          ],
-          "summary": "Prover informações",
-          "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de registros acadêmicos por meio da action `@layers:education:AcademicRecords:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
-          "security": [
-            {
-              "Bearer": [],
-              "layers-context": [
-                "app"
-              ]
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:getRelated"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/responseBodies/@layers:education:AcademicRecords:getRelated"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "/@layers:education:AcademicRecords:markRecordsAsViewed": {
-          "tags": [
-            "AcademicRecords:markRecordsAsViewed"
-          ],
-          "summary": "Marcar Registros como vistos",
-          "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de registros acadêmicos por meio da action `@layers:education:AcademicRecords:markRecordsAsViewed` receberão a requisição no formato abaixo e devem respondê-la com o status HTTP `200` indicando que os registros foram marcados como lidos.",
-          "security": [
-            {
-              "Bearer": [],
-              "layers-context": [
-                "app"
-              ]
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/requestBodies/@layers:education:AcademicRecords:markRecordsAsViewed"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        },
-        "/@layers:education:GradeBooks:getRelated": {
-          "tags": [
-            "GradeBooks:getRelated"
-          ],
-          "summary": "Prover informações",
-          "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de notas acadêmicas por meio da action `@layers:education:GradeBooks:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
-          "security": [
-            {
-              "Bearer": [],
-              "layers-context": [
-                "app"
-              ]
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/requestBodies/@layers:education:GradeBooks:getRelated"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/responseBodies/@layers:education:GradeBooks:getRelated"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "/@layers:education:Timetables:getRelated": {
-          "tags": [
-            "Timetables:getRelated"
-          ],
-          "summary": "Prover informações",
-          "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de grade horária por meio da action `@layers:education:Timetables:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
-          "security": [
-            {
-              "Bearer": [],
-              "layers-context": [
-                "app"
-              ]
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/requestBodies/@layers:education:Timetables:getRelated"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/responseBodies/@layers:education:Timetables:getRelated"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "/layers:getHomeInfo": {
-          "tags": [
-            "getHomeInfo"
-          ],
-          "summary": "Prover informações",
-          "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de grade horária por meio da action `@layers:education:Timetables:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
-          "security": [
-            {
-              "Bearer": [],
-              "layers-context": [
-                "app"
-              ]
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/requestBodies/@layers:getHomeInfo"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/responseBodies/@layers:getHomeInfo"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "/@layers:health:MedicalRecord:getRelated": {
-          "tags": [
-            "MedicalRecord:getRelated"
-          ],
-          "summary": "Prover informações",
-          "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de ficha horária por meio da action `@layers:health:MedicalRecord:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
-          "security": [
-            {
-              "Bearer": [],
-              "layers-context": [
-                "app"
-              ]
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/requestBodies/@layers:health:MedicalRecord:getRelated"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/responseBodies/@layers:health:MedicalRecord:getRelated"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "/@layers:payments:Payables:getRelated": {
-          "tags": [
-            "Payables:getRelated"
-          ],
-          "summary": "Prover informações",
-          "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de cobranças por meio da action `@layers:payments:Payables:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
-          "security": [
-            {
-              "Bearer": [],
-              "layers-context": [
-                "app"
-              ]
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/requestBodies/@layers:payments:Payables:getRelated"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/responseBodies/@layers:payments:Payables:getRelated"
-                  }
                 }
               }
             }
@@ -651,7 +422,7 @@
               "action": {
                 "type": "string",
                 "description": "Identificador da action",
-                "example": "@layers:Calendar:getRelated"
+                "example": "@layers:identificador_da_action"
               },
               "community": {
                 "type": "string",
@@ -2316,12 +2087,7 @@
     {
       "name": "Registro Acadêmico",
       "tags": [
-        "AcademicRecords:getRelated"
-      ]
-    },
-    {
-      "name": "Marcar registro como visto",
-      "tags": [
+        "AcademicRecords:getRelated",
         "AcademicRecords:markRecordsAsViewed"
       ]
     },

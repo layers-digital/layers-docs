@@ -75,7 +75,16 @@ export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaO
   if (!out) {
     out = {}
   } else if (out.allOf) {
-    out = out.allOf.reduce((prev, out) => Object.assign(prev, normalizeObject(spec, out)), {})
+    out = out.allOf.reduce((prev, out) => {
+      if(out.hasOwnProperty('$ref')){
+        out = getRef(spec, out)
+      }
+      const properties = Object.assign({}, prev.properties, out.properties)
+      
+      const result =  Object.assign(prev, normalizeObject(spec, out))
+      result.properties = properties
+      return result
+    }, {})
   }
 
   normalizedObjectMaps.set(obj, out)
@@ -85,7 +94,6 @@ export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaO
 export function generateExample(spec: OpenAPIObject, node: AcessorNode, operation: OperationType = 'READ') {
   let schema = normalizeObject(spec, node.schema)
   let example = schema.example ?? schema.examples?.[0]
-
   // Check if can show property
   if (schema.readOnly && operation == 'WRITE') {
     return

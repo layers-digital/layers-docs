@@ -1,5 +1,7 @@
 import { h } from "@stencil/core";
 import { toHypertext } from "../to-hypertext";
+import { normalizeObject } from "../../openapi/util";
+
 
 import ApiServices from '../../../data/api-services.json'
 
@@ -17,7 +19,10 @@ export default (props) => {
     return <div>Page is missing object schema property</div>
   }
 
-  console.log(page)
+  const entity = {
+    name: schema.name,
+    schema: normalizeObject(service.spec, {$ref: `#/components/schemas/${schema.name}`})
+  }
 
   return (
     <article>
@@ -35,8 +40,8 @@ export default (props) => {
           </h2>
           <docs-openapi-schema-nested
             spec={service.spec}
-            path={`#/components/schemas/${schema.name}`}
-            // node={node}
+            // path={`#/components/schemas/${schema.name}`}
+            node={entity}
             text="Propriedades da Entidade"
             open={true}
             canClose={false}/>

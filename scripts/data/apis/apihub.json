@@ -437,21 +437,6 @@
           }
         }
       },
-      "@layers:Calendar:getRelated-provide": {
-        "allOf": [
-          {
-            "$ref": "#/components/requestBodies/Context"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "data": {
-                "$ref": "#/components/requestBodies/@layers:Calendar:getRelated-request"
-              }
-            }
-          }
-        ]
-      },
       "@layers:Calendar:getRelated": {
         "type": "object",
         "properties": {
@@ -488,7 +473,7 @@
                 "example": "pt/BR",
                 "required": true
               },
-              "acconuntId": {
+              "accountId": {
                 "type": "string",
                 "format": "ObjectId",
                 "description": "Identificador da conta do usuário",
@@ -517,10 +502,14 @@
                 "example": "João Pedro"
               },
               "alias": {
-                "type": "string",
-                "description": "Identificador do usuário na comunidade",
-                "example": "user2",
-                "required": true
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
               },
               "timezone": {
                 "type": "string",
@@ -534,7 +523,7 @@
                 "required": true,
                 "example": "pt/BR"
               },
-              "acconuntId": {
+              "accountId": {
                 "type": "string",
                 "format": "ObjectId",
                 "description": "Identificador da conta do usuário",
@@ -588,7 +577,7 @@
                 "example": "pt/BR",
                 "required": true
               },
-              "acconuntId": {
+              "accountId": {
                 "type": "string",
                 "format": "ObjectId",
                 "description": "Identificador da conta do usuário",
@@ -635,10 +624,14 @@
                 "example": "João Pedro"
               },
               "alias": {
-                "type": "string",
-                "description": "Identificador do usuário na comunidade",
-                "example": "user2",
-                "required": true
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
               },
               "timezone": {
                 "type": "string",
@@ -652,7 +645,7 @@
                 "required": true,
                 "example": "pt/BR"
               },
-              "acconuntId": {
+              "accountId": {
                 "type": "string",
                 "format": "ObjectId",
                 "description": "Identificador da conta do usuário",
@@ -681,10 +674,14 @@
                 "example": "João Pedro"
               },
               "alias": {
-                "type": "string",
-                "description": "Identificador do usuário na comunidade",
-                "example": "user2",
-                "required": true
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
               },
               "timezone": {
                 "type": "string",
@@ -698,7 +695,7 @@
                 "required": true,
                 "example": "pt/BR"
               },
-              "acconuntId": {
+              "accountId": {
                 "type": "string",
                 "format": "ObjectId",
                 "description": "Identificador da conta do usuário",
@@ -727,10 +724,14 @@
                 "example": "João Pedro"
               },
               "alias": {
-                "type": "string",
-                "description": "Identificador do usuário na comunidade",
-                "example": "user2",
-                "required": true
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
               },
               "timezone": {
                 "type": "string",
@@ -744,7 +745,7 @@
                 "required": true,
                 "example": "pt/BR"
               },
-              "acconuntId": {
+              "accountId": {
                 "type": "string",
                 "format": "ObjectId",
                 "description": "Identificador da conta do usuário",
@@ -773,10 +774,14 @@
                 "example": "João Pedro"
               },
               "alias": {
-                "type": "string",
-                "description": "Identificador do usuário na comunidade",
-                "example": "user2",
-                "required": true
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
               },
               "timezone": {
                 "type": "string",
@@ -790,7 +795,7 @@
                 "required": true,
                 "example": "pt/BR"
               },
-              "acconuntId": {
+              "accountId": {
                 "type": "string",
                 "format": "ObjectId",
                 "description": "Identificador da conta do usuário",
@@ -819,10 +824,14 @@
                 "example": "João Pedro"
               },
               "alias": {
-                "type": "string",
-                "description": "Identificador do usuário na comunidade",
-                "example": "user2",
-                "required": true
+                "type": [
+                  "string",
+                  "number",
+                  null
+                ],
+                "description": "Identificador interno do usuário",
+                "required": true,
+                "example": "0001"
               },
               "timezone": {
                 "type": "string",
@@ -836,7 +845,7 @@
                 "required": true,
                 "example": "pt/BR"
               },
-              "acconuntId": {
+              "accountId": {
                 "type": "string",
                 "format": "ObjectId",
                 "description": "Identificador da conta do usuário",
@@ -1975,7 +1984,6 @@
                       "boleto": {
                         "type": "object",
                         "description": "Arquivo e código do boleto",
-                        "required": true,
                         "properties": {
                           "link": {
                             "type": "string",

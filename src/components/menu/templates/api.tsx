@@ -26,22 +26,26 @@ const Template = {
     // },
     {
       icon: '/docs/assets/icons/OAuth.svg',
-      url: '/docs/api/auth/oauth/account/info',
+      url: '/docs/api/auth',
+      link: '/docs/api/auth/oauth/account/info',
       title: 'Autenticação OAuth',
     },
     {
       icon: '/docs/assets/icons/Data.svg',
-      url: '/docs/api/data/Member/object',
+      url: '/docs/api/data',
+      link: '/docs/api/data/Member/object',
       title: 'Dados'
     },
     {
       icon: '/docs/assets/icons/Hub.svg',
-      url: '/docs/api/apihub/@layersCalendargetRelated/post',
+      url: '/docs/api/apihub/',
+      link: '/docs/api/apihub/@layersCalendargetRelated/post',
       title: 'Hub de API\'s'
     },
     {
       icon: '/docs/assets/icons/Notifications.svg',
-      url: '/docs/api/notifications/notication/send/post',
+      url: '/docs/api/notifications',
+      link: '/docs/api/notifications/notication/send/post',
       title: 'Notificações'
     },
     // {
@@ -51,12 +55,14 @@ const Template = {
     // },
     {
       icon: '/docs/assets/icons/Comunicação.svg',
-      url: '/docs/api/communication/Event/object',
+      url: '/docs/api/communication',
+      link: '/docs/api/communication/Event/object',
       title: 'Comunicação'
     },
     {
       icon: '/docs/assets/icons/Atendimento.svg',
       url: '/docs/api/tickets/Channel/object',
+      link: '/docs/api/tickets/Channel/object',
       title: 'Atendimentos'
     },
     // {

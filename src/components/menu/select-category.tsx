@@ -4,6 +4,7 @@ import { RouterHistory, injectHistory, LocationSegments } from '@stencil/router'
 export type SelectCategoryOption = {
   icon: any,
   url: string,
+  link: string,
   title: string,
 }
 
@@ -34,7 +35,7 @@ export class SelectCategory{
   selectCategory(ev: CustomEvent<string>) {
     const selected = this.options.find(serv => serv.title == ev.detail)
     if (this.currentCategory() != selected) {
-      this.history.push(selected.url)
+      this.history.push(selected.link)
     }
   }
 

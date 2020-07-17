@@ -18,15 +18,15 @@ Para desenvolvedores desse serviços, integrar sua solução ao Layers significa
     <p>Funcionalidades para sistemas de gestão</p>
   </docs-card>
 
-  <docs-card header="Startups" href="/docs/concepts/startups" icon="/docs/assets/icons/guide-components-icon.svg">
+  <docs-card header="Startups" href="/docs/concepts/startups" icon="/docs/assets/icons/edtechs.svg">
     <p>Funcionalidades para startups e EdTechs</p>
   </docs-card>
 
-  <docs-card header="instituições de ensino" href="/docs/concepts/instituicoes-de-ensino" icon="/docs/assets/icons/guide-native-icon.svg">
+  <docs-card header="instituições de ensino" href="/docs/concepts/instituicoes-de-ensino" icon="/docs/assets/icons/Instituições de ensino.svg">
     <p>Funcionalidades para instituições de ensino</p>
   </docs-card>
 
-  <!-- <docs-card header="fornecedores" href="/docs/concepts/fornecedores" icon="/docs/assets/icons/guide-theming-icon.svg">
+  <!-- <docs-card header="fornecedores" href="/docs/concepts/fornecedores" icon="/docs/assets/icons/Fornecedores.svg">
     <p>Funcionalidades para fornecedores</p>
   </docs-card> -->
 </docs-cards>
@@ -36,15 +36,15 @@ Para desenvolvedores desse serviços, integrar sua solução ao Layers significa
 O Layers oferece aos desenvolvedores uma série de funcionalidades para que criem apps e integrem serviços ao ecossistema.
 
 <docs-cards>
-  <docs-card header="Logar com Layers" href="/docs/concepts/funcionalidades/logar-com-layers" icon="/docs/assets/icons/guide-installation-icon.svg">
+  <docs-card header="Logar com Layers" href="/docs/concepts/funcionalidades/logar-com-layers" icon="/docs/assets/icons/Logar com Layers.svg">
     <p>Autenticar usuários com o Layers e acessar informações com seu consentimento</p>
   </docs-card>
 
-  <docs-card header="Login Federado" href="/docs/concepts/funcionalidades/login-federado" icon="/docs/assets/icons/guide-components-icon.svg">
+  <docs-card header="Login Federado" href="/docs/concepts/funcionalidades/login-federado" icon="/docs/assets/icons/Login federado.svg">
     <p>Autenticar usuários em serviços externos como Google, Microsoft ou sua própria API</p>
   </docs-card>
 
-  <docs-card header="Portais" href="/docs/concepts/funcionalidades/portais" icon="/docs/assets/icons/guide-native-icon.svg">
+  <docs-card header="Portais" href="/docs/concepts/funcionalidades/portais" icon="/docs/assets/icons/Portais.svg">
     <p>Permitir que seu app seja acessado dentro do Layers</p>
   </docs-card>
 

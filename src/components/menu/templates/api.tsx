@@ -61,9 +61,15 @@ const Template = {
     },
     {
       icon: '/docs/assets/icons/Atendimento.svg',
-      url: '/docs/api/tickets/Channel/object',
+      url: '/docs/api/tickets',
       link: '/docs/api/tickets/Channel/object',
       title: 'Atendimentos'
+    },
+    {
+      icon: '/docs/assets/icons/Mídia.svg',
+      url: '/docs/api/media',
+      link: '/docs/api/media/media/upload/post',
+      title: 'Media'
     },
     // {
     //   icon: '/docs/assets/icons/Payments.svg',

@@ -13,11 +13,11 @@ O Layers oferece para startups as ferramentas e funcionalidades necessárias par
 ## Principais funcionalidades
 
 <docs-cards>
-  <docs-card header="Logar com Layers" href="/docs/concepts/funcionalidades/logar-com-layers" icon="/docs/assets/icons/guide-installation-icon.svg">
+  <docs-card header="Logar com Layers" href="/docs/concepts/funcionalidades/logar-com-layers" icon="/docs/assets/icons/Logar com Layers.svg">
     <p>Autentique usuários com o Layers e acesse informações com seu consentimento</p>
   </docs-card>
 
-  <docs-card header="Portais" href="/docs/concepts/funcionalidades/portais" icon="/docs/assets/icons/guide-native-icon.svg">
+  <docs-card header="Portais" href="/docs/concepts/funcionalidades/portais" icon="/docs/assets/icons/Portais.svg">
     <p>Permitir que seu app seja acessado dentro do Layers</p>
   </docs-card>
 

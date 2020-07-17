@@ -7,6 +7,7 @@ export default () => {
 const items = {
   'Conceitos': {
     'Introdução à Layers': '/docs/',
+    'Link do Telles': '/docs/api/apihub/@layerspaymentsPayablesgetRelated/post'
   },
 
   'Pensado para EdTechs': {

@@ -17,7 +17,7 @@ O Layers oferece um conjunto de ferramentas que permitem que sistemas de gestão
     <p>Prover informaações sobre horários, frequência, cobranças e mais</p>
   </docs-card>
 
-  <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg">
+  <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronizacao-de-dados" icon="/docs/assets/icons/Sincronização de dados.svg">
     <p>Manter os dados do Layers atualizados com as informações do ERP</p>
   </docs-card>
 

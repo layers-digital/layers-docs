@@ -5,6 +5,7 @@ import tickets from './tickets.json'
 import payments from './payments.json'
 import notification from './notification.json'
 import communication from './communication.json'
+import media from './media.json'
 import { OpenAPIObject } from 'openapi3-ts'
 
 export interface ApiService {
@@ -48,5 +49,10 @@ export const ApiServices: ApiService[] = [
     title: 'Notificações',
     id: 'notifications',
     spec: notification as any,
+  },
+  {
+    title: 'Mídia',
+    id: 'media',
+    spec: media as any,
   }
 ]

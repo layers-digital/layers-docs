@@ -25,7 +25,7 @@ O Layers oferece para instituições de ensino um único ambiente no qual é pos
     <p>Enviar comunicados para a comunidade escolar</p>
   </docs-card>
 
-  <docs-card header="Login Federado" href="/docs/concepts/funcionalidades/login-federado" icon="/docs/assets/icons/guide-theming-icon.svg">
+  <docs-card header="Login Federado" href="/docs/concepts/funcionalidades/login-federado" icon="/docs/assets/icons/Login federado.svg">
     <p>Autenticar usuários em serviços externos como Google, Microsoft ou sua própria API</p>
   </docs-card>
 </docs-cards>

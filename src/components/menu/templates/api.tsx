@@ -69,7 +69,7 @@ const Template = {
       icon: '/docs/assets/icons/Mídia.svg',
       url: '/docs/api/media',
       link: '/docs/api/media/media/upload/post',
-      title: 'Media'
+      title: 'Mídia'
     },
     // {
     //   icon: '/docs/assets/icons/Payments.svg',

@@ -8,7 +8,7 @@ tableOfContents: false
 
 # Introdução à Layers Education
 
-O [ecossistema Layers Education](/docs/concepts/ecossistema-layers) é uma plataforma web e mobile que contém dados os dados e conecta soluções educacionais utilizadas por instituições de ensino. Por meio de apps, instituições de ensino podem personalizar sua expreriência por meio de apps dos serviços que utilizam como ERP's, EdTech's e soluções internas.
+O [ecossistema Layers Education](/docs/concepts/ecossistema-layers) é uma plataforma web e mobile que contém dados os dados e conecta soluções educacionais utilizadas por instituições de ensino. Por meio de apps, instituições de ensino podem personalizar sua experiência por meio de apps dos serviços que utilizam como ERP's, EdTech's e soluções internas.
 
 Para desenvolvedores desse serviços, integrar sua solução ao Layers significa [criar um app](#) único  com as [funcionalidades disponibilizadas](#funcionalidades-para-apps). Esse app poderá ser utilizado por qualquer instituição que utilize o Layers sem necessidade de realizar novas integrações ou desenvolvimento específico para cada instituição.
 

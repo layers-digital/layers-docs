@@ -8,7 +8,7 @@ tableOfContents: false
 
 # Apps no Layers
 
-Assim como aplicativos para um celular são maneiras de adicionar funcionalidades ao celular, um app no Layers é uma maneira de adicionar funcionalidades ao Layers. Apps no Layers Education tem três principais características: [Identidade](#Identidade), [funcionalidades](#Funcionalidades) e [visibilidade](#Visibilidade). 
+Assim como aplicativos para um celular são maneiras de adicionar funcionalidades ao celular, um app no Layers é uma maneira de adicionar funcionalidades ao Layers. Apps no Layers Education tem três principais características: [Identidade](#identidade), [funcionalidades](#funcionalidades) e [visibilidade](#visibilidade). 
 
 ## Identidade
 

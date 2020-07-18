@@ -61,21 +61,6 @@ export class DocsHeader {
               <stencil-route>
                 {this.renderMenu('Docs')}
               </stencil-route>
-              {/* <stencil-route url="/docs/studio">
-                {this.renderMenu('Studio')}
-              </stencil-route>
-              <stencil-route url="/docs/native">
-                {this.renderMenu('Native')}
-              </stencil-route>
-              <stencil-route url="/docs/enterprise">
-                {this.renderMenu('Native')}
-              </stencil-route>
-              <stencil-route url="/docs/cli">
-                {this.renderMenu('CLI')}
-              </stencil-route>
-              <stencil-route>
-                {this.renderMenu('Framework')}
-              </stencil-route> */}
             </stencil-route-switch>
           </nav>
 
@@ -83,14 +68,7 @@ export class DocsHeader {
             <docs-dropdown label={getString('header-support')} align="right">
               <section>
                 <a href="https://id.layers.digital" target="_blank">Acessar Plataforma</a>
-                <a href="/create" target="_blank">Registrar App</a>
-                <a href="/create" target="_blank">Começar a Integrar</a>
-                <a href="/create" target="_blank">Acessar Sandbox</a>
-              </section>
-              <section>
-                <a href="/" target="_blank">Entre em contato</a>
                 <a href="mailto:devs@layers.education?subject=Layers Docs" target="_blank">devs@layers.education</a>
-                <a href="tel:011999999999" target="_blank">(011) 99999-9999</a>
               </section>
             </docs-dropdown>
 

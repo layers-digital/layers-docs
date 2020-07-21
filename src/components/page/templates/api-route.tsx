@@ -50,6 +50,7 @@ export default (props) => {
 
       {toHypertext(h, page.example)}
 
+      {Object.keys(requestBody.schema).length > 0 ? 
       <section class="Api-two-column">
         <section>
           <h2 id="schema">
@@ -73,7 +74,9 @@ export default (props) => {
           {toHypertext(h, page.requestExample)}
         </section>
       </section>
+      : null}
 
+      {Object.keys(response.schema).length > 0 ?
       <section class="Api-two-column">
         <section>
           <h2 id="schema">
@@ -98,7 +101,7 @@ export default (props) => {
           {toHypertext(h, page.responseExample)}
         </section>
       </section>
-
+      : null}
       <docs-page-footer page={page} />
     </article>
   );

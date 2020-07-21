@@ -71,20 +71,28 @@ export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaO
   }
 
   let out = getRef(spec, obj)
-
+  
   if (!out) {
     out = {}
-  } else if (out.allOf) {
-    out = out.allOf.reduce((prev, out) => {
-      if(out.hasOwnProperty('$ref')){
-        out = getRef(spec, out)
+  } else {
+      if (out.allOf){
+        out = out.allOf.reduce((prev, out) => {
+          if(out.hasOwnProperty('$ref')){
+            out = getRef(spec, out)
+          }
+          const properties = Object.assign({}, prev.properties, out.properties)
+          const required = prev.required + out.required
+          
+          const result =  Object.assign(prev, normalizeObject(spec, out))
+          result.properties = properties
+          result.required = required
+          return result
+        }, {})
       }
-      const properties = Object.assign({}, prev.properties, out.properties)
-      
-      const result =  Object.assign(prev, normalizeObject(spec, out))
-      result.properties = properties
-      return result
-    }, {})
+      // console.log(out, 'cheguei aqui')
+      if(out.anyOf){
+        console.log(out, 'anyOf')
+      }
   }
 
   normalizedObjectMaps.set(obj, out)

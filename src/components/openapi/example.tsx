@@ -1,6 +1,6 @@
 import { Component, Prop, h } from "@stencil/core";
 import { OpenAPIObject } from "openapi3-ts";
-import { generateExample, getRefPath, AcessorNode } from "./util";
+import { generateExample, getRefPath, AcessorNode, OperationType } from "./util";
 
 @Component({
   tag: 'docs-openapi-example',
@@ -10,6 +10,7 @@ export class DocsOpenapiExample {
   @Prop() path: string
   @Prop() node?: AcessorNode
   @Prop() indents: number = 2
+  @Prop() operation: OperationType
 
   private getRootAcessorNode(): AcessorNode {
     if (this.node) {
@@ -28,7 +29,7 @@ export class DocsOpenapiExample {
 
 
   render() {
-    let example = generateExample(this.spec, this.getRootAcessorNode())
+    let example = generateExample(this.spec, this.getRootAcessorNode(), this.operation)
     if (!example) return
 
     let json = JSON.stringify(example, null, this.indents)

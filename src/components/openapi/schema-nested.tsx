@@ -16,6 +16,8 @@ export class DocsOpenapiSchemaNested {
 
   @Prop() open: boolean = false
   @Prop() canClose: boolean = true
+  @Prop() hideReadOnly: boolean = false
+  @Prop() hideWriteOnly: boolean = false
   @State() isOpen: boolean = false
 
   private getRootAcessorNode(): AcessorNode {
@@ -79,7 +81,7 @@ export class DocsOpenapiSchemaNested {
         <span class="text">{text}</span>
       </button>
       {this.isOpen ?
-        <docs-openapi-schema node={node} spec={this.spec}/> :
+        <docs-openapi-schema node={node} spec={this.spec} hideReadOnly={this.hideReadOnly}/> :
         null}
     </section>
     )

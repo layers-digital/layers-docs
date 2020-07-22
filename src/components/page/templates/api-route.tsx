@@ -3,7 +3,7 @@ import { toHypertext } from "../to-hypertext";
 
 import ApiServices from "../../../data/api-services.json";
 import { OpenAPIObject } from "openapi3-ts";
-import { normalizeObject } from "../../openapi/util";
+import { normalizeObject, OperationType } from "../../openapi/util";
 
 export default (props) => {
   const { page } = props;
@@ -29,6 +29,7 @@ export default (props) => {
       service,
       PathSpec?.requestBody?.content?.["application/json"]?.schema
     ),
+    operation: "WRITE" as OperationType
   };
 
   const response = {
@@ -37,6 +38,7 @@ export default (props) => {
       service,
       PathSpec?.responses?.["200"]?.content?.["application/json"]?.schema
     ),
+    operation: "READ" as OperationType
   };
 
   console.log(page)
@@ -63,6 +65,7 @@ export default (props) => {
               text={requestBody.name}
               open={true}
               canClose={false}
+              hideReadOnly = {true}
             />
           )}
         </section>
@@ -71,7 +74,13 @@ export default (props) => {
           <h2 id="example">
             <a href="#example">Exemplo</a>
           </h2>
-          {toHypertext(h, page.requestExample)}
+          {Object.keys(requestBody.schema).length > 0 && (
+            <docs-openapi-example
+              spec={service.spec}
+              node={requestBody}
+              operation={requestBody.operation}
+            />
+          )}
         </section>
       </section>
       : null}
@@ -98,7 +107,14 @@ export default (props) => {
           <h2 id="example">
             <a href="#example">Exemplo</a>
           </h2>
-          {toHypertext(h, page.responseExample)}
+          {Object.keys(response.schema).length > 0 && (
+            <docs-openapi-example
+              spec={service.spec}
+              node={response}
+              operation={response.operation}
+            />
+          )}
+          {/* {toHypertext(h, page.responseExample)} */}
         </section>
       </section>
       : null}

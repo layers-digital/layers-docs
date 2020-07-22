@@ -89,7 +89,6 @@ export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaO
           return result
         }, {})
       }
-      // console.log(out, 'cheguei aqui')
       if(out.anyOf){
         console.log(out, 'anyOf')
       }

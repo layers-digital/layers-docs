@@ -21,6 +21,7 @@ import {
 } from 'openapi3-ts';
 import {
   AcessorNode,
+  OperationType,
 } from './components/openapi/util';
 import {
   LocationSegments,
@@ -111,6 +112,7 @@ export namespace Components {
   interface DocsOpenapiExample {
     'indents': number;
     'node'?: AcessorNode;
+    'operation': OperationType;
     'path': string;
     'spec': OpenAPIObject;
   }
@@ -124,6 +126,8 @@ export namespace Components {
   }
   interface DocsOpenapiSchemaNested {
     'canClose': boolean;
+    'hideReadOnly': boolean;
+    'hideWriteOnly': boolean;
     'node': AcessorNode;
     'open': boolean;
     'path': string;
@@ -541,6 +545,7 @@ declare namespace LocalJSX {
   interface DocsOpenapiExample {
     'indents'?: number;
     'node'?: AcessorNode;
+    'operation'?: OperationType;
     'path'?: string;
     'spec'?: OpenAPIObject;
   }
@@ -554,6 +559,8 @@ declare namespace LocalJSX {
   }
   interface DocsOpenapiSchemaNested {
     'canClose'?: boolean;
+    'hideReadOnly'?: boolean;
+    'hideWriteOnly'?: boolean;
     'node'?: AcessorNode;
     'open'?: boolean;
     'path'?: string;

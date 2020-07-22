@@ -1634,6 +1634,12 @@
     "schemas": {
       "User": {
         "type": "object",
+        "description": "Usuário do Layers Education",
+        "required": [
+          "email",
+          "name",
+          "roles"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -1747,6 +1753,10 @@
       },
       "Member": {
         "type": "object",
+        "required": [
+          "name",
+          "alias"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -1821,6 +1831,9 @@
       },
       "Group": {
         "type": "object",
+        "required": [
+          "name"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -1906,6 +1919,9 @@
       },
       "Tag": {
         "type": "object",
+        "required": [
+          "name"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -1929,6 +1945,11 @@
       },
       "Enrollment": {
         "type": "object",
+        "required": [
+          "kind",
+          "entity",
+          "group"
+        ],
         "properties": {
           "id": {
             "type": "string",

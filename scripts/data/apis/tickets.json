@@ -561,6 +561,9 @@
       "Channel": {
         "type": "object",
         "description": "Estrutura de um canal de atendimento",
+        "required": [
+          "name"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -593,6 +596,10 @@
             "readOnly": false,
             "items": {
               "type": "object",
+              "required": [
+                "title",
+                "description"
+              ],
               "properties": {
                 "title": {
                   "type": "string",
@@ -609,12 +616,17 @@
           },
           "allowAudio": {
             "type": "boolean",
-            "description": "Indica se o canal de atendimento aceita receber mensagens de áudio"
+            "description": "Indica se o canal de atendimento aceita receber mensagens de áudio",
+            "default": false
           },
           "targets": {
             "type": "object",
             "description": "Quais usuários tem permissão para enviar mensagens para essa canal de atendimento",
             "readOnly": false,
+            "required": [
+              "roles",
+              "tags"
+            ],
             "properties": {
               "roles": {
                 "type": "array",
@@ -640,6 +652,11 @@
       },
       "Ticket": {
         "type": "object",
+        "required": [
+          "subject",
+          "message",
+          "channel"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -696,7 +713,8 @@
               "id": {
                 "type": "string",
                 "format": "ObjectId",
-                "description": "Identificador do autor da mensagem"
+                "description": "Identificador do autor da mensagem",
+                "readOnly": true
               },
               "email": {
                 "type": "string",
@@ -820,6 +838,7 @@
           },
           "channel": {
             "type": "object",
+            "required": "id",
             "properties": {
               "id": {
                 "type": "string",

@@ -376,6 +376,13 @@
       "BasePost": {
         "type": "object",
         "description": "Estrutura básica de um post no Layers Education",
+        "required": [
+          "type",
+          "title",
+          "text",
+          "targets",
+          "roles"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -389,7 +396,7 @@
             "description": "Data de criação da publicação",
             "readOnly": true
           },
-          "updateAt": {
+          "updatedAt": {
             "type": "string",
             "format": "date-time",
             "description": "Data da ultima edição da publicação",
@@ -477,6 +484,11 @@
           },
           {
             "type": "object",
+            "description": "Publicação do tipo Evento",
+            "required": [
+              "date",
+              "event"
+            ],
             "properties": {
               "date": {
                 "type": "string",
@@ -485,6 +497,10 @@
               },
               "event": {
                 "type": "object",
+                "required": [
+                  "endDate",
+                  "allDay"
+                ],
                 "properties": {
                   "endDate": {
                     "type": "string",

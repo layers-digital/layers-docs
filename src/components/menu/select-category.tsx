@@ -51,16 +51,18 @@ export class SelectCategory{
   }
   
   render() {
-    return (
+    return [
       <docs-select
         ref={el => this.select = el as HTMLDocsSelectElement}
         class="SelectCategory"
         options={this.options.map(serv => serv.title)}
         optionRenderer={this.renderOption.bind(this)}
         initializer={() => this.currentCategory().title}
-        onSelection={(ev) => this.selectCategory(ev)}/>
-    )
+        onSelection={(ev) => this.selectCategory(ev)}/>,
+      ...this.options.map(option => <a href={option.link}></a>)
+    ]
   }
 }
+
 
 injectHistory(SelectCategory)

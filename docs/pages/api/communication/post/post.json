@@ -143,7 +143,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -158,7 +158,7 @@
             {
               "class": "token property"
             },
-            "\"updateAt\""
+            "\"updatedAt\""
           ],
           [
             "span",
@@ -173,7 +173,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -415,7 +415,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -468,7 +468,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -594,7 +594,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -609,7 +609,7 @@
             {
               "class": "token property"
             },
-            "\"updateAt\""
+            "\"updatedAt\""
           ],
           [
             "span",
@@ -624,7 +624,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -866,7 +866,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -919,7 +919,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -975,7 +975,8 @@
   "responseSchema": {
     "title": "BasePost",
     "type": "object",
-    "description": "Estrutura básica de um post no Layers Education",
+    "description": "Publicação do tipo Evento",
+    "required": "undefinedtype,title,text,targets,rolesdate,event",
     "properties": {
       "id": {
         "type": "string",
@@ -989,7 +990,7 @@
         "description": "Data de criação da publicação",
         "readOnly": true
       },
-      "updateAt": {
+      "updatedAt": {
         "type": "string",
         "format": "date-time",
         "description": "Data da ultima edição da publicação",
@@ -1075,6 +1076,10 @@
       },
       "event": {
         "type": "object",
+        "required": [
+          "endDate",
+          "allDay"
+        ],
         "properties": {
           "endDate": {
             "type": "string",

@@ -142,7 +142,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -981,11 +981,18 @@
   "responseSchema": {
     "title": "@layers:education:Timetables:getRelated",
     "type": "object",
+    "required": [
+      "results"
+    ],
     "properties": {
       "results": {
         "type": "array",
         "items": {
           "type": "object",
+          "required": [
+            "student",
+            "schedules"
+          ],
           "properties": {
             "id": {
               "type": "string",
@@ -1032,6 +1039,11 @@
               "required": true,
               "items": {
                 "type": "object",
+                "required": [
+                  "title",
+                  "weekDay",
+                  "startTime"
+                ],
                 "properties": {
                   "title": {
                     "type": "string",
@@ -1063,7 +1075,6 @@
                       "sunday"
                     ],
                     "description": "Dia da semana em que o horário é vigente",
-                    "required": false,
                     "example": "monday"
                   },
                   "startTime": {

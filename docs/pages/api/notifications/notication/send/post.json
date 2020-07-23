@@ -98,7 +98,7 @@
             {
               "class": "token property"
             },
-            "\"targets\""
+            "\"title\""
           ],
           [
             "span",
@@ -108,120 +108,12 @@
             ":"
           ],
           " ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "["
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token null keyword"
-            },
-            "null"
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "]"
-          ],
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            ","
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"userIds\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "["
-          ],
-          "\n    ",
           [
             "span",
             {
               "class": "token string"
             },
             "\"exemplo\""
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "]"
-          ],
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            ","
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"roles\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "["
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"exemplo\""
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "]"
           ],
           [
             "span",
@@ -317,73 +209,91 @@
       ],
       "requestBody": {
         "description": "Informações da notificação",
-        "required": true,
         "content": {
           "application/json": {
             "schema": {
               "type": "object",
+              "required": [
+                "targets",
+                "title",
+                "body"
+              ],
               "properties": {
                 "targets": {
-                  "type": "array",
-                  "description": "Público alvo da publicação",
-                  "items": {
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "description": "Identificador do membro, usuário, turma ou tag"
-                          },
-                          "kind": {
-                            "type": "string",
-                            "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                  "topics": {
+                    "type": "array",
+                    "description": "Público alvo da publicação",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "kind"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "description": "Identificador do membro, usuário, turma ou tag"
+                            },
+                            "kind": {
+                              "type": "string",
+                              "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                            }
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "email",
+                            "kind"
+                          ],
+                          "properties": {
+                            "email": {
+                              "type": "string",
+                              "description": "Email do usuário"
+                            },
+                            "kind": {
+                              "type": "string",
+                              "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                            }
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "alias",
+                            "kind"
+                          ],
+                          "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "Alias do membro, usuário ou grupo."
+                            },
+                            "kind": {
+                              "type": "string",
+                              "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                            }
                           }
                         }
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "email": {
-                            "type": "string",
-                            "description": "Email do usuário"
-                          },
-                          "kind": {
-                            "type": "string",
-                            "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
-                          }
-                        }
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "alias": {
-                            "type": "string",
-                            "description": "Alias do membro, usuário ou grupo."
-                          },
-                          "kind": {
-                            "type": "string",
-                            "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
-                          }
-                        }
-                      }
-                    ]
+                      ]
+                    }
+                  },
+                  "roles": {
+                    "type": "array",
+                    "description": "Permissões que devem receber uma notificação",
+                    "items": {
+                      "type": "string"
+                    }
                   }
                 },
-                "userIds": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "roles": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "title": {
+                  "type": "string",
+                  "description": "Título da notificação"
                 },
                 "body": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Texto de corpo da notificação"
                 }
               }
             }

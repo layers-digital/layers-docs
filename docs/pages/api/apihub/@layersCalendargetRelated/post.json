@@ -142,7 +142,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -751,7 +751,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -781,7 +781,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -871,7 +871,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           "\n        ",
           [
@@ -1028,11 +1028,21 @@
   "responseSchema": {
     "title": "@layers:Calendar:getRelated",
     "type": "object",
+    "required": [
+      "result"
+    ],
     "properties": {
       "result": {
         "type": "array",
         "items": {
           "type": "object",
+          "required": [
+            "id",
+            "summary",
+            "timezone",
+            "language",
+            "events"
+          ],
           "properties": {
             "id": {
               "type": "string",
@@ -1115,6 +1125,10 @@
               "description": "Categorias associadas aos eventos. São usadas para definir a cor de cada evento. Caso um evento tenha uma categoria não definida nesse objeto sua cor será definida automaticamente",
               "items": {
                 "type": "object",
+                "required": [
+                  "name",
+                  "color"
+                ],
                 "properties": {
                   "name": {
                     "type": "string",

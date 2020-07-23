@@ -142,7 +142,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -864,7 +864,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18\""
+            "\"2020-07-23\""
           ],
           "\n      ",
           [
@@ -1083,7 +1083,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18\""
+            "\"2020-07-23\""
           ],
           [
             "span",
@@ -1113,7 +1113,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18\""
+            "\"2020-07-23\""
           ],
           [
             "span",
@@ -1143,7 +1143,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18\""
+            "\"2020-07-23\""
           ],
           [
             "span",
@@ -1541,11 +1541,19 @@
   "responseSchema": {
     "title": "@layers:payments:Payables:getRelated",
     "type": "object",
+    "required": [
+      "result"
+    ],
     "properties": {
       "result": {
         "type": "array",
         "items": {
           "type": "object",
+          "required": [
+            "id",
+            "title",
+            "payables"
+          ],
           "properties": {
             "id": {
               "type": "string",
@@ -1627,9 +1635,19 @@
             "payables": {
               "type": "array",
               "description": "Lista de cobranças que fazem parte desse grupo de cobranças",
-              "required": true,
               "items": {
                 "type": "object",
+                "required": [
+                  "id",
+                  "alias",
+                  "installment",
+                  "status",
+                  "dueAt",
+                  "centsPaid",
+                  "centsTotal",
+                  "centsOriginal",
+                  "boleto"
+                ],
                 "properties": {
                   "id": {
                     "type": "string",
@@ -1711,6 +1729,10 @@
                   "boleto": {
                     "type": "object",
                     "description": "Arquivo e código do boleto",
+                    "required": [
+                      "link",
+                      "code"
+                    ],
                     "properties": {
                       "link": {
                         "type": "string",

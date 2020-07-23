@@ -80,7 +80,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -110,7 +110,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -140,7 +140,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -668,7 +668,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -758,7 +758,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -1151,7 +1151,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-18T17:47:21.552Z\""
+            "\"2020-07-23T16:12:55.212Z\""
           ],
           [
             "span",
@@ -1398,6 +1398,11 @@
     "name": "Ticket",
     "spec": {
       "type": "object",
+      "required": [
+        "subject",
+        "message",
+        "channel"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -1454,7 +1459,8 @@
             "id": {
               "type": "string",
               "format": "ObjectId",
-              "description": "Identificador do autor da mensagem"
+              "description": "Identificador do autor da mensagem",
+              "readOnly": true
             },
             "email": {
               "type": "string",
@@ -1578,6 +1584,7 @@
         },
         "channel": {
           "type": "object",
+          "required": "id",
           "properties": {
             "id": {
               "type": "string",

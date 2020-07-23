@@ -10,7 +10,7 @@ export const config: Config = {
       prerenderConfig: 'prerender.config.js',
       serviceWorker: null,
       copy: [
-        { src: 'pages/**/*.json' },
+        { src: 'pages/**/**/*.json' },
         { src: 'assets', dest: 'assets' },
         { src: 'manifest.json', dest: 'manifest.json' },
         { src: 'www-root/*', dest: '..' },

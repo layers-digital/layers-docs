@@ -1,0 +1,1855 @@
+{
+  "template": "api-route",
+  "title": "Prover cobranças",
+  "path": "/docs/api/apihub/@layerspaymentspayablesgetrelated/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de cobranças por meio da action ",
+      [
+        "code",
+        null,
+        "@layers:payments:Payables:getRelated"
+      ],
+      " receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios."
+    ]
+  ],
+  "serviceId": "apihub",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.provedor-registrado.com",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/@layers:payments:Payables:getRelated"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "requestExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"context\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"issuedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2020-07-24T18:47:00.217Z\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"@layers:identificador_da_action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"test\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"secret\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"user\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"5bb2575199d7179dfe85be02\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"João Pedro\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"0001\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"timezone\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"America/Sao_Paulo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"language\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"pt/BR\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"accountId\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"5bb2575199d7179dfe85be02\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"result\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"0001\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Marco Aurélio\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"description\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Responsável financeiro\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"installments\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "12"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"customer\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"document\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"kind\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"cpf\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"value\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"111.111.111-11\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Felipe Layers\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"email\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"email@layers.education\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"phone\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"(11)99999-9999\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"birth\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2020-07-24\""
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"payables\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"0002\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"3213\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"installment\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "1"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"description\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Mensalidade referente ao mês de Janeiro de 2020\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"status\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"pending\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"dueAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2020-07-24\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"paidAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2020-07-24\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"sentAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2020-07-24\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"centsPaid\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "5.5"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"centsTotal\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "150000"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"centsOriginal\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "150000"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"boleto\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"link\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"https://boleto.pdf\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"code\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"12341234123412341234\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"attachments\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"kind\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"file\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Comprovante de estorno\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"description\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Estorno realizado em 31/10/2019\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"url\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"https://url.para-download.com\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseSchema": {
+    "title": "@layers:payments:Payables:getRelated",
+    "type": "object",
+    "required": [
+      "result"
+    ],
+    "properties": {
+      "result": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "title",
+            "payables"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "ID interno do grupo de cobranças",
+              "required": true,
+              "example": "0001"
+            },
+            "title": {
+              "type": "string",
+              "description": "Título do grupo de cobranças. Aparecerá como nome do grupo",
+              "required": true,
+              "example": "Marco Aurélio"
+            },
+            "description": {
+              "type": "string",
+              "description": "Descrição do grupo de cobranças. Aceita cobrança de llinhas",
+              "required": false,
+              "example": "Responsável financeiro"
+            },
+            "installments": {
+              "type": "number",
+              "description": "Número total de parcelas. Por padrão será igual ao número de payables",
+              "required": false,
+              "example": 12
+            },
+            "customer": {
+              "type": "object",
+              "description": "Informações de quem irá pagar as cobranças",
+              "required": false,
+              "properties": {
+                "document": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "cpf",
+                        "cnpj"
+                      ],
+                      "description": "Tipo do documento do pagador",
+                      "required": true,
+                      "example": "cpf"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "Número do documento",
+                      "required": true,
+                      "example": "111.111.111-11"
+                    }
+                  }
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nome do pagador",
+                  "required": true,
+                  "example": "Felipe Layers"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "description": "E-mail do pagador",
+                  "required": false,
+                  "example": "email@layers.education"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "Telefone do pagador",
+                  "required": false,
+                  "example": "(11)99999-9999"
+                },
+                "birth": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Data de nascimento do pagador",
+                  "required": false
+                }
+              }
+            },
+            "payables": {
+              "type": "array",
+              "description": "Lista de cobranças que fazem parte desse grupo de cobranças",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "alias",
+                  "installment",
+                  "status",
+                  "dueAt",
+                  "centsPaid",
+                  "centsTotal",
+                  "centsOriginal",
+                  "boleto"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "ID interno da cobrança",
+                    "required": true,
+                    "example": "0002"
+                  },
+                  "alias": {
+                    "type": "string",
+                    "description": "Identificador personalizado da cobrança. Será visível na interface",
+                    "required": true,
+                    "example": "3213"
+                  },
+                  "installment": {
+                    "type": "number",
+                    "description": "Número da parcela dessa cobrança",
+                    "required": true,
+                    "example": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Descrição da cobrança em markdown",
+                    "required": false,
+                    "example": "Mensalidade referente ao mês de Janeiro de 2020"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "paid",
+                      "partially_paid",
+                      "pending",
+                      "open",
+                      "canceled",
+                      "late"
+                    ],
+                    "description": "Status dessa cobrança",
+                    "required": true,
+                    "example": "pending"
+                  },
+                  "dueAt": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Data de vencimento da cobrança",
+                    "required": true
+                  },
+                  "paidAt": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Data de pagamento da cobrança",
+                    "required": false
+                  },
+                  "sentAt": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Data de envio da cobrança",
+                    "required": false
+                  },
+                  "centsPaid": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Quantia que foi paga em centavos",
+                    "required": true,
+                    "exmaple": 0
+                  },
+                  "centsTotal": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Quantia a ser paga em centavos (com multas e taxas, se aplicável)",
+                    "required": true,
+                    "example": 150000
+                  },
+                  "centsOriginal": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Valor original (sem multas e taxas, se aplicável)",
+                    "required": true,
+                    "example": 150000
+                  },
+                  "boleto": {
+                    "type": "object",
+                    "description": "Arquivo e código do boleto",
+                    "required": [
+                      "link",
+                      "code"
+                    ],
+                    "properties": {
+                      "link": {
+                        "type": "string",
+                        "description": "URL de download do boleto",
+                        "required": true,
+                        "example": "https://boleto.pdf"
+                      },
+                      "code": {
+                        "type": "string",
+                        "description": "Linha digitável do boleto, será usada para o usuário copiar o código sem ter que baixar o boleto",
+                        "required": true,
+                        "example": "12341234123412341234"
+                      }
+                    }
+                  },
+                  "attachments": {
+                    "type": "array",
+                    "description": "Lista de anexos da cobrança",
+                    "required": false,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "invoice",
+                            "file"
+                          ],
+                          "description": "Tipo do anexo. Pode ser nota fiscal (invoice) ou um arquivo (file)",
+                          "required": true,
+                          "example": "file"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Nome do arquivo",
+                          "required": true,
+                          "example": "Comprovante de estorno"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "Descrição do anexo",
+                          "required": false,
+                          "example": "Estorno realizado em 31/10/2019"
+                        },
+                        "url": {
+                          "type": "string",
+                          "description": "Link para baixar o anexo",
+                          "required": true,
+                          "example": "https://url.para-download.com"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "route": {
+    "type": "route",
+    "path": "/@layers:payments:Payables:getRelated",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Payables:getRelated"
+      ],
+      "summary": "Prover cobranças",
+      "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de cobranças por meio da action `@layers:payments:Payables:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
+      "security": [
+        {
+          "Bearer": [],
+          "layers-context": [
+            "app"
+          ]
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/requestBodies/Context"
+                },
+                {
+                  "$ref": "#/components/requestBodies/@layers:payments:Payables:getRelated"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/responseBodies/@layers:payments:Payables:getRelated"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Prover cobranças",
+        "url": "/docs/api/apihub/@layerspaymentspayablesgetrelated/post"
+      }
+    },
+    "tags": [
+      "Payables:getRelated"
+    ],
+    "summary": "Prover cobranças"
+  },
+  "headings": [],
+  "pageClass": "page-api-apihub-layerspaymentspayablesgetrelated-post"
+}

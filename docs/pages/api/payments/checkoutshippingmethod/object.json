@@ -1,0 +1,370 @@
+{
+  "template": "api-schema",
+  "title": "Entidade CheckoutShippingMethod",
+  "path": "/docs/api/payments/checkoutshippingmethod/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"hash\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"67b69634f9880a282c14a0f0cb7ba20cf5d677e9\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"service\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Correios\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"description\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"SEDEX 10\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"currency\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"BRL\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"price\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"decimal\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "22.7"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"fixed\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"22.70\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"currency\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"BRL\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"amount\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "10000"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "schema": {
+    "type": "schema",
+    "name": "CheckoutShippingMethod",
+    "spec": {
+      "type": "object",
+      "properties": {
+        "hash": {
+          "type": "string",
+          "description": "Identification of this shipping method",
+          "example": "67b69634f9880a282c14a0f0cb7ba20cf5d677e9",
+          "readOnly": true
+        },
+        "service": {
+          "type": "string",
+          "description": "Name of this shipping method",
+          "example": "Correios",
+          "readOnly": true
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of this shipping method",
+          "example": "SEDEX 10",
+          "readOnly": true
+        },
+        "currency": {
+          "allOf": [
+            {
+              "description": "ISO Code of the Currency."
+            },
+            {
+              "$ref": "#/components/schemas/Currency"
+            }
+          ],
+          "readOnly": true
+        },
+        "price": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Amount"
+            },
+            {
+              "readOnly": true,
+              "example": {
+                "decimal": 22.7,
+                "fixed": "22.70"
+              }
+            }
+          ]
+        }
+      },
+      "externalDocs": {
+        "description": "Entidade CheckoutShippingMethod",
+        "url": "/docs/api/payments/checkoutshippingmethod/object"
+      }
+    },
+    "tags": [],
+    "summary": "Entidade CheckoutShippingMethod"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-checkoutshippingmethod-object"
+}

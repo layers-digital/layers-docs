@@ -1,0 +1,382 @@
+{
+  "template": "api-schema",
+  "title": "Entidade CreditCardResponse",
+  "path": "/docs/api/payments/creditcardresponse/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"My creditcard\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"428996DA2C214C8193FBC0\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"source\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"zoop\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"kind\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"number\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"XXXX-XXXX-XXXX-1234\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"lastDigits\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"1234\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"John Doe\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"month\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "2"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"year\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "2022"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "schema": {
+    "type": "schema",
+    "name": "CreditCardResponse",
+    "spec": {
+      "title": "PaymentMethod",
+      "type": "object",
+      "discriminator": {
+        "propertyName": "kind",
+        "mapping": {
+          "credit_card": "#/components/schemas/CreditCardResponse"
+        }
+      },
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Name of this PaymentMethod",
+          "example": "My creditcard"
+        },
+        "alias": {
+          "type": "string",
+          "description": "External Id of this PaymentMethod",
+          "example": "428996DA2C214C8193FBC0"
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "iugu",
+            "zoop"
+          ],
+          "description": "External source of this PaymentMethod",
+          "example": "zoop"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of this payment method"
+        },
+        "number": {
+          "type": "string",
+          "description": "Credit card number (masked)",
+          "example": "XXXX-XXXX-XXXX-1234"
+        },
+        "lastDigits": {
+          "type": "string",
+          "description": "Last credit card digits",
+          "example": "1234"
+        },
+        "name": {
+          "type": "string",
+          "description": "Credit card holder name",
+          "example": "John Doe"
+        },
+        "month": {
+          "type": "string",
+          "description": "Expiration month",
+          "example": 2
+        },
+        "year": {
+          "type": "string",
+          "description": "Expiration year",
+          "example": 2022
+        }
+      },
+      "required": null,
+      "externalDocs": {
+        "description": "Entidade CreditCardResponse",
+        "url": "/docs/api/payments/creditcardresponse/object"
+      }
+    },
+    "tags": [],
+    "summary": "Entidade CreditCardResponse"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-creditcardresponse-object"
+}

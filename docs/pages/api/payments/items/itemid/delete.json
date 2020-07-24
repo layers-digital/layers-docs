@@ -1,0 +1,240 @@
+{
+  "template": "api-route",
+  "title": "Remove item",
+  "path": "/docs/api/payments/items/itemid/delete",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Remove item"
+    ]
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token delete"
+              },
+              "DELETE"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/payments/items/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{itemId}"
+            ]
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "requestExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"itemId\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseSchema": {
+    "type": "object",
+    "properties": {
+      "itemId": {
+        "type": "string"
+      }
+    }
+  },
+  "route": {
+    "type": "route",
+    "path": "/items/{itemId}",
+    "method": "delete",
+    "spec": {
+      "tags": [
+        "Items"
+      ],
+      "summary": "Remove item",
+      "description": "Remove item",
+      "parameters": [
+        {
+          "in": "path",
+          "description": "itemId to be removed",
+          "name": "itemId",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "security": [
+        {
+          "Bearer": [],
+          "permissions": [
+            "item"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "itemId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Validation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/Error"
+              },
+              "example": {
+                "status": 404,
+                "name": "NotFound",
+                "type": "NotFound",
+                "error": "Item was not Found"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Remove item",
+        "url": "/docs/api/payments/items/itemid/delete"
+      }
+    },
+    "tags": [
+      "Items"
+    ],
+    "summary": "Remove item"
+  },
+  "headings": [],
+  "pageClass": "page-api-payments-items-itemid-delete"
+}

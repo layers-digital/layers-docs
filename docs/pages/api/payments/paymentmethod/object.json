@@ -1,0 +1,205 @@
+{
+  "template": "api-schema",
+  "title": "Entidade PaymentMethod",
+  "path": "/docs/api/payments/paymentmethod/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "payments",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"My creditcard\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"428996DA2C214C8193FBC0\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"source\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"zoop\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"kind\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "schema": {
+    "type": "schema",
+    "name": "PaymentMethod",
+    "spec": {
+      "type": "object",
+      "discriminator": {
+        "propertyName": "kind",
+        "mapping": {
+          "credit_card": "#/components/schemas/CreditCardResponse"
+        }
+      },
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Name of this PaymentMethod",
+          "example": "My creditcard"
+        },
+        "alias": {
+          "type": "string",
+          "description": "External Id of this PaymentMethod",
+          "example": "428996DA2C214C8193FBC0"
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "iugu",
+            "zoop"
+          ],
+          "description": "External source of this PaymentMethod",
+          "example": "zoop"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of this payment method"
+        }
+      },
+      "externalDocs": {
+        "description": "Entidade PaymentMethod",
+        "url": "/docs/api/payments/paymentmethod/object"
+      }
+    },
+    "tags": [],
+    "summary": "Entidade PaymentMethod"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-payments-paymentmethod-object"
+}

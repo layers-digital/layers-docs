@@ -146,7 +146,7 @@ export function GetRouteMenu(base: string, route: DocRoute): DocMenu {
 
   return {
     text: route.summary,
-    href: base + path,
+    href: (base + path).toLowerCase(),
     tag: {
       color: methodColors[method],
       text: method.toUpperCase()
@@ -159,7 +159,7 @@ export function GetSchemaMenu(base: string, schema: DocSchema): DocMenu {
     // .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     // .map(x => x.toLowerCase())
     // .join('_')
-  let path = '/' + name + '/object'
+  let path = '/' + name.toLowerCase() + '/object'
   
   return {
     text: schema.summary,

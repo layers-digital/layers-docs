@@ -59,7 +59,7 @@ const Template = {
     {
       icon: '/docs/assets/icons/Comunicação.svg',
       url: '/docs/api/communication',
-      link: '/docs/api/communication/Event/object',
+      link: '/docs/api/communication/event/object',
       title: 'Comunicação'
     },
     {

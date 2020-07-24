@@ -15,7 +15,9 @@ const Template = {
 
   template(props: RouteRenderProps) {
     const navItems = Template.menu[props.match.params.service] ?? Template.menu['auth']
-    return <docs-nav items={navItems} />
+    return [
+      <docs-nav items={navItems} />,
+    ]
   },
 
   categories: [
@@ -33,13 +35,13 @@ const Template = {
     {
       icon: '/docs/assets/icons/Data.svg',
       url: '/docs/api/data',
-      link: '/docs/api/data/Member/object',
+      link: '/docs/api/data/member/object',
       title: 'Dados'
     },
     {
       icon: '/docs/assets/icons/Hub.svg',
       url: '/docs/api/apihub/',
-      link: '/docs/api/apihub/@layersCalendargetRelated/post',
+      link: '/docs/api/apihub/@layerscalendargetrelated/post',
       title: 'Hub de API\'s'
     },
     {
@@ -49,8 +51,9 @@ const Template = {
       title: 'Notificações'
     },
     // {
-    //   icon: '/docs/assets/icons/Payments.svg',
+    //   icon: '/docs/assets/icons/E-commerce.svg',
     //   url: '/docs/api/payments',
+    //   link: '/docs/api/payments/checkoutcustomer/object',
     //   title: 'Pagamentos'
     // },
     {
@@ -62,7 +65,7 @@ const Template = {
     {
       icon: '/docs/assets/icons/Atendimento.svg',
       url: '/docs/api/tickets',
-      link: '/docs/api/tickets/Channel/object',
+      link: '/docs/api/tickets/channel/object',
       title: 'Atendimentos'
     },
     {

@@ -12,15 +12,15 @@ jobs:
 
     - uses: bahmutov/npm-install@v1
 
-    - name: Cache .stencil
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-stencil
-      with:
-        path: .stencil
-        key: ${{ runner.os }}-build-${{ env.cache-name }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}
+    # - name: Cache .stencil
+    #   uses: actions/cache@v2
+    #   env:
+    #     cache-name: cache-stencil
+    #   with:
+    #     path: .stencil
+    #     key: ${{ runner.os }}-build-${{ env.cache-name }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-build-${{ env.cache-name }}
 
     - name: yarn run build.ci
       uses: CultureHQ/actions-yarn@master

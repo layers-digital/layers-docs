@@ -69,7 +69,7 @@ export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaO
   if (normalizedObjectMaps.has(obj)) {
     return normalizedObjectMaps.get(obj)
   }
-
+  
   let out = getRef(spec, obj)
   
   if (!out) {
@@ -90,11 +90,42 @@ export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaO
         }, {})
       }
       if(out.anyOf){
-        console.log(out, 'anyOf')
+        // console.log(out, 'anyOf')
       }
+      function resolveArray(object, parent?){
+        try {
+          if(object.type == 'object'){
+            Object.keys(object.properties).map(key => {
+              switch(object.properties[key].type){
+                case 'object':
+                  parent.properties[key] = resolveArray(object.properties[key], object)
+                  break
+                case 'array':
+                  if(object.properties[key].items.$ref){
+                    object.properties[key].items = getRef(spec, object.properties[key].items)
+                  }
+                  break
+              }
+            })
+          }
+          if(object.type == 'array'){
+            console.log(object)
+            if(object.items.$ref){
+              object.items = getRef(spec, object.items)
+            }
+          }
+        } catch (e) {
+          //TODO: find out why sometimes object is undefined
+        }
+        
+        return object
+      }
+      
+      resolveArray(out)
   }
 
   normalizedObjectMaps.set(obj, out)
+
   return out
 }
 

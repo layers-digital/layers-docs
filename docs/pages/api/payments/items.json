@@ -1744,7 +1744,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-24\""
+            "\"2020-07-29\""
           ],
           [
             "span",
@@ -1774,7 +1774,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-24\""
+            "\"2020-07-29\""
           ],
           [
             "span",
@@ -2643,7 +2643,362 @@
       "hits": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Item"
+          "title": "Item",
+          "x-tags": [
+            "Items"
+          ],
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Id of document [Link](/docs/api/test) teste",
+              "example": "5bb2575199d7179dfe85be02",
+              "readOnly": true
+            },
+            "kind": {
+              "type": "string",
+              "description": "Kind of this item",
+              "enum": [
+                "product"
+              ],
+              "example": "product"
+            },
+            "createdAt": {
+              "type": "string",
+              "description": "Document creation date",
+              "example": "2018-05-29T15:34:11.118Z",
+              "readOnly": true
+            },
+            "updatedAt": {
+              "type": "string",
+              "description": "Last customer update date",
+              "example": "2018-05-30T17:34:11.118Z",
+              "readOnly": true
+            },
+            "name": {
+              "type": "string",
+              "description": "Product Name",
+              "example": "6-Person dome Tent",
+              "minLength": 3,
+              "maxLength": 100
+            },
+            "published": {
+              "type": "Boolean",
+              "description": "Indicates if product is visible in associated channels",
+              "default": true
+            },
+            "content": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ItemContent"
+                },
+                {
+                  "description": "Content/description of the item."
+                }
+              ]
+            },
+            "caption": {
+              "type": "string",
+              "description": "Product Caption",
+              "example": "Polyester tent for camping that supports up to 6 person",
+              "maxLength": 100
+            },
+            "currency": {
+              "allOf": [
+                {
+                  "description": "ISO Code of the Currency."
+                },
+                {
+                  "$ref": "#/components/schemas/Currency"
+                }
+              ]
+            },
+            "defaultPrice": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Amount"
+                },
+                {
+                  "description": "Helps you set default price to apply to all Sku's during creation. Property will not persist.",
+                  "writeOnly": true
+                }
+              ]
+            },
+            "shippable": {
+              "type": "boolean",
+              "description": "If this item must be shipped",
+              "example": false
+            },
+            "package": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Package"
+                },
+                {
+                  "description": "Shipping package specifications."
+                }
+              ]
+            },
+            "skus": {
+              "type": "array",
+              "items": {
+                "title": "ItemSku",
+                "type": "object",
+                "description": "Represents a sellable variant of an item. An Sku is what applies pricing to an item.",
+                "properties": {
+                  "_id": {
+                    "type": "string",
+                    "description": "Internal item unique identifier for the Sku. Set to a random uuid if you need to create an item with attributes and list options at once.\n",
+                    "format": "uuid"
+                  },
+                  "alias": {
+                    "type": "string",
+                    "description": "Define your own Sku code here."
+                  },
+                  "price": {
+                    "$ref": "#/components/schemas/Amount"
+                  },
+                  "priceFrom": {
+                    "$ref": "#/components/schemas/Amount"
+                  },
+                  "attributes": {
+                    "type": "array",
+                    "items": {
+                      "title": "ItemSkuAttribute",
+                      "type": "object",
+                      "description": "Specifies a tupple of option id and value to form an Sku's attribute-value pair",
+                      "properties": {
+                        "key": {
+                          "type": "string",
+                          "description": "The id of the ItemOption"
+                        },
+                        "optionName": {
+                          "type": "string",
+                          "readOnly": true,
+                          "description": "The Name of the option"
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "The Value of the attribute."
+                        }
+                      },
+                      "example": {
+                        "key": "attr-color",
+                        "value": "Blue"
+                      }
+                    },
+                    "description": "A list of attribute-value that characterize this variant Sku",
+                    "example": [
+                      {
+                        "key": "color",
+                        "optionName": "Color",
+                        "value": "Blue"
+                      },
+                      {
+                        "key": "custom-id",
+                        "optionName": "Size",
+                        "value": "Super Large"
+                      }
+                    ]
+                  },
+                  "gallery": {
+                    "type": "array",
+                    "items": {
+                      "title": "Media",
+                      "type": "object",
+                      "description": "Represents any uploaded media",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Uploaded name of the file",
+                          "example": "Icon-iOS-TendaEdu.png"
+                        },
+                        "path": {
+                          "type": "string",
+                          "description": "relative path of this file in CDN",
+                          "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "url",
+                          "description": "formated URL of the path pointing to CDN",
+                          "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                        },
+                        "thumb": {
+                          "type": "string",
+                          "format": "url",
+                          "description": "URL of a 1024x1024 contained image in case the file supports it",
+                          "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                        },
+                        "size": {
+                          "type": "Number",
+                          "description": "Size in bytes of the file",
+                          "example": 56878
+                        },
+                        "mime": {
+                          "type": "string",
+                          "description": "Mime type of the file",
+                          "example": "image/png"
+                        },
+                        "width": {
+                          "type": "Number",
+                          "description": "The width in pixels in case the file is an image"
+                        },
+                        "height": {
+                          "type": "Number",
+                          "description": "The height in pixels in case the file is an image"
+                        },
+                        "orientation": {
+                          "type": "String",
+                          "description": "The orientation of the image"
+                        }
+                      }
+                    }
+                  },
+                  "caption": {
+                    "type": "string",
+                    "description": "Sku Caption",
+                    "example": "Polyester tent for camping that supports up to 6 person",
+                    "maxLength": 100
+                  },
+                  "plan": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Plan"
+                      },
+                      {
+                        "description": "Represents a recurrence model to the sku."
+                      },
+                      {
+                        "default": null
+                      }
+                    ]
+                  },
+                  "inventoryId": {
+                    "type": "string",
+                    "description": "Inventory id of this sku",
+                    "format": "object id"
+                  },
+                  "reference": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/ItemSkuReference"
+                      },
+                      {
+                        "description": "Additional extenral reference to this sku that might be used to connect external real-time inventory tracking capabilities to this sku"
+                      },
+                      {
+                        "default": null
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "title": "ItemOption",
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string",
+                    "example": "color",
+                    "description": "Identification of this Option. Defaults to a slug of the name"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Color",
+                    "description": "The name of this attribute",
+                    "minLength": "1,",
+                    "maxLength": "32,"
+                  }
+                },
+                "example": [
+                  {
+                    "key": "color",
+                    "name": "Color"
+                  },
+                  {
+                    "key": "custom-id",
+                    "name": "Size"
+                  }
+                ],
+                "required": [
+                  "name"
+                ]
+              }
+            },
+            "gallery": {
+              "type": "array",
+              "items": {
+                "title": "Media",
+                "type": "object",
+                "description": "Represents any uploaded media",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Uploaded name of the file",
+                    "example": "Icon-iOS-TendaEdu.png"
+                  },
+                  "path": {
+                    "type": "string",
+                    "description": "relative path of this file in CDN",
+                    "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "url",
+                    "description": "formated URL of the path pointing to CDN",
+                    "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                  },
+                  "thumb": {
+                    "type": "string",
+                    "format": "url",
+                    "description": "URL of a 1024x1024 contained image in case the file supports it",
+                    "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                  },
+                  "size": {
+                    "type": "Number",
+                    "description": "Size in bytes of the file",
+                    "example": 56878
+                  },
+                  "mime": {
+                    "type": "string",
+                    "description": "Mime type of the file",
+                    "example": "image/png"
+                  },
+                  "width": {
+                    "type": "Number",
+                    "description": "The width in pixels in case the file is an image"
+                  },
+                  "height": {
+                    "type": "Number",
+                    "description": "The height in pixels in case the file is an image"
+                  },
+                  "orientation": {
+                    "type": "String",
+                    "description": "The orientation of the image"
+                  }
+                }
+              }
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "formId": {
+              "type": "string",
+              "description": "Id of the form asked to client on the store",
+              "format": "object id"
+            }
+          },
+          "externalDocs": {
+            "description": "Entidade Item",
+            "url": "/docs/api/payments/item/object"
+          }
         }
       }
     }
@@ -2682,7 +3037,362 @@
                   "hits": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/Item"
+                      "title": "Item",
+                      "x-tags": [
+                        "Items"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Id of document [Link](/docs/api/test) teste",
+                          "example": "5bb2575199d7179dfe85be02",
+                          "readOnly": true
+                        },
+                        "kind": {
+                          "type": "string",
+                          "description": "Kind of this item",
+                          "enum": [
+                            "product"
+                          ],
+                          "example": "product"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "description": "Document creation date",
+                          "example": "2018-05-29T15:34:11.118Z",
+                          "readOnly": true
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "description": "Last customer update date",
+                          "example": "2018-05-30T17:34:11.118Z",
+                          "readOnly": true
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Product Name",
+                          "example": "6-Person dome Tent",
+                          "minLength": 3,
+                          "maxLength": 100
+                        },
+                        "published": {
+                          "type": "Boolean",
+                          "description": "Indicates if product is visible in associated channels",
+                          "default": true
+                        },
+                        "content": {
+                          "allOf": [
+                            {
+                              "$ref": "#/components/schemas/ItemContent"
+                            },
+                            {
+                              "description": "Content/description of the item."
+                            }
+                          ]
+                        },
+                        "caption": {
+                          "type": "string",
+                          "description": "Product Caption",
+                          "example": "Polyester tent for camping that supports up to 6 person",
+                          "maxLength": 100
+                        },
+                        "currency": {
+                          "allOf": [
+                            {
+                              "description": "ISO Code of the Currency."
+                            },
+                            {
+                              "$ref": "#/components/schemas/Currency"
+                            }
+                          ]
+                        },
+                        "defaultPrice": {
+                          "allOf": [
+                            {
+                              "$ref": "#/components/schemas/Amount"
+                            },
+                            {
+                              "description": "Helps you set default price to apply to all Sku's during creation. Property will not persist.",
+                              "writeOnly": true
+                            }
+                          ]
+                        },
+                        "shippable": {
+                          "type": "boolean",
+                          "description": "If this item must be shipped",
+                          "example": false
+                        },
+                        "package": {
+                          "allOf": [
+                            {
+                              "$ref": "#/components/schemas/Package"
+                            },
+                            {
+                              "description": "Shipping package specifications."
+                            }
+                          ]
+                        },
+                        "skus": {
+                          "type": "array",
+                          "items": {
+                            "title": "ItemSku",
+                            "type": "object",
+                            "description": "Represents a sellable variant of an item. An Sku is what applies pricing to an item.",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "description": "Internal item unique identifier for the Sku. Set to a random uuid if you need to create an item with attributes and list options at once.\n",
+                                "format": "uuid"
+                              },
+                              "alias": {
+                                "type": "string",
+                                "description": "Define your own Sku code here."
+                              },
+                              "price": {
+                                "$ref": "#/components/schemas/Amount"
+                              },
+                              "priceFrom": {
+                                "$ref": "#/components/schemas/Amount"
+                              },
+                              "attributes": {
+                                "type": "array",
+                                "items": {
+                                  "title": "ItemSkuAttribute",
+                                  "type": "object",
+                                  "description": "Specifies a tupple of option id and value to form an Sku's attribute-value pair",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string",
+                                      "description": "The id of the ItemOption"
+                                    },
+                                    "optionName": {
+                                      "type": "string",
+                                      "readOnly": true,
+                                      "description": "The Name of the option"
+                                    },
+                                    "value": {
+                                      "type": "string",
+                                      "description": "The Value of the attribute."
+                                    }
+                                  },
+                                  "example": {
+                                    "key": "attr-color",
+                                    "value": "Blue"
+                                  }
+                                },
+                                "description": "A list of attribute-value that characterize this variant Sku",
+                                "example": [
+                                  {
+                                    "key": "color",
+                                    "optionName": "Color",
+                                    "value": "Blue"
+                                  },
+                                  {
+                                    "key": "custom-id",
+                                    "optionName": "Size",
+                                    "value": "Super Large"
+                                  }
+                                ]
+                              },
+                              "gallery": {
+                                "type": "array",
+                                "items": {
+                                  "title": "Media",
+                                  "type": "object",
+                                  "description": "Represents any uploaded media",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string",
+                                      "description": "Uploaded name of the file",
+                                      "example": "Icon-iOS-TendaEdu.png"
+                                    },
+                                    "path": {
+                                      "type": "string",
+                                      "description": "relative path of this file in CDN",
+                                      "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                                    },
+                                    "url": {
+                                      "type": "string",
+                                      "format": "url",
+                                      "description": "formated URL of the path pointing to CDN",
+                                      "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                                    },
+                                    "thumb": {
+                                      "type": "string",
+                                      "format": "url",
+                                      "description": "URL of a 1024x1024 contained image in case the file supports it",
+                                      "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                                    },
+                                    "size": {
+                                      "type": "Number",
+                                      "description": "Size in bytes of the file",
+                                      "example": 56878
+                                    },
+                                    "mime": {
+                                      "type": "string",
+                                      "description": "Mime type of the file",
+                                      "example": "image/png"
+                                    },
+                                    "width": {
+                                      "type": "Number",
+                                      "description": "The width in pixels in case the file is an image"
+                                    },
+                                    "height": {
+                                      "type": "Number",
+                                      "description": "The height in pixels in case the file is an image"
+                                    },
+                                    "orientation": {
+                                      "type": "String",
+                                      "description": "The orientation of the image"
+                                    }
+                                  }
+                                }
+                              },
+                              "caption": {
+                                "type": "string",
+                                "description": "Sku Caption",
+                                "example": "Polyester tent for camping that supports up to 6 person",
+                                "maxLength": 100
+                              },
+                              "plan": {
+                                "allOf": [
+                                  {
+                                    "$ref": "#/components/schemas/Plan"
+                                  },
+                                  {
+                                    "description": "Represents a recurrence model to the sku."
+                                  },
+                                  {
+                                    "default": null
+                                  }
+                                ]
+                              },
+                              "inventoryId": {
+                                "type": "string",
+                                "description": "Inventory id of this sku",
+                                "format": "object id"
+                              },
+                              "reference": {
+                                "allOf": [
+                                  {
+                                    "$ref": "#/components/schemas/ItemSkuReference"
+                                  },
+                                  {
+                                    "description": "Additional extenral reference to this sku that might be used to connect external real-time inventory tracking capabilities to this sku"
+                                  },
+                                  {
+                                    "default": null
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "title": "ItemOption",
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "example": "color",
+                                "description": "Identification of this Option. Defaults to a slug of the name"
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Color",
+                                "description": "The name of this attribute",
+                                "minLength": "1,",
+                                "maxLength": "32,"
+                              }
+                            },
+                            "example": [
+                              {
+                                "key": "color",
+                                "name": "Color"
+                              },
+                              {
+                                "key": "custom-id",
+                                "name": "Size"
+                              }
+                            ],
+                            "required": [
+                              "name"
+                            ]
+                          }
+                        },
+                        "gallery": {
+                          "type": "array",
+                          "items": {
+                            "title": "Media",
+                            "type": "object",
+                            "description": "Represents any uploaded media",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "Uploaded name of the file",
+                                "example": "Icon-iOS-TendaEdu.png"
+                              },
+                              "path": {
+                                "type": "string",
+                                "description": "relative path of this file in CDN",
+                                "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "url",
+                                "description": "formated URL of the path pointing to CDN",
+                                "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                              },
+                              "thumb": {
+                                "type": "string",
+                                "format": "url",
+                                "description": "URL of a 1024x1024 contained image in case the file supports it",
+                                "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                              },
+                              "size": {
+                                "type": "Number",
+                                "description": "Size in bytes of the file",
+                                "example": 56878
+                              },
+                              "mime": {
+                                "type": "string",
+                                "description": "Mime type of the file",
+                                "example": "image/png"
+                              },
+                              "width": {
+                                "type": "Number",
+                                "description": "The width in pixels in case the file is an image"
+                              },
+                              "height": {
+                                "type": "Number",
+                                "description": "The height in pixels in case the file is an image"
+                              },
+                              "orientation": {
+                                "type": "String",
+                                "description": "The orientation of the image"
+                              }
+                            }
+                          }
+                        },
+                        "tags": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "formId": {
+                          "type": "string",
+                          "description": "Id of the form asked to client on the store",
+                          "format": "object id"
+                        }
+                      },
+                      "externalDocs": {
+                        "description": "Entidade Item",
+                        "url": "/docs/api/payments/item/object"
+                      }
                     }
                   }
                 }

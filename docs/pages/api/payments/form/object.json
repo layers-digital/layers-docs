@@ -221,7 +221,23 @@
         "fields": {
           "type": "array",
           "items": {
-            "$ref": "#/components/schemas/FormFields"
+            "title": "FormFields",
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "description": "Form field type",
+                "enum": [
+                  "checkbox",
+                  "text"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "description": "Form name",
+                "example": "My custom form"
+              }
+            }
           }
         }
       },

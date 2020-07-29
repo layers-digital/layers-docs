@@ -688,7 +688,128 @@
   "responseSchema": {
     "type": "array",
     "items": {
-      "$ref": "#/components/schemas/User"
+      "title": "User",
+      "type": "object",
+      "description": "Usuário do Layers Education",
+      "required": [
+        "email",
+        "name",
+        "roles"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "ObjectId",
+          "description": "Identificador do documento do usuário",
+          "readOnly": true
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Data de criação do usuário em UTC corrigido para o fuso da comunidade",
+          "example": "2020-01-01T00:00:00.000Z",
+          "readOnly": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Data da última modificação do usuário em UTC corrido para o fuso da comunidade",
+          "example": "2020-01-01T00:00:00.000Z",
+          "readOnly": true
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
+          "example": true,
+          "required": false
+        },
+        "community": {
+          "type": "string",
+          "description": "Identificador da communidade do usuário",
+          "example": "test",
+          "readOnly": true
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INVITED",
+            "UNSENT"
+          ],
+          "description": "Status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (UNSENT)",
+          "example": "ACTIVE",
+          "readOnly": true
+        },
+        "invitationCount": {
+          "type": "number",
+          "description": "Numero de convites enviados para o usuário",
+          "example": 2,
+          "readOnly": true
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email do usuário",
+          "example": "exemplo@tenda.digital",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "description": "Nome do usuário",
+          "example": "Gabriel Raniere",
+          "required": true
+        },
+        "roles": {
+          "type": "array",
+          "description": "Array contendo as permissões do usuário na plataforma",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "guardian",
+            "professor"
+          ],
+          "required": true
+        },
+        "address": {
+          "type": "object",
+          "required": false,
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "CEP do usuário",
+              "example": "01414-001"
+            },
+            "state": {
+              "type": "string",
+              "description": "Estado do usuário",
+              "example": "SP"
+            },
+            "city": {
+              "type": "string",
+              "description": "Cidade do usuário",
+              "example": "São Caetano do Sul"
+            },
+            "district": {
+              "type": "string",
+              "description": "Bairro do usuário",
+              "example": "Centro"
+            },
+            "address": {
+              "type": "string",
+              "description": "Rua do usuário",
+              "example": "Rua Pará"
+            },
+            "number": {
+              "type": "string",
+              "description": "Numero da casa do usuário",
+              "example": "79"
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Entidade User",
+        "url": "/docs/api/data/user/object"
+      }
     }
   },
   "route": {
@@ -744,7 +865,128 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/User"
+                  "title": "User",
+                  "type": "object",
+                  "description": "Usuário do Layers Education",
+                  "required": [
+                    "email",
+                    "name",
+                    "roles"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do documento do usuário",
+                      "readOnly": true
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "description": "Data de criação do usuário em UTC corrigido para o fuso da comunidade",
+                      "example": "2020-01-01T00:00:00.000Z",
+                      "readOnly": true
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "description": "Data da última modificação do usuário em UTC corrido para o fuso da comunidade",
+                      "example": "2020-01-01T00:00:00.000Z",
+                      "readOnly": true
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "description": "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
+                      "example": true,
+                      "required": false
+                    },
+                    "community": {
+                      "type": "string",
+                      "description": "Identificador da communidade do usuário",
+                      "example": "test",
+                      "readOnly": true
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ACTIVE",
+                        "INVITED",
+                        "UNSENT"
+                      ],
+                      "description": "Status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (UNSENT)",
+                      "example": "ACTIVE",
+                      "readOnly": true
+                    },
+                    "invitationCount": {
+                      "type": "number",
+                      "description": "Numero de convites enviados para o usuário",
+                      "example": 2,
+                      "readOnly": true
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "Email do usuário",
+                      "example": "exemplo@tenda.digital",
+                      "required": true
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Nome do usuário",
+                      "example": "Gabriel Raniere",
+                      "required": true
+                    },
+                    "roles": {
+                      "type": "array",
+                      "description": "Array contendo as permissões do usuário na plataforma",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": [
+                        "guardian",
+                        "professor"
+                      ],
+                      "required": true
+                    },
+                    "address": {
+                      "type": "object",
+                      "required": false,
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "description": "CEP do usuário",
+                          "example": "01414-001"
+                        },
+                        "state": {
+                          "type": "string",
+                          "description": "Estado do usuário",
+                          "example": "SP"
+                        },
+                        "city": {
+                          "type": "string",
+                          "description": "Cidade do usuário",
+                          "example": "São Caetano do Sul"
+                        },
+                        "district": {
+                          "type": "string",
+                          "description": "Bairro do usuário",
+                          "example": "Centro"
+                        },
+                        "address": {
+                          "type": "string",
+                          "description": "Rua do usuário",
+                          "example": "Rua Pará"
+                        },
+                        "number": {
+                          "type": "string",
+                          "description": "Numero da casa do usuário",
+                          "example": "79"
+                        }
+                      }
+                    }
+                  },
+                  "externalDocs": {
+                    "description": "Entidade User",
+                    "url": "/docs/api/data/user/object"
+                  }
                 }
               }
             }

@@ -1079,7 +1079,82 @@
   "responseSchema": {
     "type": "array",
     "items": {
-      "$ref": "#/components/params/ChannelLink"
+      "title": "ChannelLink",
+      "type": "object",
+      "discriminator": {
+        "propertyName": "kind",
+        "mapping": {
+          "itemLink": "#/components/params/ItemLink"
+        }
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Id of document",
+          "example": "5bb2575199d7179dfe85be02",
+          "readOnly": true
+        },
+        "entityId": {
+          "type": "string",
+          "description": "The itemId this link refers to",
+          "example": "5bb2575199d7179dfe85be03"
+        },
+        "channelId": {
+          "type": "string",
+          "description": "The channelId this link refers to",
+          "example": "5bb2575199d7179dfe85be04"
+        },
+        "channel": {
+          "readOnly": true,
+          "type": "object",
+          "allOf": [
+            {
+              "description": "Channel that this links refers to"
+            },
+            {
+              "$ref": "#/components/params/Channel"
+            }
+          ]
+        },
+        "channelKind": {
+          "type": "string",
+          "description": "Kind of the channel",
+          "enum": [
+            "store"
+          ],
+          "example": "store"
+        },
+        "published": {
+          "type": "boolean",
+          "description": "If this link has been published, i.e. (active)",
+          "example": true
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Document creation date",
+          "example": "2018-05-29T15:34:11.118Z",
+          "readOnly": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last ChannelLink update date",
+          "example": "2018-05-30T17:34:11.118Z",
+          "readOnly": true
+        },
+        "publishedAt": {
+          "type": "string",
+          "description": "Last ChannelLink update date",
+          "example": "2018-05-30T17:34:11.118Z",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "kind",
+        "entityId",
+        "channel",
+        "channelId",
+        "channelKind"
+      ]
     }
   },
   "route": {
@@ -1117,7 +1192,82 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/params/ChannelLink"
+                  "title": "ChannelLink",
+                  "type": "object",
+                  "discriminator": {
+                    "propertyName": "kind",
+                    "mapping": {
+                      "itemLink": "#/components/params/ItemLink"
+                    }
+                  },
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Id of document",
+                      "example": "5bb2575199d7179dfe85be02",
+                      "readOnly": true
+                    },
+                    "entityId": {
+                      "type": "string",
+                      "description": "The itemId this link refers to",
+                      "example": "5bb2575199d7179dfe85be03"
+                    },
+                    "channelId": {
+                      "type": "string",
+                      "description": "The channelId this link refers to",
+                      "example": "5bb2575199d7179dfe85be04"
+                    },
+                    "channel": {
+                      "readOnly": true,
+                      "type": "object",
+                      "allOf": [
+                        {
+                          "description": "Channel that this links refers to"
+                        },
+                        {
+                          "$ref": "#/components/params/Channel"
+                        }
+                      ]
+                    },
+                    "channelKind": {
+                      "type": "string",
+                      "description": "Kind of the channel",
+                      "enum": [
+                        "store"
+                      ],
+                      "example": "store"
+                    },
+                    "published": {
+                      "type": "boolean",
+                      "description": "If this link has been published, i.e. (active)",
+                      "example": true
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "description": "Document creation date",
+                      "example": "2018-05-29T15:34:11.118Z",
+                      "readOnly": true
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "description": "Last ChannelLink update date",
+                      "example": "2018-05-30T17:34:11.118Z",
+                      "readOnly": true
+                    },
+                    "publishedAt": {
+                      "type": "string",
+                      "description": "Last ChannelLink update date",
+                      "example": "2018-05-30T17:34:11.118Z",
+                      "readOnly": true
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "entityId",
+                    "channel",
+                    "channelId",
+                    "channelKind"
+                  ]
                 }
               }
             }

@@ -2068,13 +2068,99 @@
       "items": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/ListItem"
+          "title": "ListItem",
+          "type": "object",
+          "properties": {
+            "itemId": {
+              "type": "string",
+              "description": "Id of the item document",
+              "example": "5bb2575199d7179dfe85be02",
+              "readOnly": true
+            },
+            "createdAt": {
+              "type": "string",
+              "description": "Document creation date",
+              "example": "2018-05-29T15:34:11.118Z",
+              "readOnly": true
+            },
+            "updatedAt": {
+              "type": "string",
+              "description": "Last customer update date",
+              "example": "2018-05-30T17:34:11.118Z",
+              "readOnly": true
+            },
+            "required": {
+              "type": "Boolean",
+              "description": "Indicates if this item can be removed from the list by the client",
+              "default": true
+            },
+            "selectedSkus": {
+              "type": "array",
+              "description": "Array of skus that will be available to client",
+              "items": {
+                "type": "string"
+              }
+            },
+            "allSkus": {
+              "type": "Boolean",
+              "description": "Indicates if all skus will be available to client (Is set to true automatically if selectedSkus is empty)",
+              "default": true
+            }
+          }
         }
       },
       "gallery": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Media"
+          "title": "Media",
+          "type": "object",
+          "description": "Represents any uploaded media",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Uploaded name of the file",
+              "example": "Icon-iOS-TendaEdu.png"
+            },
+            "path": {
+              "type": "string",
+              "description": "relative path of this file in CDN",
+              "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+            },
+            "url": {
+              "type": "string",
+              "format": "url",
+              "description": "formated URL of the path pointing to CDN",
+              "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+            },
+            "thumb": {
+              "type": "string",
+              "format": "url",
+              "description": "URL of a 1024x1024 contained image in case the file supports it",
+              "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+            },
+            "size": {
+              "type": "Number",
+              "description": "Size in bytes of the file",
+              "example": 56878
+            },
+            "mime": {
+              "type": "string",
+              "description": "Mime type of the file",
+              "example": "image/png"
+            },
+            "width": {
+              "type": "Number",
+              "description": "The width in pixels in case the file is an image"
+            },
+            "height": {
+              "type": "Number",
+              "description": "The height in pixels in case the file is an image"
+            },
+            "orientation": {
+              "type": "String",
+              "description": "The orientation of the image"
+            }
+          }
         }
       },
       "tags": {

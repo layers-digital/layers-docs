@@ -3643,7 +3643,151 @@
       "hits": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Sale"
+          "title": "Sale",
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "Token of the order",
+              "example": "81778d07-92ee-4f13-b177-043905322cd3",
+              "readOnly": true
+            },
+            "createdAt": {
+              "type": "string",
+              "description": "Document creation date",
+              "example": "2018-05-29T15:34:11.118Z",
+              "readOnly": true
+            },
+            "updatedAt": {
+              "type": "string",
+              "description": "Document last modified date",
+              "example": "2018-05-30T17:34:11.118Z",
+              "readOnly": true
+            },
+            "currency": {
+              "allOf": [
+                {
+                  "description": "ISO Code of the Currency."
+                },
+                {
+                  "$ref": "#/components/schemas/Currency"
+                }
+              ],
+              "readOnly": true
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "title": "CheckoutItem",
+                "type": "object",
+                "x-tags": [
+                  "Items"
+                ],
+                "description": "Represents an item in checkout",
+                "properties": {
+                  "variantId": {
+                    "type": "string",
+                    "description": "The identification of the item variant",
+                    "example": "81778d07-92ee-4f13-b177-043905322cd3"
+                  },
+                  "itemId": {
+                    "type": "string",
+                    "description": "The identification of the item",
+                    "exmaple": "507f1f77bcf86cd799439011",
+                    "readOnly": true
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the item",
+                    "example": "Uniforme masculino"
+                  },
+                  "caption": {
+                    "type": "string",
+                    "description": "Extra information about the item",
+                    "example": "Tamanho: M"
+                  },
+                  "shippable": {
+                    "type": "boolean",
+                    "description": "Defines if this item is shippable",
+                    "example": true
+                  },
+                  "media": {
+                    "$ref": "#/components/schemas/Media"
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "default": 1,
+                    "description": "Quantity of items to purshase",
+                    "example": 2
+                  },
+                  "price": {
+                    "$ref": "#/components/schemas/Amount"
+                  },
+                  "subtotal": {
+                    "$ref": "#/components/schemas/Amount"
+                  }
+                }
+              }
+            },
+            "customer": {
+              "$ref": "#/components/schemas/CheckoutCustomer"
+            },
+            "payment": {
+              "$ref": "#/components/params/PaymentLine"
+            },
+            "shipping": {
+              "$ref": "#/components/schemas/CheckoutShipping"
+            },
+            "discounts": {
+              "type": "array",
+              "description": "Discounts applied on sale",
+              "items": {
+                "title": "DiscountAllocation",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of this discount",
+                    "example": "discounts.payment_method_discount"
+                  },
+                  "location": {
+                    "type": "string",
+                    "example": "payment",
+                    "enum": [
+                      "payment"
+                    ]
+                  },
+                  "discount": {
+                    "allOf": [
+                      {
+                        "description": "Discount to be applied"
+                      },
+                      {
+                        "$ref": "#/components/params/Discount"
+                      }
+                    ]
+                  },
+                  "value": {
+                    "allOf": [
+                      {
+                        "description": "Value of discount (negative)"
+                      },
+                      {
+                        "$ref": "#/components/params/AmountNegative"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "owned": {
+              "$ref": "#/components/schemas/CheckoutOwned"
+            }
+          },
+          "externalDocs": {
+            "description": "Entidade Sale",
+            "url": "/docs/api/payments/sale/object"
+          }
         }
       },
       "total": {
@@ -3682,7 +3826,151 @@
                   "hits": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/Sale"
+                      "title": "Sale",
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "description": "Token of the order",
+                          "example": "81778d07-92ee-4f13-b177-043905322cd3",
+                          "readOnly": true
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "description": "Document creation date",
+                          "example": "2018-05-29T15:34:11.118Z",
+                          "readOnly": true
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "description": "Document last modified date",
+                          "example": "2018-05-30T17:34:11.118Z",
+                          "readOnly": true
+                        },
+                        "currency": {
+                          "allOf": [
+                            {
+                              "description": "ISO Code of the Currency."
+                            },
+                            {
+                              "$ref": "#/components/schemas/Currency"
+                            }
+                          ],
+                          "readOnly": true
+                        },
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "title": "CheckoutItem",
+                            "type": "object",
+                            "x-tags": [
+                              "Items"
+                            ],
+                            "description": "Represents an item in checkout",
+                            "properties": {
+                              "variantId": {
+                                "type": "string",
+                                "description": "The identification of the item variant",
+                                "example": "81778d07-92ee-4f13-b177-043905322cd3"
+                              },
+                              "itemId": {
+                                "type": "string",
+                                "description": "The identification of the item",
+                                "exmaple": "507f1f77bcf86cd799439011",
+                                "readOnly": true
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Name of the item",
+                                "example": "Uniforme masculino"
+                              },
+                              "caption": {
+                                "type": "string",
+                                "description": "Extra information about the item",
+                                "example": "Tamanho: M"
+                              },
+                              "shippable": {
+                                "type": "boolean",
+                                "description": "Defines if this item is shippable",
+                                "example": true
+                              },
+                              "media": {
+                                "$ref": "#/components/schemas/Media"
+                              },
+                              "quantity": {
+                                "type": "number",
+                                "default": 1,
+                                "description": "Quantity of items to purshase",
+                                "example": 2
+                              },
+                              "price": {
+                                "$ref": "#/components/schemas/Amount"
+                              },
+                              "subtotal": {
+                                "$ref": "#/components/schemas/Amount"
+                              }
+                            }
+                          }
+                        },
+                        "customer": {
+                          "$ref": "#/components/schemas/CheckoutCustomer"
+                        },
+                        "payment": {
+                          "$ref": "#/components/params/PaymentLine"
+                        },
+                        "shipping": {
+                          "$ref": "#/components/schemas/CheckoutShipping"
+                        },
+                        "discounts": {
+                          "type": "array",
+                          "description": "Discounts applied on sale",
+                          "items": {
+                            "title": "DiscountAllocation",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "Name of this discount",
+                                "example": "discounts.payment_method_discount"
+                              },
+                              "location": {
+                                "type": "string",
+                                "example": "payment",
+                                "enum": [
+                                  "payment"
+                                ]
+                              },
+                              "discount": {
+                                "allOf": [
+                                  {
+                                    "description": "Discount to be applied"
+                                  },
+                                  {
+                                    "$ref": "#/components/params/Discount"
+                                  }
+                                ]
+                              },
+                              "value": {
+                                "allOf": [
+                                  {
+                                    "description": "Value of discount (negative)"
+                                  },
+                                  {
+                                    "$ref": "#/components/params/AmountNegative"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "owned": {
+                          "$ref": "#/components/schemas/CheckoutOwned"
+                        }
+                      },
+                      "externalDocs": {
+                        "description": "Entidade Sale",
+                        "url": "/docs/api/payments/sale/object"
+                      }
                     }
                   },
                   "total": {

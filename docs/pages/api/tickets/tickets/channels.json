@@ -534,7 +534,101 @@
   "responseSchema": {
     "type": "array",
     "items": {
-      "$ref": "#/components/schemas/Channel"
+      "title": "Channel",
+      "type": "object",
+      "description": "Estrutura de um canal de atendimento",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "ObjectId",
+          "description": "Identificador do canal de atendimento",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "description": "Nome do canal de atendimento",
+          "example": "Pedagógico",
+          "readOnly": false
+        },
+        "public": {
+          "type": "boolean",
+          "description": "Indica se o canal de atendimento aparece para usuários (`true`) ou é interno (`false`)",
+          "readOnly": false
+        },
+        "agents": {
+          "type": "array",
+          "readOnly": false,
+          "items": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificadores dos usuários que são atentendentes desse canal"
+          }
+        },
+        "subjects": {
+          "type": "array",
+          "readOnly": false,
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "description"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Título do assunto",
+                "example": "Revisão de provas"
+              },
+              "description": {
+                "type": "string",
+                "description": "Descrição do assunto",
+                "example": "Discuta correções e erros de soma de notas"
+              }
+            }
+          }
+        },
+        "allowAudio": {
+          "type": "boolean",
+          "description": "Indica se o canal de atendimento aceita receber mensagens de áudio",
+          "default": false
+        },
+        "targets": {
+          "type": "object",
+          "description": "Quais usuários tem permissão para enviar mensagens para essa canal de atendimento",
+          "readOnly": false,
+          "required": [
+            "roles",
+            "tags"
+          ],
+          "properties": {
+            "roles": {
+              "type": "array",
+              "description": "Permissões que podem mandar mensagens para esse canal",
+              "items": {
+                "type": "string",
+                "description": "Nome da permissão",
+                "example": "guardian"
+              }
+            },
+            "tags": {
+              "type": "array",
+              "description": "Identificadores das tags cujos usuários podem mandar mensagem para o canal",
+              "items": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identidicador da tag"
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Entidade Channel",
+        "url": "/docs/api/tickets/channel/object"
+      }
     }
   },
   "route": {
@@ -567,7 +661,101 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Channel"
+                  "title": "Channel",
+                  "type": "object",
+                  "description": "Estrutura de um canal de atendimento",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do canal de atendimento",
+                      "readOnly": true
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Nome do canal de atendimento",
+                      "example": "Pedagógico",
+                      "readOnly": false
+                    },
+                    "public": {
+                      "type": "boolean",
+                      "description": "Indica se o canal de atendimento aparece para usuários (`true`) ou é interno (`false`)",
+                      "readOnly": false
+                    },
+                    "agents": {
+                      "type": "array",
+                      "readOnly": false,
+                      "items": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificadores dos usuários que são atentendentes desse canal"
+                      }
+                    },
+                    "subjects": {
+                      "type": "array",
+                      "readOnly": false,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "title",
+                          "description"
+                        ],
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Título do assunto",
+                            "example": "Revisão de provas"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Descrição do assunto",
+                            "example": "Discuta correções e erros de soma de notas"
+                          }
+                        }
+                      }
+                    },
+                    "allowAudio": {
+                      "type": "boolean",
+                      "description": "Indica se o canal de atendimento aceita receber mensagens de áudio",
+                      "default": false
+                    },
+                    "targets": {
+                      "type": "object",
+                      "description": "Quais usuários tem permissão para enviar mensagens para essa canal de atendimento",
+                      "readOnly": false,
+                      "required": [
+                        "roles",
+                        "tags"
+                      ],
+                      "properties": {
+                        "roles": {
+                          "type": "array",
+                          "description": "Permissões que podem mandar mensagens para esse canal",
+                          "items": {
+                            "type": "string",
+                            "description": "Nome da permissão",
+                            "example": "guardian"
+                          }
+                        },
+                        "tags": {
+                          "type": "array",
+                          "description": "Identificadores das tags cujos usuários podem mandar mensagem para o canal",
+                          "items": {
+                            "type": "string",
+                            "format": "ObjectId",
+                            "description": "Identidicador da tag"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "externalDocs": {
+                    "description": "Entidade Channel",
+                    "url": "/docs/api/tickets/channel/object"
+                  }
                 }
               }
             }

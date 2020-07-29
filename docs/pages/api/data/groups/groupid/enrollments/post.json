@@ -680,7 +680,67 @@
   "responseSchema": {
     "type": "array",
     "items": {
-      "$ref": "#/components/schemas/Enrollment"
+      "title": "Enrollment",
+      "type": "object",
+      "required": [
+        "kind",
+        "entity",
+        "group"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "ObjectId",
+          "description": "Identificador do documento da matrícula",
+          "readOnly": true
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
+          "example": "2020-01-01T00:00:00.000Z",
+          "readOnly": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
+          "example": "2020-01-01T00:00:00.000Z",
+          "readOnly": true
+        },
+        "community": {
+          "type": "string",
+          "description": "Identificador da comunidade da matrícula",
+          "example": "test",
+          "readOnly": true
+        },
+        "kind": {
+          "type": "string",
+          "description": "Tipo de entidade que está vinculada ao grupo",
+          "example": "member",
+          "required": true
+        },
+        "entity": {
+          "type": "string",
+          "format": "ObjectId",
+          "description": "Identificador do documento da entidade à qual pertence essa matrícula",
+          "required": true
+        },
+        "group": {
+          "type": "string",
+          "format": "ObjectId",
+          "description": "Identificador do grupo à qual a entidade está matriculada",
+          "required": true
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
+          "example": true,
+          "required": false
+        }
+      },
+      "externalDocs": {
+        "description": "Entidade Enrollment",
+        "url": "/docs/api/data/enrollment/object"
+      }
     }
   },
   "route": {
@@ -723,7 +783,67 @@
                 "enrollments": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Enrollment"
+                    "title": "Enrollment",
+                    "type": "object",
+                    "required": [
+                      "kind",
+                      "entity",
+                      "group"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificador do documento da matrícula",
+                        "readOnly": true
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "description": "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
+                        "example": "2020-01-01T00:00:00.000Z",
+                        "readOnly": true
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "description": "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
+                        "example": "2020-01-01T00:00:00.000Z",
+                        "readOnly": true
+                      },
+                      "community": {
+                        "type": "string",
+                        "description": "Identificador da comunidade da matrícula",
+                        "example": "test",
+                        "readOnly": true
+                      },
+                      "kind": {
+                        "type": "string",
+                        "description": "Tipo de entidade que está vinculada ao grupo",
+                        "example": "member",
+                        "required": true
+                      },
+                      "entity": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificador do documento da entidade à qual pertence essa matrícula",
+                        "required": true
+                      },
+                      "group": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificador do grupo à qual a entidade está matriculada",
+                        "required": true
+                      },
+                      "active": {
+                        "type": "boolean",
+                        "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
+                        "example": true,
+                        "required": false
+                      }
+                    },
+                    "externalDocs": {
+                      "description": "Entidade Enrollment",
+                      "url": "/docs/api/data/enrollment/object"
+                    }
                   }
                 }
               }
@@ -739,7 +859,67 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Enrollment"
+                  "title": "Enrollment",
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "entity",
+                    "group"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do documento da matrícula",
+                      "readOnly": true
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "description": "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
+                      "example": "2020-01-01T00:00:00.000Z",
+                      "readOnly": true
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "description": "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
+                      "example": "2020-01-01T00:00:00.000Z",
+                      "readOnly": true
+                    },
+                    "community": {
+                      "type": "string",
+                      "description": "Identificador da comunidade da matrícula",
+                      "example": "test",
+                      "readOnly": true
+                    },
+                    "kind": {
+                      "type": "string",
+                      "description": "Tipo de entidade que está vinculada ao grupo",
+                      "example": "member",
+                      "required": true
+                    },
+                    "entity": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do documento da entidade à qual pertence essa matrícula",
+                      "required": true
+                    },
+                    "group": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do grupo à qual a entidade está matriculada",
+                      "required": true
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
+                      "example": true,
+                      "required": false
+                    }
+                  },
+                  "externalDocs": {
+                    "description": "Entidade Enrollment",
+                    "url": "/docs/api/data/enrollment/object"
+                  }
                 }
               }
             }

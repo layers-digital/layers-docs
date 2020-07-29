@@ -335,7 +335,37 @@
       "fields": {
         "type": "array",
         "items": {
-          "$ref": "#/components/params/FormFields"
+          "title": "FormFields",
+          "type": "object",
+          "discriminator": {
+            "propertyName": "kind",
+            "mapping": {
+              "text": "#/components/params/FormText",
+              "checkbox": "#/components/params/FormCheckbox"
+            }
+          },
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of this field",
+              "example": "My custom form"
+            },
+            "caption": {
+              "type": "string,",
+              "description": "Field caption",
+              "example": "My custom caption"
+            },
+            "required": {
+              "type": "boolean,",
+              "description": "If this field is required",
+              "example": true
+            },
+            "kind": {
+              "type": "string",
+              "description": "Kind of this field",
+              "example": "checkbox"
+            }
+          }
         }
       }
     },

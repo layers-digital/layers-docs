@@ -225,7 +225,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-24T18:47:00.217Z\""
+            "\"2020-07-29T19:50:00.226Z\""
           ],
           [
             "span",
@@ -255,7 +255,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-24T18:47:00.217Z\""
+            "\"2020-07-29T19:50:00.226Z\""
           ],
           [
             "span",
@@ -285,7 +285,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-24T18:47:00.217Z\""
+            "\"2020-07-29T19:50:00.226Z\""
           ],
           [
             "span",
@@ -813,7 +813,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-24T18:47:00.217Z\""
+            "\"2020-07-29T19:50:00.226Z\""
           ],
           [
             "span",
@@ -903,7 +903,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-24T18:47:00.217Z\""
+            "\"2020-07-29T19:50:00.226Z\""
           ],
           [
             "span",
@@ -1296,7 +1296,7 @@
             {
               "class": "token string"
             },
-            "\"2020-07-24T18:47:00.217Z\""
+            "\"2020-07-29T19:50:00.226Z\""
           ],
           [
             "span",
@@ -1566,7 +1566,275 @@
         "type": "array",
         "description": "Mensagens encontradas",
         "items": {
-          "$ref": "#/components/schemas/Ticket"
+          "title": "Ticket",
+          "type": "object",
+          "required": [
+            "subject",
+            "message",
+            "channel"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "ObjectId",
+              "description": "Identificador da mensagem",
+              "readOnly": true
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Data na qual a mensagem foi criada",
+              "readOnly": true
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Data da última edição da mensagem",
+              "readOnly": true
+            },
+            "interactedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Data da última interação com a mensagem",
+              "readOnly": true
+            },
+            "code": {
+              "type": "string",
+              "description": "Identificador sequencial da conversa",
+              "example": 12
+            },
+            "source": {
+              "type": "object",
+              "readOnly": true,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "ObjectId",
+                  "description": "Identificador da fonte da mensagem"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Tipo da fonte da mensagem",
+                  "example": "app"
+                },
+                "alias": {
+                  "type": "string",
+                  "description": "Identificador da fonte da mensagem na comunidade"
+                }
+              }
+            },
+            "author": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "ObjectId",
+                  "description": "Identificador do autor da mensagem",
+                  "readOnly": true
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "description": "E-mail do autor da mensagem",
+                  "readOnly": true
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nome do autor da mensagem",
+                  "example": "autor@email.com",
+                  "readOnly": true
+                }
+              }
+            },
+            "subject": {
+              "type": "string",
+              "description": "Assunto da conversa",
+              "example": "Revisão de provas"
+            },
+            "subjectHistory": {
+              "type": "array",
+              "readOnly": true,
+              "description": "Lista de assunto que a conversa já teve",
+              "items": {
+                "type": "string",
+                "description": "Assunto da conversa"
+              }
+            },
+            "message": {
+              "type": "string",
+              "description": "Texto da mensagem",
+              "example": "Boa tarde! Gostaria de saber o que errei na prova de português do dia 30/06. Obrigado!"
+            },
+            "status": {
+              "type": "string",
+              "description": "Situação da mensagem",
+              "example": "pending"
+            },
+            "statusN": {
+              "type": "number",
+              "description": "Representação numérica da situação da mensagem",
+              "example": 3,
+              "readOnly": true
+            },
+            "priority": {
+              "type": "string",
+              "description": "Descrição do nível de prioridade da mensagem",
+              "default": "normal",
+              "exmaple": "normal"
+            },
+            "finished": {
+              "type": "boolean",
+              "description": "Indica se a conversa foi encerrada",
+              "default": null
+            },
+            "finishedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Data e hora na qual a conversa foi fechada",
+              "readOnly": true,
+              "default": null
+            },
+            "durationTotal": {
+              "type": "number",
+              "format": "integer",
+              "description": "Duração total da conversa em segundos",
+              "readOnly": true,
+              "default": null
+            },
+            "durationEfective": {
+              "type": "number",
+              "format": "integer",
+              "description": "Duração total da conversa contando apenas horas de funcionamento do canal de atendimento",
+              "readOnly": true,
+              "default": null
+            },
+            "firstReplyAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Data e hora da primeira resposta",
+              "readOnly": true,
+              "default": null
+            },
+            "firstReplyDelayTotal": {
+              "type": "number",
+              "format": "integer",
+              "description": "Tempo até a primeira resposta em segundos",
+              "readOnly": true,
+              "default": null
+            },
+            "firstReplyDelayToalEffective": {
+              "type": "number",
+              "format": "integer",
+              "description": "Tempo até a primeira resposta contanto apenas horas de funcionamento do canal de atendimento",
+              "readOnly": true,
+              "default": null
+            },
+            "agent": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "ObjectId",
+                  "description": "Identificador do atendente"
+                },
+                "name": {
+                  "type": "string",
+                  "format": "ObjectId",
+                  "description": "Nome do atendente",
+                  "example": "Jorge Farias",
+                  "readOnly": true
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "description": "E-mail do atendente",
+                  "readOnly": true
+                }
+              }
+            },
+            "channel": {
+              "type": "object",
+              "required": "id",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "ObjectId",
+                  "description": "Identidicador do canal de atendimento"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nome do canal de atendimento",
+                  "example": "Pedagógico",
+                  "readOnly": true
+                },
+                "allowAudio": {
+                  "type": "boolean",
+                  "description": "Indica se o canal de atendimento aceita receber mensagens de áudio",
+                  "readOnly": true
+                }
+              }
+            },
+            "events": {
+              "type": "array",
+              "readOnly": true,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ticketId": {
+                    "type": "string",
+                    "format": "ObjectId",
+                    "description": "Identificador do último ticket com o mesmo code"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Data de criação da mensagem"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "note",
+                      "message"
+                    ],
+                    "description": "Indica se o ticket é uma mensagem ou uma nota interna"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Texto da mensagem",
+                    "example": "Bom dia!"
+                  },
+                  "author": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificador do autor"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome do autor",
+                        "example": "Joao Pedro Paulino"
+                      },
+                      "email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "E-mail do autor da mensagem"
+                      }
+                    }
+                  },
+                  "sender": {
+                    "type": "string",
+                    "description": "indica quem enviou a mensagem"
+                  }
+                }
+              }
+            }
+          },
+          "externalDocs": {
+            "description": "Entidade Ticket",
+            "url": "/docs/api/tickets/ticket/object"
+          }
         }
       }
     }
@@ -1648,7 +1916,275 @@
                     "type": "array",
                     "description": "Mensagens encontradas",
                     "items": {
-                      "$ref": "#/components/schemas/Ticket"
+                      "title": "Ticket",
+                      "type": "object",
+                      "required": [
+                        "subject",
+                        "message",
+                        "channel"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "ObjectId",
+                          "description": "Identificador da mensagem",
+                          "readOnly": true
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data na qual a mensagem foi criada",
+                          "readOnly": true
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data da última edição da mensagem",
+                          "readOnly": true
+                        },
+                        "interactedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data da última interação com a mensagem",
+                          "readOnly": true
+                        },
+                        "code": {
+                          "type": "string",
+                          "description": "Identificador sequencial da conversa",
+                          "example": 12
+                        },
+                        "source": {
+                          "type": "object",
+                          "readOnly": true,
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "ObjectId",
+                              "description": "Identificador da fonte da mensagem"
+                            },
+                            "type": {
+                              "type": "string",
+                              "description": "Tipo da fonte da mensagem",
+                              "example": "app"
+                            },
+                            "alias": {
+                              "type": "string",
+                              "description": "Identificador da fonte da mensagem na comunidade"
+                            }
+                          }
+                        },
+                        "author": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "ObjectId",
+                              "description": "Identificador do autor da mensagem",
+                              "readOnly": true
+                            },
+                            "email": {
+                              "type": "string",
+                              "format": "email",
+                              "description": "E-mail do autor da mensagem",
+                              "readOnly": true
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Nome do autor da mensagem",
+                              "example": "autor@email.com",
+                              "readOnly": true
+                            }
+                          }
+                        },
+                        "subject": {
+                          "type": "string",
+                          "description": "Assunto da conversa",
+                          "example": "Revisão de provas"
+                        },
+                        "subjectHistory": {
+                          "type": "array",
+                          "readOnly": true,
+                          "description": "Lista de assunto que a conversa já teve",
+                          "items": {
+                            "type": "string",
+                            "description": "Assunto da conversa"
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "Texto da mensagem",
+                          "example": "Boa tarde! Gostaria de saber o que errei na prova de português do dia 30/06. Obrigado!"
+                        },
+                        "status": {
+                          "type": "string",
+                          "description": "Situação da mensagem",
+                          "example": "pending"
+                        },
+                        "statusN": {
+                          "type": "number",
+                          "description": "Representação numérica da situação da mensagem",
+                          "example": 3,
+                          "readOnly": true
+                        },
+                        "priority": {
+                          "type": "string",
+                          "description": "Descrição do nível de prioridade da mensagem",
+                          "default": "normal",
+                          "exmaple": "normal"
+                        },
+                        "finished": {
+                          "type": "boolean",
+                          "description": "Indica se a conversa foi encerrada",
+                          "default": null
+                        },
+                        "finishedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data e hora na qual a conversa foi fechada",
+                          "readOnly": true,
+                          "default": null
+                        },
+                        "durationTotal": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "Duração total da conversa em segundos",
+                          "readOnly": true,
+                          "default": null
+                        },
+                        "durationEfective": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "Duração total da conversa contando apenas horas de funcionamento do canal de atendimento",
+                          "readOnly": true,
+                          "default": null
+                        },
+                        "firstReplyAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Data e hora da primeira resposta",
+                          "readOnly": true,
+                          "default": null
+                        },
+                        "firstReplyDelayTotal": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "Tempo até a primeira resposta em segundos",
+                          "readOnly": true,
+                          "default": null
+                        },
+                        "firstReplyDelayToalEffective": {
+                          "type": "number",
+                          "format": "integer",
+                          "description": "Tempo até a primeira resposta contanto apenas horas de funcionamento do canal de atendimento",
+                          "readOnly": true,
+                          "default": null
+                        },
+                        "agent": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "ObjectId",
+                              "description": "Identificador do atendente"
+                            },
+                            "name": {
+                              "type": "string",
+                              "format": "ObjectId",
+                              "description": "Nome do atendente",
+                              "example": "Jorge Farias",
+                              "readOnly": true
+                            },
+                            "email": {
+                              "type": "string",
+                              "format": "email",
+                              "description": "E-mail do atendente",
+                              "readOnly": true
+                            }
+                          }
+                        },
+                        "channel": {
+                          "type": "object",
+                          "required": "id",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "ObjectId",
+                              "description": "Identidicador do canal de atendimento"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Nome do canal de atendimento",
+                              "example": "Pedagógico",
+                              "readOnly": true
+                            },
+                            "allowAudio": {
+                              "type": "boolean",
+                              "description": "Indica se o canal de atendimento aceita receber mensagens de áudio",
+                              "readOnly": true
+                            }
+                          }
+                        },
+                        "events": {
+                          "type": "array",
+                          "readOnly": true,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "ticketId": {
+                                "type": "string",
+                                "format": "ObjectId",
+                                "description": "Identificador do último ticket com o mesmo code"
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Data de criação da mensagem"
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "note",
+                                  "message"
+                                ],
+                                "description": "Indica se o ticket é uma mensagem ou uma nota interna"
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Texto da mensagem",
+                                "example": "Bom dia!"
+                              },
+                              "author": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "format": "ObjectId",
+                                    "description": "Identificador do autor"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Nome do autor",
+                                    "example": "Joao Pedro Paulino"
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "format": "email",
+                                    "description": "E-mail do autor da mensagem"
+                                  }
+                                }
+                              },
+                              "sender": {
+                                "type": "string",
+                                "description": "indica quem enviou a mensagem"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "externalDocs": {
+                        "description": "Entidade Ticket",
+                        "url": "/docs/api/tickets/ticket/object"
+                      }
                     }
                   }
                 }

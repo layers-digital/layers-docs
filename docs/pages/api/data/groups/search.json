@@ -632,7 +632,97 @@
         "type": "array",
         "description": "Array contendo os resultados da busca ordenados pelos que mais se encaixam nos termos da busca",
         "items": {
-          "$ref": "#/components/schemas/Group"
+          "title": "Group",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "ObjectId",
+              "description": "identificador do documento do grupo",
+              "readOnly": true
+            },
+            "createdAt": {
+              "type": "string",
+              "description": "Data de criação do grupo em UTC corrigido para o fuso da comunidade",
+              "example": "2020-01-01T00:00:00.000Z",
+              "readOnly": true
+            },
+            "updatedAt": {
+              "type": "string",
+              "description": "Data da última modificação do grupo em UTC corrido para o fuso da comunidade",
+              "example": "2020-01-01T00:00:00.000Z",
+              "readOnly": true
+            },
+            "community": {
+              "type": "string",
+              "description": "Identificador da communidade do grupo",
+              "example": "test",
+              "readOnly": true
+            },
+            "name": {
+              "type": "string",
+              "description": "Nome do grupo",
+              "example": "Terceiro ano A",
+              "required": true
+            },
+            "tags": {
+              "type": "array",
+              "description": "tags às quais esse grupo pertence",
+              "required": false,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "Identificador do documento da tag"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Nome da tag",
+                    "example": "Ensino Fundamental"
+                  }
+                }
+              }
+            },
+            "admins": {
+              "type": "array",
+              "description": "administradores do grupo",
+              "required": false,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "active": {
+              "type": "boolean",
+              "description": "Chave que indica se o grupo está ativo (quando o grupo é apagado, essa chave é mudada para false)",
+              "example": true,
+              "required": false
+            },
+            "syncedAt": {
+              "type": "string",
+              "description": "data da última vez que esse grupo foi modificado pela rota /sync",
+              "example": "2020-03-01T00:00:00.000Z",
+              "readOnly": true
+            },
+            "season": {
+              "type": "string",
+              "description": "temporada à qual esse grupo pertence",
+              "example": "Ano letivo 2020",
+              "readOnly": true
+            }
+          },
+          "externalDocs": {
+            "description": "Entidade Group",
+            "url": "/docs/api/data/group/object"
+          }
         }
       }
     }
@@ -705,7 +795,97 @@
                     "type": "array",
                     "description": "Array contendo os resultados da busca ordenados pelos que mais se encaixam nos termos da busca",
                     "items": {
-                      "$ref": "#/components/schemas/Group"
+                      "title": "Group",
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "ObjectId",
+                          "description": "identificador do documento do grupo",
+                          "readOnly": true
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "description": "Data de criação do grupo em UTC corrigido para o fuso da comunidade",
+                          "example": "2020-01-01T00:00:00.000Z",
+                          "readOnly": true
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "description": "Data da última modificação do grupo em UTC corrido para o fuso da comunidade",
+                          "example": "2020-01-01T00:00:00.000Z",
+                          "readOnly": true
+                        },
+                        "community": {
+                          "type": "string",
+                          "description": "Identificador da communidade do grupo",
+                          "example": "test",
+                          "readOnly": true
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do grupo",
+                          "example": "Terceiro ano A",
+                          "required": true
+                        },
+                        "tags": {
+                          "type": "array",
+                          "description": "tags às quais esse grupo pertence",
+                          "required": false,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Identificador do documento da tag"
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Nome da tag",
+                                "example": "Ensino Fundamental"
+                              }
+                            }
+                          }
+                        },
+                        "admins": {
+                          "type": "array",
+                          "description": "administradores do grupo",
+                          "required": false,
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "user": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "active": {
+                          "type": "boolean",
+                          "description": "Chave que indica se o grupo está ativo (quando o grupo é apagado, essa chave é mudada para false)",
+                          "example": true,
+                          "required": false
+                        },
+                        "syncedAt": {
+                          "type": "string",
+                          "description": "data da última vez que esse grupo foi modificado pela rota /sync",
+                          "example": "2020-03-01T00:00:00.000Z",
+                          "readOnly": true
+                        },
+                        "season": {
+                          "type": "string",
+                          "description": "temporada à qual esse grupo pertence",
+                          "example": "Ano letivo 2020",
+                          "readOnly": true
+                        }
+                      },
+                      "externalDocs": {
+                        "description": "Entidade Group",
+                        "url": "/docs/api/data/group/object"
+                      }
                     }
                   }
                 }

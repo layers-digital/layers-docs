@@ -80,14 +80,16 @@ export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaO
           if(out.hasOwnProperty('$ref')){
             out = getRef(spec, out)
           }
+          // console.log(prev, out)
           const properties = Object.assign({}, prev.properties, out.properties)
           const required = prev.required + out.required
           
-          const result =  Object.assign(prev, normalizeObject(spec, out))
+          const result = Object.assign(prev, normalizeObject(spec, out))
           result.properties = properties
           result.required = required
           return result
         }, {})
+        // console.log(out)
       }
       if(out.anyOf){
         // console.log(out, 'anyOf')
@@ -98,20 +100,27 @@ export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaO
             Object.keys(object.properties).map(key => {
               switch(object.properties[key].type){
                 case 'object':
+                  // console.log(object)
                   parent.properties[key] = resolveArray(object.properties[key], object)
                   break
                 case 'array':
-                  if(object.properties[key].items.$ref){
+                  if(object.properties[key].items.hasOwnProperty('$ref')){
                     object.properties[key].items = getRef(spec, object.properties[key].items)
+                  }
+                  if(object.properties[key].items.hasOwnProperty('allOf')){
+                    object.properties[key].items = normalizeObject(spec, object.properties[key].items)
                   }
                   break
               }
             })
           }
           if(object.type == 'array'){
-            console.log(object)
+            // console.log(object)
             if(object.items.$ref){
               object.items = getRef(spec, object.items)
+            }
+            if(object.items.allOf){
+              object.items = normalizeObject(spec, object.items)
             }
           }
         } catch (e) {

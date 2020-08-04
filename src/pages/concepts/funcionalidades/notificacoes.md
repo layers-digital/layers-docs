@@ -8,6 +8,8 @@ tableOfContents: false
 
 # API de Notificações
 
-A API de notificações permite que apps enviem notificações push com título e texto de corpo personalizados por meio do Layers via web, android e mobile. Notificações podem ser enviadas para um único usuário bem como para um grupo de usuários do Layers especificado como público alvo. As notificações são então enviadas para todos os dispositivos com os quais o usuário está logado em sua conta atualmente sem que o app precise guardar informações desses dispositivos.
+A API de notificações permite que apps enviem notificações push com título e texto de corpo personalizados por meio do Layers sem que seja necessário guardar nenhuma informação de dispositivos. As notificações podem ser enviadas para um único usuário bem como para um grupo de usuários do Layers especificado como público alvo e serão recebidas tanto na web quanto nos dispositivos mobile que o usuário está logado.
 
-Para utilizar a api de notificações o app deve estar registrado no Layers, ter a funcionalidade API habilitada e possuir a permissão `notification:send`.
+## Rotas disponíveis e permissões
+
+Para utilizar a api de notificações o app deve estar registrado no Layers, ter a funcionalidade API habilitada e possuir a permissão `notification:send`. A rota de envio de notificações está descrita na [referência da API de notificações](./../../api/notifications/notication/send/post).

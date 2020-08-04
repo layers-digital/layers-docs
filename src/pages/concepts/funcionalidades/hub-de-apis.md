@@ -1,7 +1,7 @@
 ---
 template: default
 title: Hub de APIs
-tableOfContents: false
+tableOfContents: true
 # nextText: 'Environment Setup'
 # nextUrl: '/docs/guides/intro'
 ---
@@ -34,6 +34,6 @@ Ao receber a resposta do provedor, o Layers verifica se ela está de acordo com 
 
 A [referência do Hub de APIs](./../../api/apihub/@layerscalendargetrelated/post) tem descritas todas as actions suportadas hoje pela Layers descrevendo o formato de requisição que apps provedores devem receber e qual deve ser o formato da resposta devem retornar.
 
-Para cada uma dessas actions, está disponível um app desenvolvido pela Layers. Assim, apps provedores podem se responsabilizar apenas em disponibilizar as informações e nossos apps se responsabilizam por expôr essas informações da melhor maneira para os usuários da Layers.
+Para cada uma dessas actions, está disponível um app desenvolvido pela Layers que disponibiliza essas informações. Assim, apps provedores podem se responsabilizar apenas em disponibilizar as informações e nossos apps se responsabilizam por expôr essas informações da melhor maneira para os usuários da Layers.
 
 <!-- colocar cards de cada uma das actions disponíveis? -->

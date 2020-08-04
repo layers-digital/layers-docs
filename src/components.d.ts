@@ -109,12 +109,18 @@ export namespace Components {
   interface DocsNav {
     'items': MenuItems;
   }
+  interface DocsOpenapiAuthentication {
+    'security': any;
+  }
   interface DocsOpenapiExample {
     'indents': number;
     'node'?: AcessorNode;
     'operation': OperationType;
     'path': string;
     'spec': OpenAPIObject;
+  }
+  interface DocsOpenapiParameters {
+    'parameters': any[];
   }
   interface DocsOpenapiSchema {
     'hideReadOnly': boolean;
@@ -317,10 +323,22 @@ declare global {
     new (): HTMLDocsNavElement;
   };
 
+  interface HTMLDocsOpenapiAuthenticationElement extends Components.DocsOpenapiAuthentication, HTMLStencilElement {}
+  var HTMLDocsOpenapiAuthenticationElement: {
+    prototype: HTMLDocsOpenapiAuthenticationElement;
+    new (): HTMLDocsOpenapiAuthenticationElement;
+  };
+
   interface HTMLDocsOpenapiExampleElement extends Components.DocsOpenapiExample, HTMLStencilElement {}
   var HTMLDocsOpenapiExampleElement: {
     prototype: HTMLDocsOpenapiExampleElement;
     new (): HTMLDocsOpenapiExampleElement;
+  };
+
+  interface HTMLDocsOpenapiParametersElement extends Components.DocsOpenapiParameters, HTMLStencilElement {}
+  var HTMLDocsOpenapiParametersElement: {
+    prototype: HTMLDocsOpenapiParametersElement;
+    new (): HTMLDocsOpenapiParametersElement;
   };
 
   interface HTMLDocsOpenapiSchemaElement extends Components.DocsOpenapiSchema, HTMLStencilElement {}
@@ -446,7 +464,9 @@ declare global {
     'docs-menu-collapsible': HTMLDocsMenuCollapsibleElement;
     'docs-menu-toggle': HTMLDocsMenuToggleElement;
     'docs-nav': HTMLDocsNavElement;
+    'docs-openapi-authentication': HTMLDocsOpenapiAuthenticationElement;
     'docs-openapi-example': HTMLDocsOpenapiExampleElement;
+    'docs-openapi-parameters': HTMLDocsOpenapiParametersElement;
     'docs-openapi-schema': HTMLDocsOpenapiSchemaElement;
     'docs-openapi-schema-nested': HTMLDocsOpenapiSchemaNestedElement;
     'docs-page': HTMLDocsPageElement;
@@ -542,12 +562,18 @@ declare namespace LocalJSX {
   interface DocsNav {
     'items'?: MenuItems;
   }
+  interface DocsOpenapiAuthentication {
+    'security'?: any;
+  }
   interface DocsOpenapiExample {
     'indents'?: number;
     'node'?: AcessorNode;
     'operation'?: OperationType;
     'path'?: string;
     'spec'?: OpenAPIObject;
+  }
+  interface DocsOpenapiParameters {
+    'parameters'?: any[];
   }
   interface DocsOpenapiSchema {
     'hideReadOnly'?: boolean;
@@ -644,7 +670,9 @@ declare namespace LocalJSX {
     'docs-menu-collapsible': DocsMenuCollapsible;
     'docs-menu-toggle': DocsMenuToggle;
     'docs-nav': DocsNav;
+    'docs-openapi-authentication': DocsOpenapiAuthentication;
     'docs-openapi-example': DocsOpenapiExample;
+    'docs-openapi-parameters': DocsOpenapiParameters;
     'docs-openapi-schema': DocsOpenapiSchema;
     'docs-openapi-schema-nested': DocsOpenapiSchemaNested;
     'docs-page': DocsPage;
@@ -692,7 +720,9 @@ declare module "@stencil/core" {
       'docs-menu-collapsible': LocalJSX.DocsMenuCollapsible & JSXBase.HTMLAttributes<HTMLDocsMenuCollapsibleElement>;
       'docs-menu-toggle': LocalJSX.DocsMenuToggle & JSXBase.HTMLAttributes<HTMLDocsMenuToggleElement>;
       'docs-nav': LocalJSX.DocsNav & JSXBase.HTMLAttributes<HTMLDocsNavElement>;
+      'docs-openapi-authentication': LocalJSX.DocsOpenapiAuthentication & JSXBase.HTMLAttributes<HTMLDocsOpenapiAuthenticationElement>;
       'docs-openapi-example': LocalJSX.DocsOpenapiExample & JSXBase.HTMLAttributes<HTMLDocsOpenapiExampleElement>;
+      'docs-openapi-parameters': LocalJSX.DocsOpenapiParameters & JSXBase.HTMLAttributes<HTMLDocsOpenapiParametersElement>;
       'docs-openapi-schema': LocalJSX.DocsOpenapiSchema & JSXBase.HTMLAttributes<HTMLDocsOpenapiSchemaElement>;
       'docs-openapi-schema-nested': LocalJSX.DocsOpenapiSchemaNested & JSXBase.HTMLAttributes<HTMLDocsOpenapiSchemaNestedElement>;
       'docs-page': LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;

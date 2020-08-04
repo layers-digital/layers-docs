@@ -5,6 +5,7 @@ import ApiServices from "../../../data/api-services.json";
 import { OpenAPIObject } from "openapi3-ts";
 import { normalizeObject, OperationType } from "../../openapi/util";
 
+
 export default (props) => {
   const { page } = props;
 
@@ -47,10 +48,18 @@ export default (props) => {
     <article>
       <h1>{page.title}</h1>
       <span class="Nav-tag purple large">{"{...}"}</span>
-
+      
       <section class="markdown-content">{toHypertext(h, page.body)}</section>
 
       {toHypertext(h, page.example)}
+
+      <docs-openapi-authentication
+        security={PathSpec.security}
+      />
+      
+      {PathSpec.parameters && <docs-openapi-parameters
+        parameters={ PathSpec.parameters.map((parameter)=>normalizeObject(service, parameter)) }
+      />}
 
       {Object.keys(requestBody.schema).length > 0 ? 
       <section class="Api-two-column">

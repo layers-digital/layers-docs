@@ -20,7 +20,9 @@ export class DocsOpenapiPermissions{
   render(){
     return (
       <div>
-        <h3>Autenticação</h3>
+        <h2 id="authentication">
+          <a href="#authentication">Autenticação</a>
+        </h2>
 
         {this.resolveType(this.security[0])}        
         

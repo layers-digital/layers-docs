@@ -11,7 +11,9 @@ export class DocsOpenapiParameters {
   render(){
     return (
       <div>
-        <h3>Parâmetros</h3>
+        <h2 id="parameters">
+          <a href="#parameters">Parâmetros</a>
+        </h2>
         <ul class="parameters-container">
           {this.parameters.map((parameter) => parameter.name ?
             <li class="parameter">

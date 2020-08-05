@@ -14,22 +14,25 @@
 <style sty-id="sc-docs-select">.Select{cursor:pointer;display:inline-block;font-weight:500}.Select .Dropdown-button{-ms-flex-align:center;align-items:center;border:1px solid #dee3ea;border-radius:6px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:justify;justify-content:space-between;min-width:100px;padding:.5em 1em}.Select .Dropdown-panel{padding:.5em 0}.Select .Dropdown-arrow{margin-left:.5em}.Select-option{--bg-alpha:0;background-color:rgba(0,0,0,var(--bg-alpha));padding:.5em 1.5em}.Select-option:focus{--bg-alpha:0.025;outline:none}.Select-option--selected{--bg-alpha:0.05}.Select-option--selected:focus{--bg-alpha:0.075}@media (hover:hover){.Select-option:hover{--bg-alpha:0.025}.Select-option--selected:hover{--bg-alpha:0.075}}</style>
 <style sty-id="sc-docs-page">docs-page{display:grid;font-size:16px;grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr;line-height:2;margin-left:var(--page-margin-left);margin-top:var(--header-height);overflow-x:hidden;-webkit-transform:var(--page-transform,none);transform:var(--page-transform,none);-webkit-transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1),-webkit-transform .2s cubic-bezier(.2,1,.2,1)}@media (min-width:1234px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 3fr}}@media (min-width:1800px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr 240px}}docs-page>main{grid-column:2;margin-bottom:3rem;padding:var(--page-padding,2rem 3rem);position:relative}docs-page docs-demo{margin-right:auto}docs-page docs-pagination{grid-column:1/-1}docs-page .full-screen{grid-column:1/-1;height:calc(100vh - var(--header-height));margin-bottom:0;overflow:hidden;padding:0}docs-page .page-heading-encapsulation{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em;float:right}docs-page .page-heading-encapsulation:hover{border-color:#92a1b3}docs-page h1{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;margin-top:2rem;margin-bottom:1rem}docs-page h2 a[href^="#"],docs-page h3 a[href^="#"],docs-page h4 a[href^="#"],docs-page h5 a[href^="#"],docs-page h6 a[href^="#"]{color:inherit;position:relative}docs-page h2 a[href^="#"]:before,docs-page h3 a[href^="#"]:before,docs-page h4 a[href^="#"]:before,docs-page h5 a[href^="#"]:before,docs-page h6 a[href^="#"]:before{content:"#";opacity:0;padding-right:1px;position:absolute;right:100%;-webkit-transition:opacity .1s ease;transition:opacity .1s ease}docs-page h2 a[href^="#"]:hover:before,docs-page h2 a[href^="#"]:target:before,docs-page h3 a[href^="#"]:hover:before,docs-page h3 a[href^="#"]:target:before,docs-page h4 a[href^="#"]:hover:before,docs-page h4 a[href^="#"]:target:before,docs-page h5 a[href^="#"]:hover:before,docs-page h5 a[href^="#"]:target:before,docs-page h6 a[href^="#"]:hover:before,docs-page h6 a[href^="#"]:target:before{opacity:1}docs-page h2 code,docs-page h3 code,docs-page h4 code,docs-page h5 code,docs-page h6 code{background:none;font-size:inherit}docs-page aside{float:right;margin-left:20px;margin-bottom:20px}@media (min-width:1234px){docs-page main.no-demo .page-meta:not(.always-below){position:fixed;right:0;top:100px;width:240px;-webkit-transition:transform .2s ease;transition:transform .2s ease}docs-header.hidden~stencil-route docs-page main.no-demo .page-meta:not(.always-below){-webkit-transform:translateY(-60px);transform:translateY(-60px)}}docs-page main.has-demo .page-meta internal-ad{display:none}.Error{-ms-flex-align:center;align-items:center;background-color:var(--offset-background);color:var(--text-color--light);display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;line-height:1;white-space:nowrap}.Error.full-screen{padding-bottom:3rem}.Error>*{margin:10px}.Error div,.Error h1{color:inherit;font-size:3rem}.Error div{text-shadow:3px 3px 3px rgba(0,0,0,.1)}.Error p{font-size:18px}docs-page.api-route,docs-page.api-schema{--page-width:1040px}docs-page.api-schema docs-code[language=json] pre{max-height:calc(100vh - 150px);padding:1em}.Api-two-column{display:grid;grid-gap:32px;grid-template-columns:repeat(auto-fill,minmax(400px,1fr))}docs-page .page-heading-tag{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em}docs-page .page-heading-tag:hover{border-color:#92a1b3}</style>
 <style sty-id="sc-docs-code">docs-code{display:block;position:relative}docs-code:before{color:#bdc5d1;content:attr(language);font-family:var(--code-font-family);font-size:10px;letter-spacing:.05em;line-height:1;padding:.75em;position:absolute;right:0;text-transform:uppercase;top:0}docs-code[language=shell] pre{white-space:pre-wrap}.code-text__copy{position:absolute;right:0;top:-1.6rem;height:20px}.code-text__copy-confirmation,.code-text__copy-link{padding:4px 5px;font-size:12px;line-height:12px;font-weight:600;position:absolute;right:0;top:0}.code-text__copy-link{-webkit-transition:opacity .2s,color .2s,-webkit-transform .2s;transition:opacity .2s,color .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s,color .2s;transition:transform .2s,opacity .2s,color .2s,-webkit-transform .2s;color:#70a4ff;background-color:#e0eeff;border-radius:4px;display:inline-block;cursor:pointer;opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0);z-index:5}.code-text__copy-link:hover{color:var(--blue)}.code-text__copy-confirmation{-webkit-transition:opacity .2s,-webkit-transform .2s;transition:opacity .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s;transition:transform .2s,opacity .2s,-webkit-transform .2s;color:#0ec254;opacity:0;-webkit-transform:translate3d(0,5px,0);transform:translate3d(0,5px,0);z-index:1;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;height:20px;padding:0}.code-text__copy-confirmation svg{fill:#0ec254;margin-right:-4px}.show-confirmation .code-text__copy-link{opacity:0;-webkit-transform:translate3d(0,-5px,0);transform:translate3d(0,-5px,0);pointer-events:none}.show-confirmation .code-text__copy-confirmation{opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0)}docs-code[language=shell]>pre{background-color:var(--text-color--dark);border-radius:7px}docs-code[language=shell]:before{display:none}docs-code[language=shell] code{color:hsla(0,0%,100%,.7);font-size:13px}docs-code[language=shell] .token{color:inherit}docs-code[language=shell] .token.prompt{color:#fb96f9;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=shell] .token.comment{color:hsla(0,0%,100%,.45)}docs-code[language=http]>pre{border-radius:7px;padding:0 2em 0 0;background:#fafafa;-webkit-box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1);box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1)}docs-code[language=http]:before{display:none}docs-code[language=http] code{color:rgba(0,0,0,.7);font-size:13px}docs-code[language=http] .token{color:inherit}docs-code[language=http] .method>.token{--color:119,161,250;display:inline-block;padding:1em;font-weight:700;color:rgb(var(--color));background-color:rgba(var(--color),.15);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=http] .method .delete{--color:var(--api-red)}docs-code[language=http] .method .put{--color:var(--api-yellow)}docs-code[language=http] .method .post{--color:var(--api-blue)}docs-code[language=http] .method .get{--color:var(--api-green)}docs-code[language=http] .token.schema{color:rgba(0,0,0,.4)}docs-code[language=http] .token.host{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path{color:#1e90ff}docs-code[language=http] .token.path .version{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path .param{color:#42b983}docs-code[language=http] .token.query .separator{color:#a9a9a9}docs-code[language=http] .token.query .param{color:#8454ff}docs-code[language=http] .token.query .param .key{font-weight:700}docs-code[language=http] .token.query .param .value{color:#42b983}docs-code[language=http] .token.query .param .value .number{color:#4caf50;font-weight:700}code[class*=language-],pre[class*=language-]{text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;color:#90a4ae;background:#fafafa;font-family:Roboto Mono,monospace;font-size:1em;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{background:#cceae7;color:#263238}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{white-space:normal;border-radius:.2em;padding:.1em}pre[class*=language-]{overflow:auto;position:relative;margin:.5em 0;padding:1.25em 1em}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#8d45d4}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}</style>
+<style sty-id="sc-docs-openapi-parameters">docs-openapi-parameters{display:block;font-family:var(--font-family)}.parameters-container{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;padding:0}.parameter{list-style:none;margin:2px;border-bottom:1px solid var(--api-gray100)}.column-grow{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;-ms-flex-direction:column;flex-direction:column}.column{display:inline}.row-grow{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;-ms-flex-direction:row;flex-direction:row}.row{display:inline;margin-right:.3em;padding-bottom:0}.parameter-label-required{color:rgb(var(--api-orange));font-weight:700}.parameter-name{color:var(--api-gray1000);font-weight:700}.parameter-description{color:var(--api-gray500)}</style>
 <style sty-id="sc-docs-openapi-schema-nested">.Api-nested-section{-webkit-box-shadow:0 0 0 1px var(--api-gray100);box-shadow:0 0 0 1px var(--api-gray100);border-radius:12px;width:-webkit-min-content;width:-moz-min-content;width:min-content;margin-top:8px;margin-bottom:4px}.Api-nested-section.active{width:100%}.Api-nested-toggle-btn{cursor:pointer;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;background:none;border:none;width:100%;text-align:left;border-radius:12px;line-height:100%;white-space:pre;font-family:var(--font-family);font-size:13px;padding-right:12px;height:26px;--color-bg:transparent;background-color:var(--color-bg);--color:var(--api-gray400);color:var(--color)}.Api-nested-toggle-btn>.icon{width:14px;height:14px;-webkit-transition:-webkit-transform .2s ease-in-out;transition:-webkit-transform .2s ease-in-out;transition:transform .2s ease-in-out;transition:transform .2s ease-in-out,-webkit-transform .2s ease-in-out;fill:var(--color)}.Api-nested-toggle-btn>.text{padding-top:2px;margin-left:4px}.Api-nested-section.active>.Api-nested-toggle-btn{border-radius:12px 12px 0 0}.Api-nested-section.active>.Api-nested-toggle-btn,.Api-nested-section:hover>.Api-nested-toggle-btn{--color-bg:rgba(0,0,0,0.02);--color:var(--api-gray500)}.Api-nested-section.active>.Api-nested-toggle-btn>.icon{-webkit-transform:rotate(45deg);transform:rotate(45deg)}.Api-nested-toggle-btn:focus{outline:none}.Api-nested-section .Api-property-list-item{padding-left:16px;padding-right:16px}.Api-nested-section.active>docs-openapi-schema{border-top:1px solid var(--api-gray100)}</style>
 <style sty-id="sc-docs-page-footer">docs-page-footer{margin-top:6rem}docs-page-footer contributor-list{margin-right:.5em}docs-page-footer .last-updated{color:var(--text-color--light);font-weight:400;margin-left:auto;text-decoration:underline}docs-page-footer .page-footer__row{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;font-size:12px;margin-top:2rem}</style>
 <style sty-id="sc-docs-openapi-schema">docs-openapi-schema,docs-openapi-schema-nested{display:block}.Api-property-spec{margin:0;padding:0;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:baseline;align-items:baseline}.Api-property-name{color:var(--api-gray1000)!important;font-size:13px;font-family:var(--font-family);font-weight:600;letter-spacing:.04em;-webkit-transition:color .2s;transition:color .2s}.Api-property-name-ancestor{color:var(--api-gray400);font-weight:400}.Api-property-name:target{color:rgb(var(--api-purple))!important}.Api-property-name:target .Api-property-name-ancestor{color:inherit}.Api-property-description{font-size:12px;color:var(--api-gray500);margin:4px 0 0 0;line-height:1.2em}.Api-property-list{margin:0;padding:0;list-style:none}.Api-property-list-item{padding:12px 0}.Api-property-list-item:not(:first-child){border-top:1px solid var(--api-gray100)}.Api-label{position:relative;font-size:12px;font-weight:500;margin-left:6px}.Api-label-optional{color:var(--api-gray300)}.Api-label-required{color:rgb(var(--api-orange));font-weight:700}.Api-label-type{color:rgb(var(--api-gray400));font-weight:500}.Api-label-option{font-size:10px;border-bottom:1px dotted var(--api-gray300);font-weight:600;color:rgb(var(--api-purple));cursor:pointer}.Api-label-tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;-webkit-transform:translateX(calc(-50%));transform:translateX(calc(-50%));padding:1em;background:#fff;border-radius:4px;-webkit-box-shadow:0 2px 4px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.05);box-shadow:0 2px 4px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.05);max-width:200px;word-break:break-word;width:-webkit-max-content;width:-moz-max-content;width:max-content;line-height:1.3em}.Api-label-tooltip>code{white-space:pre;color:rgb(var(--api-purple));background-color:rgba(var(--api-purple),.1);margin:2px;display:inline-block}.Api-label:hover>.Api-label-tooltip{display:block}.Api-flex-grow{-ms-flex:auto 1 0px;flex:auto 1 0}</style>
-<link rel=modulepreload href="/docs/build/p-yotvsmnt.js">
+<link rel=modulepreload href="/docs/build/p-khqldkdu.js">
 <link rel=modulepreload href="/docs/build/p-00bea6bd.js">
 <link rel=modulepreload href="/docs/build/p-43f818cb.js">
 <link rel=modulepreload href="/docs/build/p-72181234.js">
 <link rel=modulepreload href="/docs/build/p-9a5c5e68.js">
-<link rel=modulepreload href="/docs/build/p-ded4ythr.entry.js">
 <link rel=modulepreload href="/docs/build/p-e35a9f40.js">
+<link rel=modulepreload href="/docs/build/p-iddsvnke.entry.js">
 <link rel=modulepreload href="/docs/build/p-f1phrwuc.entry.js">
+<link rel=modulepreload href="/docs/build/p-bqsaz8bm.entry.js">
+<link rel=modulepreload href="/docs/build/p-ocv7bjsr.entry.js">
 <link rel=modulepreload href="/docs/build/p-f2gjol8c.entry.js">
 <link rel=modulepreload href="/docs/build/p-hnkhxqe6.entry.js">
 <link rel=modulepreload href="/docs/build/p-chzxca5a.entry.js">
 <link rel=modulepreload href="/docs/build/p-7lyjdnhq.entry.js">
-<script type=module src="/docs/build/p-yotvsmnt.js" data-resources-url="/docs/build/"
+<script type=module src="/docs/build/p-khqldkdu.js" data-resources-url="/docs/build/"
 data-stencil-namespace=app></script>
 <script nomodule src="/docs/build/app.js"></script>
 <link rel=stylesheet href="/docs/build/p-jcvvpgow.css">
@@ -204,67 +207,81 @@ class="token param" c-id=42.26.7.2><!--t.42.27.8.0-->{postId}</span></span></cod
 <div class="code-text__copy" c-id=43.0.0.0><a class="code-text__copy-link" c-id=43.1.1.0><!--t.43.2.2.0-->Copiar</a><span
 class="code-text__copy-confirmation" c-id=43.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=43.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=43.5.3.0></path></svg><!--t.43.6.2.1-->Copiado</span></div></docs-code></div><section class="Api-two-column"
-c-id=42.29.2.4><section c-id=42.30.3.0><h2 id=schema c-id=42.31.4.0><a href=#schema c-id=42.32.5.0><!--t.42.33.6.0-->Especificação</a></h2><docs-openapi-schema-nested
-class=hydrated c-id=42.34.4.1 s-id=44><!--r.44--><section class="Api-nested-section active" c-id=44.0.0.0><button
-class="Api-nested-toggle-btn" c-id=44.1.1.0><span class=text c-id=44.2.2.0><!--t.44.3.3.0-->Resposta</span></button><docs-openapi-schema
-class=hydrated c-id=44.4.1.1 s-id=45><!--r.45--><ul class="Api-property-list" c-id=45.0.0.0><li class="Api-property-list-item"
-c-id=45.1.1.0><h3 class="Api-property-spec" c-id=45.2.2.0><a class="Api-property-name" href=#Resposta.id
-id=Resposta.id c-id=45.3.3.0><!--t.45.4.4.0-->id</a><span class="Api-flex-grow" c-id=45.5.3.1></span><span
-class="Api-label Api-label-type" c-id=45.6.3.2><!--t.45.7.4.0-->ObjectId</span></h3><p class="Api-property-description"
-c-id=45.8.2.1><!--t.45.9.3.0-->Identificador do documento da publicação</p></li><li class="Api-property-list-item"
-c-id=45.10.1.1><h3 class="Api-property-spec" c-id=45.11.2.0><a class="Api-property-name" href=#Resposta.createdAt
-id=Resposta.createdAt c-id=45.12.3.0><!--t.45.13.4.0-->createdAt</a><span class="Api-flex-grow" c-id=45.14.3.1></span><span
-class="Api-label Api-label-type" c-id=45.15.3.2><!--t.45.16.4.0-->Date-time</span></h3><p class="Api-property-description"
-c-id=45.17.2.1><!--t.45.18.3.0-->Data de criação da publicação</p></li><li class="Api-property-list-item"
-c-id=45.19.1.2><h3 class="Api-property-spec" c-id=45.20.2.0><a class="Api-property-name" href=#Resposta.updatedAt
-id=Resposta.updatedAt c-id=45.21.3.0><!--t.45.22.4.0-->updatedAt</a><span class="Api-flex-grow" c-id=45.23.3.1></span><span
-class="Api-label Api-label-type" c-id=45.24.3.2><!--t.45.25.4.0-->Date-time</span></h3><p class="Api-property-description"
-c-id=45.26.2.1><!--t.45.27.3.0-->Data da ultima edição da publicação</p></li><li class="Api-property-list-item"
-c-id=45.28.1.3><h3 class="Api-property-spec" c-id=45.29.2.0><a class="Api-property-name" href=#Resposta.type
-id=Resposta.type c-id=45.30.3.0><!--t.45.31.4.0-->type</a><span class="Api-flex-grow" c-id=45.32.3.1></span><span
-class="Api-label Api-label-type" c-id=45.33.3.2><!--t.45.34.4.0-->String</span><span class="Api-label Api-label-required"
-c-id=45.35.3.3><!--t.45.36.4.0-->obrigatório</span></h3><p class="Api-property-description" c-id=45.37.2.1><!--t.45.38.3.0-->Tipo da publicação</p></li><li
-class="Api-property-list-item" c-id=45.39.1.4><h3 class="Api-property-spec" c-id=45.40.2.0><a class="Api-property-name"
-href=#Resposta.title id=Resposta.title c-id=45.41.3.0><!--t.45.42.4.0-->title</a><span class="Api-flex-grow"
-c-id=45.43.3.1></span><span class="Api-label Api-label-type" c-id=45.44.3.2><!--t.45.45.4.0-->String</span><span
-class="Api-label Api-label-required" c-id=45.46.3.3><!--t.45.47.4.0-->obrigatório</span></h3><p class="Api-property-description"
-c-id=45.48.2.1><!--t.45.49.3.0-->Título da publicação</p></li><li class="Api-property-list-item" c-id=45.50.1.5><h3
-class="Api-property-spec" c-id=45.51.2.0><a class="Api-property-name" href=#Resposta.text id=Resposta.text
-c-id=45.52.3.0><!--t.45.53.4.0-->text</a><span class="Api-flex-grow" c-id=45.54.3.1></span><span class="Api-label Api-label-type"
-c-id=45.55.3.2><!--t.45.56.4.0-->String</span><span class="Api-label Api-label-required" c-id=45.57.3.3><!--t.45.58.4.0-->obrigatório</span></h3><p
-class="Api-property-description" c-id=45.59.2.1><!--t.45.60.3.0-->Texto de corpo da publicação</p></li><li
-class="Api-property-list-item" c-id=45.61.1.6><h3 class="Api-property-spec" c-id=45.62.2.0><a class="Api-property-name"
-href=#Resposta.targets id=Resposta.targets c-id=45.63.3.0><!--t.45.64.4.0-->targets</a><span class="Api-flex-grow"
-c-id=45.65.3.1></span><span class="Api-label Api-label-type" c-id=45.66.3.2><!--t.45.67.4.0-->[ ]</span><span
-class="Api-label Api-label-required" c-id=45.68.3.3><!--t.45.69.4.0-->obrigatório</span></h3><p class="Api-property-description"
-c-id=45.70.2.1><!--t.45.71.3.0-->Público alvo da publicação</p></li><li class="Api-property-list-item"
-c-id=45.72.1.7><h3 class="Api-property-spec" c-id=45.73.2.0><a class="Api-property-name" href=#Resposta.roles
-id=Resposta.roles c-id=45.74.3.0><!--t.45.75.4.0-->roles</a><span class="Api-flex-grow" c-id=45.76.3.1></span><span
-class="Api-label Api-label-type" c-id=45.77.3.2><!--t.45.78.4.0-->Array</span><span class="Api-label Api-label-required"
-c-id=45.79.3.3><!--t.45.80.4.0-->obrigatório</span></h3><p class="Api-property-description" c-id=45.81.2.1><!--t.45.82.3.0-->Perfís de usuários no público alvo que poderão ver essa publicação.</p></li><li
-class="Api-property-list-item" c-id=45.83.1.8><h3 class="Api-property-spec" c-id=45.84.2.0><a class="Api-property-name"
-href=#Resposta.viewAt id=Resposta.viewAt c-id=45.85.3.0><!--t.45.86.4.0-->viewAt</a><span class="Api-flex-grow"
-c-id=45.87.3.1></span><span class="Api-label Api-label-type" c-id=45.88.3.2><!--t.45.89.4.0-->String</span></h3><p
-class="Api-property-description" c-id=45.90.2.1><!--t.45.91.3.0-->Data quando a publicação deve ser vista.</p></li><li
-class="Api-property-list-item" c-id=45.92.1.9><h3 class="Api-property-spec" c-id=45.93.2.0><a class="Api-property-name"
-href=#Resposta.date id=Resposta.date c-id=45.94.3.0><!--t.45.95.4.0-->date</a><span class="Api-flex-grow"
-c-id=45.96.3.1></span><span class="Api-label Api-label-type" c-id=45.97.3.2><!--t.45.98.4.0-->Date-time</span><span
-class="Api-label Api-label-required" c-id=45.99.3.3><!--t.45.100.4.0-->obrigatório</span></h3><p class="Api-property-description"
-c-id=45.101.2.1><!--t.45.102.3.0-->Data do evento</p></li><li class="Api-property-list-item" c-id=45.103.1.10><h3
-class="Api-property-spec" c-id=45.104.2.0><a class="Api-property-name" href=#Resposta.event id=Resposta.event
-c-id=45.105.3.0><!--t.45.106.4.0-->event</a><span class="Api-flex-grow" c-id=45.107.3.1></span><span
-class="Api-label Api-label-type" c-id=45.108.3.2><!--t.45.109.4.0-->Object</span><span class="Api-label Api-label-required"
-c-id=45.110.3.3><!--t.45.111.4.0-->obrigatório</span></h3><docs-openapi-schema-nested class=hydrated
-c-id=45.112.2.1 s-id=46><!--r.46--><section class="Api-nested-section" c-id=46.0.0.0><button class="Api-nested-toggle-btn"
-c-id=46.1.1.0><svg viewBox="0 0 24 24" class=icon c-id=46.2.2.0><path d="M19 11H13V5C13 4.73478 12.8946 4.48043 12.7071 4.29289C12.5196 4.10536 12.2652 4 12 4C11.7348 4 11.4804 4.10536 11.2929 4.29289C11.1054 4.48043 11 4.73478 11 5V11H5C4.73478 11 4.48043 11.1054 4.29289 11.2929C4.10536 11.4804 4 11.7348 4 12C4 12.2652 4.10536 12.5196 4.29289 12.7071C4.48043 12.8946 4.73478 13 5 13H11V19C11 19.2652 11.1054 19.5196 11.2929 19.7071C11.4804 19.8946 11.7348 20 12 20C12.2652 20 12.5196 19.8946 12.7071 19.7071C12.8946 19.5196 13 19.2652 13 19V13H19C19.2652 13 19.5196 12.8946 19.7071 12.7071C19.8946 12.5196 20 12.2652 20 12C20 11.7348 19.8946 11.4804 19.7071 11.2929C19.5196 11.1054 19.2652 11 19 11Z"
-c-id=46.3.3.0></path></svg><span class=text c-id=46.4.2.1><!--t.46.5.3.0-->Mostrar 2 propriedades</span></button></section></docs-openapi-schema-nested></li></ul></docs-openapi-schema></section></docs-openapi-schema-nested></section><section
-c-id=42.35.3.1><h2 id=example c-id=42.36.4.0><a href=#example c-id=42.37.5.0><!--t.42.38.6.0-->Exemplo</a></h2><docs-openapi-example
-class=hydrated c-id=42.39.4.1 s-id=47><!--r.47--><docs-code class="api-example hydrated" c-id=47.0.0.0
-s-id=48><!--r.48--><pre c-id=47.1.1.0><code c-id=47.2.2.0><!--t.47.3.3.0-->{
+c-id=43.5.3.0></path></svg><!--t.43.6.2.1-->Copiado</span></div></docs-code></div><docs-openapi-authentication
+class=hydrated c-id=42.29.2.4 s-id=44><!--r.44--><div c-id=44.0.0.0><h3 c-id=44.1.1.0><!--t.44.2.2.0-->Autenticação</h3><div
+c-id=44.3.1.1><!--t.44.4.2.0-->Autenticação do tipo <strong c-id=44.5.2.1><!--t.44.6.3.0-->Token Bearer</strong><!--t.44.7.2.2--> é necessária para acessar essa rota. O app deve estar cadastrado para usar a API com a permissão
+<code
+c-id=44.8.2.3><!--t.44.9.3.0-->user:write</code></div></div></docs-openapi-authentication><docs-openapi-parameters
+class=hydrated c-id=42.30.2.5 s-id=45><!--r.45--><div c-id=45.0.0.0><h3 c-id=45.1.1.0><!--t.45.2.2.0-->Parâmetros</h3><ul
+class="parameters-container" c-id=45.3.1.1><li class=parameter c-id=45.4.2.0><div class="column-grow"
+c-id=45.5.3.0><div class="row-grow" c-id=45.6.4.0><div class="row parameter-name" c-id=45.7.5.0><!--t.45.8.6.0-->community-id</div><div
+class=row c-id=45.9.5.1><!--t.45.10.6.0-->(header)</div><div class="row parameter-label-required" c-id=45.11.5.2><!--t.45.12.6.0-->obrigatório</div></div><div
+class="row-grow parameter-description" c-id=45.13.4.1><!--t.45.14.5.0-->Identificador da comunidade</div></div></li><li
+class=parameter c-id=45.15.2.1><div class="column-grow" c-id=45.16.3.0><div class="row-grow" c-id=45.17.4.0><div
+class="row parameter-name" c-id=45.18.5.0><!--t.45.19.6.0-->postId</div><div class=row c-id=45.20.5.1><!--t.45.21.6.0-->(path)</div><div
+class="row parameter-label-required" c-id=45.22.5.2><!--t.45.23.6.0-->obrigatório</div></div><div class="row-grow parameter-description"
+c-id=45.24.4.1><!--t.45.25.5.0-->Identificador da publicação</div></div></li></ul></div></docs-openapi-parameters><section
+class="Api-two-column" c-id=42.31.2.6><section c-id=42.32.3.0><h2 id=schema c-id=42.33.4.0><a href=#schema
+c-id=42.34.5.0><!--t.42.35.6.0-->Especificação</a></h2><docs-openapi-schema-nested class=hydrated c-id=42.36.4.1
+s-id=46><!--r.46--><section class="Api-nested-section active" c-id=46.0.0.0><button class="Api-nested-toggle-btn"
+c-id=46.1.1.0><span class=text c-id=46.2.2.0><!--t.46.3.3.0-->Resposta</span></button><docs-openapi-schema
+class=hydrated c-id=46.4.1.1 s-id=47><!--r.47--><ul class="Api-property-list" c-id=47.0.0.0><li class="Api-property-list-item"
+c-id=47.1.1.0><h3 class="Api-property-spec" c-id=47.2.2.0><a class="Api-property-name" href=#Resposta.id
+id=Resposta.id c-id=47.3.3.0><!--t.47.4.4.0-->id</a><span class="Api-flex-grow" c-id=47.5.3.1></span><span
+class="Api-label Api-label-type" c-id=47.6.3.2><!--t.47.7.4.0-->ObjectId</span></h3><p class="Api-property-description"
+c-id=47.8.2.1><!--t.47.9.3.0-->Identificador do documento da publicação</p></li><li class="Api-property-list-item"
+c-id=47.10.1.1><h3 class="Api-property-spec" c-id=47.11.2.0><a class="Api-property-name" href=#Resposta.createdAt
+id=Resposta.createdAt c-id=47.12.3.0><!--t.47.13.4.0-->createdAt</a><span class="Api-flex-grow" c-id=47.14.3.1></span><span
+class="Api-label Api-label-type" c-id=47.15.3.2><!--t.47.16.4.0-->Date-time</span></h3><p class="Api-property-description"
+c-id=47.17.2.1><!--t.47.18.3.0-->Data de criação da publicação</p></li><li class="Api-property-list-item"
+c-id=47.19.1.2><h3 class="Api-property-spec" c-id=47.20.2.0><a class="Api-property-name" href=#Resposta.updatedAt
+id=Resposta.updatedAt c-id=47.21.3.0><!--t.47.22.4.0-->updatedAt</a><span class="Api-flex-grow" c-id=47.23.3.1></span><span
+class="Api-label Api-label-type" c-id=47.24.3.2><!--t.47.25.4.0-->Date-time</span></h3><p class="Api-property-description"
+c-id=47.26.2.1><!--t.47.27.3.0-->Data da ultima edição da publicação</p></li><li class="Api-property-list-item"
+c-id=47.28.1.3><h3 class="Api-property-spec" c-id=47.29.2.0><a class="Api-property-name" href=#Resposta.type
+id=Resposta.type c-id=47.30.3.0><!--t.47.31.4.0-->type</a><span class="Api-flex-grow" c-id=47.32.3.1></span><span
+class="Api-label Api-label-type" c-id=47.33.3.2><!--t.47.34.4.0-->String</span><span class="Api-label Api-label-required"
+c-id=47.35.3.3><!--t.47.36.4.0-->obrigatório</span></h3><p class="Api-property-description" c-id=47.37.2.1><!--t.47.38.3.0-->Tipo da publicação</p></li><li
+class="Api-property-list-item" c-id=47.39.1.4><h3 class="Api-property-spec" c-id=47.40.2.0><a class="Api-property-name"
+href=#Resposta.title id=Resposta.title c-id=47.41.3.0><!--t.47.42.4.0-->title</a><span class="Api-flex-grow"
+c-id=47.43.3.1></span><span class="Api-label Api-label-type" c-id=47.44.3.2><!--t.47.45.4.0-->String</span><span
+class="Api-label Api-label-required" c-id=47.46.3.3><!--t.47.47.4.0-->obrigatório</span></h3><p class="Api-property-description"
+c-id=47.48.2.1><!--t.47.49.3.0-->Título da publicação</p></li><li class="Api-property-list-item" c-id=47.50.1.5><h3
+class="Api-property-spec" c-id=47.51.2.0><a class="Api-property-name" href=#Resposta.text id=Resposta.text
+c-id=47.52.3.0><!--t.47.53.4.0-->text</a><span class="Api-flex-grow" c-id=47.54.3.1></span><span class="Api-label Api-label-type"
+c-id=47.55.3.2><!--t.47.56.4.0-->String</span><span class="Api-label Api-label-required" c-id=47.57.3.3><!--t.47.58.4.0-->obrigatório</span></h3><p
+class="Api-property-description" c-id=47.59.2.1><!--t.47.60.3.0-->Texto de corpo da publicação</p></li><li
+class="Api-property-list-item" c-id=47.61.1.6><h3 class="Api-property-spec" c-id=47.62.2.0><a class="Api-property-name"
+href=#Resposta.targets id=Resposta.targets c-id=47.63.3.0><!--t.47.64.4.0-->targets</a><span class="Api-flex-grow"
+c-id=47.65.3.1></span><span class="Api-label Api-label-type" c-id=47.66.3.2><!--t.47.67.4.0-->[ ]</span><span
+class="Api-label Api-label-required" c-id=47.68.3.3><!--t.47.69.4.0-->obrigatório</span></h3><p class="Api-property-description"
+c-id=47.70.2.1><!--t.47.71.3.0-->Público alvo da publicação</p></li><li class="Api-property-list-item"
+c-id=47.72.1.7><h3 class="Api-property-spec" c-id=47.73.2.0><a class="Api-property-name" href=#Resposta.roles
+id=Resposta.roles c-id=47.74.3.0><!--t.47.75.4.0-->roles</a><span class="Api-flex-grow" c-id=47.76.3.1></span><span
+class="Api-label Api-label-type" c-id=47.77.3.2><!--t.47.78.4.0-->Array</span><span class="Api-label Api-label-required"
+c-id=47.79.3.3><!--t.47.80.4.0-->obrigatório</span></h3><p class="Api-property-description" c-id=47.81.2.1><!--t.47.82.3.0-->Perfís de usuários no público alvo que poderão ver essa publicação.</p></li><li
+class="Api-property-list-item" c-id=47.83.1.8><h3 class="Api-property-spec" c-id=47.84.2.0><a class="Api-property-name"
+href=#Resposta.viewAt id=Resposta.viewAt c-id=47.85.3.0><!--t.47.86.4.0-->viewAt</a><span class="Api-flex-grow"
+c-id=47.87.3.1></span><span class="Api-label Api-label-type" c-id=47.88.3.2><!--t.47.89.4.0-->String</span></h3><p
+class="Api-property-description" c-id=47.90.2.1><!--t.47.91.3.0-->Data quando a publicação deve ser vista.</p></li><li
+class="Api-property-list-item" c-id=47.92.1.9><h3 class="Api-property-spec" c-id=47.93.2.0><a class="Api-property-name"
+href=#Resposta.date id=Resposta.date c-id=47.94.3.0><!--t.47.95.4.0-->date</a><span class="Api-flex-grow"
+c-id=47.96.3.1></span><span class="Api-label Api-label-type" c-id=47.97.3.2><!--t.47.98.4.0-->Date-time</span><span
+class="Api-label Api-label-required" c-id=47.99.3.3><!--t.47.100.4.0-->obrigatório</span></h3><p class="Api-property-description"
+c-id=47.101.2.1><!--t.47.102.3.0-->Data do evento</p></li><li class="Api-property-list-item" c-id=47.103.1.10><h3
+class="Api-property-spec" c-id=47.104.2.0><a class="Api-property-name" href=#Resposta.event id=Resposta.event
+c-id=47.105.3.0><!--t.47.106.4.0-->event</a><span class="Api-flex-grow" c-id=47.107.3.1></span><span
+class="Api-label Api-label-type" c-id=47.108.3.2><!--t.47.109.4.0-->Object</span><span class="Api-label Api-label-required"
+c-id=47.110.3.3><!--t.47.111.4.0-->obrigatório</span></h3><docs-openapi-schema-nested class=hydrated
+c-id=47.112.2.1 s-id=48><!--r.48--><section class="Api-nested-section" c-id=48.0.0.0><button class="Api-nested-toggle-btn"
+c-id=48.1.1.0><svg viewBox="0 0 24 24" class=icon c-id=48.2.2.0><path d="M19 11H13V5C13 4.73478 12.8946 4.48043 12.7071 4.29289C12.5196 4.10536 12.2652 4 12 4C11.7348 4 11.4804 4.10536 11.2929 4.29289C11.1054 4.48043 11 4.73478 11 5V11H5C4.73478 11 4.48043 11.1054 4.29289 11.2929C4.10536 11.4804 4 11.7348 4 12C4 12.2652 4.10536 12.5196 4.29289 12.7071C4.48043 12.8946 4.73478 13 5 13H11V19C11 19.2652 11.1054 19.5196 11.2929 19.7071C11.4804 19.8946 11.7348 20 12 20C12.2652 20 12.5196 19.8946 12.7071 19.7071C12.8946 19.5196 13 19.2652 13 19V13H19C19.2652 13 19.5196 12.8946 19.7071 12.7071C19.8946 12.5196 20 12.2652 20 12C20 11.7348 19.8946 11.4804 19.7071 11.2929C19.5196 11.1054 19.2652 11 19 11Z"
+c-id=48.3.3.0></path></svg><span class=text c-id=48.4.2.1><!--t.48.5.3.0-->Mostrar 2 propriedades</span></button></section></docs-openapi-schema-nested></li></ul></docs-openapi-schema></section></docs-openapi-schema-nested></section><section
+c-id=42.37.3.1><h2 id=example c-id=42.38.4.0><a href=#example c-id=42.39.5.0><!--t.42.40.6.0-->Exemplo</a></h2><docs-openapi-example
+class=hydrated c-id=42.41.4.1 s-id=49><!--r.49--><docs-code class="api-example hydrated" c-id=49.0.0.0
+s-id=50><!--r.50--><pre c-id=49.1.1.0><code c-id=49.2.2.0><!--t.49.3.3.0-->{
   "id": "5bb2575199d7179dfe85be02",
-  "createdAt": "2020-07-29T19:50:41.526Z",
-  "updatedAt": "2020-07-29T19:50:41.526Z",
+  "createdAt": "2020-08-05T21:25:07.831Z",
+  "updatedAt": "2020-08-05T21:25:07.831Z",
   "type": "exemplo",
   "title": "exemplo",
   "text": "exemplo",
@@ -275,16 +292,16 @@ s-id=48><!--r.48--><pre c-id=47.1.1.0><code c-id=47.2.2.0><!--t.47.3.3.0-->{
     "guardian"
   ],
   "viewAt": "exemplo",
-  "date": "2020-07-29T19:50:41.526Z",
+  "date": "2020-08-05T21:25:07.831Z",
   "event": {
-    "endDate": "2020-07-29T19:50:41.526Z",
+    "endDate": "2020-08-05T21:25:07.831Z",
     "allDay": true
   }
 }</code></pre><div
-class="code-text__copy" c-id=48.0.0.0><a class="code-text__copy-link" c-id=48.1.1.0><!--t.48.2.2.0-->Copiar</a><span
-class="code-text__copy-confirmation" c-id=48.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=48.4.2.0><path
+class="code-text__copy" c-id=50.0.0.0><a class="code-text__copy-link" c-id=50.1.1.0><!--t.50.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=50.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=50.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=48.5.3.0></path></svg><!--t.48.6.2.1-->Copiado</span></div></docs-code></docs-openapi-example></section></section><docs-page-footer
-role=contentinfo class=hydrated c-id=42.40.2.5 s-id=49><!--r.49--><!--t.49.0.0.0--> </docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
+c-id=50.5.3.0></path></svg><!--t.50.6.2.1-->Copiado</span></div></docs-code></docs-openapi-example></section></section><docs-page-footer
+role=contentinfo class=hydrated c-id=42.42.2.7 s-id=51><!--r.51--><!--t.51.0.0.0--> </docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
 </body>
 </html>

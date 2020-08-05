@@ -14,22 +14,25 @@
 <style sty-id="sc-docs-select">.Select{cursor:pointer;display:inline-block;font-weight:500}.Select .Dropdown-button{-ms-flex-align:center;align-items:center;border:1px solid #dee3ea;border-radius:6px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:justify;justify-content:space-between;min-width:100px;padding:.5em 1em}.Select .Dropdown-panel{padding:.5em 0}.Select .Dropdown-arrow{margin-left:.5em}.Select-option{--bg-alpha:0;background-color:rgba(0,0,0,var(--bg-alpha));padding:.5em 1.5em}.Select-option:focus{--bg-alpha:0.025;outline:none}.Select-option--selected{--bg-alpha:0.05}.Select-option--selected:focus{--bg-alpha:0.075}@media (hover:hover){.Select-option:hover{--bg-alpha:0.025}.Select-option--selected:hover{--bg-alpha:0.075}}</style>
 <style sty-id="sc-docs-page">docs-page{display:grid;font-size:16px;grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr;line-height:2;margin-left:var(--page-margin-left);margin-top:var(--header-height);overflow-x:hidden;-webkit-transform:var(--page-transform,none);transform:var(--page-transform,none);-webkit-transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1),-webkit-transform .2s cubic-bezier(.2,1,.2,1)}@media (min-width:1234px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 3fr}}@media (min-width:1800px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr 240px}}docs-page>main{grid-column:2;margin-bottom:3rem;padding:var(--page-padding,2rem 3rem);position:relative}docs-page docs-demo{margin-right:auto}docs-page docs-pagination{grid-column:1/-1}docs-page .full-screen{grid-column:1/-1;height:calc(100vh - var(--header-height));margin-bottom:0;overflow:hidden;padding:0}docs-page .page-heading-encapsulation{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em;float:right}docs-page .page-heading-encapsulation:hover{border-color:#92a1b3}docs-page h1{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;margin-top:2rem;margin-bottom:1rem}docs-page h2 a[href^="#"],docs-page h3 a[href^="#"],docs-page h4 a[href^="#"],docs-page h5 a[href^="#"],docs-page h6 a[href^="#"]{color:inherit;position:relative}docs-page h2 a[href^="#"]:before,docs-page h3 a[href^="#"]:before,docs-page h4 a[href^="#"]:before,docs-page h5 a[href^="#"]:before,docs-page h6 a[href^="#"]:before{content:"#";opacity:0;padding-right:1px;position:absolute;right:100%;-webkit-transition:opacity .1s ease;transition:opacity .1s ease}docs-page h2 a[href^="#"]:hover:before,docs-page h2 a[href^="#"]:target:before,docs-page h3 a[href^="#"]:hover:before,docs-page h3 a[href^="#"]:target:before,docs-page h4 a[href^="#"]:hover:before,docs-page h4 a[href^="#"]:target:before,docs-page h5 a[href^="#"]:hover:before,docs-page h5 a[href^="#"]:target:before,docs-page h6 a[href^="#"]:hover:before,docs-page h6 a[href^="#"]:target:before{opacity:1}docs-page h2 code,docs-page h3 code,docs-page h4 code,docs-page h5 code,docs-page h6 code{background:none;font-size:inherit}docs-page aside{float:right;margin-left:20px;margin-bottom:20px}@media (min-width:1234px){docs-page main.no-demo .page-meta:not(.always-below){position:fixed;right:0;top:100px;width:240px;-webkit-transition:transform .2s ease;transition:transform .2s ease}docs-header.hidden~stencil-route docs-page main.no-demo .page-meta:not(.always-below){-webkit-transform:translateY(-60px);transform:translateY(-60px)}}docs-page main.has-demo .page-meta internal-ad{display:none}.Error{-ms-flex-align:center;align-items:center;background-color:var(--offset-background);color:var(--text-color--light);display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;line-height:1;white-space:nowrap}.Error.full-screen{padding-bottom:3rem}.Error>*{margin:10px}.Error div,.Error h1{color:inherit;font-size:3rem}.Error div{text-shadow:3px 3px 3px rgba(0,0,0,.1)}.Error p{font-size:18px}docs-page.api-route,docs-page.api-schema{--page-width:1040px}docs-page.api-schema docs-code[language=json] pre{max-height:calc(100vh - 150px);padding:1em}.Api-two-column{display:grid;grid-gap:32px;grid-template-columns:repeat(auto-fill,minmax(400px,1fr))}docs-page .page-heading-tag{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em}docs-page .page-heading-tag:hover{border-color:#92a1b3}</style>
 <style sty-id="sc-docs-code">docs-code{display:block;position:relative}docs-code:before{color:#bdc5d1;content:attr(language);font-family:var(--code-font-family);font-size:10px;letter-spacing:.05em;line-height:1;padding:.75em;position:absolute;right:0;text-transform:uppercase;top:0}docs-code[language=shell] pre{white-space:pre-wrap}.code-text__copy{position:absolute;right:0;top:-1.6rem;height:20px}.code-text__copy-confirmation,.code-text__copy-link{padding:4px 5px;font-size:12px;line-height:12px;font-weight:600;position:absolute;right:0;top:0}.code-text__copy-link{-webkit-transition:opacity .2s,color .2s,-webkit-transform .2s;transition:opacity .2s,color .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s,color .2s;transition:transform .2s,opacity .2s,color .2s,-webkit-transform .2s;color:#70a4ff;background-color:#e0eeff;border-radius:4px;display:inline-block;cursor:pointer;opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0);z-index:5}.code-text__copy-link:hover{color:var(--blue)}.code-text__copy-confirmation{-webkit-transition:opacity .2s,-webkit-transform .2s;transition:opacity .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s;transition:transform .2s,opacity .2s,-webkit-transform .2s;color:#0ec254;opacity:0;-webkit-transform:translate3d(0,5px,0);transform:translate3d(0,5px,0);z-index:1;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;height:20px;padding:0}.code-text__copy-confirmation svg{fill:#0ec254;margin-right:-4px}.show-confirmation .code-text__copy-link{opacity:0;-webkit-transform:translate3d(0,-5px,0);transform:translate3d(0,-5px,0);pointer-events:none}.show-confirmation .code-text__copy-confirmation{opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0)}docs-code[language=shell]>pre{background-color:var(--text-color--dark);border-radius:7px}docs-code[language=shell]:before{display:none}docs-code[language=shell] code{color:hsla(0,0%,100%,.7);font-size:13px}docs-code[language=shell] .token{color:inherit}docs-code[language=shell] .token.prompt{color:#fb96f9;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=shell] .token.comment{color:hsla(0,0%,100%,.45)}docs-code[language=http]>pre{border-radius:7px;padding:0 2em 0 0;background:#fafafa;-webkit-box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1);box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1)}docs-code[language=http]:before{display:none}docs-code[language=http] code{color:rgba(0,0,0,.7);font-size:13px}docs-code[language=http] .token{color:inherit}docs-code[language=http] .method>.token{--color:119,161,250;display:inline-block;padding:1em;font-weight:700;color:rgb(var(--color));background-color:rgba(var(--color),.15);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=http] .method .delete{--color:var(--api-red)}docs-code[language=http] .method .put{--color:var(--api-yellow)}docs-code[language=http] .method .post{--color:var(--api-blue)}docs-code[language=http] .method .get{--color:var(--api-green)}docs-code[language=http] .token.schema{color:rgba(0,0,0,.4)}docs-code[language=http] .token.host{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path{color:#1e90ff}docs-code[language=http] .token.path .version{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path .param{color:#42b983}docs-code[language=http] .token.query .separator{color:#a9a9a9}docs-code[language=http] .token.query .param{color:#8454ff}docs-code[language=http] .token.query .param .key{font-weight:700}docs-code[language=http] .token.query .param .value{color:#42b983}docs-code[language=http] .token.query .param .value .number{color:#4caf50;font-weight:700}code[class*=language-],pre[class*=language-]{text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;color:#90a4ae;background:#fafafa;font-family:Roboto Mono,monospace;font-size:1em;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{background:#cceae7;color:#263238}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{white-space:normal;border-radius:.2em;padding:.1em}pre[class*=language-]{overflow:auto;position:relative;margin:.5em 0;padding:1.25em 1em}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#8d45d4}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}</style>
+<style sty-id="sc-docs-openapi-parameters">docs-openapi-parameters{display:block;font-family:var(--font-family)}.parameters-container{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;padding:0}.parameter{list-style:none;margin:2px;border-bottom:1px solid var(--api-gray100)}.column-grow{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;-ms-flex-direction:column;flex-direction:column}.column{display:inline}.row-grow{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;-ms-flex-direction:row;flex-direction:row}.row{display:inline;margin-right:.3em;padding-bottom:0}.parameter-label-required{color:rgb(var(--api-orange));font-weight:700}.parameter-name{color:var(--api-gray1000);font-weight:700}.parameter-description{color:var(--api-gray500)}</style>
 <style sty-id="sc-docs-openapi-schema-nested">.Api-nested-section{-webkit-box-shadow:0 0 0 1px var(--api-gray100);box-shadow:0 0 0 1px var(--api-gray100);border-radius:12px;width:-webkit-min-content;width:-moz-min-content;width:min-content;margin-top:8px;margin-bottom:4px}.Api-nested-section.active{width:100%}.Api-nested-toggle-btn{cursor:pointer;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;background:none;border:none;width:100%;text-align:left;border-radius:12px;line-height:100%;white-space:pre;font-family:var(--font-family);font-size:13px;padding-right:12px;height:26px;--color-bg:transparent;background-color:var(--color-bg);--color:var(--api-gray400);color:var(--color)}.Api-nested-toggle-btn>.icon{width:14px;height:14px;-webkit-transition:-webkit-transform .2s ease-in-out;transition:-webkit-transform .2s ease-in-out;transition:transform .2s ease-in-out;transition:transform .2s ease-in-out,-webkit-transform .2s ease-in-out;fill:var(--color)}.Api-nested-toggle-btn>.text{padding-top:2px;margin-left:4px}.Api-nested-section.active>.Api-nested-toggle-btn{border-radius:12px 12px 0 0}.Api-nested-section.active>.Api-nested-toggle-btn,.Api-nested-section:hover>.Api-nested-toggle-btn{--color-bg:rgba(0,0,0,0.02);--color:var(--api-gray500)}.Api-nested-section.active>.Api-nested-toggle-btn>.icon{-webkit-transform:rotate(45deg);transform:rotate(45deg)}.Api-nested-toggle-btn:focus{outline:none}.Api-nested-section .Api-property-list-item{padding-left:16px;padding-right:16px}.Api-nested-section.active>docs-openapi-schema{border-top:1px solid var(--api-gray100)}</style>
 <style sty-id="sc-docs-page-footer">docs-page-footer{margin-top:6rem}docs-page-footer contributor-list{margin-right:.5em}docs-page-footer .last-updated{color:var(--text-color--light);font-weight:400;margin-left:auto;text-decoration:underline}docs-page-footer .page-footer__row{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;font-size:12px;margin-top:2rem}</style>
 <style sty-id="sc-docs-openapi-schema">docs-openapi-schema,docs-openapi-schema-nested{display:block}.Api-property-spec{margin:0;padding:0;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:baseline;align-items:baseline}.Api-property-name{color:var(--api-gray1000)!important;font-size:13px;font-family:var(--font-family);font-weight:600;letter-spacing:.04em;-webkit-transition:color .2s;transition:color .2s}.Api-property-name-ancestor{color:var(--api-gray400);font-weight:400}.Api-property-name:target{color:rgb(var(--api-purple))!important}.Api-property-name:target .Api-property-name-ancestor{color:inherit}.Api-property-description{font-size:12px;color:var(--api-gray500);margin:4px 0 0 0;line-height:1.2em}.Api-property-list{margin:0;padding:0;list-style:none}.Api-property-list-item{padding:12px 0}.Api-property-list-item:not(:first-child){border-top:1px solid var(--api-gray100)}.Api-label{position:relative;font-size:12px;font-weight:500;margin-left:6px}.Api-label-optional{color:var(--api-gray300)}.Api-label-required{color:rgb(var(--api-orange));font-weight:700}.Api-label-type{color:rgb(var(--api-gray400));font-weight:500}.Api-label-option{font-size:10px;border-bottom:1px dotted var(--api-gray300);font-weight:600;color:rgb(var(--api-purple));cursor:pointer}.Api-label-tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;-webkit-transform:translateX(calc(-50%));transform:translateX(calc(-50%));padding:1em;background:#fff;border-radius:4px;-webkit-box-shadow:0 2px 4px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.05);box-shadow:0 2px 4px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.05);max-width:200px;word-break:break-word;width:-webkit-max-content;width:-moz-max-content;width:max-content;line-height:1.3em}.Api-label-tooltip>code{white-space:pre;color:rgb(var(--api-purple));background-color:rgba(var(--api-purple),.1);margin:2px;display:inline-block}.Api-label:hover>.Api-label-tooltip{display:block}.Api-flex-grow{-ms-flex:auto 1 0px;flex:auto 1 0}</style>
-<link rel=modulepreload href="/docs/build/p-yotvsmnt.js">
+<link rel=modulepreload href="/docs/build/p-khqldkdu.js">
 <link rel=modulepreload href="/docs/build/p-00bea6bd.js">
 <link rel=modulepreload href="/docs/build/p-43f818cb.js">
 <link rel=modulepreload href="/docs/build/p-72181234.js">
 <link rel=modulepreload href="/docs/build/p-9a5c5e68.js">
-<link rel=modulepreload href="/docs/build/p-ded4ythr.entry.js">
 <link rel=modulepreload href="/docs/build/p-e35a9f40.js">
+<link rel=modulepreload href="/docs/build/p-iddsvnke.entry.js">
 <link rel=modulepreload href="/docs/build/p-f1phrwuc.entry.js">
+<link rel=modulepreload href="/docs/build/p-bqsaz8bm.entry.js">
+<link rel=modulepreload href="/docs/build/p-ocv7bjsr.entry.js">
 <link rel=modulepreload href="/docs/build/p-f2gjol8c.entry.js">
 <link rel=modulepreload href="/docs/build/p-7lyjdnhq.entry.js">
 <link rel=modulepreload href="/docs/build/p-hnkhxqe6.entry.js">
 <link rel=modulepreload href="/docs/build/p-chzxca5a.entry.js">
-<script type=module src="/docs/build/p-yotvsmnt.js" data-resources-url="/docs/build/"
+<script type=module src="/docs/build/p-khqldkdu.js" data-resources-url="/docs/build/"
 data-stencil-namespace=app></script>
 <script nomodule src="/docs/build/app.js"></script>
 <link rel=stylesheet href="/docs/build/p-jcvvpgow.css">
@@ -283,21 +286,35 @@ class="token param" c-id=65.26.7.2><!--t.65.27.8.0-->{groupId}</span><!--t.65.28
 <div class="code-text__copy" c-id=66.0.0.0><a class="code-text__copy-link" c-id=66.1.1.0><!--t.66.2.2.0-->Copiar</a><span
 class="code-text__copy-confirmation" c-id=66.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=66.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=66.5.3.0></path></svg><!--t.66.6.2.1-->Copiado</span></div></docs-code></div><section class="Api-two-column"
-c-id=65.30.2.4><section c-id=65.31.3.0><h2 id=schema c-id=65.32.4.0><a href=#schema c-id=65.33.5.0><!--t.65.34.6.0-->Especificação</a></h2><docs-openapi-schema-nested
-class=hydrated c-id=65.35.4.1 s-id=67><!--r.67--><section class="Api-nested-section active" c-id=67.0.0.0><button
-class="Api-nested-toggle-btn" c-id=67.1.1.0><span class=text c-id=67.2.2.0><!--t.67.3.3.0-->Requisição</span></button><docs-openapi-schema
-class=hydrated c-id=67.4.1.1 s-id=68><!--r.68--><ul class="Api-property-list" c-id=68.0.0.0><li class="Api-property-list-item"
-c-id=68.1.1.0><h3 class="Api-property-spec" c-id=68.2.2.0><a class="Api-property-name" href=#Requisição.enrollments
-id=Requisição.enrollments c-id=68.3.3.0><!--t.68.4.4.0-->enrollments</a><span class="Api-flex-grow"
-c-id=68.5.3.1></span><span class="Api-label Api-label-type" c-id=68.6.3.2><stencil-route-link class=hydrated
-c-id=68.7.4.0 s-id=69><!--r.69--><!--o.68.8--><a href="/docs/api/data/enrollment/object" c-id=69.0.0.0><!--s.69.1.1.0.--><!--t.68.8.5.0-->Enrollment[ ]</a></stencil-route-link></span></h3><docs-openapi-schema-nested
-class=hydrated c-id=68.9.2.1 s-id=70><!--r.70--><section class="Api-nested-section" c-id=70.0.0.0><button
-class="Api-nested-toggle-btn" c-id=70.1.1.0><svg viewBox="0 0 24 24" class=icon c-id=70.2.2.0><path d="M19 11H13V5C13 4.73478 12.8946 4.48043 12.7071 4.29289C12.5196 4.10536 12.2652 4 12 4C11.7348 4 11.4804 4.10536 11.2929 4.29289C11.1054 4.48043 11 4.73478 11 5V11H5C4.73478 11 4.48043 11.1054 4.29289 11.2929C4.10536 11.4804 4 11.7348 4 12C4 12.2652 4.10536 12.5196 4.29289 12.7071C4.48043 12.8946 4.73478 13 5 13H11V19C11 19.2652 11.1054 19.5196 11.2929 19.7071C11.4804 19.8946 11.7348 20 12 20C12.2652 20 12.5196 19.8946 12.7071 19.7071C12.8946 19.5196 13 19.2652 13 19V13H19C19.2652 13 19.5196 12.8946 19.7071 12.7071C19.8946 12.5196 20 12.2652 20 12C20 11.7348 19.8946 11.4804 19.7071 11.2929C19.5196 11.1054 19.2652 11 19 11Z"
-c-id=70.3.3.0></path></svg><span class=text c-id=70.4.2.1><!--t.70.5.3.0-->Mostrar 8 propriedades</span></button></section></docs-openapi-schema-nested></li></ul></docs-openapi-schema></section></docs-openapi-schema-nested></section><section
-c-id=65.36.3.1><h2 id=example c-id=65.37.4.0><a href=#example c-id=65.38.5.0><!--t.65.39.6.0-->Exemplo</a></h2><docs-openapi-example
-class=hydrated c-id=65.40.4.1 s-id=71><!--r.71--><docs-code class="api-example hydrated" c-id=71.0.0.0
-s-id=72><!--r.72--><pre c-id=71.1.1.0><code c-id=71.2.2.0><!--t.71.3.3.0-->{
+c-id=66.5.3.0></path></svg><!--t.66.6.2.1-->Copiado</span></div></docs-code></div><docs-openapi-authentication
+class=hydrated c-id=65.30.2.4 s-id=67><!--r.67--><div c-id=67.0.0.0><h3 c-id=67.1.1.0><!--t.67.2.2.0-->Autenticação</h3><div
+c-id=67.3.1.1><!--t.67.4.2.0-->Autenticação do tipo <strong c-id=67.5.2.1><!--t.67.6.3.0-->Token Bearer</strong><!--t.67.7.2.2--> é necessária para acessar essa rota. O app deve estar cadastrado para usar a API com as permissões
+<code
+c-id=67.8.2.3><!--t.67.9.3.0-->group:write, group:write:scoped</code></div></div></docs-openapi-authentication><docs-openapi-parameters
+class=hydrated c-id=65.31.2.5 s-id=68><!--r.68--><div c-id=68.0.0.0><h3 c-id=68.1.1.0><!--t.68.2.2.0-->Parâmetros</h3><ul
+class="parameters-container" c-id=68.3.1.1><li class=parameter c-id=68.4.2.0><div class="column-grow"
+c-id=68.5.3.0><div class="row-grow" c-id=68.6.4.0><div class="row parameter-name" c-id=68.7.5.0><!--t.68.8.6.0-->community-id</div><div
+class=row c-id=68.9.5.1><!--t.68.10.6.0-->(header)</div><div class="row parameter-label-required" c-id=68.11.5.2><!--t.68.12.6.0-->obrigatório</div></div><div
+class="row-grow parameter-description" c-id=68.13.4.1><!--t.68.14.5.0-->Identificador da comunidade</div></div></li><li
+class=parameter c-id=68.15.2.1><div class="column-grow" c-id=68.16.3.0><div class="row-grow" c-id=68.17.4.0><div
+class="row parameter-name" c-id=68.18.5.0><!--t.68.19.6.0-->groupId</div><div class=row c-id=68.20.5.1><!--t.68.21.6.0-->(path)</div><div
+class="row parameter-label-required" c-id=68.22.5.2><!--t.68.23.6.0-->obrigatório</div></div><div class="row-grow parameter-description"
+c-id=68.24.4.1><!--t.68.25.5.0-->Identificador do grupo.</div></div></li></ul></div></docs-openapi-parameters><section
+class="Api-two-column" c-id=65.32.2.6><section c-id=65.33.3.0><h2 id=schema c-id=65.34.4.0><a href=#schema
+c-id=65.35.5.0><!--t.65.36.6.0-->Especificação</a></h2><docs-openapi-schema-nested class=hydrated c-id=65.37.4.1
+s-id=69><!--r.69--><section class="Api-nested-section active" c-id=69.0.0.0><button class="Api-nested-toggle-btn"
+c-id=69.1.1.0><span class=text c-id=69.2.2.0><!--t.69.3.3.0-->Requisição</span></button><docs-openapi-schema
+class=hydrated c-id=69.4.1.1 s-id=70><!--r.70--><ul class="Api-property-list" c-id=70.0.0.0><li class="Api-property-list-item"
+c-id=70.1.1.0><h3 class="Api-property-spec" c-id=70.2.2.0><a class="Api-property-name" href=#Requisição.enrollments
+id=Requisição.enrollments c-id=70.3.3.0><!--t.70.4.4.0-->enrollments</a><span class="Api-flex-grow"
+c-id=70.5.3.1></span><span class="Api-label Api-label-type" c-id=70.6.3.2><stencil-route-link class=hydrated
+c-id=70.7.4.0 s-id=71><!--r.71--><!--o.70.8--><a href="/docs/api/data/enrollment/object" c-id=71.0.0.0><!--s.71.1.1.0.--><!--t.70.8.5.0-->Enrollment[ ]</a></stencil-route-link></span></h3><docs-openapi-schema-nested
+class=hydrated c-id=70.9.2.1 s-id=72><!--r.72--><section class="Api-nested-section" c-id=72.0.0.0><button
+class="Api-nested-toggle-btn" c-id=72.1.1.0><svg viewBox="0 0 24 24" class=icon c-id=72.2.2.0><path d="M19 11H13V5C13 4.73478 12.8946 4.48043 12.7071 4.29289C12.5196 4.10536 12.2652 4 12 4C11.7348 4 11.4804 4.10536 11.2929 4.29289C11.1054 4.48043 11 4.73478 11 5V11H5C4.73478 11 4.48043 11.1054 4.29289 11.2929C4.10536 11.4804 4 11.7348 4 12C4 12.2652 4.10536 12.5196 4.29289 12.7071C4.48043 12.8946 4.73478 13 5 13H11V19C11 19.2652 11.1054 19.5196 11.2929 19.7071C11.4804 19.8946 11.7348 20 12 20C12.2652 20 12.5196 19.8946 12.7071 19.7071C12.8946 19.5196 13 19.2652 13 19V13H19C19.2652 13 19.5196 12.8946 19.7071 12.7071C19.8946 12.5196 20 12.2652 20 12C20 11.7348 19.8946 11.4804 19.7071 11.2929C19.5196 11.1054 19.2652 11 19 11Z"
+c-id=72.3.3.0></path></svg><span class=text c-id=72.4.2.1><!--t.72.5.3.0-->Mostrar 8 propriedades</span></button></section></docs-openapi-schema-nested></li></ul></docs-openapi-schema></section></docs-openapi-schema-nested></section><section
+c-id=65.38.3.1><h2 id=example c-id=65.39.4.0><a href=#example c-id=65.40.5.0><!--t.65.41.6.0-->Exemplo</a></h2><docs-openapi-example
+class=hydrated c-id=65.42.4.1 s-id=73><!--r.73--><docs-code class="api-example hydrated" c-id=73.0.0.0
+s-id=74><!--r.74--><pre c-id=73.1.1.0><code c-id=73.2.2.0><!--t.73.3.3.0-->{
   "enrollments": [
     {
       "kind": "member",
@@ -307,57 +324,57 @@ s-id=72><!--r.72--><pre c-id=71.1.1.0><code c-id=71.2.2.0><!--t.71.3.3.0-->{
     }
   ]
 }</code></pre><div
-class="code-text__copy" c-id=72.0.0.0><a class="code-text__copy-link" c-id=72.1.1.0><!--t.72.2.2.0-->Copiar</a><span
-class="code-text__copy-confirmation" c-id=72.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=72.4.2.0><path
+class="code-text__copy" c-id=74.0.0.0><a class="code-text__copy-link" c-id=74.1.1.0><!--t.74.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=74.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=74.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=72.5.3.0></path></svg><!--t.72.6.2.1-->Copiado</span></div></docs-code></docs-openapi-example></section></section><section
-class="Api-two-column" c-id=65.41.2.5><section c-id=65.42.3.0><h2 id=schema c-id=65.43.4.0><a href=#schema
-c-id=65.44.5.0><!--t.65.45.6.0-->Especificação</a></h2><docs-openapi-schema-nested class=hydrated c-id=65.46.4.1
-s-id=73><!--r.73--><section class="Api-nested-section active" c-id=73.0.0.0><button class="Api-nested-toggle-btn"
-c-id=73.1.1.0><span class=text c-id=73.2.2.0><!--t.73.3.3.0-->Resposta</span></button><docs-openapi-schema
-class=hydrated c-id=73.4.1.1 s-id=74><!--r.74--><ul class="Api-property-list" c-id=74.0.0.0><li class="Api-property-list-item"
-c-id=74.1.1.0><h3 class="Api-property-spec" c-id=74.2.2.0><a class="Api-property-name" href=#Resposta.[].id
-id=Resposta.[].id c-id=74.3.3.0><span class="Api-property-name-ancestor" c-id=74.4.4.0><!--t.74.5.5.0-->[].</span><!--t.74.6.4.1-->id</a><span
-class="Api-flex-grow" c-id=74.7.3.1></span><span class="Api-label Api-label-type" c-id=74.8.3.2><!--t.74.9.4.0-->ObjectId</span></h3><p
-class="Api-property-description" c-id=74.10.2.1><!--t.74.11.3.0-->Identificador do documento da matrícula</p></li><li
-class="Api-property-list-item" c-id=74.12.1.1><h3 class="Api-property-spec" c-id=74.13.2.0><a class="Api-property-name"
-href=#Resposta.[].createdAt id=Resposta.[].createdAt c-id=74.14.3.0><span class="Api-property-name-ancestor"
-c-id=74.15.4.0><!--t.74.16.5.0-->[].</span><!--t.74.17.4.1-->createdAt</a><span class="Api-flex-grow"
-c-id=74.18.3.1></span><span class="Api-label Api-label-type" c-id=74.19.3.2><!--t.74.20.4.0-->String</span></h3><p
-class="Api-property-description" c-id=74.21.2.1><!--t.74.22.3.0-->Data de criação da matrícula em UTC corrigido para o fuso da comunidade</p></li><li
-class="Api-property-list-item" c-id=74.23.1.2><h3 class="Api-property-spec" c-id=74.24.2.0><a class="Api-property-name"
-href=#Resposta.[].updatedAt id=Resposta.[].updatedAt c-id=74.25.3.0><span class="Api-property-name-ancestor"
-c-id=74.26.4.0><!--t.74.27.5.0-->[].</span><!--t.74.28.4.1-->updatedAt</a><span class="Api-flex-grow"
-c-id=74.29.3.1></span><span class="Api-label Api-label-type" c-id=74.30.3.2><!--t.74.31.4.0-->String</span></h3><p
-class="Api-property-description" c-id=74.32.2.1><!--t.74.33.3.0-->Data da última modificação da matrícula em UTC corrido para o fuso da comunidade</p></li><li
-class="Api-property-list-item" c-id=74.34.1.3><h3 class="Api-property-spec" c-id=74.35.2.0><a class="Api-property-name"
-href=#Resposta.[].community id=Resposta.[].community c-id=74.36.3.0><span class="Api-property-name-ancestor"
-c-id=74.37.4.0><!--t.74.38.5.0-->[].</span><!--t.74.39.4.1-->community</a><span class="Api-flex-grow"
-c-id=74.40.3.1></span><span class="Api-label Api-label-type" c-id=74.41.3.2><!--t.74.42.4.0-->String</span></h3><p
-class="Api-property-description" c-id=74.43.2.1><!--t.74.44.3.0-->Identificador da comunidade da matrícula</p></li><li
-class="Api-property-list-item" c-id=74.45.1.4><h3 class="Api-property-spec" c-id=74.46.2.0><a class="Api-property-name"
-href=#Resposta.[].kind id=Resposta.[].kind c-id=74.47.3.0><span class="Api-property-name-ancestor" c-id=74.48.4.0><!--t.74.49.5.0-->[].</span><!--t.74.50.4.1-->kind</a><span
-class="Api-flex-grow" c-id=74.51.3.1></span><span class="Api-label Api-label-type" c-id=74.52.3.2><!--t.74.53.4.0-->String</span><span
-class="Api-label Api-label-required" c-id=74.54.3.3><!--t.74.55.4.0-->obrigatório</span></h3><p class="Api-property-description"
-c-id=74.56.2.1><!--t.74.57.3.0-->Tipo de entidade que está vinculada ao grupo</p></li><li class="Api-property-list-item"
-c-id=74.58.1.5><h3 class="Api-property-spec" c-id=74.59.2.0><a class="Api-property-name" href=#Resposta.[].entity
-id=Resposta.[].entity c-id=74.60.3.0><span class="Api-property-name-ancestor" c-id=74.61.4.0><!--t.74.62.5.0-->[].</span><!--t.74.63.4.1-->entity</a><span
-class="Api-flex-grow" c-id=74.64.3.1></span><span class="Api-label Api-label-type" c-id=74.65.3.2><!--t.74.66.4.0-->ObjectId</span><span
-class="Api-label Api-label-required" c-id=74.67.3.3><!--t.74.68.4.0-->obrigatório</span></h3><p class="Api-property-description"
-c-id=74.69.2.1><!--t.74.70.3.0-->Identificador do documento da entidade à qual pertence essa matrícula</p></li><li
-class="Api-property-list-item" c-id=74.71.1.6><h3 class="Api-property-spec" c-id=74.72.2.0><a class="Api-property-name"
-href=#Resposta.[].group id=Resposta.[].group c-id=74.73.3.0><span class="Api-property-name-ancestor"
-c-id=74.74.4.0><!--t.74.75.5.0-->[].</span><!--t.74.76.4.1-->group</a><span class="Api-flex-grow" c-id=74.77.3.1></span><span
-class="Api-label Api-label-type" c-id=74.78.3.2><!--t.74.79.4.0-->ObjectId</span><span class="Api-label Api-label-required"
-c-id=74.80.3.3><!--t.74.81.4.0-->obrigatório</span></h3><p class="Api-property-description" c-id=74.82.2.1><!--t.74.83.3.0-->Identificador do grupo à qual a entidade está matriculada</p></li><li
-class="Api-property-list-item" c-id=74.84.1.7><h3 class="Api-property-spec" c-id=74.85.2.0><a class="Api-property-name"
-href=#Resposta.[].active id=Resposta.[].active c-id=74.86.3.0><span class="Api-property-name-ancestor"
-c-id=74.87.4.0><!--t.74.88.5.0-->[].</span><!--t.74.89.4.1-->active</a><span class="Api-flex-grow" c-id=74.90.3.1></span><span
-class="Api-label Api-label-type" c-id=74.91.3.2><!--t.74.92.4.0-->Boolean</span></h3><p class="Api-property-description"
-c-id=74.93.2.1><!--t.74.94.3.0-->Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)</p></li></ul></docs-openapi-schema></section></docs-openapi-schema-nested></section><section
-c-id=65.47.3.1><h2 id=example c-id=65.48.4.0><a href=#example c-id=65.49.5.0><!--t.65.50.6.0-->Exemplo</a></h2><docs-openapi-example
-class=hydrated c-id=65.51.4.1 s-id=75><!--r.75--><docs-code class="api-example hydrated" c-id=75.0.0.0
-s-id=76><!--r.76--><pre c-id=75.1.1.0><code c-id=75.2.2.0><!--t.75.3.3.0-->[
+c-id=74.5.3.0></path></svg><!--t.74.6.2.1-->Copiado</span></div></docs-code></docs-openapi-example></section></section><section
+class="Api-two-column" c-id=65.43.2.7><section c-id=65.44.3.0><h2 id=schema c-id=65.45.4.0><a href=#schema
+c-id=65.46.5.0><!--t.65.47.6.0-->Especificação</a></h2><docs-openapi-schema-nested class=hydrated c-id=65.48.4.1
+s-id=75><!--r.75--><section class="Api-nested-section active" c-id=75.0.0.0><button class="Api-nested-toggle-btn"
+c-id=75.1.1.0><span class=text c-id=75.2.2.0><!--t.75.3.3.0-->Resposta</span></button><docs-openapi-schema
+class=hydrated c-id=75.4.1.1 s-id=76><!--r.76--><ul class="Api-property-list" c-id=76.0.0.0><li class="Api-property-list-item"
+c-id=76.1.1.0><h3 class="Api-property-spec" c-id=76.2.2.0><a class="Api-property-name" href=#Resposta.[].id
+id=Resposta.[].id c-id=76.3.3.0><span class="Api-property-name-ancestor" c-id=76.4.4.0><!--t.76.5.5.0-->[].</span><!--t.76.6.4.1-->id</a><span
+class="Api-flex-grow" c-id=76.7.3.1></span><span class="Api-label Api-label-type" c-id=76.8.3.2><!--t.76.9.4.0-->ObjectId</span></h3><p
+class="Api-property-description" c-id=76.10.2.1><!--t.76.11.3.0-->Identificador do documento da matrícula</p></li><li
+class="Api-property-list-item" c-id=76.12.1.1><h3 class="Api-property-spec" c-id=76.13.2.0><a class="Api-property-name"
+href=#Resposta.[].createdAt id=Resposta.[].createdAt c-id=76.14.3.0><span class="Api-property-name-ancestor"
+c-id=76.15.4.0><!--t.76.16.5.0-->[].</span><!--t.76.17.4.1-->createdAt</a><span class="Api-flex-grow"
+c-id=76.18.3.1></span><span class="Api-label Api-label-type" c-id=76.19.3.2><!--t.76.20.4.0-->String</span></h3><p
+class="Api-property-description" c-id=76.21.2.1><!--t.76.22.3.0-->Data de criação da matrícula em UTC corrigido para o fuso da comunidade</p></li><li
+class="Api-property-list-item" c-id=76.23.1.2><h3 class="Api-property-spec" c-id=76.24.2.0><a class="Api-property-name"
+href=#Resposta.[].updatedAt id=Resposta.[].updatedAt c-id=76.25.3.0><span class="Api-property-name-ancestor"
+c-id=76.26.4.0><!--t.76.27.5.0-->[].</span><!--t.76.28.4.1-->updatedAt</a><span class="Api-flex-grow"
+c-id=76.29.3.1></span><span class="Api-label Api-label-type" c-id=76.30.3.2><!--t.76.31.4.0-->String</span></h3><p
+class="Api-property-description" c-id=76.32.2.1><!--t.76.33.3.0-->Data da última modificação da matrícula em UTC corrido para o fuso da comunidade</p></li><li
+class="Api-property-list-item" c-id=76.34.1.3><h3 class="Api-property-spec" c-id=76.35.2.0><a class="Api-property-name"
+href=#Resposta.[].community id=Resposta.[].community c-id=76.36.3.0><span class="Api-property-name-ancestor"
+c-id=76.37.4.0><!--t.76.38.5.0-->[].</span><!--t.76.39.4.1-->community</a><span class="Api-flex-grow"
+c-id=76.40.3.1></span><span class="Api-label Api-label-type" c-id=76.41.3.2><!--t.76.42.4.0-->String</span></h3><p
+class="Api-property-description" c-id=76.43.2.1><!--t.76.44.3.0-->Identificador da comunidade da matrícula</p></li><li
+class="Api-property-list-item" c-id=76.45.1.4><h3 class="Api-property-spec" c-id=76.46.2.0><a class="Api-property-name"
+href=#Resposta.[].kind id=Resposta.[].kind c-id=76.47.3.0><span class="Api-property-name-ancestor" c-id=76.48.4.0><!--t.76.49.5.0-->[].</span><!--t.76.50.4.1-->kind</a><span
+class="Api-flex-grow" c-id=76.51.3.1></span><span class="Api-label Api-label-type" c-id=76.52.3.2><!--t.76.53.4.0-->String</span><span
+class="Api-label Api-label-required" c-id=76.54.3.3><!--t.76.55.4.0-->obrigatório</span></h3><p class="Api-property-description"
+c-id=76.56.2.1><!--t.76.57.3.0-->Tipo de entidade que está vinculada ao grupo</p></li><li class="Api-property-list-item"
+c-id=76.58.1.5><h3 class="Api-property-spec" c-id=76.59.2.0><a class="Api-property-name" href=#Resposta.[].entity
+id=Resposta.[].entity c-id=76.60.3.0><span class="Api-property-name-ancestor" c-id=76.61.4.0><!--t.76.62.5.0-->[].</span><!--t.76.63.4.1-->entity</a><span
+class="Api-flex-grow" c-id=76.64.3.1></span><span class="Api-label Api-label-type" c-id=76.65.3.2><!--t.76.66.4.0-->ObjectId</span><span
+class="Api-label Api-label-required" c-id=76.67.3.3><!--t.76.68.4.0-->obrigatório</span></h3><p class="Api-property-description"
+c-id=76.69.2.1><!--t.76.70.3.0-->Identificador do documento da entidade à qual pertence essa matrícula</p></li><li
+class="Api-property-list-item" c-id=76.71.1.6><h3 class="Api-property-spec" c-id=76.72.2.0><a class="Api-property-name"
+href=#Resposta.[].group id=Resposta.[].group c-id=76.73.3.0><span class="Api-property-name-ancestor"
+c-id=76.74.4.0><!--t.76.75.5.0-->[].</span><!--t.76.76.4.1-->group</a><span class="Api-flex-grow" c-id=76.77.3.1></span><span
+class="Api-label Api-label-type" c-id=76.78.3.2><!--t.76.79.4.0-->ObjectId</span><span class="Api-label Api-label-required"
+c-id=76.80.3.3><!--t.76.81.4.0-->obrigatório</span></h3><p class="Api-property-description" c-id=76.82.2.1><!--t.76.83.3.0-->Identificador do grupo à qual a entidade está matriculada</p></li><li
+class="Api-property-list-item" c-id=76.84.1.7><h3 class="Api-property-spec" c-id=76.85.2.0><a class="Api-property-name"
+href=#Resposta.[].active id=Resposta.[].active c-id=76.86.3.0><span class="Api-property-name-ancestor"
+c-id=76.87.4.0><!--t.76.88.5.0-->[].</span><!--t.76.89.4.1-->active</a><span class="Api-flex-grow" c-id=76.90.3.1></span><span
+class="Api-label Api-label-type" c-id=76.91.3.2><!--t.76.92.4.0-->Boolean</span></h3><p class="Api-property-description"
+c-id=76.93.2.1><!--t.76.94.3.0-->Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)</p></li></ul></docs-openapi-schema></section></docs-openapi-schema-nested></section><section
+c-id=65.49.3.1><h2 id=example c-id=65.50.4.0><a href=#example c-id=65.51.5.0><!--t.65.52.6.0-->Exemplo</a></h2><docs-openapi-example
+class=hydrated c-id=65.53.4.1 s-id=77><!--r.77--><docs-code class="api-example hydrated" c-id=77.0.0.0
+s-id=78><!--r.78--><pre c-id=77.1.1.0><code c-id=77.2.2.0><!--t.77.3.3.0-->[
   {
     "id": "5bb2575199d7179dfe85be02",
     "createdAt": "2020-01-01T00:00:00.000Z",
@@ -369,10 +386,10 @@ s-id=76><!--r.76--><pre c-id=75.1.1.0><code c-id=75.2.2.0><!--t.75.3.3.0-->[
     "active": true
   }
 ]</code></pre><div
-class="code-text__copy" c-id=76.0.0.0><a class="code-text__copy-link" c-id=76.1.1.0><!--t.76.2.2.0-->Copiar</a><span
-class="code-text__copy-confirmation" c-id=76.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=76.4.2.0><path
+class="code-text__copy" c-id=78.0.0.0><a class="code-text__copy-link" c-id=78.1.1.0><!--t.78.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=78.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=78.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=76.5.3.0></path></svg><!--t.76.6.2.1-->Copiado</span></div></docs-code></docs-openapi-example></section></section><docs-page-footer
-role=contentinfo class=hydrated c-id=65.52.2.6 s-id=77><!--r.77--><!--t.77.0.0.0--> </docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
+c-id=78.5.3.0></path></svg><!--t.78.6.2.1-->Copiado</span></div></docs-code></docs-openapi-example></section></section><docs-page-footer
+role=contentinfo class=hydrated c-id=65.54.2.8 s-id=79><!--r.79--><!--t.79.0.0.0--> </docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
 </body>
 </html>

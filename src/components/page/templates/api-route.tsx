@@ -53,10 +53,10 @@ export default (props) => {
 
       {toHypertext(h, page.example)}
 
-      <docs-openapi-authentication
+      {PathSpec.security ? <docs-openapi-authentication
         security={PathSpec.security}
-      />
-      
+      /> : null}
+        
       {PathSpec.parameters && <docs-openapi-parameters
         parameters={ PathSpec.parameters.map((parameter)=>normalizeObject(service, parameter)) }
       />}

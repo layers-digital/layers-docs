@@ -2,7 +2,7 @@ import { Component, h, Prop } from "@stencil/core";
 
 @Component({
   tag: 'docs-openapi-parameters',
-  // styleUrl: 'parameters.css',
+  styleUrl: 'parameters.css',
 })
 
 export class DocsOpenapiParameters {
@@ -12,12 +12,17 @@ export class DocsOpenapiParameters {
     return (
       <div>
         <h3>Parâmetros</h3>
-        <ul>
+        <ul class="parameters-container">
           {this.parameters.map((parameter) => parameter.name ?
-            <li>
-              {/* <div>{JSON.stringify(parameter)}</div> */}
-              <div><strong>{parameter.name}</strong>: {parameter.description} ({parameter.in}) </div>
-              {/* <div>{parameter.required}</div> */}
+            <li class="parameter">
+              <div class="column-grow">
+                <div class="row-grow">
+                  <div class="row parameter-name">{parameter.name}</div>
+                  <div class="row">({parameter.in})</div>
+                  {parameter.required ? <div class="row parameter-label-required">obrigatório</div> : null}
+                </div>
+                <div class="row-grow parameter-description">{parameter.description}</div>
+              </div>
             </li> : null
           )}
         </ul>

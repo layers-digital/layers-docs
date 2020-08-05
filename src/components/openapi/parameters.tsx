@@ -15,13 +15,13 @@ export class DocsOpenapiParameters {
         <ul class="parameters-container">
           {this.parameters.map((parameter) => parameter.name ?
             <li class="parameter">
-              <div class="column-grow">
-                <div class="row-grow">
-                  <div class="row parameter-name">{parameter.name}</div>
-                  <div class="row">({parameter.in})</div>
-                  {parameter.required ? <div class="row parameter-label-required">obrigatório</div> : null}
+              <div class="column-flex">
+                <div class="row-flex">
+                  <div class="header parameter-name">{parameter.name}</div>
+                  <div class="header">({parameter.in})</div>
+                  {parameter.required ? <div class="header parameter-label-required">obrigatório</div> : null}
                 </div>
-                <div class="row-grow parameter-description">{parameter.description}</div>
+                <div class="row-flex parameter-description">{parameter.description}</div>
               </div>
             </li> : null
           )}

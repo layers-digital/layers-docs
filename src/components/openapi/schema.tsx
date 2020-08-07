@@ -2,7 +2,6 @@ import { Component, h, Prop, State } from "@stencil/core";
 
 import {OpenAPIObject, SchemaObject} from 'openapi3-ts'
 import { normalizeObject, getAcessorPathNames, getRefPath, AcessorNode } from "./util";
-import { Schema } from "inspector";
 
 @Component({
   tag: 'docs-openapi-schema',

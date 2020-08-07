@@ -72,7 +72,7 @@ export class DocOpenapiSchema {
         {/* { && <docs-openapi-schema-nested node={node} spec={this.spec}></docs-openapi-schema-nested>} */}
         {hasProperties && (node.schema.items ? 
           ((node.schema.items as SchemaObject).oneOf ? 
-            (node.schema.items as SchemaObject).oneOf.map(schema => <docs-openapi-schema-nested node={{name: node.name, parent: node.parent, schema: schema}} spec={this.spec}></docs-openapi-schema-nested>)  : 
+            (node.schema.items as SchemaObject).oneOf.map(schema => <docs-openapi-schema-nested node={{name: '[]', parent: node.parent, schema: schema}} spec={this.spec}></docs-openapi-schema-nested>)  : 
             <docs-openapi-schema-nested node={node} spec={this.spec}></docs-openapi-schema-nested>) : 
           <docs-openapi-schema-nested node={node} spec={this.spec}></docs-openapi-schema-nested>)}
         {/* {hasProperties ? <docs-openapi-object class="Api-object-nested" name={node.name} node={node} key={href+'/object'}></docs-openapi-object> : null} */}

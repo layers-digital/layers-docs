@@ -1,4 +1,5 @@
 import {OpenAPIObject, SchemaObject} from 'openapi3-ts'
+import { Schema } from 'inspector';
 
 export interface AcessorNode {
   schema: SchemaObject,
@@ -172,6 +173,14 @@ export function generateExample(spec: OpenAPIObject, node: AcessorNode, operatio
   }
   
   if (schema.type == 'array') {
+    if((schema.items as SchemaObject).oneOf){
+      const examples = (schema.items as SchemaObject).oneOf.map((option) => generateExample(spec, {
+        name: '[]',
+        parent: node,
+        schema: option,
+      }, operation))
+      return examples
+    }
     return [generateExample(spec, {
       name: '[]',
       parent: node,

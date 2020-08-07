@@ -1,7 +1,8 @@
 import { Component, h, Prop, State } from "@stencil/core";
 
-import {OpenAPIObject} from 'openapi3-ts'
+import {OpenAPIObject, SchemaObject} from 'openapi3-ts'
 import { normalizeObject, getAcessorPathNames, getRefPath, AcessorNode } from "./util";
+import { Schema } from "inspector";
 
 @Component({
   tag: 'docs-openapi-schema',
@@ -68,8 +69,12 @@ export class DocOpenapiSchema {
         </h3>
 
         {node.schema.description && <p class="Api-property-description">{node.schema.description}</p>}
-        {hasProperties && <docs-openapi-schema-nested node={node} spec={this.spec}></docs-openapi-schema-nested>}
-
+        {/* { && <docs-openapi-schema-nested node={node} spec={this.spec}></docs-openapi-schema-nested>} */}
+        {hasProperties && (node.schema.items ? 
+          ((node.schema.items as SchemaObject).oneOf ? 
+            (node.schema.items as SchemaObject).oneOf.map(schema => <docs-openapi-schema-nested node={{name: node.name, parent: node.parent, schema: schema}} spec={this.spec}></docs-openapi-schema-nested>)  : 
+            null) : 
+          <docs-openapi-schema-nested node={node} spec={this.spec}></docs-openapi-schema-nested>)}
         {/* {hasProperties ? <docs-openapi-object class="Api-object-nested" name={node.name} node={node} key={href+'/object'}></docs-openapi-object> : null} */}
       </li>
     )
@@ -106,10 +111,12 @@ export class DocOpenapiSchema {
 
   hasProperties(node: AcessorNode) {
     if (node.schema.type == 'array') {
-      return this.hasProperties({
-        name: '[]',
-        schema: normalizeObject(this.spec, node.schema.items)
-      })
+    //   return this.hasProperties({
+    //     name: '[]',
+    //     schema: normalizeObject(this.spec, node.schema.items)
+    //   })
+    // }
+      return true
     }
     if (node.schema.type == 'object') {
       return true

@@ -115,7 +115,7 @@ export class DocOpenapiSchema {
     //     schema: normalizeObject(this.spec, node.schema.items)
     //   })
     // }
-      return this.hasProperties({name: '[]', schema: normalizeObject(this.spec, node.schema.items)})
+      return this.hasProperties({name: '[]', schema: normalizeObject(this.spec, node.schema.items)}) || (node.schema.items as SchemaObject).oneOf
     }
     if (node.schema.type == 'object') {
       return true

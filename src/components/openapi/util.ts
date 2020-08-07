@@ -1,5 +1,4 @@
 import {OpenAPIObject, SchemaObject} from 'openapi3-ts'
-import { Schema } from 'inspector';
 
 export interface AcessorNode {
   schema: SchemaObject,

@@ -61,71 +61,82 @@ export default (props) => {
         parameters={ PathSpec.parameters.map((parameter)=>normalizeObject(service, parameter)) }
       />}
 
-      {Object.keys(requestBody.schema).length > 0 ? 
-      <section class="Api-two-column">
-        <section>
-          <h2 id="schema">
-            <a href="#schema">Especificação</a>
-          </h2>
-          {Object.keys(requestBody.schema).length > 0 && (
-            <docs-openapi-schema-nested
-              spec={service.spec}
-              node={requestBody}
-              text={requestBody.name}
-              open={true}
-              canClose={false}
-              hideReadOnly = {true}
-            />
-          )}
-        </section>
+      {Object.keys(requestBody.schema).length > 0 ?
+      <div>
+        <h2>
+          <a href="#request">Requisição</a>
+        </h2>
+        <section class="Api-two-column">
+          <section>
+            <h3 id="schema">
+              <a href="#schema">Especificação</a>
+            </h3>
+            {Object.keys(requestBody.schema).length > 0 && (
+              <docs-openapi-schema-nested
+                spec={service.spec}
+                node={requestBody}
+                text={requestBody.name}
+                open={true}
+                canClose={false}
+                hideReadOnly = {true}
+              />
+            )}
+          </section>
 
-        <section>
-          <h2 id="example">
-            <a href="#example">Exemplo</a>
-          </h2>
-          {Object.keys(requestBody.schema).length > 0 && (
-            <docs-openapi-example
-              spec={service.spec}
-              node={requestBody}
-              operation={requestBody.operation}
-            />
-          )}
+          <section>
+            <h3 id="example">
+              <a href="#example">Exemplo</a>
+            </h3>
+            {Object.keys(requestBody.schema).length > 0 && (
+              <docs-openapi-example
+                spec={service.spec}
+                node={requestBody}
+                operation={requestBody.operation}
+              />
+            )}
+          </section>
         </section>
-      </section>
+      </div>
       : null}
 
-      {Object.keys(response.schema).length > 0 ?
-      <section class="Api-two-column">
-        <section>
-          <h2 id="schema">
-            <a href="#schema">Especificação</a>
-          </h2>
-          {Object.keys(response.schema).length > 0 && (
-            <docs-openapi-schema-nested
-              spec={service.spec}
-              path={`#/components/schemas/${route.name}`}
-              node={response}
-              text={response.name}
-              open={true}
-              canClose={false}
-            />
-          )}
-        </section>
 
-        <section>
-          <h2 id="example">
-            <a href="#example">Exemplo</a>
-          </h2>
-          {Object.keys(response.schema).length > 0 && (
-            <docs-openapi-example
-              spec={service.spec}
-              node={response}
-              operation={response.operation}
-            />
-          )}
-          {/* {toHypertext(h, page.responseExample)} */}
+      {Object.keys(response.schema).length > 0 ?
+      <div>
+        <h2>
+          <a href="#response">Resposta</a>
+        </h2>
+        <section class="Api-two-column">
+          <section>
+            <h3 id="schema">
+              <a href="#schema">Especificação</a>
+            </h3>
+            {Object.keys(response.schema).length > 0 && (
+              <docs-openapi-schema-nested
+                spec={service.spec}
+                path={`#/components/schemas/${route.name}`}
+                node={response}
+                text={response.name}
+                open={true}
+                canClose={false}
+              />
+            )}
+          </section>
+
+          <section>
+            <h3 id="example">
+              <a href="#example">Exemplo</a>
+            </h3>
+            {Object.keys(response.schema).length > 0 && (
+              <docs-openapi-example
+                spec={service.spec}
+                node={response}
+                operation={response.operation}
+              />
+            )}
+            {/* {toHypertext(h, page.responseExample)} */}
+          </section>
         </section>
-      </section>
+      </div>
       : null}
       <docs-page-footer page={page} />
     </article>

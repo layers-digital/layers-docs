@@ -48,70 +48,74 @@
                 ],
                 "properties": {
                   "targets": {
-                    "topics": {
-                      "type": "array",
-                      "description": "Público alvo da publicação",
-                      "items": {
-                        "anyOf": [
-                          {
-                            "type": "object",
-                            "required": [
-                              "id",
-                              "kind"
-                            ],
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "description": "Identificador do membro, usuário, turma ou tag"
-                              },
-                              "kind": {
-                                "type": "string",
-                                "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                    "type": "object",
+                    "description": "público alvo da publicação",
+                    "properties": {
+                      "topics": {
+                        "type": "array",
+                        "description": "Público alvo da publicação",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "required": [
+                                "id",
+                                "kind"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "Identificador do membro, usuário, turma ou tag"
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                                }
+                              }
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "email",
+                                "kind"
+                              ],
+                              "properties": {
+                                "email": {
+                                  "type": "string",
+                                  "description": "Email do usuário"
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                                }
+                              }
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "alias",
+                                "kind"
+                              ],
+                              "properties": {
+                                "alias": {
+                                  "type": "string",
+                                  "description": "Alias do membro, usuário ou grupo."
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                                }
                               }
                             }
-                          },
-                          {
-                            "type": "object",
-                            "required": [
-                              "email",
-                              "kind"
-                            ],
-                            "properties": {
-                              "email": {
-                                "type": "string",
-                                "description": "Email do usuário"
-                              },
-                              "kind": {
-                                "type": "string",
-                                "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
-                              }
-                            }
-                          },
-                          {
-                            "type": "object",
-                            "required": [
-                              "alias",
-                              "kind"
-                            ],
-                            "properties": {
-                              "alias": {
-                                "type": "string",
-                                "description": "Alias do membro, usuário ou grupo."
-                              },
-                              "kind": {
-                                "type": "string",
-                                "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "roles": {
-                      "type": "array",
-                      "description": "Permissões que devem receber uma notificação",
-                      "items": {
-                        "type": "string"
+                          ]
+                        }
+                      },
+                      "roles": {
+                        "type": "array",
+                        "description": "Permissões que devem receber uma notificação",
+                        "items": {
+                          "type": "string"
+                        }
                       }
                     }
                   },

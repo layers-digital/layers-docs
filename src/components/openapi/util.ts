@@ -194,7 +194,7 @@ let EXAMPLE_DATE = new Date()
 export function getDefaultTypeExample({schema}: AcessorNode) {
   let type
   try {
-    type = schema.type?.toLowerCase()
+    type = Array.isArray(schema.type as any) ? (schema.type as string).toLowerCase() : (schema.type as string[]).map(type => type.toLowerCase())
   } catch (error) {
     console.log(schema)
   }

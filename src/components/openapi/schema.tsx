@@ -141,13 +141,15 @@ export class DocOpenapiSchema {
     let {type, nullable, title, items, externalDocs, format} = node.schema
 
     // Uppercase type name
-    let typeStr = this.camelCase(format ?? type ?? '')
+    // let typeStr = this.camelCase(format ?? type ?? '')
+    let typeStr = !Array.isArray(type) ? this.camelCase(type as string ?? format ?? '') : (type as string[]).map(type => this.camelCase((type as string) ?? format ?? ''))
 
+    
     // If its an object, get it's name (title key)
     if (type == 'object' && title) {
       typeStr = title || typeStr
     }
-
+    
     // Append array type name
     if (type == 'array') {
       let subtype: AcessorNode = {
@@ -158,15 +160,18 @@ export class DocOpenapiSchema {
 
       return this.buildObjectTypeLabel(subtype, '[ ]')
     }
+    
     // Append nullable option
-    typeStr += (nullable ? '?' : '') + (sufix ?? '')
-
+    // typeStr += (nullable ? '?' : '') + (sufix ?? '')
+    
     // Return link if available
-    if (type == 'object' && externalDocs?.url) {
-      typeStr = <stencil-route-link url={externalDocs.url}>{typeStr}</stencil-route-link>
-    }
+    // if (type == 'object' && externalDocs?.url) {
+    //   typeStr = <stencil-route-link url={externalDocs.url}>{typeStr}</stencil-route-link>
+    // }
 
-    return <span class="Api-label Api-label-type">{typeStr}</span>
+    // console.log(typeStr, 'types')
+    return !Array.isArray(typeStr) ? <span class="Api-label Api-label-type">{typeStr}</span> : <span class="Api-label Api-label-type">{(typeStr as string[]).reduceRight((type, typeStr) => { return !type ? type + typeStr : typeStr + " | " + type}, "")}</span>
+    
   }
 
   buildDefaultLabel(node: AcessorNode) {

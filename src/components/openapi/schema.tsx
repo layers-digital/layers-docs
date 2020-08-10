@@ -165,9 +165,9 @@ export class DocOpenapiSchema {
     // typeStr += (nullable ? '?' : '') + (sufix ?? '')
     
     // Return link if available
-    // if (type == 'object' && externalDocs?.url) {
-    //   typeStr = <stencil-route-link url={externalDocs.url}>{typeStr}</stencil-route-link>
-    // }
+    if (type == 'object' && externalDocs?.url) {
+      typeStr = <stencil-route-link url={externalDocs.url}>{typeStr}</stencil-route-link>
+    }
 
     // console.log(typeStr, 'types')
     return !Array.isArray(typeStr) ? <span class="Api-label Api-label-type">{typeStr}</span> : <span class="Api-label Api-label-type">{(typeStr as string[]).reduceRight((type, typeStr) => { return !type ? type + typeStr : typeStr + " | " + type}, "")}</span>

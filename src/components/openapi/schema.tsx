@@ -162,7 +162,7 @@ export class DocOpenapiSchema {
     }
     
     // Append nullable option
-    // typeStr += (nullable ? '?' : '') + (sufix ?? '')
+    !Array.isArray(typeStr) ? typeStr += (nullable ? '?' : '') + (sufix ?? '') : typeStr.map(type => type += (nullable ? '?' : ''))
     
     // Return link if available
     if (type == 'object' && externalDocs?.url) {

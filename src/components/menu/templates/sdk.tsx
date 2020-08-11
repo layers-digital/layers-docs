@@ -8,7 +8,9 @@ const items = {
   'Logar com Layers': {
     'Botão "Logar com Layers"': '/docs/sdk/como-colocar-o-botao-logar-com-layers',
   },
-  // 'Portais': {
-  //   'Usando portais no seu app': ''
-  // }
+  'Portais': {
+    'Introdução': '/docs/sdk/portais/introducao',
+    'Eventos e Promisses': '/docs/sdk/portais/eventos-e-promisses',
+    'Propriedades e Métodos': '/docs/sdk/portais/propriedades-e-metodos',
+  }
 }

@@ -2,8 +2,10 @@
 template: default
 title: Eventos e Promisses
 tableOfContents: true
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Propriedades e Métodos'
+nextUrl: '/docs/sdk/portais/propriedades-e-metodos'
+previousText: 'Introdução'
+previousUrl: '/docs/sdk/portais/introducao'
 ---
 
 O SDK de portais disponibiliza uma série de eventos e promisses para que apps que usam a funcionalidade de portais possam monitorar o status do SDK e da sua conexão com a Layers.

@@ -4,6 +4,8 @@ title: Propriedades e Métodos
 tableOfContents: true
 # nextText: 'Environment Setup'
 # nextUrl: '/docs/guides/intro'
+previousText: 'Eventos e Promisses'
+previousUrl: '/docs/sdk/portais/eventos-e-promisses'
 ---
 
 O SDK de portais oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers

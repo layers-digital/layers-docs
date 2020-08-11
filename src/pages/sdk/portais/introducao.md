@@ -2,8 +2,8 @@
 template: default
 title: Introdução aos portais
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Eventos e Promisses'
+nextUrl: '/docs/sdk/portais/eventos-e-promisses'
 ---
 
 Portais permitem que apps adicionem telas personalizadas ao ambiente Layers das comunidades nas quais estão instalados.

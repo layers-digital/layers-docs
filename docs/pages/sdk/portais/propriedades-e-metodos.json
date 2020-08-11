@@ -1,0 +1,380 @@
+{
+  "path": "/docs/sdk/portais/propriedades-e-metodos",
+  "template": "default",
+  "title": "Propriedades e Métodos",
+  "tableOfContents": true,
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "O SDK de portais oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers"
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "propriedades"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#propriedades"
+        },
+        "Propriedades"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "ready"
+        ],
+        ": Booleano que indica se o SDK de portais foi importado com sucesso"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "connected"
+        ],
+        ": Booleano que indica se o SDK de portais está conectado com o Layers"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "platform"
+        ],
+        ": String que pode ter o valor de ",
+        [
+          "code",
+          null,
+          "\"iframe\""
+        ],
+        ", ",
+        [
+          "code",
+          null,
+          "\"ios\""
+        ],
+        " ou ",
+        [
+          "code",
+          null,
+          "\"android\""
+        ],
+        " se a página estiver sendo acessada através ad Layers ou ",
+        [
+          "code",
+          null,
+          "null"
+        ],
+        " se estiver sendo acessada fora da Layers."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "data"
+        ],
+        ": Objeto contendo informações de seção e usuário acessando o portal.",
+        [
+          "ul",
+          null,
+          " ",
+          [
+            "li",
+            null,
+            [
+              "strong",
+              null,
+              "session"
+            ],
+            ": String da seção"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "strong",
+              null,
+              "userId"
+            ],
+            ": String do identificador único do usuário no Layers"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "strong",
+              null,
+              "communityId"
+            ],
+            ": String do identificador da comunidade através do qual o usuário está acessando o portal"
+          ],
+          " ",
+          [
+            "li",
+            null,
+            [
+              "strong",
+              null,
+              "accountId"
+            ],
+            ": String do identificador único da conta do usuário acessando o portal"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "m-todos"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#m-todos"
+        },
+        "Métodos"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "ready"
+        ],
+        ": O método ",
+        [
+          "code",
+          null,
+          "ready()"
+        ],
+        " deve ser chamado para indicar que a página a ser exposta no portal está carregada se a a opção ",
+        [
+          "code",
+          null,
+          "manualLoadingControl"
+        ],
+        " for definida como ",
+        [
+          "code",
+          null,
+          "true"
+        ],
+        " nas configurações do portal."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "update"
+        ],
+        ": O método ",
+        [
+          "code",
+          null,
+          "update(params)"
+        ],
+        " permite que apps atualizem a URL e/ou o título do portal. Para isso, o app deve chamar a função como mostrado no exemplo abaixo:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "LayersPortal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "update"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    url",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//nova URL (opcional)"
+          ],
+          "\n    title",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//novo título (opcional)"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "go"
+        ],
+        ": O método ",
+        [
+          "code",
+          null,
+          "go(path)"
+        ],
+        " permite que portais redirecionem para outras páginas de portais ou do Layers. Para isso, o app deve chamar a função passando como parâmetro a URL da página para a qual o usuário deve ser redirecionado."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "close"
+        ],
+        ": O método ",
+        [
+          "code",
+          null,
+          "close()"
+        ],
+        " permite que o app feche o portal",
+        ""
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Propriedades",
+      "href": "#propriedades"
+    },
+    {
+      "text": "Métodos",
+      "href": "#m-todos"
+    }
+  ],
+  "pageClass": "page-sdk-portais-propriedades-e-metodos"
+}

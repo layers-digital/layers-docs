@@ -1,0 +1,1873 @@
+{
+  "path": "/docs/sdk/portais/introducao",
+  "template": "default",
+  "title": "Introdução aos portais",
+  "tableOfContents": false,
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Portais permitem que apps adicionem telas personalizadas ao ambiente Layers das comunidades nas quais estão instalados."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "registre-o-app"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#registre-o-app"
+        },
+        "Registre o app"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "O primeiro passo para usar a funcionalidade de portais no Layers é ",
+      [
+        "a",
+        {
+          "href": "./../../register"
+        },
+        "registrar o app"
+      ],
+      " selecionando na pergunta sobre as funcionalidades que o app vai usar a opção de \"Telas adicionais\". "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "importando-e-configurando-o-sdk"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#importando-e-configurando-o-sdk"
+        },
+        "Importando e configurando o SDK"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Uma vez que o app está registrado ele poderá ser instalado nas comunidades e adicionar a tela ao Layers. Para isso, a página que será acessada através do Layers deve importar nosso SDK de portais da maneira que está exemplificado abaixo. Através desse SDK, apps podem acessar informações e funcionalidades do Layers."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "html"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token doctype"
+            },
+            "<!DOCTYPE HTML>"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "html"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "head"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "script"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token script"
+            },
+            [
+              "span",
+              {
+                "class": "token language-javascript"
+              },
+              "\n      window",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "LayersPortalOptions ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n        appId",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " String",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "\n        insidePortalOnly",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " Boolean",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "\n        manualLoadingControl",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " Boolean\n      ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n      ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "!"
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "function"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "var"
+              ],
+              " e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "window",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "LayersPortal",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "||"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "window",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "LayersPortal",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token function-variable function"
+                },
+                "e"
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "function"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "n",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ","
+                ],
+                "r"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "return"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "new"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token class-name"
+                },
+                "Promise"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "function"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "t",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ","
+                ],
+                "o"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "q",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "push"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "["
+              ],
+              "t",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "o",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "r",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "q",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "["
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "eh",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function-variable function"
+                },
+                "on"
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "function"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "n",
+                [
+                  "span",
+                  {
+                    "class": "token punctuation"
+                  },
+                  ","
+                ],
+                "r"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "var"
+              ],
+              " t",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "eh",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "["
+              ],
+              "n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "||"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "["
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "t",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "push"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "r",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "eh",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "["
+              ],
+              "n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              "t",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "ready",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "!"
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "readyPromise",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "new"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token class-name"
+                },
+                "Promise"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "function"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "n"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "readyPromiseResolve",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              "n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "connected",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "!"
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "1"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "connectedPromise",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "new"
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token class-name"
+                },
+                "Promise"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "function"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token parameter"
+                },
+                "n"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "connectedPromiseResolve",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              "n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "platform",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "null"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "session",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "null"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "communityId",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "null"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "accountId",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "null"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "userId",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "null"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "e",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "var"
+              ],
+              " n",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              "document",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "createElement"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "\"script\""
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "type",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "\"text/javascript\""
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "async",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "!"
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "0"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "src",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "\"https://js.layers.digital/v1/LayersPortal.js\""
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              [
+                "span",
+                {
+                  "class": "token keyword"
+                },
+                "var"
+              ],
+              " r",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              "document",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "getElementsByTagName"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token string"
+                },
+                "\"script\""
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "["
+              ],
+              [
+                "span",
+                {
+                  "class": "token number"
+                },
+                "0"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "]"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "r",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "parentNode",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              [
+                "span",
+                {
+                  "class": "token function"
+                },
+                "insertBefore"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              "n",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "r",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "("
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ")"
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ";"
+              ],
+              "\n    "
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "script"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "head"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "html"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "configura-es-do-portal"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#configura-es-do-portal"
+        },
+        "Configurações do portal"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "O objeto ",
+      [
+        "code",
+        null,
+        "LayersPortalOptions"
+      ],
+      " deve ser definido com as seguintes propriedades:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "appId"
+        ],
+        ": String contendo o identificador do app"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "insidePortalOnly"
+        ],
+        ": Booleano indicando se a página deve ser acessível apenas através da Layers"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "manualLoadingControl"
+        ],
+        ": Booleano indicando se o app controlará o carregamento manualmente, chamando o método ",
+        [
+          "code",
+          null,
+          "LayersPortal.ready()"
+        ],
+        " quando a página estiver carregada ou se o controle de carregamento deve ser feito automáticamente pelo Layers"
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Registre o app",
+      "href": "#registre-o-app"
+    },
+    {
+      "text": "Importando e configurando o SDK",
+      "href": "#importando-e-configurando-o-sdk"
+    }
+  ],
+  "pageClass": "page-sdk-portais-introducao"
+}

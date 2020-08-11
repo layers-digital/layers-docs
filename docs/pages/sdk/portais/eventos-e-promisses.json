@@ -1,0 +1,385 @@
+{
+  "path": "/docs/sdk/portais/eventos-e-promisses",
+  "template": "default",
+  "title": "Eventos e Promisses",
+  "tableOfContents": true,
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "O SDK de portais disponibiliza uma série de eventos e promisses para que apps que usam a funcionalidade de portais possam monitorar o status do SDK e da sua conexão com a Layers."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "eventos"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#eventos"
+        },
+        "Eventos"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "ready"
+        ],
+        ": O evento ",
+        [
+          "code",
+          null,
+          "ready"
+        ],
+        " é emitido quando o SDK de portais é carregado, indicando que ele foi importado com sucesso."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "LayersPortal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "on"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ready'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "function"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//função chamada quando o SDK for carregado"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "connected"
+        ],
+        ": O evento ",
+        [
+          "code",
+          null,
+          "connected"
+        ],
+        " é emitido quando o SDK de portais está conectado com o Layers, indicando que apps podem acessar propriedades e métodos do SDK. A função chamada quando receber esse evento pode receber o objeto ",
+        [
+          "code",
+          null,
+          "data"
+        ],
+        " com informações de usuário e seção como parâmetro."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "LayersPortal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "on"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'connected'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "function"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "data"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//função chamada quando o SDK estiver conectado com a Layers"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "promisses"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#promisses"
+        },
+        "Promisses"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Além dos eventos, apps podem optar por usar promisses para controlar o status do SDK."
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "readyPromisse"
+          ],
+          ": A propriedade ",
+          [
+            "code",
+            null,
+            "readyPromisse"
+          ],
+          " é, como o nome sugere, uma promisse que será resolvida quando o SDK for importado com sucesso."
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "connectedPromisse"
+          ],
+          ": Assim como a propriedade anterior, a propriedade ",
+          [
+            "code",
+            null,
+            "connectedPromisse"
+          ],
+          " será resolvida  quando o SDK estiver conectado com o Layers retornando as informações de seção e do usuário acessando o portal."
+        ],
+        " "
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Eventos",
+      "href": "#eventos"
+    },
+    {
+      "text": "Promisses",
+      "href": "#promisses"
+    }
+  ],
+  "pageClass": "page-sdk-portais-eventos-e-promisses"
+}

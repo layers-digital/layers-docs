@@ -53,6 +53,11 @@ export default (props) => {
 
       {toHypertext(h, page.example)}
 
+      {PathSpec.callbacks ? <select>
+        <option>Prover Informações</option>
+        <option>Requisitar Informações</option>
+      </select> : null}
+
       {PathSpec.security ? <docs-openapi-authentication
         security={PathSpec.security}
       /> : null}
@@ -88,11 +93,7 @@ export default (props) => {
               <a href="#example">Exemplo</a>
             </h3>
             {Object.keys(requestBody.schema).length > 0 && (
-              <docs-openapi-example
-                spec={service.spec}
-                node={requestBody}
-                operation={requestBody.operation}
-              />
+              toHypertext(h, page.requestExample)
             )}
           </section>
         </section>
@@ -127,11 +128,7 @@ export default (props) => {
               <a href="#example">Exemplo</a>
             </h3>
             {Object.keys(response.schema).length > 0 && (
-              <docs-openapi-example
-                spec={service.spec}
-                node={response}
-                operation={response.operation}
-              />
+              toHypertext(h, page.responseExample)
             )}
             {/* {toHypertext(h, page.responseExample)} */}
           </section>

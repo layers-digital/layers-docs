@@ -73,17 +73,17 @@ function RenderRoutePages(base: string, service: ApiService) {
       PathSpec?.responses?.["200"]?.content?.["application/json"]?.schema
     );
 
-    const generateExampleForSpec = (schema) =>
+    const generateExampleForSpec = (schema, operation) =>
       "```json\n" +
       JSON.stringify(
-        generateExample(service.spec, { name: null, schema }),
+        generateExample(service.spec, { name: null, schema }, operation),
         null,
         2
       ) +
       "\n```";
 
-    const requestExampleMarkdown = generateExampleForSpec(requestSchema)
-    const responseExampleMarkdown = generateExampleForSpec(responseSchema)
+    const requestExampleMarkdown = generateExampleForSpec(requestSchema, "WRITE")
+    const responseExampleMarkdown = generateExampleForSpec(responseSchema, "READ")
 
     return {
       template: "api-route",

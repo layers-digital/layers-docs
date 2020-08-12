@@ -10,7 +10,7 @@ const items = {
   },
   'Portais': {
     'Introdução': '/docs/sdk/portais/introducao',
-    'Eventos e Promisses': '/docs/sdk/portais/eventos-e-promisses',
+    'Eventos e Promises': '/docs/sdk/portais/eventos-e-promises',
     'Propriedades e Métodos': '/docs/sdk/portais/propriedades-e-metodos',
   }
 }

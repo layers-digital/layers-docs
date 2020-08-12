@@ -4,7 +4,7 @@ title: Propriedades e Métodos
 tableOfContents: true
 # nextText: 'Environment Setup'
 # nextUrl: '/docs/guides/intro'
-previousText: 'Eventos e Promisses'
+previousText: 'Eventos e Promises'
 previousUrl: '/docs/sdk/portais/eventos-e-promises'
 ---
 

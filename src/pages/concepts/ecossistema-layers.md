@@ -2,8 +2,8 @@
 template: default
 title: Ecossistema Layers
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Comunidades'
+nextUrl: '/docs/concepts/ecossistema-layers/comunidades'
 ---
 
 # Ecossistema Layers

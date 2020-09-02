@@ -1,3 +1,11 @@
+---
+template: default
+title: Permissões no Layers
+tableOfContents: false
+previousText: 'Membros e grupos'
+previousUrl: '/docs/concepts/ecossistema-layers/membros-e-grupos'
+---
+
 # Permissões no Layers
 
 Permissões no Layers são strings geralmente com o formato `entidade:ação` que estão relacionadas a apps ou usuários em uma determinada comunidade. As rotas de APIs do Layers tem restrições de acesso baseadas em permissões, assim, para que um app ou usuário possa acessar uma determinada rota ele precisa ter a permissão requerida pela rota. Para simplificar a atribuição de permissões individuais, é possível atribuir perfis: agrupamentos de permissões personalizáveis, a apps ou usuários.

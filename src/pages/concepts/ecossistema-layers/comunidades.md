@@ -2,8 +2,10 @@
 template: default
 title: Comunidades no Layers
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Apps'
+nextUrl: '/docs/concepts/ecossistema-layers/apps'
+previousText: 'Introdução'
+previousUrl: '/docs/concepts/ecossistema-layers'
 ---
 
 # Comunidades no Layers

@@ -2,8 +2,10 @@
 template: default
 title: Apps no Layers
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Contas de Usuário'
+nextUrl: '/docs/concepts/ecossistema-layers/contas-de-usuario'
+previousText: 'Comunidades'
+previousUrl: '/docs/concepts/ecossistema-layers/comunidades'
 ---
 
 # Apps no Layers

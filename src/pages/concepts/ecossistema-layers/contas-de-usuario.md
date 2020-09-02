@@ -2,8 +2,10 @@
 template: default
 title: Contas de usuário
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Membros e Grupos'
+nextUrl: '/docs/concepts/ecossistema-layers/membros-e-grupos'
+previousText: 'Apps'
+previousUrl: '/docs/concepts/ecossistema-layers/apps'
 ---
 
 # Contas de usuário

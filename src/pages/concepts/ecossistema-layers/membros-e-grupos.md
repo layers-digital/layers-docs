@@ -2,8 +2,10 @@
 template: default
 title: Membros e Grupos
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Permissões'
+nextUrl: '/docs/concepts/ecossistema-layers/permissoes'
+previousText: 'Contas de Usuário'
+previousUrl: '/docs/concepts/ecossistema-layers/contas-de-usuario'
 ---
 
 # Membros e Grupos

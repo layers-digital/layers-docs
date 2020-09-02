@@ -2,8 +2,10 @@
 template: default
 title: API de notificações
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Login Federado'
+nextUrl: '/docs/concepts/funcionalidades/login-federado'
+previousText: 'Sincronização de Dados'
+previousUrl: '/docs/concepts/funcionalidades/sincronizacao-de-dados'
 ---
 
 # API de Notificações

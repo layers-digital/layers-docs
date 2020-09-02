@@ -2,8 +2,10 @@
 template: default
 title: Portais no Layers
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+previousText: 'Logar com Layers'
+previousUrl: '/docs/concepts/funcionalidades/logar-com-layers'
+nextText: 'Hub de APIs'
+nextUrl: '/docs/concepts/funcionalidades/hub-de-apis'
 ---
 
 # Portais no Layers

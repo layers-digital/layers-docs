@@ -2,8 +2,8 @@
 template: default
 title: API de comunicação
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+previousText: 'Login Federado'
+previousUrl: '/docs/concepts/funcionalidades/login-federado'
 ---
 
 # API de comunicação

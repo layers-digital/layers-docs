@@ -2,8 +2,10 @@
 template: default
 title: Hub de APIs
 tableOfContents: true
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+previousText: 'Portais'
+previousUrl: '/docs/concepts/funcionalidades/portais'
+nextText: 'Sincronização de Dados'
+nextUrl: '/docs/concepts/funcionalidades/sincronizacao-de-dados'
 ---
 
 # Hub de APIs

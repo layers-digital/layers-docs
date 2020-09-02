@@ -2,8 +2,10 @@
 template: default
 title: Login Federado
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Comunicação'
+nextUrl: '/docs/concepts/funcionalidades/comunicacao'
+previousText: 'Notificações'
+previousUrl: '/docs/concepts/funcionalidades/notificacoes'
 ---
 
 # Login Federado

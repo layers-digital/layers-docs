@@ -2,8 +2,10 @@
 template: default
 title: Sincronização de dados
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Notficações'
+nextUrl: '/docs/concepts/funcionalidades/notificacoes'
+previousText: 'Hub de APIs'
+previousUrl: '/docs/concepts/funcionalidades/hub-de-apis'
 ---
 
 # Sincronização de dados

@@ -1968,10 +1968,16 @@
                 "customer": {
                   "type": "object",
                   "description": "Informações de quem irá pagar as cobranças",
-                  "required": false,
+                  "required": [
+                    "name"
+                  ],
                   "properties": {
                     "document": {
                       "type": "object",
+                      "required": [
+                        "kind",
+                        "value"
+                      ],
                       "properties": {
                         "kind": {
                           "type": "string",
@@ -1980,13 +1986,11 @@
                             "cnpj"
                           ],
                           "description": "Tipo do documento do pagador",
-                          "required": true,
                           "example": "cpf"
                         },
                         "value": {
                           "type": "string",
                           "description": "Número do documento",
-                          "required": true,
                           "example": "111.111.111-11"
                         }
                       }
@@ -1994,27 +1998,23 @@
                     "name": {
                       "type": "string",
                       "description": "Nome do pagador",
-                      "required": true,
                       "example": "Felipe Layers"
                     },
                     "email": {
                       "type": "string",
                       "format": "email",
                       "description": "E-mail do pagador",
-                      "required": false,
                       "example": "email@layers.education"
                     },
                     "phone": {
                       "type": "string",
                       "description": "Telefone do pagador",
-                      "required": false,
                       "example": "(11)99999-9999"
                     },
                     "birth": {
                       "type": "string",
                       "format": "date",
-                      "description": "Data de nascimento do pagador",
-                      "required": false
+                      "description": "Data de nascimento do pagador"
                     }
                   }
                 },

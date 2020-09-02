@@ -53,7 +53,7 @@ export class DocsHeader {
 
         <stencil-route-link url="/docs/">
           <Logo class="MenuLogo"/>
-        </stencil-route-link>,
+        </stencil-route-link>
 
         <header-mobile-collapse>
           <nav class="SectionNav">

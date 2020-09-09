@@ -1,12 +1,8 @@
 ---
 template: default
-title: Introdução à Layers Education
+title: Layers Developer Center
 tableOfContents: false
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
 ---
-
-# Introdução à Layers Education
 
 O [ecossistema Layers Education](/docs/concepts/ecossistema-layers) é uma plataforma web e mobile que contém os dados e conecta as soluções educacionais utilizadas por instituições de ensino. Por meio de apps, instituições de ensino podem personalizar sua experiência conectando soluções que já utilizam como ERP's, EdTech's ou mesmo soluções internas.
 

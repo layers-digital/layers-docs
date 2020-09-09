@@ -84,7 +84,7 @@ export class DocsPage {
 
     // Title
     const getTitle = () => {
-      const suffix = 'Layers Docs';
+      const suffix = 'Documentação para Desenvolvedores';
       // Favor meta title, else go with auto-title. fallback to generic title
       return meta.title || title ? `${title} - ${suffix}` : suffix;
     };

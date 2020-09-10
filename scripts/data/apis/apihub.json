@@ -1190,7 +1190,7 @@
                   "type": "string",
                   "description": "Nome do curso ou série",
                   "required": true,
-                  "example": "9º Ano"
+                  "example": "1º Ano - Ensino Fundamental"
                 },
                 "status": {
                   "type": "string",
@@ -1200,7 +1200,7 @@
                   ],
                   "description": "Status desse livro de notas. Pode ser atual (current) ou de um período passado (ended)",
                   "required": true,
-                  "example": "curren"
+                  "example": "current"
                 },
                 "terms": {
                   "type": "array",
@@ -1748,7 +1748,7 @@
                         "description": "Campos da seção do prontuário",
                         "required": true,
                         "items": {
-                          "oneOf": [
+                          "anyOf": [
                             {
                               "type": "object",
                               "properties": {
@@ -1998,23 +1998,27 @@
                     "name": {
                       "type": "string",
                       "description": "Nome do pagador",
+                      "required": true,
                       "example": "Felipe Layers"
                     },
                     "email": {
                       "type": "string",
                       "format": "email",
                       "description": "E-mail do pagador",
+                      "required": false,
                       "example": "email@layers.education"
                     },
                     "phone": {
                       "type": "string",
                       "description": "Telefone do pagador",
+                      "required": false,
                       "example": "(11)99999-9999"
                     },
                     "birth": {
                       "type": "string",
                       "format": "date",
-                      "description": "Data de nascimento do pagador"
+                      "description": "Data de nascimento do pagador",
+                      "required": false
                     }
                   }
                 },

@@ -22,7 +22,7 @@ A troca de informações entre apps do Layers começa com o app que necessita de
 
 + <strong> 2 - Layers repassa a requisição </strong>
 
-Uma vez que o Layers recebe a requisição, o corpo é válidado de acordo com o protocolo da action. Se o formato da requisição estiver de acordo com o formato especificado o Layers repassa a requisição para o provedor especificado como parâmetro na URL adicionando informações de contexto da requisição.
+Uma vez que o Layers recebe a requisição, o corpo é válidado de acordo com o protocolo da action. Se o formato da requisição estiver de acordo com o formato especificado, o Layers repassa a requisição para o provedor especificado como parâmetro na URL adicionando informações de contexto da requisição.
 
 + <strong> 3 - App responde a requisição </strong>
 

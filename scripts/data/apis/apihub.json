@@ -1465,7 +1465,7 @@
                       },
                       "url": {
                         "type": "string",
-                        "description": "URL para fazer download do anexo",
+                        "description": "URL para fazer download do anexo. Obrigatóriamente uma url HTTPS",
                         "required": true,
                         "example": "https://calculo.pdf"
                       }
@@ -1746,9 +1746,8 @@
                       "fields": {
                         "type": "array",
                         "description": "Campos da seção do prontuário",
-                        "required": true,
                         "items": {
-                          "anyOf": [
+                          "oneOf": [
                             {
                               "type": "object",
                               "properties": {
@@ -1906,7 +1905,7 @@
                                     },
                                     "url": {
                                       "type": "string",
-                                      "description": "URL do arquivo",
+                                      "description": "URL do arquivo. Obrigatóriamente uma url HTTPS",
                                       "required": true,
                                       "example": "https://hospitalexample.com.br/prontuariojaneiro.pdf"
                                     }
@@ -2126,7 +2125,7 @@
                         "properties": {
                           "link": {
                             "type": "string",
-                            "description": "URL de download do boleto",
+                            "description": "URL de download do boleto. Obrigatóriamente uma url HTTPS",
                             "required": true,
                             "example": "https://boleto.pdf"
                           },
@@ -2169,7 +2168,7 @@
                             },
                             "url": {
                               "type": "string",
-                              "description": "Link para baixar o anexo",
+                              "description": "Link para baixar o anexo. Obrigatóriamente uma url HTTPS",
                               "required": true,
                               "example": "https://url.para-download.com"
                             }

@@ -109,7 +109,7 @@ A API deve retornar um JSON com o seguinte formato:
 ```js
 {
   "access_token": "{{jwtToken}}",
-  "token_type": Number,
+  "token_type": Bearer,
   "expires_in": Number,
   "state": String
 }

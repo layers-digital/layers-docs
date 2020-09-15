@@ -22,7 +22,7 @@ A troca de informações entre apps do Layers começa com o app que necessita de
 
 + <strong> 2 - Layers repassa a requisição </strong>
 
-Uma vez que o Layers recebe a requisição, o corpo é válidado de acordo com o protocolo da action. Se o formato da requisição estiver de acordo com o formato especificado, o Layers repassa a requisição para o provedor especificado como parâmetro na URL adicionando informações de contexto da requisição.
+Uma vez que o Layers recebe a requisição, o corpo é validado de acordo com o protocolo da action. Se o formato da requisição estiver de acordo com o formato especificado, o Layers repassa a requisição para o provedor especificado como parâmetro na URL adicionando informações de contexto da requisição.
 
 + <strong> 3 - App responde a requisição </strong>
 
@@ -36,6 +36,6 @@ Ao receber a resposta do provedor, o Layers verifica se ela está de acordo com 
 
 A [referência do Hub de APIs](./../../api/apihub/@layerscalendargetrelated/post) tem descritas todas as actions suportadas hoje pela Layers descrevendo o formato de requisição que apps provedores devem receber e qual deve ser o formato da resposta devem retornar.
 
-Para cada uma dessas actions, está disponível um app desenvolvido pela Layers que disponibiliza essas informações. Assim, apps provedores podem se responsabilizar apenas em disponibilizar as informações e nossos apps se responsabilizam por expôr essas informações da melhor maneira para os usuários da Layers.
+Para cada uma dessas actions, está disponível um app desenvolvido pela Layers que disponibiliza essas informações. Assim, apps provedores podem se responsabilizar apenas em disponibilizar as informações e nossos apps se responsabilizam por expor essas informações da melhor maneira para os usuários da Layers.
 
 <!-- colocar cards de cada uma das actions disponíveis? -->

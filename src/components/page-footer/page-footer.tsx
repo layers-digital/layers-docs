@@ -42,10 +42,6 @@ export class DocsPageFooter {
     const updatedText = lastUpdated ? new Date(lastUpdated).toISOString().slice(0, 10) : null;
     const contributorHref = (contributor) => `${updatedHref}?author=${contributor}`;
 
-
-
-    console.log(paggination);
-
     return [
       paggination,
       <div class="page-footer__row">

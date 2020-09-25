@@ -142,7 +142,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-15T14:14:14.277Z\""
+            "\"2020-09-25T17:35:58.128Z\""
           ],
           [
             "span",
@@ -895,7 +895,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-15\""
+            "\"2020-09-25\""
           ],
           "\n      ",
           [
@@ -1114,7 +1114,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-15\""
+            "\"2020-09-25\""
           ],
           [
             "span",
@@ -1144,7 +1144,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-15\""
+            "\"2020-09-25\""
           ],
           [
             "span",
@@ -1174,7 +1174,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-15\""
+            "\"2020-09-25\""
           ],
           [
             "span",
@@ -1302,7 +1302,7 @@
             {
               "class": "token property"
             },
-            "\"link\""
+            "\"type\""
           ],
           [
             "span",
@@ -1317,7 +1317,67 @@
             {
               "class": "token string"
             },
-            "\"https://boleto.pdf\""
+            "\"file\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Boleto de rematrícula 2020\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"url\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"https://url.para-download.com\""
           ],
           [
             "span",
@@ -1401,7 +1461,7 @@
             {
               "class": "token property"
             },
-            "\"kind\""
+            "\"type\""
           ],
           [
             "span",
@@ -1447,36 +1507,6 @@
               "class": "token string"
             },
             "\"Comprovante de estorno\""
-          ],
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            ","
-          ],
-          "\n              ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"description\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"Estorno realizado em 31/10/2019\""
           ],
           [
             "span",
@@ -1765,15 +1795,33 @@
                     "type": "object",
                     "description": "Arquivo e código do boleto",
                     "required": [
-                      "link",
+                      "url",
                       "code"
                     ],
                     "properties": {
-                      "link": {
+                      "type": {
                         "type": "string",
-                        "description": "URL de download do boleto. Obrigatóriamente uma url HTTPS",
+                        "enum": [
+                          "link",
+                          "image",
+                          "file"
+                        ],
+                        "description": "Tipo do anexo do boleto. Pode ser imagem (image), link ou um arquivo (file)",
+                        "required": false,
+                        "example": "file",
+                        "default": "file"
+                      },
+                      "title": {
+                        "type": "string",
+                        "description": "Nome do arquivo",
+                        "required": false,
+                        "example": "Boleto de rematrícula 2020"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "URL do boleto. Obrigatóriamente uma URL HTTPS",
                         "required": true,
-                        "example": "https://boleto.pdf"
+                        "example": "https://url.para-download.com"
                       },
                       "code": {
                         "type": "string",
@@ -1790,13 +1838,14 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "kind": {
+                        "type": {
                           "type": "string",
                           "enum": [
-                            "invoice",
+                            "link",
+                            "image",
                             "file"
                           ],
-                          "description": "Tipo do anexo. Pode ser nota fiscal (invoice) ou um arquivo (file)",
+                          "description": "Tipo do anexo. Pode ser imagem (image), link ou um arquivo (file)",
                           "required": true,
                           "example": "file"
                         },
@@ -1805,12 +1854,6 @@
                           "description": "Nome do arquivo",
                           "required": true,
                           "example": "Comprovante de estorno"
-                        },
-                        "description": {
-                          "type": "string",
-                          "description": "Descrição do anexo",
-                          "required": false,
-                          "example": "Estorno realizado em 31/10/2019"
                         },
                         "url": {
                           "type": "string",

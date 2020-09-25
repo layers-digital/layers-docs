@@ -1,5 +1,5 @@
 <!doctype html><html lang=en class="plt-tablet plt-desktop md hydrated" mode=md><head><meta charset="UTF-8">
-<title>Prover cobranças - Documentação para Desenvolvedores</title>
+<title>Prover ficha financeira - Documentação para Desenvolvedores</title>
 <style sty-id="sc-docs-root">.Layout{display:-ms-flexbox;display:flex;overflow-x:hidden}.Layout>stencil-route{width:100%}.Layout.is-menu-toggled{--menu-transform:translateX(calc(-1 * var(--menu-width)));--page-margin-left:0}@media (max-width:768px){.Layout{--menu-transform:translateX(calc(-1 * var(--menu-width)));--page-padding:1.5rem;--page-margin-left:0}.Layout.is-menu-toggled{--menu-transform:none;--page-transform:translateX(var(--menu-width))}.Layout.is-menu-toggled docs-page>*{opacity:.2;pointer-events:none}body.scroll-lock{overflow-y:hidden}}</style>
 <style sty-id="sc-stencil-route">stencil-route.inactive{display:none}</style>
 <style sty-id="sc-docs-header">docs-header{background-color:var(--background);-webkit-box-shadow:0 1px 3px rgba(2,8,20,.06),0 1px 2px rgba(2,8,20,.04);box-shadow:0 1px 3px rgba(2,8,20,.06),0 1px 2px rgba(2,8,20,.04);color:var(--text-color--light);display:block;font-size:16px;font-weight:500;line-height:1;position:fixed;top:0;left:0;-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:-webkit-transform .2s ease;transition:-webkit-transform .2s ease;transition:transform .2s ease;transition:transform .2s ease,-webkit-transform .2s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:100%;white-space:nowrap;z-index:2}@media (min-width:768px){.Layout:not(.is-menu-toggled) docs-header.hidden{-webkit-transform:translateY(-100%);transform:translateY(-100%)}}@media (max-width:768px){.Layout.is-menu-toggled docs-header.hidden{-webkit-transform:translateY(-100%);transform:translateY(-100%)}}docs-header header{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;height:var(--header-height);padding:0 1.4rem 0 .8rem}docs-header a{color:inherit;font-weight:500;padding:10px 0}docs-header ion-icon{font-size:16px;color:#b2becd}docs-header .link-active{color:var(--text-color--dark)}@media (hover:hover){docs-header a:not(.link-active):hover{color:var(--text-color)}}docs-header docs-menu-toggle{-ms-flex:none;flex:none;margin-right:.75em}.HeaderLogo,docs-header .MenuLogo{color:var(--text-color--dark);font-family:var(--heading-font-family);height:25px}.HeaderLogo{margin-right:.125em}.SectionNav stencil-route{display:-ms-flexbox;display:flex}.SectionNav .Dropdown{-ms-flex-item-align:center;align-self:center;color:var(--text-color);margin-right:.75em}.SectionNav .Dropdown-button{border:1px solid #dee3ea;border-radius:6px;color:var(--text-color--dark);padding:10px;-webkit-transition:border-color .1s ease;transition:border-color .1s ease}.SectionNav .Dropdown.is-open .Dropdown-button{border-color:var(--line-rule-color)}.SectionNav .Dropdown-panel{min-width:180px}.SectionNav .Dropdown-panel a{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}.SectionNav .Dropdown-panel svg{height:1em;width:1em}.SectionNav .Dropdown-panel .Nav-link{margin-left:0;margin-right:0}.SectionNav-tabs>*{-ms-flex-align:center;align-items:center;display:-ms-inline-flexbox;display:inline-flex;height:var(--header-height);margin-right:.5em;padding:0 12px;position:relative}.SectionNav-tabs .link-active:after{background-color:currentColor;bottom:0;content:"";display:block;height:3px;left:0;position:absolute;border-radius:4px 4px 0 0;width:100%}.UtilNav{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;font-size:14px;margin-left:auto}.UtilNav>*{margin-left:1em}.UtilNav .Dropdown.is-open{color:var(--text-color)}.UtilNav .Dropdown-button{padding:10px 0}@media (hover:hover){.UtilNav .Dropdown-button:hover{color:var(--text-color)}}.UtilNav .Dropdown-panel{font-size:14px}</style>
@@ -17,18 +17,18 @@
 <style sty-id="sc-docs-openapi-schema-nested">.Api-nested-section{-webkit-box-shadow:0 0 0 1px var(--api-gray100);box-shadow:0 0 0 1px var(--api-gray100);border-radius:12px;width:-webkit-min-content;width:-moz-min-content;width:min-content;margin-top:8px;margin-bottom:4px}.Api-nested-section.active{width:100%}.Api-nested-toggle-btn{cursor:pointer;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;background:none;border:none;width:100%;text-align:left;border-radius:12px;line-height:100%;white-space:pre;font-family:var(--font-family);font-size:13px;padding-right:12px;height:26px;--color-bg:transparent;background-color:var(--color-bg);--color:var(--api-gray400);color:var(--color)}.Api-nested-toggle-btn>.icon{width:14px;height:14px;-webkit-transition:-webkit-transform .2s ease-in-out;transition:-webkit-transform .2s ease-in-out;transition:transform .2s ease-in-out;transition:transform .2s ease-in-out,-webkit-transform .2s ease-in-out;fill:var(--color)}.Api-nested-toggle-btn>.text{padding-top:2px;margin-left:4px}.Api-nested-section.active>.Api-nested-toggle-btn{border-radius:12px 12px 0 0}.Api-nested-section.active>.Api-nested-toggle-btn,.Api-nested-section:hover>.Api-nested-toggle-btn{--color-bg:rgba(0,0,0,0.02);--color:var(--api-gray500)}.Api-nested-section.active>.Api-nested-toggle-btn>.icon{-webkit-transform:rotate(45deg);transform:rotate(45deg)}.Api-nested-toggle-btn:focus{outline:none}.Api-nested-section .Api-property-list-item{padding-left:16px;padding-right:16px}.Api-nested-section.active>docs-openapi-schema{border-top:1px solid var(--api-gray100)}</style>
 <style sty-id="sc-docs-page-footer">docs-page-footer{margin-top:6rem}docs-page-footer contributor-list{margin-right:.5em}docs-page-footer .last-updated{color:var(--text-color--light);font-weight:400;margin-left:auto;text-decoration:underline}docs-page-footer .page-footer__row{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;font-size:12px;margin-top:2rem}</style>
 <style sty-id="sc-docs-openapi-schema">docs-openapi-schema,docs-openapi-schema-nested{display:block}.Api-property-spec{margin:0;padding:0;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:baseline;align-items:baseline}.Api-property-name{color:var(--api-gray1000)!important;font-size:13px;font-family:var(--font-family);font-weight:600;letter-spacing:.04em;-webkit-transition:color .2s;transition:color .2s}.Api-property-name-ancestor{color:var(--api-gray400);font-weight:400}.Api-property-name:target{color:rgb(var(--api-purple))!important}.Api-property-name:target .Api-property-name-ancestor{color:inherit}.Api-property-description{font-size:12px;color:var(--api-gray500);margin:4px 0 0 0;line-height:1.2em}.Api-property-list{margin:0;padding:0;list-style:none}.Api-property-list-item{padding:12px 0}.Api-property-list-item:not(:first-child){border-top:1px solid var(--api-gray100)}.Api-label{position:relative;font-size:12px;font-weight:500;margin-left:6px}.Api-label-optional{color:var(--api-gray300)}.Api-label-required{color:rgb(var(--api-orange));font-weight:700}.Api-label-type{color:rgb(var(--api-gray400));font-weight:500}.Api-label-option{font-size:10px;border-bottom:1px dotted var(--api-gray300);font-weight:600;color:rgb(var(--api-purple));cursor:pointer}.Api-label-tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;-webkit-transform:translateX(calc(-50%));transform:translateX(calc(-50%));padding:1em;background:#fff;border-radius:4px;-webkit-box-shadow:0 2px 4px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.05);box-shadow:0 2px 4px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.05);max-width:200px;word-break:break-word;width:-webkit-max-content;width:-moz-max-content;width:max-content;line-height:1.3em}.Api-label-tooltip>code{white-space:pre;color:rgb(var(--api-purple));background-color:rgba(var(--api-purple),.1);margin:2px;display:inline-block}.Api-label:hover>.Api-label-tooltip{display:block}.Api-flex-grow{-ms-flex:auto 1 0px;flex:auto 1 0}</style>
-<link rel=modulepreload href="/docs/build/p-3dz1tsrm.js">
+<link rel=modulepreload href="/docs/build/p-vmtjlcgt.js">
 <link rel=modulepreload href="/docs/build/p-00bea6bd.js">
 <link rel=modulepreload href="/docs/build/p-43f818cb.js">
 <link rel=modulepreload href="/docs/build/p-5c360986.js">
 <link rel=modulepreload href="/docs/build/p-72181234.js">
 <link rel=modulepreload href="/docs/build/p-e35a9f40.js">
-<link rel=modulepreload href="/docs/build/p-rxtr7jcr.entry.js">
+<link rel=modulepreload href="/docs/build/p-qxzhkxoz.entry.js">
 <link rel=modulepreload href="/docs/build/p-f1phrwuc.entry.js">
 <link rel=modulepreload href="/docs/build/p-7jxeonfl.entry.js">
 <link rel=modulepreload href="/docs/build/p-tstqjuho.entry.js">
 <link rel=modulepreload href="/docs/build/p-jcxarby9.entry.js">
-<script type=module src="/docs/build/p-3dz1tsrm.js" data-resources-url="/docs/build/"
+<script type=module src="/docs/build/p-vmtjlcgt.js" data-resources-url="/docs/build/"
 data-stencil-namespace=app></script>
 <script nomodule src="/docs/build/app.js"></script>
 <link rel=stylesheet href="/docs/build/p-jcvvpgow.css">
@@ -36,10 +36,10 @@ data-stencil-namespace=app></script>
 <meta name=viewport content="width=device-width, minimum-scale=1, initial-scale=1">
 <meta name="theme-color" content=#4d8dff>
 <link rel=manifest href="/docs/manifest.json">
-<meta itemprop=name content="Prover cobranças - Documentação para Desenvolvedores" class="meta-title">
+<meta itemprop=name content="Prover ficha financeira - Documentação para Desenvolvedores" class="meta-title">
 <meta itemprop=description content="Layers é a plataforma para Educação e EdTechs. Escale seu produto utilizando API e Serviços da Layers."
 class="meta-description">
-<meta property=og:title content="Prover cobranças - Documentação para Desenvolvedores" class="meta-title">
+<meta property=og:title content="Prover ficha financeira - Documentação para Desenvolvedores" class="meta-title">
 <meta property=og:type content=article>
 <meta property=og:url content="https://layers.digital/docs/api/apihub/@layerspaymentspayablesgetrelated/post"
 class="meta-url">
@@ -50,18 +50,9 @@ class="meta-description">
 <meta property=article:tag content=Layers>
 <meta property=article:tag content=Education>
 <meta property=article:tag content=Documentação>
-<link rel="apple-touch-icon" sizes=57x57 href="/docs/assets/img/meta/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes=60x60 href="/docs/assets/img/meta/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes=72x72 href="/docs/assets/img/meta/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes=76x76 href="/docs/assets/img/meta/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes=114x114 href="/docs/assets/img/meta/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes=120x120 href="/docs/assets/img/meta/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes=144x144 href="/docs/assets/img/meta/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes=152x152 href="/docs/assets/img/meta/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes=180x180 href="/docs/assets/img/meta/apple-touch-icon-180x180.png">
-<link rel=icon type="image/png" href="/docs/assets/img/meta/favicon-16x16.png" sizes=16x16>
-<link rel=icon type="image/png" href="/docs/assets/img/meta/favicon-32x32.png" sizes=32x32>
-<link rel=icon type="image/png" href="/docs/assets/img/meta/favicon-96x96.png" sizes=96x96>
+<link rel="apple-touch-icon" sizes=180x180 href="/docs/assets/favicon/apple-touch-icon.png">
+<link rel=icon type="image/png" sizes=32x32 href="/docs/assets/favicon/favicon-32x32.png">
+<link rel=icon type="image/png" sizes=16x16 href="/docs/assets/favicon/favicon-16x16.png">
 <link rel=alternate hreflang="x-default" href="https://layers.digital/docs/api/apihub/@layerspaymentspayablesgetrelated/post"
 class="meta-url">
 <link rel=canonical href="https://developers.layers.education/docs/api/apihub/@layerspaymentspayablesgetrelated/post">
@@ -99,9 +90,8 @@ fill=#5B708B c-id=7.4.2.0></path></svg></a><div class="header-mobile-collapse__c
 class=SectionNav c-id=4.12.2.0><stencil-route-switch class=hydrated c-id=4.13.3.0 s-id=10><!--r.10--><!--o.4.14--><!--s.10.0.0.0.--><stencil-route
 class=hydrated c-id=4.14.4.0 s-id=11><!--r.11--><div class="SectionNav-tabs" c-id=4.15.5.0><stencil-route-link
 class=hydrated c-id=4.16.6.0 s-id=12><!--r.12--><!--o.4.17--><a href="/docs/" c-id=12.0.0.0><!--s.12.1.1.0.--><!--t.4.17.7.0-->Conceitos</a></stencil-route-link><stencil-route-link
-class=hydrated c-id=4.18.6.1 s-id=13><!--r.13--><!--o.4.19--><a class="link-active" href="/docs/api/auth/oauth/account/info"
-c-id=13.0.0.0><!--s.13.1.1.0.--><!--t.4.19.7.0-->APIs</a></stencil-route-link><stencil-route-link class=hydrated
-c-id=4.20.6.2 s-id=14><!--r.14--><!--o.4.21--><a href="/docs/sdk/como-colocar-o-botao-logar-com-layers"
+class=hydrated c-id=4.18.6.1 s-id=13><!--r.13--><!--o.4.19--><a class="link-active" href="/docs/api" c-id=13.0.0.0><!--s.13.1.1.0.--><!--t.4.19.7.0-->APIs</a></stencil-route-link><stencil-route-link
+class=hydrated c-id=4.20.6.2 s-id=14><!--r.14--><!--o.4.21--><a href="/docs/sdk/como-colocar-o-botao-logar-com-layers"
 c-id=14.0.0.0><!--s.14.1.1.0.--><!--t.4.21.7.0-->SDKs</a></stencil-route-link><stencil-route-link class=hydrated
 c-id=4.22.6.3 s-id=15><!--r.15--><!--o.4.23--><a href="/docs/status" c-id=15.0.0.0><!--s.15.1.1.0.--><!--t.4.23.7.0-->Status</a></stencil-route-link><stencil-route-link
 class=hydrated c-id=4.24.6.4 s-id=16><!--r.16--><!--o.4.25--><a href="/docs/register" c-id=16.0.0.0><!--s.16.1.1.0.--><!--t.4.25.7.0-->Registre seu app</a></stencil-route-link></div></stencil-route></stencil-route-switch></nav><nav
@@ -133,34 +123,37 @@ fill=#405261 c-id=19.10.3.6></path></svg></a></stencil-route-link></header><sten
 c-id=19.11.0.1 s-id=22><!--r.22--><!--o.19.12--><!--o.19.15--><!--s.22.0.0.0.--><stencil-route class=hydrated
 c-id=19.12.1.0 s-id=23><!--r.23--><section class=MenuControls c-id=19.13.2.0><select-category class=hydrated
 c-id=19.14.3.0 s-id=24><!--r.24--><docs-select class="SelectCategory Select hydrated" c-id=24.0.0.0 s-id=25><!--r.25--><docs-dropdown
-tabindex=0 class="Dropdown Dropdown--left hydrated" c-id=25.0.0.0 s-id=26><!--r.26--><!--o.25.1--><!--o.25.6--><!--o.25.11--><!--o.25.16--><!--o.25.21--><!--o.25.26--><!--o.25.31--><button
+tabindex=0 class="Dropdown Dropdown--left hydrated" c-id=25.0.0.0 s-id=26><!--r.26--><!--o.25.1--><!--o.25.6--><!--o.25.11--><!--o.25.16--><!--o.25.21--><!--o.25.26--><!--o.25.31--><!--o.25.36--><button
 tabindex="-1" class="Dropdown-button" aria-haspopup=menu aria-expanded=false c-id=26.0.0.0><span class="Dropdown-button-label"
 c-id=26.1.1.0><div class="SelectCategory-framework" c-id=26.2.2.0><img src="/docs/assets/icons/Hub.svg"
 class="SelectCategory-icon" c-id=26.3.3.0><span c-id=26.4.3.1><!--t.26.5.4.0-->Hub de API's</span></div></span><svg
 viewBox="0 0 512 512" class="Dropdown-arrow" c-id=26.6.1.1><path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
 c-id=26.7.2.0></path></svg></button><div role=menu class="Dropdown-panel" c-id=26.8.0.1><!--s.26.9.1.0.--><div
 class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=25.1.1.0><div class="SelectCategory-framework"
-c-id=25.2.2.0><img src="/docs/assets/icons/OAuth.svg" class="SelectCategory-icon" c-id=25.3.3.0><span
-c-id=25.4.3.1><!--t.25.5.4.0-->Autenticação OAuth</span></div></div><div class="Select-option" role=menuitemradio
-aria-checked=false tabindex=0 c-id=25.6.1.1><div class="SelectCategory-framework" c-id=25.7.2.0><img src="/docs/assets/icons/Data.svg"
-class="SelectCategory-icon" c-id=25.8.3.0><span c-id=25.9.3.1><!--t.25.10.4.0-->Dados</span></div></div><div
-class="Select-option Select-option--selected" role=menuitemradio aria-checked=true tabindex=0 c-id=25.11.1.2><div
-class="SelectCategory-framework" c-id=25.12.2.0><img src="/docs/assets/icons/Hub.svg" class="SelectCategory-icon"
-c-id=25.13.3.0><span c-id=25.14.3.1><!--t.25.15.4.0-->Hub de API's</span></div></div><div class="Select-option"
-role=menuitemradio aria-checked=false tabindex=0 c-id=25.16.1.3><div class="SelectCategory-framework"
-c-id=25.17.2.0><img src="/docs/assets/icons/Notifications.svg" class="SelectCategory-icon" c-id=25.18.3.0><span
-c-id=25.19.3.1><!--t.25.20.4.0-->Notificações</span></div></div><div class="Select-option" role=menuitemradio
-aria-checked=false tabindex=0 c-id=25.21.1.4><div class="SelectCategory-framework" c-id=25.22.2.0><img src="/docs/assets/icons/Comunicação.svg"
-class="SelectCategory-icon" c-id=25.23.3.0><span c-id=25.24.3.1><!--t.25.25.4.0-->Comunicação</span></div></div><div
+c-id=25.2.2.0><img src="/docs/assets/icons/General.svg" class="SelectCategory-icon" c-id=25.3.3.0><span
+c-id=25.4.3.1><!--t.25.5.4.0-->Guias Gerais</span></div></div><div class="Select-option" role=menuitemradio
+aria-checked=false tabindex=0 c-id=25.6.1.1><div class="SelectCategory-framework" c-id=25.7.2.0><img src="/docs/assets/icons/OAuth.svg"
+class="SelectCategory-icon" c-id=25.8.3.0><span c-id=25.9.3.1><!--t.25.10.4.0-->Autenticação OAuth</span></div></div><div
+class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=25.11.1.2><div class="SelectCategory-framework"
+c-id=25.12.2.0><img src="/docs/assets/icons/Data.svg" class="SelectCategory-icon" c-id=25.13.3.0><span
+c-id=25.14.3.1><!--t.25.15.4.0-->Dados</span></div></div><div class="Select-option Select-option--selected"
+role=menuitemradio aria-checked=true tabindex=0 c-id=25.16.1.3><div class="SelectCategory-framework"
+c-id=25.17.2.0><img src="/docs/assets/icons/Hub.svg" class="SelectCategory-icon" c-id=25.18.3.0><span
+c-id=25.19.3.1><!--t.25.20.4.0-->Hub de API's</span></div></div><div class="Select-option" role=menuitemradio
+aria-checked=false tabindex=0 c-id=25.21.1.4><div class="SelectCategory-framework" c-id=25.22.2.0><img src="/docs/assets/icons/Notifications.svg"
+class="SelectCategory-icon" c-id=25.23.3.0><span c-id=25.24.3.1><!--t.25.25.4.0-->Notificações</span></div></div><div
 class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=25.26.1.5><div class="SelectCategory-framework"
-c-id=25.27.2.0><img src="/docs/assets/icons/Atendimento.svg" class="SelectCategory-icon" c-id=25.28.3.0><span
-c-id=25.29.3.1><!--t.25.30.4.0-->Atendimentos</span></div></div><div class="Select-option" role=menuitemradio
-aria-checked=false tabindex=0 c-id=25.31.1.6><div class="SelectCategory-framework" c-id=25.32.2.0><img src="/docs/assets/icons/Mídia.svg"
-class="SelectCategory-icon" c-id=25.33.3.0><span c-id=25.34.3.1><!--t.25.35.4.0-->Mídia</span></div></div></div></docs-dropdown></docs-select><a
-href="/docs/api/auth/oauth/account/info" c-id=24.1.0.1></a><a href="/docs/api/data/member/object" c-id=24.2.0.2></a><a
-href="/docs/api/apihub/@layerscalendargetrelated/post" c-id=24.3.0.3></a><a href="/docs/api/notifications/notication/send/post"
-c-id=24.4.0.4></a><a href="/docs/api/communication/event/object" c-id=24.5.0.5></a><a href="/docs/api/tickets/channel/object"
-c-id=24.6.0.6></a><a href="/docs/api/media/media/upload/post" c-id=24.7.0.7></a></select-category></section></stencil-route><stencil-route
+c-id=25.27.2.0><img src="/docs/assets/icons/Comunicação.svg" class="SelectCategory-icon" c-id=25.28.3.0><span
+c-id=25.29.3.1><!--t.25.30.4.0-->Comunicação</span></div></div><div class="Select-option" role=menuitemradio
+aria-checked=false tabindex=0 c-id=25.31.1.6><div class="SelectCategory-framework" c-id=25.32.2.0><img src="/docs/assets/icons/Atendimento.svg"
+class="SelectCategory-icon" c-id=25.33.3.0><span c-id=25.34.3.1><!--t.25.35.4.0-->Atendimentos</span></div></div><div
+class="Select-option" role=menuitemradio aria-checked=false tabindex=0 c-id=25.36.1.7><div class="SelectCategory-framework"
+c-id=25.37.2.0><img src="/docs/assets/icons/Mídia.svg" class="SelectCategory-icon" c-id=25.38.3.0><span
+c-id=25.39.3.1><!--t.25.40.4.0-->Mídia</span></div></div></div></docs-dropdown></docs-select><a href="/docs/api"
+c-id=24.1.0.1></a><a href="/docs/api/auth/oauth/account/info" c-id=24.2.0.2></a><a href="/docs/api/data/member/object"
+c-id=24.3.0.3></a><a href="/docs/api/apihub/@layerscalendargetrelated/post" c-id=24.4.0.4></a><a href="/docs/api/notifications/notication/send/post"
+c-id=24.5.0.5></a><a href="/docs/api/communication/event/object" c-id=24.6.0.6></a><a href="/docs/api/tickets/channel/object"
+c-id=24.7.0.7></a><a href="/docs/api/media/media/upload/post" c-id=24.8.0.8></a></select-category></section></stencil-route><stencil-route
 class=hydrated c-id=19.15.1.1 s-id=27 style="display: none;"><!--r.27--></stencil-route></stencil-route-switch><stencil-route-switch
 class="Menu hydrated" c-id=19.16.0.2 s-id=28><!--r.28--><!--o.19.17--><!--o.19.18--><!--o.19.19--><!--o.19.20--><!--s.28.0.0.0.--><stencil-route
 class=hydrated c-id=19.17.1.0 s-id=29 style="display: none;"><!--r.29--></stencil-route><stencil-route
@@ -203,15 +196,15 @@ class="Nav-subnav" c-id=31.77.3.1 style="--level: 1;"><li c-id=31.78.4.0><stenci
 c-id=31.79.5.0 s-id=39><!--r.39--><!--o.31.80--><!--o.31.82--><a class="Nav-link" href="/docs/api/apihub/@layershealthmedicalrecordgetrelated/post"
 c-id=39.0.0.0><!--s.39.1.1.0.--><span class="Nav-text" c-id=31.80.6.0><!--t.31.81.7.0-->Prover ficha médica</span><span
 class="Nav-tag blue" c-id=31.82.6.1><!--t.31.83.7.0-->POST</span></a></stencil-route-link></li></ul></section></li><li
-c-id=31.84.1.7><section c-id=31.85.2.0><header class="Nav-header" c-id=31.86.3.0><!--t.31.87.4.0-->Cobranças</header><ul
+c-id=31.84.1.7><section c-id=31.85.2.0><header class="Nav-header" c-id=31.86.3.0><!--t.31.87.4.0-->Ficha financeira</header><ul
 class="Nav-subnav" c-id=31.88.3.1 style="--level: 1;"><li c-id=31.89.4.0><stencil-route-link class=hydrated
 c-id=31.90.5.0 s-id=40><!--r.40--><!--o.31.91--><!--o.31.93--><a class="Nav-link--active Nav-link" href="/docs/api/apihub/@layerspaymentspayablesgetrelated/post"
-c-id=40.0.0.0><!--s.40.1.1.0.--><span class="Nav-text" c-id=31.91.6.0><!--t.31.92.7.0-->Prover cobranças</span><span
+c-id=40.0.0.0><!--s.40.1.1.0.--><span class="Nav-text" c-id=31.91.6.0><!--t.31.92.7.0-->Prover ficha financeira</span><span
 class="Nav-tag blue" c-id=31.93.6.1><!--t.31.94.7.0-->POST</span></a></stencil-route-link></li></ul></section></li></ul></docs-nav></stencil-route><stencil-route
 class=hydrated c-id=19.19.1.2 s-id=41 style="display: none;"><!--r.41--></stencil-route><stencil-route
 class=hydrated c-id=19.20.1.3 s-id=42 style="display: none;"><!--r.42--></stencil-route></stencil-route-switch></docs-menu><stencil-route
 class=hydrated c-id=1.4.1.3 s-id=43><!--r.43--><docs-page class="page-api-apihub-layerspaymentspayablesgetrelated-post api-route hydrated"
-c-id=43.0.0.0 s-id=44><!--r.44--><main class="no-demo" c-id=44.0.0.0><article c-id=44.1.1.0><h1 c-id=44.2.2.0><!--t.44.3.3.0-->Prover cobranças</h1><span
+c-id=43.0.0.0 s-id=44><!--r.44--><main class="no-demo" c-id=44.0.0.0><article c-id=44.1.1.0><h1 c-id=44.2.2.0><!--t.44.3.3.0-->Prover ficha financeira</h1><span
 class="Nav-tag purple large" c-id=44.4.2.1><!--t.44.5.3.0-->{...}</span><section class="markdown-content"
 c-id=44.6.2.2><div c-id=44.7.3.0><p class=intro c-id=44.8.4.0><!--t.44.9.5.0-->O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de cobranças por meio da action
 <code
@@ -255,7 +248,7 @@ class="token property" c-id=44.52.9.2><!--t.44.53.10.0-->"context"</span><span c
 c-id=44.54.9.3><!--t.44.55.10.0-->:</span><!--t.44.56.9.4--> <span class="token punctuation" c-id=44.57.9.5><!--t.44.58.10.0-->{</span><!--t.44.59.9.6-->
     <span
 class="token property" c-id=44.60.9.7><!--t.44.61.10.0-->"issuedAt"</span><span class="token operator"
-c-id=44.62.9.8><!--t.44.63.10.0-->:</span><!--t.44.64.9.9--> <span class="token string" c-id=44.65.9.10><!--t.44.66.10.0-->"2020-09-25T18:37:01.957Z"</span><span
+c-id=44.62.9.8><!--t.44.63.10.0-->:</span><!--t.44.64.9.9--> <span class="token string" c-id=44.65.9.10><!--t.44.66.10.0-->"2020-09-25T19:07:05.409Z"</span><span
 class="token punctuation" c-id=44.67.9.11><!--t.44.68.10.0-->,</span><!--t.44.69.9.12-->
     <span class="token property"
 c-id=44.70.9.13><!--t.44.71.10.0-->"action"</span><span class="token operator" c-id=44.72.9.14><!--t.44.73.10.0-->:</span><!--t.44.74.9.15--> <span

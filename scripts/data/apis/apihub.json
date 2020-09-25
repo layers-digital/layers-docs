@@ -2119,15 +2119,33 @@
                         "type": "object",
                         "description": "Arquivo e código do boleto",
                         "required": [
-                          "link",
+                          "url",
                           "code"
                         ],
                         "properties": {
-                          "link": {
+                          "type": {
                             "type": "string",
-                            "description": "URL de download do boleto. Obrigatóriamente uma url HTTPS",
+                            "enum": [
+                              "link",
+                              "image",
+                              "file"
+                            ],
+                            "description": "Tipo do anexo do boleto. Pode ser imagem (image), link ou um arquivo (file)",
+                            "required": false,
+                            "example": "file",
+                            "default": "file"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Nome do arquivo",
+                            "required": false,
+                            "example": "Boleto de rematrícula 2020"
+                          },
+                          "url": {
+                            "type": "string",
+                            "description": "URL do boleto. Obrigatóriamente uma URL HTTPS",
                             "required": true,
-                            "example": "https://boleto.pdf"
+                            "example": "https://url.para-download.com"
                           },
                           "code": {
                             "type": "string",
@@ -2144,13 +2162,14 @@
                         "items": {
                           "type": "object",
                           "properties": {
-                            "kind": {
+                            "type": {
                               "type": "string",
                               "enum": [
-                                "invoice",
+                                "link",
+                                "image",
                                 "file"
                               ],
-                              "description": "Tipo do anexo. Pode ser nota fiscal (invoice) ou um arquivo (file)",
+                              "description": "Tipo do anexo. Pode ser imagem (image), link ou um arquivo (file)",
                               "required": true,
                               "example": "file"
                             },
@@ -2159,12 +2178,6 @@
                               "description": "Nome do arquivo",
                               "required": true,
                               "example": "Comprovante de estorno"
-                            },
-                            "description": {
-                              "type": "string",
-                              "description": "Descrição do anexo",
-                              "required": false,
-                              "example": "Estorno realizado em 31/10/2019"
                             },
                             "url": {
                               "type": "string",

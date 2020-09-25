@@ -42,8 +42,6 @@ export default (props) => {
     operation: "READ" as OperationType
   };
 
-  console.log(page)
-
   return (
     <article>
       <h1>{page.title}</h1>

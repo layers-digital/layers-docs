@@ -133,7 +133,11 @@ export function normalizeObject(spec: OpenAPIObject, obj: SchemaObject): SchemaO
       resolveArray(out)
   }
 
-  normalizedObjectMaps.set(obj, out)
+  try {
+    normalizedObjectMaps.set(obj, out)
+  } catch (e) {
+
+  }
 
   return out
 }
@@ -196,7 +200,7 @@ export function getDefaultTypeExample({schema}: AcessorNode) {
   try {
     type = !Array.isArray(schema.type) ? (schema.type as string).toLowerCase() : (schema.type as string[]).map(type => (type as string).toLowerCase())
   } catch (error) {
-    console.log(schema)
+    // throw error
   }
   
   if (!type) {

@@ -65,7 +65,6 @@ export class DocsOpenapiSchemaNested {
     }
 
     if (typeof node.schema.properties != 'object') {
-      console.log('schema', node.schema);
       return <section class="Api-nested-section">
         <button class="Api-nested-toggle-btn">Erro: Entidade inválida</button>
       </section>

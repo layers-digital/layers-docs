@@ -6,7 +6,7 @@ tableOfContents: false
 
 O [ecossistema Layers Education](/docs/concepts/ecossistema-layers) é uma plataforma web e mobile que contém os dados e conecta as soluções educacionais utilizadas por instituições de ensino. Por meio de apps, instituições de ensino podem personalizar sua experiência conectando soluções que já utilizam como ERP's, EdTech's ou mesmo soluções internas.
 
-Para desenvolvedores desse serviços, integrar sua solução ao Layers significa [criar um app](/docs/register) único  com as [funcionalidades disponibilizadas](#funcionalidades-para-apps). Esse app, uma vez revisado e aprovado, poderá ser utilizado por qualquer instituição que utilize o Layers sem necessidade de realizar novas integrações ou desenvolvimento específico para cada instituição.
+Para desenvolvedores desses serviços, integrar sua solução ao Layers significa [criar um app](/docs/register) único  com as [funcionalidades disponibilizadas](#funcionalidades-para-apps). Esse app, uma vez revisado e aprovado, poderá ser utilizado por qualquer instituição que utilize o Layers sem necessidade de realizar novas integrações ou desenvolvimento específico para cada instituição.
 
 ## Segmentos no Layers Education
 <docs-cards>
@@ -53,7 +53,7 @@ O Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
   </docs-card>
 
   <docs-card header="Notificações" href="/docs/concepts/funcionalidades/notificacoes" icon="/docs/assets/icons/Notifications.svg">
-    <p>Mandar notificações push para android, ios e web</p>
+    <p>Mandar notificações push para Android, iOS e Web</p>
   </docs-card>
 
   <docs-card header="Comunicação" href="/docs/concepts/funcionalidades/comunicacao" icon="/docs/assets/icons/Comunicação.svg">

@@ -495,15 +495,17 @@
         "name": {
           "type": "string",
           "description": "Nome do grupo",
-          "example": "Terceiro ano A",
-          "required": true
+          "example": "Terceiro ano A"
         },
         "tags": {
           "type": "array",
           "description": "tags às quais esse grupo pertence",
-          "required": false,
           "items": {
             "type": "object",
+            "required": [
+              "id",
+              "name"
+            ],
             "properties": {
               "id": {
                 "type": "string",
@@ -520,7 +522,6 @@
         "admins": {
           "type": "array",
           "description": "administradores do grupo",
-          "required": false,
           "items": {
             "type": "object",
             "properties": {
@@ -533,8 +534,7 @@
         "active": {
           "type": "boolean",
           "description": "Chave que indica se o grupo está ativo (quando o grupo é apagado, essa chave é mudada para false)",
-          "example": true,
-          "required": false
+          "example": true
         },
         "syncedAt": {
           "type": "string",

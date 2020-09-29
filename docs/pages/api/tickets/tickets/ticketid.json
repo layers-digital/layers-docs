@@ -1,7 +1,7 @@
 {
   "template": "api-route",
   "title": "Visualizar mensagem",
-  "path": "/docs/api/tickets/tickets/code",
+  "path": "/docs/api/tickets/tickets/ticketid",
   "body": [
     "div",
     null,
@@ -69,7 +69,7 @@
               {
                 "class": "token param"
               },
-              "{code}"
+              "{ticketId}"
             ]
           ]
         ]
@@ -171,7 +171,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -201,7 +201,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -231,7 +231,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -759,7 +759,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -849,7 +849,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -1242,7 +1242,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -1595,54 +1595,47 @@
         "type": "string",
         "description": "Descrição do nível de prioridade da mensagem",
         "default": "normal",
-        "exmaple": "normal"
+        "example": "normal"
       },
       "finished": {
         "type": "boolean",
-        "description": "Indica se a conversa foi encerrada",
-        "default": null
+        "description": "Indica se a conversa foi encerrada"
       },
       "finishedAt": {
         "type": "string",
         "format": "date-time",
         "description": "Data e hora na qual a conversa foi fechada",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "durationTotal": {
         "type": "number",
         "format": "integer",
         "description": "Duração total da conversa em segundos",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "durationEfective": {
         "type": "number",
         "format": "integer",
         "description": "Duração total da conversa contando apenas horas de funcionamento do canal de atendimento",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "firstReplyAt": {
         "type": "string",
         "format": "date-time",
         "description": "Data e hora da primeira resposta",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "firstReplyDelayTotal": {
         "type": "number",
         "format": "integer",
         "description": "Tempo até a primeira resposta em segundos",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "firstReplyDelayToalEffective": {
         "type": "number",
         "format": "integer",
         "description": "Tempo até a primeira resposta contanto apenas horas de funcionamento do canal de atendimento",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "agent": {
         "type": "object",
@@ -1669,7 +1662,9 @@
       },
       "channel": {
         "type": "object",
-        "required": "id",
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -1753,7 +1748,7 @@
   },
   "route": {
     "type": "route",
-    "path": "/tickets/{code}",
+    "path": "/tickets/{ticketId}",
     "method": "get",
     "spec": {
       "tags": [
@@ -1764,19 +1759,22 @@
       "parameters": [
         {
           "$ref": "#/components/parameters/Community-id"
+        },
+        {
+          "$ref": "#/components/parameters/PathTicketId"
         }
       ],
       "security": [
         {
-          "Bearer": [],
-          "layers-permissions": [
-            "ticket:agent"
-          ],
-          "layers-context": [
-            "user",
-            "app"
-          ]
+          "Bearer": []
         }
+      ],
+      "x-layers-permissions": [
+        "ticket:agent"
+      ],
+      "x-layers-context": [
+        "user",
+        "app"
       ],
       "responses": {
         "200": {
@@ -1796,7 +1794,7 @@
       },
       "externalDocs": {
         "description": "Visualizar mensagem",
-        "url": "/docs/api/tickets/tickets/code"
+        "url": "/docs/api/tickets/tickets/ticketid"
       }
     },
     "tags": [
@@ -1805,5 +1803,5 @@
     "summary": "Visualizar mensagem"
   },
   "headings": [],
-  "pageClass": "page-api-tickets-tickets-code"
+  "pageClass": "page-api-tickets-tickets-ticketid"
 }

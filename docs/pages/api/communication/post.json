@@ -172,7 +172,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -202,7 +202,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -657,7 +657,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -710,7 +710,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-25T19:07:05.409Z\""
+            "\"2020-09-29T20:09:22.988Z\""
           ],
           [
             "span",
@@ -849,7 +849,7 @@
                   },
                   "kind": {
                     "type": "string",
-                    "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                    "description": "Tipo do público especificado. Pode ser user, member, group ou tag."
                   }
                 }
               }
@@ -857,7 +857,7 @@
           }
         },
         "roles": {
-          "type": "Array",
+          "type": "array",
           "description": "Perfís de usuários no público alvo que poderão ver essa publicação.",
           "items": {
             "type": "string"
@@ -947,12 +947,6 @@
           "$ref": "#/components/parameters/Tags"
         },
         {
-          "$ref": "#/components/parameters/UpdatedAt"
-        },
-        {
-          "$ref": "#/components/parameters/UpdatedAt"
-        },
-        {
           "$ref": "#/components/parameters/AuthorName"
         },
         {
@@ -961,15 +955,15 @@
       ],
       "security": [
         {
-          "Bearer": [],
-          "x-layers-permissions": [
-            "member:read"
-          ],
-          "x-layers-context": [
-            "user",
-            "app"
-          ]
+          "Bearer": []
         }
+      ],
+      "x-layers-permissions": [
+        "member:read"
+      ],
+      "x-layers-context": [
+        "user",
+        "app"
       ],
       "responses": {
         "200": {
@@ -1054,7 +1048,7 @@
                               },
                               "kind": {
                                 "type": "string",
-                                "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                                "description": "Tipo do público especificado. Pode ser user, member, group ou tag."
                               }
                             }
                           }
@@ -1062,7 +1056,7 @@
                       }
                     },
                     "roles": {
-                      "type": "Array",
+                      "type": "array",
                       "description": "Perfís de usuários no público alvo que poderão ver essa publicação.",
                       "items": {
                         "type": "string"

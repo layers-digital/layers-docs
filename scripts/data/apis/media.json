@@ -20,12 +20,12 @@
         "Description": "Faça upload de arquivos como imagens ou PDFs de até 5MB que podem ser usados em publicações, solicitações ou outros apps no Layers",
         "security": [
           {
-            "Bearer": [],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -78,20 +78,18 @@
                       "type": "number",
                       "format": "integer",
                       "description": "Tamanho do Arquivo",
-                      "exmaple": 64302
+                      "example": 64302
                     },
                     "height": {
                       "type": "number",
                       "format": "integer",
                       "description": "Altura da imagem",
-                      "default": null,
                       "example": 1024
                     },
                     "width": {
                       "type": "number",
                       "format": "integer",
                       "description": "Largura da imagem",
-                      "default": null,
                       "example": 702
                     }
                   }
@@ -121,13 +119,7 @@
         "description": "Generate a token",
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "x-layers-permissions": {
-          "type": "array"
-        },
-        "x-layers-contexts": {
-          "type": "array"
-        }
+        "bearerFormat": "JWT"
       }
     }
   },

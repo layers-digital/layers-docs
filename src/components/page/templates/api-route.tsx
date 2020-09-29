@@ -58,6 +58,8 @@ export default (props) => {
 
       {PathSpec.security ? <docs-openapi-authentication
         security={PathSpec.security}
+        permissions={PathSpec['x-layers-permissions'] as string[]}
+        context={PathSpec['x-layers-context']}
       /> : null}
         
       {PathSpec.parameters && <docs-openapi-parameters

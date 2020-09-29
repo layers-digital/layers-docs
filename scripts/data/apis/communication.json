@@ -25,15 +25,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "user:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "user:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -98,12 +98,6 @@
             "$ref": "#/components/parameters/Tags"
           },
           {
-            "$ref": "#/components/parameters/UpdatedAt"
-          },
-          {
-            "$ref": "#/components/parameters/UpdatedAt"
-          },
-          {
             "$ref": "#/components/parameters/AuthorName"
           },
           {
@@ -112,15 +106,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "member:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "member:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -156,15 +150,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "post:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "post:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -195,15 +189,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "post:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "post:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -243,15 +237,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "user:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "user:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -309,12 +303,6 @@
             "$ref": "#/components/parameters/Tags"
           },
           {
-            "$ref": "#/components/parameters/UpdatedAt"
-          },
-          {
-            "$ref": "#/components/parameters/UpdatedAt"
-          },
-          {
             "$ref": "#/components/parameters/AuthorName"
           },
           {
@@ -332,15 +320,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "user:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "user:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -454,7 +442,7 @@
                     },
                     "kind": {
                       "type": "string",
-                      "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
+                      "description": "Tipo do público especificado. Pode ser user, member, group ou tag."
                     }
                   }
                 }
@@ -462,7 +450,7 @@
             }
           },
           "roles": {
-            "type": "Array",
+            "type": "array",
             "description": "Perfís de usuários no público alvo que poderão ver essa publicação.",
             "items": {
               "type": "string"
@@ -541,7 +529,7 @@
         }
       },
       "UpdatedAt": {
-        "name": "updateAt",
+        "name": "updatedAt",
         "in": "query",
         "description": "Data da última modificação do documento",
         "required": false,
@@ -561,7 +549,7 @@
       "Season": {
         "name": "season",
         "in": "query",
-        "description": "Temporada do documento. Geralmente é o ano letivo.",
+        "description": "Temporada do documento. Geralmente é o ano letivo",
         "required": false,
         "schema": {
           "type": "string"
@@ -645,7 +633,7 @@
       "Tags": {
         "name": "tags",
         "in": "query",
-        "description": "Array contendo os identificadores de todo público alvo que pode ver essa publicação (grupos, usuários, alunos e turmas)",
+        "description": "Array contendo os identificadores de todo publico alvo que pode ver essa publicação (grupos, usuarios, alunos e turmas)",
         "required": false,
         "schema": {
           "type": "array",
@@ -681,14 +669,6 @@
           "type": "string"
         }
       },
-      "Alias": {
-        "name": "alias",
-        "description": "Identificador no Layers Education",
-        "required": false,
-        "schema": {
-          "type": "string"
-        }
-      },
       "AuthorName": {
         "name": "author.name",
         "in": "query",
@@ -713,13 +693,7 @@
         "description": "Generate a token",
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "x-layers-permissions": {
-          "type": "array"
-        },
-        "x-layers-contexts": {
-          "type": "array"
-        }
+        "bearerFormat": "JWT"
       }
     }
   },

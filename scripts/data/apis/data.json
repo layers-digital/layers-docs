@@ -25,16 +25,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:write",
-              "group:write:scoped"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -79,15 +78,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -113,16 +112,16 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:read",
-              "group:read:scoped"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:read",
+          "group:read:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -166,26 +165,30 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
-            "type": "object",
-            "properties": {
-              "users": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "format": "ObjectId",
-                  "description": "Identificador do usuário que deve ser adicionado como administrador ao grupo"
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "users": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "ObjectId",
+                      "description": "Identificador do usuário que deve ser adicionado como administrador ao grupo"
+                    }
+                  }
                 }
               }
             }
@@ -225,15 +228,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -264,15 +267,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -312,15 +315,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -353,16 +356,16 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:write",
-              "group:write:scoped"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:write",
+          "group:write:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -413,16 +416,16 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:read",
-              "group:read:scoped"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:read",
+          "group:read:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -506,16 +509,16 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:write",
-              "group:write:scoped"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:write",
+          "group:write:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -543,16 +546,16 @@
         "description": "Listar grupos existentes no Layers",
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:read",
-              "group:read:scoped"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:read",
+          "group:read:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "parameters": [
           {
@@ -629,15 +632,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "group:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "group:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -681,15 +684,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "member:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "member:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -721,15 +724,15 @@
         "description": "Listar membros existentes.",
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "member:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "member:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "parameters": [
           {
@@ -780,15 +783,15 @@
         "description": "Remover o membro específicado do Layers. Esse processo **pode** ser revertido por meio da rota de editar membro altetando a chave `active` de `false` para `true`.",
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "member:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "member"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "member:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "member"
         ],
         "parameters": [
           {
@@ -827,15 +830,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "member:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "member:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -875,15 +878,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "member:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "member:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -916,15 +919,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "member:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "member:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -1042,15 +1045,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "member:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "member:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -1089,15 +1092,15 @@
         "description": "A sincronização de dados permite que sejam criados usuários, membros, grupos e seus vínculos por meio de uma única requisição. Esse processo pode ser feito substituindo as informações já cadastradas pelas informações na payload ou apenas adicionando as novas iformações sem remover as que não estão na payload.",
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "sync:manage"
-            ],
-            "x-layers-contexts": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "sync:manage"
+        ],
+        "x-layers-contexts": [
+          "user",
+          "app"
         ],
         "parameters": [
           {
@@ -1106,7 +1109,6 @@
         ],
         "requestBody": {
           "description": "Objeto que contem informações de turmas, alunos e usuários",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -1328,15 +1330,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "user:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "user:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -1388,15 +1390,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "user:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "user:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -1463,15 +1465,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "user:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "user:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -1500,7 +1502,7 @@
         }
       }
     },
-    "/users/{usersId}": {
+    "/users/{userId}": {
       "delete": {
         "tags": [
           "Usuários"
@@ -1509,15 +1511,15 @@
         "description": "Remover o usuário específicado do Layers. Essa ação **pode** ser revertida.",
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "user:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "member"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "user:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "member"
         ],
         "parameters": [
           {
@@ -1539,9 +1541,7 @@
             }
           }
         }
-      }
-    },
-    "/users/{userId}": {
+      },
       "put": {
         "tags": [
           "Usuários"
@@ -1558,15 +1558,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "user:write"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "user:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "requestBody": {
           "content": {
@@ -1606,15 +1606,15 @@
         ],
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "user:read"
-            ],
-            "x-layers-context": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "user:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
         ],
         "responses": {
           "200": {
@@ -1663,8 +1663,7 @@
           "active": {
             "type": "boolean",
             "description": "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
-            "example": true,
-            "required": false
+            "example": true
           },
           "community": {
             "type": "string",
@@ -1693,14 +1692,12 @@
             "type": "string",
             "format": "email",
             "description": "Email do usuário",
-            "example": "exemplo@tenda.digital",
-            "required": true
+            "example": "exemplo@tenda.digital"
           },
           "name": {
             "type": "string",
             "description": "Nome do usuário",
-            "example": "Gabriel Raniere",
-            "required": true
+            "example": "Gabriel Raniere"
           },
           "roles": {
             "type": "array",
@@ -1711,12 +1708,10 @@
             "example": [
               "guardian",
               "professor"
-            ],
-            "required": true
+            ]
           },
           "address": {
             "type": "object",
-            "required": false,
             "properties": {
               "code": {
                 "type": "string",
@@ -1780,8 +1775,7 @@
           "active": {
             "type": "boolean",
             "description": "Chave que indica se o membro está ativo (quando o membro é apagado, essa chave é mudada para false)",
-            "example": true,
-            "required": false
+            "example": true
           },
           "community": {
             "type": "string",
@@ -1791,7 +1785,6 @@
           },
           "access": {
             "type": "array",
-            "required": false,
             "items": {
               "type": "object",
               "properties": {
@@ -1813,18 +1806,15 @@
           "name": {
             "type": "string",
             "description": "Nome do membro",
-            "example": "Gabriel Raniere",
-            "required": true
+            "example": "Gabriel Raniere"
           },
           "alias": {
             "type": "string",
             "description": "RA do membro",
-            "example": "abc123d",
-            "required": true
+            "example": "abc123d"
           },
           "birth": {
             "type": "string",
-            "required": false,
             "description": "Data de nascimento",
             "example": "2010-04-10T00:00:00.000Z"
           }
@@ -1863,15 +1853,17 @@
           "name": {
             "type": "string",
             "description": "Nome do grupo",
-            "example": "Terceiro ano A",
-            "required": true
+            "example": "Terceiro ano A"
           },
           "tags": {
             "type": "array",
             "description": "tags às quais esse grupo pertence",
-            "required": false,
             "items": {
               "type": "object",
+              "required": [
+                "id",
+                "name"
+              ],
               "properties": {
                 "id": {
                   "type": "string",
@@ -1888,7 +1880,6 @@
           "admins": {
             "type": "array",
             "description": "administradores do grupo",
-            "required": false,
             "items": {
               "type": "object",
               "properties": {
@@ -1901,8 +1892,7 @@
           "active": {
             "type": "boolean",
             "description": "Chave que indica se o grupo está ativo (quando o grupo é apagado, essa chave é mudada para false)",
-            "example": true,
-            "required": false
+            "example": true
           },
           "syncedAt": {
             "type": "string",
@@ -1933,8 +1923,7 @@
           "name": {
             "type": "string",
             "description": "Nome da tag",
-            "example": "Ensino Fundamental",
-            "required": true
+            "example": "Ensino Fundamental"
           },
           "community": {
             "type": "string",
@@ -1979,26 +1968,22 @@
           "kind": {
             "type": "string",
             "description": "Tipo de entidade que está vinculada ao grupo",
-            "example": "member",
-            "required": true
+            "example": "member"
           },
           "entity": {
             "type": "string",
             "format": "ObjectId",
-            "description": "Identificador do documento da entidade à qual pertence essa matrícula",
-            "required": true
+            "description": "Identificador do documento da entidade à qual pertence essa matrícula"
           },
           "group": {
             "type": "string",
             "format": "ObjectId",
-            "description": "Identificador do grupo à qual a entidade está matriculada",
-            "required": true
+            "description": "Identificador do grupo à qual a entidade está matriculada"
           },
           "active": {
             "type": "boolean",
             "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
-            "example": true,
-            "required": false
+            "example": true
           }
         }
       }
@@ -2071,7 +2056,7 @@
       "Roles": {
         "name": "roles",
         "in": "query",
-        "description": "Permissão que o usuário possui.",
+        "description": "Permissão que o usuário possui",
         "required": false,
         "schema": {
           "type": "string"
@@ -2122,7 +2107,7 @@
           "type": "string"
         }
       },
-      "PathChannelId": {
+      "ChannelId": {
         "name": "channelId",
         "in": "path",
         "description": "Identificador do canal de atendimento",
@@ -2134,7 +2119,7 @@
       "QueryId": {
         "name": "userId",
         "in": "query",
-        "description": "Identificador do documento.",
+        "description": "Identificador do documento",
         "required": false,
         "schema": {
           "type": "string"
@@ -2202,6 +2187,7 @@
       },
       "Alias": {
         "name": "alias",
+        "in": "query",
         "description": "Identificador no Layers Education",
         "required": false,
         "schema": {
@@ -2241,13 +2227,7 @@
         "description": "Generate a token",
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "x-layers-permissions": {
-          "type": "array"
-        },
-        "x-layers-contexts": {
-          "type": "array"
-        }
+        "bearerFormat": "JWT"
       }
     }
   },

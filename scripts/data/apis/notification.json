@@ -20,15 +20,15 @@
         "description": "Enviar notificações push para usuários via web, android e ios.",
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "x-layers-permissions": [
+              "notification:send"
+            ],
+            "x-layers-contexts": [
+              "user",
+              "app"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "notification:send"
-        ],
-        "x-layers-contexts": [
-          "user",
-          "app"
         ],
         "parameters": [
           {
@@ -186,7 +186,13 @@
         "description": "Generate a token",
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "bearerFormat": "JWT",
+        "x-layers-permissions": {
+          "type": "array"
+        },
+        "x-layers-contexts": {
+          "type": "array"
+        }
       }
     }
   },

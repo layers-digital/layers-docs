@@ -110,8 +110,6 @@ export namespace Components {
     'items': MenuItems;
   }
   interface DocsOpenapiAuthentication {
-    'context': string[];
-    'permissions': string[];
     'security': any;
   }
   interface DocsOpenapiExample {
@@ -565,8 +563,6 @@ declare namespace LocalJSX {
     'items'?: MenuItems;
   }
   interface DocsOpenapiAuthentication {
-    'context'?: string[];
-    'permissions'?: string[];
     'security'?: any;
   }
   interface DocsOpenapiExample {

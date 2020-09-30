@@ -31,15 +31,15 @@
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:manage"
-        ],
-        "x-layers-context": [
-          "app",
-          "user"
         ],
         "responses": {
           "200": {
@@ -57,7 +57,7 @@
                     "name": {
                       "type": "string",
                       "description": "Nome do usuário",
-                      "example": "Pedro Silva"
+                      "exmaple": "Pedro Silva"
                     },
                     "email": {
                       "type": "string",
@@ -107,15 +107,15 @@
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:manage"
-        ],
-        "x-layers-context": [
-          "app",
-          "user"
         ],
         "responses": {
           "200": {
@@ -141,15 +141,15 @@
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:manage"
-        ],
-        "x-layers-context": [
-          "app",
-          "user"
         ],
         "responses": {
           "200": {
@@ -173,15 +173,15 @@
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:manage"
-        ],
-        "x-layers-context": [
-          "app",
-          "user"
         ],
         "requestBody": {
           "content": {
@@ -221,15 +221,15 @@
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:agent"
+            ],
+            "x-layers-context": [
+              "app",
+              "user"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:agent"
-        ],
-        "x-layers-context": [
-          "app",
-          "user"
         ],
         "responses": {
           "200": {
@@ -252,15 +252,15 @@
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:manage"
+            ],
+            "x-layers-context": [
+              "user",
+              "apps"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:manage"
-        ],
-        "x-layers-context": [
-          "user",
-          "apps"
         ],
         "summary": "Criar canal de atendimento",
         "description": "Criar e configurar um canal de atendimento na sua comunidade",
@@ -292,15 +292,15 @@
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "x-layers-permissions": [
+              "ticket:agent"
+            ],
+            "x-layers-context": [
+              "user",
+              "apps"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:agent"
-        ],
-        "x-layers-context": [
-          "user",
-          "apps"
         ],
         "summary": "Listar canais de atendimento",
         "description": "Listar os canais de atendimentos da sua comunidade",
@@ -335,15 +335,15 @@
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "layers-permissions": [
+              "ticket:agent"
+            ],
+            "layers-context": [
+              "user",
+              "app"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:agent"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
         ],
         "requestBody": {
           "content": {
@@ -402,7 +402,7 @@
             "$ref": "#/components/parameters/Agent"
           },
           {
-            "$ref": "#/components/parameters/ChannelId"
+            "$ref": "#/components/parameters/Channel"
           },
           {
             "$ref": "#/components/parameters/MessageAuthorId"
@@ -428,15 +428,15 @@
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "layers-permissions": [
+              "ticket:agent"
+            ],
+            "layers-context": [
+              "user",
+              "app"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:agent"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
         ],
         "responses": {
           "200": {
@@ -476,22 +476,19 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathTicketId"
           }
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "layers-permissions": [
+              "ticket:agent"
+            ],
+            "layers-context": [
+              "user",
+              "app"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:agent"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
         ],
         "requestBody": {
           "content": {
@@ -514,7 +511,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/tickets/{code}": {
       "get": {
         "tags": [
           "Mensagens"
@@ -524,22 +523,19 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathTicketId"
           }
         ],
         "security": [
           {
-            "Bearer": []
+            "Bearer": [],
+            "layers-permissions": [
+              "ticket:agent"
+            ],
+            "layers-context": [
+              "user",
+              "app"
+            ]
           }
-        ],
-        "x-layers-permissions": [
-          "ticket:agent"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
         ],
         "responses": {
           "200": {
@@ -768,47 +764,54 @@
             "type": "string",
             "description": "Descrição do nível de prioridade da mensagem",
             "default": "normal",
-            "example": "normal"
+            "exmaple": "normal"
           },
           "finished": {
             "type": "boolean",
-            "description": "Indica se a conversa foi encerrada"
+            "description": "Indica se a conversa foi encerrada",
+            "default": null
           },
           "finishedAt": {
             "type": "string",
             "format": "date-time",
             "description": "Data e hora na qual a conversa foi fechada",
-            "readOnly": true
+            "readOnly": true,
+            "default": null
           },
           "durationTotal": {
             "type": "number",
             "format": "integer",
             "description": "Duração total da conversa em segundos",
-            "readOnly": true
+            "readOnly": true,
+            "default": null
           },
           "durationEfective": {
             "type": "number",
             "format": "integer",
             "description": "Duração total da conversa contando apenas horas de funcionamento do canal de atendimento",
-            "readOnly": true
+            "readOnly": true,
+            "default": null
           },
           "firstReplyAt": {
             "type": "string",
             "format": "date-time",
             "description": "Data e hora da primeira resposta",
-            "readOnly": true
+            "readOnly": true,
+            "default": null
           },
           "firstReplyDelayTotal": {
             "type": "number",
             "format": "integer",
             "description": "Tempo até a primeira resposta em segundos",
-            "readOnly": true
+            "readOnly": true,
+            "default": null
           },
           "firstReplyDelayToalEffective": {
             "type": "number",
             "format": "integer",
             "description": "Tempo até a primeira resposta contanto apenas horas de funcionamento do canal de atendimento",
-            "readOnly": true
+            "readOnly": true,
+            "default": null
           },
           "agent": {
             "type": "object",
@@ -835,9 +838,7 @@
           },
           "channel": {
             "type": "object",
-            "required": [
-              "id"
-            ],
+            "required": "id",
             "properties": {
               "id": {
                 "type": "string",
@@ -927,15 +928,6 @@
           "example": "test"
         }
       },
-      "PathUserId": {
-        "name": "userId",
-        "in": "path",
-        "description": "Identificador do usuário.",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
-      },
       "Code": {
         "name": "code",
         "in": "query",
@@ -954,30 +946,10 @@
           "format": "ObjectId"
         }
       },
-      "ChannelId": {
-        "name": "channelId",
+      "Channel": {
+        "name": "channel",
         "in": "query",
         "description": "Identificador do canal de atendimento",
-        "schema": {
-          "type": "string",
-          "format": "ObjectId"
-        }
-      },
-      "PathChannelId": {
-        "name": "channelId",
-        "in": "path",
-        "description": "Identificador do canal de atendimento",
-        "required": true,
-        "schema": {
-          "type": "string",
-          "format": "ObjectId"
-        }
-      },
-      "PathTicketId": {
-        "name": "ticketId",
-        "in": "path",
-        "description": "Identificador do ticket",
-        "required": true,
         "schema": {
           "type": "string",
           "format": "ObjectId"
@@ -1047,39 +1019,6 @@
         "schema": {
           "type": "string"
         }
-      },
-      "CreatedAt": {
-        "name": "createdAt",
-        "in": "query",
-        "description": "Data de criação do documento",
-        "required": false,
-        "schema": {
-          "type": "string"
-        }
-      },
-      "Status": {
-        "name": "status",
-        "in": "query",
-        "description": "Status do ticket",
-        "schema": {
-          "type": "string",
-          "enum": [
-            "new",
-            "open",
-            "pending",
-            "hold",
-            "solved",
-            "closed"
-          ]
-        }
-      }
-    },
-    "securitySchemes": {
-      "Bearer": {
-        "description": "Generate a token",
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },

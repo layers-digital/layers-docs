@@ -225,7 +225,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -255,7 +255,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -710,7 +710,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -763,7 +763,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -919,7 +919,7 @@
                       },
                       "kind": {
                         "type": "string",
-                        "description": "Tipo do público especificado. Pode ser user, member, group ou tag."
+                        "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
                       }
                     }
                   }
@@ -927,7 +927,7 @@
               }
             },
             "roles": {
-              "type": "array",
+              "type": "Array",
               "description": "Perfís de usuários no público alvo que poderão ver essa publicação.",
               "items": {
                 "type": "string"
@@ -1019,6 +1019,12 @@
           "$ref": "#/components/parameters/Tags"
         },
         {
+          "$ref": "#/components/parameters/UpdatedAt"
+        },
+        {
+          "$ref": "#/components/parameters/UpdatedAt"
+        },
+        {
           "$ref": "#/components/parameters/AuthorName"
         },
         {
@@ -1036,15 +1042,15 @@
       ],
       "security": [
         {
-          "Bearer": []
+          "Bearer": [],
+          "x-layers-permissions": [
+            "user:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
         }
-      ],
-      "x-layers-permissions": [
-        "user:read"
-      ],
-      "x-layers-context": [
-        "user",
-        "app"
       ],
       "responses": {
         "200": {
@@ -1138,7 +1144,7 @@
                                   },
                                   "kind": {
                                     "type": "string",
-                                    "description": "Tipo do público especificado. Pode ser user, member, group ou tag."
+                                    "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
                                   }
                                 }
                               }
@@ -1146,7 +1152,7 @@
                           }
                         },
                         "roles": {
-                          "type": "array",
+                          "type": "Array",
                           "description": "Perfís de usuários no público alvo que poderão ver essa publicação.",
                           "items": {
                             "type": "string"

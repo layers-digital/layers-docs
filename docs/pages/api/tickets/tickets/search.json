@@ -225,7 +225,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -255,7 +255,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -285,7 +285,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -813,7 +813,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -903,7 +903,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -1296,7 +1296,7 @@
             {
               "class": "token string"
             },
-            "\"2020-09-29T20:21:05.319Z\""
+            "\"2020-09-30T15:20:08.814Z\""
           ],
           [
             "span",
@@ -1680,47 +1680,54 @@
               "type": "string",
               "description": "Descrição do nível de prioridade da mensagem",
               "default": "normal",
-              "example": "normal"
+              "exmaple": "normal"
             },
             "finished": {
               "type": "boolean",
-              "description": "Indica se a conversa foi encerrada"
+              "description": "Indica se a conversa foi encerrada",
+              "default": null
             },
             "finishedAt": {
               "type": "string",
               "format": "date-time",
               "description": "Data e hora na qual a conversa foi fechada",
-              "readOnly": true
+              "readOnly": true,
+              "default": null
             },
             "durationTotal": {
               "type": "number",
               "format": "integer",
               "description": "Duração total da conversa em segundos",
-              "readOnly": true
+              "readOnly": true,
+              "default": null
             },
             "durationEfective": {
               "type": "number",
               "format": "integer",
               "description": "Duração total da conversa contando apenas horas de funcionamento do canal de atendimento",
-              "readOnly": true
+              "readOnly": true,
+              "default": null
             },
             "firstReplyAt": {
               "type": "string",
               "format": "date-time",
               "description": "Data e hora da primeira resposta",
-              "readOnly": true
+              "readOnly": true,
+              "default": null
             },
             "firstReplyDelayTotal": {
               "type": "number",
               "format": "integer",
               "description": "Tempo até a primeira resposta em segundos",
-              "readOnly": true
+              "readOnly": true,
+              "default": null
             },
             "firstReplyDelayToalEffective": {
               "type": "number",
               "format": "integer",
               "description": "Tempo até a primeira resposta contanto apenas horas de funcionamento do canal de atendimento",
-              "readOnly": true
+              "readOnly": true,
+              "default": null
             },
             "agent": {
               "type": "object",
@@ -1747,9 +1754,7 @@
             },
             "channel": {
               "type": "object",
-              "required": [
-                "id"
-              ],
+              "required": "id",
               "properties": {
                 "id": {
                   "type": "string",
@@ -1858,7 +1863,7 @@
           "$ref": "#/components/parameters/Agent"
         },
         {
-          "$ref": "#/components/parameters/ChannelId"
+          "$ref": "#/components/parameters/Channel"
         },
         {
           "$ref": "#/components/parameters/MessageAuthorId"
@@ -1884,15 +1889,15 @@
       ],
       "security": [
         {
-          "Bearer": []
+          "Bearer": [],
+          "layers-permissions": [
+            "ticket:agent"
+          ],
+          "layers-context": [
+            "user",
+            "app"
+          ]
         }
-      ],
-      "x-layers-permissions": [
-        "ticket:agent"
-      ],
-      "x-layers-context": [
-        "user",
-        "app"
       ],
       "responses": {
         "200": {
@@ -2025,47 +2030,54 @@
                           "type": "string",
                           "description": "Descrição do nível de prioridade da mensagem",
                           "default": "normal",
-                          "example": "normal"
+                          "exmaple": "normal"
                         },
                         "finished": {
                           "type": "boolean",
-                          "description": "Indica se a conversa foi encerrada"
+                          "description": "Indica se a conversa foi encerrada",
+                          "default": null
                         },
                         "finishedAt": {
                           "type": "string",
                           "format": "date-time",
                           "description": "Data e hora na qual a conversa foi fechada",
-                          "readOnly": true
+                          "readOnly": true,
+                          "default": null
                         },
                         "durationTotal": {
                           "type": "number",
                           "format": "integer",
                           "description": "Duração total da conversa em segundos",
-                          "readOnly": true
+                          "readOnly": true,
+                          "default": null
                         },
                         "durationEfective": {
                           "type": "number",
                           "format": "integer",
                           "description": "Duração total da conversa contando apenas horas de funcionamento do canal de atendimento",
-                          "readOnly": true
+                          "readOnly": true,
+                          "default": null
                         },
                         "firstReplyAt": {
                           "type": "string",
                           "format": "date-time",
                           "description": "Data e hora da primeira resposta",
-                          "readOnly": true
+                          "readOnly": true,
+                          "default": null
                         },
                         "firstReplyDelayTotal": {
                           "type": "number",
                           "format": "integer",
                           "description": "Tempo até a primeira resposta em segundos",
-                          "readOnly": true
+                          "readOnly": true,
+                          "default": null
                         },
                         "firstReplyDelayToalEffective": {
                           "type": "number",
                           "format": "integer",
                           "description": "Tempo até a primeira resposta contanto apenas horas de funcionamento do canal de atendimento",
-                          "readOnly": true
+                          "readOnly": true,
+                          "default": null
                         },
                         "agent": {
                           "type": "object",
@@ -2092,9 +2104,7 @@
                         },
                         "channel": {
                           "type": "object",
-                          "required": [
-                            "id"
-                          ],
+                          "required": "id",
                           "properties": {
                             "id": {
                               "type": "string",

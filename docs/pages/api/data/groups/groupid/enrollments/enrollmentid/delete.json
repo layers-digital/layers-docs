@@ -428,22 +428,26 @@
         "kind": {
           "type": "string",
           "description": "Tipo de entidade que está vinculada ao grupo",
-          "example": "member"
+          "example": "member",
+          "required": true
         },
         "entity": {
           "type": "string",
           "format": "ObjectId",
-          "description": "Identificador do documento da entidade à qual pertence essa matrícula"
+          "description": "Identificador do documento da entidade à qual pertence essa matrícula",
+          "required": true
         },
         "group": {
           "type": "string",
           "format": "ObjectId",
-          "description": "Identificador do grupo à qual a entidade está matriculada"
+          "description": "Identificador do grupo à qual a entidade está matriculada",
+          "required": true
         },
         "active": {
           "type": "boolean",
           "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
-          "example": true
+          "example": true,
+          "required": false
         }
       },
       "externalDocs": {
@@ -475,16 +479,16 @@
       ],
       "security": [
         {
-          "Bearer": []
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:write",
+            "group:write:scoped"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
         }
-      ],
-      "x-layers-permissions": [
-        "group:write",
-        "group:write:scoped"
-      ],
-      "x-layers-context": [
-        "user",
-        "app"
       ],
       "responses": {
         "200": {
@@ -529,22 +533,26 @@
                     "kind": {
                       "type": "string",
                       "description": "Tipo de entidade que está vinculada ao grupo",
-                      "example": "member"
+                      "example": "member",
+                      "required": true
                     },
                     "entity": {
                       "type": "string",
                       "format": "ObjectId",
-                      "description": "Identificador do documento da entidade à qual pertence essa matrícula"
+                      "description": "Identificador do documento da entidade à qual pertence essa matrícula",
+                      "required": true
                     },
                     "group": {
                       "type": "string",
                       "format": "ObjectId",
-                      "description": "Identificador do grupo à qual a entidade está matriculada"
+                      "description": "Identificador do grupo à qual a entidade está matriculada",
+                      "required": true
                     },
                     "active": {
                       "type": "boolean",
                       "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
-                      "example": true
+                      "example": true,
+                      "required": false
                     }
                   },
                   "externalDocs": {

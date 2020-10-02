@@ -20,15 +20,15 @@
         "description": "Enviar notificações push para usuários via web, android e ios.",
         "security": [
           {
-            "Bearer": [],
-            "x-layers-permissions": [
-              "notification:send"
-            ],
-            "x-layers-contexts": [
-              "user",
-              "app"
-            ]
+            "Bearer": []
           }
+        ],
+        "x-layers-permissions": [
+          "notification:send"
+        ],
+        "x-layers-contexts": [
+          "user",
+          "app"
         ],
         "parameters": [
           {
@@ -65,7 +65,7 @@
                               "properties": {
                                 "id": {
                                   "type": "string",
-                                  "description": "Identificador do membro, usuário, turma ou tag"
+                                  "description": "Identificador do membro, usuário, turma ou marcador"
                                 },
                                 "kind": {
                                   "type": "string",
@@ -186,13 +186,7 @@
         "description": "Generate a token",
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "x-layers-permissions": {
-          "type": "array"
-        },
-        "x-layers-contexts": {
-          "type": "array"
-        }
+        "bearerFormat": "JWT"
       }
     }
   },

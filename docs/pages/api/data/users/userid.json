@@ -699,8 +699,7 @@
       "active": {
         "type": "boolean",
         "description": "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
-        "example": true,
-        "required": false
+        "example": true
       },
       "community": {
         "type": "string",
@@ -729,14 +728,12 @@
         "type": "string",
         "format": "email",
         "description": "Email do usuário",
-        "example": "exemplo@tenda.digital",
-        "required": true
+        "example": "exemplo@tenda.digital"
       },
       "name": {
         "type": "string",
         "description": "Nome do usuário",
-        "example": "Gabriel Raniere",
-        "required": true
+        "example": "Gabriel Raniere"
       },
       "roles": {
         "type": "array",
@@ -747,12 +744,10 @@
         "example": [
           "guardian",
           "professor"
-        ],
-        "required": true
+        ]
       },
       "address": {
         "type": "object",
-        "required": false,
         "properties": {
           "code": {
             "type": "string",
@@ -812,15 +807,15 @@
       ],
       "security": [
         {
-          "Bearer": [],
-          "x-layers-permissions": [
-            "user:read"
-          ],
-          "x-layers-context": [
-            "user",
-            "app"
-          ]
+          "Bearer": []
         }
+      ],
+      "x-layers-permissions": [
+        "user:read"
+      ],
+      "x-layers-context": [
+        "user",
+        "app"
       ],
       "responses": {
         "200": {

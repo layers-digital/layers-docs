@@ -1231,15 +1231,15 @@
       "description": "A sincronização de dados permite que sejam criados usuários, membros, grupos e seus vínculos por meio de uma única requisição. Esse processo pode ser feito substituindo as informações já cadastradas pelas informações na payload ou apenas adicionando as novas iformações sem remover as que não estão na payload.",
       "security": [
         {
-          "Bearer": [],
-          "x-layers-permissions": [
-            "sync:manage"
-          ],
-          "x-layers-contexts": [
-            "user",
-            "app"
-          ]
+          "Bearer": []
         }
+      ],
+      "x-layers-permissions": [
+        "sync:manage"
+      ],
+      "x-layers-contexts": [
+        "user",
+        "app"
       ],
       "parameters": [
         {
@@ -1248,7 +1248,6 @@
       ],
       "requestBody": {
         "description": "Objeto que contem informações de turmas, alunos e usuários",
-        "required": true,
         "content": {
           "application/json": {
             "schema": {

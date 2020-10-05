@@ -93,60 +93,7 @@
         [
           "code",
           null,
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "{"
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"users\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "["
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"5bb2575199d7179dfe85be02\""
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "]"
-          ],
-          "\n",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "}"
-          ]
+          "undefined"
         ]
       ],
       "\n"
@@ -771,7 +718,8 @@
         "active": {
           "type": "boolean",
           "description": "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
-          "example": true
+          "example": true,
+          "required": false
         },
         "community": {
           "type": "string",
@@ -800,12 +748,14 @@
           "type": "string",
           "format": "email",
           "description": "Email do usuário",
-          "example": "exemplo@tenda.digital"
+          "example": "exemplo@tenda.digital",
+          "required": true
         },
         "name": {
           "type": "string",
           "description": "Nome do usuário",
-          "example": "Gabriel Raniere"
+          "example": "Gabriel Raniere",
+          "required": true
         },
         "roles": {
           "type": "array",
@@ -816,10 +766,12 @@
           "example": [
             "guardian",
             "professor"
-          ]
+          ],
+          "required": true
         },
         "address": {
           "type": "object",
+          "required": false,
           "properties": {
             "code": {
               "type": "string",
@@ -880,30 +832,26 @@
       ],
       "security": [
         {
-          "Bearer": []
+          "Bearer": [],
+          "x-layers-permissions": [
+            "group:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
         }
-      ],
-      "x-layers-permissions": [
-        "group:write"
-      ],
-      "x-layers-context": [
-        "user",
-        "app"
       ],
       "requestBody": {
         "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "ObjectId",
-                    "description": "Identificador do usuário que deve ser adicionado como administrador ao grupo"
-                  }
-                }
+          "type": "object",
+          "properties": {
+            "users": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "ObjectId",
+                "description": "Identificador do usuário que deve ser adicionado como administrador ao grupo"
               }
             }
           }
@@ -947,7 +895,8 @@
                     "active": {
                       "type": "boolean",
                       "description": "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
-                      "example": true
+                      "example": true,
+                      "required": false
                     },
                     "community": {
                       "type": "string",
@@ -976,12 +925,14 @@
                       "type": "string",
                       "format": "email",
                       "description": "Email do usuário",
-                      "example": "exemplo@tenda.digital"
+                      "example": "exemplo@tenda.digital",
+                      "required": true
                     },
                     "name": {
                       "type": "string",
                       "description": "Nome do usuário",
-                      "example": "Gabriel Raniere"
+                      "example": "Gabriel Raniere",
+                      "required": true
                     },
                     "roles": {
                       "type": "array",
@@ -992,10 +943,12 @@
                       "example": [
                         "guardian",
                         "professor"
-                      ]
+                      ],
+                      "required": true
                     },
                     "address": {
                       "type": "object",
+                      "required": false,
                       "properties": {
                         "code": {
                           "type": "string",

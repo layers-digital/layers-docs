@@ -171,7 +171,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-02T04:45:43.507Z\""
+            "\"2020-10-05T15:25:02.538Z\""
           ],
           [
             "span",
@@ -201,7 +201,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-02T04:45:43.507Z\""
+            "\"2020-10-05T15:25:02.538Z\""
           ],
           [
             "span",
@@ -656,7 +656,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-02T04:45:43.507Z\""
+            "\"2020-10-05T15:25:02.538Z\""
           ],
           [
             "span",
@@ -709,7 +709,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-02T04:45:43.507Z\""
+            "\"2020-10-05T15:25:02.538Z\""
           ],
           [
             "span",
@@ -838,7 +838,7 @@
                 },
                 "kind": {
                   "type": "string",
-                  "description": "Tipo do público especificado. Pode ser user, member, group ou tag."
+                  "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
                 }
               }
             }
@@ -846,7 +846,7 @@
         }
       },
       "roles": {
-        "type": "array",
+        "type": "Array",
         "description": "Perfís de usuários no público alvo que poderão ver essa publicação.",
         "items": {
           "type": "string"
@@ -910,15 +910,15 @@
       ],
       "security": [
         {
-          "Bearer": []
+          "Bearer": [],
+          "x-layers-permissions": [
+            "user:write"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
         }
-      ],
-      "x-layers-permissions": [
-        "user:write"
-      ],
-      "x-layers-context": [
-        "user",
-        "app"
       ],
       "responses": {
         "200": {

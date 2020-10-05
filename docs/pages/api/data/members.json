@@ -529,7 +529,8 @@
         "active": {
           "type": "boolean",
           "description": "Chave que indica se o membro está ativo (quando o membro é apagado, essa chave é mudada para false)",
-          "example": true
+          "example": true,
+          "required": false
         },
         "community": {
           "type": "string",
@@ -539,6 +540,7 @@
         },
         "access": {
           "type": "array",
+          "required": false,
           "items": {
             "type": "object",
             "properties": {
@@ -560,15 +562,18 @@
         "name": {
           "type": "string",
           "description": "Nome do membro",
-          "example": "Gabriel Raniere"
+          "example": "Gabriel Raniere",
+          "required": true
         },
         "alias": {
           "type": "string",
           "description": "RA do membro",
-          "example": "abc123d"
+          "example": "abc123d",
+          "required": true
         },
         "birth": {
           "type": "string",
+          "required": false,
           "description": "Data de nascimento",
           "example": "2010-04-10T00:00:00.000Z"
         }
@@ -591,15 +596,15 @@
       "description": "Listar membros existentes.",
       "security": [
         {
-          "Bearer": []
+          "Bearer": [],
+          "x-layers-permissions": [
+            "member:read"
+          ],
+          "x-layers-context": [
+            "user",
+            "app"
+          ]
         }
-      ],
-      "x-layers-permissions": [
-        "member:read"
-      ],
-      "x-layers-context": [
-        "user",
-        "app"
       ],
       "parameters": [
         {
@@ -660,7 +665,8 @@
                     "active": {
                       "type": "boolean",
                       "description": "Chave que indica se o membro está ativo (quando o membro é apagado, essa chave é mudada para false)",
-                      "example": true
+                      "example": true,
+                      "required": false
                     },
                     "community": {
                       "type": "string",
@@ -670,6 +676,7 @@
                     },
                     "access": {
                       "type": "array",
+                      "required": false,
                       "items": {
                         "type": "object",
                         "properties": {
@@ -691,15 +698,18 @@
                     "name": {
                       "type": "string",
                       "description": "Nome do membro",
-                      "example": "Gabriel Raniere"
+                      "example": "Gabriel Raniere",
+                      "required": true
                     },
                     "alias": {
                       "type": "string",
                       "description": "RA do membro",
-                      "example": "abc123d"
+                      "example": "abc123d",
+                      "required": true
                     },
                     "birth": {
                       "type": "string",
+                      "required": false,
                       "description": "Data de nascimento",
                       "example": "2010-04-10T00:00:00.000Z"
                     }

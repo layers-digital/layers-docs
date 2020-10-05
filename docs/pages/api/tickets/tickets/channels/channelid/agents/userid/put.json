@@ -179,7 +179,7 @@
             {
               "class": "token string"
             },
-            "\"Pedro Silva\""
+            "\"exemplo\""
           ],
           [
             "span",
@@ -311,7 +311,7 @@
       "name": {
         "type": "string",
         "description": "Nome do usuário",
-        "example": "Pedro Silva"
+        "exmaple": "Pedro Silva"
       },
       "email": {
         "type": "string",
@@ -360,15 +360,15 @@
       ],
       "security": [
         {
-          "Bearer": []
+          "Bearer": [],
+          "x-layers-permissions": [
+            "ticket:manage"
+          ],
+          "x-layers-context": [
+            "app",
+            "user"
+          ]
         }
-      ],
-      "x-layers-permissions": [
-        "ticket:manage"
-      ],
-      "x-layers-context": [
-        "app",
-        "user"
       ],
       "responses": {
         "200": {
@@ -386,7 +386,7 @@
                   "name": {
                     "type": "string",
                     "description": "Nome do usuário",
-                    "example": "Pedro Silva"
+                    "exmaple": "Pedro Silva"
                   },
                   "email": {
                     "type": "string",

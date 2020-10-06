@@ -1,0 +1,742 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API comunicação",
+    "description": "A API de comunicação permite que você envie publicações para a linha do tempo ou agenda do app",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.layers.digital/v1"
+    }
+  ],
+  "paths": {
+    "/appmaker/apps/{appId}/installations/{community}/approve": {
+      "post": {
+        "tags": [
+          "Criar e editar apps"
+        ],
+        "summary": "Aprovar instalação de um app",
+        "description": "Aprovar instalação de um app de aprovação manual na comunidade especificada.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/AppId"
+          },
+          {
+            "$ref": "#/components/parameters/Community"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "appmaker:developer"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "App aprovado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/App"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/appmaker/apps/{appId}/installations/{community}": {
+      "get": {
+        "tags": [
+          "Instalações"
+        ],
+        "summary": "Ver Instalação",
+        "description": "Ver instalação de um app na comunidade especificada",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/Community"
+          },
+          {
+            "$ref": "#/components/parameters/AppId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "appmaker:developer"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Instalação do app",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppInstallation"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Instalações"
+        ],
+        "summary": "Atualizar Instalação",
+        "description": "Atualizar instalação de um app na comunidade especificada",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/Community"
+          },
+          {
+            "$ref": "#/components/parameters/AppId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "appmaker:developer"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppInstallation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Instalação do app",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppInstallation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/appmaker/apps/{appId}/installations": {
+      "get": {
+        "tags": [
+          "Instalações"
+        ],
+        "summary": "Ver Instalações",
+        "description": "Ver instalações ativas de um app",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/AppId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "appmaker:developer"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Instalação do app",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppInstallation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "App": {
+        "type": "object",
+        "required": [
+          "id",
+          "approval",
+          "visibility",
+          "displayName",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador do app",
+            "example": "appid"
+          },
+          "approval": {
+            "type": "string",
+            "description": "Política de aprovação de instalação do app em novas comunidades",
+            "enum": [
+              "automatic",
+              "manual"
+            ],
+            "example": "automatic"
+          },
+          "visibility": {
+            "type": "string",
+            "description": "Visibilidade do app na Layers Store",
+            "enum": [
+              "private",
+              "unlisted",
+              "public"
+            ],
+            "example": "public"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Nome do App que aparecerá na interface",
+            "example": "My App"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição do app",
+            "example": "App que adiciona funcionalidades ao Layers"
+          },
+          "icon": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "URL do ícone do app",
+                "example": "www.url.com"
+              },
+              "width": {
+                "type": "number",
+                "description": "Largura em pixels do ícone",
+                "example": 1024
+              },
+              "height": {
+                "type": "number",
+                "description": "Altura em pixels do ícone",
+                "example": 1024
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação do app",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última atualização do app",
+            "readOnly": true
+          },
+          "api": {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "Status do serviço 'api' no app",
+                "example": true
+              },
+              "roles": {
+                "type": "array",
+                "description": "Permissões de acesso à api que o app possui",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "description": "Nome da permissão no Layers",
+                      "example": "sync:manage"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "description": "Razão pela qual o app precisa dessa permissão",
+                      "example": "Sincronizar dados do sistema de gestão com o Layers"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "portals": {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "Status do serviço 'portals' no app",
+                "example": true
+              },
+              "data": {
+                "type": "array",
+                "description": "Configurações dos portais",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "oauth": {
+                      "type": "object",
+                      "description": "Configurações de autenticação OAuth no portal",
+                      "properties": {
+                        "enabled": {
+                          "type": "string",
+                          "description": "Status do serviço de autenticação 'OAuth' no portal",
+                          "example": true
+                        },
+                        "scopes": {
+                          "type": "array",
+                          "description": "Escopos que o app pedirá",
+                          "items": {
+                            "type": "string",
+                            "description": "nome do escopo",
+                            "example": "fullname"
+                          }
+                        },
+                        "response_type": {
+                          "type": "string",
+                          "description": "Tipo da resposta",
+                          "example": "code"
+                        },
+                        "grant": {
+                          "type": "string",
+                          "description": "Tipo de fluxo",
+                          "example": "authorization_code"
+                        }
+                      }
+                    },
+                    "origins": {
+                      "type": "array",
+                      "description": "Array de URL's de origem que serão acessadas pelo portal. Precisa ser HTTPS",
+                      "items": {
+                        "type": "string",
+                        "example": "https://url.com.br"
+                      }
+                    },
+                    "placement": {
+                      "type": "array",
+                      "description": "Lugares no Layers nos quais o portal deve aparecer",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "web:launchers",
+                          "mobile:launchers",
+                          "web:settings"
+                        ]
+                      }
+                    },
+                    "features": {
+                      "type": "array",
+                      "description": "não sei",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "alias": {
+                      "type": "string",
+                      "description": "Identificador do portal",
+                      "example": "@admin:settings"
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "Nome do portal",
+                      "example": "Configurações do MyApp"
+                    },
+                    "location": {
+                      "type": "string",
+                      "description": "URL que o portal deve acessar",
+                      "example": "https://my-app.web.app"
+                    },
+                    "action": {
+                      "type": "string",
+                      "description": "Ação que o layers deve tomar quando o portal for clicado",
+                      "enum": [
+                        "embedded"
+                      ]
+                    },
+                    "icon": {
+                      "type": "string",
+                      "description": "Ícone do portal",
+                      "example": "https://urlDoIcone.com"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "services": {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "Status do serviço 'services' no app",
+                "example": true
+              },
+              "requests": {
+                "type": "array",
+                "description": "Array com informações sobre os quais actions o app requisita para o Layers",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "description": "Identificador da action que o app requisita",
+                      "example": "@layers:payments:Payables:getRelated"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "description": "Razão pela qual o app precisa requisitar essa informação através do API Hub do Layers",
+                      "example": "Precisamos chamar está action para consumir dados de outros apps que sejam capaz de export dados financeiros"
+                    }
+                  }
+                }
+              },
+              "responds": {
+                "type": "array",
+                "description": "Array com informações sobre os quais actions o app provê para o Layers",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "description": "Identificador da action que o app requisita",
+                      "example": "@layers:payments:Payables:getRelated"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "description": "Razão pela qual o app provê essa informação",
+                      "example": "Prover informações financeiras do ERP"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "URL para a qual o Layers deve fazer a requisição quando um app requisitar informações pela action especificada",
+                      "example": "https://myapi.com/v1/financeiro"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "oauth": {
+            "type": "object",
+            "description": "Configurações de autenticação OAuth no portal",
+            "properties": {
+              "enabled": {
+                "type": "string",
+                "description": "Status do serviço de autenticação 'OAuth' no portal",
+                "example": true
+              },
+              "scopes": {
+                "type": "array",
+                "description": "Escopos que o app pedirá",
+                "items": {
+                  "type": "string",
+                  "description": "nome do escopo",
+                  "example": "fullname"
+                }
+              },
+              "response_type": {
+                "type": "string",
+                "description": "Tipo da resposta",
+                "example": "code"
+              },
+              "grant": {
+                "type": "string",
+                "description": "Tipo de fluxo",
+                "example": "authorization_code"
+              }
+            }
+          },
+          "roles": {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "Status do serviço 'roles' no app",
+                "example": true
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Informações da permissão personalizada",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "description": "Nome da permissão",
+                      "example": "Aluno monitor"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "Identificador da permissão",
+                      "example": "student:monitor"
+                    },
+                    "group": {
+                      "type": "string",
+                      "description": "Grupo de permissões à qual essa permissão pertence",
+                      "example": "Geral"
+                    },
+                    "hierarchy": {
+                      "type": "number",
+                      "description": "Hierarquia da permissão. Uma permissão só pode fazer publicações para usuários com permissões de hierarquia menor",
+                      "default": 0
+                    },
+                    "incudes": {
+                      "type": "array",
+                      "description": "Permissões inclusas nessa permissão",
+                      "example": [
+                        "student",
+                        "post:write"
+                      ],
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "includedIn": {
+                      "type": "array",
+                      "description": "Permissões nas quais essa permissão está inclusa",
+                      "example": [
+                        "student"
+                      ],
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "pinned": {
+                      "type": "boolean",
+                      "description": "Indica se a permissão deve aparecer nos principais perfis e permissões",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "AppInstallation": {
+        "type": "object",
+        "properties": {
+          "manifest": {
+            "$ref": "#/components/schemas/App"
+          },
+          "approved": {
+            "type": "boolean",
+            "description": "Indica se a instalação do app já foi aprovada",
+            "example": true
+          },
+          "approvedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data na qual a instalação do app foi aprovada"
+          },
+          "approvedBy": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador do usuário que aprovou a instalação"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Indica se a instalação do app está ativado",
+            "example": true
+          },
+          "activatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de ativação da instalação do app"
+          },
+          "installed": {
+            "type": "boolean",
+            "description": "Indica se o app está instalado na comunidade",
+            "example": true
+          },
+          "installedBy": {
+            "type": "boolean",
+            "format": "ObjectId",
+            "description": "Identificador do usuário que instalou o app"
+          },
+          "uninstalledAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data na qual o app foi desinstalado"
+          },
+          "uninstalledBy": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador do usuário que desinstalou o app"
+          },
+          "uninstalledReason": {
+            "type": "string",
+            "description": "Motivo pelo qual o app foi desinstalado",
+            "example": "mudança de ERP"
+          },
+          "pendingUpdate": {
+            "type": "boolean",
+            "description": "Indica se há atualizações disponíveis para o app",
+            "default": false
+          },
+          "pendingUpdateSince": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de quando o update foi disponibilizado"
+          },
+          "requiresManualUpdate": {
+            "type": "boolean",
+            "description": "Indica se o app requer uma atualização manual",
+            "default": false
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "uninstalled",
+              "installed",
+              "pending_approval",
+              "pending_update"
+            ],
+            "description": "Status da instalação",
+            "default": "pending_approval"
+          },
+          "consentedFeatures": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Identificador da feature",
+                  "example": "api:group:read"
+                },
+                "consentedAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data de consentimento com a feature"
+                }
+              }
+            }
+          },
+          "contactInfo": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Nome do contato",
+                "example": "Responsável pelo app"
+              },
+              "telephone": {
+                "type": "string",
+                "description": "Telefone de contato",
+                "example": "(11)99999-9999"
+              },
+              "message": {
+                "type": "string",
+                "description": "Mensagem de contato",
+                "example": "Caso tenha qualquer dúvida, entre em contato por telefone ou whatsapp!"
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "Community-id": {
+        "name": "community-id",
+        "in": "header",
+        "description": "Identificador da comunidade",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "test"
+        }
+      },
+      "Community": {
+        "name": "community",
+        "in": "path",
+        "description": "Identificador da comunidade",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "test"
+        }
+      },
+      "AppId": {
+        "name": "appId",
+        "in": "path",
+        "description": "Identificador do app",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "test"
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "description": "Generate a token",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "x-nav": [
+    {
+      "name": "Criar e editar apps",
+      "schemas": [
+        "App"
+      ],
+      "tags": [
+        "Criar e editar apps"
+      ]
+    },
+    {
+      "name": "Instalações",
+      "schemas": [
+        "AppInstallation"
+      ],
+      "tags": [
+        "Instalações"
+      ]
+    }
+  ]
+}

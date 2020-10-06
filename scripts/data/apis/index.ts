@@ -5,6 +5,7 @@ import tickets from './tickets.json'
 import payments from './payments.json'
 import notification from './notification.json'
 import communication from './communication.json'
+import appmaker from './appmaker.json'
 import media from './media.json'
 import { OpenAPIObject } from 'openapi3-ts'
 
@@ -49,6 +50,11 @@ export const ApiServices: ApiService[] = [
     title: 'Notificações',
     id: 'notifications',
     spec: notification as any,
+  },
+  {
+    title: 'App Maker',
+    id: 'appmaker',
+    spec: appmaker as any,
   },
   {
     title: 'Mídia',

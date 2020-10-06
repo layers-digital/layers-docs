@@ -74,6 +74,12 @@ const Template = {
       link: '/docs/api/media/media/upload/post',
       title: 'Mídia'
     },
+    {
+      icon: '/docs/assets/icons/AppMaker.svg',
+      url: '/docs/api/appmaker',
+      link: '/docs/api/appmaker/app/object',
+      title: 'App Maker'
+    },
     // {
     //   icon: '/docs/assets/icons/Payments.svg',
     //   url: '/docs/api/tickets',

@@ -540,7 +540,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -570,7 +570,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -600,7 +600,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -1128,7 +1128,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -1218,7 +1218,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -1611,7 +1611,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -1968,54 +1968,47 @@
         "type": "string",
         "description": "Descrição do nível de prioridade da mensagem",
         "default": "normal",
-        "exmaple": "normal"
+        "example": "normal"
       },
       "finished": {
         "type": "boolean",
-        "description": "Indica se a conversa foi encerrada",
-        "default": null
+        "description": "Indica se a conversa foi encerrada"
       },
       "finishedAt": {
         "type": "string",
         "format": "date-time",
         "description": "Data e hora na qual a conversa foi fechada",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "durationTotal": {
         "type": "number",
         "format": "integer",
         "description": "Duração total da conversa em segundos",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "durationEfective": {
         "type": "number",
         "format": "integer",
         "description": "Duração total da conversa contando apenas horas de funcionamento do canal de atendimento",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "firstReplyAt": {
         "type": "string",
         "format": "date-time",
         "description": "Data e hora da primeira resposta",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "firstReplyDelayTotal": {
         "type": "number",
         "format": "integer",
         "description": "Tempo até a primeira resposta em segundos",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "firstReplyDelayToalEffective": {
         "type": "number",
         "format": "integer",
         "description": "Tempo até a primeira resposta contanto apenas horas de funcionamento do canal de atendimento",
-        "readOnly": true,
-        "default": null
+        "readOnly": true
       },
       "agent": {
         "type": "object",
@@ -2042,7 +2035,9 @@
       },
       "channel": {
         "type": "object",
-        "required": "id",
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2141,15 +2136,15 @@
       ],
       "security": [
         {
-          "Bearer": [],
-          "layers-permissions": [
-            "ticket:agent"
-          ],
-          "layers-context": [
-            "user",
-            "app"
-          ]
+          "Bearer": []
         }
+      ],
+      "x-layers-permissions": [
+        "ticket:agent"
+      ],
+      "x-layers-context": [
+        "user",
+        "app"
       ],
       "requestBody": {
         "content": {

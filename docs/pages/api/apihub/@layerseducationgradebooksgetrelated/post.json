@@ -142,7 +142,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -782,7 +782,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05\""
+            "\"2020-10-06\""
           ],
           [
             "span",
@@ -812,7 +812,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05\""
+            "\"2020-10-06\""
           ],
           [
             "span",
@@ -1084,7 +1084,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05\""
+            "\"2020-10-06\""
           ],
           [
             "span",
@@ -1234,7 +1234,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05\""
+            "\"2020-10-06\""
           ],
           "\n                ",
           [
@@ -1835,25 +1835,21 @@
             "id": {
               "type": "string",
               "description": "ID interno do grupo do livro de notas",
-              "required": false,
               "example": "0001"
             },
             "season": {
               "type": "string",
               "description": "Período letivo",
-              "required": false,
               "example": "2019"
             },
             "student": {
               "type": "string",
               "description": "Nome do estudante",
-              "required": true,
               "example": "Ivan Seidel Gomes"
             },
             "course": {
               "type": "string",
               "description": "Nome do curso ou série",
-              "required": true,
               "example": "1º Ano - Ensino Fundamental"
             },
             "status": {
@@ -1863,33 +1859,34 @@
                 "ended"
               ],
               "description": "Status desse livro de notas. Pode ser atual (current) ou de um período passado (ended)",
-              "required": true,
               "example": "current"
             },
             "terms": {
               "type": "array",
               "description": "Lista de livros de notas para cada período do ano letivo",
-              "required": true,
               "items": {
                 "type": "object",
+                "required": [
+                  "label",
+                  "startsAt",
+                  "endsAt",
+                  "status"
+                ],
                 "properties": {
                   "label": {
                     "type": "string",
                     "description": "Título do período letivo",
-                    "required": true,
                     "example": "Primeiro Bimestre"
                   },
                   "startsAt": {
                     "type": "string",
                     "format": "date",
-                    "description": "Data de início do período",
-                    "required": true
+                    "description": "Data de início do período"
                   },
                   "endsAt": {
                     "type": "string",
                     "format": "date",
-                    "description": "Data de fim do período",
-                    "required": true
+                    "description": "Data de fim do período"
                   },
                   "status": {
                     "type": "string",
@@ -1900,82 +1897,71 @@
                       "ended"
                     ],
                     "description": "Status do período letivo",
-                    "required": true,
                     "example": "current"
                   },
                   "subjects": {
                     "type": "array",
                     "description": "Lista de notas das disciplinas",
-                    "required": false,
                     "items": {
                       "type": "object",
+                      "required": [
+                        "label",
+                        "activities"
+                      ],
                       "properties": {
                         "label": {
                           "type": "string",
                           "description": "Título da disciplina",
-                          "required": true,
                           "example": "Português"
                         },
                         "abbr": {
                           "type": "string",
                           "description": "Abreviação da disciplina",
-                          "required": false,
                           "example": "PORT"
                         },
                         "activities": {
                           "type": "array",
                           "description": "Lista de atividades",
-                          "required": false,
                           "items": {
                             "type": "object",
+                            "required": [
+                              "label",
+                              "scoreGiven"
+                            ],
                             "properties": {
                               "category": {
                                 "type": "string",
                                 "description": "Categoria da atividade",
-                                "required": false,
                                 "example": "Provas"
                               },
                               "label": {
                                 "type": "string",
                                 "description": "Nome da atividade",
-                                "required": true,
                                 "example": "Prova 1"
                               },
                               "description": {
                                 "type": "string",
                                 "description": "Descrição da atividade",
-                                "required": false,
                                 "example": "Verbos e substantivos"
                               },
                               "date": {
                                 "type": "string",
                                 "format": "date",
-                                "description": "Data da atividade",
-                                "required": false
+                                "description": "Data da atividade"
                               },
                               "comment": {
                                 "type": "string",
                                 "description": "Comentário na atividade",
-                                "required": false,
                                 "example": "O aluno deve estudar mais o infinitivo"
                               },
                               "scoreGiven": {
-                                "type": [
-                                  "number",
-                                  "string",
-                                  null
-                                ],
+                                "type": "string",
                                 "description": "Nota da atividade",
-                                "required": true,
                                 "example": 6.5
                               },
                               "scoreMaximum": {
-                                "type": [
-                                  "number",
-                                  "string"
-                                ],
+                                "type": "string",
                                 "description": "Pontuação máxima na atividade",
-                                "required": false,
                                 "example": 10
                               },
                               "scoreMood": {
@@ -1986,14 +1972,12 @@
                                   "good"
                                 ],
                                 "description": "Indica se a nota é boa (nota azul), neutra (opcional) ou ruim (nota vermelha)",
-                                "required": false,
                                 "example": "good"
                               },
                               "scoreDate": {
                                 "type": "string",
                                 "format": "date",
-                                "description": "Data na qual foi lançada a nota",
-                                "required": false
+                                "description": "Data na qual foi lançada a nota"
                               }
                             }
                           }
@@ -2001,9 +1985,14 @@
                         "overall": {
                           "type": "array",
                           "description": "Lista de resultados gerais",
-                          "required": false,
                           "items": {
                             "type": "object",
+                            "required": [
+                              "type",
+                              "label",
+                              "scoreGiven",
+                              "scoreMaximum"
+                            ],
                             "properties": {
                               "type": {
                                 "type": "string",
@@ -2014,33 +2003,21 @@
                                   "other"
                                 ],
                                 "description": "Tipo do resultado",
-                                "required": true,
                                 "example": "attendance"
                               },
                               "label": {
                                 "type": "string",
                                 "description": "Título do resultado",
-                                "required": true,
                                 "example": "Faltas"
                               },
                               "scoreGiven": {
-                                "type": [
-                                  "number",
-                                  "string",
-                                  null
-                                ],
+                                "type": "string",
                                 "description": "Nota que o aluno recebeu neste resultado",
-                                "required": true,
                                 "example": "90%"
                               },
                               "scoreMaximum": {
-                                "type": [
-                                  "number",
-                                  "string",
-                                  null
-                                ],
+                                "type": "string",
                                 "description": "Nota máxima nessa atividade",
-                                "required": true,
                                 "example": "100%"
                               },
                               "scoreMood": {
@@ -2051,13 +2028,11 @@
                                   "good"
                                 ],
                                 "description": "Indica se a nota é boa (nota azul), neutra (opcional) ou ruim (nota vermelha)",
-                                "required": false,
                                 "example": "good"
                               },
                               "featured": {
                                 "type": "boolean",
                                 "description": "Indica se o resultado é o mais importante",
-                                "required": false,
                                 "example": true
                               }
                             }
@@ -2066,27 +2041,26 @@
                         "categories": {
                           "type": "array",
                           "description": "Lista de categorias",
-                          "required": false,
                           "items": {
                             "type": "object",
+                            "required": [
+                              "name"
+                            ],
                             "properties": {
                               "name": {
                                 "type": "string",
                                 "description": "Nome da categoria utilizado nas atividades",
-                                "required": true,
                                 "example": "Provas"
                               },
                               "description": {
                                 "type": "string",
                                 "description": "Descrição adicional da categoria",
-                                "required": false,
                                 "example": "Provas discussivas e/ou objetivas com intuito de avaliar o aprendizado"
                               },
                               "order": {
                                 "type": "number",
                                 "format": "integer",
                                 "description": "Posição na ordenação (aparecerá em ordem crescente)",
-                                "required": false,
                                 "example": 1
                               }
                             }
@@ -2101,7 +2075,6 @@
             "attachments": {
               "type": "array",
               "description": "Lista de anexos desse livro de notas",
-              "required": false,
               "items": {
                 "type": "object",
                 "required": [
@@ -2113,7 +2086,6 @@
                   "title": {
                     "type": "string",
                     "description": "Título do anexo",
-                    "required": true,
                     "example": "CalculoDeNotas.pdf"
                   },
                   "type": {
@@ -2124,13 +2096,11 @@
                       "image"
                     ],
                     "description": "Tipo do anexo",
-                    "required": true,
                     "example": "file`"
                   },
                   "url": {
                     "type": "string",
                     "description": "URL para fazer download do anexo. Obrigatóriamente uma url HTTPS",
-                    "required": true,
                     "example": "https://calculo.pdf"
                   }
                 }

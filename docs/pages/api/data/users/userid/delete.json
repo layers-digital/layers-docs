@@ -1,7 +1,7 @@
 {
   "template": "api-route",
   "title": "Deletar usuário",
-  "path": "/docs/api/data/users/usersid/delete",
+  "path": "/docs/api/data/users/userid/delete",
   "body": [
     "div",
     null,
@@ -75,7 +75,7 @@
               {
                 "class": "token param"
               },
-              "{usersId}"
+              "{userId}"
             ]
           ]
         ]
@@ -705,8 +705,7 @@
       "active": {
         "type": "boolean",
         "description": "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
-        "example": true,
-        "required": false
+        "example": true
       },
       "community": {
         "type": "string",
@@ -735,14 +734,12 @@
         "type": "string",
         "format": "email",
         "description": "Email do usuário",
-        "example": "exemplo@tenda.digital",
-        "required": true
+        "example": "exemplo@tenda.digital"
       },
       "name": {
         "type": "string",
         "description": "Nome do usuário",
-        "example": "Gabriel Raniere",
-        "required": true
+        "example": "Gabriel Raniere"
       },
       "roles": {
         "type": "array",
@@ -753,12 +750,10 @@
         "example": [
           "guardian",
           "professor"
-        ],
-        "required": true
+        ]
       },
       "address": {
         "type": "object",
-        "required": false,
         "properties": {
           "code": {
             "type": "string",
@@ -800,7 +795,7 @@
   },
   "route": {
     "type": "route",
-    "path": "/users/{usersId}",
+    "path": "/users/{userId}",
     "method": "delete",
     "spec": {
       "tags": [
@@ -810,15 +805,15 @@
       "description": "Remover o usuário específicado do Layers. Essa ação **pode** ser revertida.",
       "security": [
         {
-          "Bearer": [],
-          "x-layers-permissions": [
-            "user:write"
-          ],
-          "x-layers-context": [
-            "user",
-            "member"
-          ]
+          "Bearer": []
         }
+      ],
+      "x-layers-permissions": [
+        "user:write"
+      ],
+      "x-layers-context": [
+        "user",
+        "member"
       ],
       "parameters": [
         {
@@ -842,7 +837,7 @@
       },
       "externalDocs": {
         "description": "Deletar usuário",
-        "url": "/docs/api/data/users/usersid/delete"
+        "url": "/docs/api/data/users/userid/delete"
       }
     },
     "tags": [
@@ -851,5 +846,5 @@
     "summary": "Deletar usuário"
   },
   "headings": [],
-  "pageClass": "page-api-data-users-usersid-delete"
+  "pageClass": "page-api-data-users-userid-delete"
 }

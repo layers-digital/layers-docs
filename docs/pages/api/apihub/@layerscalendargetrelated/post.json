@@ -142,7 +142,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -782,7 +782,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -812,7 +812,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -902,7 +902,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           "\n        ",
           [
@@ -1078,75 +1078,68 @@
             "id": {
               "type": "string",
               "description": "Identificador interno da grade horária",
-              "required": true,
               "example": "0001"
             },
             "summary": {
               "type": "string",
               "description": "Título do calendário",
-              "required": true,
               "example": "Calendário acadêmico"
             },
             "description": {
               "type": "string",
               "description": "Descrição do calendário",
-              "required": false,
               "example": "Calendário acadêmico geral"
             },
             "timezone": {
               "type": "string",
               "description": "Timezone global",
-              "required": false,
               "example": "America/Sao_Paulo"
             },
             "events": {
               "type": "array",
               "description": "Eventos do calendário",
-              "required": true,
               "items": {
                 "type": "object",
+                "required": [
+                  "summary",
+                  "start",
+                  "end"
+                ],
                 "properties": {
                   "id": {
                     "type": "string",
                     "description": "Identificador interno do evento",
-                    "required": false,
                     "example": "0001"
                   },
                   "summary": {
                     "type": "string",
                     "description": "Nome do evento",
-                    "required": true,
                     "example": "Natal"
                   },
                   "start": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Data e hora de início do evento. Para mostrar que o evento vai durar o dia todo passe apenas a data sem horário",
-                    "required": true
+                    "description": "Data e hora de início do evento. Para mostrar que o evento vai durar o dia todo passe apenas a data sem horário"
                   },
                   "end": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Data e hora do final do evento. Para mostrar que o evento vai durar o dia todo passe apenas a data sem horário",
-                    "required": true
+                    "description": "Data e hora do final do evento. Para mostrar que o evento vai durar o dia todo passe apenas a data sem horário"
                   },
                   "category": {
                     "type": "string",
                     "description": "Categoria do evento",
-                    "required": false,
                     "example": "Eventos"
                   },
                   "color": {
                     "type": "string",
                     "description": "Cor do evento",
-                    "required": false,
                     "example": "orange"
                   },
                   "createdAt": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Data e hora de criação do evento",
-                    "required": false
+                    "description": "Data e hora de criação do evento"
                   }
                 }
               }
@@ -1164,13 +1157,11 @@
                   "name": {
                     "type": "string",
                     "description": "Nome da categoria de eventos. Deve corresponder à categoria atribuída a pelo menos um evento",
-                    "required": true,
                     "example": "Eventos"
                   },
                   "color": {
                     "type": "string",
                     "description": "Cor associada a categoria. Pode ser uma das cores predefinidas (aqua, purple, salmon, yellow-dark, link, lead-light, danger, success) ou uma cor em hexadecimal",
-                    "required": true,
                     "example": "aqua"
                   }
                 }

@@ -142,7 +142,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -631,7 +631,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -1173,9 +1173,25 @@
           [
             "span",
             {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n                ",
+          [
+            "span",
+            {
               "class": "token string"
             },
             "\"O-\""
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
           ],
           [
             "span",
@@ -1514,20 +1530,17 @@
             "id": {
               "type": "string",
               "description": "ID interno do prontuário",
-              "required": false,
               "example": "0001"
             },
             "name": {
               "type": "string",
               "description": "Nome da pessoa do prontuário",
-              "required": true,
               "example": "Lucas Grippa"
             },
             "updatedAt": {
               "type": "string",
               "format": "date-time",
-              "description": "Data da última atualização do prontuário",
-              "required": false
+              "description": "Data da última atualização do prontuário"
             },
             "sections": {
               "type": "array",
@@ -1542,115 +1555,112 @@
                   "title": {
                     "type": "string",
                     "description": "Título da seção do prontuário",
-                    "required": true,
                     "example": "Contato de emergência"
                   },
                   "fields": {
                     "type": "array",
                     "description": "Campos da seção do prontuário",
-                    "required": true,
                     "items": {
                       "oneOf": [
                         {
                           "type": "object",
+                          "required": [
+                            "type",
+                            "title",
+                            "number"
+                          ],
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "Tipo do campo",
-                              "required": true,
                               "example": "number"
                             },
                             "title": {
                               "type": "string",
                               "description": "Nome do campo",
-                              "required": true,
                               "example": "Peso"
                             },
                             "caption": {
                               "type": "string",
                               "description": "Descrição do campo",
-                              "required": false,
                               "example": "(medido com roupa)"
                             },
                             "number": {
-                              "type": [
-                                "string",
-                                "number"
-                              ],
+                              "type": "string",
                               "description": "Valor do campo",
-                              "required": true,
                               "example": 57.5
                             },
                             "unit": {
                               "type": "string",
                               "description": "Unidade do número",
-                              "required": false,
                               "example": "Kg"
                             },
                             "loinc": {
                               "type": "string",
-                              "description": "Código LOINC do registro (https://loinc.org/3141-9/)",
-                              "required": false
+                              "description": "Código LOINC do registro (https://loinc.org/3141-9/)"
                             }
                           }
                         },
                         {
                           "type": "object",
+                          "required": [
+                            "type",
+                            "title",
+                            "text"
+                          ],
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "Tipo do campo",
-                              "required": true,
                               "example": "text"
                             },
                             "title": {
                               "type": "string",
                               "description": "Nome do campo",
-                              "required": true,
                               "example": "Paulo Yoko"
                             },
                             "caption": {
                               "type": "string",
                               "description": "Descrição do campo",
-                              "required": false,
                               "example": "Responsável legal"
                             },
                             "text": {
                               "type": "string",
                               "description": "Valor do campo",
-                              "required": true,
                               "example": "+55 11 99331-6662 (cel)"
                             },
                             "loinc": {
                               "type": "string",
-                              "description": "Código LOINC do registro (https://loinc.org/3141-9/)",
-                              "required": false
+                              "description": "Código LOINC do registro (https://loinc.org/3141-9/)"
                             }
                           }
                         },
                         {
                           "type": "object",
+                          "required": [
+                            "type",
+                            "title",
+                            "tags",
+                            "mood"
+                          ],
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "Tipo do campo",
-                              "required": true,
                               "example": "tags"
                             },
                             "title": {
                               "type": "string",
                               "description": "Nome do campo",
-                              "required": true,
                               "example": "Tipo sanguíneo"
                             },
                             "tags": {
-                              "type": [
-                                "string",
-                                "array"
-                              ],
-                              "description": "Valores das tags. Pode ser uma string ou array de strings",
-                              "required": true,
-                              "example": "O-"
+                              "type": "array",
+                              "description": "Valores das tags.",
+                              "items": {
+                                "type": "string",
+                                "example": "O-"
+                              }
                             },
                             "mood": {
                               "type": "string",
@@ -1661,38 +1671,42 @@
                                 "bad"
                               ],
                               "description": "Característica da informação (neutra, boa, ruim e precisa de atenção)",
-                              "required": true,
                               "example": "neutral"
                             },
                             "loinc": {
                               "type": "string",
-                              "description": "Código LOINC do registro (https://loinc.org/3141-9/)",
-                              "required": false
+                              "description": "Código LOINC do registro (https://loinc.org/3141-9/)"
                             }
                           }
                         },
                         {
                           "type": "object",
+                          "required": [
+                            "type",
+                            "title"
+                          ],
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "Tipo do campo",
-                              "required": true,
                               "example": "attachment"
                             },
                             "title": {
                               "type": "string",
                               "description": "Nome do campo",
-                              "required": true,
                               "example": "Peso"
                             },
                             "attachment": {
                               "type": "object",
+                              "required": [
+                                "title",
+                                "type",
+                                "url"
+                              ],
                               "properties": {
                                 "title": {
                                   "type": "string",
                                   "description": "Título do arquivo",
-                                  "required": true,
                                   "example": "raiox.pdf"
                                 },
                                 "type": {
@@ -1703,13 +1717,11 @@
                                     "image"
                                   ],
                                   "description": "Tipo do arquivo",
-                                  "required": true,
                                   "example": "file"
                                 },
                                 "url": {
                                   "type": "string",
                                   "description": "URL do arquivo. Obrigatóriamente uma url HTTPS",
-                                  "required": true,
                                   "example": "https://hospitalexample.com.br/prontuariojaneiro.pdf"
                                 }
                               }

@@ -142,7 +142,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -504,7 +504,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05\""
+            "\"2020-10-06\""
           ],
           "\n  ",
           [
@@ -782,7 +782,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -842,7 +842,7 @@
             {
               "class": "token string"
             },
-            "\"exemplo\""
+            "\"Geografia\""
           ],
           [
             "span",
@@ -902,7 +902,7 @@
             {
               "class": "token string"
             },
-            "\"2020-10-05T15:25:02.538Z\""
+            "\"2020-10-06T17:34:10.605Z\""
           ],
           [
             "span",
@@ -1106,25 +1106,21 @@
             "id": {
               "type": "string",
               "description": "ID interno do grupo de registros",
-              "required": false,
               "example": "RA"
             },
             "season": {
               "type": "string",
               "description": "Período letivo",
-              "required": false,
               "example": "2019"
             },
             "student": {
               "type": "string",
               "description": "Título do grupo de registros",
-              "required": true,
               "example": "Matília Castelli"
             },
             "course": {
               "type": "string",
               "description": "Descrição do grupo de registros",
-              "required": true,
               "example": "9º Ano - Ensino Fundamental"
             },
             "records": {
@@ -1141,63 +1137,55 @@
                   "id": {
                     "type": "string",
                     "description": "ID interno do registro no ERP para possível integração de duas vias",
-                    "required": false,
                     "example": "ID_DO_REGISTRO"
                   },
                   "createdAt": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Data do envio do registro",
-                    "required": true
+                    "description": "Data do envio do registro"
                   },
                   "category": {
                     "type": "string",
                     "description": "Categoria do registro. Usaada para filtrar os registros",
-                    "required": true,
                     "example": "Notificado por comparecer sem marterial escolar"
                   },
                   "caption": {
                     "type": "string",
                     "description": "Registro",
-                    "required": true,
-                    "exmaple": "Geografia"
+                    "example": "Geografia"
                   },
                   "description": {
                     "type": "string",
                     "description": "Descrição do registro em markdown",
-                    "required": true,
                     "example": "Não trouxe o material didático de Geografia"
                   },
                   "viewedAt": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Data na qual o registro foi marcado como visto. Se o registro ainda não tiver sido visto o valor será null",
-                    "required": false,
-                    "default": null
+                    "description": "Data na qual o registro foi marcado como visto. Se o registro ainda não tiver sido visto o valor será null"
                   },
                   "viewedBy": {
                     "type": "string",
-                    "description": "Quem marcou o registro como visto. Se ninguém tiver visualizado o registro ainda o valor será `null`",
-                    "required": false,
-                    "default": null
+                    "description": "Quem marcou o registro como visto. Se ninguém tiver visualizado o registro ainda o valor será `null`"
                   },
                   "metadata": {
                     "type": "array",
-                    "required": false,
                     "description": "Dados adicionais que podem ser vistos pelo usuário",
                     "items": {
                       "type": "object",
+                      "required": [
+                        "label",
+                        "value"
+                      ],
                       "properties": {
                         "label": {
                           "type": "string",
                           "description": "Título da informação",
-                          "required": true,
                           "example": "Enviado por"
                         },
                         "value": {
                           "type": "string",
                           "description": "Valor da informação",
-                          "required": true,
                           "example": "Vânia Almeida"
                         }
                       }

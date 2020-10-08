@@ -24,10 +24,10 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Context"
+                    "$ref": "#/components/requestBodies/Context"
                   },
                   {
-                    "$ref": "#/components/schemas/LayersCalendarGetRelated"
+                    "$ref": "#/components/requestBodies/LayersCalendarGetRelated"
                   }
                 ]
               }
@@ -40,7 +40,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responseBodies/LayersCalendarGetRelated"
+                  "$ref": "#/components/responseBodies/@layers:Calendar:getRelated"
                 }
               }
             }
@@ -61,10 +61,10 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Context"
+                    "$ref": "#/components/requestBodies/Context"
                   },
                   {
-                    "$ref": "#/components/schemas/LayersEducationAcademicRecordsGetRelated"
+                    "$ref": "#/components/requestBodies/LayersEducationAcademicRecordsGetRelated"
                   }
                 ]
               }
@@ -77,7 +77,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responseBodies/LayersEducationAcademicRecordsGetRelated"
+                  "$ref": "#/components/responseBodies/@layers:education:AcademicRecords:getRelated"
                 }
               }
             }
@@ -98,10 +98,10 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Context"
+                    "$ref": "#/components/requestBodies/Context"
                   },
                   {
-                    "$ref": "#/components/schemas/LayersEducationAttendanceGetRelated"
+                    "$ref": "#/components/requestBodies/LayersEducationAttendanceGetRelated"
                   }
                 ]
               }
@@ -114,7 +114,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responseBodies/LayersEducationAttendanceGetRelated"
+                  "$ref": "#/components/responseBodies/@layers:education:Attendance:getRelated"
                 }
               }
             }
@@ -135,10 +135,10 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Context"
+                    "$ref": "#/components/requestBodies/Context"
                   },
                   {
-                    "$ref": "#/components/schemas/LayersEducationAcademicRecordsMarkRecordsAsViewed"
+                    "$ref": "#/components/requestBodies/LayersEducationAcademicRecordsMarkRecordsAsViewed"
                   }
                 ]
               }
@@ -165,10 +165,10 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Context"
+                    "$ref": "#/components/requestBodies/Context"
                   },
                   {
-                    "$ref": "#/components/schemas/LayersEducationGradeBooksGetRelated"
+                    "$ref": "#/components/requestBodies/LayersEducationGradeBooksGetRelated"
                   }
                 ]
               }
@@ -181,7 +181,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responseBodies/LayersEducationGradeBooksGetRelated"
+                  "$ref": "#/components/responseBodies/@layers:education:GradeBooks:getRelated"
                 }
               }
             }
@@ -202,10 +202,10 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Context"
+                    "$ref": "#/components/requestBodies/Context"
                   },
                   {
-                    "$ref": "#/components/schemas/LayersEducationTimetablesGetRelated"
+                    "$ref": "#/components/requestBodies/LayersEducationTimetablesGetRelated"
                   }
                 ]
               }
@@ -218,7 +218,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responseBodies/LayersEducationTimetablesGetRelated"
+                  "$ref": "#/components/responseBodies/@layers:education:Timetables:getRelated"
                 }
               }
             }
@@ -239,10 +239,10 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Context"
+                    "$ref": "#/components/requestBodies/Context"
                   },
                   {
-                    "$ref": "#/components/schemas/LayersGetHomeInfo"
+                    "$ref": "#/components/requestBodies/LayersGetHomeInfo"
                   }
                 ]
               }
@@ -251,7 +251,14 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responseBodies/@layers:getHomeInfo"
+                }
+              }
+            }
           }
         }
       }
@@ -269,10 +276,10 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Context"
+                    "$ref": "#/components/requestBodies/Context"
                   },
                   {
-                    "$ref": "#/components/schemas/LayersHealthMedicalRecordGetRelated"
+                    "$ref": "#/components/requestBodies/LayersHealthMedicalRecordGetRelated"
                   }
                 ]
               }
@@ -285,7 +292,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responseBodies/LayersHealthMedicalRecordGetRelated"
+                  "$ref": "#/components/responseBodies/@layers:health:MedicalRecord:getRelated"
                 }
               }
             }
@@ -306,10 +313,10 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Context"
+                    "$ref": "#/components/requestBodies/Context"
                   },
                   {
-                    "$ref": "#/components/schemas/LayersPaymentsPayablesGetRelated"
+                    "$ref": "#/components/requestBodies/LayersPaymentsPayablesGetRelated"
                   }
                 ]
               }
@@ -322,7 +329,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/responseBodies/LayersPaymentsPayablesGetRelated"
+                  "$ref": "#/components/responseBodies/@layers:payments:Payables:getRelated"
                 }
               }
             }
@@ -373,89 +380,101 @@
         }
       }
     },
-    "schemas": {
+    "requestBodies": {
       "Context": {
-        "type": "object",
-        "required": [
-          "context",
-          "secret"
-        ],
-        "properties": {
-          "context": {
-            "type": "object",
-            "required": [
-              "issuedAt",
-              "action",
-              "community"
-            ],
-            "properties": {
-              "issuedAt": {
-                "type": "string",
-                "format": "date-time",
-                "description": "Data e hora de quando a requisição foi feita"
-              },
-              "action": {
-                "type": "string",
-                "description": "Identificador da action",
-                "example": "@layers:identificador_da_action"
-              },
-              "community": {
-                "type": "string",
-                "description": "Identificador da comunidade",
-                "example": "test"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "context",
+                "secret"
+              ],
+              "properties": {
+                "context": {
+                  "type": "object",
+                  "required": [
+                    "issuedAt",
+                    "action",
+                    "community"
+                  ],
+                  "properties": {
+                    "issuedAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Data e hora de quando a requisição foi feita"
+                    },
+                    "action": {
+                      "type": "string",
+                      "description": "Identificador da action",
+                      "example": "@layers:identificador_da_action"
+                    },
+                    "community": {
+                      "type": "string",
+                      "description": "Identificador da comunidade",
+                      "example": "test"
+                    }
+                  }
+                },
+                "secret": {
+                  "type": "string",
+                  "description": "Chave secreta específica do app"
+                }
               }
             }
-          },
-          "secret": {
-            "type": "string",
-            "description": "Chave secreta específica do app"
           }
         }
       },
       "LayersCalendarGetRelated": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "user": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "name",
-                  "alias",
-                  "timezone",
-                  "language",
-                  "accountId"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "Carlos Pereira"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador do usuário na comunidade",
-                    "example": "user2"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua do usuário",
-                    "example": "pt/BR"
-                  },
-                  "accountId": {
-                    "type": "string",
-                    "description": "Identificador da conta do usuário"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "alias",
+                        "timezone",
+                        "language",
+                        "accountId"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador do usuário"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do usuário",
+                          "example": "Carlos Pereira"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador do usuário na comunidade",
+                          "example": "user2"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Fuso horário do usuário",
+                          "example": "America/Sao_Paulo"
+                        },
+                        "language": {
+                          "type": "string",
+                          "description": "Língua do usuário",
+                          "example": "pt/BR"
+                        },
+                        "accountId": {
+                          "type": "string",
+                          "description": "Identificador da conta do usuário"
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -464,124 +483,136 @@
         }
       },
       "LayersEducationAcademicRecordsGetRelated": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "user": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "name",
-                  "alias",
-                  "timezone",
-                  "language",
-                  "accountId"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "João Pedro"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador interno do usuário",
-                    "example": "0001"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua preferencial do usuário",
-                    "example": "pt/BR"
-                  },
-                  "accountId": {
-                    "type": "string",
-                    "description": "Identificador da conta do usuário"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "alias",
+                        "timezone",
+                        "language",
+                        "accountId"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador do usuário"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do usuário",
+                          "example": "João Pedro"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador interno do usuário",
+                          "example": "0001"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Fuso horário do usuário",
+                          "example": "America/Sao_Paulo"
+                        },
+                        "language": {
+                          "type": "string",
+                          "description": "Língua preferencial do usuário",
+                          "example": "pt/BR"
+                        },
+                        "accountId": {
+                          "type": "string",
+                          "description": "Identificador da conta do usuário"
+                        }
+                      }
+                    },
+                    "createdAfter": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Se não for null a resposta deve conter apenas registros criados depois dessa data"
+                    }
                   }
                 }
-              },
-              "createdAfter": {
-                "type": "string",
-                "format": "date",
-                "description": "Se não for null a resposta deve conter apenas registros criados depois dessa data"
               }
             }
           }
         }
       },
       "LayersEducationAcademicRecordsMarkRecordsAsViewed": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "required": [
-              "user",
-              "groupId",
-              "recordsIds"
-            ],
-            "properties": {
-              "user": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "name",
-                  "alias",
-                  "timezone",
-                  "language",
-                  "accountId"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "Carlos Pereira"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador do usuário na comunidade",
-                    "example": "user2"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua do usuário",
-                    "example": "pt/BR"
-                  },
-                  "accountId": {
-                    "type": "string",
-                    "description": "Identificador da conta do usuário"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": [
+                    "user",
+                    "groupId",
+                    "recordsIds"
+                  ],
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "alias",
+                        "timezone",
+                        "language",
+                        "accountId"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador do usuário"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do usuário",
+                          "example": "Carlos Pereira"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador do usuário na comunidade",
+                          "example": "user2"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Fuso horário do usuário",
+                          "example": "America/Sao_Paulo"
+                        },
+                        "language": {
+                          "type": "string",
+                          "description": "Língua do usuário",
+                          "example": "pt/BR"
+                        },
+                        "accountId": {
+                          "type": "string",
+                          "description": "Identificador da conta do usuário"
+                        }
+                      }
+                    },
+                    "groupId": {
+                      "type": "string",
+                      "description": "Identificador único do grupo de registros",
+                      "example": "grupo_de_registros_1"
+                    },
+                    "recordsIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "Identificadores únicos dos registros individuais",
+                        "example": "id_do_registro_A"
+                      }
+                    }
                   }
-                }
-              },
-              "groupId": {
-                "type": "string",
-                "description": "Identificador único do grupo de registros",
-                "example": "grupo_de_registros_1"
-              },
-              "recordsIds": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "description": "Identificadores únicos dos registros individuais",
-                  "example": "id_do_registro_A"
                 }
               }
             }
@@ -589,49 +620,55 @@
         }
       },
       "LayersEducationAttendanceGetRelated": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "user": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "name",
-                  "alias",
-                  "timezone",
-                  "language",
-                  "accountId"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "João Pedro"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador interno do usuário",
-                    "example": "0001"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua preferencial do usuário",
-                    "example": "pt/BR"
-                  },
-                  "accountId": {
-                    "type": "string",
-                    "description": "Identificador da conta do usuário"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "alias",
+                        "timezone",
+                        "language",
+                        "accountId"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador do usuário"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do usuário",
+                          "example": "João Pedro"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador interno do usuário",
+                          "example": "0001"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Fuso horário do usuário",
+                          "example": "America/Sao_Paulo"
+                        },
+                        "language": {
+                          "type": "string",
+                          "description": "Língua preferencial do usuário",
+                          "example": "pt/BR"
+                        },
+                        "accountId": {
+                          "type": "string",
+                          "description": "Identificador da conta do usuário"
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -640,49 +677,55 @@
         }
       },
       "LayersEducationGradeBooksGetRelated": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "user": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "name",
-                  "alias",
-                  "timezone",
-                  "language",
-                  "accountId"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "João Pedro"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador interno do usuário",
-                    "example": "0001"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua preferencial do usuário",
-                    "example": "pt/BR"
-                  },
-                  "accountId": {
-                    "type": "string",
-                    "description": "Identificador da conta do usuário"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "alias",
+                        "timezone",
+                        "language",
+                        "accountId"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador do usuário"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do usuário",
+                          "example": "João Pedro"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador interno do usuário",
+                          "example": "0001"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Fuso horário do usuário",
+                          "example": "America/Sao_Paulo"
+                        },
+                        "language": {
+                          "type": "string",
+                          "description": "Língua preferencial do usuário",
+                          "example": "pt/BR"
+                        },
+                        "accountId": {
+                          "type": "string",
+                          "description": "Identificador da conta do usuário"
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -691,49 +734,55 @@
         }
       },
       "LayersEducationTimetablesGetRelated": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "user": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "name",
-                  "alias",
-                  "timezone",
-                  "language",
-                  "accountId"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "João Pedro"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador interno do usuário",
-                    "example": "0001"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua preferencial do usuário",
-                    "example": "pt/BR"
-                  },
-                  "accountId": {
-                    "type": "string",
-                    "description": "Identificador da conta do usuário"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "alias",
+                        "timezone",
+                        "language",
+                        "accountId"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador do usuário"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do usuário",
+                          "example": "João Pedro"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador interno do usuário",
+                          "example": "0001"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Fuso horário do usuário",
+                          "example": "America/Sao_Paulo"
+                        },
+                        "language": {
+                          "type": "string",
+                          "description": "Língua preferencial do usuário",
+                          "example": "pt/BR"
+                        },
+                        "accountId": {
+                          "type": "string",
+                          "description": "Identificador da conta do usuário"
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -742,49 +791,55 @@
         }
       },
       "LayersGetHomeInfo": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "user": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "name",
-                  "alias",
-                  "timezone",
-                  "language",
-                  "accountId"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "João Pedro"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador interno do usuário",
-                    "example": "0001"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua preferencial do usuário",
-                    "example": "pt/BR"
-                  },
-                  "accountId": {
-                    "type": "string",
-                    "description": "Identificador da conta do usuário"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "alias",
+                        "timezone",
+                        "language",
+                        "accountId"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador do usuário"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do usuário",
+                          "example": "João Pedro"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador interno do usuário",
+                          "example": "0001"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Fuso horário do usuário",
+                          "example": "America/Sao_Paulo"
+                        },
+                        "language": {
+                          "type": "string",
+                          "description": "Língua preferencial do usuário",
+                          "example": "pt/BR"
+                        },
+                        "accountId": {
+                          "type": "string",
+                          "description": "Identificador da conta do usuário"
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -793,49 +848,55 @@
         }
       },
       "LayersHealthMedicalRecordGetRelated": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "user": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "name",
-                  "alias",
-                  "timezone",
-                  "language",
-                  "accountId"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "João Pedro"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador interno do usuário",
-                    "example": "0001"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua preferencial do usuário",
-                    "example": "pt/BR"
-                  },
-                  "accountId": {
-                    "type": "string",
-                    "description": "Identificador da conta do usuário"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "alias",
+                        "timezone",
+                        "language",
+                        "accountId"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador do usuário"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do usuário",
+                          "example": "João Pedro"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador interno do usuário",
+                          "example": "0001"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Fuso horário do usuário",
+                          "example": "America/Sao_Paulo"
+                        },
+                        "language": {
+                          "type": "string",
+                          "description": "Língua preferencial do usuário",
+                          "example": "pt/BR"
+                        },
+                        "accountId": {
+                          "type": "string",
+                          "description": "Identificador da conta do usuário"
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -844,49 +905,55 @@
         }
       },
       "LayersPaymentsPayablesGetRelated": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "user": {
-                "type": "object",
-                "required": [
-                  "id",
-                  "name",
-                  "alias",
-                  "timezone",
-                  "language",
-                  "accountId"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Identificador do usuário"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Nome do usuário",
-                    "example": "João Pedro"
-                  },
-                  "alias": {
-                    "type": "string",
-                    "description": "Identificador interno do usuário",
-                    "example": "0001"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Fuso horário do usuário",
-                    "example": "America/Sao_Paulo"
-                  },
-                  "language": {
-                    "type": "string",
-                    "description": "Língua preferencial do usuário",
-                    "example": "pt/BR"
-                  },
-                  "accountId": {
-                    "type": "string",
-                    "description": "Identificador da conta do usuário"
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "alias",
+                        "timezone",
+                        "language",
+                        "accountId"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador do usuário"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome do usuário",
+                          "example": "João Pedro"
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador interno do usuário",
+                          "example": "0001"
+                        },
+                        "timezone": {
+                          "type": "string",
+                          "description": "Fuso horário do usuário",
+                          "example": "America/Sao_Paulo"
+                        },
+                        "language": {
+                          "type": "string",
+                          "description": "Língua preferencial do usuário",
+                          "example": "pt/BR"
+                        },
+                        "accountId": {
+                          "type": "string",
+                          "description": "Identificador da conta do usuário"
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -896,7 +963,7 @@
       }
     },
     "responseBodies": {
-      "LayersCalendarGetRelated": {
+      "@layers:Calendar:getRelated": {
         "type": "object",
         "required": [
           "result"
@@ -1011,7 +1078,7 @@
           }
         }
       },
-      "LayersEducationAcademicRecordsGetRelated": {
+      "@layers:education:AcademicRecords:getRelated": {
         "type": "object",
         "required": [
           "result"
@@ -1123,7 +1190,7 @@
           }
         }
       },
-      "LayersEducationGradeBooksGetRelated": {
+      "@layers:education:GradeBooks:getRelated": {
         "type": "object",
         "required": [
           "result"
@@ -1419,7 +1486,7 @@
           }
         }
       },
-      "LayersEducationTimetablesGetRelated": {
+      "@layers:education:Timetables:getRelated": {
         "type": "object",
         "required": [
           "results"
@@ -1615,7 +1682,7 @@
           }
         }
       },
-      "LayersHealthMedicalRecordGetRelated": {
+      "@layers:health:MedicalRecord:getRelated": {
         "type": "object",
         "required": [
           "result"
@@ -1842,7 +1909,7 @@
           }
         }
       },
-      "LayersPaymentsPayablesGetRelated": {
+      "@layers:payments:Payables:getRelated": {
         "type": "object",
         "required": [
           "result"
@@ -2080,7 +2147,7 @@
           }
         }
       },
-      "LayersEducationAttendanceGetRelated": {
+      "@layers:education:Attendance:getRelated": {
         "type": "object",
         "properties": {
           "result": {

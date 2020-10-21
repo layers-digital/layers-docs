@@ -251,7 +251,14 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responseBodies/LayersGetHomeInfo"
+                }
+              }
+            }
           }
         }
       }
@@ -298,7 +305,7 @@
         "tags": [
           "Payables:getRelated"
         ],
-        "summary": "Prover ficha financeira",
+        "summary": "Prover cobranças",
         "description": "O Hub de API's no Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de cobranças por meio da action `@layers:payments:Payables:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
         "requestBody": {
           "content": {
@@ -1536,7 +1543,7 @@
           }
         }
       },
-      "@layers:getHomeInfo": {
+      "LayersGetHomeInfo": {
         "type": "object",
         "properties": {
           "badge": {
@@ -2355,7 +2362,7 @@
       ]
     },
     {
-      "name": "Ficha financeira",
+      "name": "Cobranças",
       "tags": [
         "Payables:getRelated"
       ]

@@ -12,5 +12,6 @@ const items = {
     'Introdução': '/docs/sdk/portais/introducao',
     'Eventos e Promises': '/docs/sdk/portais/eventos-e-promises',
     'Propriedades e Métodos': '/docs/sdk/portais/propriedades-e-metodos',
+    'Autenticação': '/docs/sdk/portais/autenticacao',
   }
 }

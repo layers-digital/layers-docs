@@ -1,5 +1,5 @@
 import data from './data.json'
-import oauth from './oauth.json'
+import auth from './auth.json'
 import apihub from './apihub.json'
 import tickets from './tickets.json'
 import payments from './payments.json'
@@ -32,9 +32,9 @@ export const ApiServices: ApiService[] = [
     spec: apihub as any,
   },
   {
-    title: 'Autenticação OAuth',
+    title: 'Autenticação',
     id: 'auth',
-    spec: oauth as any,
+    spec: auth as any,
   },
   {
     title: 'Atendimentos',

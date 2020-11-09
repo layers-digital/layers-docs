@@ -2,8 +2,8 @@
 template: default
 title: Propriedades e Métodos
 tableOfContents: true
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Autenticação'
+nextUrl: '/docs/sdk/portais/autenticacao'
 previousText: 'Eventos e Promises'
 previousUrl: '/docs/sdk/portais/eventos-e-promises'
 ---
@@ -15,11 +15,10 @@ O SDK de portais oferece propriedades e métodos que permitem que apps acessem i
 + **ready**: Booleano que indica se o SDK de portais foi importado com sucesso
 + **connected**: Booleano que indica se o SDK de portais está conectado com o Layers
 + **platform**: String que pode ter o valor de `"iframe"`, `"ios"` ou `"android"` se a página estiver sendo acessada através ad Layers ou `null` se estiver sendo acessada fora da Layers.
-+ **data**: Objeto contendo informações de seção e usuário acessando o portal.
-  + **session**: String da seção
-  + **userId**: String do identificador único do usuário no Layers
-  + **communityId**: String do identificador da comunidade através do qual o usuário está acessando o portal
-  + **accountId**: String do identificador único da conta do usuário acessando o portal
++ **session**: String da seção
++ **userId**: String do identificador único do usuário no Layers
++ **communityId**: String do identificador da comunidade através do qual o usuário está acessando o portal
++ **accountId**: String do identificador único da conta do usuário acessando o portal
 
 ## Métodos
 

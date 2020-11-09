@@ -1,0 +1,183 @@
+{
+  "template": "api-route",
+  "title": "Validar sessão",
+  "path": "/docs/api/auth/sso/session/validate",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Validar sessão do Layers de um portal. A rota responderá com status 200 caso as informações sejam válidas."
+    ]
+  ],
+  "serviceId": "auth",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/sso/session/validate"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "requestExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "undefined"
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseSchema": {},
+  "route": {
+    "type": "route",
+    "path": "/sso/session/validate",
+    "method": "get",
+    "spec": {
+      "tags": [
+        "SSO e Portais"
+      ],
+      "summary": "Validar sessão",
+      "description": "Validar sessão do Layers de um portal. A rota responderá com status 200 caso as informações sejam válidas.",
+      "security": [
+        {
+          "Bearer": []
+        }
+      ],
+      "x-layers-context": [
+        "app"
+      ],
+      "parameters": [
+        {
+          "name": "community",
+          "in": "query",
+          "description": "Nome da comunidade",
+          "example": "test",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "session",
+          "in": "query",
+          "description": "Session do Layers",
+          "required": true,
+          "example": "exemplo",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "userId",
+          "in": "query",
+          "description": "Id do usuário do Layers",
+          "required": true,
+          "example": "exemplo",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Sessão Válidaa"
+        }
+      },
+      "externalDocs": {
+        "description": "Validar sessão",
+        "url": "/docs/api/auth/sso/session/validate"
+      }
+    },
+    "tags": [
+      "SSO e Portais"
+    ],
+    "summary": "Validar sessão"
+  },
+  "headings": [],
+  "pageClass": "page-api-auth-sso-session-validate"
+}

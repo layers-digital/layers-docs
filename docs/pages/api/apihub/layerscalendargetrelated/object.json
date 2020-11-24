@@ -35,6 +35,157 @@
             {
               "class": "token property"
             },
+            "\"context\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"issuedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2020-11-24T15:04:15.049Z\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"@layers:identificador_da_action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"test\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"secret\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
             "\"data\""
           ],
           [
@@ -281,8 +432,39 @@
     "type": "schema",
     "name": "LayersCalendarGetRelated",
     "spec": {
+      "title": "Context",
       "type": "object",
+      "required": "undefinedcontext,secretundefined",
       "properties": {
+        "context": {
+          "type": "object",
+          "required": [
+            "issuedAt",
+            "action",
+            "community"
+          ],
+          "properties": {
+            "issuedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Data e hora de quando a requisição foi feita"
+            },
+            "action": {
+              "type": "string",
+              "description": "Identificador da action",
+              "example": "@layers:identificador_da_action"
+            },
+            "community": {
+              "type": "string",
+              "description": "Identificador da comunidade",
+              "example": "test"
+            }
+          }
+        },
+        "secret": {
+          "type": "string",
+          "description": "Chave secreta específica do app"
+        },
         "data": {
           "type": "object",
           "properties": {

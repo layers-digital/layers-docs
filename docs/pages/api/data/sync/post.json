@@ -911,7 +911,99 @@
             {
               "class": "token property"
             },
+            "\"membersSet\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"123abc\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
             "\"admins\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"gabriel.raniere@layers.education\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"adminsSet\""
           ],
           [
             "span",
@@ -1375,7 +1467,7 @@
                             "example": false
                           },
                           "alias": {
-                            "type": "boolean",
+                            "type": "string",
                             "description": "Identificador do grupo",
                             "example": "2ANOEM"
                           },
@@ -1386,7 +1478,15 @@
                           },
                           "members": {
                             "type": "array",
-                            "description": "Array contendo os Identificadores de todos os membros que estão matriculados nesse grupo",
+                            "description": "Array contendo os Identificadores de todos os membros que estão matriculados nesse grupo. Membros não presentes nesse array serão removidos do grupo.",
+                            "items": {
+                              "type": "string",
+                              "example": "123abc"
+                            }
+                          },
+                          "membersSet": {
+                            "type": "array",
+                            "description": "Array contendo os Identificadores de novos membros que estão matriculados nesse grupo",
                             "items": {
                               "type": "string",
                               "example": "123abc"
@@ -1394,7 +1494,15 @@
                           },
                           "admins": {
                             "type": "array",
-                            "description": "Array contendo os emails de todos os usuários que serão administradores desse grupo",
+                            "description": "Array contendo os emails de todos os usuários que serão administradores desse grupo. Usuários não presentes nesse array serão removidos do grupo.",
+                            "items": {
+                              "type": "string",
+                              "example": "gabriel.raniere@layers.education"
+                            }
+                          },
+                          "adminsSet": {
+                            "type": "array",
+                            "description": "Array contendo os emails de novos usuários que serão administradores desse grupo",
                             "items": {
                               "type": "string",
                               "example": "gabriel.raniere@layers.education"

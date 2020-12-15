@@ -27,11 +27,11 @@ const Template = {
       title: 'Guias Gerais',
     },
     {
-      icon: '/docs/assets/icons/OAuth.svg',
+      icon: '/docs/assets/icons/Auth.svg',
       url: '/docs/api/auth',
       link: '/docs/api/auth/oauth/account/info',
-      title: 'Autenticação OAuth',
-      description: 'Autenticar usuários com o Layers e acessar informações com seu consentimento'
+      title: 'Autenticação',
+      description: 'Autenticar usuários com o Layers, acessar informações com seu consentimento e validar seções dos portais'
     },
     {
       icon: '/docs/assets/icons/Data.svg',

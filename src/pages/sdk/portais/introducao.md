@@ -26,8 +26,8 @@ Uma vez que o app está registrado ele poderá ser instalado nas comunidades e a
         insidePortalOnly: Boolean,
         manualLoadingControl: Boolean
       }
-      !function(){var e;window.LayersPortal||(window.LayersPortal=((e=function(n,r){return new Promise((function(t,o){e.q.push([t,o,n,r])}))}).q=[],e.eh={},e.on=function(n,r){var t=e.eh[n]||[];t.push(r),e.eh[n]=t},e.ready=!1,e.readyPromise=new Promise((function(n){e.readyPromiseResolve=n})),e.connected=!1,e.connectedPromise=new Promise((function(n){e.connectedPromiseResolve=n})),e.platform=null,e.session=null,e.communityId=null,e.accountId=null,e.userId=null,e));var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://js.layers.digital/v1/LayersPortal.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(n,r)}();
     </script>
+    <script type="text/javascript" src="https://js.layers.digital/v1/LayersPortal.js"></script>
   </head>
 </html>
 ```

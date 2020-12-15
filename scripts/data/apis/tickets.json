@@ -11,6 +11,159 @@
     }
   ],
   "paths": {
+    "/requests": {
+      "post": {
+        "tags": [
+          "Mensagens"
+        ],
+        "summary": "Criar solicitação",
+        "description": "Iniciar uma nova solicitação",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/Session"
+          },
+          {
+            "$ref": "#/components/parameters/User-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "ticket:request"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "subject",
+                  "message"
+                ],
+                "properties": {
+                  "subject": {
+                    "type": "string",
+                    "description": "Assunto da solicitação",
+                    "example": "Erro na matrícula"
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "Mensagem da solicitação",
+                    "example": "Tive um problema na hora de fazer a matrícula..."
+                  },
+                  "labels": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "Array de strings contendo os rótulos dos componentes que estão integrados ao ticket",
+                      "example": "123abc"
+                    }
+                  },
+                  "channel": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificador do canal de atendimento"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mensagem criada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticket"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests/{ticketId}": {
+      "put": {
+        "tags": [
+          "Mensagens"
+        ],
+        "summary": "Adicionar mensagem",
+        "description": "Adiciona uma nova mensagem na solicitação",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/Session"
+          },
+          {
+            "$ref": "#/components/parameters/User-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathTicketId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "ticket:request"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "message"
+                ],
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "description": "Mensagem da solicitação",
+                    "example": "Esse é um exemplo de uma nova mensagem"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mensagem adicionada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ticket"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/tickets/channels/{channelId}/agents/{userId}": {
       "put": {
         "tags": [
@@ -917,6 +1070,24 @@
       }
     },
     "parameters": {
+      "Session": {
+        "name": "x-session",
+        "in": "header",
+        "description": "Código de sessão do usuário no app.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "User-id": {
+        "name": "x-user-id",
+        "in": "header",
+        "description": "Identificador do usuário.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
       "Community-id": {
         "name": "community-id",
         "in": "header",

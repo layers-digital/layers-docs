@@ -103,13 +103,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Componentes registrados na Layers",
+            "description": "Número e lista de componentes encontrados",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Component"
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "format": "integer",
+                      "description": "Número de componentes encontrados"
+                    },
+                    "hits": {
+                      "type": "array",
+                      "description": "Array contendo os componentes encontrados",
+                      "items": {
+                        "$ref": "#/components/schemas/Component"
+                      }
+                    }
                   }
                 }
               }

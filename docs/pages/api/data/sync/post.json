@@ -978,9 +978,132 @@
           [
             "span",
             {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"email\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
               "class": "token string"
             },
             "\"gabriel.raniere@layers.education\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"components\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n              ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"PORT\""
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"components\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"PORT\""
           ],
           "\n        ",
           [
@@ -1081,6 +1204,144 @@
               "class": "token punctuation"
             },
             "]"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"components\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"data\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Português\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"PORT\""
           ],
           "\n      ",
           [
@@ -1494,10 +1755,34 @@
                           },
                           "admins": {
                             "type": "array",
-                            "description": "Array contendo os emails de todos os usuários que serão administradores desse grupo. Usuários não presentes nesse array serão removidos do grupo.",
+                            "description": "Array contendo informações de todos os usuários que serão administradores desse grupo. Usuários não presentes nesse array serão removidos do grupo.",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "email": {
+                                  "type": "string",
+                                  "description": "E-mail do usuário que deve ser administrador da turma",
+                                  "example": "gabriel.raniere@layers.education"
+                                },
+                                "components": {
+                                  "type": "array",
+                                  "description": "Array com os identificadores dos componentes aos quais o administrador está vinculado",
+                                  "items": {
+                                    "type": "string",
+                                    "description": "Identificador do componente",
+                                    "example": "PORT"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "components": {
+                            "type": "array",
+                            "description": "Identificadores dos componentes vinculados à turma",
                             "items": {
                               "type": "string",
-                              "example": "gabriel.raniere@layers.education"
+                              "description": "Identificador do componente vinculado à turma",
+                              "example": "PORT"
                             }
                           },
                           "adminsSet": {
@@ -1515,6 +1800,29 @@
                               "type": "string",
                               "example": "Ensino Medio"
                             }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "components": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Nome do componente",
+                            "example": "Português"
+                          },
+                          "alias": {
+                            "type": "string",
+                            "description": "Identificador do componente",
+                            "example": "PORT"
                           }
                         }
                       }

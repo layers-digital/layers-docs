@@ -14,7 +14,7 @@ O Layers oferece um conjunto de ferramentas que permitem que sistemas de gestão
 
 <docs-cards>
   <docs-card header="Hub de APIs" href="/docs/concepts/funcionalidades/hub-de-apis" icon="/docs/assets/icons/Hub.svg">
-    <p>Prover informaações sobre horários, frequência, cobranças e mais</p>
+    <p>Prover informações sobre horários, frequência, cobranças e mais</p>
   </docs-card>
 
   <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg">

@@ -36,7 +36,7 @@ const Template = {
     {
       icon: '/docs/assets/icons/Data.svg',
       url: '/docs/api/data',
-      link: '/docs/api/data/member/object',
+      link: '/docs/api/data/sync/post',
       title: 'Dados',
       description: 'Obter acesso aos dados de usuários, grupos, membros e mais'
     },
@@ -85,7 +85,8 @@ const Template = {
       icon: '/docs/assets/icons/AppMaker.svg',
       url: '/docs/api/appmaker',
       link: '/docs/api/appmaker/app/object',
-      title: 'App Maker'
+      title: 'App Maker',
+      description: 'Atualize e gerencie seu app'
     },
     // {
     //   icon: '/docs/assets/icons/Payments.svg',

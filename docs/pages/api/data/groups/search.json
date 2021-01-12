@@ -210,6 +210,36 @@
             {
               "class": "token property"
             },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"3A\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
             "\"createdAt\""
           ],
           [
@@ -819,6 +849,36 @@
             },
             "}"
           ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"periodo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"manha\""
+          ],
           "\n        ",
           [
             "span",
@@ -887,6 +947,12 @@
               "format": "ObjectId",
               "description": "identificador do documento do grupo",
               "readOnly": true
+            },
+            "alias": {
+              "type": "string",
+              "description": "Identificador da turma único para a comunidade",
+              "readOnly": false,
+              "example": "3A"
             },
             "createdAt": {
               "type": "string",
@@ -1046,6 +1112,15 @@
                           ]
                         }
                       }
+                    },
+                    "periodo": {
+                      "type": "string",
+                      "description": "Período do grupo",
+                      "enum": [
+                        "manha",
+                        "tarde",
+                        "noite"
+                      ]
                     }
                   }
                 }
@@ -1139,6 +1214,12 @@
                           "format": "ObjectId",
                           "description": "identificador do documento do grupo",
                           "readOnly": true
+                        },
+                        "alias": {
+                          "type": "string",
+                          "description": "Identificador da turma único para a comunidade",
+                          "readOnly": false,
+                          "example": "3A"
                         },
                         "createdAt": {
                           "type": "string",
@@ -1298,6 +1379,15 @@
                                       ]
                                     }
                                   }
+                                },
+                                "periodo": {
+                                  "type": "string",
+                                  "description": "Período do grupo",
+                                  "enum": [
+                                    "manha",
+                                    "tarde",
+                                    "noite"
+                                  ]
                                 }
                               }
                             }

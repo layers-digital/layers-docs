@@ -1532,7 +1532,7 @@
           }
         ],
         "x-layers-permissions": [
-          "admin"
+          "season:manage"
         ],
         "x-layers-context": [
           "user",
@@ -1558,6 +1558,54 @@
       }
     },
     "/season": {
+      "post": {
+        "tags": [
+          "Períodos"
+        ],
+        "summary": "Criar Período",
+        "description": "Criar um novo período.",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "season:manage"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Season"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Períodos existentes na comunidade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Season"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "get": {
         "tags": [
           "Períodos"
@@ -1570,7 +1618,7 @@
           }
         ],
         "x-layers-permissions": [
-          "admin"
+          "season:manage"
         ],
         "x-layers-context": [
           "user",
@@ -1594,6 +1642,82 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/season/{seasonId}/activate": {
+      "post": {
+        "tags": [
+          "Períodos"
+        ],
+        "summary": "Ativar Período",
+        "description": "Ativar um período.",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "season:manage"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathSeasonId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Períodos existentes na comunidade",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "description": "Nome do período ativado"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/season/{seasonId}": {
+      "delete": {
+        "tags": [
+          "Períodos"
+        ],
+        "summary": "Deletar Período",
+        "description": "Deletar um período. Não pode ser o período ativo.",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "season:manage"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathSeasonId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Período deletado com sucesso."
           }
         }
       }

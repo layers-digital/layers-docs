@@ -1105,7 +1105,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Membros ordenador por data de criação",
+            "description": "Membros ordenados por data de criação",
             "content": {
               "application/json": {
                 "schema": {
@@ -1519,6 +1519,85 @@
         }
       }
     },
+    "/season/active": {
+      "get": {
+        "tags": [
+          "Períodos"
+        ],
+        "summary": "Ver Período Ativo",
+        "description": "Ver período ativo.",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "admin"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Períodos existentes na comunidade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Season"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/season": {
+      "get": {
+        "tags": [
+          "Períodos"
+        ],
+        "summary": "Listar Períodos",
+        "description": "Listar períodos existentes.",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "admin"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Períodos existentes na comunidade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Season"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sync": {
       "post": {
         "tags": [
@@ -1744,6 +1823,55 @@
                                 "type": "string",
                                 "example": "Ensino Medio"
                               }
+                            },
+                            "fields": {
+                              "type": "object",
+                              "description": "Campos personalizados das turmas da comunidade. Podem variar de acordo com o tipo de comunidade e os apps instalados",
+                              "properties": {
+                                "tipo": {
+                                  "type": "array",
+                                  "description": "Tipo de ensino da turma",
+                                  "items": {
+                                    "type": "string",
+                                    "description": "Identificador do tipo de ensino",
+                                    "example": "regular",
+                                    "enum": [
+                                      "regular",
+                                      "idiomas",
+                                      "extracurricular"
+                                    ]
+                                  }
+                                },
+                                "nivel": {
+                                  "type": "array",
+                                  "description": "Nível de ensino da turma",
+                                  "items": {
+                                    "type": "string",
+                                    "description": "Identificador do nível de ensnio",
+                                    "example": "EI:G0",
+                                    "enum": [
+                                      "EI:G0",
+                                      "EI:G1",
+                                      "EI:G2",
+                                      "EI:G3",
+                                      "EI:G4",
+                                      "EI:G5",
+                                      "EF:A1",
+                                      "EF:A2",
+                                      "EF:A3",
+                                      "EF:A4",
+                                      "EF:A5",
+                                      "EF:A6",
+                                      "EF:A7",
+                                      "EF:A8",
+                                      "EF:A9",
+                                      "EM:S1",
+                                      "EM:S2",
+                                      "EM:S3"
+                                    ]
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -1767,6 +1895,55 @@
                               "type": "string",
                               "description": "Identificador do componente",
                               "example": "PORT"
+                            },
+                            "fields": {
+                              "type": "object",
+                              "description": "Campos personalizados dos componentes da comunidade. Podem variar de acordo com o tipo de comunidade e os apps instalados.",
+                              "properties": {
+                                "@education:basic": {
+                                  "type": "object",
+                                  "description": "Campos personalizados de educação básicos.",
+                                  "properties": {
+                                    "inep": {
+                                      "type": "array",
+                                      "description": "Lista de identificadores de disciplinas relacionados a esse componente",
+                                      "items": {
+                                        "type": "string",
+                                        "description": "Identificador de uma disciplina",
+                                        "enum": [
+                                          "1",
+                                          "2",
+                                          "3",
+                                          "4",
+                                          "5",
+                                          "6",
+                                          "7",
+                                          "8",
+                                          "9",
+                                          "10",
+                                          "11",
+                                          "12",
+                                          "13",
+                                          "14",
+                                          "16",
+                                          "17",
+                                          "20",
+                                          "21",
+                                          "23",
+                                          "25",
+                                          "26",
+                                          "27",
+                                          "28",
+                                          "29",
+                                          "30",
+                                          "31",
+                                          "32"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -2483,6 +2660,12 @@
             "description": "identificador do documento do grupo",
             "readOnly": true
           },
+          "alias": {
+            "type": "string",
+            "description": "Identificador da turma único para a comunidade",
+            "readOnly": false,
+            "example": "3A"
+          },
           "createdAt": {
             "type": "string",
             "description": "Data de criação do grupo em UTC corrigido para o fuso da comunidade",
@@ -2641,6 +2824,15 @@
                         ]
                       }
                     }
+                  },
+                  "periodo": {
+                    "type": "string",
+                    "description": "Período do grupo",
+                    "enum": [
+                      "manha",
+                      "tarde",
+                      "noite"
+                    ]
                   }
                 }
               }
@@ -2730,10 +2922,17 @@
       "Component": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador único do componente",
+            "readOnly": true
+          },
           "syncedAt": {
             "type": "string",
             "format": "date-time",
-            "description": "Data da última vez que esse dado foi atualizado em uma sincronização"
+            "description": "Data da última vez que esse dado foi atualizado em uma sincronização",
+            "readOnly": true
           },
           "name": {
             "type": "string",
@@ -2831,6 +3030,41 @@
                 }
               }
             }
+          }
+        }
+      },
+      "Season": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "readOnly": true,
+            "description": "Identificador único do período na comunidade"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 16,
+            "description": "Nome do período",
+            "example": "2020"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação do período",
+            "readOnly": true
+          },
+          "activatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de ativação do período",
+            "readOnly": true
+          },
+          "deactivatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de desativação do período",
+            "readOnly": true
           }
         }
       }
@@ -2949,6 +3183,15 @@
         "name": "enrollmentId",
         "in": "path",
         "description": "Identificador da matrícula",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PathSeasonId": {
+        "name": "seasonId",
+        "in": "path",
+        "description": "Identificador do período",
         "required": true,
         "schema": {
           "type": "string"
@@ -3080,6 +3323,12 @@
   },
   "x-nav": [
     {
+      "name": "Sincronização",
+      "tags": [
+        "Sincronização"
+      ]
+    },
+    {
       "name": "Membros",
       "schemas": [
         "Member"
@@ -3125,9 +3374,12 @@
       ]
     },
     {
-      "name": "Sincronização",
+      "name": "Períodos",
+      "schemas": [
+        "Season"
+      ],
       "tags": [
-        "Sincronização"
+        "Períodos"
       ]
     }
   ]

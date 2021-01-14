@@ -8,7 +8,7 @@ tableOfContents: false
 
 # Layers para Instituições de Ensino
 
-O Layers oferece para instituições de ensino um único ambiente ao qual é possível integrar soluções internas como um sistema de gestão próprio, bem como inserir outras plataformas educacionais por meio de portais ou mesmo automatizar o envio de comunicados e notificações para alunos, pais e familiares.
+A Layers oferece para instituições de ensino um único ambiente ao qual é possível integrar soluções internas como um sistema de gestão próprio, bem como inserir outras plataformas educacionais por meio de portais ou mesmo automatizar o envio de comunicados e notificações para alunos, pais e familiares.
 
 ## Principais funcionalidades
 
@@ -18,7 +18,7 @@ O Layers oferece para instituições de ensino um único ambiente ao qual é pos
   </docs-card>
 
   <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg">
-    <p>Manter os dados do Layers atualizados com as informações do ERP</p>
+    <p>Manter os dados da Layers atualizados com as informações do ERP</p>
   </docs-card>
 
   <docs-card header="Comunicação" href="/docs/concepts/funcionalidades/comunicacao" icon="/docs/assets/icons/Comunicação.svg">

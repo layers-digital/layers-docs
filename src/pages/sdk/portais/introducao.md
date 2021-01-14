@@ -10,11 +10,11 @@ Portais permitem que apps adicionem telas personalizadas ao ambiente Layers das 
 
 ## Registre o app
 
-O primeiro passo para usar a funcionalidade de portais no Layers é [registrar o app](./../../register) selecionando na pergunta sobre as funcionalidades que o app vai usar a opção de "Telas adicionais". 
+O primeiro passo para usar a funcionalidade de portais na Layers é [registrar o app](./../../register) selecionando na pergunta sobre as funcionalidades que o app vai usar a opção de "Telas adicionais". 
 
 ## Importando e configurando o SDK
 
-Uma vez que o app está registrado ele poderá ser instalado nas comunidades e adicionar a tela ao Layers. Para isso, a página que será acessada através do Layers deve importar nosso SDK de portais da maneira que está exemplificado abaixo. Através desse SDK, apps podem acessar informações e funcionalidades do Layers.
+Uma vez que o app está registrado ele poderá ser instalado nas comunidades e adicionar a tela à Layers. Para isso, a página que será acessada através da Layers deve importar nosso SDK de portais da maneira que está exemplificado abaixo. Através desse SDK, apps podem acessar informações e funcionalidades da Layers.
 
 ``` html
 <!DOCTYPE HTML>
@@ -38,4 +38,4 @@ O objeto `LayersPortalOptions` deve ser definido com as seguintes propriedades:
 
 + **appId**: String contendo o identificador do app
 + **insidePortalOnly**: Booleano indicando se a página deve ser acessível apenas através da Layers
-+ **manualLoadingControl**: Booleano indicando se o app controlará o carregamento manualmente, chamando o método `LayersPortal.ready()` quando a página estiver carregada ou se o controle de carregamento deve ser feito automáticamente pelo Layers
++ **manualLoadingControl**: Booleano indicando se o app controlará o carregamento manualmente, chamando o método `LayersPortal.ready()` quando a página estiver carregada ou se o controle de carregamento deve ser feito automáticamente pela Layers

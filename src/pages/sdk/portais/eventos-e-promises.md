@@ -20,7 +20,7 @@ LayersPortal.on('ready', function(){
 })
 ```
 
-+ **connected**: O evento `connected` é emitido quando o SDK de portais está conectado com o Layers, indicando que apps podem acessar propriedades e métodos do SDK. A função chamada quando receber esse evento pode receber o objeto `data` com informações de usuário e seção como parâmetro.
++ **connected**: O evento `connected` é emitido quando o SDK de portais está conectado com a Layers, indicando que apps podem acessar propriedades e métodos do SDK. A função chamada quando receber esse evento pode receber o objeto `data` com informações de usuário e seção como parâmetro.
 
 ```js
 LayersPortal.on('connected', function(data){
@@ -34,4 +34,4 @@ Além dos eventos, apps podem optar por usar promises para controlar o status do
 
 + **readyPromisse**: A propriedade `readyPromisse` é, como o nome sugere, uma promisse que será resolvida quando o SDK for importado com sucesso.
 
-+ **connectedPromisse**: Assim como a propriedade anterior, a propriedade `connectedPromisse` será resolvida  quando o SDK estiver conectado com o Layers retornando as informações de seção e do usuário acessando o portal.
++ **connectedPromisse**: Assim como a propriedade anterior, a propriedade `connectedPromisse` será resolvida  quando o SDK estiver conectado com a Layers retornando as informações de seção e do usuário acessando o portal.

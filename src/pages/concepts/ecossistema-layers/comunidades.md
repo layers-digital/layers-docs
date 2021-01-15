@@ -1,6 +1,6 @@
 ---
 template: default
-title: Comunidades no Layers
+title: Comunidades na Layers
 tableOfContents: false
 nextText: 'Apps'
 nextUrl: '/docs/concepts/ecossistema-layers/apps'
@@ -8,9 +8,9 @@ previousText: 'Introdução'
 previousUrl: '/docs/concepts/ecossistema-layers'
 ---
 
-# Comunidades no Layers
+# Comunidades na Layers
 
-Comunidades são a maior unidade de organização no Layers. Cada instituição de ensino, desenvolvedor de app ou fornecedor é representada por uma comunidade no Layers que contém seus dados e na qual são instalados os apps que adicionarão funcionalidades escolhidas pelos administradores da comunidade.
+Comunidades são a maior unidade de organização na Layers. Cada instituição de ensino, desenvolvedor de app ou fornecedor é representada por uma comunidade na Layers que contém seus dados e na qual são instalados os apps que adicionarão funcionalidades escolhidas pelos administradores da comunidade.
 
 Além da personalização por meio dos apps, é possível escolher também o ícone, nome e modelo de comunidade que melhor se aplica ao cenário no qual ela vai ser utilizada (escolar, desenvolvedor de apps, fornecedor, torneio, etc). 
 

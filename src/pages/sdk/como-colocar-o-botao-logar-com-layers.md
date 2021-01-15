@@ -6,12 +6,12 @@ tableOfContents: true
 # nextUrl: '/docs/guides/intro'
 ---
 
-Com o objetivo de tornar o uso da autenticação com o Layers mais simples disponibilizamos um componente do botão do Layers. Para utilizar esse componente na sua aplicação, siga as instruções abaixo.
+Com o objetivo de tornar o uso da autenticação com a Layers mais simples disponibilizamos um componente do botão da Layers. Para utilizar esse componente na sua aplicação, siga as instruções abaixo.
 
 
 ## 1 - Importe a biblioteca
 
-Para ter acesso ao componente do botão logar com o Layers será necessário importar o código da biblioteca de autenticação do Layers como mostrado no trecho de código abaixo. A importação do código deve ser feita na tag head para evitar que o recurso seja requisitado antes que ele tenha sido carregado.
+Para ter acesso ao componente do botão logar com a Layers será necessário importar o código da biblioteca de autenticação da Layers como mostrado no trecho de código abaixo. A importação do código deve ser feita na tag head para evitar que o recurso seja requisitado antes que ele tenha sido carregado.
 
 ```html
 <!DOCTYPE HTML>
@@ -23,7 +23,7 @@ Para ter acesso ao componente do botão logar com o Layers será necessário imp
 </html>
 ```
 
-## 2 - Adicione o botão de autenticação do Layers à sua página
+## 2 - Adicione o botão de autenticação da Layers à sua página
 
 ```html
 <layers-auth-button
@@ -37,14 +37,14 @@ Para ter acesso ao componente do botão logar com o Layers será necessário imp
 
 Uma vez importada a bibioteca, adicione o componente do botão à sua página passando os atributos obrigatórios:
 + **client-id**: 
-Deve conter o identificador do seu app no Layers Education.
+Deve conter o identificador do seu app na Layers Education.
 + **scope**:
 Deve conter os [escopos](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md). de autorização que o usuário deve ceder permissão para o uso do seu app.
 + **mode**:
 Existem três valores possíveis para o atributo ```mode```:
-    + ```embedded```: Abre um dialog na sua página com a tela de login do Layers para que o usuário digite suas credenciais.
-    + ```popup```: Abre um popup em outra janela com a tela de login do Layers para que o usuário digite suas credenciais.
-    + ```redirect```: Redireciona o usuário para a tela de login do Layers e depois redireciona de volta para o seu app passando o código como parâmetro na query.
+    + ```embedded```: Abre um dialog na sua página com a tela de login da Layers para que o usuário digite suas credenciais.
+    + ```popup```: Abre um popup em outra janela com a tela de login da Layers para que o usuário digite suas credenciais.
+    + ```redirect```: Redireciona o usuário para a tela de login da Layers e depois redireciona de volta para o seu app passando o código como parâmetro na query.
 + **redirect-uri**:
 Deve conter a url de redirecionamento para o seu app quando for usado o ```mode="redirect"```.
 + **label**:
@@ -84,7 +84,7 @@ Para os modos ```embedded```e ```popup``` o código que deve ser usado para obte
 
 ## 4 - Use o código para obter o token
 
-Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas [rotas de OAuth disponíveis no Layers](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md).
+Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas [rotas de OAuth disponíveis na Layers](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md).
 
 ``` http
 POST /oauth/token

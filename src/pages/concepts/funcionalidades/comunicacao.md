@@ -12,4 +12,4 @@ A API de Comunicação da Layers permite que apps utilizem funcionalidades do ap
 
 ## Rotas disponíveis e permissões
 
-Para que o app tenha acesso à API de comunicação é preciso que ele esteja registrado no Layers com a funcionalidade de acesso a APIs habilitada e a permissão para ver (`post:read`), criar (`post:write`) publicações ou administrar (`post:manage`). Todas as rotas disponíveis estão documentadas e explicadas na [referência da API de comunicação](./../../api/communication/post/post).
+Para que o app tenha acesso à API de comunicação é preciso que ele esteja registrado na Layers com a funcionalidade de acesso a APIs habilitada e a permissão para ver (`post:read`), criar (`post:write`) publicações ou administrar (`post:manage`). Todas as rotas disponíveis estão documentadas e explicadas na [referência da API de comunicação](./../../api/communication/post/post).

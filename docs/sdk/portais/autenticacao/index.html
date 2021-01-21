@@ -253,13 +253,31 @@ class="token punctuation" c-id=40.174.7.16><!--t.40.175.8.0-->.</span><!--t.40.1
 <div class="code-text__copy" c-id=48.0.0.0><a class="code-text__copy-link" c-id=48.1.1.0><!--t.48.2.2.0-->Copiar</a><span
 class="code-text__copy-confirmation" c-id=48.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=48.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=48.5.3.0></path></svg><!--t.48.6.2.1-->Copiado</span></div></docs-code><!--t.40.178.4.25--> <p c-id=40.179.4.26><!--t.40.180.5.0-->Caso as informações enviadas sejam válidas, essa rota responderá com status
-<code c-id=40.181.5.1><!--t.40.182.6.0-->200</code><!--t.40.183.5.2--> confirmando que essa é uma sessão válida e o usuário está autenticado na Layers.</p></div></section><docs-page-footer
-role=contentinfo class=hydrated c-id=40.184.2.3 s-id=49><!--r.49--><docs-pagination class=hydrated c-id=49.0.0.0
-s-id=50><!--r.50--><stencil-route-link class="previous hydrated" c-id=50.0.0.0 s-id=51><!--r.51--><!--o.50.1--><!--o.50.3--><a
-href="/docs/sdk/portais/propriedades-e-metodos" title="Propriedades e Métodos" c-id=51.0.0.0><!--s.51.1.1.0.--><div
-class=paggination__title c-id=50.1.1.0><!--t.50.2.2.0-->Anterior</div><div class=paggination__text c-id=50.3.1.1><svg
-viewBox="0 0 512 512" c-id=50.4.2.0><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"
-c-id=50.5.3.0></path></svg><span c-id=50.6.2.1><!--t.50.7.3.0-->Propriedades e Métodos</span></div></a></stencil-route-link></docs-pagination></docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
+c-id=48.5.3.0></path></svg><!--t.48.6.2.1-->Copiado</span></div></docs-code><!--t.40.178.4.25--> <p c-id=40.179.4.26><!--t.40.180.5.0-->É possível ainda receber essas informações como parâmetros na URL que é chamada quando um usuário clica no portal assim como no método antigo. Por esse motivo, é necessário verificar quais informações estão sendo recebidas na URL para definir qual método de validação deve ser utilizado.</p><!--t.40.181.4.27-->
+<docs-code class=hydrated c-id=40.182.4.28 s-id=49><!--r.49--><!--t.40.183.5.0--> <pre c-id=40.184.5.1><code
+c-id=40.185.6.0><span class="token method" c-id=40.186.7.0><span class="token get" c-id=40.187.8.0><!--t.40.188.9.0-->GET</span></span><!--t.40.189.7.1--> <span
+class="token schema" c-id=40.190.7.2><!--t.40.191.8.0-->https://</span><!--t.40.192.7.3-->meu-app.com<span
+class="token path" c-id=40.193.7.4><!--t.40.194.8.0-->/meu-portal</span><span class="token query" c-id=40.195.7.5><span
+class="token separator" c-id=40.196.8.0><!--t.40.197.9.0-->?</span><span class="token param" c-id=40.198.8.1><span
+class="token name" c-id=40.199.9.0><!--t.40.200.10.0-->layers_session</span><!--t.40.201.9.1-->=<span
+class="token value" c-id=40.202.9.2><span class="token string" c-id=40.203.10.0><!--t.40.204.11.0-->{SESSION}</span></span></span><span
+class="token separator" c-id=40.205.8.2><!--t.40.206.9.0-->&amp;</span><span class="token param" c-id=40.207.8.3><span
+class="token name" c-id=40.208.9.0><!--t.40.209.10.0-->layers_community_id</span><!--t.40.210.9.1-->=<span
+class="token value" c-id=40.211.9.2><span class="token string" c-id=40.212.10.0><!--t.40.213.11.0-->{COMMUNITY}</span></span></span><span
+class="token separator" c-id=40.214.8.4><!--t.40.215.9.0-->&amp;</span><span class="token param" c-id=40.216.8.5><span
+class="token name" c-id=40.217.9.0><!--t.40.218.10.0-->layers_user_id</span><!--t.40.219.9.1-->=<span
+class="token value" c-id=40.220.9.2><span class="token string" c-id=40.221.10.0><!--t.40.222.11.0-->{USER_ID}</span></span></span></span></code></pre><!--t.40.223.5.2-->
+<div class="code-text__copy" c-id=49.0.0.0><a class="code-text__copy-link" c-id=49.1.1.0><!--t.49.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=49.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=49.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=49.5.3.0></path></svg><!--t.49.6.2.1-->Copiado</span></div></docs-code><!--t.40.224.4.29--> <p c-id=40.225.4.30><!--t.40.226.5.0-->Caso as informações enviadas sejam válidas, a rota de validação de sessão responderá com status
+<code
+c-id=40.227.5.1><!--t.40.228.6.0-->200</code><!--t.40.229.5.2--> confirmando que essa é uma sessão válida e o usuário está autenticado na Layers.</p></div></section><docs-page-footer
+role=contentinfo class=hydrated c-id=40.230.2.3 s-id=50><!--r.50--><docs-pagination class=hydrated c-id=50.0.0.0
+s-id=51><!--r.51--><stencil-route-link class="previous hydrated" c-id=51.0.0.0 s-id=52><!--r.52--><!--o.51.1--><!--o.51.3--><a
+href="/docs/sdk/portais/propriedades-e-metodos" title="Propriedades e Métodos" c-id=52.0.0.0><!--s.52.1.1.0.--><div
+class=paggination__title c-id=51.1.1.0><!--t.51.2.2.0-->Anterior</div><div class=paggination__text c-id=51.3.1.1><svg
+viewBox="0 0 512 512" c-id=51.4.2.0><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"
+c-id=51.5.3.0></path></svg><span c-id=51.6.2.1><!--t.51.7.3.0-->Propriedades e Métodos</span></div></a></stencil-route-link></docs-pagination></docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
 </body>
 </html>

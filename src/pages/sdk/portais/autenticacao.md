@@ -42,4 +42,10 @@ const communityId = LayersPortal.communityId
 const userId = LayersPortal.userId
 ```
 
-Caso as informações enviadas sejam válidas, essa rota responderá com status `200` confirmando que essa é uma sessão válida e o usuário está autenticado na Layers.
+É possível ainda receber essas informações como parâmetros na URL que é chamada quando um usuário clica no portal assim como no método antigo. Por esse motivo, é necessário verificar quais informações estão sendo recebidas na URL para definir qual método de validação deve ser utilizado.
+
+```http
+GET https://meu-app.com/meu-portal?layers_session={SESSION}&layers_community_id={COMMUNITY}&layers_user_id={USER_ID}
+```
+
+Caso as informações enviadas sejam válidas, a rota de validação de sessão responderá com status `200` confirmando que essa é uma sessão válida e o usuário está autenticado na Layers.

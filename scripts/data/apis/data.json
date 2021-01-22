@@ -11,6 +11,53 @@
     }
   ],
   "paths": {
+    "/group": {
+      "post": {
+        "tags": [
+          "Grupos"
+        ],
+        "summary": "Criar Grupo",
+        "description": "Criar um novo grupo na Layers Education.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Group"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Grupo criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/community/permissions": {
       "get": {
         "tags": [
@@ -350,53 +397,6 @@
                       }
                     }
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/group": {
-      "post": {
-        "tags": [
-          "Grupos"
-        ],
-        "summary": "Criar Grupo",
-        "description": "Criar um novo grupo na Layers Education.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "group:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Group"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Grupo criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Group"
                 }
               }
             }
@@ -1805,11 +1805,6 @@
                             }
                           }
                         }
-                      },
-                      "cleanSync": {
-                        "type": "boolean",
-                        "description": "Iindica se os dados de usuários já registrados devem ser apagados",
-                        "example": false
                       }
                     }
                   },
@@ -1852,11 +1847,6 @@
                             }
                           }
                         }
-                      },
-                      "cleanSync": {
-                        "type": "boolean",
-                        "description": "Iindica se os dados de membros já registrados devem ser apagados",
-                        "example": false
                       }
                     }
                   },

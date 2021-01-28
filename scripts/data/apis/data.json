@@ -11,13 +11,13 @@
     }
   ],
   "paths": {
-    "/group": {
+    "/clean-sync": {
       "post": {
         "tags": [
-          "Grupos"
+          "Sincronização"
         ],
-        "summary": "Criar Grupo",
-        "description": "Criar um novo grupo na Layers Education.",
+        "summary": "Remover dados",
+        "description": "Remover usuários, alunos ou grupos da Layers",
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
@@ -29,7 +29,7 @@
           }
         ],
         "x-layers-permissions": [
-          "group:write"
+          "sync:manage"
         ],
         "x-layers-context": [
           "user",
@@ -39,18 +39,60 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Group"
+                "type": "object",
+                "properties": {
+                  "models": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "users",
+                        "classrooms",
+                        "groups"
+                      ],
+                      "description": "Entidades que devem ser desativadas."
+                    }
+                  },
+                  "syncedAtBefore": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Data limite de sincronização. Grupos sincronizados antes dessa data serão removidos. Por padrão é a data da requisição menos cinco horas."
+                  }
+                }
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Grupo criado",
+            "description": "Entidades desativadas",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Group"
+                  "type": "object",
+                  "properties": {
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "Identificadores dos usuários desativados."
+                      }
+                    },
+                    "members": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "Identificadores dos membros desativados."
+                      }
+                    },
+                    "groups": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "Identificadores dos grupos desativados."
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -397,6 +439,53 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/group": {
+      "post": {
+        "tags": [
+          "Grupos"
+        ],
+        "summary": "Criar Grupo",
+        "description": "Criar um novo grupo na Layers Education.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Group"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Grupo criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group"
                 }
               }
             }
@@ -2388,6 +2477,47 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/activate": {
+      "post": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Reativar um usuário",
+        "description": "Reativa o usuário que está com status `active` = false",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "user:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathUserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna as informações do usuário reativado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
                 }
               }
             }

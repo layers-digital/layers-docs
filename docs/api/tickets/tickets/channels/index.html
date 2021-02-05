@@ -14,22 +14,24 @@
 <style sty-id="sc-docs-select">.Select{cursor:pointer;display:inline-block;font-weight:500}.Select .Dropdown-button{-ms-flex-align:center;align-items:center;border:1px solid #dee3ea;border-radius:6px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:justify;justify-content:space-between;min-width:100px;padding:.5em 1em}.Select .Dropdown-panel{padding:.5em 0}.Select .Dropdown-arrow{margin-left:.5em}.Select-option{--bg-alpha:0;background-color:rgba(0,0,0,var(--bg-alpha));padding:.5em 1.5em}.Select-option:focus{--bg-alpha:0.025;outline:none}.Select-option--selected{--bg-alpha:0.05}.Select-option--selected:focus{--bg-alpha:0.075}@media (hover:hover){.Select-option:hover{--bg-alpha:0.025}.Select-option--selected:hover{--bg-alpha:0.075}}</style>
 <style sty-id="sc-docs-page">docs-page{display:grid;font-size:16px;grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr;line-height:2;margin-left:var(--page-margin-left);margin-top:var(--header-height);overflow-x:hidden;-webkit-transform:var(--page-transform,none);transform:var(--page-transform,none);-webkit-transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:-webkit-transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1);transition:transform .2s cubic-bezier(.2,1,.2,1),-webkit-transform .2s cubic-bezier(.2,1,.2,1)}@media (min-width:1234px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 3fr}}@media (min-width:1800px){docs-page{grid-template-columns:1fr minmax(0,var(--page-width,720px)) 1fr 240px}}docs-page>main{grid-column:2;margin-bottom:3rem;padding:var(--page-padding,2rem 3rem);position:relative}docs-page docs-demo{margin-right:auto}docs-page docs-pagination{grid-column:1/-1}docs-page .full-screen{grid-column:1/-1;height:calc(100vh - var(--header-height));margin-bottom:0;overflow:hidden;padding:0}docs-page .page-heading-encapsulation{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em;float:right}docs-page .page-heading-encapsulation:hover{border-color:#92a1b3}docs-page h1{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;margin-top:2rem;margin-bottom:1rem}docs-page h2 a[href^="#"],docs-page h3 a[href^="#"],docs-page h4 a[href^="#"],docs-page h5 a[href^="#"],docs-page h6 a[href^="#"]{color:inherit;position:relative}docs-page h2 a[href^="#"]:before,docs-page h3 a[href^="#"]:before,docs-page h4 a[href^="#"]:before,docs-page h5 a[href^="#"]:before,docs-page h6 a[href^="#"]:before{content:"#";opacity:0;padding-right:1px;position:absolute;right:100%;-webkit-transition:opacity .1s ease;transition:opacity .1s ease}docs-page h2 a[href^="#"]:hover:before,docs-page h2 a[href^="#"]:target:before,docs-page h3 a[href^="#"]:hover:before,docs-page h3 a[href^="#"]:target:before,docs-page h4 a[href^="#"]:hover:before,docs-page h4 a[href^="#"]:target:before,docs-page h5 a[href^="#"]:hover:before,docs-page h5 a[href^="#"]:target:before,docs-page h6 a[href^="#"]:hover:before,docs-page h6 a[href^="#"]:target:before{opacity:1}docs-page h2 code,docs-page h3 code,docs-page h4 code,docs-page h5 code,docs-page h6 code{background:none;font-size:inherit}docs-page aside{float:right;margin-left:20px;margin-bottom:20px}@media (min-width:1234px){docs-page main.no-demo .page-meta:not(.always-below){position:fixed;right:0;top:100px;width:240px;-webkit-transition:transform .2s ease;transition:transform .2s ease}docs-header.hidden~stencil-route docs-page main.no-demo .page-meta:not(.always-below){-webkit-transform:translateY(-60px);transform:translateY(-60px)}}docs-page main.has-demo .page-meta internal-ad{display:none}.Error{-ms-flex-align:center;align-items:center;background-color:var(--offset-background);color:var(--text-color--light);display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;line-height:1;white-space:nowrap}.Error.full-screen{padding-bottom:3rem}.Error>*{margin:10px}.Error div,.Error h1{color:inherit;font-size:3rem}.Error div{text-shadow:3px 3px 3px rgba(0,0,0,.1)}.Error p{font-size:18px}docs-page.api-route,docs-page.api-schema{--page-width:1040px}docs-page.api-schema docs-code[language=json] pre{max-height:calc(100vh - 150px);padding:1em}.Api-two-column{display:grid;grid-gap:32px;grid-template-columns:repeat(auto-fill,minmax(400px,1fr))}docs-page .page-heading-tag{text-transform:uppercase;background:transparent;color:#2d4665;border:1px solid #dee3ea;border-radius:14px;height:24px;padding:2px 8px;font-weight:600;font-size:10px;line-height:14px;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-item-align:center;align-self:center;justify-self:flex-end;letter-spacing:.08em}docs-page .page-heading-tag:hover{border-color:#92a1b3}</style>
 <style sty-id="sc-docs-code">docs-code{display:block;position:relative}docs-code:before{color:#bdc5d1;content:attr(language);font-family:var(--code-font-family);font-size:10px;letter-spacing:.05em;line-height:1;padding:.75em;position:absolute;right:0;text-transform:uppercase;top:0}docs-code[language=shell] pre{white-space:pre-wrap}.code-text__copy{position:absolute;right:0;top:-1.6rem;height:20px}.code-text__copy-confirmation,.code-text__copy-link{padding:4px 5px;font-size:12px;line-height:12px;font-weight:600;position:absolute;right:0;top:0}.code-text__copy-link{-webkit-transition:opacity .2s,color .2s,-webkit-transform .2s;transition:opacity .2s,color .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s,color .2s;transition:transform .2s,opacity .2s,color .2s,-webkit-transform .2s;color:#70a4ff;background-color:#e0eeff;border-radius:4px;display:inline-block;cursor:pointer;opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0);z-index:5}.code-text__copy-link:hover{color:var(--blue)}.code-text__copy-confirmation{-webkit-transition:opacity .2s,-webkit-transform .2s;transition:opacity .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s;transition:transform .2s,opacity .2s,-webkit-transform .2s;color:#0ec254;opacity:0;-webkit-transform:translate3d(0,5px,0);transform:translate3d(0,5px,0);z-index:1;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;height:20px;padding:0}.code-text__copy-confirmation svg{fill:#0ec254;margin-right:-4px}.show-confirmation .code-text__copy-link{opacity:0;-webkit-transform:translate3d(0,-5px,0);transform:translate3d(0,-5px,0);pointer-events:none}.show-confirmation .code-text__copy-confirmation{opacity:1;-webkit-transform:translateZ(0);transform:translateZ(0)}docs-code[language=shell]>pre{background-color:var(--text-color--dark);border-radius:7px}docs-code[language=shell]:before{display:none}docs-code[language=shell] code{color:hsla(0,0%,100%,.7);font-size:13px}docs-code[language=shell] .token{color:inherit}docs-code[language=shell] .token.prompt{color:#fb96f9;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=shell] .token.comment{color:hsla(0,0%,100%,.45)}docs-code[language=http]>pre{border-radius:7px;padding:0 2em 0 0;background:#fafafa;-webkit-box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1);box-shadow:0 2px 3px -2px rgba(0,0,0,.1),0 2px 16px 0 rgba(0,0,0,.1)}docs-code[language=http]:before{display:none}docs-code[language=http] code{color:rgba(0,0,0,.7);font-size:13px}docs-code[language=http] .token{color:inherit}docs-code[language=http] .method>.token{--color:119,161,250;display:inline-block;padding:1em;font-weight:700;color:rgb(var(--color));background-color:rgba(var(--color),.15);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}docs-code[language=http] .method .delete{--color:var(--api-red)}docs-code[language=http] .method .put{--color:var(--api-yellow)}docs-code[language=http] .method .post{--color:var(--api-blue)}docs-code[language=http] .method .get{--color:var(--api-green)}docs-code[language=http] .token.schema{color:rgba(0,0,0,.4)}docs-code[language=http] .token.host{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path{color:#1e90ff}docs-code[language=http] .token.path .version{color:rgba(0,0,0,.7)}docs-code[language=http] .token.path .param{color:#42b983}docs-code[language=http] .token.query .separator{color:#a9a9a9}docs-code[language=http] .token.query .param{color:#8454ff}docs-code[language=http] .token.query .param .key{font-weight:700}docs-code[language=http] .token.query .param .value{color:#42b983}docs-code[language=http] .token.query .param .value .number{color:#4caf50;font-weight:700}code[class*=language-],pre[class*=language-]{text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;color:#90a4ae;background:#fafafa;font-family:Roboto Mono,monospace;font-size:1em;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{background:#cceae7;color:#263238}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{white-space:normal;border-radius:.2em;padding:.1em}pre[class*=language-]{overflow:auto;position:relative;margin:.5em 0;padding:1.25em 1em}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#8d45d4}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}</style>
+<style sty-id="sc-docs-openapi-parameters">docs-openapi-parameters{display:block;font-family:var(--font-family)}.parameters-container{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;padding:0}.parameter{list-style:none;margin:2px;border-bottom:1px solid var(--api-gray100)}.column-flex{-ms-flex-direction:column;flex-direction:column}.column-flex,.row-flex{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1}.row-flex{-ms-flex-direction:row;flex-direction:row}.header{display:inline;margin-right:.3em;padding-bottom:0}.parameter-label-required{color:rgb(var(--api-orange));font-weight:700}.parameter-name{color:var(--api-gray1000);font-weight:700}.parameter-description{color:var(--api-gray500)}</style>
 <style sty-id="sc-docs-openapi-schema-nested">.Api-nested-section{-webkit-box-shadow:0 0 0 1px var(--api-gray100);box-shadow:0 0 0 1px var(--api-gray100);border-radius:12px;width:-webkit-min-content;width:-moz-min-content;width:min-content;margin-top:8px;margin-bottom:4px}.Api-nested-section.active{width:100%}.Api-nested-toggle-btn{cursor:pointer;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;background:none;border:none;width:100%;text-align:left;border-radius:12px;line-height:100%;white-space:pre;font-family:var(--font-family);font-size:13px;padding-right:12px;height:26px;--color-bg:transparent;background-color:var(--color-bg);--color:var(--api-gray400);color:var(--color)}.Api-nested-toggle-btn>.icon{width:14px;height:14px;-webkit-transition:-webkit-transform .2s ease-in-out;transition:-webkit-transform .2s ease-in-out;transition:transform .2s ease-in-out;transition:transform .2s ease-in-out,-webkit-transform .2s ease-in-out;fill:var(--color)}.Api-nested-toggle-btn>.text{padding-top:2px;margin-left:4px}.Api-nested-section.active>.Api-nested-toggle-btn{border-radius:12px 12px 0 0}.Api-nested-section.active>.Api-nested-toggle-btn,.Api-nested-section:hover>.Api-nested-toggle-btn{--color-bg:rgba(0,0,0,0.02);--color:var(--api-gray500)}.Api-nested-section.active>.Api-nested-toggle-btn>.icon{-webkit-transform:rotate(45deg);transform:rotate(45deg)}.Api-nested-toggle-btn:focus{outline:none}.Api-nested-section .Api-property-list-item{padding-left:16px;padding-right:16px}.Api-nested-section.active>docs-openapi-schema{border-top:1px solid var(--api-gray100)}</style>
 <style sty-id="sc-docs-page-footer">docs-page-footer{margin-top:6rem}docs-page-footer contributor-list{margin-right:.5em}docs-page-footer .last-updated{color:var(--text-color--light);font-weight:400;margin-left:auto;text-decoration:underline}docs-page-footer .page-footer__row{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;font-size:12px;margin-top:2rem}</style>
 <style sty-id="sc-docs-openapi-schema">docs-openapi-schema,docs-openapi-schema-nested{display:block}.Api-property-spec{margin:0;padding:0;display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:baseline;align-items:baseline}.Api-property-name{color:var(--api-gray1000)!important;font-size:13px;font-family:var(--font-family);font-weight:600;letter-spacing:.04em;-webkit-transition:color .2s;transition:color .2s}.Api-property-name-ancestor{color:var(--api-gray400);font-weight:400}.Api-property-name:target{color:rgb(var(--api-purple))!important}.Api-property-name:target .Api-property-name-ancestor{color:inherit}.Api-property-description{font-size:12px;color:var(--api-gray500);margin:4px 0 0 0;line-height:1.2em}.Api-property-list{margin:0;padding:0;list-style:none}.Api-property-list-item{padding:12px 0}.Api-property-list-item:not(:first-child){border-top:1px solid var(--api-gray100)}.Api-label{position:relative;font-size:12px;font-weight:500;margin-left:6px}.Api-label-optional{color:var(--api-gray300)}.Api-label-required{color:rgb(var(--api-orange));font-weight:700}.Api-label-type{color:rgb(var(--api-gray400));font-weight:500}.Api-label-option{font-size:10px;border-bottom:1px dotted var(--api-gray300);font-weight:600;color:rgb(var(--api-purple));cursor:pointer}.Api-label-tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;-webkit-transform:translateX(calc(-50%));transform:translateX(calc(-50%));padding:1em;background:#fff;border-radius:4px;-webkit-box-shadow:0 2px 4px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.05);box-shadow:0 2px 4px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.05);max-width:200px;word-break:break-word;width:-webkit-max-content;width:-moz-max-content;width:max-content;line-height:1.3em}.Api-label-tooltip>code{white-space:pre;color:rgb(var(--api-purple));background-color:rgba(var(--api-purple),.1);margin:2px;display:inline-block}.Api-label:hover>.Api-label-tooltip{display:block}.Api-flex-grow{-ms-flex:auto 1 0px;flex:auto 1 0}</style>
-<link rel=modulepreload href="/docs/build/p-eyoycyc2.js">
+<link rel=modulepreload href="/docs/build/p-765dderp.js">
 <link rel=modulepreload href="/docs/build/p-00bea6bd.js">
 <link rel=modulepreload href="/docs/build/p-43f818cb.js">
 <link rel=modulepreload href="/docs/build/p-5c360986.js">
 <link rel=modulepreload href="/docs/build/p-72181234.js">
+<link rel=modulepreload href="/docs/build/p-8m9q10q5.entry.js">
 <link rel=modulepreload href="/docs/build/p-e35a9f40.js">
-<link rel=modulepreload href="/docs/build/p-ytcwd5zj.entry.js">
 <link rel=modulepreload href="/docs/build/p-f1phrwuc.entry.js">
 <link rel=modulepreload href="/docs/build/p-lc4lsmfa.entry.js">
+<link rel=modulepreload href="/docs/build/p-mghvumu2.entry.js">
 <link rel=modulepreload href="/docs/build/p-7jxeonfl.entry.js">
 <link rel=modulepreload href="/docs/build/p-tstqjuho.entry.js">
 <link rel=modulepreload href="/docs/build/p-jcxarby9.entry.js">
-<script type=module src="/docs/build/p-eyoycyc2.js" data-resources-url="/docs/build/"
+<script type=module src="/docs/build/p-765dderp.js" data-resources-url="/docs/build/"
 data-stencil-namespace=app></script>
 <script nomodule src="/docs/build/app.js"></script>
 <link rel=stylesheet href="/docs/build/p-jcvvpgow.css">
@@ -234,121 +236,135 @@ d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-
 c-id=51.5.3.0></path></svg><!--t.51.6.2.1-->Copiado</span></div></docs-code></div><docs-openapi-authentication
 class=hydrated c-id=50.27.2.4 s-id=52><!--r.52--><div c-id=52.0.0.0><h2 id=authentication c-id=52.1.1.0><a
 href=#authentication c-id=52.2.2.0><!--t.52.3.3.0-->Autenticação</a></h2><div c-id=52.4.1.1><!--t.52.5.2.0-->Autenticação do tipo
-<strong c-id=52.6.2.1><!--t.52.7.3.0-->Token Bearer</strong><!--t.52.8.2.2--> é necessária para acessar essa rota.</div></div></docs-openapi-authentication><div
-c-id=50.28.2.5><h2 c-id=50.29.3.0><a href=#response c-id=50.30.4.0><!--t.50.31.5.0-->Resposta</a></h2><section
-class="Api-two-column" c-id=50.32.3.1><section c-id=50.33.4.0><h3 id=schema c-id=50.34.5.0><a href=#schema
-c-id=50.35.6.0><!--t.50.36.7.0-->Especificação</a></h3><docs-openapi-schema-nested class=hydrated c-id=50.37.5.1
-s-id=53><!--r.53--><section class="Api-nested-section active" c-id=53.0.0.0><button class="Api-nested-toggle-btn"
-c-id=53.1.1.0><span class=text c-id=53.2.2.0><!--t.53.3.3.0-->Resposta</span></button><docs-openapi-schema
-class=hydrated c-id=53.4.1.1 s-id=54><!--r.54--><ul class="Api-property-list" c-id=54.0.0.0><li class="Api-property-list-item"
-c-id=54.1.1.0><h3 class="Api-property-spec" c-id=54.2.2.0><a class="Api-property-name" href=#Resposta.[].id
-id=Resposta.[].id c-id=54.3.3.0><span class="Api-property-name-ancestor" c-id=54.4.4.0><!--t.54.5.5.0-->[].</span><!--t.54.6.4.1-->id</a><span
-class="Api-flex-grow" c-id=54.7.3.1></span><span class="Api-label Api-label-type" c-id=54.8.3.2><!--t.54.9.4.0-->String</span></h3><p
-class="Api-property-description" c-id=54.10.2.1><!--t.54.11.3.0-->Identificador do canal de atendimento</p></li><li
-class="Api-property-list-item" c-id=54.12.1.1><h3 class="Api-property-spec" c-id=54.13.2.0><a class="Api-property-name"
-href=#Resposta.[].name id=Resposta.[].name c-id=54.14.3.0><span class="Api-property-name-ancestor" c-id=54.15.4.0><!--t.54.16.5.0-->[].</span><!--t.54.17.4.1-->name</a><span
-class="Api-flex-grow" c-id=54.18.3.1></span><span class="Api-label Api-label-type" c-id=54.19.3.2><!--t.54.20.4.0-->String</span><span
-class="Api-label Api-label-required" c-id=54.21.3.3><!--t.54.22.4.0-->obrigatório</span></h3><p class="Api-property-description"
-c-id=54.23.2.1><!--t.54.24.3.0-->Nome do canal de atendimento</p></li><li class="Api-property-list-item"
-c-id=54.25.1.2><h3 class="Api-property-spec" c-id=54.26.2.0><a class="Api-property-name" href=#Resposta.[].public
-id=Resposta.[].public c-id=54.27.3.0><span class="Api-property-name-ancestor" c-id=54.28.4.0><!--t.54.29.5.0-->[].</span><!--t.54.30.4.1-->public</a><span
-class="Api-flex-grow" c-id=54.31.3.1></span><span class="Api-label Api-label-type" c-id=54.32.3.2><!--t.54.33.4.0-->Boolean</span></h3><p
-class="Api-property-description" c-id=54.34.2.1><!--t.54.35.3.0-->Indica se o canal de atendimento aparece para usuários (`true`) ou é interno (`false`)</p></li><li
-class="Api-property-list-item" c-id=54.36.1.3><h3 class="Api-property-spec" c-id=54.37.2.0><a class="Api-property-name"
-href=#Resposta.[].agents id=Resposta.[].agents c-id=54.38.3.0><span class="Api-property-name-ancestor"
-c-id=54.39.4.0><!--t.54.40.5.0-->[].</span><!--t.54.41.4.1-->agents</a><span class="Api-flex-grow" c-id=54.42.3.1></span><span
-class="Api-label Api-label-type" c-id=54.43.3.2><!--t.54.44.4.0-->String[ ]</span></h3></li><li class="Api-property-list-item"
-c-id=54.45.1.4><h3 class="Api-property-spec" c-id=54.46.2.0><a class="Api-property-name" href=#Resposta.[].subjects
-id=Resposta.[].subjects c-id=54.47.3.0><span class="Api-property-name-ancestor" c-id=54.48.4.0><!--t.54.49.5.0-->[].</span><!--t.54.50.4.1-->subjects</a><span
-class="Api-flex-grow" c-id=54.51.3.1></span><span class="Api-label Api-label-type" c-id=54.52.3.2><!--t.54.53.4.0-->Object[ ]</span></h3><docs-openapi-schema-nested
-class=hydrated c-id=54.54.2.1 s-id=55><!--r.55--><section class="Api-nested-section" c-id=55.0.0.0><button
-class="Api-nested-toggle-btn" c-id=55.1.1.0><svg viewBox="0 0 24 24" class=icon c-id=55.2.2.0><path d="M19 11H13V5C13 4.73478 12.8946 4.48043 12.7071 4.29289C12.5196 4.10536 12.2652 4 12 4C11.7348 4 11.4804 4.10536 11.2929 4.29289C11.1054 4.48043 11 4.73478 11 5V11H5C4.73478 11 4.48043 11.1054 4.29289 11.2929C4.10536 11.4804 4 11.7348 4 12C4 12.2652 4.10536 12.5196 4.29289 12.7071C4.48043 12.8946 4.73478 13 5 13H11V19C11 19.2652 11.1054 19.5196 11.2929 19.7071C11.4804 19.8946 11.7348 20 12 20C12.2652 20 12.5196 19.8946 12.7071 19.7071C12.8946 19.5196 13 19.2652 13 19V13H19C19.2652 13 19.5196 12.8946 19.7071 12.7071C19.8946 12.5196 20 12.2652 20 12C20 11.7348 19.8946 11.4804 19.7071 11.2929C19.5196 11.1054 19.2652 11 19 11Z"
-c-id=55.3.3.0></path></svg><span class=text c-id=55.4.2.1><!--t.55.5.3.0-->Mostrar 2 propriedades</span></button></section></docs-openapi-schema-nested></li><li
-class="Api-property-list-item" c-id=54.55.1.5><h3 class="Api-property-spec" c-id=54.56.2.0><a class="Api-property-name"
-href=#Resposta.[].allowAudio id=Resposta.[].allowAudio c-id=54.57.3.0><span class="Api-property-name-ancestor"
-c-id=54.58.4.0><!--t.54.59.5.0-->[].</span><!--t.54.60.4.1-->allowAudio</a><span class="Api-flex-grow"
-c-id=54.61.3.1></span><span class="Api-label Api-label-type" c-id=54.62.3.2><!--t.54.63.4.0-->Boolean</span><span
-class="Api-label Api-label-option" c-id=54.64.3.3><!--t.54.65.4.0-->DEFAULT<span class="Api-label-tooltip"
-c-id=54.66.4.1><code c-id=54.67.5.0><!--t.54.68.6.0-->false</code></span></span></h3><p class="Api-property-description"
-c-id=54.69.2.1><!--t.54.70.3.0-->Indica se o canal de atendimento aceita receber mensagens de áudio</p></li><li
-class="Api-property-list-item" c-id=54.71.1.6><h3 class="Api-property-spec" c-id=54.72.2.0><a class="Api-property-name"
-href=#Resposta.[].targets id=Resposta.[].targets c-id=54.73.3.0><span class="Api-property-name-ancestor"
-c-id=54.74.4.0><!--t.54.75.5.0-->[].</span><!--t.54.76.4.1-->targets</a><span class="Api-flex-grow" c-id=54.77.3.1></span><span
-class="Api-label Api-label-type" c-id=54.78.3.2><!--t.54.79.4.0-->Object</span></h3><p class="Api-property-description"
-c-id=54.80.2.1><!--t.54.81.3.0-->Quais usuários tem permissão para enviar mensagens para essa canal de atendimento</p><docs-openapi-schema-nested
-class=hydrated c-id=54.82.2.2 s-id=56><!--r.56--><section class="Api-nested-section" c-id=56.0.0.0><button
+<strong c-id=52.6.2.1><!--t.52.7.3.0-->Token Bearer</strong><!--t.52.8.2.2--> é necessária para acessar essa rota.</div></div></docs-openapi-authentication><docs-openapi-parameters
+class=hydrated c-id=50.28.2.5 s-id=53><!--r.53--><div c-id=53.0.0.0><h2 id=parameters c-id=53.1.1.0><a
+href=#parameters c-id=53.2.2.0><!--t.53.3.3.0-->Parâmetros</a></h2><ul class="parameters-container" c-id=53.4.1.1><li
+class=parameter c-id=53.5.2.0><div class="column-flex" c-id=53.6.3.0><div class="row-flex" c-id=53.7.4.0><div
+class="header parameter-name" c-id=53.8.5.0><!--t.53.9.6.0-->community-id</div><div class=header c-id=53.10.5.1><!--t.53.11.6.0-->(header)</div><div
+class="header parameter-label-required" c-id=53.12.5.2><!--t.53.13.6.0-->obrigatório</div></div><div
+class="row-flex parameter-description" c-id=53.14.4.1><!--t.53.15.5.0-->Identificador da comunidade</div></div></li><li
+class=parameter c-id=53.16.2.1><div class="column-flex" c-id=53.17.3.0><div class="row-flex" c-id=53.18.4.0><div
+class="header parameter-name" c-id=53.19.5.0><!--t.53.20.6.0-->x-session</div><div class=header c-id=53.21.5.1><!--t.53.22.6.0-->(header)</div><div
+class="header parameter-label-required" c-id=53.23.5.2><!--t.53.24.6.0-->obrigatório</div></div><div
+class="row-flex parameter-description" c-id=53.25.4.1><!--t.53.26.5.0-->Código de sessão do usuário no app.</div></div></li><li
+class=parameter c-id=53.27.2.2><div class="column-flex" c-id=53.28.3.0><div class="row-flex" c-id=53.29.4.0><div
+class="header parameter-name" c-id=53.30.5.0><!--t.53.31.6.0-->x-user-id</div><div class=header c-id=53.32.5.1><!--t.53.33.6.0-->(header)</div><div
+class="header parameter-label-required" c-id=53.34.5.2><!--t.53.35.6.0-->obrigatório</div></div><div
+class="row-flex parameter-description" c-id=53.36.4.1><!--t.53.37.5.0-->Identificador do usuário.</div></div></li></ul></div></docs-openapi-parameters><div
+c-id=50.29.2.6><h2 c-id=50.30.3.0><a href=#response c-id=50.31.4.0><!--t.50.32.5.0-->Resposta</a></h2><section
+class="Api-two-column" c-id=50.33.3.1><section c-id=50.34.4.0><h3 id=schema c-id=50.35.5.0><a href=#schema
+c-id=50.36.6.0><!--t.50.37.7.0-->Especificação</a></h3><docs-openapi-schema-nested class=hydrated c-id=50.38.5.1
+s-id=54><!--r.54--><section class="Api-nested-section active" c-id=54.0.0.0><button class="Api-nested-toggle-btn"
+c-id=54.1.1.0><span class=text c-id=54.2.2.0><!--t.54.3.3.0-->Resposta</span></button><docs-openapi-schema
+class=hydrated c-id=54.4.1.1 s-id=55><!--r.55--><ul class="Api-property-list" c-id=55.0.0.0><li class="Api-property-list-item"
+c-id=55.1.1.0><h3 class="Api-property-spec" c-id=55.2.2.0><a class="Api-property-name" href=#Resposta.[].id
+id=Resposta.[].id c-id=55.3.3.0><span class="Api-property-name-ancestor" c-id=55.4.4.0><!--t.55.5.5.0-->[].</span><!--t.55.6.4.1-->id</a><span
+class="Api-flex-grow" c-id=55.7.3.1></span><span class="Api-label Api-label-type" c-id=55.8.3.2><!--t.55.9.4.0-->String</span></h3><p
+class="Api-property-description" c-id=55.10.2.1><!--t.55.11.3.0-->Identificador do canal de atendimento</p></li><li
+class="Api-property-list-item" c-id=55.12.1.1><h3 class="Api-property-spec" c-id=55.13.2.0><a class="Api-property-name"
+href=#Resposta.[].name id=Resposta.[].name c-id=55.14.3.0><span class="Api-property-name-ancestor" c-id=55.15.4.0><!--t.55.16.5.0-->[].</span><!--t.55.17.4.1-->name</a><span
+class="Api-flex-grow" c-id=55.18.3.1></span><span class="Api-label Api-label-type" c-id=55.19.3.2><!--t.55.20.4.0-->String</span><span
+class="Api-label Api-label-required" c-id=55.21.3.3><!--t.55.22.4.0-->obrigatório</span></h3><p class="Api-property-description"
+c-id=55.23.2.1><!--t.55.24.3.0-->Nome do canal de atendimento</p></li><li class="Api-property-list-item"
+c-id=55.25.1.2><h3 class="Api-property-spec" c-id=55.26.2.0><a class="Api-property-name" href=#Resposta.[].public
+id=Resposta.[].public c-id=55.27.3.0><span class="Api-property-name-ancestor" c-id=55.28.4.0><!--t.55.29.5.0-->[].</span><!--t.55.30.4.1-->public</a><span
+class="Api-flex-grow" c-id=55.31.3.1></span><span class="Api-label Api-label-type" c-id=55.32.3.2><!--t.55.33.4.0-->Boolean</span></h3><p
+class="Api-property-description" c-id=55.34.2.1><!--t.55.35.3.0-->Indica se o canal de atendimento aparece para usuários (`true`) ou é interno (`false`)</p></li><li
+class="Api-property-list-item" c-id=55.36.1.3><h3 class="Api-property-spec" c-id=55.37.2.0><a class="Api-property-name"
+href=#Resposta.[].agents id=Resposta.[].agents c-id=55.38.3.0><span class="Api-property-name-ancestor"
+c-id=55.39.4.0><!--t.55.40.5.0-->[].</span><!--t.55.41.4.1-->agents</a><span class="Api-flex-grow" c-id=55.42.3.1></span><span
+class="Api-label Api-label-type" c-id=55.43.3.2><!--t.55.44.4.0-->String[ ]</span></h3></li><li class="Api-property-list-item"
+c-id=55.45.1.4><h3 class="Api-property-spec" c-id=55.46.2.0><a class="Api-property-name" href=#Resposta.[].subjects
+id=Resposta.[].subjects c-id=55.47.3.0><span class="Api-property-name-ancestor" c-id=55.48.4.0><!--t.55.49.5.0-->[].</span><!--t.55.50.4.1-->subjects</a><span
+class="Api-flex-grow" c-id=55.51.3.1></span><span class="Api-label Api-label-type" c-id=55.52.3.2><!--t.55.53.4.0-->Object[ ]</span></h3><docs-openapi-schema-nested
+class=hydrated c-id=55.54.2.1 s-id=56><!--r.56--><section class="Api-nested-section" c-id=56.0.0.0><button
 class="Api-nested-toggle-btn" c-id=56.1.1.0><svg viewBox="0 0 24 24" class=icon c-id=56.2.2.0><path d="M19 11H13V5C13 4.73478 12.8946 4.48043 12.7071 4.29289C12.5196 4.10536 12.2652 4 12 4C11.7348 4 11.4804 4.10536 11.2929 4.29289C11.1054 4.48043 11 4.73478 11 5V11H5C4.73478 11 4.48043 11.1054 4.29289 11.2929C4.10536 11.4804 4 11.7348 4 12C4 12.2652 4.10536 12.5196 4.29289 12.7071C4.48043 12.8946 4.73478 13 5 13H11V19C11 19.2652 11.1054 19.5196 11.2929 19.7071C11.4804 19.8946 11.7348 20 12 20C12.2652 20 12.5196 19.8946 12.7071 19.7071C12.8946 19.5196 13 19.2652 13 19V13H19C19.2652 13 19.5196 12.8946 19.7071 12.7071C19.8946 12.5196 20 12.2652 20 12C20 11.7348 19.8946 11.4804 19.7071 11.2929C19.5196 11.1054 19.2652 11 19 11Z"
-c-id=56.3.3.0></path></svg><span class=text c-id=56.4.2.1><!--t.56.5.3.0-->Mostrar 2 propriedades</span></button></section></docs-openapi-schema-nested></li></ul></docs-openapi-schema></section></docs-openapi-schema-nested></section><section
-c-id=50.38.4.1><h3 id=example c-id=50.39.5.0><a href=#example c-id=50.40.6.0><!--t.50.41.7.0-->Exemplo</a></h3><div
-c-id=50.42.5.1><docs-code class=hydrated c-id=50.43.6.0 s-id=57><!--r.57--><!--t.50.44.7.0--> <pre c-id=50.45.7.1><code
-c-id=50.46.8.0><span class="token punctuation" c-id=50.47.9.0><!--t.50.48.10.0-->[</span><!--t.50.49.9.1-->
+c-id=56.3.3.0></path></svg><span class=text c-id=56.4.2.1><!--t.56.5.3.0-->Mostrar 2 propriedades</span></button></section></docs-openapi-schema-nested></li><li
+class="Api-property-list-item" c-id=55.55.1.5><h3 class="Api-property-spec" c-id=55.56.2.0><a class="Api-property-name"
+href=#Resposta.[].allowAudio id=Resposta.[].allowAudio c-id=55.57.3.0><span class="Api-property-name-ancestor"
+c-id=55.58.4.0><!--t.55.59.5.0-->[].</span><!--t.55.60.4.1-->allowAudio</a><span class="Api-flex-grow"
+c-id=55.61.3.1></span><span class="Api-label Api-label-type" c-id=55.62.3.2><!--t.55.63.4.0-->Boolean</span><span
+class="Api-label Api-label-option" c-id=55.64.3.3><!--t.55.65.4.0-->DEFAULT<span class="Api-label-tooltip"
+c-id=55.66.4.1><code c-id=55.67.5.0><!--t.55.68.6.0-->false</code></span></span></h3><p class="Api-property-description"
+c-id=55.69.2.1><!--t.55.70.3.0-->Indica se o canal de atendimento aceita receber mensagens de áudio</p></li><li
+class="Api-property-list-item" c-id=55.71.1.6><h3 class="Api-property-spec" c-id=55.72.2.0><a class="Api-property-name"
+href=#Resposta.[].targets id=Resposta.[].targets c-id=55.73.3.0><span class="Api-property-name-ancestor"
+c-id=55.74.4.0><!--t.55.75.5.0-->[].</span><!--t.55.76.4.1-->targets</a><span class="Api-flex-grow" c-id=55.77.3.1></span><span
+class="Api-label Api-label-type" c-id=55.78.3.2><!--t.55.79.4.0-->Object</span></h3><p class="Api-property-description"
+c-id=55.80.2.1><!--t.55.81.3.0-->Quais usuários tem permissão para enviar mensagens para essa canal de atendimento</p><docs-openapi-schema-nested
+class=hydrated c-id=55.82.2.2 s-id=57><!--r.57--><section class="Api-nested-section" c-id=57.0.0.0><button
+class="Api-nested-toggle-btn" c-id=57.1.1.0><svg viewBox="0 0 24 24" class=icon c-id=57.2.2.0><path d="M19 11H13V5C13 4.73478 12.8946 4.48043 12.7071 4.29289C12.5196 4.10536 12.2652 4 12 4C11.7348 4 11.4804 4.10536 11.2929 4.29289C11.1054 4.48043 11 4.73478 11 5V11H5C4.73478 11 4.48043 11.1054 4.29289 11.2929C4.10536 11.4804 4 11.7348 4 12C4 12.2652 4.10536 12.5196 4.29289 12.7071C4.48043 12.8946 4.73478 13 5 13H11V19C11 19.2652 11.1054 19.5196 11.2929 19.7071C11.4804 19.8946 11.7348 20 12 20C12.2652 20 12.5196 19.8946 12.7071 19.7071C12.8946 19.5196 13 19.2652 13 19V13H19C19.2652 13 19.5196 12.8946 19.7071 12.7071C19.8946 12.5196 20 12.2652 20 12C20 11.7348 19.8946 11.4804 19.7071 11.2929C19.5196 11.1054 19.2652 11 19 11Z"
+c-id=57.3.3.0></path></svg><span class=text c-id=57.4.2.1><!--t.57.5.3.0-->Mostrar 2 propriedades</span></button></section></docs-openapi-schema-nested></li></ul></docs-openapi-schema></section></docs-openapi-schema-nested></section><section
+c-id=50.39.4.1><h3 id=example c-id=50.40.5.0><a href=#example c-id=50.41.6.0><!--t.50.42.7.0-->Exemplo</a></h3><div
+c-id=50.43.5.1><docs-code class=hydrated c-id=50.44.6.0 s-id=58><!--r.58--><!--t.50.45.7.0--> <pre c-id=50.46.7.1><code
+c-id=50.47.8.0><span class="token punctuation" c-id=50.48.9.0><!--t.50.49.10.0-->[</span><!--t.50.50.9.1-->
   <span
-class="token punctuation" c-id=50.50.9.2><!--t.50.51.10.0-->{</span><!--t.50.52.9.3-->
+class="token punctuation" c-id=50.51.9.2><!--t.50.52.10.0-->{</span><!--t.50.53.9.3-->
     <span class="token property"
-c-id=50.53.9.4><!--t.50.54.10.0-->"id"</span><span class="token operator" c-id=50.55.9.5><!--t.50.56.10.0-->:</span><!--t.50.57.9.6--> <span
-class="token string" c-id=50.58.9.7><!--t.50.59.10.0-->"5bb2575199d7179dfe85be02"</span><span class="token punctuation"
-c-id=50.60.9.8><!--t.50.61.10.0-->,</span><!--t.50.62.9.9-->
-    <span class="token property" c-id=50.63.9.10><!--t.50.64.10.0-->"name"</span><span
-class="token operator" c-id=50.65.9.11><!--t.50.66.10.0-->:</span><!--t.50.67.9.12--> <span class="token string"
-c-id=50.68.9.13><!--t.50.69.10.0-->"Pedagógico"</span><span class="token punctuation" c-id=50.70.9.14><!--t.50.71.10.0-->,</span><!--t.50.72.9.15-->
+c-id=50.54.9.4><!--t.50.55.10.0-->"id"</span><span class="token operator" c-id=50.56.9.5><!--t.50.57.10.0-->:</span><!--t.50.58.9.6--> <span
+class="token string" c-id=50.59.9.7><!--t.50.60.10.0-->"5bb2575199d7179dfe85be02"</span><span class="token punctuation"
+c-id=50.61.9.8><!--t.50.62.10.0-->,</span><!--t.50.63.9.9-->
+    <span class="token property" c-id=50.64.9.10><!--t.50.65.10.0-->"name"</span><span
+class="token operator" c-id=50.66.9.11><!--t.50.67.10.0-->:</span><!--t.50.68.9.12--> <span class="token string"
+c-id=50.69.9.13><!--t.50.70.10.0-->"Pedagógico"</span><span class="token punctuation" c-id=50.71.9.14><!--t.50.72.10.0-->,</span><!--t.50.73.9.15-->
     <span
-class="token property" c-id=50.73.9.16><!--t.50.74.10.0-->"public"</span><span class="token operator"
-c-id=50.75.9.17><!--t.50.76.10.0-->:</span><!--t.50.77.9.18--> <span class="token boolean" c-id=50.78.9.19><!--t.50.79.10.0-->true</span><span
-class="token punctuation" c-id=50.80.9.20><!--t.50.81.10.0-->,</span><!--t.50.82.9.21-->
+class="token property" c-id=50.74.9.16><!--t.50.75.10.0-->"public"</span><span class="token operator"
+c-id=50.76.9.17><!--t.50.77.10.0-->:</span><!--t.50.78.9.18--> <span class="token boolean" c-id=50.79.9.19><!--t.50.80.10.0-->true</span><span
+class="token punctuation" c-id=50.81.9.20><!--t.50.82.10.0-->,</span><!--t.50.83.9.21-->
     <span class="token property"
-c-id=50.83.9.22><!--t.50.84.10.0-->"agents"</span><span class="token operator" c-id=50.85.9.23><!--t.50.86.10.0-->:</span><!--t.50.87.9.24--> <span
-class="token punctuation" c-id=50.88.9.25><!--t.50.89.10.0-->[</span><!--t.50.90.9.26-->
+c-id=50.84.9.22><!--t.50.85.10.0-->"agents"</span><span class="token operator" c-id=50.86.9.23><!--t.50.87.10.0-->:</span><!--t.50.88.9.24--> <span
+class="token punctuation" c-id=50.89.9.25><!--t.50.90.10.0-->[</span><!--t.50.91.9.26-->
       <span
-class="token string" c-id=50.91.9.27><!--t.50.92.10.0-->"5bb2575199d7179dfe85be02"</span><!--t.50.93.9.28-->
+class="token string" c-id=50.92.9.27><!--t.50.93.10.0-->"5bb2575199d7179dfe85be02"</span><!--t.50.94.9.28-->
     <span
-class="token punctuation" c-id=50.94.9.29><!--t.50.95.10.0-->]</span><span class="token punctuation" c-id=50.96.9.30><!--t.50.97.10.0-->,</span><!--t.50.98.9.31-->
+class="token punctuation" c-id=50.95.9.29><!--t.50.96.10.0-->]</span><span class="token punctuation" c-id=50.97.9.30><!--t.50.98.10.0-->,</span><!--t.50.99.9.31-->
     <span
-class="token property" c-id=50.99.9.32><!--t.50.100.10.0-->"subjects"</span><span class="token operator"
-c-id=50.101.9.33><!--t.50.102.10.0-->:</span><!--t.50.103.9.34--> <span class="token punctuation" c-id=50.104.9.35><!--t.50.105.10.0-->[</span><!--t.50.106.9.36-->
+class="token property" c-id=50.100.9.32><!--t.50.101.10.0-->"subjects"</span><span class="token operator"
+c-id=50.102.9.33><!--t.50.103.10.0-->:</span><!--t.50.104.9.34--> <span class="token punctuation" c-id=50.105.9.35><!--t.50.106.10.0-->[</span><!--t.50.107.9.36-->
       <span
-class="token punctuation" c-id=50.107.9.37><!--t.50.108.10.0-->{</span><!--t.50.109.9.38-->
+class="token punctuation" c-id=50.108.9.37><!--t.50.109.10.0-->{</span><!--t.50.110.9.38-->
         <span
-class="token property" c-id=50.110.9.39><!--t.50.111.10.0-->"title"</span><span class="token operator"
-c-id=50.112.9.40><!--t.50.113.10.0-->:</span><!--t.50.114.9.41--> <span class="token string" c-id=50.115.9.42><!--t.50.116.10.0-->"Revisão de provas"</span><span
-class="token punctuation" c-id=50.117.9.43><!--t.50.118.10.0-->,</span><!--t.50.119.9.44-->
+class="token property" c-id=50.111.9.39><!--t.50.112.10.0-->"title"</span><span class="token operator"
+c-id=50.113.9.40><!--t.50.114.10.0-->:</span><!--t.50.115.9.41--> <span class="token string" c-id=50.116.9.42><!--t.50.117.10.0-->"Revisão de provas"</span><span
+class="token punctuation" c-id=50.118.9.43><!--t.50.119.10.0-->,</span><!--t.50.120.9.44-->
         <span
-class="token property" c-id=50.120.9.45><!--t.50.121.10.0-->"description"</span><span class="token operator"
-c-id=50.122.9.46><!--t.50.123.10.0-->:</span><!--t.50.124.9.47--> <span class="token string" c-id=50.125.9.48><!--t.50.126.10.0-->"Discuta correções e erros de soma de notas"</span><!--t.50.127.9.49-->
+class="token property" c-id=50.121.9.45><!--t.50.122.10.0-->"description"</span><span class="token operator"
+c-id=50.123.9.46><!--t.50.124.10.0-->:</span><!--t.50.125.9.47--> <span class="token string" c-id=50.126.9.48><!--t.50.127.10.0-->"Discuta correções e erros de soma de notas"</span><!--t.50.128.9.49-->
       <span
-class="token punctuation" c-id=50.128.9.50><!--t.50.129.10.0-->}</span><!--t.50.130.9.51-->
+class="token punctuation" c-id=50.129.9.50><!--t.50.130.10.0-->}</span><!--t.50.131.9.51-->
     <span
-class="token punctuation" c-id=50.131.9.52><!--t.50.132.10.0-->]</span><span class="token punctuation"
-c-id=50.133.9.53><!--t.50.134.10.0-->,</span><!--t.50.135.9.54-->
-    <span class="token property" c-id=50.136.9.55><!--t.50.137.10.0-->"allowAudio"</span><span
-class="token operator" c-id=50.138.9.56><!--t.50.139.10.0-->:</span><!--t.50.140.9.57--> <span class="token boolean"
-c-id=50.141.9.58><!--t.50.142.10.0-->true</span><span class="token punctuation" c-id=50.143.9.59><!--t.50.144.10.0-->,</span><!--t.50.145.9.60-->
+class="token punctuation" c-id=50.132.9.52><!--t.50.133.10.0-->]</span><span class="token punctuation"
+c-id=50.134.9.53><!--t.50.135.10.0-->,</span><!--t.50.136.9.54-->
+    <span class="token property" c-id=50.137.9.55><!--t.50.138.10.0-->"allowAudio"</span><span
+class="token operator" c-id=50.139.9.56><!--t.50.140.10.0-->:</span><!--t.50.141.9.57--> <span class="token boolean"
+c-id=50.142.9.58><!--t.50.143.10.0-->true</span><span class="token punctuation" c-id=50.144.9.59><!--t.50.145.10.0-->,</span><!--t.50.146.9.60-->
     <span
-class="token property" c-id=50.146.9.61><!--t.50.147.10.0-->"targets"</span><span class="token operator"
-c-id=50.148.9.62><!--t.50.149.10.0-->:</span><!--t.50.150.9.63--> <span class="token punctuation" c-id=50.151.9.64><!--t.50.152.10.0-->{</span><!--t.50.153.9.65-->
+class="token property" c-id=50.147.9.61><!--t.50.148.10.0-->"targets"</span><span class="token operator"
+c-id=50.149.9.62><!--t.50.150.10.0-->:</span><!--t.50.151.9.63--> <span class="token punctuation" c-id=50.152.9.64><!--t.50.153.10.0-->{</span><!--t.50.154.9.65-->
       <span
-class="token property" c-id=50.154.9.66><!--t.50.155.10.0-->"roles"</span><span class="token operator"
-c-id=50.156.9.67><!--t.50.157.10.0-->:</span><!--t.50.158.9.68--> <span class="token punctuation" c-id=50.159.9.69><!--t.50.160.10.0-->[</span><!--t.50.161.9.70-->
+class="token property" c-id=50.155.9.66><!--t.50.156.10.0-->"roles"</span><span class="token operator"
+c-id=50.157.9.67><!--t.50.158.10.0-->:</span><!--t.50.159.9.68--> <span class="token punctuation" c-id=50.160.9.69><!--t.50.161.10.0-->[</span><!--t.50.162.9.70-->
         <span
-class="token string" c-id=50.162.9.71><!--t.50.163.10.0-->"guardian"</span><!--t.50.164.9.72-->
+class="token string" c-id=50.163.9.71><!--t.50.164.10.0-->"guardian"</span><!--t.50.165.9.72-->
       <span
-class="token punctuation" c-id=50.165.9.73><!--t.50.166.10.0-->]</span><span class="token punctuation"
-c-id=50.167.9.74><!--t.50.168.10.0-->,</span><!--t.50.169.9.75-->
+class="token punctuation" c-id=50.166.9.73><!--t.50.167.10.0-->]</span><span class="token punctuation"
+c-id=50.168.9.74><!--t.50.169.10.0-->,</span><!--t.50.170.9.75-->
       <span class="token property"
-c-id=50.170.9.76><!--t.50.171.10.0-->"tags"</span><span class="token operator" c-id=50.172.9.77><!--t.50.173.10.0-->:</span><!--t.50.174.9.78--> <span
-class="token punctuation" c-id=50.175.9.79><!--t.50.176.10.0-->[</span><!--t.50.177.9.80-->
+c-id=50.171.9.76><!--t.50.172.10.0-->"tags"</span><span class="token operator" c-id=50.173.9.77><!--t.50.174.10.0-->:</span><!--t.50.175.9.78--> <span
+class="token punctuation" c-id=50.176.9.79><!--t.50.177.10.0-->[</span><!--t.50.178.9.80-->
         <span
-class="token string" c-id=50.178.9.81><!--t.50.179.10.0-->"5bb2575199d7179dfe85be02"</span><!--t.50.180.9.82-->
+class="token string" c-id=50.179.9.81><!--t.50.180.10.0-->"5bb2575199d7179dfe85be02"</span><!--t.50.181.9.82-->
       <span
-class="token punctuation" c-id=50.181.9.83><!--t.50.182.10.0-->]</span><!--t.50.183.9.84-->
+class="token punctuation" c-id=50.182.9.83><!--t.50.183.10.0-->]</span><!--t.50.184.9.84-->
     <span
-class="token punctuation" c-id=50.184.9.85><!--t.50.185.10.0-->}</span><!--t.50.186.9.86-->
+class="token punctuation" c-id=50.185.9.85><!--t.50.186.10.0-->}</span><!--t.50.187.9.86-->
   <span class="token punctuation"
-c-id=50.187.9.87><!--t.50.188.10.0-->}</span><!--t.50.189.9.88-->
-<span class="token punctuation" c-id=50.190.9.89><!--t.50.191.10.0-->]</span></code></pre><!--t.50.192.7.2-->
-<div class="code-text__copy" c-id=57.0.0.0><a class="code-text__copy-link" c-id=57.1.1.0><!--t.57.2.2.0-->Copiar</a><span
-class="code-text__copy-confirmation" c-id=57.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=57.4.2.0><path
+c-id=50.188.9.87><!--t.50.189.10.0-->}</span><!--t.50.190.9.88-->
+<span class="token punctuation" c-id=50.191.9.89><!--t.50.192.10.0-->]</span></code></pre><!--t.50.193.7.2-->
+<div class="code-text__copy" c-id=58.0.0.0><a class="code-text__copy-link" c-id=58.1.1.0><!--t.58.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=58.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=58.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=57.5.3.0></path></svg><!--t.57.6.2.1-->Copiado</span></div></docs-code></div></section></section></div><docs-page-footer
-role=contentinfo class=hydrated c-id=50.193.2.6 s-id=58><!--r.58--><!--t.58.0.0.0--> </docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
+c-id=58.5.3.0></path></svg><!--t.58.6.2.1-->Copiado</span></div></docs-code></div></section></section></div><docs-page-footer
+role=contentinfo class=hydrated c-id=50.194.2.7 s-id=59><!--r.59--><!--t.59.0.0.0--> </docs-page-footer></article></main></docs-page></stencil-route></stencil-router></docs-root>
 </body>
 </html>

@@ -1,0 +1,442 @@
+{
+  "template": "api-route",
+  "title": "Autenticação usuário",
+  "path": "/docs/api/auth/federation/auth/post",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Gere um link de redirecionamento autenticado através de um email e token de federação para qualquer usuário. É possível definir a comunidade e o local da aplicação que o usuário será redirecionado."
+    ]
+  ],
+  "serviceId": "auth",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/federation/auth"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "requestExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"email\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"luke@starwars.com\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"comunidade-demo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"ip\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"177.184.250.29\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"userAgent\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"location\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/account\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseExample": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"url\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"https://app.layers.education/@comunidade-demo/auth?token=token&location=/portal/meu-portal\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "responseSchema": {
+    "type": "object",
+    "properties": {
+      "url": {
+        "type": "string",
+        "format": "url",
+        "description": "URL que o usuário deverá ser redirecionado já contemplando autenticação automática",
+        "example": "https://app.layers.education/@comunidade-demo/auth?token=token&location=/portal/meu-portal"
+      }
+    }
+  },
+  "route": {
+    "type": "route",
+    "path": "/federation/auth",
+    "method": "post",
+    "spec": {
+      "tags": [
+        "Login federado"
+      ],
+      "summary": "Autenticação usuário",
+      "description": "Gere um link de redirecionamento autenticado através de um email e token de federação para qualquer usuário. É possível definir a comunidade e o local da aplicação que o usuário será redirecionado.",
+      "security": [
+        {
+          "Bearer": []
+        }
+      ],
+      "x-layers-contexts": [
+        "federation"
+      ],
+      "requestBody": {
+        "description": "Informações da autenticação",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "email",
+                "community",
+                "ip",
+                "userAgent"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "description": "Email de quem irá autenticar. Deve pertencer ao domínio da federação"
+                },
+                "community": {
+                  "type": "string",
+                  "description": "Comunidade que o usuário irá entrar",
+                  "example": "comunidade-demo"
+                },
+                "ip": {
+                  "type": "string",
+                  "format": "ip",
+                  "description": "IP do usuário que irá autenticar",
+                  "example": "177.184.250.29"
+                },
+                "userAgent": {
+                  "type": "string",
+                  "description": "User-Agent do usuário que irá autenticar",
+                  "example": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "/account",
+                  "enum": [
+                    "/portal/{portalAlias}",
+                    "/account"
+                  ],
+                  "description": "Local para redirecionar o usuário após a autenticação.\nUse `/portal/{portalAlias}` para redirecionar para uma aplicação específica, na qual {portalAlias} representa o identificador do portal.\nUse `/account` para redirecionar para 'Minha conta'\n"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Autenticação completa",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "format": "url",
+                    "description": "URL que o usuário deverá ser redirecionado já contemplando autenticação automática",
+                    "example": "https://app.layers.education/@comunidade-demo/auth?token=token&location=/portal/meu-portal"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "example": "400"
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "invalidParameter"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Bad Request"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Autenticação usuário",
+        "url": "/docs/api/auth/federation/auth/post"
+      }
+    },
+    "tags": [
+      "Login federado"
+    ],
+    "summary": "Autenticação usuário"
+  },
+  "headings": [],
+  "pageClass": "page-api-auth-federation-auth-post"
+}

@@ -32,6 +32,6 @@ LayersPortal.on('connected', function(data){
 
 Além dos eventos, apps podem optar por usar promises para controlar o status do SDK.
 
-+ **readyPromisse**: A propriedade `readyPromisse` é, como o nome sugere, uma promisse que será resolvida quando o SDK for importado com sucesso.
++ **readyPromise**: A propriedade `readyPromise` é, como o nome sugere, uma promise que será resolvida quando o SDK for importado com sucesso.
 
-+ **connectedPromisse**: Assim como a propriedade anterior, a propriedade `connectedPromisse` será resolvida  quando o SDK estiver conectado com a Layers retornando as informações de seção e do usuário acessando o portal.
++ **connectedPromise**: Assim como a propriedade anterior, a propriedade `connectedPromise` será resolvida  quando o SDK estiver conectado com a Layers retornando as informações de seção e do usuário acessando o portal.

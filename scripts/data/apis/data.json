@@ -1608,6 +1608,351 @@
         }
       }
     },
+    "/network/communities": {
+      "get": {
+        "tags": [
+          "Redes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "network:communities:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "apps"
+        ],
+        "summary": "Listar comunidades da rede",
+        "description": "Listar as comunidades na rede",
+        "responses": {
+          "200": {
+            "description": "Lista de comunidades na rede",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Community"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/network/communities/users/estimate": {
+      "post": {
+        "tags": [
+          "Redes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "network:communities:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "apps"
+        ],
+        "summary": "Listar comunidades da rede",
+        "description": "Listar as comunidades na rede",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "targets",
+                  "roles"
+                ],
+                "properties": {
+                  "roles": {
+                    "type": "array",
+                    "description": "Permissões que devem estar inclusas nos targets",
+                    "items": {
+                      "type": "string",
+                      "example": "guardian"
+                    }
+                  },
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "id",
+                        "community"
+                      ],
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "description": "Tipo de entidade"
+                        },
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador da entidade"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome da entidade"
+                        },
+                        "community": {
+                          "type": "string",
+                          "description": "Identificador da comunidade"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Lista de estimativas de usuários contidos nos targets para cada comunidade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "[identidicador_da_comunidade]": {
+                      "type": "object",
+                      "properties": {
+                        "population": {
+                          "type": "number",
+                          "description": "Número aproximado de usuários que estão inclusos nos targets"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Redes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "network:communities:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "apps"
+        ],
+        "summary": "Listar permissões",
+        "description": "Listar as permissões que existem na comunidade",
+        "responses": {
+          "200": {
+            "description": "Lista de permissões existentes nas comunidades da rede",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "example": "admin"
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "👩‍💻 Administrador Geral"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Acesso à todos os recursos do Sistema"
+                      },
+                      "group": {
+                        "type": "string",
+                        "example": "Geral"
+                      },
+                      "hierarchy": {
+                        "type": "string",
+                        "example": 4
+                      },
+                      "pinned": {
+                        "type": "string",
+                        "example": true
+                      },
+                      "includes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "example": [
+                          "feed:read",
+                          "sync:manage",
+                          "agenda:admin",
+                          "post:manage",
+                          "ticket:manage",
+                          "report:manage",
+                          "group:manage",
+                          "member:manage",
+                          "user:manage",
+                          "season:manage",
+                          "export:manage",
+                          "payments:admin",
+                          "statistics:read"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/network/roles/estimate": {
+      "post": {
+        "tags": [
+          "Redes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "network:roles:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "apps"
+        ],
+        "summary": "Estimar a quantidade de usuários por permissão",
+        "description": "Estimar a quantidade de usuários com cada permissão estão contidos no público alvo especificado.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "targets",
+                  "roles"
+                ],
+                "properties": {
+                  "roles": {
+                    "type": "array",
+                    "description": "Permissões que devem estar inclusas nos targets",
+                    "items": {
+                      "type": "string",
+                      "example": "guardian"
+                    }
+                  },
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "id",
+                        "community"
+                      ],
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "description": "Tipo de entidade. Para redes deve ser 'tag'"
+                        },
+                        "id": {
+                          "type": "string",
+                          "description": "Identificador da entidade"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Nome da entidade"
+                        },
+                        "community": {
+                          "type": "string",
+                          "description": "Identificador da comunidade"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Estimativa das quantidades de usuários com cada permissão no público alvo selecionado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "identidicador_da_comunidade": {
+                      "type": "object",
+                      "properties": {
+                        "admin": {
+                          "type": "number",
+                          "description": "Número de usuários com permissão de administrador contidos no público alvo especificado."
+                        },
+                        "coordenator": {
+                          "type": "number",
+                          "description": "Número de usuários com permissão de coordenador contidos no público alvo especificado."
+                        },
+                        "professor": {
+                          "type": "number",
+                          "description": "Número de usuários com permissão de professor contidos no público alvo especificado."
+                        },
+                        "guardian": {
+                          "type": "number",
+                          "description": "Número de usuários com permissão de familiar contidos no público alvo especificado."
+                        },
+                        "student": {
+                          "type": "number",
+                          "description": "Número de usuários com permissão de estudante contidos no público alvo especificado."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/season/active": {
       "get": {
         "tags": [
@@ -3311,6 +3656,36 @@
             "readOnly": true
           }
         }
+      },
+      "Community": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único da comunidade",
+            "format": "ObjectId"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação da comunidade"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última atualização dessa comunidade"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome da comunidade que aparece para os usuários",
+            "example": "Comunidade de Testes"
+          },
+          "community": {
+            "type": "string",
+            "description": "Identificador da comunidade",
+            "example": "test"
+          }
+        }
       }
     },
     "parameters": {
@@ -3624,6 +3999,12 @@
       ],
       "tags": [
         "Períodos"
+      ]
+    },
+    {
+      "name": "Redes",
+      "tags": [
+        "Redes"
       ]
     }
   ]

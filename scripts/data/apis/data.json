@@ -1671,8 +1671,8 @@
           "user",
           "apps"
         ],
-        "summary": "Listar comunidades da rede",
-        "description": "Listar as comunidades na rede",
+        "summary": "Estimativa de usuários",
+        "description": "Estimar a quantidade de usuários contemplados nesse público alvo por comunidade.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1740,92 +1740,6 @@
                           "type": "number",
                           "description": "Número aproximado de usuários que estão inclusos nos targets"
                         }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Redes"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "network:communities:read"
-        ],
-        "x-layers-context": [
-          "user",
-          "apps"
-        ],
-        "summary": "Listar permissões",
-        "description": "Listar as permissões que existem na comunidade",
-        "responses": {
-          "200": {
-            "description": "Lista de permissões existentes nas comunidades da rede",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "value": {
-                        "type": "string",
-                        "example": "admin"
-                      },
-                      "title": {
-                        "type": "string",
-                        "example": "👩‍💻 Administrador Geral"
-                      },
-                      "description": {
-                        "type": "string",
-                        "example": "Acesso à todos os recursos do Sistema"
-                      },
-                      "group": {
-                        "type": "string",
-                        "example": "Geral"
-                      },
-                      "hierarchy": {
-                        "type": "string",
-                        "example": 4
-                      },
-                      "pinned": {
-                        "type": "string",
-                        "example": true
-                      },
-                      "includes": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "example": [
-                          "feed:read",
-                          "sync:manage",
-                          "agenda:admin",
-                          "post:manage",
-                          "ticket:manage",
-                          "report:manage",
-                          "group:manage",
-                          "member:manage",
-                          "user:manage",
-                          "season:manage",
-                          "export:manage",
-                          "payments:admin",
-                          "statistics:read"
-                        ]
                       }
                     }
                   }
@@ -1919,32 +1833,158 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "As propriedades desse objeto são as permissões que existem na rede. Se houver permissões personalizadas elas também serão listadas.",
                   "properties": {
-                    "identidicador_da_comunidade": {
-                      "type": "object",
-                      "properties": {
-                        "admin": {
-                          "type": "number",
-                          "description": "Número de usuários com permissão de administrador contidos no público alvo especificado."
+                    "admin": {
+                      "type": "number",
+                      "description": "Número de usuários com permissão de administrador contidos no público alvo especificado."
+                    },
+                    "coordenator": {
+                      "type": "number",
+                      "description": "Número de usuários com permissão de coordenador contidos no público alvo especificado."
+                    },
+                    "professor": {
+                      "type": "number",
+                      "description": "Número de usuários com permissão de professor contidos no público alvo especificado."
+                    },
+                    "guardian": {
+                      "type": "number",
+                      "description": "Número de usuários com permissão de familiar contidos no público alvo especificado."
+                    },
+                    "student": {
+                      "type": "number",
+                      "description": "Número de usuários com permissão de estudante contidos no público alvo especificado."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/network/roles": {
+      "get": {
+        "tags": [
+          "Redes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "network:communities:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "apps"
+        ],
+        "summary": "Listar permissões",
+        "description": "Listar as permissões que existem na comunidade",
+        "responses": {
+          "200": {
+            "description": "Lista de permissões existentes nas comunidades da rede",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "example": "admin"
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "👩‍💻 Administrador Geral"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Acesso à todos os recursos do Sistema"
+                      },
+                      "group": {
+                        "type": "string",
+                        "example": "Geral"
+                      },
+                      "hierarchy": {
+                        "type": "string",
+                        "example": 4
+                      },
+                      "pinned": {
+                        "type": "string",
+                        "example": true
+                      },
+                      "includes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
                         },
-                        "coordenator": {
-                          "type": "number",
-                          "description": "Número de usuários com permissão de coordenador contidos no público alvo especificado."
-                        },
-                        "professor": {
-                          "type": "number",
-                          "description": "Número de usuários com permissão de professor contidos no público alvo especificado."
-                        },
-                        "guardian": {
-                          "type": "number",
-                          "description": "Número de usuários com permissão de familiar contidos no público alvo especificado."
-                        },
-                        "student": {
-                          "type": "number",
-                          "description": "Número de usuários com permissão de estudante contidos no público alvo especificado."
-                        }
+                        "example": [
+                          "feed:read",
+                          "sync:manage",
+                          "agenda:admin",
+                          "post:manage",
+                          "ticket:manage",
+                          "report:manage",
+                          "group:manage",
+                          "member:manage",
+                          "user:manage",
+                          "season:manage",
+                          "export:manage",
+                          "payments:admin",
+                          "statistics:read"
+                        ]
                       }
                     }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/network/tags": {
+      "get": {
+        "tags": [
+          "Redes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "network:communities:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "apps"
+        ],
+        "summary": "Listar tags da rede",
+        "description": "Listar as tags disponíveis na rede",
+        "responses": {
+          "200": {
+            "description": "Lista de estimativas de usuários contidos nos targets para cada comunidade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "Tags disponíveis na rede",
+                  "items": {
+                    "$ref": "#/components/schemas/Tag"
                   }
                 }
               }
@@ -3451,6 +3491,18 @@
             "description": "Identificador da comunidade da tag",
             "example": "test",
             "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação da tag",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última atualização da tag",
+            "readOnly": true
           }
         }
       },
@@ -3660,11 +3712,6 @@
       "Community": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "Identificador único da comunidade",
-            "format": "ObjectId"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time",

@@ -1,7 +1,7 @@
 {
   "template": "api-route",
-  "title": "Criar Período",
-  "path": "/docs/api/data/season/post",
+  "title": "Listar tags da rede",
+  "path": "/docs/api/data/network/tags",
   "body": [
     "div",
     null,
@@ -10,7 +10,7 @@
       {
         "class": "intro"
       },
-      "Criar um novo período."
+      "Listar as tags disponíveis na rede"
     ]
   ],
   "serviceId": "data",
@@ -37,9 +37,9 @@
             [
               "span",
               {
-                "class": "token post"
+                "class": "token get"
               },
-              "POST"
+              "GET"
             ]
           ],
           " ",
@@ -63,7 +63,7 @@
               },
               "/v1"
             ],
-            "/season"
+            "/network/tags"
           ]
         ]
       ],
@@ -85,44 +85,7 @@
         [
           "code",
           null,
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "{"
-          ],
-          "\n  ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"name\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"2020\""
-          ],
-          "\n",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "}"
-          ]
+          "undefined"
         ]
       ],
       "\n"
@@ -209,7 +172,37 @@
             {
               "class": "token string"
             },
-            "\"2020\""
+            "\"Ensino Fundamental\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"test\""
           ],
           [
             "span",
@@ -254,37 +247,7 @@
             {
               "class": "token property"
             },
-            "\"activatedAt\""
-          ],
-          [
-            "span",
-            {
-              "class": "token operator"
-            },
-            ":"
-          ],
-          " ",
-          [
-            "span",
-            {
-              "class": "token string"
-            },
-            "\"2021-03-23T17:18:00.712Z\""
-          ],
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            ","
-          ],
-          "\n    ",
-          [
-            "span",
-            {
-              "class": "token property"
-            },
-            "\"deactivatedAt\""
+            "\"updatedAt\""
           ],
           [
             "span",
@@ -324,128 +287,125 @@
   ],
   "responseSchema": {
     "type": "array",
+    "description": "Tags disponíveis na rede",
     "items": {
-      "title": "Season",
+      "title": "Tag",
       "type": "object",
+      "required": [
+        "name"
+      ],
       "properties": {
         "id": {
           "type": "string",
           "format": "ObjectId",
-          "readOnly": true,
-          "description": "Identificador único do período na comunidade"
+          "description": "Identificador do documento da tag",
+          "readOnly": true
         },
         "name": {
           "type": "string",
-          "maxLength": 16,
-          "description": "Nome do período",
-          "example": "2020"
+          "description": "Nome da tag",
+          "example": "Ensino Fundamental"
+        },
+        "community": {
+          "type": "string",
+          "description": "Identificador da comunidade da tag",
+          "example": "test",
+          "readOnly": true
         },
         "createdAt": {
           "type": "string",
           "format": "date-time",
-          "description": "Data de criação do período",
+          "description": "Data de criação da tag",
           "readOnly": true
         },
-        "activatedAt": {
+        "updatedAt": {
           "type": "string",
           "format": "date-time",
-          "description": "Data de ativação do período",
-          "readOnly": true
-        },
-        "deactivatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Data de desativação do período",
+          "description": "Data da última atualização da tag",
           "readOnly": true
         }
       },
       "externalDocs": {
-        "description": "Entidade Season",
-        "url": "/docs/api/data/season/object"
+        "description": "Entidade Tag",
+        "url": "/docs/api/data/tag/object"
       }
     }
   },
   "route": {
     "type": "route",
-    "path": "/season",
-    "method": "post",
+    "path": "/network/tags",
+    "method": "get",
     "spec": {
       "tags": [
-        "Períodos"
-      ],
-      "summary": "Criar Período",
-      "description": "Criar um novo período.",
-      "security": [
-        {
-          "Bearer": []
-        }
-      ],
-      "x-layers-permissions": [
-        "season:manage"
-      ],
-      "x-layers-context": [
-        "user",
-        "app"
+        "Redes"
       ],
       "parameters": [
         {
           "$ref": "#/components/parameters/Community-id"
         }
       ],
-      "requestBody": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Season"
-            }
-          }
+      "security": [
+        {
+          "Bearer": []
         }
-      },
+      ],
+      "x-layers-permissions": [
+        "network:communities:read"
+      ],
+      "x-layers-context": [
+        "user",
+        "apps"
+      ],
+      "summary": "Listar tags da rede",
+      "description": "Listar as tags disponíveis na rede",
       "responses": {
         "200": {
-          "description": "Períodos existentes na comunidade",
+          "description": "Lista de estimativas de usuários contidos nos targets para cada comunidade",
           "content": {
             "application/json": {
               "schema": {
                 "type": "array",
+                "description": "Tags disponíveis na rede",
                 "items": {
-                  "title": "Season",
+                  "title": "Tag",
                   "type": "object",
+                  "required": [
+                    "name"
+                  ],
                   "properties": {
                     "id": {
                       "type": "string",
                       "format": "ObjectId",
-                      "readOnly": true,
-                      "description": "Identificador único do período na comunidade"
+                      "description": "Identificador do documento da tag",
+                      "readOnly": true
                     },
                     "name": {
                       "type": "string",
-                      "maxLength": 16,
-                      "description": "Nome do período",
-                      "example": "2020"
+                      "description": "Nome da tag",
+                      "example": "Ensino Fundamental"
+                    },
+                    "community": {
+                      "type": "string",
+                      "description": "Identificador da comunidade da tag",
+                      "example": "test",
+                      "readOnly": true
                     },
                     "createdAt": {
                       "type": "string",
                       "format": "date-time",
-                      "description": "Data de criação do período",
+                      "description": "Data de criação da tag",
                       "readOnly": true
                     },
-                    "activatedAt": {
+                    "updatedAt": {
                       "type": "string",
                       "format": "date-time",
-                      "description": "Data de ativação do período",
-                      "readOnly": true
-                    },
-                    "deactivatedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Data de desativação do período",
+                      "description": "Data da última atualização da tag",
                       "readOnly": true
                     }
                   },
                   "externalDocs": {
-                    "description": "Entidade Season",
-                    "url": "/docs/api/data/season/object"
+                    "description": "Entidade Tag",
+                    "url": "/docs/api/data/tag/object"
                   }
                 }
               }
@@ -454,15 +414,15 @@
         }
       },
       "externalDocs": {
-        "description": "Criar Período",
-        "url": "/docs/api/data/season/post"
+        "description": "Listar tags da rede",
+        "url": "/docs/api/data/network/tags"
       }
     },
     "tags": [
-      "Períodos"
+      "Redes"
     ],
-    "summary": "Criar Período"
+    "summary": "Listar tags da rede"
   },
   "headings": [],
-  "pageClass": "page-api-data-season-post"
+  "pageClass": "page-api-data-network-tags"
 }

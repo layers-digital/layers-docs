@@ -166,7 +166,7 @@ export class DocsPage {
 
     // Event that triggers Google Tag Manager page view
     {/* @ts-ignore */}
-    window.dataLayer?.push({'event': 'app.routerpush'})
+    window?.dataLayer?.push({'event': 'app.routerpush'})
     {/* @ts-ignore */}
   }
 }

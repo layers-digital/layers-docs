@@ -100,7 +100,7 @@ export class DocsPage {
     // Canonical URL
     updateMeta(metaEls.url, oldVal => {
       const uri = '\/docs\/';
-      let path = location.pathname.split(uri)[1];
+      let path = location?.pathname.split(uri)[1];
       if (path === undefined) {
         path = '';
       }

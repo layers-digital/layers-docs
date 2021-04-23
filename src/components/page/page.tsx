@@ -165,6 +165,6 @@ export class DocsPage {
     this.lastPageTitle = document.title
 
     // Event that triggers Google Tag Manager page view
-    window['dataLayer'].push({'event': 'app.routerpush'})
+    window['dataLayer']?.push({'event': 'app.routerpush'})
   }
 }

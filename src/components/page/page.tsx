@@ -165,10 +165,6 @@ export class DocsPage {
     this.lastPageTitle = document.title
 
     // Event that triggers Google Tag Manager page view
-    /* tslint:disable */
-    {/* @ts-ignore */}
-    window?.dataLayer?.push({'event': 'app.routerpush'})
-    {/* @ts-ignore */}
-    /* tslint:enable */
+    window['dataLayer'].push({'event': 'app.routerpush'})
   }
 }

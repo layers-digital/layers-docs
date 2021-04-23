@@ -14,20 +14,26 @@ export class DocsPage {
   @State() badFetch: Response = null;
   @State() page: Page = { title: null, body: null };
 
-  componentWillLoad() {
-    return this.fetchPage(this.path);
+  async componentWillLoad() {
+    return await this.fetchPage(this.path);
   }
 
   @Watch('path')
-  fetchPage(path, oldPath?) {
-    if (path == null || path === oldPath) return;
-    path = /^\/docs\/pages\/[a-z]{2}\.json$/.test(path)
+  async fetchPage(path, oldPath?) {
+    if (path == null || path === oldPath) {
+      return
+    }
+    path = /^\/pages\/[a-z]{2}\.json$/.test(path)
       ? path.replace('.json', '/index.json')
       : path;
-    return fetch(path)
-      .then(this.validateFetch)
-      .then(this.handleNewPage)
-      .catch(this.handleBadFetch);
+
+    try {
+      let response = await fetch(path)
+      let validResponse = await this.validateFetch(response)
+      this.handleNewPage(validResponse)
+    } catch(e) {
+      this.handleBadFetch(e)
+    }
   }
 
   validateFetch = (response) => {
@@ -64,7 +70,7 @@ export class DocsPage {
 
   @Watch('page')
   setDocumentMeta(page: Page) {
-    const { title, meta = {} } = page;
+    const { title, meta = {}, location } = page;
     const metaEls = {
       title: document.head.querySelectorAll('.meta-title'),
       description: document.head.querySelectorAll('.meta-description'),
@@ -108,6 +114,7 @@ export class DocsPage {
     // Sharing Image
     // updateMeta(metaEls.image, () => meta.image ||
     //   'TODO');
+    this.trackPage()
   }
 
   hostData() {
@@ -142,5 +149,24 @@ export class DocsPage {
     }
 
     return content;
+  }
+
+  
+  // Track
+  lastPagePath = null
+  lastPageTitle = null
+  trackPage() {
+    // Check if page changed
+    if (this.lastPagePath == location.pathname && this.lastPageTitle == document.title) {
+      return
+    }
+
+    this.lastPagePath = location.pathname
+    this.lastPageTitle = document.title
+
+    // Event that triggers Google Tag Manager page view
+    {/* @ts-ignore */}
+    window.dataLayer?.push({'event': 'app.routerpush'})
+    {/* @ts-ignore */}
   }
 }

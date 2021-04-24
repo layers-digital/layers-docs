@@ -28,7 +28,7 @@ export class SelectCategory{
   }
 
   currentCategory() {
-    const location = this.history.location.pathname
+    const location = this.history?.location.pathname ?? ''
     return this.options.find(serv => location.startsWith(serv.url)) ?? this.options[0]
   }
 

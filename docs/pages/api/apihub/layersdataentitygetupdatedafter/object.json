@@ -73,7 +73,7 @@
             {
               "class": "token string"
             },
-            "\"2021-05-07T20:13:48.284Z\""
+            "\"2021-05-07T21:29:10.050Z\""
           ],
           [
             "span",
@@ -209,6 +209,36 @@
             {
               "class": "token property"
             },
+            "\"syncProfileId\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"5bb2575199d7179dfe85be02\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
             "\"syncRunId\""
           ],
           [
@@ -224,7 +254,7 @@
             {
               "class": "token string"
             },
-            "\"exemplo\""
+            "\"5bb2575199d7179dfe85be02\""
           ],
           [
             "span",
@@ -284,7 +314,7 @@
             {
               "class": "token string"
             },
-            "\"2021-05-07\""
+            "\"2021-05-07T21:29:10.050Z\""
           ],
           "\n  ",
           [
@@ -347,13 +377,20 @@
         "data": {
           "type": "object",
           "required": [
+            "syncProfileId",
             "syncRunId",
             "season",
             "after"
           ],
           "properties": {
+            "syncProfileId": {
+              "type": "string",
+              "format": "ObjectId",
+              "description": "Identificador do perfil de sincronização"
+            },
             "syncRunId": {
               "type": "string",
+              "format": "ObjectId",
               "description": "Identificador da execução"
             },
             "season": {
@@ -363,7 +400,7 @@
             },
             "after": {
               "type": "string",
-              "format": "date",
+              "format": "date-time",
               "description": "A partir de que data considerar no campo \"updatedAt\""
             }
           }

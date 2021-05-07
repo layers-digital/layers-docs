@@ -273,6 +273,389 @@
           }
         }
       }
+    },
+    "/@layers:data:Users:getAll": {
+      "post": {
+        "tags": [
+          "Layers:data:Users"
+        ],
+        "summary": "Prover todos os usuários",
+        "description": "Prover todos os usuários da comunidade de acordo com o período letivo.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetAll"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataUsersResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Members:getAll": {
+      "post": {
+        "tags": [
+          "Layers:data:Members"
+        ],
+        "summary": "Prover todos os membros",
+        "description": "Prover todos os membros da comunidade de acordo com o período letivo.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetAll"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataMembersResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Groups:getAll": {
+      "post": {
+        "tags": [
+          "Layers:data:Groups"
+        ],
+        "summary": "Prover todos os grupos",
+        "description": "Prover todos os grupos da comunidade de acordo com o período letivo.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetAll"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataGroupsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Components:getAll": {
+      "post": {
+        "tags": [
+          "Layers:data:Components"
+        ],
+        "summary": "Prover todos os componentes",
+        "description": "Prover todos os componentes da comunidade de acordo com o período letivo.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetAll"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataComponentsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Users:getUpdatedAfter": {
+      "post": {
+        "tags": [
+          "Layers:data:Users"
+        ],
+        "summary": "Prover usuários atualizados",
+        "description": "Prover os usuários da comunidade de acordo com o período letivo que foram atualizados a partir de uma data específica.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetUpdatedAfter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataUsersResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Members:getUpdatedAfter": {
+      "post": {
+        "tags": [
+          "Layers:data:Members"
+        ],
+        "summary": "Prover membros atualizados",
+        "description": "Prover os membros da comunidade de acordo com o período letivo que foram atualizados a partir de uma data específica.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetUpdatedAfter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataMembersResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Groups:getUpdatedAfter": {
+      "post": {
+        "tags": [
+          "Layers:data:Groups"
+        ],
+        "summary": "Prover grupos atualizados",
+        "description": "Prover os grupos da comunidade de acordo com o período letivo que foram atualizados a partir de uma data específica.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetUpdatedAfter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataGroupsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Components:getUpdatedAfter": {
+      "post": {
+        "tags": [
+          "Layers:data:Components"
+        ],
+        "summary": "Prover componentes atualizados",
+        "description": "Prover os componentes da comunidade de acordo com o período letivo que foram atualizados a partir de uma data específica.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetUpdatedAfter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataComponentsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Users:getByAliases": {
+      "post": {
+        "tags": [
+          "Layers:data:Users"
+        ],
+        "summary": "Prover usuários por identificador",
+        "description": "Prover os usuários da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetByAliases"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataUsersResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Members:getByAliases": {
+      "post": {
+        "tags": [
+          "Layers:data:Members"
+        ],
+        "summary": "Prover membros por identificador",
+        "description": "Prover os membros da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetByAliases"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataMembersResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Groups:getByAliases": {
+      "post": {
+        "tags": [
+          "Layers:data:Groups"
+        ],
+        "summary": "Prover grupos por identificador",
+        "description": "Prover os grupos da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetByAliases"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataGroupsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Components:getByAliases": {
+      "post": {
+        "tags": [
+          "Layers:data:Components"
+        ],
+        "summary": "Prover componentes por identificador",
+        "description": "Prover os componentes da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDataEntityGetByAliases"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDataComponentsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:data:Check": {
+      "post": {
+        "tags": [
+          "Layers:data"
+        ],
+        "summary": "Verificar status da integração",
+        "description": "Verificar status da integração, deve validar a configuração da integração para a comunidade informada e se é possível autenticar no ERP.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Context"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -303,7 +686,19 @@
             "@layers:education:GradeBooks:getRelated",
             "@layers:getHomeInfo",
             "@layers:health:MedicalRecord:getRelated",
-            "@layers:payments:Payables:getRelated"
+            "@layers:payments:Payables:getRelated",
+            "@layers:data:Users:getAll",
+            "@layers:data:Members:getAll",
+            "@layers:data:Groups:getAll",
+            "@layers:data:Components:getAll",
+            "@layers:data:Users:getUpdatedAfter",
+            "@layers:data:Members:getUpdatedAfter",
+            "@layers:data:Groups:getUpdatedAfter",
+            "@layers:data:Components:getUpdatedAfter",
+            "@layers:data:Users:getByAliases",
+            "@layers:data:Members:getByAliases",
+            "@layers:data:Groups:getByAliases",
+            "@layers:data:Components:getByAliases"
           ]
         }
       },
@@ -2297,6 +2692,449 @@
             }
           }
         }
+      },
+      "LayersDataEntityGetAll": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Context"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": [
+                  "syncRunId",
+                  "season"
+                ],
+                "properties": {
+                  "syncRunId": {
+                    "type": "string",
+                    "description": "Identificador da execução"
+                  },
+                  "season": {
+                    "type": "string",
+                    "description": "Identificador do período letivo",
+                    "example": "2021"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LayersDataEntityGetUpdatedAfter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Context"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": [
+                  "syncRunId",
+                  "season",
+                  "after"
+                ],
+                "properties": {
+                  "syncRunId": {
+                    "type": "string",
+                    "description": "Identificador da execução"
+                  },
+                  "season": {
+                    "type": "string",
+                    "description": "Identificador do período letivo",
+                    "example": "2021"
+                  },
+                  "after": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "A partir de que data considerar no campo \"updatedAt\""
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LayersDataEntityGetByAliases": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Context"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": [
+                  "syncRunId",
+                  "season",
+                  "aliases"
+                ],
+                "properties": {
+                  "syncRunId": {
+                    "type": "string",
+                    "description": "Identificador da execução"
+                  },
+                  "season": {
+                    "type": "string",
+                    "description": "Identificador do período letivo",
+                    "example": "2021"
+                  },
+                  "aliases": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "Identificadores de quais entidades devem ser retornadas",
+                      "example": "alias1"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LayersDataUsersResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LayersDataUsersResponseDatum",
+              "description": "Dados dos usuários"
+            }
+          }
+        },
+        "required": [
+          "data"
+        ],
+        "additionalProperties": false
+      },
+      "LayersDataMembersResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LayersDataMembersResponseDatum",
+              "description": "Dados dos membros"
+            }
+          },
+          "removeUnlistedUsers": {
+            "type": "boolean",
+            "description": "Indica se os usuários não listados nos membros devem ser desvinculados"
+          }
+        },
+        "required": [
+          "data",
+          "removeUnlistedUsers"
+        ],
+        "additionalProperties": false
+      },
+      "LayersDataGroupsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LayersDataGroupsResponseDatum"
+            }
+          },
+          "removeUnlistedTags": {
+            "type": "boolean",
+            "description": "Indica se os marcadores não listados nos grupos devem ser desvinculados"
+          },
+          "removeUnlistedComponents": {
+            "type": "boolean",
+            "description": "Indica se os componentes não listados nos grupos devem ser desvinculados"
+          },
+          "removeUnlistedAdmins": {
+            "type": "boolean",
+            "description": "Indica se os administradores não listados nos grupos devem ser desvinculados"
+          },
+          "removeUnlistedEnrollments": {
+            "type": "boolean",
+            "description": "Indica se os membros ou usuários não listados nos grupos devem ser desvinculados"
+          }
+        },
+        "required": [
+          "data",
+          "removeUnlistedTags",
+          "removeUnlistedComponents",
+          "removeUnlistedAdmins",
+          "removeUnlistedEnrollments"
+        ],
+        "additionalProperties": false
+      },
+      "LayersDataComponentsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LayersDataComponentsResponseDatum",
+              "description": "Dados dos componentes"
+            }
+          }
+        },
+        "required": [
+          "data"
+        ],
+        "additionalProperties": false
+      },
+      "LayersDataUsersResponseDatum": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "title": "Ativo",
+            "description": "Indica se o usuário deve estar ativo ou não",
+            "type": "boolean"
+          },
+          "alias": {
+            "title": "Identificador externo",
+            "description": "Identificador único do usuário",
+            "type": "string",
+            "pattern": "[a-zA-Z0-9@-_./]+",
+            "maxLength": 32,
+            "minLength": 1
+          },
+          "name": {
+            "title": "Nome",
+            "description": "Nome do usuário",
+            "type": "string",
+            "nullable": true,
+            "minLength": 1
+          },
+          "email": {
+            "type": "string",
+            "description": "E-mail do usuário",
+            "format": "email",
+            "nullable": true,
+            "minLength": 1
+          },
+          "birth": {
+            "type": "string",
+            "description": "Data de nascimento do usuário",
+            "format": "date",
+            "nullable": true
+          },
+          "setRoles": {
+            "type": "object",
+            "description": "Permissões do usuário, deve-se indicar true ou false para cada permissão que o usuário deve ou não ter",
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "nullable": true
+          },
+          "fields": {
+            "type": "object",
+            "description": "Campos personalizados para o usuário",
+            "nullable": true,
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "active",
+          "alias",
+          "name",
+          "email",
+          "setRoles"
+        ],
+        "additionalProperties": false
+      },
+      "LayersDataMembersResponseDatum": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "Indica se o membro deve estar ativo ou não"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Identificador único do membro"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do membro",
+            "nullable": true
+          },
+          "birth": {
+            "type": "string",
+            "description": "Data de nascimento do membro",
+            "format": "date",
+            "nullable": true
+          },
+          "fields": {
+            "type": "object",
+            "description": "Campos personalizados para o membro",
+            "nullable": true
+          },
+          "users": {
+            "type": "array",
+            "description": "Lista de identificadores únicos de usuários vinculados ao membro",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "required": [
+          "active",
+          "alias",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "LayersDataGroupsResponseDatum": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "Indica se o grupo deve estar ativo ou não"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Identificador único do grupo"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do grupo",
+            "nullable": true
+          },
+          "fields": {
+            "type": "object",
+            "description": "Campos personalizados para o grupo",
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "description": "Lista de nomes de marcadores do grupo",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "components": {
+            "type": "array",
+            "description": "Lista de identificadores únicos dos componentes do grupo",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "admins": {
+            "type": "array",
+            "description": "Lista de administradores do grupo",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "description": "E-mail do administrador",
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "components": {
+                      "description": "Lista de identificadores únicos dos componentes desse administrador",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "email"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "Identificador único do administrador"
+                    },
+                    "components": {
+                      "type": "array",
+                      "description": "Lista de identificadores únicos dos componentes desse administrador",
+                      "items": {
+                        "type": "string"
+                      },
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "alias"
+                  ]
+                }
+              ]
+            },
+            "nullable": true
+          },
+          "enrollments": {
+            "type": "object",
+            "description": "Matrículas do grupo",
+            "properties": {
+              "users": {
+                "type": "array",
+                "description": "Lista de identificadores únicos de usuários que devem estar matriculados no grupo",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              },
+              "members": {
+                "type": "array",
+                "description": "Lista de identificadores únicos de membros que devem estar matriculados no grupo",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            },
+            "nullable": true
+          }
+        },
+        "required": [
+          "active",
+          "alias",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "LayersDataComponentsResponseDatum": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "Indica se o componente deve estar ativo ou não"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Indentificador único do componente"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do componente",
+            "nullable": true
+          },
+          "fields": {
+            "type": "object",
+            "description": "Campos personalizados para o componente",
+            "nullable": true
+          }
+        },
+        "required": [
+          "active",
+          "alias",
+          "name"
+        ],
+        "additionalProperties": false
       }
     },
     "securitySchemes": {
@@ -2356,6 +3194,36 @@
       "name": "Cobranças",
       "tags": [
         "Payables:getRelated"
+      ]
+    },
+    {
+      "name": "Sincronização de Dados",
+      "tags": [
+        "Layers:data"
+      ]
+    },
+    {
+      "name": "Sincronização de Dados - Usuários",
+      "tags": [
+        "Layers:data:Users"
+      ]
+    },
+    {
+      "name": "Sincronização de Dados - Membros",
+      "tags": [
+        "Layers:data:Members"
+      ]
+    },
+    {
+      "name": "Sincronização de Dados - Grupos",
+      "tags": [
+        "Layers:data:Groups"
+      ]
+    },
+    {
+      "name": "Sincronização de Dados - Componentes",
+      "tags": [
+        "Layers:data:Components"
       ]
     }
   ]

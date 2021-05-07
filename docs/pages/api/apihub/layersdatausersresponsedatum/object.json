@@ -1,0 +1,335 @@
+{
+  "template": "api-schema",
+  "title": "Entidade LayersDataUsersResponseDatum",
+  "path": "/docs/api/apihub/layersdatausersresponsedatum/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "apihub",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"active\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token boolean"
+            },
+            "true"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"email\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"luke@starwars.com\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"birth\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2021-05-07\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"setRoles\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"fields\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "schema": {
+    "type": "schema",
+    "name": "LayersDataUsersResponseDatum",
+    "spec": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "title": "Ativo",
+          "description": "Indica se o usuário deve estar ativo ou não",
+          "type": "boolean"
+        },
+        "alias": {
+          "title": "Identificador externo",
+          "description": "Identificador único do usuário",
+          "type": "string",
+          "pattern": "[a-zA-Z0-9@-_./]+",
+          "maxLength": 32,
+          "minLength": 1
+        },
+        "name": {
+          "title": "Nome",
+          "description": "Nome do usuário",
+          "type": "string",
+          "nullable": true,
+          "minLength": 1
+        },
+        "email": {
+          "type": "string",
+          "description": "E-mail do usuário",
+          "format": "email",
+          "nullable": true,
+          "minLength": 1
+        },
+        "birth": {
+          "type": "string",
+          "description": "Data de nascimento do usuário",
+          "format": "date",
+          "nullable": true
+        },
+        "setRoles": {
+          "type": "object",
+          "description": "Permissões do usuário, deve-se indicar true ou false para cada permissão que o usuário deve ou não ter",
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "nullable": true
+        },
+        "fields": {
+          "type": "object",
+          "description": "Campos personalizados para o usuário",
+          "nullable": true,
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "active",
+        "alias",
+        "name",
+        "email",
+        "setRoles"
+      ],
+      "additionalProperties": false,
+      "externalDocs": {
+        "description": "Entidade LayersDataUsersResponseDatum",
+        "url": "/docs/api/apihub/layersdatausersresponsedatum/object"
+      }
+    },
+    "tags": [],
+    "summary": "Entidade LayersDataUsersResponseDatum"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-layersdatausersresponsedatum-object"
+}

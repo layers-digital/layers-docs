@@ -279,7 +279,7 @@
         "tags": [
           "Layers:data:Users"
         ],
-        "summary": "Prover todos os usuários",
+        "summary": "Todos os usuários",
         "description": "Prover todos os usuários da comunidade de acordo com o período letivo.",
         "requestBody": {
           "content": {
@@ -309,7 +309,7 @@
         "tags": [
           "Layers:data:Members"
         ],
-        "summary": "Prover todos os membros",
+        "summary": "Todos os membros",
         "description": "Prover todos os membros da comunidade de acordo com o período letivo.",
         "requestBody": {
           "content": {
@@ -339,7 +339,7 @@
         "tags": [
           "Layers:data:Groups"
         ],
-        "summary": "Prover todos os grupos",
+        "summary": "Todos os grupos",
         "description": "Prover todos os grupos da comunidade de acordo com o período letivo.",
         "requestBody": {
           "content": {
@@ -369,7 +369,7 @@
         "tags": [
           "Layers:data:Components"
         ],
-        "summary": "Prover todos os componentes",
+        "summary": "Todos os componentes",
         "description": "Prover todos os componentes da comunidade de acordo com o período letivo.",
         "requestBody": {
           "content": {
@@ -399,7 +399,7 @@
         "tags": [
           "Layers:data:Users"
         ],
-        "summary": "Prover usuários atualizados",
+        "summary": "Usuários atualizados",
         "description": "Prover os usuários da comunidade de acordo com o período letivo que foram atualizados a partir de uma data específica.",
         "requestBody": {
           "content": {
@@ -429,7 +429,7 @@
         "tags": [
           "Layers:data:Members"
         ],
-        "summary": "Prover membros atualizados",
+        "summary": "Membros atualizados",
         "description": "Prover os membros da comunidade de acordo com o período letivo que foram atualizados a partir de uma data específica.",
         "requestBody": {
           "content": {
@@ -459,7 +459,7 @@
         "tags": [
           "Layers:data:Groups"
         ],
-        "summary": "Prover grupos atualizados",
+        "summary": "Grupos atualizados",
         "description": "Prover os grupos da comunidade de acordo com o período letivo que foram atualizados a partir de uma data específica.",
         "requestBody": {
           "content": {
@@ -489,7 +489,7 @@
         "tags": [
           "Layers:data:Components"
         ],
-        "summary": "Prover componentes atualizados",
+        "summary": "Componentes atualizados",
         "description": "Prover os componentes da comunidade de acordo com o período letivo que foram atualizados a partir de uma data específica.",
         "requestBody": {
           "content": {
@@ -519,7 +519,7 @@
         "tags": [
           "Layers:data:Users"
         ],
-        "summary": "Prover usuários por identificador",
+        "summary": "Usuários por identificador",
         "description": "Prover os usuários da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
         "requestBody": {
           "content": {
@@ -549,7 +549,7 @@
         "tags": [
           "Layers:data:Members"
         ],
-        "summary": "Prover membros por identificador",
+        "summary": "Membros por identificador",
         "description": "Prover os membros da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
         "requestBody": {
           "content": {
@@ -579,7 +579,7 @@
         "tags": [
           "Layers:data:Groups"
         ],
-        "summary": "Prover grupos por identificador",
+        "summary": "Grupos por identificador",
         "description": "Prover os grupos da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
         "requestBody": {
           "content": {
@@ -609,7 +609,7 @@
         "tags": [
           "Layers:data:Components"
         ],
-        "summary": "Prover componentes por identificador",
+        "summary": "Componentes por identificador",
         "description": "Prover os componentes da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
         "requestBody": {
           "content": {
@@ -2704,12 +2704,19 @@
               "data": {
                 "type": "object",
                 "required": [
+                  "syncProfileId",
                   "syncRunId",
                   "season"
                 ],
                 "properties": {
+                  "syncProfileId": {
+                    "type": "string",
+                    "format": "ObjectId",
+                    "description": "Identificador do perfil de sincronização"
+                  },
                   "syncRunId": {
                     "type": "string",
+                    "format": "ObjectId",
                     "description": "Identificador da execução"
                   },
                   "season": {
@@ -2734,13 +2741,20 @@
               "data": {
                 "type": "object",
                 "required": [
+                  "syncProfileId",
                   "syncRunId",
                   "season",
                   "after"
                 ],
                 "properties": {
+                  "syncProfileId": {
+                    "type": "string",
+                    "format": "ObjectId",
+                    "description": "Identificador do perfil de sincronização"
+                  },
                   "syncRunId": {
                     "type": "string",
+                    "format": "ObjectId",
                     "description": "Identificador da execução"
                   },
                   "season": {
@@ -2750,7 +2764,7 @@
                   },
                   "after": {
                     "type": "string",
-                    "format": "date",
+                    "format": "date-time",
                     "description": "A partir de que data considerar no campo \"updatedAt\""
                   }
                 }
@@ -2770,13 +2784,20 @@
               "data": {
                 "type": "object",
                 "required": [
+                  "syncProfileId",
                   "syncRunId",
                   "season",
                   "aliases"
                 ],
                 "properties": {
+                  "syncProfileId": {
+                    "type": "string",
+                    "format": "ObjectId",
+                    "description": "Identificador do perfil de sincronização"
+                  },
                   "syncRunId": {
                     "type": "string",
+                    "format": "ObjectId",
                     "description": "Identificador da execução"
                   },
                   "season": {
@@ -3199,30 +3220,10 @@
     {
       "name": "Sincronização de Dados",
       "tags": [
-        "Layers:data"
-      ]
-    },
-    {
-      "name": "Sincronização de Dados - Usuários",
-      "tags": [
-        "Layers:data:Users"
-      ]
-    },
-    {
-      "name": "Sincronização de Dados - Membros",
-      "tags": [
-        "Layers:data:Members"
-      ]
-    },
-    {
-      "name": "Sincronização de Dados - Grupos",
-      "tags": [
-        "Layers:data:Groups"
-      ]
-    },
-    {
-      "name": "Sincronização de Dados - Componentes",
-      "tags": [
+        "Layers:data",
+        "Layers:data:Users",
+        "Layers:data:Members",
+        "Layers:data:Groups",
         "Layers:data:Components"
       ]
     }

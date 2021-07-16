@@ -11,6 +11,36 @@
     }
   ],
   "paths": {
+    "/@layers:Events:getUpdatedAfter": {
+      "post": {
+        "tags": [
+          "Events:getUpdatedAfter"
+        ],
+        "summary": "Prover Eventos",
+        "description": "O Hub de API's na Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de eventos por meio da action `@layers:Events:getUpdatedAfter` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersEventsGetUpdatedAfter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersEventsGetUpdatedAfterResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/@layers:Calendar:getRelated": {
       "post": {
         "tags": [
@@ -678,6 +708,7 @@
         "schema": {
           "type": "string",
           "enum": [
+            "@layers:Events:getUpdatedAfter",
             "@layers:Calendar:getRelated",
             "@layers:education:AcademicRecords:getRelated",
             "@layers:education:AcademicRecords:markRecordsAsViewed",
@@ -750,6 +781,31 @@
             "description": "Chave secreta específica do app"
           }
         }
+      },
+      "LayersEventsGetUpdatedAfter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Context"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": [
+                  "after"
+                ],
+                "properties": {
+                  "after": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "A partir de que data considerar no campo \"updatedAt\""
+                  }
+                }
+              }
+            }
+          }
+        ]
       },
       "LayersCalendarGetRelated": {
         "allOf": [
@@ -1288,6 +1344,183 @@
             }
           }
         ]
+      },
+      "LayersEventsGetUpdatedAfterResponse": {
+        "type": "object",
+        "required": [
+          "result"
+        ],
+        "properties": {
+          "events": {
+            "type": "array",
+            "description": "Eventos da agenda",
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "createdAt",
+                "updatedAt",
+                "targets",
+                "start",
+                "end"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Identificador interno do evento",
+                  "example": "0001"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Nome do evento",
+                  "example": "Prova 1"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Descrição do evento",
+                  "example": "A prova deve ser realizada presencialmente"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data e hora de criação do evento"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data e hora da ultima atualização do evento"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "Categorias associadas aos eventos. São usadas para definir a cor e as permissões alvo de cada evento. Caso um evento tenha uma categoria que não foi pré definida pela comunidade o evento não será sincronizado",
+                  "example": "Geral"
+                },
+                "targets": {
+                  "type": "object",
+                  "description": "Alvos para quem serão publicados o evento",
+                  "properties": {
+                    "users": {
+                      "type": "array",
+                      "description": "Lista de identificadores únicos de usuários",
+                      "items": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "members": {
+                      "type": "array",
+                      "description": "Lista de identificadores únicos de membros",
+                      "items": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "groups": {
+                      "type": "array",
+                      "description": "Lista de identificadores únicos de grupos",
+                      "items": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "author": {
+                  "type": "object",
+                  "description": "Autor do evento",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "Nome do autor"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Email do autor"
+                    },
+                    "alias": {
+                      "type": "string",
+                      "description": "Identificador interno do autor"
+                    }
+                  }
+                },
+                "attachments": {
+                  "type": "array",
+                  "description": "Lista de anexos do evento",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "type",
+                      "url"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "description": "Título do anexo",
+                        "example": "CalculoDeNotas.pdf"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "file",
+                          "link",
+                          "image"
+                        ],
+                        "description": "Tipo do anexo",
+                        "example": "file`"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "URL para fazer download do anexo. Obrigatóriamente uma url HTTPS",
+                        "example": "https://calculo.pdf"
+                      }
+                    }
+                  }
+                },
+                "start": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data e hora do inicio do evento. Para mostrar que o evento vai durar o dia todo passe apenas a data sem horário"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data e hora do final do evento. Para mostrar que o evento vai durar o dia todo passe apenas a data sem horário"
+                },
+                "location": {
+                  "type": "string",
+                  "description": "Localização do evento"
+                },
+                "conference": {
+                  "type": "object",
+                  "description": "Link para videoconferência",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "URL para videoconferência. Obrigatóriamente uma url HTTPS",
+                      "example": "https://meet.google.com/ABCD"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "googleMeet",
+                        "googleHangout",
+                        "zoom",
+                        "unknown"
+                      ],
+                      "description": "Plataforma utilizada para videoconferência. Utilizar unknown caso não seja nenhuma das suportadas"
+                    }
+                  }
+                },
+                "approved": {
+                  "type": "boolean",
+                  "description": "Indica se o evento deve ser publicado diretamente ou deve passar por aprovação de um administrador da comunidade",
+                  "example": true
+                }
+              }
+            }
+          }
+        }
       },
       "LayersCalendarGetRelatedResponse": {
         "type": "object",
@@ -3168,6 +3401,12 @@
     }
   },
   "x-nav": [
+    {
+      "name": "Agenda",
+      "tags": [
+        "Events:getUpdatedAfter"
+      ]
+    },
     {
       "name": "Calendário",
       "tags": [

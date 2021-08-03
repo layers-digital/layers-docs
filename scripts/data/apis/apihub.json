@@ -793,9 +793,15 @@
               "data": {
                 "type": "object",
                 "required": [
+                  "limit",
                   "after"
                 ],
                 "properties": {
+                  "limit": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Quantidade máxima de eventos que devem ser retornados"
+                  },
                   "after": {
                     "type": "string",
                     "format": "date-time",
@@ -1351,7 +1357,7 @@
           "result"
         ],
         "properties": {
-          "events": {
+          "result": {
             "type": "array",
             "description": "Eventos da agenda",
             "items": {

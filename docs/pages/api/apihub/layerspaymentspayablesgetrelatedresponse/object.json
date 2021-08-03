@@ -859,6 +859,36 @@
             },
             "\"12341234123412341234\""
           ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"link\""
+          ],
           "\n          ",
           [
             "span",
@@ -1259,7 +1289,8 @@
                       "description": "Arquivo e código do boleto",
                       "required": [
                         "link",
-                        "code"
+                        "code",
+                        "type"
                       ],
                       "properties": {
                         "link": {
@@ -1271,6 +1302,15 @@
                           "type": "string",
                           "description": "Linha digitável do boleto, será usada para o usuário copiar o código sem ter que baixar o boleto",
                           "example": "12341234123412341234"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Indica se a URL é de um arquivo ou de uma página web.",
+                          "example": "link",
+                          "enum": [
+                            "link",
+                            "file"
+                          ]
                         }
                       }
                     },

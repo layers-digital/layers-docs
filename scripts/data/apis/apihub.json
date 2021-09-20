@@ -11,6 +11,36 @@
     }
   ],
   "paths": {
+    "/@layers:Posts:getUpdatedAfter": {
+      "post": {
+        "tags": [
+          "Posts:getUpdatedAfter"
+        ],
+        "summary": "Prover Publicações",
+        "description": "O Hub de API's na Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de eventos por meio da action `@layers:Posts:getUpdatedAfter` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersPostsGetUpdatedAfter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersPostsGetUpdatedAfterResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/@layers:Events:getUpdatedAfter": {
       "post": {
         "tags": [
@@ -708,6 +738,7 @@
         "schema": {
           "type": "string",
           "enum": [
+            "@layers:Posts:getUpdatedAfter",
             "@layers:Events:getUpdatedAfter",
             "@layers:Calendar:getRelated",
             "@layers:education:AcademicRecords:getRelated",
@@ -781,6 +812,37 @@
             "description": "Chave secreta específica do app"
           }
         }
+      },
+      "LayersPostsGetUpdatedAfter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Context"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": [
+                  "limit",
+                  "after"
+                ],
+                "properties": {
+                  "limit": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Quantidade máxima de publicações que devem ser retornadas"
+                  },
+                  "after": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "A partir de que data considerar no campo \"updatedAt\""
+                  }
+                }
+              }
+            }
+          }
+        ]
       },
       "LayersEventsGetUpdatedAfter": {
         "allOf": [
@@ -1350,6 +1412,147 @@
             }
           }
         ]
+      },
+      "LayersPostsGetUpdatedAfterResponse": {
+        "type": "object",
+        "required": [
+          "result"
+        ],
+        "properties": {
+          "result": {
+            "type": "array",
+            "description": "Publicações do app comunicados",
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "description",
+                "createdAt",
+                "updatedAt",
+                "targets"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Identificador interno da publicação",
+                  "example": "0001"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Titulo da publicação",
+                  "example": "Comunicado ano letivo 2021"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Descrição/conteúdo da publicação",
+                  "example": "O ano letivo já vai começar! A partir da segunda que vem, no dia 01 de fevereiro estaremos aguardando vocês."
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data e hora de criação da publicação"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Data e hora da ultima atualização da publicação"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "Categorias associadas as publicações. São usadas para definir a cor e as permissões alvo de cada publicação. Caso uma publicação tenha uma categoria que não foi pré definida pela comunidade a publicação não será sincronizada",
+                  "example": "Geral"
+                },
+                "targets": {
+                  "type": "object",
+                  "description": "Alvos para quem serão enviadas as publicações",
+                  "properties": {
+                    "users": {
+                      "type": "array",
+                      "description": "Lista de identificadores únicos de usuários",
+                      "items": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "members": {
+                      "type": "array",
+                      "description": "Lista de identificadores únicos de membros",
+                      "items": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "groups": {
+                      "type": "array",
+                      "description": "Lista de identificadores únicos de grupos",
+                      "items": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    }
+                  }
+                },
+                "author": {
+                  "type": "object",
+                  "description": "Autor da publicação",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "Nome do autor"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Email do autor"
+                    },
+                    "alias": {
+                      "type": "string",
+                      "description": "Identificador interno do autor"
+                    }
+                  }
+                },
+                "attachments": {
+                  "type": "array",
+                  "description": "Lista de anexos da publicação",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "type",
+                      "url"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "description": "Título do anexo",
+                        "example": "CalculoDeNotas.pdf"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "file",
+                          "link",
+                          "image"
+                        ],
+                        "description": "Tipo do anexo",
+                        "example": "file`"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "URL para fazer download do anexo. Obrigatóriamente uma url HTTPS",
+                        "example": "https://calculo.pdf"
+                      }
+                    }
+                  }
+                },
+                "approved": {
+                  "type": "boolean",
+                  "description": "Indica se o comunicado deve ser publicado diretamente ou deve passar por aprovação de um administrador da comunidade",
+                  "example": true
+                }
+              }
+            }
+          }
+        }
       },
       "LayersEventsGetUpdatedAfterResponse": {
         "type": "object",
@@ -3417,6 +3620,12 @@
     }
   },
   "x-nav": [
+    {
+      "name": "Comunicados",
+      "tags": [
+        "Posts:getUpdatedAfter"
+      ]
+    },
     {
       "name": "Agenda",
       "tags": [

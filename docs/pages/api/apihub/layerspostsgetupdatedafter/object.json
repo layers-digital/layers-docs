@@ -1,0 +1,348 @@
+{
+  "template": "api-schema",
+  "title": "Entidade LayersPostsGetUpdatedAfter",
+  "path": "/docs/api/apihub/layerspostsgetupdatedafter/object",
+  "body": [
+    "div",
+    null
+  ],
+  "serviceId": "apihub",
+  "example": [
+    "div",
+    null,
+    [
+      "docs-code",
+      {
+        "language": "json"
+      },
+      "\n  ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"context\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"issuedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2021-09-20T13:46:03.794Z\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"@layers:identificador_da_action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"test\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"secret\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"data\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"limit\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token number"
+            },
+            "5.5"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"after\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2021-09-20T13:46:03.794Z\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      "\n"
+    ]
+  ],
+  "schema": {
+    "type": "schema",
+    "name": "LayersPostsGetUpdatedAfter",
+    "spec": {
+      "title": "Context",
+      "type": "object",
+      "required": "undefinedcontext,secretundefined",
+      "properties": {
+        "context": {
+          "type": "object",
+          "required": [
+            "issuedAt",
+            "action",
+            "community"
+          ],
+          "properties": {
+            "issuedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Data e hora de quando a requisição foi feita"
+            },
+            "action": {
+              "type": "string",
+              "description": "Identificador da action",
+              "example": "@layers:identificador_da_action"
+            },
+            "community": {
+              "type": "string",
+              "description": "Identificador da comunidade",
+              "example": "test"
+            }
+          }
+        },
+        "secret": {
+          "type": "string",
+          "description": "Chave secreta específica do app"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "limit",
+            "after"
+          ],
+          "properties": {
+            "limit": {
+              "type": "number",
+              "format": "integer",
+              "description": "Quantidade máxima de publicações que devem ser retornadas"
+            },
+            "after": {
+              "type": "string",
+              "format": "date-time",
+              "description": "A partir de que data considerar no campo \"updatedAt\""
+            }
+          }
+        }
+      },
+      "externalDocs": {
+        "description": "Entidade LayersPostsGetUpdatedAfter",
+        "url": "/docs/api/apihub/layerspostsgetupdatedafter/object"
+      }
+    },
+    "tags": [],
+    "summary": "Entidade LayersPostsGetUpdatedAfter"
+  },
+  "tableOfContents": false,
+  "headings": [],
+  "pageClass": "page-api-apihub-layerspostsgetupdatedafter-object"
+}

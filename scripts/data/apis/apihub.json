@@ -71,6 +71,36 @@
         }
       }
     },
+    "/@layers:Documents:getRelated": {
+      "post": {
+        "tags": [
+          "Documents:getRelated"
+        ],
+        "summary": "Prover Documentos",
+        "description": "O Hub de API's na Layers permite que apps troquem informações por meio de actions: protocolos especificando o formato de requisição e resposta aceitos para uma determinada informação. Apps que provém informações de eventos por meio da action `@layers:Documents:getRelated` receberão a requisição no formato abaixo e devem respondê-la com todos os campos obrigatórios.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersDocumentsGetRelated"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersDocumentsGetRelatedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/@layers:Calendar:getRelated": {
       "post": {
         "tags": [
@@ -741,6 +771,7 @@
             "@layers:Posts:getUpdatedAfter",
             "@layers:Events:getUpdatedAfter",
             "@layers:Calendar:getRelated",
+            "@layers:Documents:getRelated",
             "@layers:education:AcademicRecords:getRelated",
             "@layers:education:AcademicRecords:markRecordsAsViewed",
             "@layers:education:Attendance:getRelated",
@@ -868,6 +899,64 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "A partir de que data considerar no campo \"updatedAt\""
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LayersDocumentsGetRelated": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Context"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "name",
+                      "alias",
+                      "timezone",
+                      "language",
+                      "accountId"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Identificador do usuário"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome do usuário",
+                        "example": "Carlos Pereira"
+                      },
+                      "alias": {
+                        "type": "string",
+                        "description": "Identificador do usuário na comunidade",
+                        "example": "user2"
+                      },
+                      "timezone": {
+                        "type": "string",
+                        "description": "Fuso horário do usuário",
+                        "example": "America/Sao_Paulo"
+                      },
+                      "language": {
+                        "type": "string",
+                        "description": "Língua do usuário",
+                        "example": "pt/BR"
+                      },
+                      "accountId": {
+                        "type": "string",
+                        "description": "Identificador da conta do usuário"
+                      }
+                    }
                   }
                 }
               }
@@ -1949,6 +2038,70 @@
                             }
                           }
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "LayersDocumentsGetRelatedResponse": {
+        "type": "object",
+        "required": [
+          "result"
+        ],
+        "properties": {
+          "result": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "attachments"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "ID interno do grupo do livro de notas",
+                  "example": "0001"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Titulo do grupo de documentos",
+                  "example": "Nome do aluno"
+                },
+                "attachments": {
+                  "type": "array",
+                  "description": "Lista de documentos/anexos",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "type",
+                      "url"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "description": "Título do anexo",
+                        "example": "CalculoDeNotas.pdf"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "file",
+                          "link",
+                          "image"
+                        ],
+                        "description": "Tipo do anexo",
+                        "example": "file`"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "URL para fazer download do anexo. Obrigatóriamente uma url HTTPS",
+                        "example": "https://calculo.pdf"
                       }
                     }
                   }
@@ -3636,6 +3789,12 @@
       "name": "Calendário",
       "tags": [
         "Calendar:getRelated"
+      ]
+    },
+    {
+      "name": "Documentos",
+      "tags": [
+        "Documents:getRelated"
       ]
     },
     {

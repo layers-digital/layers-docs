@@ -610,6 +610,112 @@
             },
             "}"
           ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"members\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"1234\""
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"season\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2022-01-06T17:26:13.359Z\""
+          ],
           "\n    ",
           [
             "span",
@@ -877,12 +983,33 @@
                   }
                 },
                 "nullable": true
+              },
+              "members": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Alias do membro",
+                  "example": "1234"
+                }
+              },
+              "season": {
+                "type": "string",
+                "description": "Período do grupo",
+                "example": null
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Data da última atualização do grupo"
               }
             },
             "required": [
               "active",
               "alias",
-              "name"
+              "name",
+              "season",
+              "members",
+              "updatedAt"
             ],
             "additionalProperties": false
           }

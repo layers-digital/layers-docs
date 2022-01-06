@@ -136,7 +136,7 @@
             {
               "class": "token string"
             },
-            "\"2021-09-24T22:58:56.758Z\""
+            "\"2022-01-06T17:26:13.359Z\""
           ],
           [
             "span",
@@ -377,7 +377,7 @@
             {
               "class": "token string"
             },
-            "\"2021-09-24T22:58:56.758Z\""
+            "\"2022-01-06T17:26:13.359Z\""
           ],
           "\n  ",
           [
@@ -594,7 +594,7 @@
             {
               "class": "token string"
             },
-            "\"2021-09-24\""
+            "\"2022-01-06\""
           ],
           [
             "span",
@@ -610,6 +610,43 @@
               "class": "token property"
             },
             "\"setRoles\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"rolesSet\""
           ],
           [
             "span",
@@ -669,6 +706,66 @@
               "class": "token punctuation"
             },
             "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2022-01-06T17:26:13.359Z\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"cpf\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"111.111.111-11\""
           ],
           "\n    ",
           [
@@ -750,11 +847,29 @@
               },
               "nullable": true
             },
+            "rolesSet": {
+              "type": "object",
+              "description": "Permissões do usuário, deve-se indicar true ou false para cada permissão que o usuário deve ou não ter",
+              "additionalProperties": {
+                "type": "boolean"
+              },
+              "nullable": true
+            },
             "fields": {
               "type": "object",
               "description": "Campos personalizados para o usuário",
               "nullable": true,
               "additionalProperties": true
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Data da última atualiazção do usuário"
+            },
+            "cpf": {
+              "type": "string",
+              "description": "CPF do usuário",
+              "example": "111.111.111-11"
             }
           },
           "required": [
@@ -762,7 +877,9 @@
             "alias",
             "name",
             "email",
-            "setRoles"
+            "setRoles",
+            "rolesSet",
+            "updatedAt"
           ],
           "additionalProperties": false
         }

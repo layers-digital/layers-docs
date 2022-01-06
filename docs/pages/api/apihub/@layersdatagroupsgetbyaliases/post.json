@@ -136,7 +136,7 @@
             {
               "class": "token string"
             },
-            "\"2021-09-24T22:58:56.758Z\""
+            "\"2022-01-06T17:26:13.359Z\""
           ],
           [
             "span",
@@ -1019,6 +1019,112 @@
             },
             "}"
           ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"members\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"1234\""
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"season\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2022-01-06T17:26:13.359Z\""
+          ],
           "\n    ",
           [
             "span",
@@ -1284,12 +1390,33 @@
                 }
               },
               "nullable": true
+            },
+            "members": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Alias do membro",
+                "example": "1234"
+              }
+            },
+            "season": {
+              "type": "string",
+              "description": "Período do grupo",
+              "example": null
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Data da última atualização do grupo"
             }
           },
           "required": [
             "active",
             "alias",
-            "name"
+            "name",
+            "season",
+            "members",
+            "updatedAt"
           ],
           "additionalProperties": false
         }
@@ -1329,9 +1456,7 @@
     "path": "/@layers:data:Groups:getByAliases",
     "method": "post",
     "spec": {
-      "tags": [
-        "Layers:data:Groups"
-      ],
+      "beta": true,
       "summary": "Grupos por identificador",
       "description": "Prover os grupos da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
       "requestBody": {
@@ -1360,9 +1485,7 @@
         "url": "/docs/api/apihub/@layersdatagroupsgetbyaliases/post"
       }
     },
-    "tags": [
-      "Layers:data:Groups"
-    ],
+    "tags": [],
     "summary": "Grupos por identificador"
   },
   "headings": [],

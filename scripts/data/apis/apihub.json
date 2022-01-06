@@ -606,9 +606,7 @@
     },
     "/@layers:data:Users:getByAliases": {
       "post": {
-        "tags": [
-          "Layers:data:Users"
-        ],
+        "beta": true,
         "summary": "Usuários por identificador",
         "description": "Prover os usuários da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
         "requestBody": {
@@ -636,9 +634,7 @@
     },
     "/@layers:data:Members:getByAliases": {
       "post": {
-        "tags": [
-          "Layers:data:Members"
-        ],
+        "beta": true,
         "summary": "Membros por identificador",
         "description": "Prover os membros da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
         "requestBody": {
@@ -666,9 +662,7 @@
     },
     "/@layers:data:Groups:getByAliases": {
       "post": {
-        "tags": [
-          "Layers:data:Groups"
-        ],
+        "beta": true,
         "summary": "Grupos por identificador",
         "description": "Prover os grupos da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
         "requestBody": {
@@ -696,9 +690,7 @@
     },
     "/@layers:data:Components:getByAliases": {
       "post": {
-        "tags": [
-          "Layers:data:Components"
-        ],
+        "beta": true,
         "summary": "Componentes por identificador",
         "description": "Prover os componentes da comunidade de acordo com o período letivo que possuem os identificadores únicos especificados.",
         "requestBody": {
@@ -3556,11 +3548,29 @@
             },
             "nullable": true
           },
+          "rolesSet": {
+            "type": "object",
+            "description": "Permissões do usuário, deve-se indicar true ou false para cada permissão que o usuário deve ou não ter",
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "nullable": true
+          },
           "fields": {
             "type": "object",
             "description": "Campos personalizados para o usuário",
             "nullable": true,
             "additionalProperties": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última atualiazção do usuário"
+          },
+          "cpf": {
+            "type": "string",
+            "description": "CPF do usuário",
+            "example": "111.111.111-11"
           }
         },
         "required": [
@@ -3568,7 +3578,9 @@
           "alias",
           "name",
           "email",
-          "setRoles"
+          "setRoles",
+          "rolesSet",
+          "updatedAt"
         ],
         "additionalProperties": false
       },
@@ -3606,12 +3618,18 @@
               "type": "string"
             },
             "nullable": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última atualização do membro"
           }
         },
         "required": [
           "active",
           "alias",
-          "name"
+          "name",
+          "updatedAt"
         ],
         "additionalProperties": false
       },
@@ -3724,12 +3742,33 @@
               }
             },
             "nullable": true
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Alias do membro",
+              "example": "1234"
+            }
+          },
+          "season": {
+            "type": "string",
+            "description": "Período do grupo",
+            "example": null
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última atualização do grupo"
           }
         },
         "required": [
           "active",
           "alias",
-          "name"
+          "name",
+          "season",
+          "members",
+          "updatedAt"
         ],
         "additionalProperties": false
       },
@@ -3753,12 +3792,18 @@
             "type": "object",
             "description": "Campos personalizados para o componente",
             "nullable": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última atualização do componente"
           }
         },
         "required": [
           "active",
           "alias",
-          "name"
+          "name",
+          "updatedAt"
         ],
         "additionalProperties": false
       }

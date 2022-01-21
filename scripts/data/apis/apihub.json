@@ -364,126 +364,6 @@
         }
       }
     },
-    "/@layers:data:Users:getAll": {
-      "post": {
-        "tags": [
-          "Layers:data:Users"
-        ],
-        "summary": "Todos os usuários",
-        "description": "Prover todos os usuários da comunidade de acordo com o período letivo.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LayersDataEntityGetAll"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LayersDataUsersResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/@layers:data:Members:getAll": {
-      "post": {
-        "tags": [
-          "Layers:data:Members"
-        ],
-        "summary": "Todos os membros",
-        "description": "Prover todos os membros da comunidade de acordo com o período letivo.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LayersDataEntityGetAll"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LayersDataMembersResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/@layers:data:Groups:getAll": {
-      "post": {
-        "tags": [
-          "Layers:data:Groups"
-        ],
-        "summary": "Todos os grupos",
-        "description": "Prover todos os grupos da comunidade de acordo com o período letivo.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LayersDataEntityGetAll"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LayersDataGroupsResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/@layers:data:Components:getAll": {
-      "post": {
-        "tags": [
-          "Layers:data:Components"
-        ],
-        "summary": "Todos os componentes",
-        "description": "Prover todos os componentes da comunidade de acordo com o período letivo.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LayersDataEntityGetAll"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LayersDataComponentsResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/@layers:data:Users:getUpdatedAfter": {
       "post": {
         "tags": [
@@ -772,10 +652,6 @@
             "@layers:getHomeInfo",
             "@layers:health:MedicalRecord:getRelated",
             "@layers:payments:Payables:getRelated",
-            "@layers:data:Users:getAll",
-            "@layers:data:Members:getAll",
-            "@layers:data:Groups:getAll",
-            "@layers:data:Components:getAll",
             "@layers:data:Users:getUpdatedAfter",
             "@layers:data:Members:getUpdatedAfter",
             "@layers:data:Groups:getUpdatedAfter",
@@ -3290,43 +3166,6 @@
           }
         }
       },
-      "LayersDataEntityGetAll": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Context"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "data": {
-                "type": "object",
-                "required": [
-                  "syncProfileId",
-                  "syncRunId",
-                  "season"
-                ],
-                "properties": {
-                  "syncProfileId": {
-                    "type": "string",
-                    "format": "ObjectId",
-                    "description": "Identificador do perfil de sincronização"
-                  },
-                  "syncRunId": {
-                    "type": "string",
-                    "format": "ObjectId",
-                    "description": "Identificador da execução"
-                  },
-                  "season": {
-                    "type": "string",
-                    "description": "Identificador do período letivo",
-                    "example": "2021"
-                  }
-                }
-              }
-            }
-          }
-        ]
-      },
       "LayersDataEntityGetUpdatedAfter": {
         "allOf": [
           {
@@ -3341,7 +3180,8 @@
                   "syncProfileId",
                   "syncRunId",
                   "season",
-                  "after"
+                  "after",
+                  "limit"
                 ],
                 "properties": {
                   "syncProfileId": {
@@ -3363,6 +3203,12 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "A partir de que data considerar no campo \"updatedAt\""
+                  },
+                  "limit": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "Número máximo de resultados",
+                    "example": 100
                   }
                 }
               }

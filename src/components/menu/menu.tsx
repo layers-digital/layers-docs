@@ -8,6 +8,7 @@ import { Logo } from '../../icons';
 // import mainTemplate from './templates/main';
 import api from './templates/api';
 import conceptsTemplate from './templates/concepts';
+import forStartups from './templates/forstartups';
 // import tutorialsTemplate from './templates/tutorials';
 import sdksTemplate from './templates/sdk';
 
@@ -45,6 +46,7 @@ export class DocsMenu {
         <stencil-route url="/docs/api/:service?" routeRender={api.template}/>
         <stencil-route url="/docs/sdk" routeRender={sdksTemplate}/>
         <stencil-route url="/docs/(concepts)?/:service?" routeRender={conceptsTemplate}/>
+        <stencil-route url="/docs/forstartups" routeRender={forStartups}/>
       </stencil-route-switch>
     ];
   }

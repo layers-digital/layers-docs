@@ -6,23 +6,24 @@ export default () => {
 
 const items = {
   'Layers': {
-    'Introdução': '/docs/forstartups/introduction',
-    'Primeiros Passos': '/docs/forstartups/first-steps',
-    'Integration layers': '/docs/forstartups/integration-layers',
+    'Introdução': '/docs/forstartups',
   },
   'Acesso Unificado (SSO)': {
-    'Introdução a SSO': '/docs/forstartups/sso101',
+    'Introdução a SSO': '/docs/forstartups/sso',
     'Fluxo SSO com a Layers': '/docs/forstartups/fluxo-sso',
-    'Botão \"Logar com Layers\"': '/docs/forstartups/botao-logar-com-layers',
   },
   'Dados Unificados (Rostering)': {
-    'Introdução a Rostering': '/docs/forstartups/Rostering',
+    'Introdução a Rostering': '/docs/forstartups/rostering',
     'Fluxo de dados': '/docs/forstartups/fluxo-sso',
     'Permissionamento de Dados': '/docs/forstartups/botao-logar-com-layers',
   },
   'Experiência Unificada': {
     'Introdução a Experiência Unificada': '/docs/forstartups/experiencia-unificada',
     'Microfrontends': '/docs/forstartups/microfrontends',
-    'Layers SDK': '/docs/forstartups/layers-sdk',
+  },
+  'Software Development Kits': {
+    'Introdução aos SDK\'s': '/docs/forstartups/sdk',
+    'Layers Portal': '/docs/forstartups/sdk/layers-portal',
+    'Botão "Logar com Layers"': '/docs/forstartups/sdk/layers-button',
   }
 }

@@ -40,7 +40,7 @@ export class DocsHeader {
         <stencil-route-link url="/docs/api" urlMatch={['/docs/api']}>APIs</stencil-route-link>
         <stencil-route-link url="/docs/sdk/como-colocar-o-botao-logar-com-layers" urlMatch={['/docs/sdk']}>SDKs</stencil-route-link>
         <stencil-route-link url="/docs/status" urlMatch={['/docs/status']}>Status</stencil-route-link>
-        <stencil-route-link url="/docs/forstartups" urlMatch={['/docs/forstartups']}>Sou uma Startup Braba</stencil-route-link>
+        <stencil-route-link url="/docs/forstartups" urlMatch={['/docs/forstartups']}>Layers 4 Startups</stencil-route-link>
       </div> : null,
     ];
   }

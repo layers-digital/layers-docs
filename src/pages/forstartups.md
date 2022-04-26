@@ -1,121 +1,46 @@
 ---
-template: forstartups
-title: Implementando o botão logar com Layers para startups
+template: default
+title: Layers, o SuperApp da Educação
 tableOfContents: true
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+nextText: 'Layers de Integração'
+nextUrl: '/docs/forstartups/integration-layers'
 ---
 
-Com o objetivo de tornar o uso da autenticação com a Layers mais simples disponibilizamos um componente do botão da Layers. Para utilizar esse componente na sua aplicação, siga as instruções abaixo.
+![Beta](https://img.shields.io/badge/Status-Beta-green)
+A plataforma que unifica todas as soluções digitais da educação. Um único login para todos os recursos no mesmo ambiente digital.
 
+Para desenvolvedores, integrar sua solução à Layers significa criar um app único com as funcionalidades disponibilizadas. Esse app, uma vez revisado e aprovado, poderá ser utilizado por qualquer instituição que utilize a Layers, sem necessidade de realizar novas integrações ou desenvolvimento específico para cada instituição.
 
-## 1 - Importe a biblioteca
+## Funcionalidades básicas
 
-Para ter acesso ao componente do botão logar com a Layers será necessário importar o código da biblioteca de autenticação da Layers como mostrado no trecho de código abaixo. A importação do código deve ser feita na tag head para evitar que o recurso seja requisitado antes que ele tenha sido carregado.
+A Layers oferece aos desenvolvedores uma série de funcionalidades para que criem apps e integrem serviços ao ecossistema.
 
-```html
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Minha Pagina</title>
-        <script src="https://js.layers.digital/v1/LayersAuth.js"></script>
-    </head>
-</html>
-```
+<docs-cards>
+  <docs-card header="Logar com Layers" href="/docs/concepts/funcionalidades/logar-com-layers" icon="/docs/assets/icons/Logar com Layers.svg">
+    <p>Autenticar usuários com a Layers e acessar informações com seu consentimento</p>
+  </docs-card>
 
-## 2 - Adicione o botão de autenticação da Layers à sua página
+  <docs-card header="Portais" href="/docs/concepts/funcionalidades/portais" icon="/docs/assets/icons/Portais.svg">
+    <p>Permitir que seu app seja acessado dentro da Layers</p>
+  </docs-card>
 
-```html
-<layers-auth-button
-  client-id="myapp",
-  scope="identity:basic:read"
-  response-type="code"
-  redirect-uri="https://myapp.com"
-  label="Continuar com"
-></layers-auth-button>
-```
+  <docs-card header="Hub de APIs" href="/docs/concepts/funcionalidades/hub-de-apis" icon="/docs/assets/icons/Hub.svg">
+    <p>Prover informações sobre horários, frequência, cobranças e mais</p>
+  </docs-card>
 
-Uma vez importada a bibioteca, adicione o componente do botão à sua página passando os atributos obrigatórios:
-+ **client-id**: 
-Deve conter o identificador do seu app na Layers Education.
-+ **scope**:
-Deve conter os [escopos](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md). de autorização que o usuário deve ceder permissão para o uso do seu app.
-+ **mode**:
-Existem três valores possíveis para o atributo ```mode```:
-    + ```embedded```: Abre um dialog na sua página com a tela de login da Layers para que o usuário digite suas credenciais.
-    + ```popup```: Abre um popup em outra janela com a tela de login da Layers para que o usuário digite suas credenciais.
-    + ```redirect```: Redireciona o usuário para a tela de login da Layers e depois redireciona de volta para o seu app passando o código como parâmetro na query.
-+ **redirect-uri**:
-Deve conter a url de redirecionamento para o seu app quando for usado o ```mode="redirect"```.
-+ **label**:
-Será usada como texto do botão na forma ```label```+ Layers.
+  <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg">
+    <p>Manter os dados da Layers atualizados com as informações do ERP</p>
+  </docs-card>
 
-Além dos atributos obrigatórios, estão disponíveis também atributos de estilo para que o botão se adeque ao design na sua página. São eles:
-+ **dark | light**:
-Esses atributos especificam a cor do botão. Usar o atributo ```dark``` resulta no botão verde enquanto usar o atributo ```light```ou não usar nenhum dos dois resulta no botão branco.
-+ **size**: 
-Existem quatro opções de tamanho para o botão de autenticação com Layers: ```small```, ```normal```, ```medium```e ```large```. Para especificar o tamanho basta usar ```size="tamanho"```
-+ **flat**:
-Por padrão o componente do botão logar com Layers tem uma borda. Para remover essa borda use o atributo ```flat```
-+ **raised**:
-Por padrão o botão de logar com Layers não tem drop-shaddow. Se preferir um botão com elevação, basta usar o attributo ```raised```.
-+ **block**:
-Ao usar o atributo ```block``` o botão o botão se tornará flexível, ocupando todo o espaço horizontal do seu container.
-+ **inherit-font**:
-A fonte padrão do botão de autenticação é Nunito-Bold. Embora recomendemos o uso dessa fonte para que o botão seja identificado mais facilmente, é possível alterar a fonte através do atributo ```ìnherit-font```. Quando for usado esse atributo, a fonte do botão será herdada do seu componente pai.
+  <docs-card header="Comunicação" href="/docs/concepts/funcionalidades/comunicacao" icon="/docs/assets/icons/Comunicação.svg">
+    <p>Enviar comunicados para a comunidade escolar</p>
+  </docs-card>
+</docs-cards>
 
-## 3 - Escute pelo evento com o resultado da autenticação
+## Camadas de Integração
+Para se integrar na Layers, um App ou Startup possui 3 possibilidades de integração: [Single Sign On](/docs/forstartups/sso), [Rostering](/docs/forstartups/rostering) e [Experiência Unificada](/docs/forstartups/experiencia-unificada).
 
-Caso você tenha optado por usar o modo ```redirect```, não será possível ouvir o evento como mostrado abaixo. Em vez disso, o código sera passado na chave code dos parâmetros na query.
+## Acesso
+Para ganhar acesso e integrar sua EdTech, faça seu pré-cadastro pelo formulário:
+[Integre sua EdTech](/docs/register) ou entre em contato pelo e-mail <a target="_self" href="mailto:devs@layers.education">devs@layers.education</a> para maiores informações.
 
-Para os modos ```embedded```e ```popup``` o código que deve ser usado para obter o token de acesso do usuário pode ser obtido ouvindo a resposta do evento LayersAuth como mostrado no trecho de código abaixo. 
-
-```html
-<script>
-  LayersAuth.onResult((error, data) => {
-    if (error) {
-      //handle error
-    }
-    //use code to generate an OAuth token for the user
-    const code = data.code
-  })
-</script>
-```
-
-## 4 - Use o código para obter o token
-
-Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas [rotas de OAuth disponíveis na Layers](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md).
-
-``` http
-POST /oauth/token
-``` 
-
-```js
-{
-  "grant_type": "authorization_code",
-  "client_id": String
-  "code": "{{code}}",
-  "redirect_uri": "{{redirect_uri}}"
-}
-```
-
-+ **grant_type**: Tipo de fluxo
-+ **client_id**: Identificador do app
-+ **code**: Código recebido
-+ **redirect_uri**: URI para a qual o usuário deve ser redirecionado ao fim da autenticação 
-
-A API deve retornar um JSON com o seguinte formato:
-
-```js
-{
-  "access_token": "{{jwtToken}}",
-  "token_type": Bearer,
-  "expires_in": Number,
-  "state": String
-}
-```
-
-+ **access_token**: Token de acesso
-+ **token_type**: Tipo de token
-+ **expires_in**: Tempo até o token expirar em segundos
-+ **state**: Mensagem adicional que pode ser utilizada para ser retornado na rota de token de acesso

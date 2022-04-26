@@ -45,8 +45,8 @@ export class DocsMenu {
         {/* <stencil-route url="/docs/status"/> */}
         <stencil-route url="/docs/api/:service?" routeRender={api.template}/>
         <stencil-route url="/docs/sdk" routeRender={sdksTemplate}/>
-        <stencil-route url="/docs/(concepts)?/:service?" routeRender={conceptsTemplate}/>
         <stencil-route url="/docs/forstartups" routeRender={forStartups}/>
+        <stencil-route url="/docs/(concepts)?/:service?" routeRender={conceptsTemplate}/>
       </stencil-route-switch>
     ];
   }

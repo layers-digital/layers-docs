@@ -5,24 +5,24 @@ export default () => {
 };
 
 const items = {
-  'Primeiros Passos': {
-    'Requisitando acesso': '/docs/register',
-    'Acessando pela primeira vez o ambiente de desenvolvimento': '/docs/first-steps',
+  'Layers': {
+    'Introdução': '/docs/forstartups/introduction',
+    'Primeiros Passos': '/docs/forstartups/first-steps',
+    'Integration layers': '/docs/forstartups/integration-layers',
   },
-  'Integração Layer SSO': {
-    'O que é SSO?': '/docs/integration/sso101',
-    'Fluxo SSO com a Layers': '/docs/integration/fluxo-sso',
-    'Botão \"Logar com Layers \"': '/docs/integration/botao-logar-com-layers',
+  'Acesso Unificado (SSO)': {
+    'Introdução a SSO': '/docs/forstartups/sso101',
+    'Fluxo SSO com a Layers': '/docs/forstartups/fluxo-sso',
+    'Botão \"Logar com Layers\"': '/docs/forstartups/botao-logar-com-layers',
   },
-  'Integração Layer Rostering': {
-    'Rostering: o que é': '/docs/integration/Rostering',
-    'Fluxo de dados': '/docs/integration/fluxo-sso',
-    'Permissionamento de Dados': '/docs/integration/botao-logar-com-layers',
+  'Dados Unificados (Rostering)': {
+    'Introdução a Rostering': '/docs/forstartups/Rostering',
+    'Fluxo de dados': '/docs/forstartups/fluxo-sso',
+    'Permissionamento de Dados': '/docs/forstartups/botao-logar-com-layers',
   },
-  'Integração Layers Experiência Unificada': {
-    'O que é Experiência Unificada?': '/docs/integration/experiencia-unificada',
-    'Microfrontends': '/docs/integration/microfrontends',
-    'Layers SDK': '/docs/integration/layers-sdk',
-    'Android e IOS': '/docs/integration/android-e-ios',
+  'Experiência Unificada': {
+    'Introdução a Experiência Unificada': '/docs/forstartups/experiencia-unificada',
+    'Microfrontends': '/docs/forstartups/microfrontends',
+    'Layers SDK': '/docs/forstartups/layers-sdk',
   }
 }

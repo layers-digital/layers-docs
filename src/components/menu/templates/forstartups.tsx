@@ -10,8 +10,6 @@ const items = {
   },
   'Acesso Unificado (SSO)': {
     'Introdução a SSO': '/docs/forstartups/sso',
-    'Faça Login com a Layers': '/docs/forstartups/sso#fa-a-login-com-a-layers',
-    'Layers OAuth2': '/docs/forstartups/sso#layers-oauth2',
   },
   'Dados Unificados (Rostering)': {
     'Introdução a Rostering': '/docs/forstartups/rostering',

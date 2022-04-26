@@ -10,12 +10,13 @@ const items = {
   },
   'Acesso Unificado (SSO)': {
     'Introdução a SSO': '/docs/forstartups/sso',
-    'Fluxo SSO com a Layers': '/docs/forstartups/fluxo-sso',
+    'Faça Login com a Layers': '/docs/forstartups/sso#fa-a-login-com-a-layers',
+    'Layers OAuth2': '/docs/forstartups/sso#layers-oauth2',
   },
   'Dados Unificados (Rostering)': {
     'Introdução a Rostering': '/docs/forstartups/rostering',
-    'Fluxo de dados': '/docs/forstartups/fluxo-sso',
-    'Permissionamento de Dados': '/docs/forstartups/botao-logar-com-layers',
+    'Fluxo de dados': '/docs/forstartups/fluxo-dados',
+    'Permissionamento de Dados': '/docs/forstartups/permissionamento-dados',
   },
   'Experiência Unificada': {
     'Introdução a Experiência Unificada': '/docs/forstartups/experiencia-unificada',

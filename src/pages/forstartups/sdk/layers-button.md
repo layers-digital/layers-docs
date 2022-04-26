@@ -70,6 +70,10 @@ A fonte padrão do botão de autenticação é Nunito-Bold. Embora recomendemos 
 
 Caso você tenha optado por usar o modo ```redirect```, não será possível ouvir o evento como mostrado abaixo. Em vez disso, o código sera passado na chave code dos parâmetros na query.
 
+```http
+GET https://seuapp.com/?code=ca34a65ba76de14886dc532a811740c844f610d5
+```
+
 Para os modos ```embedded```e ```popup``` o código que deve ser usado para obter o token de acesso do usuário pode ser obtido ouvindo a resposta do evento LayersAuth como mostrado no trecho de código abaixo. 
 
 ```html

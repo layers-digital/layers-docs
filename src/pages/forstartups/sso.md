@@ -49,7 +49,9 @@ Exemplo de url: `https://id.layers.digital/?client_id=myApp&redirect_uri=https:/
 Todas as chamadas devems ser feitas na seguinte url: `https://api.layers.digital`
 Após o usuário fazer o fluxo de login e aceitar os escopos, será redirecionado para `https://{{redirect_uri}}?code={{code}}`. Com este código de acesso `{{code}}`, será necessário fazer a seguinte requisição:
 
-##### **POST** `/oauth/token`
+```http
+POST /oauth/token
+```
 ###### Requisição do tipo FORM URL Encoded:
 ```js
 {
@@ -77,7 +79,10 @@ Authorization: 'Bearer {{jwtToken}}'
 
 ### Endpoints
 
-##### **GET** `/v1/oauth/account/info`
+```http
+GET /v1/oauth/account/info
+```
+
 Retorna os detalhes de uma conta e suas comunidades
 Caso utilize mais de um item na chave `includes`, é necessário separar por vírgulas
 ###### A API deve retornar um JSON com o seguinte formato:
@@ -104,7 +109,10 @@ Caso utilize mais de um item na chave `includes`, é necessário separar por ví
 }
 ```
 
-##### **GET** `/v1/oauth/user/info?_community={{community}}`
+```http
+GET /v1/oauth/user/info?_community={{community}}
+```
+
 Retorna os detalhes de um usuário, turmas e alunos
 Caso utilize mais de um item na chave `includes`, é necessário separar por vírgulas
 ###### A API deve retornar um JSON com o seguinte formato:

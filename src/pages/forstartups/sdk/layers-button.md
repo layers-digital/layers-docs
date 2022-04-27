@@ -2,8 +2,8 @@
 template: default
 title: Botão "Logar com Layers"
 tableOfContents: true
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+previousText: 'Portal Layers'
+previousUrl: '/docs/forstartups/sdk/layers-portal'
 ---
 
 # Botão "Logar com Layers"

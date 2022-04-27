@@ -1,3 +1,13 @@
+---
+template: default
+title: Layers Portal
+tableOfContents: true
+nextText: 'Botão "Logar com Layers"'
+nextUrl: '/docs/forstartups/sdk/layers-button'
+previousText: 'API Hub'
+previousUrl: '/docs/forstartups/api'
+---
+
 # Layers Portal SDK
 
 A funcionalidade de Portais da Layers permite que apps adicionem telas personalizadas à nossa interface. Além disso, apps podem também habilitar a funcionalidade de autenticação OAuth para que os usuários que acessarem o portal sejam autenticados e o app possa acessar informações consentidas por eles.

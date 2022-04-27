@@ -9,13 +9,13 @@ const items = {
     'Introdução': '/docs/forstartups',
   },
   'Layers Portal': {
-    'Portais na Layers': '/docs/forstartups/funcionalidades/portais',
+    'Portais na Layers': '/docs/forstartups/portais',
   },
   'Layers SSO': {
     'Introdução a SSO': '/docs/forstartups/sso',
   },
   'Layers Sync': {
-    'Sincronização de dados': '/docs/forstartups/funcionalidades/sincronizacao-de-dados'
+    'Sincronização de dados': '/docs/forstartups/sincronizacao-de-dados'
   },
   'Layers API Hub': {
     'API Hub': '/docs/forstartups/api'

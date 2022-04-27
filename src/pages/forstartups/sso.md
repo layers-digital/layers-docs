@@ -2,10 +2,10 @@
 template: default
 title: Introdução a SSO
 tableOfContents: true
-previousText: 'Introdução à Layers'
-previousUrl: '/docs/forstartups'
-nextText: 'Introdução a Rostering'
-nextUrl: '/docs/forstartups/rostering'
+previousText: 'Portais na Layers'
+previousUrl: '/docs/forstartups/portais'
+nextText: 'Sincronização de Dados'
+nextUrl: '/docs/forstartups/sincronizacao-de-dados'
 ---
 
 Entregamos uma experiência de Login Unificado (Single Sign-On ou SSO) para otimizar o tempo gasto com gestão de contas e acessos aos recursos digitais.

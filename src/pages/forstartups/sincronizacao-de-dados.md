@@ -2,10 +2,10 @@
 template: default
 title: Sincronização de dados
 tableOfContents: false
-nextText: 'Notficações'
-nextUrl: '/docs/concepts/funcionalidades/notificacoes'
-previousText: 'Hub de APIs'
-previousUrl: '/docs/concepts/funcionalidades/hub-de-apis'
+nextText: 'API Hub'
+nextUrl: '/docs/forstartups/api'
+previousText: 'Layers SSO'
+previousUrl: '/docs/forstartups/sso'
 ---
 
 # Sincronização de dados

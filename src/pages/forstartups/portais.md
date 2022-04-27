@@ -5,7 +5,7 @@ tableOfContents: false
 previousText: 'Layers Introdução'
 previousUrl: '/docs/forstartups'
 nextText: 'Layers SSO'
-nextUrl: '/docs/forstartups'
+nextUrl: '/docs/forstartups/sso'
 ---
 
 # Portais na Layers
@@ -17,4 +17,5 @@ A funcionalidade de Portais da Layers permite que apps adicionem telas personali
 
 Para que um app possa utilizar essa funcionalidade da Layers ele deve estar cadastrado, ter a funcionalidade "portais" habilitada e disponibilizar o link de uma página que utilize o [SDK de portais](./../../sdk/portais/introducao) da Layers. Essa biblioteca permite que o app receba eventos quando o app estiver pronto e quando estiver conectado para que ele possa ser acessado através da Layers.
 
- Para utilizar a função de autenticação em conjunto com o portal, o app deve registrar quais escopos deseja utilizar e seguir os passos descritos no [tutorial de implementação](./../../sdk/como-colocar-o-botao-logar-com-layers#4-use-o-c-digo-para-obter-o-token) do botão "logar com Layers" a partir do recebimento do código.
+ Para utilizar a função de autenticação em conjunto com o portal, o app deve registrar quais escopos deseja utilizar e seguir os passos descritos no [tutorial de implementação do botão "logar com Layers"](/docs/forstartups/sdk/layers-button#4-use-o-c-digo-para-obter-o-token) a partir do recebimento do código.
+ 

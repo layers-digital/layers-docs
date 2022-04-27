@@ -4,22 +4,21 @@ title: Single Sign-On na Layers
 tableOfContents: true
 previousText: 'Introdução'
 previousUrl: '/docs/forstartups'
-nextText: 'Sincronização de Dados'
-nextUrl: '/docs/forstartups/sincronizacao-de-dados'
+nextText: 'Validando Tokens'
+nextUrl: '/docs/forstartups/sso/validating-tokens'
 ---
 
-Entregamos uma experiência de Login Unificado (Single Sign-On ou SSO) para otimizar o tempo gasto com gestão de contas e acessos aos recursos digitais.
+Entregamos uma experiência de Login Unificado (Single Sign-On ou SSO) baseado no protocolo [OAuth2](https://oauth.net/2/) para otimizar o tempo gasto com gestão de contas e acessos aos recursos digitais.
 
 ## Faça login com a Layers
-Plataformas parceiras possuem o botão "Logar com Layers", facilitando o acesso com apenas um login. Utilizando o SSO, baseado no protocolo [OAuth2](https://oauth.net/2/), torna-se possível um login único com a Layers.
+Plataformas parceiras possuem o botão "Logar com Layers", facilitando o acesso com apenas um login.
 
-O botão é um link com parâmetros adicionados que definem para qual aplicativo a Layers deve enviar o usuário.
-Para utilizar o botão, é necessário utilizar a [SDK de Botão "Entrar com Layers"](/docs/forstartups/sdk/layers-button)
+O botão é um link com parâmetros adicionados que definem para qual aplicativo a Layers deve enviar o usuário e algumas configurações necessárias para o fluxo do
+protocolo OAuth2.
 
-## Layers OAuth2
-Caso não queira utilizar a [SDK de Botão "Entrar com Layers"](/docs/forstartups/sdk/layers-button), as especificações do OAuth2 da Layers seguem abaixo.
+Com a intenção de facilitar a vida do desenvolvedor, a Layers desenvolveu uma SDK que abstrai grande parte da lógica necessária para a implementação do botão - para utilizá-lo, é necessário utilizar a [SDK de Botão "Entrar com Layers"](/docs/forstartups/sdk/layers-button)
 
-### Escopos
+### Escopos OAuth2
 | Escopo                    | Acesso                                                                                                                                                                               |
 |---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | openid       | account.id                                                     |
@@ -28,8 +27,11 @@ Caso não queira utilizar a [SDK de Botão "Entrar com Layers"](/docs/forstartup
 | email         | account.email                                                                                                                                                                        |
 | related.communities | community.community <br/>community.name <br/>community.icon <br/>community.logo <br/>community.language <br/>community.timezone <br/>community.geolocation <br/>community.color <br/>community.createdAt <br/>community.updatedAt <br/>user.lastSeenAt <br/>user.id <br/>user.createdAt <br/>user.updatedAt <br/>user.alias <br/>user.roles <br/>user.permissions |
 | related.groups     | group.id <br/>group.name <br/>group.alias <br/>group.createdAt <br/>group.updatedAt <br/>group.enrollment.id <br/>group.enrollment.kind <br/>group.enrollment.entity <br/>group.enrollment.group <br/>group.enrollment.createdAt <br/>group.enrollment.updatedAt                                                                                               |
-| related.members                | <br/>member.name <br/>member.createdAt <br/>member.updatedAt                                                                                                                                          |
-| related.members.groups         | groups.id <br/>groups.name <br/>groups.alias <br/>groups.createdAt <br/>groups.updatedAt <br/>groups.enrollment.id <br/>groups.enrollment.kind <br/>groups.enrollment.entity <br/>groups.enrollment.group <br/>groups.enrollment.createdAt <br/>groups.enrollment.updatedAt                                                                                                                                          |
+| related.members                | member.id <br/>member.name <br/>member.createdAt <br/>member.updatedAt                                                                                                                                          |
+| related.members.groups         | groups.id <br/>group.name <br/>group.alias <br/>group.createdAt <br/>group.updatedAt <br/>group.enrollment.id <br/>group.enrollment.kind <br/>group.enrollment.entity <br/>group.enrollment.group <br/>group.enrollment.createdAt <br/>group.enrollment.updatedAt  
+
+## Layers OAuth2
+Caso não queira utilizar a [SDK de Botão "Entrar com Layers"](/docs/forstartups/sdk/layers-button) e criar seu próprio fluxo, as especificações passo a passo do OAuth2 da Layers seguem abaixo.
 
 ### Client-side
 
@@ -46,11 +48,12 @@ O cliente deverá abrir a seguinte url `https://id.layers.digital`, passando os 
 Exemplo de url: `https://id.layers.digital/?client_id=myApp&redirect_uri=https://myApp.com&response_type=code&scope=openid profile fullname`
 
 ### Autenticação
-Todas as chamadas devems ser feitas na seguinte url: `https://api.layers.digital`
+Todas as chamadas devems ser feitas na url da API da layers: `https://api.layers.digital`
+
 Após o usuário fazer o fluxo de login e aceitar os escopos, será redirecionado para `https://{{redirect_uri}}?code={{code}}`. Com este código de acesso `{{code}}`, será necessário fazer a seguinte requisição:
 
 ```http
-POST /oauth/token
+POST https://api.layers.digital/oauth/token
 ```
 ###### Requisição do tipo FORM URL Encoded:
 ```js
@@ -61,7 +64,7 @@ POST /oauth/token
     "redirect_uri": "{{redirect_uri}}"
 }
 ```
-A API deve retornar um JSON com o seguinte formato:
+###### A API retornará um JSON com o seguinte formato:
 ###### Resposta:
 ```js
 {
@@ -71,21 +74,31 @@ A API deve retornar um JSON com o seguinte formato:
     "state": String // Irá retornar o mesmo valor caso tenha sido utilizado na primeira chamada
 }
 ```
-Todos os endpoints abaixos devem ser autenticados da seguinte forma:
+
+### Requisitando dados básicos do usuário logado
+
+Todos os endpoints abaixo devem ser autenticados da seguinte forma:
 ##### Headers
 ```js
 Authorization: 'Bearer {{jwtToken}}'
 ```
 
-### Endpoints
+#### Endpoints
 
+##### Informações da Conta
 ```http
-GET /v1/oauth/account/info
+GET https://api.layers.digital/v1/oauth/account/info
 ```
 
 Retorna os detalhes de uma conta e suas comunidades
 Caso utilize mais de um item na chave `includes`, é necessário separar por vírgulas
-###### A API deve retornar um JSON com o seguinte formato:
+
+Exemplo de chamada com includes:
+```http
+GET https://api.layers.digital/v1/oauth/account/info?includes=communities
+```
+
+###### A API retornará um JSON com o seguinte formato:
 ###### Resposta:
 ```js
 {
@@ -109,13 +122,21 @@ Caso utilize mais de um item na chave `includes`, é necessário separar por ví
 }
 ```
 
+#### Informações do Usuário
+
 ```http
-GET /v1/oauth/user/info?_community={{community}}
+GET https://api.layers.digital/v1/oauth/user/info?_community={{community}}
 ```
 
 Retorna os detalhes de um usuário, turmas e alunos
 Caso utilize mais de um item na chave `includes`, é necessário separar por vírgulas
-###### A API deve retornar um JSON com o seguinte formato:
+
+Exemplo de chamada com includes:
+```http
+GET https://api.layers.digital/v1/oauth/user/info?_community={{community}}&includes=communities,groups
+```
+
+###### A API retornará um JSON com o seguinte formato:
 ###### Resposta:
 ```js
 {

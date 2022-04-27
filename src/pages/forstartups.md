@@ -21,7 +21,7 @@ A Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
   </docs-card>
   
   <docs-card header="Layers Sync" href="/docs/forstartups/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg">
-    <p>Manter os dados da Layers atualizados com as informações do ERP</p>
+    <p>Sincronização de Dados com a Layers</p>
   </docs-card>
   
   <docs-card header="Layers API Hub" href="/docs/forstartups/api" icon="/docs/assets/icons/Hub.svg">
@@ -34,4 +34,4 @@ A Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
 </docs-cards>
 
 ## Acesso
-Para ganhar acesso e integrar sua EdTech, faça seu pré-cadastro pelo [formulário de acesso](/docs/register) ou entre em contato pelo e-mail <a target="_self" href="mailto:devs@layers.education">devs@layers.education</a> para maiores informações.
+Para ganhar acesso e integrar sua Aplicação, faça seu pré-cadastro pelo [formulário de acesso](/docs/register) ou entre em contato pelo e-mail <a target="_self" href="mailto:devs@layers.education">devs@layers.education</a> para maiores informações.

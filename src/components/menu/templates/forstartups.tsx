@@ -10,6 +10,7 @@ const items = {
   },
   'Layers SSO': {
     'Single Sign-On na Layers': '/docs/forstartups/sso',
+    'Validando o Layers SSO Token': '/docs/forstartups/sso/validating-tokens',
   },
   'Layers Sync': {
     'Sincronização de dados': '/docs/forstartups/sincronizacao-de-dados'

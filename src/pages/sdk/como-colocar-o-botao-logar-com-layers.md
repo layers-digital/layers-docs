@@ -39,7 +39,7 @@ Uma vez importada a bibioteca, adicione o componente do botão à sua página pa
 + **client-id**: 
 Deve conter o identificador do seu app na Layers Education.
 + **scope**:
-Deve conter os [escopos](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md). de autorização que o usuário deve ceder permissão para o uso do seu app.
+Deve conter os [escopos](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md) de autorização que o usuário deve ceder permissão para o uso do seu app.
 + **mode**:
 Existem três valores possíveis para o atributo ```mode```:
     + ```embedded```: Abre um dialog na sua página com a tela de login da Layers para que o usuário digite suas credenciais.
@@ -87,7 +87,7 @@ Para os modos ```embedded```e ```popup``` o código que deve ser usado para obte
 Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas [rotas de OAuth disponíveis na Layers](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md).
 
 ``` http
-POST /oauth/token
+POST https://api.layers.digital/oauth/token
 ``` 
 
 ```js

@@ -26,37 +26,3 @@ Para desenvolvedores desses serviços, integrar sua solução à Layers signific
     <p>Funcionalidades para fornecedores</p>
   </docs-card> -->
 </docs-cards>
-
-## Funcionalidades para apps
-
-A Layers oferece aos desenvolvedores uma série de funcionalidades para que criem apps e integrem serviços ao ecossistema.
-
-<docs-cards>
-  <docs-card header="Logar com Layers" href="/docs/concepts/funcionalidades/logar-com-layers" icon="/docs/assets/icons/Logar com Layers.svg">
-    <p>Autenticar usuários com a Layers e acessar informações com seu consentimento</p>
-  </docs-card>
-
-  <docs-card header="Login Federado" href="/docs/concepts/funcionalidades/login-federado" icon="/docs/assets/icons/Login federado.svg">
-    <p>Autenticar usuários em serviços externos como Google, Microsoft ou sua própria API</p>
-  </docs-card>
-
-  <docs-card header="Portais" href="/docs/concepts/funcionalidades/portais" icon="/docs/assets/icons/Portais.svg">
-    <p>Permitir que seu app seja acessado dentro da Layers</p>
-  </docs-card>
-
-  <docs-card header="Hub de APIs" href="/docs/concepts/funcionalidades/hub-de-apis" icon="/docs/assets/icons/Hub.svg">
-    <p>Prover informações sobre horários, frequência, cobranças e mais</p>
-  </docs-card>
-
-  <docs-card header="Sincronização de Dados" href="/docs/concepts/funcionalidades/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg">
-    <p>Manter os dados da Layers atualizados com as informações do ERP</p>
-  </docs-card>
-
-  <docs-card header="Notificações" href="/docs/concepts/funcionalidades/notificacoes" icon="/docs/assets/icons/Notifications.svg">
-    <p>Mandar notificações push para Android, iOS e Web</p>
-  </docs-card>
-
-  <docs-card header="Comunicação" href="/docs/concepts/funcionalidades/comunicacao" icon="/docs/assets/icons/Comunicação.svg">
-    <p>Enviar comunicados para a comunidade escolar</p>
-  </docs-card>
-</docs-cards>

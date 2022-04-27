@@ -36,7 +36,7 @@ export class DocsHeader {
     return [
       ['Docs'].includes(section) ?
       <div class="SectionNav-tabs">
-        <stencil-route-link url="/docs/" urlMatch={[/^\/docs(?!\/(api|sdk|status|register|suporte|forstartups)).*$/]}>Conceitos</stencil-route-link>
+        <stencil-route-link url="/docs/" urlMatch={[/^\/docs(?!\/(api|sdk|status|register|suporte|forstartups)).*$/]}>Introdução</stencil-route-link>
         <stencil-route-link url="/docs/api" urlMatch={['/docs/api']}>APIs</stencil-route-link>
         <stencil-route-link url="/docs/sdk/como-colocar-o-botao-logar-com-layers" urlMatch={['/docs/sdk']}>SDKs</stencil-route-link>
         <stencil-route-link url="/docs/status" urlMatch={['/docs/status']}>Status</stencil-route-link>

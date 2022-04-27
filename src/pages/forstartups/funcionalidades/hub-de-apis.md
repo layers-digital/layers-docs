@@ -1,6 +1,6 @@
 ---
 template: default
-title: Hub de APIs
+title: API Hub
 tableOfContents: true
 previousText: 'Portais'
 previousUrl: '/docs/concepts/funcionalidades/portais'
@@ -8,13 +8,13 @@ nextText: 'Sincronização de Dados'
 nextUrl: '/docs/concepts/funcionalidades/sincronizacao-de-dados'
 ---
 
-# Hub de APIs
+# API Hub
 
-Apps na Layers podem prover e/ou requisitar informações através do Hub de APIs por meio de actions: protocolos que especificam o formato de requisições e respostas que devem ser seguidos tanto pelo app que requisita as informações quanto pelo app que vai provê-las.
+Apps na Layers podem prover e/ou requisitar informações através do API Hub por meio de actions: protocolos que especificam o formato de requisições e respostas que devem ser seguidos tanto pelo app que requisita as informações quanto pelo app que vai provê-las.
 
 ## Fluxo de Informações
 
-A troca de informações entre apps por meio do Hub de APIs pode ser descrita em quatro etapas:
+A troca de informações entre apps por meio do API Hub pode ser descrita em quatro etapas:
 
 + <strong> 1 - App requisita informações </strong>
 
@@ -34,7 +34,7 @@ Ao receber a resposta do provedor, a Layers verifica se ela está de acordo com 
 
 ## Actions disponíveis
 
-A [referência do Hub de APIs](./../../api/apihub/@layerscalendargetrelated/post) tem descritas todas as actions suportadas hoje pela Layers descrevendo o formato de requisição que apps provedores devem receber e qual deve ser o formato da resposta devem retornar.
+A [referência do API Hub](./../../api/apihub/@layerscalendargetrelated/post) tem descritas todas as actions suportadas hoje pela Layers descrevendo o formato de requisição que apps provedores devem receber e qual deve ser o formato da resposta devem retornar.
 
 Para cada uma dessas actions, está disponível um app desenvolvido pela Layers que disponibiliza essas informações. Assim, apps provedores podem se responsabilizar apenas em disponibilizar as informações e nossos apps se responsabilizam por expor essas informações da melhor maneira para os usuários da Layers.
 

@@ -34,7 +34,7 @@
 - Links para tutoriais
 - Link pra referência
 ### Portais
-### Hub de APIs
+### API Hub
 ### Sincronização de Dados
 ### Notificações
 ### E-commerce

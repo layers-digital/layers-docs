@@ -2,8 +2,8 @@
 template: default
 title: Validando o Layers SSO Token
 tableOfContents: true
-previousText: 'Single Sign-On na layers'
-previousUrl: '/docs/forstartups/sso'
+previousText: 'Requisitando Informações do Usuário'
+previousUrl: '/docs/forstartups/sso/basic-user-info'
 nextText: 'Sincronização de Dados'
 nextUrl: '/docs/forstartups/sincronizacao-de-dados'
 ---

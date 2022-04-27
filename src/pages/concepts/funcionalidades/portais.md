@@ -4,7 +4,7 @@ title: Portais na Layers
 tableOfContents: false
 previousText: 'Logar com Layers'
 previousUrl: '/docs/concepts/funcionalidades/logar-com-layers'
-nextText: 'Hub de APIs'
+nextText: 'API Hub'
 nextUrl: '/docs/concepts/funcionalidades/hub-de-apis'
 ---
 

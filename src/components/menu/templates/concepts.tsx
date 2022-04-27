@@ -20,7 +20,7 @@ const items = {
   //   // '': '/docs/concepts/funcionalidades',
   //   'Logar com Layers': '/docs/concepts/funcionalidades/logar-com-layers',
   //   'Portais': '/docs/concepts/funcionalidades/portais',
-    'Hub de APIs': '/docs/concepts/funcionalidades/hub-de-apis',
+    'API Hub': '/docs/concepts/funcionalidades/hub-de-apis',
     'Sincronização de Dados': '/docs/concepts/funcionalidades/sincronizacao-de-dados',
     // 'Notificações': '/docs/concepts/funcionalidades/notificacoes',
   //   // 'E-commerce': '/docs/concepts/funcionalidades/e-commerce',
@@ -31,7 +31,7 @@ const items = {
   // 'Construindo Apps': {
   //   'O que é um App?': '/docs/concepts/construindo-apps/o-que-e-um-app',
   //   // 'Acesso à API': '/docs/concepts/construindo-apps/acesso-a-api',
-  //   // 'Hub de APIs': '/docs/concepts/construindo-apps/hub-de-apis',
+  //   // 'API Hub': '/docs/concepts/construindo-apps/hub-de-apis',
   // },
 
   'Ecossistema Layers': {

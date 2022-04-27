@@ -13,7 +13,7 @@ A Layers oferece para instituições de ensino um único ambiente ao qual é pos
 ## Principais funcionalidades
 
 <docs-cards>
-  <docs-card header="Hub de APIs" href="/docs/concepts/funcionalidades/hub-de-apis" icon="/docs/assets/icons/Hub.svg">
+  <docs-card header="API Hub" href="/docs/concepts/funcionalidades/hub-de-apis" icon="/docs/assets/icons/Hub.svg">
     <p>Prover informações sobre horários, frequência, cobranças e mais</p>
   </docs-card>
 

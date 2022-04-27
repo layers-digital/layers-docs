@@ -2,8 +2,8 @@
 template: default
 title: Sincronização de dados
 tableOfContents: false
-nextText: 'Notficações'
-nextUrl: '/docs/concepts/funcionalidades/notificacoes'
+nextText: 'Login Federado'
+nextUrl: '/docs/concepts/funcionalidades/login-federado'
 previousText: 'Hub de APIs'
 previousUrl: '/docs/concepts/funcionalidades/hub-de-apis'
 ---

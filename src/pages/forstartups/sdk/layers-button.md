@@ -2,7 +2,7 @@
 template: default
 title: Botão "Logar com Layers"
 tableOfContents: true
-previousText: 'Portal Layers'
+previousText: 'Layers Portal'
 previousUrl: '/docs/forstartups/sdk/layers-portal'
 ---
 

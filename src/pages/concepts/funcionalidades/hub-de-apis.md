@@ -2,8 +2,6 @@
 template: default
 title: Hub de APIs
 tableOfContents: true
-previousText: 'Portais'
-previousUrl: '/docs/concepts/funcionalidades/portais'
 nextText: 'Sincronização de Dados'
 nextUrl: '/docs/concepts/funcionalidades/sincronizacao-de-dados'
 ---
@@ -34,7 +32,7 @@ Ao receber a resposta do provedor, a Layers verifica se ela está de acordo com 
 
 ## Actions disponíveis
 
-A [referência do Hub de APIs](./../../api/apihub/@layerscalendargetrelated/post) tem descritas todas as actions suportadas hoje pela Layers descrevendo o formato de requisição que apps provedores devem receber e qual deve ser o formato da resposta devem retornar.
+A [referência do Hub de APIs](/docs/api) tem descritas todas as actions suportadas hoje pela Layers descrevendo o formato de requisição que apps provedores devem receber e qual deve ser o formato da resposta devem retornar.
 
 Para cada uma dessas actions, está disponível um app desenvolvido pela Layers que disponibiliza essas informações. Assim, apps provedores podem se responsabilizar apenas em disponibilizar as informações e nossos apps se responsabilizam por expor essas informações da melhor maneira para os usuários da Layers.
 

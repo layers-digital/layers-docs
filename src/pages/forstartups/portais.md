@@ -2,10 +2,10 @@
 template: default
 title: Portais na Layers
 tableOfContents: false
-previousText: 'Layers Introdução'
-previousUrl: '/docs/forstartups'
-nextText: 'Layers SSO'
-nextUrl: '/docs/forstartups/sso'
+previousText: 'Sincronização de Dados'
+previousUrl: '/docs/forstartups/sincronizacao-de-dados'
+nextText: 'API Hub'
+nextUrl: '/docs/forstartups/api'
 ---
 
 # Portais na Layers

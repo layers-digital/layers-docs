@@ -2,8 +2,8 @@
 template: default
 title: Sincronização de dados
 tableOfContents: false
-nextText: 'API Hub'
-nextUrl: '/docs/forstartups/api'
+nextText: 'Portais na Layers'
+nextUrl: '/docs/forstartups/portais'
 previousText: 'Layers SSO'
 previousUrl: '/docs/forstartups/sso'
 ---

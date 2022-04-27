@@ -4,8 +4,8 @@ title: Login Federado
 tableOfContents: false
 nextText: 'Comunicação'
 nextUrl: '/docs/concepts/funcionalidades/comunicacao'
-previousText: 'Notificações'
-previousUrl: '/docs/concepts/funcionalidades/notificacoes'
+previousText: 'Sincronização de Dados'
+previousUrl: '/docs/concepts/funcionalidades/sincronizacao-de-dados'
 ---
 
 # Login Federado

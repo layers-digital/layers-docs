@@ -25,7 +25,7 @@ A Layers oferece um conjunto de ferramentas que permitem que sistemas de gestão
     <p>Enviar comunicados para a comunidade escolar</p>
   </docs-card>
 
-  <docs-card header="Notificações" href="/docs/concepts/funcionalidades/notificacoes" icon="/docs/assets/icons/Notifications.svg">
+  <!-- <docs-card header="Notificações" href="/docs/concepts/funcionalidades/notificacoes" icon="/docs/assets/icons/Notifications.svg">
     <p>Mandar notificações push para android, ios e web</p>
-  </docs-card>
+  </docs-card> -->
 </docs-cards>

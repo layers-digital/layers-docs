@@ -1,9 +1,9 @@
 ---
 template: default
-title: Introdução a SSO
+title: Single Sign-On na Layers
 tableOfContents: true
-previousText: 'Portais na Layers'
-previousUrl: '/docs/forstartups/portais'
+previousText: 'Introdução'
+previousUrl: '/docs/forstartups'
 nextText: 'Sincronização de Dados'
 nextUrl: '/docs/forstartups/sincronizacao-de-dados'
 ---

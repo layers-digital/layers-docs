@@ -22,7 +22,7 @@ const items = {
   //   'Portais': '/docs/concepts/funcionalidades/portais',
     'Hub de APIs': '/docs/concepts/funcionalidades/hub-de-apis',
     'Sincronização de Dados': '/docs/concepts/funcionalidades/sincronizacao-de-dados',
-    'Notificações': '/docs/concepts/funcionalidades/notificacoes',
+    // 'Notificações': '/docs/concepts/funcionalidades/notificacoes',
   //   // 'E-commerce': '/docs/concepts/funcionalidades/e-commerce',
     'Login Federado': '/docs/concepts/funcionalidades/login-federado',
     'Comunicação': '/docs/concepts/funcionalidades/comunicacao'

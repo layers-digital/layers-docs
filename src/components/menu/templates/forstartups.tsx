@@ -8,14 +8,14 @@ const items = {
   'Layers': {
     'Introdução': '/docs/forstartups',
   },
-  'Layers Portal': {
-    'Portais na Layers': '/docs/forstartups/portais',
-  },
   'Layers SSO': {
-    'Introdução a SSO': '/docs/forstartups/sso',
+    'Single Sign-On na Layers': '/docs/forstartups/sso',
   },
   'Layers Sync': {
     'Sincronização de dados': '/docs/forstartups/sincronizacao-de-dados'
+  },
+  'Layers Portal': {
+    'Portais na Layers': '/docs/forstartups/portais',
   },
   'Layers API Hub': {
     'API Hub': '/docs/forstartups/api'

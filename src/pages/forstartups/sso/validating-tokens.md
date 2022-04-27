@@ -1,6 +1,6 @@
 ---
 template: default
-title: Layers SSO Token
+title: Validando o Layers SSO Token
 tableOfContents: true
 previousText: 'Single Sign-On na layers'
 previousUrl: '/docs/forstartups/sso'

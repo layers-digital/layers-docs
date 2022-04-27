@@ -4,8 +4,8 @@ title: Sincronização de dados
 tableOfContents: false
 nextText: 'Portais na Layers'
 nextUrl: '/docs/forstartups/portais'
-previousText: 'Layers SSO'
-previousUrl: '/docs/forstartups/sso'
+previousText: 'Validando o Layers SSO Token'
+previousUrl: '/docs/forstartups/sso/validating-tokens'
 ---
 
 # Sincronização de dados

@@ -6,8 +6,8 @@ export default () => {
 };
 
 const items = {
-  'API Hub': {
-    'Introdução': '/docs/api/apihub',
+  'Layers Sync': {
+    'Introdução': '/docs/sync',
   },
-  ...(menuData.apihub)
+  ...(menuData.data)
 }

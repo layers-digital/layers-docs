@@ -1,5 +1,5 @@
 ---
-template: api-general
+template: default
 tableOfContents: false
 previousText: "Sincronização de Dados"
 previousUrl: "/docs/forstartups/sincronizacao-de-dados"

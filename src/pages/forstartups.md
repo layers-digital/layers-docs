@@ -2,8 +2,8 @@
 template: default
 title: Layers, o SuperApp da Educação
 tableOfContents: true
-nextText: 'Layers SSO'
-nextUrl: '/docs/forstartups/sso'
+nextText: 'Portais na Layers'
+nextUrl: '/docs/forstartups/portais'
 ---
 
 ![Beta](https://img.shields.io/badge/Status-Beta-green)
@@ -16,6 +16,10 @@ Para desenvolvedores, integrar sua solução à Layers significa criar um app ú
 A Layers oferece aos desenvolvedores uma série de funcionalidades para que criem apps e integrem serviços ao ecossistema.
 
 <docs-cards>
+  <docs-card header="Layers Portal" href="/docs/forstartups/portais" icon="/docs/assets/icons/Portais.svg">
+    <p>Permitir que seu app seja acessado dentro da Layers</p>
+  </docs-card>
+
   <docs-card header="Layers SSO" href="/docs/forstartups/sso" icon="/docs/assets/icons/Logar com Layers.svg">
     <p>Autenticar usuários com a Layers e acessar informações com seu consentimento</p>
   </docs-card>
@@ -26,11 +30,7 @@ A Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
   
   <docs-card header="Layers API Hub" href="/docs/forstartups/api" icon="/docs/assets/icons/Hub.svg">
     <p>Prover informações sobre horários, frequência, cobranças e mais</p>
-  </docs-card>
-  
-  <docs-card header="Layers Portal" href="/docs/forstartups/portais" icon="/docs/assets/icons/Portais.svg">
-    <p>Permitir que seu app seja acessado dentro da Layers</p>
-  </docs-card>
+  </docs-card>  
 </docs-cards>
 
 ## Acesso

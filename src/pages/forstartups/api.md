@@ -1,8 +1,8 @@
 ---
 template: api-general
 tableOfContents: false
-previousText: "Portais na Layers"
-previousUrl: "/docs/forstartups/portais"
+previousText: "Sincronização de Dados"
+previousUrl: "/docs/forstartups/sincronizacao-de-dados"
 nextText: "Layers Portal SDK"
 nextUrl: "/docs/forstartups/sdk/layers-portal"
 ---

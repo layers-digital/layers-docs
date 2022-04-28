@@ -2,8 +2,8 @@
 template: default
 title: Sincronização de dados
 tableOfContents: false
-nextText: 'Portais na Layers'
-nextUrl: '/docs/forstartups/portais'
+nextText: 'API Hub'
+nextUrl: '/docs/forstartups/api'
 previousText: 'Validando o Layers SSO Token'
 previousUrl: '/docs/forstartups/sso/validating-tokens'
 ---

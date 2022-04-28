@@ -8,6 +8,9 @@ const items = {
   'Layers': {
     'Introdução': '/docs/forstartups',
   },
+  'Layers Portal': {
+    'Portais na Layers': '/docs/forstartups/portais',
+  },
   'Layers SSO': {
     'Single Sign-On na Layers': '/docs/forstartups/sso',
     'Requisitando Informações do Usuário': '/docs/forstartups/sso/basic-user-info',
@@ -15,9 +18,6 @@ const items = {
   },
   'Layers Sync': {
     'Sincronização de dados': '/docs/forstartups/sincronizacao-de-dados'
-  },
-  'Layers Portal': {
-    'Portais na Layers': '/docs/forstartups/portais',
   },
   'Layers API Hub': {
     'API Hub': '/docs/forstartups/api'

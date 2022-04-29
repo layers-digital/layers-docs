@@ -21,10 +21,6 @@ A Layers oferece um conjunto de ferramentas que permitem que sistemas de gestão
     <p>Manter os dados da Layers atualizados com as informações do ERP</p>
   </docs-card>
 
-  <docs-card header="Comunicação" href="/docs/concepts/funcionalidades/comunicacao" icon="/docs/assets/icons/Comunicação.svg">
-    <p>Enviar comunicados para a comunidade escolar</p>
-  </docs-card>
-
   <!-- <docs-card header="Notificações" href="/docs/concepts/funcionalidades/notificacoes" icon="/docs/assets/icons/Notifications.svg">
     <p>Mandar notificações push para android, ios e web</p>
   </docs-card> -->

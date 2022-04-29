@@ -10,7 +10,7 @@ previousUrl: '/docs/concepts/funcionalidades/hub-de-apis'
 
 # Sincronização de dados
 
-A API de dados permite que apps visualizem, criem e editem informações de usuários, membros, grupos e vínculos de acordo com as permissões que possuem na comunidade em que estão instalados. Por meio dessa funcionalidade é possível sincronizar dados das entidades da Layers, mantendo as informações atualizadas e uniformes entre a Layers e plataformas externas como sistemas de gestão ou registros de alunos e turmas.
+A API de dados permite que apps visualizem e importem informações de usuários, membros, grupos e vínculos de acordo com as permissões que possuem na comunidade em que estão instalados. Por meio dessa funcionalidade é possível sincronizar dados das entidades da Layers, mantendo as informações atualizadas e uniformes entre a Layers e plataformas externas como sistemas de gestão ou registros de alunos e turmas.
 
 
 ## Rotas disponíveis e permissões

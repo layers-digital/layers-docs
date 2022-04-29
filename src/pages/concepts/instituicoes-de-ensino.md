@@ -21,10 +21,6 @@ A Layers oferece para instituições de ensino um único ambiente ao qual é pos
     <p>Manter os dados da Layers atualizados com as informações do ERP</p>
   </docs-card>
 
-  <docs-card header="Comunicação" href="/docs/concepts/funcionalidades/comunicacao" icon="/docs/assets/icons/Comunicação.svg">
-    <p>Enviar comunicados para a comunidade escolar</p>
-  </docs-card>
-
   <docs-card header="Login Federado" href="/docs/concepts/funcionalidades/login-federado" icon="/docs/assets/icons/Login federado.svg">
     <p>Autenticar usuários em serviços externos como Google, Microsoft ou sua própria API</p>
   </docs-card>

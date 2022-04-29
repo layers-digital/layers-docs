@@ -6,7 +6,6 @@ nextText: 'Portais na Layers'
 nextUrl: '/docs/forstartups/portais'
 ---
 
-![Beta](https://img.shields.io/badge/Status-Beta-green)
 A plataforma que unifica todas as soluções digitais da educação. Um único login para todos os recursos no mesmo ambiente digital.
 
 Para desenvolvedores, integrar sua solução à Layers significa criar um app único com as funcionalidades disponibilizadas. Esse app, uma vez revisado e aprovado, poderá ser utilizado por qualquer instituição que utilize a Layers, sem necessidade de realizar novas integrações ou desenvolvimento específico para cada instituição.

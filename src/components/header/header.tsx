@@ -66,6 +66,8 @@ export class DocsHeader {
           </nav>
 
           <nav class="UtilNav">
+            <img src='https://img.shields.io/badge/Status-Beta-green' alt='Doc Status' />
+
             <docs-dropdown label={getString('header-support')} align="right">
               <section>
                 <a href="https://id.layers.digital" target="_blank">Acessar Plataforma</a>

@@ -6,8 +6,8 @@ export default () => {
 };
 
 const items = {
-  'Layers Sync': {
-    'Introdução': '/docs/sync',
+  'Layers Data Sync': {
+    'Introdução': '/docs/api/data',
   },
   ...(menuData.data)
 }

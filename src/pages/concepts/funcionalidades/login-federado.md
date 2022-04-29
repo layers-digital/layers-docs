@@ -2,8 +2,8 @@
 template: default
 title: Login Federado
 tableOfContents: false
-nextText: 'Comunicação'
-nextUrl: '/docs/concepts/funcionalidades/comunicacao'
+nextText: 'Ecossistema Layers - Introdução'
+nextUrl: '/docs/concepts/ecossistema-layers'
 previousText: 'Sincronização de Dados'
 previousUrl: '/docs/concepts/funcionalidades/sincronizacao-de-dados'
 ---

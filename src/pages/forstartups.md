@@ -24,7 +24,7 @@ A Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
     <p>Autenticar usuários com a Layers e acessar informações com seu consentimento</p>
   </docs-card>
   
-  <docs-card header="Layers Sync" href="/docs/forstartups/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg">
+  <docs-card header="Layers Data Sync" href="/docs/forstartups/sincronizacao-de-dados" icon="/docs/assets/icons/Data.svg">
     <p>Sincronização de Dados com a Layers</p>
   </docs-card>
   

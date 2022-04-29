@@ -16,7 +16,7 @@ const items = {
     'Requisitando Informações do Usuário': '/docs/forstartups/sso/basic-user-info',
     'Validando o Layers SSO Token': '/docs/forstartups/sso/validating-tokens',
   },
-  'Layers Sync': {
+  'Layers Data Sync': {
     'Sincronização de dados': '/docs/forstartups/sincronizacao-de-dados'
   },
   'Layers API Hub': {

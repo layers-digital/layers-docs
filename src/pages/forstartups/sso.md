@@ -16,7 +16,7 @@ Plataformas parceiras possuem o botão "Logar com Layers", facilitando o acesso 
 O botão é um link com parâmetros adicionados que definem para qual aplicativo a Layers deve enviar o usuário e algumas configurações necessárias para o fluxo do
 protocolo OAuth2.
 
-Com a intenção de facilitar a vida do desenvolvedor, a Layers desenvolveu uma SDK que abstrai grande parte da lógica necessária para a implementação do botão - para utilizá-lo, é necessário utilizar a [SDK de Botão "Logar com Layers"](/docs/forstartups/sdk/layers-button)
+Com a intenção de facilitar a vida do desenvolvedor, a Layers desenvolveu uma SDK que abstrai grande parte da lógica necessária para a implementação do botão - para utilizá-lo, é necessário utilizar a [SDK de Botão "Logar com Layers"](/docs/forstartups/sso/layers-button)
 
 ### Escopos OAuth2
 | Escopo                    | Acesso                                                                                                                                                                               |
@@ -31,7 +31,7 @@ Com a intenção de facilitar a vida do desenvolvedor, a Layers desenvolveu uma 
 | related.members.groups         | groups.id <br/>group.name <br/>group.alias <br/>group.createdAt <br/>group.updatedAt <br/>group.enrollment.id <br/>group.enrollment.kind <br/>group.enrollment.entity <br/>group.enrollment.group <br/>group.enrollment.createdAt <br/>group.enrollment.updatedAt  
 
 ## Layers OAuth2
-Caso não queira utilizar a [SDK de Botão "Logar com Layers"](/docs/forstartups/sdk/layers-button) e criar seu próprio fluxo, as especificações passo a passo do OAuth2 da Layers seguem abaixo.
+Caso não queira utilizar a [SDK de Botão "Logar com Layers"](/docs/forstartups/sso/layers-button) e criar seu próprio fluxo, as especificações passo a passo do OAuth2 da Layers seguem abaixo.
 
 ### Client-side
 

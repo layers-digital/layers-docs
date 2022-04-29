@@ -92,7 +92,7 @@ Para os modos ```embedded```e ```popup``` o código que deve ser usado para obte
 
 ## 4 - Use o código para obter o token
 
-Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas [rotas de OAuth disponíveis na Layers](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md).
+Por fim, use o código obtido para na requisição abaixo obter o token de autenticação do usuário, o qual deve ser utilizado como forma de autenticação nas [rotas de dados do usuário na Layers](/docs/forstartups/sso/basic-user-info).
 
 ``` http
 POST https://api.layers.digital/oauth/token
@@ -127,3 +127,5 @@ A API deve retornar um JSON com o seguinte formato:
 + **token_type**: Tipo de token
 + **expires_in**: Tempo até o token expirar em segundos
 + **state**: Mensagem adicional que pode ser utilizada para ser retornado na rota de token de acesso
+
+O `access_token` possuirá o token de autenticação do usuário na Layers.

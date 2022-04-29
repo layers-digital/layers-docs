@@ -1,20 +1,20 @@
 ---
 template: default
-title: Layers Portal
+title: Layers Portal SDK
 tableOfContents: true
-nextText: 'Botão "Logar com Layers"'
-nextUrl: '/docs/forstartups/sdk/layers-button'
-previousText: 'API Hub'
-previousUrl: '/docs/forstartups/api'
+nextText: 'Single Sign-On na Layers'
+nextUrl: '/docs/forstartups/sso'
+previousText: 'Portais na Layers'
+previousUrl: '/docs/forstartups/portais'
 ---
 
 # Layers Portal SDK
 
-A funcionalidade de Portais da Layers permite que apps adicionem telas personalizadas à nossa interface. Além disso, apps podem também habilitar a funcionalidade de autenticação OAuth para que os usuários que acessarem o portal sejam autenticados e o app possa acessar informações consentidas por eles.
+A funcionalidade de Portais da Layers permite que apps adicionem telas personalizadas à nossa interface, formando uma experiência unificada e integrando totalmente no ecossistema Layers.
 
 ## Importando e configurando o SDK
 
-Uma vez que o app está registrado ele poderá ser instalado nas comunidades e adicionar a tela à Layers. Para isso, a página que será acessada através da Layers deve importar nosso SDK de portais da maneira que está exemplificado abaixo. Através desse SDK, apps podem acessar informações e funcionalidades da Layers.
+Uma vez que o app está registrado ele poderá ser instalado nas comunidades e utilizado pelos usuários da comunidade em específico. Para que tudo funcione de forma segura e fluida para o usuário final, a página que será acessada através da Layers deve importar nosso SDK de portais da maneira que está exemplificado abaixo. Através desse SDK, apps podem acessar informações e funcionalidades da Layers.
 
 ``` html
 <!DOCTYPE HTML>
@@ -78,7 +78,7 @@ O SDK de portais também oferece propriedades e métodos que permitem que apps a
 
 + **ready**: Booleano que indica se o SDK de portais foi importado com sucesso
 + **connected**: Booleano que indica se o SDK de portais está conectado com a Layers
-+ **platform**: String que pode ter o valor de `"iframe"`, `"ios"` ou `"android"` se a página estiver sendo acessada através ad Layers ou `null` se estiver sendo acessada fora da Layers.
++ **platform**: String que pode ter o valor de `"iframe"`, `"ios"` ou `"android"` se a página estiver sendo acessada através da Layers ou `null` se estiver sendo acessada fora da Layers.
 + **session**: String da seção
 + **userId**: String do identificador único do usuário na Layers
 + **communityId**: String do identificador da comunidade através do qual o usuário está acessando o portal

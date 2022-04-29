@@ -15,4 +15,4 @@ A API de dados permite que apps visualizem e importem informações de usuários
 
 ## Rotas disponíveis e permissões
 
-Para que um app possa ter acesso à API de dados, é necessário que ele esteja registrado na Layers com a funcionalidade de uso de APIs habilitada e as permissões necessárias para ver (`[entidade]:read`) informações das entidades com as quais o app vai interagir. As rotas disponíveis na API de dados da Layers estão descritas [aqui](/docs/api/data).
+Para que um app possa ter acesso à API de dados, é necessário que ele esteja registrado na Layers com a funcionalidade de uso de APIs habilitada e as permissões necessárias para ver (`[entidade]:read`) informações das entidades com as quais o app vai interagir. As funcionalidades e rotas disponíveis da API de Dados da Layers estão descritas no [Layers Data Sync](/docs/api/data).

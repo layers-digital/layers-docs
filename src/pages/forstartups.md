@@ -27,10 +27,10 @@ A Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
     <p>Sincronização de Dados com a Layers</p>
   </docs-card>
   
-  <docs-card header="Layers API Hub" href="/docs/forstartups/api/apihub" icon="/docs/assets/icons/Hub.svg">
+  <docs-card header="Layers API Hub" href="/docs/forstartups/api" icon="/docs/assets/icons/Hub.svg">
     <p>Prover informações sobre horários, frequência, cobranças e mais</p>
   </docs-card>  
 </docs-cards>
 
 ## Acesso
-Para ganhar acesso e integrar sua Aplicação, faça seu pré-cadastro pelo [formulário de acesso](/docs/register) ou entre em contato pelo e-mail <a target="_self" href="mailto:devs@layers.education">devs@layers.education</a> para maiores informações.
+Para ganhar acesso e integrar sua Aplicação, faça seu pré-cadastro pelo [formulário de acesso](/docs/register) ou entre em contato pelo e-mail <a target="_self" href="mailto:devs@layers.education">devs@layers.education</a> para maiores informações. Após o preenchimento e validação do pré-cadastro, entraremos em contato para disponibilizar um ambiente de desenvolvimento em que consiga testar sua aplicação.

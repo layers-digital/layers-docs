@@ -2,8 +2,8 @@
 template: default
 title: Requisitando Informações do Usuário
 tableOfContents: true
-previousText: 'Single Sign-On na Layers'
-previousUrl: '/docs/forstartups/sso'
+previousText: 'Botão "Logar com Layers"'
+previousUrl: '/docs/forstartups/sso/layers-button'
 nextText: 'Validando o Layers SSO Token'
 nextUrl: '/docs/forstartups/sso/validating-tokens'
 ---

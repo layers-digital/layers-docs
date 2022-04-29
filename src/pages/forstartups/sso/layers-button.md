@@ -2,8 +2,10 @@
 template: default
 title: Botão "Logar com Layers"
 tableOfContents: true
-previousText: 'Layers Portal'
-previousUrl: '/docs/forstartups/sdk/layers-portal'
+previousText: 'Single Sign-On na Layers'
+previousUrl: '/docs/forstartups/sso'
+nextText: 'Requisitando Informações do Usuários'
+nextUrl: '/docs/forstartups/sso/basic-user-info'
 ---
 
 # Botão "Logar com Layers"

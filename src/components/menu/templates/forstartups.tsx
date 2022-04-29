@@ -10,9 +10,11 @@ const items = {
   },
   'Layers Portal': {
     'Portais na Layers': '/docs/forstartups/portais',
+    'Layers Portal SDK': '/docs/forstartups/portais/layers-portal',
   },
   'Layers SSO': {
     'Single Sign-On na Layers': '/docs/forstartups/sso',
+    'Botão "Logar com Layers"': '/docs/forstartups/sso/layers-button',
     'Requisitando Informações do Usuário': '/docs/forstartups/sso/basic-user-info',
     'Validando o Layers SSO Token': '/docs/forstartups/sso/validating-tokens',
   },
@@ -21,9 +23,5 @@ const items = {
   },
   'Layers API Hub': {
     'API Hub': '/docs/forstartups/api'
-  },
-  'Software Development Kits': {
-    'Layers Portal': '/docs/forstartups/sdk/layers-portal',
-    'Botão "Logar com Layers"': '/docs/forstartups/sdk/layers-button',
   }
 }

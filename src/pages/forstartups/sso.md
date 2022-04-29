@@ -2,10 +2,10 @@
 template: default
 title: Single Sign-On na Layers
 tableOfContents: true
-previousText: 'Portais na Layers'
-previousUrl: '/docs/forstartups/portais'
-nextText: 'Requisitando Informações do Usuário'
-nextUrl: '/docs/forstartups/sso/basic-user-info'
+previousText: 'Layers Portal SDK'
+previousUrl: '/docs/forstartups/portais/layers-portal'
+nextText: 'Botão "Logar com Layers"'
+nextUrl: '/docs/forstartups/sso/layers-button'
 ---
 
 Entregamos uma experiência de Login Unificado (Single Sign-On ou SSO) baseado no protocolo [OAuth2](https://oauth.net/2/) para otimizar o tempo gasto com gestão de contas e acessos aos recursos digitais.

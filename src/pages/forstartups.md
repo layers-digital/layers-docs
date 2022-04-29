@@ -27,7 +27,7 @@ A Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
     <p>Sincronização de Dados com a Layers</p>
   </docs-card>
   
-  <docs-card header="Layers API Hub" href="/docs/forstartups/api" icon="/docs/assets/icons/Hub.svg">
+  <docs-card header="Layers API Hub" href="/docs/forstartups/api/apihub" icon="/docs/assets/icons/Hub.svg">
     <p>Prover informações sobre horários, frequência, cobranças e mais</p>
   </docs-card>  
 </docs-cards>

@@ -1,0 +1,2642 @@
+{
+  "path": "/docs/forstartups/sso/basic-user-info",
+  "template": "default",
+  "title": "Requisitando Informações do Usuário",
+  "tableOfContents": true,
+  "previousText": "Botão \"Logar com Layers\"",
+  "previousUrl": "/docs/forstartups/sso/layers-button",
+  "nextText": "Validando o Layers SSO Token",
+  "nextUrl": "/docs/forstartups/sso/validating-tokens",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Após o login, provavelmente sua aplicação precisará de informações básicas do usuário logado. Dada essa necessidade, a Layers disponibiliza rotas para que as aplicações consigam facilmente os dados do usuário logado. "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "requisi-es"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#requisi-es"
+        },
+        "Requisições"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Todos os endpoints abaixo devem ser autenticados da seguinte forma:"
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "headers"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#headers"
+        },
+        "Headers"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "headers"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "Authorization: 'Bearer {{Layers SSO Token}}'"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "endpoints"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#endpoints"
+        },
+        "Endpoints"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "informa-es-da-conta"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#informa-es-da-conta"
+        },
+        "Informações da Conta"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/oauth/account/info"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Retorna os detalhes de uma conta e suas comunidades\nCaso utilize mais de um item na chave ",
+      [
+        "code",
+        null,
+        "includes"
+      ],
+      ", é necessário separar por vírgulas"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Exemplo de chamada com includes:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/oauth/account/info"
+          ],
+          [
+            "span",
+            {
+              "class": "token query"
+            },
+            [
+              "span",
+              {
+                "class": "token separator"
+              },
+              "?"
+            ],
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              [
+                "span",
+                {
+                  "class": "token name"
+                },
+                "includes"
+              ],
+              "=",
+              [
+                "span",
+                {
+                  "class": "token value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token string"
+                  },
+                  "communities"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h6",
+      {
+        "id": "a-api-retornar-um-json-com-o-seguinte-formato-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#a-api-retornar-um-json-com-o-seguinte-formato-"
+        },
+        "A API retornará um JSON com o seguinte formato:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h6",
+      {
+        "id": "resposta-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#resposta-"
+        },
+        "Resposta:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"createdAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Data de criação da conta"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"email\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Email de acesso da conta"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"firstName\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Primeiro nome"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador único"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"language\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Idioma principal da conta"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"lastName\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Último nome"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome completo"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"timezone\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Timezone principal da conta\","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Última data de atualização da conta,"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"communities\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Incluir \"includes=communities\" na querystring para ter acesso"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"color\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Cor principal da comunidade"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador único"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"icon\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Logo"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h4",
+      {
+        "id": "informa-es-do-usu-rio"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#informa-es-do-usu-rio"
+        },
+        "Informações do Usuário"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/oauth/user/info"
+          ],
+          [
+            "span",
+            {
+              "class": "token query"
+            },
+            [
+              "span",
+              {
+                "class": "token separator"
+              },
+              "?"
+            ],
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              [
+                "span",
+                {
+                  "class": "token name"
+                },
+                "_community"
+              ],
+              "=",
+              [
+                "span",
+                {
+                  "class": "token value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token string"
+                  },
+                  "{{community}}"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Retorna os detalhes de um usuário, turmas e alunos\nCaso utilize mais de um item na chave ",
+      [
+        "code",
+        null,
+        "includes"
+      ],
+      ", é necessário separar por vírgulas"
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Exemplo de chamada com includes:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/oauth/user/info"
+          ],
+          [
+            "span",
+            {
+              "class": "token query"
+            },
+            [
+              "span",
+              {
+                "class": "token separator"
+              },
+              "?"
+            ],
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              [
+                "span",
+                {
+                  "class": "token name"
+                },
+                "_community"
+              ],
+              "=",
+              [
+                "span",
+                {
+                  "class": "token value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token string"
+                  },
+                  "{{community}}"
+                ]
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token separator"
+              },
+              "&"
+            ],
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              [
+                "span",
+                {
+                  "class": "token name"
+                },
+                "includes"
+              ],
+              "=",
+              [
+                "span",
+                {
+                  "class": "token value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token string"
+                  },
+                  "communities,groups"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h6",
+      {
+        "id": "a-api-retornar-um-json-com-o-seguinte-formato-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#a-api-retornar-um-json-com-o-seguinte-formato-"
+        },
+        "A API retornará um JSON com o seguinte formato:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h6",
+      {
+        "id": "resposta-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#resposta-"
+        },
+        "Resposta:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"user\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"lastSeenAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Última visualização do usuário"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador único"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"createdAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Data de criação do usuário"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Última data de atualização do usuário"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador do usuário na comunidade"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"roles\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Papéis do usuário na comunidade"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"permissions\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Permissões do usuário na comunidade"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Incluir \"includes=community\" na querystring para ter acesso"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"color\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Cor principal da comunidade"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador único"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"icon\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Logo"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"groups\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Incluir \"includes=groups\" na querystring para ter acesso"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador único do grupo"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome do grupo"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador do grupo"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"createdAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Data de criação do grupo"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Última data de atualização do grupo,"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"season\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Período escolar da turma"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"enrollment\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Incluir \"includes=groups.enrollment\" na querystring para ter acesso"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador único da mátricula"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"kind\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo da mátricula"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"entity\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador da entidade mátriculada"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"group\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador do grupo da mátricula"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"createdAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Data de criação da mátricula"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Última data de atualização da mátricula"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"members\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Incluir \"includes=members\" na querystring para ter acesso"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome do aluno"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"createdAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Data de criação do aluno"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Última data de atualização do aluno"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador do aluno"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador único do aluno,"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"groups\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Incluir \"includes=members.groups\" na querystring para ter acesso"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n                    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador único do grupo"
+          ],
+          "\n                    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Nome do grupo"
+          ],
+          "\n                    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador do grupo"
+          ],
+          "\n                    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"createdAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Data de criação do grupo"
+          ],
+          "\n                    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Última data de atualização do grupo,"
+          ],
+          "\n                    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"season\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Período escolar da turma"
+          ],
+          "\n                    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"enrollment\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Incluir \"includes=members.groups.enrollment\" na querystring para ter acesso"
+          ],
+          "\n                        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador único da mátricula"
+          ],
+          "\n                        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"kind\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Tipo da mátricula"
+          ],
+          "\n                        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"entity\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador da entidade mátriculada"
+          ],
+          "\n                        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"group\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Identificador do grupo da mátricula"
+          ],
+          "\n                        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"createdAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Data de criação da mátricula"
+          ],
+          "\n                        ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"updatedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Date ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Última data de atualização da mátricula"
+          ],
+          "\n                    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n                ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n            ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      [
+        "strong",
+        null,
+        "ATENÇÃO:"
+      ],
+      " Os comentários foram adicionados apenas para explicar as estruturas de dados, nem a requisição e nem a resposta devem ter comentários, ambos devem ser JSONs válidos."
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Requisições",
+      "href": "#requisi-es"
+    }
+  ],
+  "pageClass": "page-forstartups-sso-basic-user-info"
+}

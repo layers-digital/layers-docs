@@ -1,0 +1,1110 @@
+{
+  "path": "/docs/forstartups/sso",
+  "template": "default",
+  "title": "Single Sign-On na Layers",
+  "tableOfContents": true,
+  "previousText": "Layers Portal SDK",
+  "previousUrl": "/docs/forstartups/portais/layers-portal",
+  "nextText": "Botão \"Logar com Layers\"",
+  "nextUrl": "/docs/forstartups/sso/layers-button",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Entregamos uma experiência de Login Unificado (Single Sign-On ou SSO) baseado no protocolo ",
+      [
+        "a",
+        {
+          "href": "https://oauth.net/2/"
+        },
+        "OAuth2"
+      ],
+      " para otimizar o tempo gasto com gestão de contas e acessos aos recursos digitais."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "fa-a-login-com-a-layers"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#fa-a-login-com-a-layers"
+        },
+        "Faça login com a Layers"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Plataformas parceiras possuem o botão \"Logar com Layers\", facilitando o acesso com apenas um login."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "O botão é um link com parâmetros adicionados que definem para qual aplicativo a Layers deve enviar o usuário e algumas configurações necessárias para o fluxo do\nprotocolo OAuth2."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Com a intenção de facilitar a vida do desenvolvedor, a Layers desenvolveu uma SDK que abstrai grande parte da lógica necessária para a implementação do botão - para utilizá-lo, é necessário utilizar a ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/forstartups/sso/layers-button"
+        },
+        "SDK de Botão \"Logar com Layers\""
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "escopos-oauth2"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#escopos-oauth2"
+        },
+        "Escopos OAuth2"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Escopo"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Acesso"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "openid"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "account.id"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "profile"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "account.createdAt ",
+            [
+              "br",
+              null
+            ],
+            "account.updatedAt ",
+            [
+              "br",
+              null
+            ],
+            "account.language ",
+            [
+              "br",
+              null
+            ],
+            "account.timezone ",
+            [
+              "br",
+              null
+            ],
+            "account.firstName"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "fullname"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "account.name"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "email"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "account.email"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "related.communities"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "community.community ",
+            [
+              "br",
+              null
+            ],
+            "community.name ",
+            [
+              "br",
+              null
+            ],
+            "community.icon ",
+            [
+              "br",
+              null
+            ],
+            "community.logo ",
+            [
+              "br",
+              null
+            ],
+            "community.language ",
+            [
+              "br",
+              null
+            ],
+            "community.timezone ",
+            [
+              "br",
+              null
+            ],
+            "community.geolocation ",
+            [
+              "br",
+              null
+            ],
+            "community.color ",
+            [
+              "br",
+              null
+            ],
+            "community.createdAt ",
+            [
+              "br",
+              null
+            ],
+            "community.updatedAt ",
+            [
+              "br",
+              null
+            ],
+            "user.lastSeenAt ",
+            [
+              "br",
+              null
+            ],
+            "user.id ",
+            [
+              "br",
+              null
+            ],
+            "user.createdAt ",
+            [
+              "br",
+              null
+            ],
+            "user.updatedAt ",
+            [
+              "br",
+              null
+            ],
+            "user.alias ",
+            [
+              "br",
+              null
+            ],
+            "user.roles ",
+            [
+              "br",
+              null
+            ],
+            "user.permissions"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "related.groups"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "group.id ",
+            [
+              "br",
+              null
+            ],
+            "group.name ",
+            [
+              "br",
+              null
+            ],
+            "group.alias ",
+            [
+              "br",
+              null
+            ],
+            "group.createdAt ",
+            [
+              "br",
+              null
+            ],
+            "group.updatedAt ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.id ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.kind ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.entity ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.group ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.createdAt ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.updatedAt"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "related.members"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "member.id ",
+            [
+              "br",
+              null
+            ],
+            "member.name ",
+            [
+              "br",
+              null
+            ],
+            "member.createdAt ",
+            [
+              "br",
+              null
+            ],
+            "member.updatedAt"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "related.members.groups"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "groups.id ",
+            [
+              "br",
+              null
+            ],
+            "group.name ",
+            [
+              "br",
+              null
+            ],
+            "group.alias ",
+            [
+              "br",
+              null
+            ],
+            "group.createdAt ",
+            [
+              "br",
+              null
+            ],
+            "group.updatedAt ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.id ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.kind ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.entity ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.group ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.createdAt ",
+            [
+              "br",
+              null
+            ],
+            "group.enrollment.updatedAt"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "layers-oauth2"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#layers-oauth2"
+        },
+        "Layers OAuth2"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Caso não queira utilizar a ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/forstartups/sso/layers-button"
+        },
+        "SDK de Botão \"Logar com Layers\""
+      ],
+      " e criar seu próprio fluxo, as especificações passo a passo do OAuth2 da Layers seguem abaixo."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "client-side"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#client-side"
+        },
+        "Client-side"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "O cliente deverá abrir a seguinte url ",
+      [
+        "code",
+        null,
+        "https://id.layers.digital"
+      ],
+      ", passando os seguintes pârametros:"
+    ],
+    " ",
+    [
+      "table",
+      null,
+      " ",
+      [
+        "thead",
+        null,
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "th",
+            null,
+            "Parâmetro"
+          ],
+          " ",
+          [
+            "th",
+            null,
+            "Valor"
+          ],
+          " "
+        ],
+        " "
+      ],
+      " ",
+      [
+        "tbody",
+        null,
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "client_id"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Identificador do app"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "response_type"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            [
+              "code",
+              null,
+              "code"
+            ],
+            " (Atualmente o único aceitado)"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "redirect_uri"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "URL de redirecionamento configurada anteriormente"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "scope"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Escopos configurados anteriormente (deve ser indentado com espaços)"
+          ],
+          " "
+        ],
+        " ",
+        [
+          "tr",
+          null,
+          " ",
+          [
+            "td",
+            null,
+            "state"
+          ],
+          " ",
+          [
+            "td",
+            null,
+            "Mensagem adicional que pode ser utilizada para ser retornado na rota de token de acesso (OPCIONAL)"
+          ],
+          " "
+        ],
+        " "
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Exemplo de url: ",
+      [
+        "code",
+        null,
+        "https://id.layers.digital/?client_id=myApp&redirect_uri=https://myApp.com&response_type=code&scope=openid profile fullname"
+      ]
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "autentica-o"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#autentica-o"
+        },
+        "Autenticação"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Todas as chamadas devems ser feitas na url da API da layers: ",
+      [
+        "code",
+        null,
+        "https://api.layers.digital"
+      ]
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Após o usuário fazer o fluxo de login e aceitar os escopos, será redirecionado para ",
+      [
+        "code",
+        null,
+        "https://{{redirect_uri}}?code={{code}}"
+      ],
+      ". Com este código de acesso ",
+      [
+        "code",
+        null,
+        "{{code}}"
+      ],
+      ", será necessário fazer a seguinte requisição:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            "/oauth/token"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h6",
+      {
+        "id": "requisi-o-do-tipo-form-url-encoded-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#requisi-o-do-tipo-form-url-encoded-"
+        },
+        "Requisição do tipo FORM URL Encoded:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"grant_type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"authorization_code\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"client_id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"{{client_id}}\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"code\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"{{code}}\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"redirect_uri\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"{{redirect_uri}}\""
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h6",
+      {
+        "id": "a-api-retornar-um-json-com-o-seguinte-formato-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#a-api-retornar-um-json-com-o-seguinte-formato-"
+        },
+        "A API retornará um JSON com o seguinte formato:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h6",
+      {
+        "id": "resposta-"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#resposta-"
+        },
+        "Resposta:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"access_token\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"{{jwtToken}}\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"token_type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Bearer\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"expires_in\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " Number ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Em quanto tempo irá expirar este token,"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"state\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// Irá retornar o mesmo valor caso tenha sido utilizado na primeira chamada"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
+        ]
+      ],
+      " "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Faça login com a Layers",
+      "href": "#fa-a-login-com-a-layers"
+    },
+    {
+      "text": "Layers OAuth2",
+      "href": "#layers-oauth2"
+    }
+  ],
+  "pageClass": "page-forstartups-sso"
+}

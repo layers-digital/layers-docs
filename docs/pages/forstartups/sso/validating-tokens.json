@@ -1,0 +1,139 @@
+{
+  "path": "/docs/forstartups/sso/validating-tokens",
+  "template": "default",
+  "title": "Validando o Layers SSO Token",
+  "tableOfContents": true,
+  "previousText": "Requisitando Informações do Usuário",
+  "previousUrl": "/docs/forstartups/sso/basic-user-info",
+  "nextText": "Sincronização de Dados",
+  "nextUrl": "/docs/forstartups/sincronizacao-de-dados",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Caso o seu App já tenha armazenado o Layers SSO Token do usuário e não quiser fazê-lo logar novamente com a Layers, é possível utilizar nossa API de autenticação para validar este token novamente. Caso o token não seja mais válido, o App pode, então, redirecioná-lo para o Login. Caso contrário, o App pode seguir normalmente."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "validando-o-token"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#validando-o-token"
+        },
+        "Validando o Token"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Para validar o token é simples, basta tê-lo em mãos e enviar uma requisição para a rota de validação de token da Layers."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "http://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/sso/token/validate"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Com Headers incluindo o Layers SSO Token do usuário:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "headers"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "Authorization: Bearer {{Layers SSO Token}}"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A requisição retornará ",
+      [
+        "code",
+        null,
+        "200"
+      ],
+      " se o token for válido. Caso contrário, o token não é válido e o usuário deve logar novamente com a Layers."
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Validando o Token",
+      "href": "#validando-o-token"
+    }
+  ],
+  "pageClass": "page-forstartups-sso-validating-tokens"
+}

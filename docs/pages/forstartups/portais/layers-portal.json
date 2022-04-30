@@ -1,0 +1,1574 @@
+{
+  "path": "/docs/forstartups/portais/layers-portal",
+  "template": "default",
+  "title": "Layers Portal SDK",
+  "tableOfContents": true,
+  "nextText": "Single Sign-On na Layers",
+  "nextUrl": "/docs/forstartups/sso",
+  "previousText": "Portais na Layers",
+  "previousUrl": "/docs/forstartups/portais",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "A funcionalidade de Portais da Layers permite que apps adicionem telas personalizadas à nossa interface, formando uma experiência unificada e integrando totalmente no ecossistema Layers."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "importando-e-configurando-o-sdk"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#importando-e-configurando-o-sdk"
+        },
+        "Importando e configurando o SDK"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Uma vez que o app está registrado ele poderá ser instalado nas comunidades e utilizado pelos usuários da comunidade em específico. Para que tudo funcione de forma segura e fluida para o usuário final, a página que será acessada através da Layers deve importar nosso SDK de portais da maneira que está exemplificado abaixo. Através desse SDK, apps podem acessar informações e funcionalidades da Layers."
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "html"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token doctype"
+            },
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              "<!"
+            ],
+            [
+              "span",
+              {
+                "class": "token doctype-tag"
+              },
+              "DOCTYPE"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token name"
+              },
+              "HTML"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "html"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "head"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "script"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token script"
+            },
+            [
+              "span",
+              {
+                "class": "token language-javascript"
+              },
+              "\n      window",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "."
+              ],
+              "LayersPortalOptions ",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                "="
+              ],
+              " ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "{"
+              ],
+              "\n        appId",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " String",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "\n        insidePortalOnly",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " Boolean",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                ","
+              ],
+              "\n        manualLoadingControl",
+              [
+                "span",
+                {
+                  "class": "token operator"
+                },
+                ":"
+              ],
+              " Boolean\n      ",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "}"
+              ],
+              "\n    "
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "script"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "<"
+              ],
+              "script"
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "type"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation attr-equals"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "text/javascript",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            " ",
+            [
+              "span",
+              {
+                "class": "token attr-name"
+              },
+              "src"
+            ],
+            [
+              "span",
+              {
+                "class": "token attr-value"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation attr-equals"
+                },
+                "="
+              ],
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ],
+              "https://js.layers.digital/v1/LayersPortal.js",
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "\""
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          [
+            "span",
+            {
+              "class": "token script"
+            }
+          ],
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "script"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "head"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token tag"
+            },
+            [
+              "span",
+              {
+                "class": "token tag"
+              },
+              [
+                "span",
+                {
+                  "class": "token punctuation"
+                },
+                "</"
+              ],
+              "html"
+            ],
+            [
+              "span",
+              {
+                "class": "token punctuation"
+              },
+              ">"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "configura-es-do-portal"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#configura-es-do-portal"
+        },
+        "Configurações do portal"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "O objeto ",
+      [
+        "code",
+        null,
+        "LayersPortalOptions"
+      ],
+      " deve ser definido com as seguintes propriedades:"
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "appId"
+        ],
+        ": String contendo o identificador do app"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "insidePortalOnly"
+        ],
+        ": Booleano indicando se a página deve ser acessível apenas através da Layers"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "manualLoadingControl"
+        ],
+        ": Booleano indicando se o app controlará o carregamento manualmente, chamando o método ",
+        [
+          "code",
+          null,
+          "LayersPortal.ready()"
+        ],
+        " quando a página estiver carregada ou se o controle de carregamento deve ser feito automáticamente pela Layers"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "utilizando-o-sdk"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#utilizando-o-sdk"
+        },
+        "Utilizando o SDK"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "O SDK de portais disponibiliza uma série de eventos e promises para que apps que usam a funcionalidade de portais possam monitorar o status do SDK e da sua conexão com a Layers."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "eventos"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#eventos"
+        },
+        "Eventos"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "ready"
+        ],
+        ": O evento ",
+        [
+          "code",
+          null,
+          "ready"
+        ],
+        " é emitido quando o SDK de portais é carregado, indicando que ele foi importado com sucesso."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "LayersPortal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "on"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'ready'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "function"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//função chamada quando o SDK for carregado"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "connected"
+        ],
+        ": O evento ",
+        [
+          "code",
+          null,
+          "connected"
+        ],
+        " é emitido quando o SDK de portais está conectado com a Layers, indicando que apps podem acessar propriedades e métodos do SDK. A função chamada quando receber esse evento pode receber o objeto ",
+        [
+          "code",
+          null,
+          "data"
+        ],
+        " com informações de usuário e seção como parâmetro."
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "LayersPortal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "on"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'connected'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "function"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          [
+            "span",
+            {
+              "class": "token parameter"
+            },
+            "data"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//função chamada quando o SDK estiver conectado com a Layers"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "promises"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#promises"
+        },
+        "Promises"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Além dos eventos, apps podem optar por usar promises para controlar o status do SDK."
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "readyPromise"
+          ],
+          ": A propriedade ",
+          [
+            "code",
+            null,
+            "readyPromise"
+          ],
+          " é, como o nome sugere, uma promise que será resolvida quando o SDK for importado com sucesso."
+        ],
+        " "
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "p",
+          null,
+          [
+            "strong",
+            null,
+            "connectedPromise"
+          ],
+          ": Assim como a propriedade anterior, a propriedade ",
+          [
+            "code",
+            null,
+            "connectedPromise"
+          ],
+          " será resolvida  quando o SDK estiver conectado com a Layers retornando as informações de seção e do usuário acessando o portal."
+        ],
+        " "
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "O SDK de portais também oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers"
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "propriedades"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#propriedades"
+        },
+        "Propriedades"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "ready"
+        ],
+        ": Booleano que indica se o SDK de portais foi importado com sucesso"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "connected"
+        ],
+        ": Booleano que indica se o SDK de portais está conectado com a Layers"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "platform"
+        ],
+        ": String que pode ter o valor de ",
+        [
+          "code",
+          null,
+          "\"iframe\""
+        ],
+        ", ",
+        [
+          "code",
+          null,
+          "\"ios\""
+        ],
+        " ou ",
+        [
+          "code",
+          null,
+          "\"android\""
+        ],
+        " se a página estiver sendo acessada através da Layers ou ",
+        [
+          "code",
+          null,
+          "null"
+        ],
+        " se estiver sendo acessada fora da Layers."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "session"
+        ],
+        ": String da seção"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "userId"
+        ],
+        ": String do identificador único do usuário na Layers"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "communityId"
+        ],
+        ": String do identificador da comunidade através do qual o usuário está acessando o portal"
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "accountId"
+        ],
+        ": String do identificador único da conta do usuário acessando o portal"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "m-todos"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#m-todos"
+        },
+        "Métodos"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "ready"
+        ],
+        ": O método ",
+        [
+          "code",
+          null,
+          "ready()"
+        ],
+        " deve ser chamado para indicar que a página a ser exposta no portal está carregada se a a opção ",
+        [
+          "code",
+          null,
+          "manualLoadingControl"
+        ],
+        " for definida como ",
+        [
+          "code",
+          null,
+          "true"
+        ],
+        " nas configurações do portal."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "update"
+        ],
+        ": O método ",
+        [
+          "code",
+          null,
+          "update(params)"
+        ],
+        " permite que apps atualizem a URL e/ou o título do portal. Para isso, o app deve chamar a função como mostrado no exemplo abaixo:"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "LayersPortal",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "."
+          ],
+          [
+            "span",
+            {
+              "class": "token function"
+            },
+            "update"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "("
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    url",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//nova URL (opcional)"
+          ],
+          "\n    title",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " String ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "//novo título (opcional)"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ")"
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "ul",
+      null,
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "go"
+        ],
+        ": O método ",
+        [
+          "code",
+          null,
+          "go(path)"
+        ],
+        " permite que portais redirecionem para outras páginas de portais ou da Layers. Para isso, o app deve chamar a função passando como parâmetro a URL da página para a qual o usuário deve ser redirecionado."
+      ],
+      " ",
+      [
+        "li",
+        null,
+        [
+          "strong",
+          null,
+          "close"
+        ],
+        ": O método ",
+        [
+          "code",
+          null,
+          "close()"
+        ],
+        " permite que o app feche o portal"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "autentica-o"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#autentica-o"
+        },
+        "Autenticação"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A autenticação pode ser feita através do uso das informações no SDK de portais e da ",
+      [
+        "stencil-route-link",
+        {
+          "url": "/docs/api/auth/sso/session/validate"
+        },
+        "rota de validar sessão"
+      ],
+      ". Essa rota recebe nos parâmetros da query a ",
+      [
+        "code",
+        null,
+        "session"
+      ],
+      ", o ",
+      [
+        "code",
+        null,
+        "userId"
+      ],
+      " e a ",
+      [
+        "code",
+        null,
+        "communityId"
+      ],
+      ". Essas informações podem ser extraídas do SDK de portais da seguinte maneira: "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "js"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token keyword"
+            },
+            "const"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          " session",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " communityId",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " userId ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            "="
+          ],
+          " LayersPortal"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "É possível ainda receber essas informações como parâmetros na URL que é chamada quando um usuário clica no portal assim como no método antigo. Por esse motivo, é necessário verificar quais informações estão sendo recebidas na URL para definir qual método de validação deve ser utilizado."
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Exemplo:"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token get"
+              },
+              "GET"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "meu-app.com",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            "/meu-portal"
+          ],
+          [
+            "span",
+            {
+              "class": "token query"
+            },
+            [
+              "span",
+              {
+                "class": "token separator"
+              },
+              "?"
+            ],
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              [
+                "span",
+                {
+                  "class": "token name"
+                },
+                "layers_session"
+              ],
+              "=",
+              [
+                "span",
+                {
+                  "class": "token value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token string"
+                  },
+                  "{SESSION}"
+                ]
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token separator"
+              },
+              "&"
+            ],
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              [
+                "span",
+                {
+                  "class": "token name"
+                },
+                "layers_community_id"
+              ],
+              "=",
+              [
+                "span",
+                {
+                  "class": "token value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token string"
+                  },
+                  "{COMMUNITY}"
+                ]
+              ]
+            ],
+            [
+              "span",
+              {
+                "class": "token separator"
+              },
+              "&"
+            ],
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              [
+                "span",
+                {
+                  "class": "token name"
+                },
+                "layers_user_id"
+              ],
+              "=",
+              [
+                "span",
+                {
+                  "class": "token value"
+                },
+                [
+                  "span",
+                  {
+                    "class": "token string"
+                  },
+                  "{USER_ID}"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Caso as informações enviadas sejam válidas, a rota de validação de sessão responderá com status ",
+      [
+        "code",
+        null,
+        "200"
+      ],
+      " confirmando que essa é uma sessão válida e o usuário está autenticado na Layers."
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Importando e configurando o SDK",
+      "href": "#importando-e-configurando-o-sdk"
+    },
+    {
+      "text": "Utilizando o SDK",
+      "href": "#utilizando-o-sdk"
+    }
+  ],
+  "pageClass": "page-forstartups-portais-layers-portal"
+}

@@ -1,6 +1,5 @@
 import { h } from '@stencil/core';
 import { toHypertext } from '../to-hypertext';
-import Template from '../../menu/templates/api';
 
 export default props => {
   const { page } = props;
@@ -16,7 +15,7 @@ export default props => {
 
       <section class="markdown-content">
         {toHypertext(h, page.body)}
-        <docs-cards>
+        {/* <docs-cards>
           {
             Template.categories.filter(c => c.link != '/docs/api').map((category) => (
               <docs-card header={category.title} href={category.link} icon={category.icon}>
@@ -24,7 +23,7 @@ export default props => {
               </docs-card>
             ))
           }
-        </docs-cards>
+        </docs-cards> */}
       </section>
       <docs-page-footer page={page} />
     </article>

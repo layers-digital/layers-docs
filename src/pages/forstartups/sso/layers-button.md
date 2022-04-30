@@ -1,10 +1,14 @@
 ---
 template: default
-title: Implementando o botão logar com Layers
+title: Botão "Logar com Layers"
 tableOfContents: true
-# nextText: 'Environment Setup'
-# nextUrl: '/docs/guides/intro'
+previousText: 'Single Sign-On na Layers'
+previousUrl: '/docs/forstartups/sso'
+nextText: 'Requisitando Informações do Usuários'
+nextUrl: '/docs/forstartups/sso/basic-user-info'
 ---
+
+# Botão "Logar com Layers"
 
 Com o objetivo de tornar o uso da autenticação com a Layers mais simples disponibilizamos um componente do botão da Layers. Para utilizar esse componente na sua aplicação, siga as instruções abaixo.
 
@@ -39,7 +43,7 @@ Uma vez importada a bibioteca, adicione o componente do botão à sua página pa
 + **client-id**: 
 Deve conter o identificador do seu app na Layers Education.
 + **scope**:
-Deve conter os [escopos](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md) de autorização que o usuário deve ceder permissão para o uso do seu app.
+Deve conter os [escopos](/docs/forstartups/sso#escopos-oauth2) de autorização que o usuário deve ceder permissão para o uso do seu app.
 + **mode**:
 Existem três valores possíveis para o atributo ```mode```:
     + ```embedded```: Abre um dialog na sua página com a tela de login da Layers para que o usuário digite suas credenciais.
@@ -68,6 +72,10 @@ A fonte padrão do botão de autenticação é Nunito-Bold. Embora recomendemos 
 
 Caso você tenha optado por usar o modo ```redirect```, não será possível ouvir o evento como mostrado abaixo. Em vez disso, o código sera passado na chave code dos parâmetros na query.
 
+```http
+GET https://seuapp.com/?code=ca34a65ba76de14886dc532a811740c844f610d5
+```
+
 Para os modos ```embedded```e ```popup``` o código que deve ser usado para obter o token de acesso do usuário pode ser obtido ouvindo a resposta do evento LayersAuth como mostrado no trecho de código abaixo. 
 
 ```html
@@ -84,7 +92,7 @@ Para os modos ```embedded```e ```popup``` o código que deve ser usado para obte
 
 ## 4 - Use o código para obter o token
 
-Por fim, use o código obtido para na requisição abaixo a para obter o token que deve ser usado como autenticação nas [rotas de OAuth disponíveis na Layers](https://github.com/layers-digital/docs/blob/master/oauth2.0/docs.md).
+Por fim, use o código obtido para na requisição abaixo obter o token de autenticação do usuário, o qual deve ser utilizado como forma de autenticação nas [rotas de dados do usuário na Layers](/docs/forstartups/sso/basic-user-info).
 
 ``` http
 POST https://api.layers.digital/oauth/token
@@ -119,3 +127,5 @@ A API deve retornar um JSON com o seguinte formato:
 + **token_type**: Tipo de token
 + **expires_in**: Tempo até o token expirar em segundos
 + **state**: Mensagem adicional que pode ser utilizada para ser retornado na rota de token de acesso
+
+O `access_token` possuirá o token de autenticação do usuário na Layers.

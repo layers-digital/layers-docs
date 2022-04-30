@@ -7,7 +7,9 @@ import { Logo } from '../../icons';
 // import appflowTemplate from './templates/appflow';
 // import mainTemplate from './templates/main';
 import api from './templates/api';
+import sync from './templates/sync';
 import conceptsTemplate from './templates/concepts';
+import forStartups from './templates/forstartups';
 // import tutorialsTemplate from './templates/tutorials';
 import sdksTemplate from './templates/sdk';
 
@@ -27,11 +29,11 @@ export class DocsMenu {
         </stencil-route-link>
       </header>,
       <stencil-route-switch>
-        <stencil-route url="/docs/api">
+        {/* <stencil-route url="/docs/api">
           <section class="MenuControls">
             <select-category options={api.categories}/>
           </section>
-        </stencil-route>
+        </stencil-route> */}
         {/* <stencil-route url="/docs/(guides)?/:service?">
           <section class="MenuControls">
             <select-category options={guideCategories}/>
@@ -42,8 +44,10 @@ export class DocsMenu {
       <stencil-route-switch scrollTopOffset={0} class="Menu">
         <stencil-route url="/docs/(register|status)"/>
         {/* <stencil-route url="/docs/status"/> */}
-        <stencil-route url="/docs/api/:service?" routeRender={api.template}/>
+        <stencil-route url="/docs/api/data/:service?" routeRender={sync}/>
+        <stencil-route url="/docs/api/apihub/:service?" routeRender={api}/>
         <stencil-route url="/docs/sdk" routeRender={sdksTemplate}/>
+        <stencil-route url="/docs/forstartups" routeRender={forStartups}/>
         <stencil-route url="/docs/(concepts)?/:service?" routeRender={conceptsTemplate}/>
       </stencil-route-switch>
     ];

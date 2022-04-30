@@ -2,7 +2,7 @@
 template: default
 title: Permissões na Layers
 tableOfContents: false
-previousText: 'Membros e grupos'
+previousText: 'Membros e Grupos'
 previousUrl: '/docs/concepts/ecossistema-layers/membros-e-grupos'
 ---
 

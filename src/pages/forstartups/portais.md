@@ -2,10 +2,10 @@
 template: default
 title: Portais na Layers
 tableOfContents: false
-previousText: 'Logar com Layers'
-previousUrl: '/docs/concepts/funcionalidades/logar-com-layers'
-nextText: 'API Hub'
-nextUrl: '/docs/concepts/funcionalidades/hub-de-apis'
+previousText: 'Introdução'
+previousUrl: '/docs/forstartups'
+nextText: 'Layers Portal SDK'
+nextUrl: '/docs/forstartups/portais/layers-portal'
 ---
 
 # Portais na Layers

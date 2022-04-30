@@ -27,7 +27,7 @@ export const ApiServices: ApiService[] = [
     spec: payments as any,
   },
   {
-    title: 'Hub de APIs',
+    title: 'API Hub',
     id: 'apihub',
     spec: apihub as any,
   },

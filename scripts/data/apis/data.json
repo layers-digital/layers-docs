@@ -130,64 +130,6 @@
       }
     },
     "/enrollments/{enrollmentId}": {
-      "put": {
-        "tags": [
-          "Matrículas"
-        ],
-        "summary": "Atualizar matricula",
-        "description": "Atualizar matrícula especificada",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathEnrollmentId"
-          },
-          {
-            "name": "group",
-            "in": "query",
-            "description": "Identificador do grupo",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "group:write",
-          "group:write:scoped"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Enrollment"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Matrículas atualizada",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Enrollment"
-                }
-              }
-            }
-          }
-        }
-      },
       "get": {
         "tags": [
           "Matrículas"
@@ -357,90 +299,6 @@
         }
       }
     },
-    "/group": {
-      "post": {
-        "tags": [
-          "Grupos"
-        ],
-        "summary": "Criar Grupo",
-        "description": "Criar um novo grupo na Layers Education.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "group:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Group"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Grupo criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Group"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/groups/{groupId}/admins/{userId}": {
-      "delete": {
-        "tags": [
-          "Grupos"
-        ],
-        "summary": "Remover administradores",
-        "description": "Remover usuário especificado da lista de administradores do grupo especificado",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathGroupId"
-          },
-          {
-            "$ref": "#/components/parameters/PathUserId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "group:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "responses": {
-          "200": {
-            "description": "Administrador removido com sucesso."
-          }
-        }
-      }
-    },
     "/groups/{groupId}/admins": {
       "get": {
         "tags": [
@@ -494,258 +352,9 @@
             }
           }
         }
-      },
-      "put": {
-        "tags": [
-          "Grupos"
-        ],
-        "summary": "Editar administradores",
-        "description": "Adicionar administradores ao grupo especificado",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathGroupId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "group:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "users": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "format": "ObjectId",
-                      "description": "Identificador do usuário que deve ser adicionado como administrador ao grupo"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Lista de administradores do grupo",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/groups/{groupId}": {
-      "delete": {
-        "tags": [
-          "Grupos"
-        ],
-        "summary": "Deletar grupo",
-        "description": "Remover um grupo da Layers. Essa ação **pode** ser revertida por meio da rota de atualizar grupo mudando o valor da chave `active` de `false` para `true`",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathGroupId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "group:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "responses": {
-          "200": {
-            "description": "Grupo removido",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Group"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Grupos"
-        ],
-        "summary": "Editar Grupo",
-        "description": "Editar informações do grupo especificado",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathGroupId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "group:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Group"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Grupo atualizado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Group"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Grupos"
-        ],
-        "summary": "Visualizar Grupo",
-        "description": "Visualizar informações do grupo especificado",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathGroupId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "group:read"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "responses": {
-          "200": {
-            "description": "Grupo específicado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Group"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/groups/{groupId}/enrollments": {
-      "post": {
-        "tags": [
-          "Matrículas"
-        ],
-        "summary": "Criar matricula",
-        "description": "Criar uma matrícula no grupo especificado",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathGroupId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "group:write",
-          "group:write:scoped"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "enrollments": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Enrollment"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Matrículas da turma atualizadas",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Enrollment"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "get": {
         "tags": [
           "Matrículas"
@@ -835,22 +444,19 @@
         }
       }
     },
-    "/groups/{groupId}/enrollments/{enrollmentId}": {
-      "delete": {
+    "/groups/{groupId}": {
+      "get": {
         "tags": [
-          "Matrículas"
+          "Grupos"
         ],
-        "summary": "Remover matricula",
-        "description": "Remover uma matrícula no grupo especificado",
+        "summary": "Visualizar Grupo",
+        "description": "Visualizar informações do grupo especificado",
         "parameters": [
           {
             "$ref": "#/components/parameters/Community-id"
           },
           {
             "$ref": "#/components/parameters/PathGroupId"
-          },
-          {
-            "$ref": "#/components/parameters/PathEnrollmentId"
           }
         ],
         "security": [
@@ -859,8 +465,7 @@
           }
         ],
         "x-layers-permissions": [
-          "group:write",
-          "group:write:scoped"
+          "group:read"
         ],
         "x-layers-context": [
           "user",
@@ -868,14 +473,11 @@
         ],
         "responses": {
           "200": {
-            "description": "Matrículas da turma atualizadas",
+            "description": "Grupo específicado",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Enrollment"
-                  }
+                  "$ref": "#/components/schemas/Group"
                 }
               }
             }
@@ -1017,51 +619,6 @@
       }
     },
     "/members": {
-      "post": {
-        "tags": [
-          "Membros"
-        ],
-        "summary": "Criar Membro",
-        "description": "Criar um novo membro na Layers Education.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "member:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Member"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Aluno criado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Member"
-                }
-              }
-            }
-          }
-        }
-      },
       "get": {
         "tags": [
           "Membros"
@@ -1120,135 +677,7 @@
         }
       }
     },
-    "/members/{memberId}/activate": {
-      "post": {
-        "tags": [
-          "Membros"
-        ],
-        "summary": "Ativar membro especificado",
-        "description": "Ativar ou reativar membro específicado na Layers.",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "member:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathMemberId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Membro ativado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Member"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/members/{memberId}": {
-      "delete": {
-        "tags": [
-          "Membros"
-        ],
-        "summary": "Deletar membro especificado",
-        "description": "Remover o membro específicado da Layers. Esse processo **pode** ser revertido por meio da rota de editar membro altetando a chave `active` de `false` para `true`.",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "member:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "member"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathMemberId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Membro removido",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Member"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Membros"
-        ],
-        "summary": "Atualizar Membro",
-        "description": "Atualizar informações do membro especificado",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathMemberId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "member:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Member"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Membro atualizado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Member"
-                }
-              }
-            }
-          }
-        }
-      },
       "get": {
         "tags": [
           "Membros"
@@ -1282,163 +711,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Member"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/members/{memberId}/users/{userId}": {
-      "post": {
-        "tags": [
-          "Membros"
-        ],
-        "summary": "Remover vínculo entre usuário e membro",
-        "description": "Remover vínculo entre o usuário e o membro especificado",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "member:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathMemberId"
-          },
-          {
-            "$ref": "#/components/parameters/PathUserId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Lista de usuários que estão vinculados ao membro",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "ObjectId",
-                    "description": "Id do usuário vinculado"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/members/{memberId}/users": {
-      "put": {
-        "tags": [
-          "Membros"
-        ],
-        "summary": "Vincular usuário a um membro",
-        "description": "Vincular usuário ao membro especificado",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathMemberId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "member:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "users": {
-                    "type": "array",
-                    "description": "Array contendo os identificadores de documento dos usuários que serão vinculados com o membro",
-                    "items": {
-                      "type": "string"
-                    },
-                    "example": [
-                      "12345678"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Usuários relacionados com o membro",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "permissions": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "user": {
-                        "type": "object",
-                        "properties": {
-                          "email": {
-                            "type": "string",
-                            "description": "Email do usuário",
-                            "example": "exemplo@tenda.digital"
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "Nome do usuário",
-                            "example": "Gabriel Raniere"
-                          },
-                          "roles": {
-                            "type": "array",
-                            "description": "Array contendo as permissões do usuário na plataforma",
-                            "items": {
-                              "type": "string"
-                            },
-                            "example": [
-                              "guardian"
-                            ]
-                          },
-                          "status": {
-                            "type": "string",
-                            "description": "Status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (UNSENT)",
-                            "example": "ACTIVE"
-                          },
-                          "id": {
-                            "type": "string",
-                            "description": "Identificador do documento do usuário",
-                            "format": "ObjectId"
-                          }
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -1729,54 +1001,6 @@
       }
     },
     "/season": {
-      "post": {
-        "tags": [
-          "Períodos"
-        ],
-        "summary": "Criar Período",
-        "description": "Criar um novo período.",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "season:manage"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Season"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Períodos existentes na comunidade",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Season"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "get": {
         "tags": [
           "Períodos"
@@ -1809,466 +1033,6 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Season"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/season/{seasonId}/activate": {
-      "post": {
-        "tags": [
-          "Períodos"
-        ],
-        "summary": "Ativar Período",
-        "description": "Ativar um período.",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "season:manage"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathSeasonId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Períodos existentes na comunidade",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "description": "Nome do período ativado"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/season/{seasonId}": {
-      "delete": {
-        "tags": [
-          "Períodos"
-        ],
-        "summary": "Deletar Período",
-        "description": "Deletar um período. Não pode ser o período ativo.",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "season:manage"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathSeasonId"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Período deletado com sucesso."
-          }
-        }
-      }
-    },
-    "/sync": {
-      "post": {
-        "tags": [
-          "Sincronização"
-        ],
-        "summary": "Sincronizar Dados",
-        "description": "A sincronização de dados permite que sejam criados usuários, membros, grupos e seus vínculos por meio de uma única requisição. Esse processo pode ser feito substituindo as informações já cadastradas pelas informações na payload ou apenas adicionando as novas iformações sem remover as que não estão na payload.",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "sync:manage"
-        ],
-        "x-layers-contexts": [
-          "user",
-          "app"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          }
-        ],
-        "requestBody": {
-          "description": "Objeto que contem informações de turmas, alunos e usuários",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "users": {
-                    "type": "object",
-                    "properties": {
-                      "data": {
-                        "description": "Array contendo todos os usuários a serem criados",
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "active": {
-                              "type": "boolean",
-                              "description": "Indica se o usuário deve ser criado ativo ou não",
-                              "example": true
-                            },
-                            "invite": {
-                              "type": "boolean",
-                              "description": "Indica se o usuário deve ser convidado quando for criado",
-                              "example": false
-                            },
-                            "rolesSet": {
-                              "type": "object",
-                              "description": "Objeto indicando quais devem ser as permissões desse usuário",
-                              "properties": {
-                                "role": {
-                                  "type": "boolean",
-                                  "description": "Chave com o nome da permissão e tem um valor com o booleano indicando se esse usuário tem essa permissão",
-                                  "example": true
-                                }
-                              }
-                            },
-                            "alias": {
-                              "type": "string",
-                              "description": "Identificador do usuário",
-                              "example": "123abc"
-                            },
-                            "email": {
-                              "type": "string",
-                              "description": "Email do usuário",
-                              "example": "gabriel.raniere@layers.education"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "Nome do usuário",
-                              "example": "Gabriel Raniere"
-                            },
-                            "birth": {
-                              "type": "string",
-                              "description": "Data de nascimento do usuário no formato brasileiro",
-                              "example": "05/12/2000"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "members": {
-                    "type": "object",
-                    "properties": {
-                      "data": {
-                        "type": "array",
-                        "description": "Array contendo todos os membros a serem criados",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "active": {
-                              "type": "boolean",
-                              "description": "Indica se o membro deve ser criado ativo",
-                              "example": true
-                            },
-                            "users": {
-                              "type": "array",
-                              "description": "Array contendo os emails dos usuários vinculados com esse membro",
-                              "items": {
-                                "type": "string",
-                                "example": "gabriel.raniere@layers.education"
-                              }
-                            },
-                            "alias": {
-                              "type": "string",
-                              "description": "Identificador do aluno",
-                              "example": "456def"
-                            },
-                            "birth": {
-                              "type": "string",
-                              "description": "Data de nascimento do membro no formato brasileiro",
-                              "example": "22/08/2004"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "Nome do membro",
-                              "example": "Rafael Teles"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "classrooms": {
-                    "type": "object",
-                    "properties": {
-                      "data": {
-                        "type": "array",
-                        "description": "Array contendo todos os grupos a serem criados",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "active": {
-                              "type": "boolean",
-                              "description": "Indica se o grupo deve ser criado ativo",
-                              "example": false
-                            },
-                            "alias": {
-                              "type": "string",
-                              "description": "Identificador do grupo",
-                              "example": "2ANOEM"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "Nome do grupo",
-                              "example": "2˚ Ano do Ensino Médio"
-                            },
-                            "members": {
-                              "type": "array",
-                              "description": "Array contendo os Identificadores de todos os membros que estão matriculados nesse grupo. Membros não presentes nesse array serão removidos do grupo.",
-                              "items": {
-                                "type": "string",
-                                "example": "123abc"
-                              }
-                            },
-                            "membersSet": {
-                              "type": "array",
-                              "description": "Array contendo os Identificadores de novos membros que estão matriculados nesse grupo",
-                              "items": {
-                                "type": "string",
-                                "example": "123abc"
-                              }
-                            },
-                            "admins": {
-                              "type": "array",
-                              "description": "Array contendo informações de todos os usuários que serão administradores desse grupo. Usuários não presentes nesse array serão removidos do grupo.",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "email": {
-                                    "type": "string",
-                                    "description": "E-mail do usuário que deve ser administrador da turma",
-                                    "example": "gabriel.raniere@layers.education"
-                                  },
-                                  "components": {
-                                    "type": "array",
-                                    "description": "Array com os identificadores dos componentes aos quais o administrador está vinculado",
-                                    "items": {
-                                      "type": "string",
-                                      "description": "Identificador do componente",
-                                      "example": "PORT"
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "components": {
-                              "type": "array",
-                              "description": "Identificadores dos componentes vinculados à turma",
-                              "items": {
-                                "type": "string",
-                                "description": "Identificador do componente vinculado à turma",
-                                "example": "PORT"
-                              }
-                            },
-                            "adminsSet": {
-                              "type": "array",
-                              "description": "Array contendo os emails de novos usuários que serão administradores desse grupo",
-                              "items": {
-                                "type": "string",
-                                "example": "gabriel.raniere@layers.education"
-                              }
-                            },
-                            "tags": {
-                              "type": "array",
-                              "description": "Array contendo os nomes de todas as tags que devem conter esse grupo",
-                              "items": {
-                                "type": "string",
-                                "example": "Ensino Medio"
-                              }
-                            },
-                            "fields": {
-                              "type": "object",
-                              "description": "Campos personalizados das turmas da comunidade. Podem variar de acordo com o tipo de comunidade e os apps instalados",
-                              "properties": {
-                                "tipo": {
-                                  "type": "array",
-                                  "description": "Tipo de ensino da turma",
-                                  "items": {
-                                    "type": "string",
-                                    "description": "Identificador do tipo de ensino",
-                                    "example": "regular",
-                                    "enum": [
-                                      "regular",
-                                      "idiomas",
-                                      "extracurricular"
-                                    ]
-                                  }
-                                },
-                                "nivel": {
-                                  "type": "array",
-                                  "description": "Nível de ensino da turma",
-                                  "items": {
-                                    "type": "string",
-                                    "description": "Identificador do nível de ensnio",
-                                    "example": "EI:G0",
-                                    "enum": [
-                                      "EI:G0",
-                                      "EI:G1",
-                                      "EI:G2",
-                                      "EI:G3",
-                                      "EI:G4",
-                                      "EI:G5",
-                                      "EF:A1",
-                                      "EF:A2",
-                                      "EF:A3",
-                                      "EF:A4",
-                                      "EF:A5",
-                                      "EF:A6",
-                                      "EF:A7",
-                                      "EF:A8",
-                                      "EF:A9",
-                                      "EM:S1",
-                                      "EM:S2",
-                                      "EM:S3"
-                                    ]
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "components": {
-                    "type": "object",
-                    "properties": {
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "description": "Nome do componente",
-                              "example": "Português"
-                            },
-                            "alias": {
-                              "type": "string",
-                              "description": "Identificador do componente",
-                              "example": "PORT"
-                            },
-                            "fields": {
-                              "type": "object",
-                              "description": "Campos personalizados dos componentes da comunidade. Podem variar de acordo com o tipo de comunidade e os apps instalados.",
-                              "properties": {
-                                "@education:basic": {
-                                  "type": "object",
-                                  "description": "Campos personalizados de educação básicos.",
-                                  "properties": {
-                                    "inep": {
-                                      "type": "array",
-                                      "description": "Lista de identificadores de disciplinas relacionados a esse componente",
-                                      "items": {
-                                        "type": "string",
-                                        "description": "Identificador de uma disciplina",
-                                        "enum": [
-                                          "1",
-                                          "2",
-                                          "3",
-                                          "4",
-                                          "5",
-                                          "6",
-                                          "7",
-                                          "8",
-                                          "9",
-                                          "10",
-                                          "11",
-                                          "12",
-                                          "13",
-                                          "14",
-                                          "16",
-                                          "17",
-                                          "20",
-                                          "21",
-                                          "23",
-                                          "25",
-                                          "26",
-                                          "27",
-                                          "28",
-                                          "29",
-                                          "30",
-                                          "31",
-                                          "32"
-                                        ]
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Listas de identificadores dos usuários, membros e grupos criados pelo processo de sincronização",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "users": {
-                      "type": "array",
-                      "description": "Array contendo os identificadores dos documentos de usuários criados",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "members": {
-                      "type": "array",
-                      "description": "Array contendo os identificadores dos documentos de membros criados",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "groups": {
-                      "type": "array",
-                      "description": "Array contendo os identificadores dos documentos de grupos criados",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
                   }
                 }
               }
@@ -2381,51 +1145,6 @@
       }
     },
     "/users": {
-      "post": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Criar Usuário",
-        "description": "Criar uma conta de acesso para um usuário da Layers Education",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "user:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      },
       "get": {
         "tags": [
           "Usuários"
@@ -2566,175 +1285,6 @@
         }
       }
     },
-    "/users/{userId}/activate": {
-      "post": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Reativar um usuário",
-        "description": "Reativa o usuário que está com status `active` = false",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "user:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathUserId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Retorna as informações do usuário reativado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/users/{userId}": {
-      "delete": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Deletar usuário",
-        "description": "Remover o usuário específicado da Layers. Essa ação **pode** ser revertida.",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "user:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "member"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathUserId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Atualizar informações do usuário",
-        "description": "Atualizar informações de contas de acesso do usuário.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathUserId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "user:write"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Usuários"
-        ],
-        "summary": "Visualizar informações do usuário",
-        "description": "Visualizar informações da conta de acesso do usuário especificado.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Community-id"
-          },
-          {
-            "$ref": "#/components/parameters/PathUserId"
-          }
-        ],
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "x-layers-permissions": [
-          "user:read"
-        ],
-        "x-layers-context": [
-          "user",
-          "app"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/users/{userId}/related": {
       "get": {
         "tags": [
@@ -2777,6 +1327,47 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Visualizar informações do usuário",
+        "description": "Visualizar informações da conta de acesso do usuário especificado.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathUserId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "user:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
                 }
               }
             }

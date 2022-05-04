@@ -173,6 +173,10 @@ export namespace Components {
   interface DocsTabs {
     'listenFor': string;
   }
+  interface DocsZoomableImage {
+    'alt': string;
+    'href': string;
+  }
   interface FileTree {}
   interface FileTreeDirectory {
     'collapsed': boolean;
@@ -407,6 +411,12 @@ declare global {
     new (): HTMLDocsTabsElement;
   };
 
+  interface HTMLDocsZoomableImageElement extends Components.DocsZoomableImage, HTMLStencilElement {}
+  var HTMLDocsZoomableImageElement: {
+    prototype: HTMLDocsZoomableImageElement;
+    new (): HTMLDocsZoomableImageElement;
+  };
+
   interface HTMLFileTreeElement extends Components.FileTree, HTMLStencilElement {}
   var HTMLFileTreeElement: {
     prototype: HTMLFileTreeElement;
@@ -478,6 +488,7 @@ declare global {
     'docs-tab': HTMLDocsTabElement;
     'docs-table-of-contents': HTMLDocsTableOfContentsElement;
     'docs-tabs': HTMLDocsTabsElement;
+    'docs-zoomable-image': HTMLDocsZoomableImageElement;
     'file-tree': HTMLFileTreeElement;
     'file-tree-directory': HTMLFileTreeDirectoryElement;
     'file-tree-file': HTMLFileTreeFileElement;
@@ -628,6 +639,10 @@ declare namespace LocalJSX {
   interface DocsTabs {
     'listenFor'?: string;
   }
+  interface DocsZoomableImage {
+    'alt'?: string;
+    'href'?: string;
+  }
   interface FileTree {}
   interface FileTreeDirectory {
     'collapsed'?: boolean;
@@ -684,6 +699,7 @@ declare namespace LocalJSX {
     'docs-tab': DocsTab;
     'docs-table-of-contents': DocsTableOfContents;
     'docs-tabs': DocsTabs;
+    'docs-zoomable-image': DocsZoomableImage;
     'file-tree': FileTree;
     'file-tree-directory': FileTreeDirectory;
     'file-tree-file': FileTreeFile;
@@ -734,6 +750,7 @@ declare module "@stencil/core" {
       'docs-tab': LocalJSX.DocsTab & JSXBase.HTMLAttributes<HTMLDocsTabElement>;
       'docs-table-of-contents': LocalJSX.DocsTableOfContents & JSXBase.HTMLAttributes<HTMLDocsTableOfContentsElement>;
       'docs-tabs': LocalJSX.DocsTabs & JSXBase.HTMLAttributes<HTMLDocsTabsElement>;
+      'docs-zoomable-image': LocalJSX.DocsZoomableImage & JSXBase.HTMLAttributes<HTMLDocsZoomableImageElement>;
       'file-tree': LocalJSX.FileTree & JSXBase.HTMLAttributes<HTMLFileTreeElement>;
       'file-tree-directory': LocalJSX.FileTreeDirectory & JSXBase.HTMLAttributes<HTMLFileTreeDirectoryElement>;
       'file-tree-file': LocalJSX.FileTreeFile & JSXBase.HTMLAttributes<HTMLFileTreeFileElement>;

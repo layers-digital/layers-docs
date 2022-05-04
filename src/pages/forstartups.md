@@ -32,5 +32,10 @@ A Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
   </docs-card>  
 </docs-cards>
 
+## Etapas do Processo de Integração
+
+<docs-zoomable-image href="https://cdn.layers.digital/demo-developers/uploads/a2ce8aea-fed6-4ce8-b525-5da9d2fadfe5/Fluxo-Startups-Bonitinho.png" alt="Fluxo de Integração com Startups"></docs-zoombable-image>
+
 ## Acesso
+
 Para ganhar acesso e integrar sua Aplicação, faça seu pré-cadastro pelo [formulário de acesso](/docs/register) ou entre em contato pelo e-mail <a target="_self" href="mailto:devs@layers.education">devs@layers.education</a> para maiores informações. Após o preenchimento e validação do pré-cadastro, entraremos em contato para disponibilizar um ambiente de desenvolvimento em que consiga testar sua aplicação.

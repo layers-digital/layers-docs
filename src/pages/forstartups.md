@@ -34,7 +34,7 @@ A Layers oferece aos desenvolvedores uma série de funcionalidades para que crie
 
 ## Etapas do Processo de Integração
 
-<docs-zoomable-image href="https://cdn.layers.digital/demo-developers/uploads/a2ce8aea-fed6-4ce8-b525-5da9d2fadfe5/Fluxo-Startups-Bonitinho.png" alt="Fluxo de Integração com Startups"></docs-zoombable-image>
+<docs-zoomable-image href="https://cdn.layers.digital/demo-developers/uploads/a2ce8aea-fed6-4ce8-b525-5da9d2fadfe5/Fluxo-Startups-Bonitinho.png" alt="Fluxo de Integração com Startups"></docs-zoomable-image>
 
 O processo de integração consiste em 5 etapas:
 - Primeiro contato: aqui, Layers e Startup se conhecem e interagem, com o objetivo de verificar se faz sentido para os dois uma integração. Se sim, passamos para a próxima etapa. 

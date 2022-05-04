@@ -326,45 +326,49 @@ c-id=42.453.4.46><!--t.42.454.5.0--> <li c-id=42.455.5.1><strong c-id=42.456.6.0
 <li c-id=42.463.5.3><strong c-id=42.464.6.0><!--t.42.465.7.0-->close</strong><!--t.42.466.6.1-->: O método
 <code c-id=42.467.6.2><!--t.42.468.7.0-->close()</code><!--t.42.469.6.3--> permite que o app feche o portal</li><!--t.42.470.5.4-->
 </ul><!--t.42.471.4.47--> <h3 id="autentica-o" c-id=42.472.4.48><!--t.42.473.5.0--> <a href="#autentica-o"
-c-id=42.474.5.1><!--t.42.475.6.0-->Autenticação</a><!--t.42.476.5.2--> </h3><!--t.42.477.4.49--> <p c-id=42.478.4.50><!--t.42.479.5.0-->A autenticação pode ser feita através do uso das informações no SDK de portais e da
-<stencil-route-link
-class=hydrated c-id=42.480.5.1 s-id=50><!--r.50--><!--o.42.481--><a href="/docs/api/auth/sso/session/validate"
-c-id=50.0.0.0><!--s.50.1.1.0.--><!--t.42.481.6.0-->rota de validar sessão</a></stencil-route-link><!--t.42.482.5.2-->. Essa rota recebe nos parâmetros da query a
-<code c-id=42.483.5.3><!--t.42.484.6.0-->session</code><!--t.42.485.5.4-->, o
-<code c-id=42.486.5.5><!--t.42.487.6.0-->userId</code><!--t.42.488.5.6--> e a <code c-id=42.489.5.7><!--t.42.490.6.0-->communityId</code><!--t.42.491.5.8-->. Essas informações podem ser extraídas do SDK de portais da seguinte maneira:
+c-id=42.474.5.1><!--t.42.475.6.0-->Autenticação</a><!--t.42.476.5.2--> </h3><!--t.42.477.4.49--> <p c-id=42.478.4.50><!--t.42.479.5.0-->A autenticação pode ser feita através do uso das informações no SDK de portais e da rota de validar sessão. Essa rota recebe nos parâmetros da query a
+<code
+c-id=42.480.5.1><!--t.42.481.6.0-->session</code><!--t.42.482.5.2-->, o <code c-id=42.483.5.3><!--t.42.484.6.0-->userId</code><!--t.42.485.5.4--> e a
+<code c-id=42.486.5.5><!--t.42.487.6.0-->community</code><!--t.42.488.5.6-->. Fora isso, a rota também necessita da utilização de um
+<code c-id=42.489.5.7><!--t.42.490.6.0-->token de aplicação</code><!--t.42.491.5.8-->, que é fornecido pela Layers à Startup durante o processo de integração. As informações necessárias podem ser extraídas do SDK de portais da seguinte maneira:
 </p><!--t.42.492.4.51-->
-<docs-code class=hydrated c-id=42.493.4.52 s-id=51><!--r.51--><!--t.42.494.5.0--> <pre c-id=42.495.5.1><code
+<docs-code class=hydrated c-id=42.493.4.52 s-id=50><!--r.50--><!--t.42.494.5.0--> <pre c-id=42.495.5.1><code
 c-id=42.496.6.0><span class="token keyword" c-id=42.497.7.0><!--t.42.498.8.0-->const</span><!--t.42.499.7.1--> <span
 class="token punctuation" c-id=42.500.7.2><!--t.42.501.8.0-->{</span><!--t.42.502.7.3--> session<span
 class="token punctuation" c-id=42.503.7.4><!--t.42.504.8.0-->,</span><!--t.42.505.7.5--> communityId<span
 class="token punctuation" c-id=42.506.7.6><!--t.42.507.8.0-->,</span><!--t.42.508.7.7--> userId <span
 class="token punctuation" c-id=42.509.7.8><!--t.42.510.8.0-->}</span><!--t.42.511.7.9--> <span class="token operator"
 c-id=42.512.7.10><!--t.42.513.8.0-->=</span><!--t.42.514.7.11--> LayersPortal</code></pre><!--t.42.515.5.2-->
-<div class="code-text__copy" c-id=51.0.0.0><a class="code-text__copy-link" c-id=51.1.1.0><!--t.51.2.2.0-->Copiar</a><span
+<div class="code-text__copy" c-id=50.0.0.0><a class="code-text__copy-link" c-id=50.1.1.0><!--t.50.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=50.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=50.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=50.5.3.0></path></svg><!--t.50.6.2.1-->Copiado</span></div></docs-code><!--t.42.516.4.53--> <p c-id=42.517.4.54><!--t.42.518.5.0-->Assim, a aplicação pode fazer uma requisição na URL de validação de sessão no seguinte formato:</p><!--t.42.519.4.55-->
+<docs-code class=hydrated c-id=42.520.4.56 s-id=51><!--r.51--><!--t.42.521.5.0--> <pre c-id=42.522.5.1><code
+c-id=42.523.6.0><!--t.42.524.7.0-->Authorization: Bearer {{AppToken}}</code></pre><!--t.42.525.5.2--> <div
+class="code-text__copy" c-id=51.0.0.0><a class="code-text__copy-link" c-id=51.1.1.0><!--t.51.2.2.0-->Copiar</a><span
 class="code-text__copy-confirmation" c-id=51.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=51.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=51.5.3.0></path></svg><!--t.51.6.2.1-->Copiado</span></div></docs-code><!--t.42.516.4.53--> <p c-id=42.517.4.54><!--t.42.518.5.0-->É possível ainda receber essas informações como parâmetros na URL que é chamada quando um usuário clica no portal assim como no método antigo. Por esse motivo, é necessário verificar quais informações estão sendo recebidas na URL para definir qual método de validação deve ser utilizado.</p><!--t.42.519.4.55-->
-<p c-id=42.520.4.56><!--t.42.521.5.0-->Exemplo:</p><!--t.42.522.4.57--> <docs-code class=hydrated
-c-id=42.523.4.58 s-id=52><!--r.52--><!--t.42.524.5.0--> <pre c-id=42.525.5.1><code c-id=42.526.6.0><span
-class="token method" c-id=42.527.7.0><span class="token get" c-id=42.528.8.0><!--t.42.529.9.0-->GET</span></span><!--t.42.530.7.1--> <span
-class="token schema" c-id=42.531.7.2><!--t.42.532.8.0-->https://</span><!--t.42.533.7.3-->meu-app.com<span
-class="token path" c-id=42.534.7.4><!--t.42.535.8.0-->/meu-portal</span><span class="token query" c-id=42.536.7.5><span
-class="token separator" c-id=42.537.8.0><!--t.42.538.9.0-->?</span><span class="token param" c-id=42.539.8.1><span
-class="token name" c-id=42.540.9.0><!--t.42.541.10.0-->layers_session</span><!--t.42.542.9.1-->=<span
-class="token value" c-id=42.543.9.2><span class="token string" c-id=42.544.10.0><!--t.42.545.11.0-->{SESSION}</span></span></span><span
-class="token separator" c-id=42.546.8.2><!--t.42.547.9.0-->&amp;</span><span class="token param" c-id=42.548.8.3><span
-class="token name" c-id=42.549.9.0><!--t.42.550.10.0-->layers_community_id</span><!--t.42.551.9.1-->=<span
-class="token value" c-id=42.552.9.2><span class="token string" c-id=42.553.10.0><!--t.42.554.11.0-->{COMMUNITY}</span></span></span><span
-class="token separator" c-id=42.555.8.4><!--t.42.556.9.0-->&amp;</span><span class="token param" c-id=42.557.8.5><span
-class="token name" c-id=42.558.9.0><!--t.42.559.10.0-->layers_user_id</span><!--t.42.560.9.1-->=<span
-class="token value" c-id=42.561.9.2><span class="token string" c-id=42.562.10.0><!--t.42.563.11.0-->{USER_ID}</span></span></span></span></code></pre><!--t.42.564.5.2-->
+c-id=51.5.3.0></path></svg><!--t.51.6.2.1-->Copiado</span></div></docs-code><!--t.42.526.4.57--> <docs-code
+class=hydrated c-id=42.527.4.58 s-id=52><!--r.52--><!--t.42.528.5.0--> <pre c-id=42.529.5.1><code c-id=42.530.6.0><span
+class="token method" c-id=42.531.7.0><span class="token get" c-id=42.532.8.0><!--t.42.533.9.0-->GET</span></span><!--t.42.534.7.1--> <span
+class="token schema" c-id=42.535.7.2><!--t.42.536.8.0-->https://</span><!--t.42.537.7.3-->api.layers.digital<span
+class="token path" c-id=42.538.7.4><span class="token version" c-id=42.539.8.0><!--t.42.540.9.0-->/v1</span><!--t.42.541.8.1-->/sso/session/validate</span><span
+class="token query" c-id=42.542.7.5><span class="token separator" c-id=42.543.8.0><!--t.42.544.9.0-->?</span><span
+class="token param" c-id=42.545.8.1><span class="token name" c-id=42.546.9.0><!--t.42.547.10.0-->session</span><!--t.42.548.9.1-->=<span
+class="token value" c-id=42.549.9.2><span class="token string" c-id=42.550.10.0><!--t.42.551.11.0-->{SESSION}</span></span></span><span
+class="token separator" c-id=42.552.8.2><!--t.42.553.9.0-->&amp;</span><span class="token param" c-id=42.554.8.3><span
+class="token name" c-id=42.555.9.0><!--t.42.556.10.0-->community</span><!--t.42.557.9.1-->=<span class="token value"
+c-id=42.558.9.2><span class="token string" c-id=42.559.10.0><!--t.42.560.11.0-->{COMMUNITY}</span></span></span><span
+class="token separator" c-id=42.561.8.4><!--t.42.562.9.0-->&amp;</span><span class="token param" c-id=42.563.8.5><span
+class="token name" c-id=42.564.9.0><!--t.42.565.10.0-->userId</span><!--t.42.566.9.1-->=<span class="token value"
+c-id=42.567.9.2><span class="token string" c-id=42.568.10.0><!--t.42.569.11.0-->{USER_ID}</span></span></span></span></code></pre><!--t.42.570.5.2-->
 <div class="code-text__copy" c-id=52.0.0.0><a class="code-text__copy-link" c-id=52.1.1.0><!--t.52.2.2.0-->Copiar</a><span
 class="code-text__copy-confirmation" c-id=52.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=52.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=52.5.3.0></path></svg><!--t.52.6.2.1-->Copiado</span></div></docs-code><!--t.42.565.4.59--> <p c-id=42.566.4.60><!--t.42.567.5.0-->Caso as informações enviadas sejam válidas, a rota de validação de sessão responderá com status
+c-id=52.5.3.0></path></svg><!--t.52.6.2.1-->Copiado</span></div></docs-code><!--t.42.571.4.59--> <p c-id=42.572.4.60><!--t.42.573.5.0-->Caso as informações enviadas sejam válidas, a rota de validação de sessão responderá com status
 <code
-c-id=42.568.5.1><!--t.42.569.6.0-->200</code><!--t.42.570.5.2--> confirmando que essa é uma sessão válida e o usuário está autenticado na Layers.</p></div></section><docs-page-footer
-role=contentinfo class=hydrated c-id=42.571.2.3 s-id=53><!--r.53--><docs-pagination class=hydrated c-id=53.0.0.0
+c-id=42.574.5.1><!--t.42.575.6.0-->200</code><!--t.42.576.5.2--> confirmando que essa é uma sessão válida e o usuário está autenticado na Layers.</p></div></section><docs-page-footer
+role=contentinfo class=hydrated c-id=42.577.2.3 s-id=53><!--r.53--><docs-pagination class=hydrated c-id=53.0.0.0
 s-id=54><!--r.54--><stencil-route-link class="previous hydrated" c-id=54.0.0.0 s-id=55><!--r.55--><!--o.54.1--><!--o.54.3--><a
 class="link-active" href="/docs/forstartups/portais" title="Portais na Layers" c-id=55.0.0.0><!--s.55.1.1.0.--><div
 class=paggination__title c-id=54.1.1.0><!--t.54.2.2.0-->Anterior</div><div class=paggination__text c-id=54.3.1.1><svg

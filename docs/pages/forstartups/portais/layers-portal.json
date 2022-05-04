@@ -1288,15 +1288,7 @@
     [
       "p",
       null,
-      "A autenticação pode ser feita através do uso das informações no SDK de portais e da ",
-      [
-        "stencil-route-link",
-        {
-          "url": "/docs/api/auth/sso/session/validate"
-        },
-        "rota de validar sessão"
-      ],
-      ". Essa rota recebe nos parâmetros da query a ",
+      "A autenticação pode ser feita através do uso das informações no SDK de portais e da rota de validar sessão. Essa rota recebe nos parâmetros da query a ",
       [
         "code",
         null,
@@ -1312,9 +1304,15 @@
       [
         "code",
         null,
-        "communityId"
+        "community"
       ],
-      ". Essas informações podem ser extraídas do SDK de portais da seguinte maneira: "
+      ". Fora isso, a rota também necessita da utilização de um ",
+      [
+        "code",
+        null,
+        "token de aplicação"
+      ],
+      ", que é fornecido pela Layers à Startup durante o processo de integração. As informações necessárias podem ser extraídas do SDK de portais da seguinte maneira: "
     ],
     " ",
     [
@@ -1385,13 +1383,25 @@
     [
       "p",
       null,
-      "É possível ainda receber essas informações como parâmetros na URL que é chamada quando um usuário clica no portal assim como no método antigo. Por esse motivo, é necessário verificar quais informações estão sendo recebidas na URL para definir qual método de validação deve ser utilizado."
+      "Assim, a aplicação pode fazer uma requisição na URL de validação de sessão no seguinte formato:"
     ],
     " ",
     [
-      "p",
-      null,
-      "Exemplo:"
+      "docs-code",
+      {
+        "language": "headers"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "Authorization: Bearer {{AppToken}}"
+        ]
+      ],
+      " "
     ],
     " ",
     [
@@ -1427,13 +1437,20 @@
             },
             "https://"
           ],
-          "meu-app.com",
+          "api.layers.digital",
           [
             "span",
             {
               "class": "token path"
             },
-            "/meu-portal"
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/sso/session/validate"
           ],
           [
             "span",
@@ -1457,7 +1474,7 @@
                 {
                   "class": "token name"
                 },
-                "layers_session"
+                "session"
               ],
               "=",
               [
@@ -1491,7 +1508,7 @@
                 {
                   "class": "token name"
                 },
-                "layers_community_id"
+                "community"
               ],
               "=",
               [
@@ -1525,7 +1542,7 @@
                 {
                   "class": "token name"
                 },
-                "layers_user_id"
+                "userId"
               ],
               "=",
               [

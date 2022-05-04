@@ -103,17 +103,19 @@ LayersPortal.update(
 
 ### Autenticação
 
-A autenticação pode ser feita através do uso das informações no SDK de portais e da [rota de validar sessão](/docs/api/auth/sso/session/validate). Essa rota recebe nos parâmetros da query a `session`, o `userId` e a `communityId`. Essas informações podem ser extraídas do SDK de portais da seguinte maneira: 
+A autenticação pode ser feita através do uso das informações no SDK de portais e da rota de validar sessão. Essa rota recebe nos parâmetros da query a `session`, o `userId` e a `community`. Fora isso, a rota também necessita da utilização de um `token de aplicação`, que é fornecido pela Layers à Startup durante o processo de integração. As informações necessárias podem ser extraídas do SDK de portais da seguinte maneira: 
 
 ```js
 const { session, communityId, userId } = LayersPortal
 ```
 
-É possível ainda receber essas informações como parâmetros na URL que é chamada quando um usuário clica no portal assim como no método antigo. Por esse motivo, é necessário verificar quais informações estão sendo recebidas na URL para definir qual método de validação deve ser utilizado.
+Assim, a aplicação pode fazer uma requisição na URL de validação de sessão no seguinte formato:
 
-Exemplo:
+```headers
+Authorization: Bearer {{AppToken}}
+```
 ```http
-GET https://meu-app.com/meu-portal?layers_session={SESSION}&layers_community_id={COMMUNITY}&layers_user_id={USER_ID}
+GET https://api.layers.digital/v1/sso/session/validate?session={SESSION}&community={COMMUNITY}&userId={USER_ID}
 ```
 
 Caso as informações enviadas sejam válidas, a rota de validação de sessão responderá com status `200` confirmando que essa é uma sessão válida e o usuário está autenticado na Layers.

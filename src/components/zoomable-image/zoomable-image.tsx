@@ -12,7 +12,10 @@ export class ZoomableImage {
 
     return (
       <div class="Zoom-Image-Container">
-        <img src={this.href} alt={this.alt} />
+        <label>
+          <input type="checkbox" />
+          <img src={this.href} alt={this.alt} />
+        </label>
       </div>
     );
   }

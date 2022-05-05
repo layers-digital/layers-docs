@@ -1,15 +1,23 @@
 .Zoom-Image-Container {
   transition: transform .2s; /* Animation */
   padding: 10px;
-  background-color: white;
   z-index: 90000;
   overflow: visible;
   position: relative;
 }
 .Zoom-Image-Container img {
-	width:100%;
-	height:auto;
+  width: 100%;
+  transition: transform 0.25s ease;
+  cursor: zoom-in;
+  background-color: white;
 }
-.Zoom-Image-Container:hover {
+
+.Zoom-Image-Container input[type=checkbox] {
+  display: none
+}
+
+.Zoom-Image-Container input[type=checkbox]:checked~img {
   transform: scale(3);
+  cursor: zoom-out;
+  background-color: white;
 }

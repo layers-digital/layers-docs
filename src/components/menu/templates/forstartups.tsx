@@ -1,4 +1,5 @@
 import { h } from '@stencil/core';
+import menuData from '../data/apis.json'
 
 export default () => {
   return <docs-nav items={items} />
@@ -11,6 +12,7 @@ const items = {
   'Layers Portal': {
     'Portais na Layers': '/docs/forstartups/portais',
     'Layers Portal SDK': '/docs/forstartups/portais/layers-portal',
+    ...(menuData.notifications)
   },
   'Layers SSO': {
     'Single Sign-On na Layers': '/docs/forstartups/sso',

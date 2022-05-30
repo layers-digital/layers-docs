@@ -3,31 +3,27 @@
   "info": {
     "title": "API de Notificações",
     "description": "A API de notificações permite que você envie notificações push para qualquer plataforma",
-    "version": "1.0"
+    "version": "2.0"
   },
   "servers": [
     {
-      "url": "https://api.layers.digital/v1"
+      "url": "https://api.layers.digital/v2"
     }
   ],
   "paths": {
-    "/notication/send": {
+    "/notication": {
       "post": {
         "tags": [
           "Notificações"
         ],
         "summary": "Enviar notificação",
-        "description": "Enviar notificações push para usuários via web, android e ios.",
+        "description": "Enviar notificações push para usuários de uma certa comunidade via web, android e ios.",
         "security": [
           {
             "Bearer": []
           }
         ],
-        "x-layers-permissions": [
-          "notification:send"
-        ],
-        "x-layers-contexts": [
-          "user",
+        "x-layers-context": [
           "app"
         ],
         "parameters": [
@@ -36,96 +32,37 @@
           }
         ],
         "requestBody": {
-          "description": "Informações da notificação",
+          "description": "Informações necessárias para o envio da notificação",
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "required": [
-                  "targets",
-                  "title",
-                  "body"
+                  "users",
+                  "title"
                 ],
                 "properties": {
-                  "targets": {
-                    "type": "object",
-                    "description": "público alvo da publicação",
-                    "properties": {
-                      "topics": {
-                        "type": "array",
-                        "description": "Público alvo da publicação",
-                        "items": {
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "required": [
-                                "id",
-                                "kind"
-                              ],
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "description": "Identificador do membro, usuário, turma ou marcador"
-                                },
-                                "kind": {
-                                  "type": "string",
-                                  "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
-                                }
-                              }
-                            },
-                            {
-                              "type": "object",
-                              "required": [
-                                "email",
-                                "kind"
-                              ],
-                              "properties": {
-                                "email": {
-                                  "type": "string",
-                                  "description": "Email do usuário"
-                                },
-                                "kind": {
-                                  "type": "string",
-                                  "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
-                                }
-                              }
-                            },
-                            {
-                              "type": "object",
-                              "required": [
-                                "alias",
-                                "kind"
-                              ],
-                              "properties": {
-                                "alias": {
-                                  "type": "string",
-                                  "description": "Alias do membro, usuário ou grupo."
-                                },
-                                "kind": {
-                                  "type": "string",
-                                  "description": "Tipo do publico especificado. Pode ser user, member, group ou tag."
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      "roles": {
-                        "type": "array",
-                        "description": "Permissões que devem receber uma notificação",
-                        "items": {
-                          "type": "string"
-                        }
-                      }
+                  "users": {
+                    "type": "array",
+                    "description": "Array que contém os ids dos usuários que receberão a notificação",
+                    "items": {
+                      "type": "string",
+                      "description": "Id de um usuário"
                     }
                   },
                   "title": {
                     "type": "string",
+                    "maxLength": 65,
                     "description": "Título da notificação"
                   },
                   "body": {
                     "type": "string",
-                    "description": "Texto de corpo da notificação"
+                    "maxLength": 178,
+                    "description": "Texto do corpo da notificação"
+                  },
+                  "scheduleDate": {
+                    "type": "string",
+                    "description": "Data em formato ISO8601 com o momento em que deve ser enviada a notificação. Caso o paramêtro não esteja presente, a notificação é enviada instantaneamente."
                   }
                 }
               }
@@ -134,7 +71,7 @@
         },
         "responses": {
           "200": {
-            "description": "Notificações enviadas"
+            "description": "Notificações enviadas ou agendadas com sucesso"
           },
           "400": {
             "description": "Bad Request",
@@ -149,7 +86,7 @@
                     },
                     "type": {
                       "type": "string",
-                      "example": "invalidParameter"
+                      "example": "InvalidParameter"
                     },
                     "name": {
                       "type": "string",
@@ -157,7 +94,7 @@
                     },
                     "error": {
                       "type": "string",
-                      "example": "Targets not provided"
+                      "example": "Title/users not provided"
                     }
                   }
                 }
@@ -183,7 +120,7 @@
     },
     "securitySchemes": {
       "Bearer": {
-        "description": "Generate a token",
+        "description": "App Token",
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"

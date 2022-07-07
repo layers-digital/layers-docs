@@ -16,17 +16,17 @@ const items = {
   //   // 'Fornecedores': '/docs/concepts/fornecedores',
   // },
 
-  'Funcionalidades': {
+  // 'Funcionalidades': {
   //   // '': '/docs/concepts/funcionalidades',
   //   'Logar com Layers': '/docs/concepts/funcionalidades/logar-com-layers',
   //   'Portais': '/docs/concepts/funcionalidades/portais',
-    'Layers API Hub': '/docs/concepts/funcionalidades/hub-de-apis',
-    'Layers Data Sync': '/docs/concepts/funcionalidades/sincronizacao-de-dados',
+    // 'Layers API Hub': '/docs/concepts/funcionalidades/hub-de-apis',
+    // 'Layers Data Sync': '/docs/concepts/funcionalidades/sincronizacao-de-dados',
     // 'Notificações': '/docs/concepts/funcionalidades/notificacoes',
   //   // 'E-commerce': '/docs/concepts/funcionalidades/e-commerce',
     // 'Login Federado': '/docs/concepts/funcionalidades/login-federado',
     // 'Comunicação': '/docs/concepts/funcionalidades/comunicacao'
-  },
+  // },
 
   // 'Construindo Apps': {
   //   'O que é um App?': '/docs/concepts/construindo-apps/o-que-e-um-app',

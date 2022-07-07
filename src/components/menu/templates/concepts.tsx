@@ -24,7 +24,7 @@ const items = {
     'Layers Data Sync': '/docs/concepts/funcionalidades/sincronizacao-de-dados',
     // 'Notificações': '/docs/concepts/funcionalidades/notificacoes',
   //   // 'E-commerce': '/docs/concepts/funcionalidades/e-commerce',
-    'Login Federado': '/docs/concepts/funcionalidades/login-federado',
+    // 'Login Federado': '/docs/concepts/funcionalidades/login-federado',
     // 'Comunicação': '/docs/concepts/funcionalidades/comunicacao'
   },
 

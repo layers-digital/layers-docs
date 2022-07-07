@@ -65,7 +65,7 @@ export class DocsHeader {
           </nav>
 
           <nav class="UtilNav">
-            <img src='https://img.shields.io/badge/Status-Beta-green' alt='Doc Status' />
+            <img class="StatusBetaFlag" src='https://img.shields.io/badge/Status-Beta-green' alt='Doc Status' />
 
             <docs-dropdown label={getString('header-support')} align="right">
               <section>

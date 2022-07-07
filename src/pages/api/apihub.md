@@ -10,6 +10,9 @@ O Layers API Hub é uma funcionalidade do ecossistema Layers que permite Apps pr
 
 Para cada uma dessas actions, está disponível um App desenvolvido pela Layers que disponibiliza essas informações. Assim, Apps provedores podem se responsabilizar apenas em disponibilizar as informações e nossos apps se responsabilizam por expor essas informações da melhor maneira para os usuários da Layers.
 
+
+Para exemplificar, observe:
+<docs-zoomable-image href="/docs/assets/images/flow-erp.png"></docs-zoomable-image>
 ## Como funciona ?
 
 A troca de informações entre apps por meio do API Hub pode ser descrita em quatro etapas:

@@ -22,7 +22,7 @@ Para desenvolvedores desses serviços, integrar sua solução à Layers signific
     <p>Funcionalidades para Sistemas de Gestão</p>
   </docs-card>
 
-  <!-- <docs-card header="fornecedores" href="/docs/concepts/fornecedores" icon="/docs/assets/icons/Fornecedores.svg">
-    <p>Funcionalidades para fornecedores</p>
+  <!-- <docs-card header="Provedores" href="/docs/concepts/Provedores" icon="/docs/assets/icons/Provedores.svg">
+    <p>Funcionalidades para Provedores</p>
   </docs-card> -->
 </docs-cards>

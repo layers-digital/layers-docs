@@ -4,17 +4,17 @@ title: Consumindo uma Action
 tableOfContents: false
 previousText: 'Introdução'
 previousUrl: '/docs/api/apihub'
-nextText: 'Fornecendo Informações'
-nextUrl: '/docs/api/apihub/fornecendo'
+nextText: 'Provendo Informações'
+nextUrl: '/docs/api/apihub/provendo'
 ---
 
 # Consumindo uma Action
 
-Dada uma certa Action, antes de consumí-la, é preciso que seu App Consumidor descubra quais são os Apps Provedores disponíveis para essa Action. Após isso, é preciso que seu app requisite para cada um dos fornecedores as informações da action específica.
+Dada uma certa Action, antes de consumí-la, é preciso que seu App Consumidor descubra quais são os Apps Provedores disponíveis para essa Action. Após isso, é preciso que seu app requisite para cada um dos Provedores as informações da action específica.
 
 Para descobrir os Apps Provedores da Action, basta rodar a seguinte requisição:
 
-## Descobrindo os Apps Fornecedores
+## Descobrindo os Apps Provedores
 
 ### Request
 
@@ -50,14 +50,14 @@ community-id: {{id_da_comunidade}}
 ]
 ```
 
-A partir dessa resposta, precisamos, para cada App Fornecedor, requisitar seus dados referentes a action específica.
+A partir dessa resposta, precisamos, para cada App Provedor, requisitar seus dados referentes a action específica.
 
-## Requisitando Informações para um App Fornecedor específico
+## Requisitando Informações para um App Provedor específico
 
 ### Request
 
 ```http
-GET https://api.layers.digital/v1/services/call/{{action}}/{{id_app_fornecedor}}?version={{versao_da_action_desejada}}
+GET https://api.layers.digital/v1/services/call/{{action}}/{{id_app_Provedor}}?version={{versao_da_action_desejada}}
 ```
 
 ```headers
@@ -65,4 +65,4 @@ Authorization: Bearer {{token_do_seu_app}}
 community-id: {{id_da_comunidade}}
 ```
 
-O corpo da mensagem varia de acordo com a action, assim como o payload de resposta. Você pode checar com detalhes nas seções logo abaixo! :) 
+O corpo da requisição varia de acordo com a action, assim como o payload de resposta. Você pode checar com detalhes nas seções logo abaixo! :) 

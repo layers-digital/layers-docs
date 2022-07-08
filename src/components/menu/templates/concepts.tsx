@@ -13,7 +13,7 @@ const items = {
   },
 
   // 'Pensado para EdTechs': {
-  //   // 'Fornecedores': '/docs/concepts/fornecedores',
+  //   // 'Provedores': '/docs/concepts/Provedores',
   // },
 
   // 'Funcionalidades': {

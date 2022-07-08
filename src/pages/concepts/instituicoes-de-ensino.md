@@ -13,11 +13,11 @@ A Layers oferece para instituições de ensino um único ambiente ao qual é pos
 ## Principais funcionalidades
 
 <docs-cards>
-  <docs-card header="API Hub" href="/docs/api/apihub" icon="/docs/assets/icons/Hub.svg">
+  <docs-card header="Layers API Hub" href="/docs/api/apihub" icon="/docs/assets/icons/Hub.svg">
     <p>Prover e consumir informações sobre horários, frequência, cobranças e mais</p>
   </docs-card>
 
-  <docs-card header="Data Sync" href="/docs/api/data" icon="/docs/assets/icons/Data.svg">
+  <docs-card header="Layers Data Sync" href="/docs/api/data" icon="/docs/assets/icons/Data.svg">
     <p>Manter os dados da Layers atualizados com as informações do ERP</p>
   </docs-card>
 

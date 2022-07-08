@@ -11,8 +11,7 @@ O Layers API Hub é uma funcionalidade do ecossistema Layers que permite Apps co
 Para cada uma dessas actions, está disponível ao menos um App desenvolvido pela Layers que disponibiliza essas informações. Assim, Apps fornecedores podem se responsabilizar apenas em fornecer as informações requisitadas via actions e outros Apps consumidores se responsabilizam por expor essas informações da melhor maneira para os usuários da Layers.
 
 Para exemplificar, observe:
-<docs-zoomable-image href="/docs/assets/images/flow-erp.png"></docs-zoomable-image>
-O app mais a esquerda é o “Notas Acadêmicas” e irá representar apps que necessitam de requisitar dados (App consumidor). Já o app mais a direita é o “ERP Modelo” e irá representar os apps que podem prover dados para outros apps (App fornecedor).
+<docs-zoomable-image href="/docs/assets/images/flow-erp.png" caption="O app mais a esquerda é o “Notas Acadêmicas” e irá representar apps que necessitam de requisitar dados (App consumidor). Já o app mais a direita é o “ERP Modelo” e irá representar os apps que podem prover dados para outros apps (App fornecedor)."></docs-zoomable-image>
 ## Como funciona ?
 
 + <strong> 1 - App requisita informações </strong>

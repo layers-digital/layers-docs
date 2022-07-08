@@ -174,6 +174,7 @@ export namespace Components {
     'listenFor': string;
   }
   interface DocsZoomableImage {
+    'caption'?: string;
     'close': () => Promise<void>;
     'href': string;
     'open': () => Promise<void>;
@@ -641,6 +642,7 @@ declare namespace LocalJSX {
     'listenFor'?: string;
   }
   interface DocsZoomableImage {
+    'caption'?: string;
     'href'?: string;
   }
   interface FileTree {}

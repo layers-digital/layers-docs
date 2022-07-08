@@ -6,29 +6,27 @@ tableOfContents: false
 
 # Layers API Hub
 
-O Layers API Hub é uma funcionalidade do ecossistema Layers que permite Apps proverem/fornecerem informações para outros Apps na Layers. Isto é feito através de actions: um protocolo que especifica o formato de comunicação entre os provedores e fornecedores de informação.
+O Layers API Hub é uma funcionalidade do ecossistema Layers que permite Apps consumirem e fornecerem informações de outros Apps na Layers. Isto é feito através de actions: um protocolo que especifica o formato de comunicação entre os consumidores e fornecedores de informação.
 
-Para cada uma dessas actions, está disponível um App desenvolvido pela Layers que disponibiliza essas informações. Assim, Apps provedores podem se responsabilizar apenas em disponibilizar as informações e nossos apps se responsabilizam por expor essas informações da melhor maneira para os usuários da Layers.
-
+Para cada uma dessas actions, está disponível ao menos um App desenvolvido pela Layers que disponibiliza essas informações. Assim, Apps fornecedores podem se responsabilizar apenas em fornecer as informações requisitadas via actions e outros Apps consumidores se responsabilizam por expor essas informações da melhor maneira para os usuários da Layers.
 
 Para exemplificar, observe:
 <docs-zoomable-image href="/docs/assets/images/flow-erp.png"></docs-zoomable-image>
+O app mais a esquerda é o “Notas Acadêmicas” e irá representar apps que necessitam de requisitar dados (App consumidor). Já o app mais a direita é o “ERP Modelo” e irá representar os apps que podem prover dados para outros apps (App fornecedor).
 ## Como funciona ?
-
-A troca de informações entre apps por meio do API Hub pode ser descrita em quatro etapas:
 
 + <strong> 1 - App requisita informações </strong>
 
-A troca de informações entre apps da Layers começa com o app que necessita de informações fazendo uma requisição `POST` para a Layers seguindo o padrão estabelecido pela action especificada como parâmetro na URL.
+O App Consumidor irá fazer uma requisição HTTP (POST) para a Layers, requisitando os dados de determinada action. Por sua vez, a Layers validará se os dados enviados no body do request estão de fato corretos. Caso estejam, prossegue-se para a próxima etapa.
 
 + <strong> 2 - Layers repassa a requisição </strong>
 
-Uma vez que a Layers recebe a requisição, o corpo é validado de acordo com o protocolo da action. Se o formato da requisição estiver de acordo com o formato especificado, a Layers repassa a requisição para o provedor especificado como parâmetro na URL adicionando informações de contexto da requisição.
+A Layers irá requisitar os dados do App Fornecedor. Este último deve receber os dados como especificados na nossa documentação. Além de fazer a requisição para o App Fornecedor, a Layers irá enriquecer os dados enviados adicionando contexto (context) a eles.
 
 + <strong> 3 - App responde a requisição </strong>
 
-O app provedor registrado recebe então a requisição vinda da Layers na URL especificada quando ele foi cadastrado como provedor para a action que foi requisitada. A resposta deve seguir o formato especificado pelo protocolo da action.
+Após receber os dados, o App Fornecedor irá requisitar os dados armazenados pelo ERP (nesse caso), realizando outra requisição HTTP (POST), e retornar os dados para Layers. Novamente, seu formato de response deve seguir o que está especificado na documentação da action específica.
 
 + <strong> 4 - Layers repassa a resposta </strong>
 
-Ao receber a resposta do provedor, a Layers verifica se ela está de acordo com o protocolo da action e repassa as informações recebidas para o app que as requisitou.
+Ao final, a Layers recebe os dados do App Fornecedor e valida-os para verificar se estão de acordo com o que era esperado como resposta da action. Caso estejam corretos, eles são repassados para o App Consumidor, assim podendo utilizá-los.

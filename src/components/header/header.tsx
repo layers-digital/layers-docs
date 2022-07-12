@@ -39,7 +39,7 @@ export class DocsHeader {
         <stencil-route-link url="/docs/" urlMatch={[/\/docs\/$/]}>Home</stencil-route-link>
         <stencil-route-link url="/docs/forstartups" urlMatch={['/docs/forstartups', /^\/docs\/api\/notifications\/.*/]}>Para Startups</stencil-route-link>
         <stencil-route-link url="/docs/forerps" urlMatch={['/docs/forerps']}>Para ERPs</stencil-route-link>
-        <stencil-route-link url="/docs/forschools" urlMatch={['/docs/forschools']}>Para Escolas</stencil-route-link>
+        {/* <stencil-route-link url="/docs/forschools" urlMatch={['/docs/forschools']}>Para Escolas</stencil-route-link> */}
         <stencil-route-link url="/docs/api/data" urlMatch={['/docs/api/data']}>Layers Data Sync</stencil-route-link>
         <stencil-route-link url="/docs/api/apihub" urlMatch={['/docs/api/apihub']}>Layers API Hub</stencil-route-link>
         <stencil-route-link url="/docs/status" urlMatch={['/docs/status']}>Status</stencil-route-link>

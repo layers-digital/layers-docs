@@ -45,11 +45,11 @@ export class DocsNav {
     if (item.childs) {
       return <li key={item as any}>{this.toSection(item, level + 1)}</li>;
     }
-    
+
     if (typeof item === 'object') {
       return <li key={item as any}>{link(item)}</li>;
     }
-    
+
     return null
   }
 

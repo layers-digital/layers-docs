@@ -11,7 +11,6 @@ const items = {
   },
   'Layers Portal': {
     'Portais na Layers': '/docs/forstartups/portais',
-    'Layers Portal SDK': '/docs/forstartups/portais/layers-portal',
     ...(menuData.notifications)
   },
   'Layers SSO': {
@@ -20,10 +19,8 @@ const items = {
     'Requisitando Informações do Usuário': '/docs/forstartups/sso/basic-user-info',
     'Validando o Layers SSO Token': '/docs/forstartups/sso/validating-tokens',
   },
-  'Layers Data Sync': {
-    'Sincronização de dados': '/docs/forstartups/sincronizacao-de-dados'
-  },
-  'Layers API Hub': {
-    'API Hub': '/docs/forstartups/api'
+  'Outras Camadas': {
+    'Layers Data Sync': '/docs/api/data',
+    'Layers API Hub': '/docs/api/apihub'
   }
 }

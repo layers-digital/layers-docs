@@ -37,9 +37,9 @@ export class DocsHeader {
       ['Docs'].includes(section) ?
       <div class="SectionNav-tabs">
         <stencil-route-link url="/docs/" urlMatch={[/^\/docs(?!\/(api|sdk|status|register|suporte|forstartups)).*$/]}>Introdução</stencil-route-link>
-        <stencil-route-link url="/docs/forstartups" urlMatch={['/docs/forstartups', /^\/docs\/api\/notifications\/.*/]}>Layers For Startups</stencil-route-link>
-        <stencil-route-link url="/docs/api/data" urlMatch={['/docs/api/data']}>Data Sync</stencil-route-link>
-        <stencil-route-link url="/docs/api/apihub" urlMatch={['/docs/api/apihub']}>API Hub</stencil-route-link>
+        <stencil-route-link url="/docs/forstartups" urlMatch={['/docs/forstartups', /^\/docs\/api\/notifications\/.*/]}>Para Startups</stencil-route-link>
+        <stencil-route-link url="/docs/api/data" urlMatch={['/docs/api/data']}>Layers Data Sync</stencil-route-link>
+        <stencil-route-link url="/docs/api/apihub" urlMatch={['/docs/api/apihub']}>Layers API Hub</stencil-route-link>
         <stencil-route-link url="/docs/status" urlMatch={['/docs/status']}>Status</stencil-route-link>
       </div> : null,
     ];

@@ -1,0 +1,178 @@
+{
+  "path": "/docs/api/apihub/provendo",
+  "template": "default",
+  "title": "Provendos dados para uma Action",
+  "tableOfContents": false,
+  "previousText": "Consumindo Informações",
+  "previousUrl": "/docs/api/apihub/consumindo",
+  "body": [
+    "div",
+    null,
+    [
+      "p",
+      {
+        "class": "intro"
+      },
+      "Para um App Consumidor poder consumir dados de uma action é necessário que haja um app responsável por prover dados para essa Action. Um app com essa responsabilidade é chamado de App Provedor. Um exemplo comum desse tipo são ERPs que fornecem diversos dados como notas acadêmicas, registros médicos e etc, que podem ser utilizados por outros apps."
+    ],
+    " ",
+    [
+      "h2",
+      {
+        "id": "respondendo-por-uma-action"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#respondendo-por-uma-action"
+        },
+        "Respondendo por uma Action"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "request"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#request"
+        },
+        "Request"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Para um App Provedor ser responsável por determinada action, é necessário que sejam implementadas rotas do tipo"
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "http"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          [
+            "span",
+            {
+              "class": "token method"
+            },
+            [
+              "span",
+              {
+                "class": "token post"
+              },
+              "POST"
+            ]
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token schema"
+            },
+            "https://"
+          ],
+          "api.layers.digital",
+          [
+            "span",
+            {
+              "class": "token path"
+            },
+            [
+              "span",
+              {
+                "class": "token version"
+              },
+              "/v1"
+            ],
+            "/services/validate/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{{action}}"
+            ],
+            "/",
+            [
+              "span",
+              {
+                "class": "token param"
+              },
+              "{{provider_id}}"
+            ]
+          ]
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "docs-code",
+      {
+        "language": "headers"
+      },
+      " ",
+      [
+        "pre",
+        null,
+        [
+          "code",
+          null,
+          "Authorization: Bearer {{token_do_seu_app}}\ncommunity-id: {{id_da_comunidade}}"
+        ]
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "Ou seja, para cada Action que um app é responsável por fornecer dados, é necessário que haja uma rota que responda por ela conforme especificado anteriormente."
+    ],
+    " ",
+    [
+      "h3",
+      {
+        "id": "response"
+      },
+      " ",
+      [
+        "a",
+        {
+          "href": "#response"
+        },
+        "Response"
+      ],
+      " "
+    ],
+    " ",
+    [
+      "p",
+      null,
+      "A payload da resposta da requisição varia de acordo com a Action. "
+    ]
+  ],
+  "headings": [
+    {
+      "text": "Respondendo por uma Action",
+      "href": "#respondendo-por-uma-action"
+    }
+  ],
+  "pageClass": "page-api-apihub-provendo"
+}

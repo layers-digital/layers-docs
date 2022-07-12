@@ -5,9 +5,13 @@ export default () => {
   return <docs-nav items={items} />
 };
 
+const requests = Object.values(menuData.apihub).flat()
+
 const items = {
   'API Hub': {
     'Introdução': '/docs/api/apihub',
+    'Consumindo dados de uma Action': '/docs/api/apihub/consumindo',
+    'Provendo dados para uma Action': '/docs/api/apihub/provendo'
   },
-  ...(menuData.apihub)
+  'Provendo Dados': requests
 }

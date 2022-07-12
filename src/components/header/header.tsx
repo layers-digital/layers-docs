@@ -36,10 +36,12 @@ export class DocsHeader {
     return [
       ['Docs'].includes(section) ?
       <div class="SectionNav-tabs">
-        <stencil-route-link url="/docs/" urlMatch={[/^\/docs(?!\/(api|sdk|status|register|suporte|forstartups)).*$/]}>Introdução</stencil-route-link>
-        <stencil-route-link url="/docs/forstartups" urlMatch={['/docs/forstartups', /^\/docs\/api\/notifications\/.*/]}>Layers For Startups</stencil-route-link>
-        <stencil-route-link url="/docs/api/data" urlMatch={['/docs/api/data']}>Data Sync</stencil-route-link>
-        <stencil-route-link url="/docs/api/apihub" urlMatch={['/docs/api/apihub']}>API Hub</stencil-route-link>
+        <stencil-route-link url="/docs/" urlMatch={[/\/docs\/$/]}>Home</stencil-route-link>
+        <stencil-route-link url="/docs/forstartups" urlMatch={['/docs/forstartups', /^\/docs\/api\/notifications\/.*/]}>Para Startups</stencil-route-link>
+        <stencil-route-link url="/docs/forerps" urlMatch={['/docs/forerps']}>Para ERPs</stencil-route-link>
+        {/* <stencil-route-link url="/docs/forschools" urlMatch={['/docs/forschools']}>Para Escolas</stencil-route-link> */}
+        <stencil-route-link url="/docs/api/data" urlMatch={['/docs/api/data']}>Layers Data Sync</stencil-route-link>
+        <stencil-route-link url="/docs/api/apihub" urlMatch={['/docs/api/apihub']}>Layers API Hub</stencil-route-link>
         <stencil-route-link url="/docs/status" urlMatch={['/docs/status']}>Status</stencil-route-link>
       </div> : null,
     ];
@@ -65,7 +67,7 @@ export class DocsHeader {
           </nav>
 
           <nav class="UtilNav">
-            <img src='https://img.shields.io/badge/Status-Beta-green' alt='Doc Status' />
+            <img class="StatusBetaFlag" src='https://img.shields.io/badge/Status-Beta-green' alt='Doc Status' />
 
             <docs-dropdown label={getString('header-support')} align="right">
               <section>

@@ -10,6 +10,9 @@ import api from './templates/api';
 import sync from './templates/sync';
 import conceptsTemplate from './templates/concepts';
 import forStartups from './templates/forstartups';
+import forErps from './templates/forerps';
+import forSchools from './templates/forschools';
+
 // import tutorialsTemplate from './templates/tutorials';
 import sdksTemplate from './templates/sdk';
 
@@ -49,7 +52,9 @@ export class DocsMenu {
         <stencil-route url="/docs/api/notifications/:service?" routeRender={forStartups}/>
         <stencil-route url="/docs/sdk" routeRender={sdksTemplate}/>
         <stencil-route url="/docs/forstartups" routeRender={forStartups}/>
-        <stencil-route url="/docs/(concepts)?/:service?" routeRender={conceptsTemplate}/>
+        <stencil-route url="/docs/forerps" routeRender={forErps}/>
+        <stencil-route url="/docs/forschools" routeRender={forSchools}/>
+        <stencil-route url="/docs/" routeRender={conceptsTemplate}/>
       </stencil-route-switch>
     ];
   }

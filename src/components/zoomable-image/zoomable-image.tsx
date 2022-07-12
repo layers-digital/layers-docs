@@ -6,6 +6,7 @@ import { Component, Element, Prop, h, State, Listen, Method } from '@stencil/cor
 })
 export class ZoomableImage {
   @Prop() href: string
+  @Prop() caption?: string
   @State() isOpen = false
   @Element() element: HTMLElement;
   @Listen('click', { target: 'window' })
@@ -33,7 +34,10 @@ export class ZoomableImage {
 
     return (
       <div>
-        <img onClick={this.open.bind(this)} class="notModalImg" src={this.href} alt="Integrando sua Startup" />
+        <figure>
+          <img onClick={this.open.bind(this)} class="notModalImg" src={this.href} alt="Integrando sua Startup" />
+          <figcaption class="notModalImgCaption">{this.caption}</figcaption>
+        </figure>
         <div class={ this.isOpen ? "openModal" : "modal" }>
           <span onClick={this.close.bind(this)} class="close">&times;</span>
           <img class="modalImg" src={this.href} />

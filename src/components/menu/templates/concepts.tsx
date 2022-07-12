@@ -7,9 +7,9 @@ export default () => {
 const items = {
   'Layers': {
     'O que é a Layers?': '/docs/',
-    'Para Instituições de Ensino': '/docs/concepts/instituicoes-de-ensino',
-    'Para Startups': '/docs/concepts/startups',
-    'Para ERPs': '/docs/concepts/erps',
+    // 'Para Instituições de Ensino': '/docs/concepts/instituicoes-de-ensino',
+    // 'Para Startups': '/docs/concepts/startups',
+    // 'Para ERPs': '/docs/concepts/erps',
   },
 
   // 'Pensado para EdTechs': {
@@ -34,13 +34,13 @@ const items = {
   //   // 'API Hub': '/docs/concepts/construindo-apps/hub-de-apis',
   // },
 
-  'Ecossistema Layers': {
-    // '': '/docs/concepts/ecossistema-layers',
-    'Introdução': '/docs/concepts/ecossistema-layers',
-    'Comunidades': '/docs/concepts/ecossistema-layers/comunidades',
-    'Apps': '/docs/concepts/ecossistema-layers/apps',
-    'Contas de Usuário': '/docs/concepts/ecossistema-layers/contas-de-usuario',
-    'Membros e Grupos': '/docs/concepts/ecossistema-layers/membros-e-grupos',
-    'Permissões': '/docs/concepts/ecossistema-layers/permissoes',
-  }
+  // 'Ecossistema Layers': {
+  //   // '': '/docs/concepts/ecossistema-layers',
+  //   'Introdução': '/docs/concepts/ecossistema-layers',
+  //   'Comunidades': '/docs/concepts/ecossistema-layers/comunidades',
+  //   'Apps': '/docs/concepts/ecossistema-layers/apps',
+  //   'Contas de Usuário': '/docs/concepts/ecossistema-layers/contas-de-usuario',
+  //   'Membros e Grupos': '/docs/concepts/ecossistema-layers/membros-e-grupos',
+  //   'Permissões': '/docs/concepts/ecossistema-layers/permissoes',
+  // }
 }

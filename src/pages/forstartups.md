@@ -1,12 +1,16 @@
 ---
 template: default
 title: Layers, o SuperApp da Educação
-tableOfContents: false
+tableOfContents: true
 nextText: 'Portais na Layers'
 nextUrl: '/docs/forstartups/portais'
 ---
 
 A plataforma que unifica todas as soluções digitais da educação. Um único login para todos os recursos no mesmo ambiente digital.
+
+
+A Layers oferece para startups as ferramentas e funcionalidades necessárias para criar e disponibilizar na Layers um app para as mais de 600 instituições de ensino que confiam e fazem parte do nosso ecossistema. Entre as funcionalidades que apps de startups podem usar estão o login com Layers (SSO), através do qual é possível acessar informações com o consentimento do usuário, a sincronização de dados, que permite o app utilizar os dados da Layers dentro de sua aplicação, e a funcionalidade dos portais, que permite que o app seja acessado dentro da plataforma Layers, criando uma experiência unificada - tanto na Web como no Mobile.
+
 
 Para desenvolvedores, integrar sua solução à Layers significa criar um app único com as funcionalidades disponibilizadas. Esse app, uma vez revisado e aprovado, poderá ser utilizado por qualquer instituição que utilize a Layers, sem necessidade de realizar novas integrações ou desenvolvimento específico para cada instituição.
 

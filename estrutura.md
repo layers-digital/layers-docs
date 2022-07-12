@@ -14,7 +14,7 @@
 - O que é o segmento
 - Como auxiliamos o segmento
 - Funcionalidades mais relevantes
-### Fornecedores
+### Provedores
 - O que é o segmento
 - Como auxiliamos o segmento
 - Funcionalidades mais relevantes

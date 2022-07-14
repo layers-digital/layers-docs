@@ -1,0 +1,5216 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "https://api.layers.digital/v1/payments",
+      "description": "Production"
+    }
+  ],
+  "info": {
+    "title": "Hub de Pagamentos",
+    "version": "1",
+    "contact": {
+      "name": "Layers",
+      "email": "devs@layers.education",
+      "url": "https://layers.digital"
+    }
+  },
+  "x-nav": [
+    {
+      "name": "Clientes",
+      "schemas": [
+        "CheckoutCustomer"
+      ],
+      "tags": [
+        "Customers"
+      ]
+    },
+    {
+      "name": "Itens",
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "name": "Vendas",
+      "tags": [
+        "Sales"
+      ]
+    },
+    {
+      "name": "Canais de Venda",
+      "tags": [
+        "Channels",
+        "Channel Links"
+      ]
+    },
+    {
+      "name": "Formulários",
+      "tags": [
+        "Forms"
+      ]
+    },
+    {
+      "name": "Estoue",
+      "tags": [
+        "Inventory"
+      ]
+    },
+    {
+      "name": "Condições Especiais",
+      "tags": [
+        "Special Conditions"
+      ]
+    },
+    {
+      "name": "Kits e Listas",
+      "tags": [
+        "Lists"
+      ]
+    },
+    {
+      "name": "Checkout",
+      "tags": [
+        "Information",
+        "Checkout"
+      ]
+    }
+  ],
+  "paths": {
+    "/channels": {
+      "post": {
+        "tags": [
+          "Channels"
+        ],
+        "summary": "Criar canal",
+        "description": "Criar canal de vendas",
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "channel"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/params/Channel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Canal criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/params/Channel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `name` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Criar canal",
+          "url": "/docs/api/payments/channels/post"
+        }
+      }
+    },
+    "/channels/links/{linkId}": {
+      "delete": {
+        "tags": [
+          "Channel Links"
+        ],
+        "summary": "Remover link de canal",
+        "description": "Remover link de canal de vendas",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Identificador do link  do canal de vendas",
+            "name": "linkId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Link removido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/params/ChannelLink"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "ChannelLink was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Remover link de canal",
+          "url": "/docs/api/payments/channels/links/linkid/delete"
+        }
+      },
+      "put": {
+        "tags": [
+          "Channel Links"
+        ],
+        "summary": "Atualizar um link",
+        "description": "Atualizar um link de canal de vendas",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Identificador do link do canal de vendas",
+            "name": "linkId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Link do canal de vendas atualizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/params/ChannelLink"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "ChannelLink was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Atualizar um link",
+          "url": "/docs/api/payments/channels/links/linkid/put"
+        }
+      },
+      "get": {
+        "tags": [
+          "Channel Links"
+        ],
+        "summary": "Visualizar um link",
+        "description": "Visualizar um link de canal de vendar",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Identificador do link do canal de vendas",
+            "name": "linkId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Link especificado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/params/ChannelLink"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "ChannelLink was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Visualizar um link",
+          "url": "/docs/api/payments/channels/links/linkid"
+        }
+      }
+    },
+    "/customers": {
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Criar um consumidor",
+        "description": "Criar um consumidor no Layers",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/params/Customer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Consumidor criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `document` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Criar um consumidor",
+          "url": "/docs/api/payments/customers/post"
+        }
+      }
+    },
+    "/customers/{customerId}/addresses": {
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Add address to customer",
+        "description": "Returns a list of all customer addresses",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Customer Id",
+            "name": "customerId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/params/Address"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Address"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Customer not found!"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Add address to customer",
+          "url": "/docs/api/payments/customers/customerid/addresses/post"
+        }
+      }
+    },
+    "/customers/{customerId}/addresses/{addressId}": {
+      "delete": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Remove address from customer",
+        "description": "Returns a list of all customer addresses",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Customer Id",
+            "name": "customerId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "description": "Address Id",
+            "name": "addressId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Address"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Customer not found!"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Remove address from customer",
+          "url": "/docs/api/payments/customers/customerid/addresses/addressid/delete"
+        }
+      },
+      "put": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Update address from customer",
+        "description": "Returns a list of all customer addresses",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Customer Id",
+            "name": "customerId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "description": "Address Id",
+            "name": "addressId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/params/Address"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Address"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Customer not found!"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Update address from customer",
+          "url": "/docs/api/payments/customers/customerid/addresses/addressid/put"
+        }
+      }
+    },
+    "/customers/{customerId}/payment-method": {
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Add payment method to customer",
+        "description": "Returns a list of all customer payment methods scoped by requested source",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Customer Id",
+            "name": "customerId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/params/PaymentMethod"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/PaymentMethod"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Customer not found!"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Add payment method to customer",
+          "url": "/docs/api/payments/customers/customerid/payment-method/post"
+        }
+      }
+    },
+    "/customers/{customerId}": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "View customer",
+        "description": "View customer",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Customer Id to be viewed",
+            "name": "customerId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Customer not found!"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "View customer",
+          "url": "/docs/api/payments/customers/customerid"
+        }
+      }
+    },
+    "/forms": {
+      "post": {
+        "tags": [
+          "Forms"
+        ],
+        "summary": "Create Form",
+        "description": "Create Form",
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/params/Form"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/params/Form"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `name` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Create Form",
+          "url": "/docs/api/payments/forms/post"
+        }
+      }
+    },
+    "/items/{itemId}": {
+      "delete": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Remove item",
+        "description": "Remove item",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "itemId to be removed",
+            "name": "itemId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "itemId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Item was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Remove item",
+          "url": "/docs/api/payments/items/itemid/delete"
+        }
+      },
+      "put": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Update item",
+        "description": "Update item",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "itemId to be updated",
+            "name": "itemId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Item"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Item was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Update item",
+          "url": "/docs/api/payments/items/itemid/put"
+        }
+      },
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "View item",
+        "description": "View item",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "itemId to be viewed",
+            "name": "itemId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Item was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "View item",
+          "url": "/docs/api/payments/items/itemid"
+        }
+      }
+    },
+    "/forms/{formId}": {
+      "put": {
+        "tags": [
+          "Forms"
+        ],
+        "summary": "Update form",
+        "description": "Update form",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "formId to be updated",
+            "name": "formId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/params/Form"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/params/Form"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Form was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Update form",
+          "url": "/docs/api/payments/forms/formid/put"
+        }
+      },
+      "get": {
+        "tags": [
+          "Forms"
+        ],
+        "summary": "View form",
+        "description": "View form",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "formId to be viewed",
+            "name": "formId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/params/Form"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Form was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "View form",
+          "url": "/docs/api/payments/forms/formid"
+        }
+      }
+    },
+    "/forms/": {
+      "get": {
+        "tags": [
+          "Forms"
+        ],
+        "summary": "List forms",
+        "description": "List forms",
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Total quantity of forms in the database",
+                      "example": 42
+                    },
+                    "hits": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/params/Form"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `name` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "List forms",
+          "url": "/docs/api/payments/forms/"
+        }
+      }
+    },
+    "/inventory/{inventoryId}/adjust": {
+      "put": {
+        "tags": [
+          "Inventory"
+        ],
+        "summary": "Adjust inventory stock",
+        "description": "Adjust stuck",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "inventoryId to adjust",
+            "name": "inventoryId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inventory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Inventory"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Inventory was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Adjust inventory stock",
+          "url": "/docs/api/payments/inventory/inventoryid/adjust/put"
+        }
+      }
+    },
+    "/items": {
+      "post": {
+        "tags": [
+          "Lists"
+        ],
+        "summary": "Create List",
+        "description": "Creates a list of items",
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/List"
+                  },
+                  {
+                    "required": [
+                      "name",
+                      "caption"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/List"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `name` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Create List",
+          "url": "/docs/api/payments/items/post"
+        }
+      }
+    },
+    "/items/{itemId}/links": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Create link to channel",
+        "description": "Create link to channel",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "itemId to create link",
+            "name": "itemId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/params/ItemLink"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/params/ChannelLink"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `name` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Create link to channel",
+          "url": "/docs/api/payments/items/itemid/links/post"
+        }
+      },
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Lists channels linked to item",
+        "description": "Lists channels linked to item (returns only published channels)",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "itemId to list linked channels",
+            "name": "itemId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/params/ChannelLink"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `name` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Lists channels linked to item",
+          "url": "/docs/api/payments/items/itemid/links"
+        }
+      }
+    },
+    "/items/": {
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "List items",
+        "description": "List items",
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Total quantity of items in the database",
+                      "example": 42
+                    },
+                    "hits": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Item"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `name` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "List items",
+          "url": "/docs/api/payments/items/"
+        }
+      }
+    },
+    "/lists/": {
+      "get": {
+        "tags": [
+          "Lists"
+        ],
+        "summary": "List lists",
+        "description": "List lists of items",
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Total quantity of lists in the database",
+                      "example": 42
+                    },
+                    "hits": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/List"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `name` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "List lists",
+          "url": "/docs/api/payments/lists/"
+        }
+      }
+    },
+    "/lists/{listId}": {
+      "delete": {
+        "tags": [
+          "Lists"
+        ],
+        "summary": "Remove list",
+        "description": "Remove list",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "listId to be removed",
+            "name": "listId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "itemId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Item was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Remove list",
+          "url": "/docs/api/payments/lists/listid/delete"
+        }
+      },
+      "put": {
+        "tags": [
+          "Lists"
+        ],
+        "summary": "Update list",
+        "description": "Update list",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "listId to be updated",
+            "name": "listId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/List"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/List"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Item was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Update list",
+          "url": "/docs/api/payments/lists/listid/put"
+        }
+      },
+      "get": {
+        "tags": [
+          "Lists"
+        ],
+        "summary": "View list",
+        "description": "View list",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "listId to be viewed",
+            "name": "listId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/List"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Item was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "View list",
+          "url": "/docs/api/payments/lists/listid"
+        }
+      }
+    },
+    "/lists/{listId}/links": {
+      "post": {
+        "tags": [
+          "Lists"
+        ],
+        "summary": "Create link to channel",
+        "description": "Create link to channel",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "listId to create link",
+            "name": "listId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/params/ChannelLink"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/params/ChannelLink"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `name` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Create link to channel",
+          "url": "/docs/api/payments/lists/listid/links/post"
+        }
+      },
+      "get": {
+        "tags": [
+          "Lists"
+        ],
+        "summary": "Lists channels linked to list",
+        "description": "Lists channels linked to list (returns only published channels)",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "listId to list linked channels",
+            "name": "listId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "item"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/params/ChannelLink"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `listId` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Lists channels linked to list",
+          "url": "/docs/api/payments/lists/listid/links"
+        }
+      }
+    },
+    "/sales/": {
+      "get": {
+        "tags": [
+          "Sales"
+        ],
+        "summary": "List Sales",
+        "description": "Returns a list of sales\n",
+        "parameters": [
+          {
+            "in": "query",
+            "description": "The numbers of items to return",
+            "name": "limit",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hits": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Sale"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of items in the database"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "List Sales",
+          "url": "/docs/api/payments/sales/"
+        }
+      }
+    },
+    "/sales/{saleToken}/pay": {
+      "get": {
+        "tags": [
+          "Sales"
+        ],
+        "summary": "Sale bank slip",
+        "description": "Returns the sale bank slip\n",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "sale token",
+            "name": "saleToken",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hits": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Sale"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total of items in the database"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Sale bank slip",
+          "url": "/docs/api/payments/sales/saletoken/pay"
+        }
+      }
+    },
+    "/conditions/:conditionId": {
+      "delete": {
+        "tags": [
+          "Special Conditions"
+        ],
+        "summary": "Remove Special Conditions",
+        "description": "Remove Special Conditions",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "conditionId to be viewed",
+            "name": "conditionId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "channel"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/SpecialCondition"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Special condition was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Remove Special Conditions",
+          "url": "/docs/api/payments/conditions/conditionid/delete"
+        }
+      },
+      "get": {
+        "tags": [
+          "Special Conditions"
+        ],
+        "summary": "View Special Conditions",
+        "description": "View Special Conditions",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "conditionId to be viewed",
+            "name": "conditionId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "channel"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/SpecialCondition"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Special condition was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "View Special Conditions",
+          "url": "/docs/api/payments/conditions/conditionid"
+        }
+      }
+    },
+    "/conditions/{conditionId}": {
+      "put": {
+        "tags": [
+          "Special Conditions"
+        ],
+        "summary": "Update Special Condition",
+        "description": "Update Special Condition",
+        "parameters": [
+          {
+            "in": "path",
+            "description": "conditionId to be updated",
+            "name": "conditionId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "channel"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpecialCondition"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/SpecialCondition"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 404,
+                  "name": "NotFound",
+                  "type": "NotFound",
+                  "error": "Special condition was not Found"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Update Special Condition",
+          "url": "/docs/api/payments/conditions/conditionid/put"
+        }
+      }
+    },
+    "/conditions": {
+      "post": {
+        "tags": [
+          "Special Conditions"
+        ],
+        "summary": "Create Special Condition",
+        "description": "Create Special Condition",
+        "security": [
+          {
+            "Bearer": [],
+            "permissions": [
+              "channel"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/SpecialCondition"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/SpecialCondition"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Validation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "status": 400,
+                  "name": "BadRequest",
+                  "type": "InvalidParameter",
+                  "error": "Validation failed: document: Path `kind` is required"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Create Special Condition",
+          "url": "/docs/api/payments/conditions/post"
+        }
+      }
+    },
+    "/storefront/checkout": {
+      "post": {
+        "tags": [
+          "Storefront",
+          "Checkout"
+        ],
+        "summary": "Create Checkout",
+        "description": "Creates and returns a new checkout for the provided store channel\n",
+        "security": [
+          {
+            "X-Store-Id": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Checkout"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Create Checkout",
+          "url": "/docs/api/payments/storefront/checkout/post"
+        }
+      },
+      "get": {
+        "tags": [
+          "Storefront",
+          "Checkout"
+        ],
+        "summary": "Read Checkout",
+        "description": "Returns the scoped checkout\n",
+        "security": [
+          {
+            "X-Store-Id": [],
+            "X-Checkout-Token": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Checkout"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Read Checkout",
+          "url": "/docs/api/payments/storefront/checkout"
+        }
+      }
+    },
+    "/storefront/info": {
+      "get": {
+        "tags": [
+          "Information"
+        ],
+        "summary": "Store Information",
+        "description": "Returns general information of the Store such as name, Merchant and identification.\n\nProvide one of the parameters to find the correct store. If multiple parameters are provided, store id takes precedence.\n\nThe url or slug will be cleaned and matched against published, domain-active stores on Layers.\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "domain",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional, Domain or full URL of store",
+            "example": "http://somestore.mylayer.store"
+          },
+          {
+            "in": "query",
+            "name": "store",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional, Store identification (slug)",
+            "example": "somestore"
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional, Domain or full URL of store",
+            "example": "http://somestore.mylayer.store"
+          },
+          {
+            "in": "header",
+            "name": "Referer",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional, Domain or full URL of store",
+            "example": "http://somestore.mylayer.store/some/other/path?q=1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "my-awesome-store"
+                    },
+                    "store": {
+                      "$ref": "#/components/schemas/Storefront"
+                    },
+                    "merchant": {
+                      "$ref": "#/components/schemas/StorefrontMerchant"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "NotFound"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Loja não encontrada"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Store Information",
+          "url": "/docs/api/payments/storefront/info"
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Error status code"
+          },
+          "name": {
+            "type": "string",
+            "enum": [
+              "BadRequest",
+              "NotFound",
+              "Conflict"
+            ],
+            "description": "Error name"
+          },
+          "type": {
+            "type": "string",
+            "description": "Error type"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error Message"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Error",
+          "url": "/docs/api/payments/error/object"
+        }
+      },
+      "StoreInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the store channel",
+            "example": "5bc6b8eb7c3a5f75375e6c1a",
+            "readOnly": true
+          },
+          "slug": {
+            "type": "string",
+            "description": "Global identification of the store",
+            "example": "my-awesome-store",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the store",
+            "example": "My Awesome store!"
+          },
+          "caption": {
+            "type": "string",
+            "description": "Caption of the store",
+            "example": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+          },
+          "template": {
+            "type": "string",
+            "description": "Default template to render the store",
+            "example": "default",
+            "default": "default"
+          },
+          "merchant": {
+            "$ref": "#/components/schemas/StoreMerchant"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade StoreInfo",
+          "url": "/docs/api/payments/storeinfo/object"
+        }
+      },
+      "StoreMerchant": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the owner of the store",
+            "example": "Tenda Digital"
+          },
+          "color": {
+            "type": "string",
+            "description": "Main color of the Merchant that can be used for personalization",
+            "example": "#53d0e9"
+          },
+          "icon": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the Merchant Icon (squared)",
+            "example": "https://cdn.edu.tenda.digital/admin/uploads/bc82f06a-e8ae-483b-ac3c-0042d5871736/TEdu%20_%20Ícone%20Sem%20Borda%201024px%20(1).png"
+          },
+          "uploads_brand": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the Merchant's Brand (free aspect)"
+          },
+          "community": {
+            "type": "string",
+            "description": "Public identification of the merchant",
+            "example": "tenda"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade StoreMerchant",
+          "url": "/docs/api/payments/storemerchant/object"
+        }
+      },
+      "StorefrontMerchant": {
+        "type": "object",
+        "description": "A simplified version of the Merchant (community) that can be accessed publicly",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Merchant most known name",
+            "example": "Jaqueline Uniformes"
+          },
+          "legal": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Legal name of this Merchant",
+                "example": "Jaqueline vendas de Uniformes LTDA."
+              },
+              "document": {
+                "$ref": "#/components/schemas/TaxDocument"
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade StorefrontMerchant",
+          "url": "/docs/api/payments/storefrontmerchant/object"
+        }
+      },
+      "Storefront": {
+        "type": "object",
+        "description": "A simplified version of the Store that can be accessed publicly",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Store name",
+            "example": "Uniformes de Verão"
+          },
+          "caption": {
+            "type": "string",
+            "description": "Store caption",
+            "example": "Queima de estoque de uniformes para o verão"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Global unique slug of the store",
+            "example": "Queima de estoque de uniformes para o verão"
+          },
+          "template": {
+            "type": "string",
+            "description": "Template string to use while rendering this store",
+            "example": "default"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Storefront",
+          "url": "/docs/api/payments/storefront/object"
+        }
+      },
+      "Checkout": {
+        "x-tags": [
+          "Checkout"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Token of the checkout to update and view",
+            "example": "81778d07-92ee-4f13-b177-043905322cd3",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Document creation date",
+            "example": "2018-05-29T15:34:11.118Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Document last modified date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          },
+          "currency": {
+            "allOf": [
+              {
+                "description": "ISO Code of the Currency."
+              },
+              {
+                "$ref": "#/components/schemas/Currency"
+              }
+            ],
+            "readOnly": true
+          },
+          "customer": {
+            "$ref": "#/components/schemas/CheckoutCustomer"
+          },
+          "shipping": {
+            "$ref": "#/components/schemas/CheckoutShipping"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "title": "CheckoutItem",
+              "type": "object",
+              "x-tags": [
+                "Items"
+              ],
+              "description": "Represents an item in checkout",
+              "properties": {
+                "variantId": {
+                  "type": "string",
+                  "description": "The identification of the item variant",
+                  "example": "81778d07-92ee-4f13-b177-043905322cd3"
+                },
+                "itemId": {
+                  "type": "string",
+                  "description": "The identification of the item",
+                  "exmaple": "507f1f77bcf86cd799439011",
+                  "readOnly": true
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the item",
+                  "example": "Uniforme masculino"
+                },
+                "caption": {
+                  "type": "string",
+                  "description": "Extra information about the item",
+                  "example": "Tamanho: M"
+                },
+                "shippable": {
+                  "type": "boolean",
+                  "description": "Defines if this item is shippable",
+                  "example": true
+                },
+                "media": {
+                  "$ref": "#/components/schemas/Media"
+                },
+                "quantity": {
+                  "type": "number",
+                  "default": 1,
+                  "description": "Quantity of items to purshase",
+                  "example": 2
+                },
+                "price": {
+                  "$ref": "#/components/schemas/Amount"
+                },
+                "subtotal": {
+                  "$ref": "#/components/schemas/Amount"
+                }
+              }
+            }
+          },
+          "owned": {
+            "$ref": "#/components/schemas/CheckoutOwned"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Checkout",
+          "url": "/docs/api/payments/checkout/object"
+        }
+      },
+      "CheckoutCustomer": {
+        "type": "object",
+        "description": "Detailed customer information",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the customer",
+            "example": "Joaquim Medeiros da Silva"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "E-mail of customer",
+            "example": "email@example.com"
+          },
+          "phone": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 10,
+            "description": "Phone of customer",
+            "example": "(11) 99999-9999"
+          },
+          "birth": {
+            "type": "string",
+            "description": "Birthdate of the customer",
+            "example": "20/02/1993"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "document": {
+            "$ref": "#/components/schemas/TaxDocument"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "phone",
+          "birth",
+          "address",
+          "document"
+        ],
+        "externalDocs": {
+          "description": "Entidade CheckoutCustomer",
+          "url": "/docs/api/payments/checkoutcustomer/object"
+        }
+      },
+      "CheckoutShipping": {
+        "type": "object",
+        "description": "Detailed shipping options and information",
+        "properties": {
+          "required": {
+            "type": "boolean",
+            "description": "If this checkout requires shipping, `shipping.method` and `shipping.address` to complete checkout"
+          },
+          "method": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CheckoutShippingMethod"
+              },
+              {
+                "description": "Selected Shipping method"
+              }
+            ]
+          },
+          "address": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              },
+              {
+                "description": "Address to ship to"
+              }
+            ]
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade CheckoutShipping",
+          "url": "/docs/api/payments/checkoutshipping/object"
+        }
+      },
+      "CheckoutShippingMethod": {
+        "type": "object",
+        "properties": {
+          "hash": {
+            "type": "string",
+            "description": "Identification of this shipping method",
+            "example": "67b69634f9880a282c14a0f0cb7ba20cf5d677e9",
+            "readOnly": true
+          },
+          "service": {
+            "type": "string",
+            "description": "Name of this shipping method",
+            "example": "Correios",
+            "readOnly": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of this shipping method",
+            "example": "SEDEX 10",
+            "readOnly": true
+          },
+          "currency": {
+            "allOf": [
+              {
+                "description": "ISO Code of the Currency."
+              },
+              {
+                "$ref": "#/components/schemas/Currency"
+              }
+            ],
+            "readOnly": true
+          },
+          "price": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Amount"
+              },
+              {
+                "readOnly": true,
+                "example": {
+                  "decimal": 22.7,
+                  "fixed": "22.70"
+                }
+              }
+            ]
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade CheckoutShippingMethod",
+          "url": "/docs/api/payments/checkoutshippingmethod/object"
+        }
+      },
+      "StorefrontAmount": {
+        "type": "object",
+        "description": "Represents a monetary amount",
+        "example": {
+          "decimal": 1000,
+          "fixed": "1000.00"
+        },
+        "externalDocs": {
+          "description": "Entidade StorefrontAmount",
+          "url": "/docs/api/payments/storefrontamount/object"
+        }
+      },
+      "CheckoutOwned": {
+        "type": "object",
+        "description": "Individual Totals and grand-total of what is owned",
+        "properties": {
+          "items": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "discounts": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "shipping": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "taxes": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "total": {
+            "$ref": "#/components/schemas/Amount"
+          }
+        },
+        "example": {
+          "items": {
+            "decimal": 340.55,
+            "fixed": "340.55"
+          },
+          "discounts": {
+            "decimal": -30.03,
+            "fixed": "-30.03"
+          },
+          "shipping": {
+            "decimal": 20.9,
+            "fixed": "20.90"
+          },
+          "taxes": {
+            "decimal": 0,
+            "fixed": "0.00"
+          },
+          "total": {
+            "decimal": 330.42,
+            "fixed": "330.42"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade CheckoutOwned",
+          "url": "/docs/api/payments/checkoutowned/object"
+        }
+      },
+      "CheckoutItem": {
+        "type": "object",
+        "x-tags": [
+          "Items"
+        ],
+        "description": "Represents an item in checkout",
+        "properties": {
+          "variantId": {
+            "type": "string",
+            "description": "The identification of the item variant",
+            "example": "81778d07-92ee-4f13-b177-043905322cd3"
+          },
+          "itemId": {
+            "type": "string",
+            "description": "The identification of the item",
+            "exmaple": "507f1f77bcf86cd799439011",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the item",
+            "example": "Uniforme masculino"
+          },
+          "caption": {
+            "type": "string",
+            "description": "Extra information about the item",
+            "example": "Tamanho: M"
+          },
+          "shippable": {
+            "type": "boolean",
+            "description": "Defines if this item is shippable",
+            "example": true
+          },
+          "media": {
+            "$ref": "#/components/schemas/Media"
+          },
+          "quantity": {
+            "type": "number",
+            "default": 1,
+            "description": "Quantity of items to purshase",
+            "example": 2
+          },
+          "price": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "subtotal": {
+            "$ref": "#/components/schemas/Amount"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade CheckoutItem",
+          "url": "/docs/api/payments/checkoutitem/object"
+        }
+      },
+      "Address": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Address title",
+            "example": "Home"
+          },
+          "code": {
+            "type": "string",
+            "description": "Address code",
+            "example": "74482-290"
+          },
+          "address": {
+            "type": "string",
+            "description": "Address Line 1",
+            "example": "Rua São José"
+          },
+          "address2": {
+            "type": "string",
+            "description": "Address Line 2",
+            "example": "BL 2, AP 42"
+          },
+          "number": {
+            "type": "string",
+            "description": "Address Number",
+            "example": "891"
+          },
+          "district": {
+            "type": "string",
+            "description": "Address district",
+            "example": "Rio de Janeiro"
+          },
+          "state": {
+            "type": "string",
+            "description": "Address state",
+            "example": "RJ"
+          },
+          "country": {
+            "type": "string",
+            "description": "Address Country",
+            "example": "BR"
+          },
+          "default": {
+            "type": "boolean",
+            "description": "Customer default address",
+            "example": true
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Address",
+          "url": "/docs/api/payments/address/object"
+        }
+      },
+      "Amount": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Currency"
+              },
+              {
+                "readOnly": true
+              }
+            ]
+          },
+          "amount": {
+            "type": "integer",
+            "example": 10000,
+            "description": "Integer value of amount in cents without fractions. '10.00' becomes '1000'",
+            "min": 1,
+            "max": 10000000
+          }
+        },
+        "example": {
+          "amount": 1000
+        },
+        "externalDocs": {
+          "description": "Entidade Amount",
+          "url": "/docs/api/payments/amount/object"
+        }
+      },
+      "Currency": {
+        "type": "string",
+        "example": "BRL",
+        "description": "ISO Code of the Currency. Will be inherited from document if set",
+        "enum": [
+          "BRL"
+        ],
+        "externalDocs": {
+          "description": "Enum Currency",
+          "url": "/docs/api/payments/currency/object"
+        }
+      },
+      "MagneticMedia": {
+        "pattern": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "Pattern image url"
+            },
+            "scale": {
+              "type": "number",
+              "description": "Scale of the pattern image"
+            }
+          }
+        },
+        "gradient": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "description": "Gradient initial position"
+            },
+            "to": {
+              "type": "string",
+              "description": "Gradient final position"
+            },
+            "angle": {
+              "type": "number",
+              "description": "Gradient angle"
+            }
+          }
+        },
+        "media": {
+          "allOf": [
+            {
+              "description": "Media object with image properties."
+            },
+            {
+              "$ref": "#/components/schemas/Media"
+            }
+          ]
+        },
+        "externalDocs": {
+          "description": "Schema MagneticMedia",
+          "url": "/docs/api/payments/magneticmedia/object"
+        }
+      },
+      "Media": {
+        "type": "object",
+        "description": "Represents any uploaded media",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Uploaded name of the file",
+            "example": "Icon-iOS-TendaEdu.png"
+          },
+          "path": {
+            "type": "string",
+            "description": "relative path of this file in CDN",
+            "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+          },
+          "url": {
+            "type": "string",
+            "format": "url",
+            "description": "formated URL of the path pointing to CDN",
+            "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+          },
+          "thumb": {
+            "type": "string",
+            "format": "url",
+            "description": "URL of a 1024x1024 contained image in case the file supports it",
+            "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+          },
+          "size": {
+            "type": "Number",
+            "description": "Size in bytes of the file",
+            "example": 56878
+          },
+          "mime": {
+            "type": "string",
+            "description": "Mime type of the file",
+            "example": "image/png"
+          },
+          "width": {
+            "type": "Number",
+            "description": "The width in pixels in case the file is an image"
+          },
+          "height": {
+            "type": "Number",
+            "description": "The height in pixels in case the file is an image"
+          },
+          "orientation": {
+            "type": "String",
+            "description": "The orientation of the image"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Media",
+          "url": "/docs/api/payments/media/object"
+        }
+      },
+      "Package": {
+        "width": {
+          "type": "number",
+          "description": "Width of the package in centimeters",
+          "minimum": 0,
+          "default": 5
+        },
+        "depth": {
+          "type": "number",
+          "description": "Depth of the package in centimeters",
+          "minimum": 0,
+          "default": 5
+        },
+        "height": {
+          "type": "number",
+          "description": "Height of the package in centimeters",
+          "minimum": 0,
+          "default": 0.2
+        },
+        "weight": {
+          "type": "number",
+          "description": "Weight of the package in kilograms",
+          "minimum": 0,
+          "default": 0.2
+        },
+        "externalDocs": {
+          "description": "Schema Package",
+          "url": "/docs/api/payments/package/object"
+        }
+      },
+      "Plan": {
+        "type": "object",
+        "description": "Represents a recurrence model to the sku.",
+        "properties": {
+          "interval": {
+            "type": "string",
+            "description": "Defines the time unit of the plan",
+            "enum": [
+              "month",
+              "week"
+            ]
+          },
+          "intervalCount": {
+            "type": "number",
+            "description": "Indicates the number of times a interval must happen to create a billing",
+            "minimum": 1,
+            "maximum": 12,
+            "default": 1
+          },
+          "cyclesLimit": {
+            "type": "number",
+            "description": "Limits the number of times this recurrence happens",
+            "minimum": 0,
+            "maximum": 12,
+            "default": 0
+          },
+          "price": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "initialPrice": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "trialDays": {
+            "type": "number",
+            "description": "Grace period in days to give before start charging this recurrence",
+            "minimum": 0,
+            "maximum": 120,
+            "default": 0
+          },
+          "startsAt": {
+            "type": "string",
+            "description": "Date to begin charging this recurrence",
+            "format": "date"
+          },
+          "endsAt": {
+            "type": "string",
+            "description": "Read-only property with expected ending date",
+            "format": "date",
+            "readOnly": true
+          },
+          "chargeRemainingCyclesOnly": {
+            "type": "boolean",
+            "description": "If set, total cycles will be evaluated as the remaining cycles"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Plan",
+          "url": "/docs/api/payments/plan/object"
+        }
+      },
+      "Customer": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "Customer Id",
+            "example": "5bb2575199d7179dfe85be02"
+          },
+          "name": {
+            "type": "string",
+            "description": "Customer name",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "Customer email",
+            "example": "john@doe.com"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Customer creation date",
+            "example": "2018-05-29T15:34:11.118Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Last customer update date",
+            "example": "2018-05-29T15:34:11.118Z"
+          },
+          "taxNumber": {
+            "type": "object",
+            "description": "Customer email",
+            "$ref": "#/components/schemas/taxNumber"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Customer",
+          "url": "/docs/api/payments/customer/object"
+        }
+      },
+      "taxNumber": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "description": "taxNumber kind",
+            "enum": [
+              "cpf",
+              "cnpj"
+            ],
+            "example": "cpf"
+          },
+          "value": {
+            "type": "string",
+            "example": "585.341.527-13",
+            "description": "taxNumber value"
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "externalDocs": {
+          "description": "Entidade taxNumber",
+          "url": "/docs/api/payments/taxnumber/object"
+        }
+      },
+      "CreditCardResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PaymentMethod"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "number": {
+                "type": "string",
+                "description": "Credit card number (masked)",
+                "example": "XXXX-XXXX-XXXX-1234"
+              },
+              "lastDigits": {
+                "type": "string",
+                "description": "Last credit card digits",
+                "example": "1234"
+              },
+              "name": {
+                "type": "string",
+                "description": "Credit card holder name",
+                "example": "John Doe"
+              },
+              "month": {
+                "type": "string",
+                "description": "Expiration month",
+                "example": 2
+              },
+              "year": {
+                "type": "string",
+                "description": "Expiration year",
+                "example": 2022
+              }
+            }
+          }
+        ]
+      },
+      "PaymentMethod": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "credit_card": "#/components/schemas/CreditCardResponse"
+          }
+        },
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Name of this PaymentMethod",
+            "example": "My creditcard"
+          },
+          "alias": {
+            "type": "string",
+            "description": "External Id of this PaymentMethod",
+            "example": "428996DA2C214C8193FBC0"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "iugu",
+              "zoop"
+            ],
+            "description": "External source of this PaymentMethod",
+            "example": "zoop"
+          },
+          "kind": {
+            "type": "string",
+            "description": "Kind of this payment method"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade PaymentMethod",
+          "url": "/docs/api/payments/paymentmethod/object"
+        }
+      },
+      "TaxDocument": {
+        "type": "object",
+        "description": "A document that matches a company or person. The kind of document will automatically be assigned given a valid value",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "description": "Kind of document.",
+            "example": "cnpj",
+            "enum": [
+              "cpf",
+              "cnpj"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "description": "Number of the document",
+            "example": "54.732.169/0001-65"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade TaxDocument",
+          "url": "/docs/api/payments/taxdocument/object"
+        }
+      },
+      "Form": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Form Id",
+            "example": "5bb2575199d7179dfe85be02"
+          },
+          "name": {
+            "type": "string",
+            "description": "Form name",
+            "example": "My custom form"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "title": "FormFields",
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "description": "Form field type",
+                  "enum": [
+                    "checkbox",
+                    "text"
+                  ]
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Form name",
+                  "example": "My custom form"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Form",
+          "url": "/docs/api/payments/form/object"
+        }
+      },
+      "FormFields": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "description": "Form field type",
+            "enum": [
+              "checkbox",
+              "text"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "Form name",
+            "example": "My custom form"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade FormFields",
+          "url": "/docs/api/payments/formfields/object"
+        }
+      },
+      "Inventory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Inventory Id",
+            "example": "5bb2575199d7179dfe85be02"
+          },
+          "strategy": {
+            "type": "string",
+            "description": "Inventory strategy",
+            "example": "tracked",
+            "enum": [
+              "tracked",
+              "untracked"
+            ]
+          },
+          "trackedQuantity": {
+            "type": "number",
+            "example": 10
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Inventory",
+          "url": "/docs/api/payments/inventory/object"
+        }
+      },
+      "Item": {
+        "x-tags": [
+          "Items"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of document [Link](/docs/api/test) teste",
+            "example": "5bb2575199d7179dfe85be02",
+            "readOnly": true
+          },
+          "kind": {
+            "type": "string",
+            "description": "Kind of this item",
+            "enum": [
+              "product"
+            ],
+            "example": "product"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Document creation date",
+            "example": "2018-05-29T15:34:11.118Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Last customer update date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Product Name",
+            "example": "6-Person dome Tent",
+            "minLength": 3,
+            "maxLength": 100
+          },
+          "published": {
+            "type": "Boolean",
+            "description": "Indicates if product is visible in associated channels",
+            "default": true
+          },
+          "content": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ItemContent"
+              },
+              {
+                "description": "Content/description of the item."
+              }
+            ]
+          },
+          "caption": {
+            "type": "string",
+            "description": "Product Caption",
+            "example": "Polyester tent for camping that supports up to 6 person",
+            "maxLength": 100
+          },
+          "currency": {
+            "allOf": [
+              {
+                "description": "ISO Code of the Currency."
+              },
+              {
+                "$ref": "#/components/schemas/Currency"
+              }
+            ]
+          },
+          "defaultPrice": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Amount"
+              },
+              {
+                "description": "Helps you set default price to apply to all Sku's during creation. Property will not persist.",
+                "writeOnly": true
+              }
+            ]
+          },
+          "shippable": {
+            "type": "boolean",
+            "description": "If this item must be shipped",
+            "example": false
+          },
+          "package": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Package"
+              },
+              {
+                "description": "Shipping package specifications."
+              }
+            ]
+          },
+          "skus": {
+            "type": "array",
+            "items": {
+              "title": "ItemSku",
+              "type": "object",
+              "description": "Represents a sellable variant of an item. An Sku is what applies pricing to an item.",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "description": "Internal item unique identifier for the Sku. Set to a random uuid if you need to create an item with attributes and list options at once.\n",
+                  "format": "uuid"
+                },
+                "alias": {
+                  "type": "string",
+                  "description": "Define your own Sku code here."
+                },
+                "price": {
+                  "$ref": "#/components/schemas/Amount"
+                },
+                "priceFrom": {
+                  "$ref": "#/components/schemas/Amount"
+                },
+                "attributes": {
+                  "type": "array",
+                  "items": {
+                    "title": "ItemSkuAttribute",
+                    "type": "object",
+                    "description": "Specifies a tupple of option id and value to form an Sku's attribute-value pair",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "The id of the ItemOption"
+                      },
+                      "optionName": {
+                        "type": "string",
+                        "readOnly": true,
+                        "description": "The Name of the option"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "The Value of the attribute."
+                      }
+                    },
+                    "example": {
+                      "key": "attr-color",
+                      "value": "Blue"
+                    }
+                  },
+                  "description": "A list of attribute-value that characterize this variant Sku",
+                  "example": [
+                    {
+                      "key": "color",
+                      "optionName": "Color",
+                      "value": "Blue"
+                    },
+                    {
+                      "key": "custom-id",
+                      "optionName": "Size",
+                      "value": "Super Large"
+                    }
+                  ]
+                },
+                "gallery": {
+                  "type": "array",
+                  "items": {
+                    "title": "Media",
+                    "type": "object",
+                    "description": "Represents any uploaded media",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "Uploaded name of the file",
+                        "example": "Icon-iOS-TendaEdu.png"
+                      },
+                      "path": {
+                        "type": "string",
+                        "description": "relative path of this file in CDN",
+                        "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "url",
+                        "description": "formated URL of the path pointing to CDN",
+                        "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                      },
+                      "thumb": {
+                        "type": "string",
+                        "format": "url",
+                        "description": "URL of a 1024x1024 contained image in case the file supports it",
+                        "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                      },
+                      "size": {
+                        "type": "Number",
+                        "description": "Size in bytes of the file",
+                        "example": 56878
+                      },
+                      "mime": {
+                        "type": "string",
+                        "description": "Mime type of the file",
+                        "example": "image/png"
+                      },
+                      "width": {
+                        "type": "Number",
+                        "description": "The width in pixels in case the file is an image"
+                      },
+                      "height": {
+                        "type": "Number",
+                        "description": "The height in pixels in case the file is an image"
+                      },
+                      "orientation": {
+                        "type": "String",
+                        "description": "The orientation of the image"
+                      }
+                    }
+                  }
+                },
+                "caption": {
+                  "type": "string",
+                  "description": "Sku Caption",
+                  "example": "Polyester tent for camping that supports up to 6 person",
+                  "maxLength": 100
+                },
+                "plan": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Plan"
+                    },
+                    {
+                      "description": "Represents a recurrence model to the sku."
+                    },
+                    {
+                      "default": null
+                    }
+                  ]
+                },
+                "inventoryId": {
+                  "type": "string",
+                  "description": "Inventory id of this sku",
+                  "format": "object id"
+                },
+                "reference": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ItemSkuReference"
+                    },
+                    {
+                      "description": "Additional extenral reference to this sku that might be used to connect external real-time inventory tracking capabilities to this sku"
+                    },
+                    {
+                      "default": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "title": "ItemOption",
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "example": "color",
+                  "description": "Identification of this Option. Defaults to a slug of the name"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Color",
+                  "description": "The name of this attribute",
+                  "minLength": "1,",
+                  "maxLength": "32,"
+                }
+              },
+              "example": [
+                {
+                  "key": "color",
+                  "name": "Color"
+                },
+                {
+                  "key": "custom-id",
+                  "name": "Size"
+                }
+              ],
+              "required": [
+                "name"
+              ]
+            }
+          },
+          "gallery": {
+            "type": "array",
+            "items": {
+              "title": "Media",
+              "type": "object",
+              "description": "Represents any uploaded media",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Uploaded name of the file",
+                  "example": "Icon-iOS-TendaEdu.png"
+                },
+                "path": {
+                  "type": "string",
+                  "description": "relative path of this file in CDN",
+                  "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "url",
+                  "description": "formated URL of the path pointing to CDN",
+                  "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                },
+                "thumb": {
+                  "type": "string",
+                  "format": "url",
+                  "description": "URL of a 1024x1024 contained image in case the file supports it",
+                  "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                },
+                "size": {
+                  "type": "Number",
+                  "description": "Size in bytes of the file",
+                  "example": 56878
+                },
+                "mime": {
+                  "type": "string",
+                  "description": "Mime type of the file",
+                  "example": "image/png"
+                },
+                "width": {
+                  "type": "Number",
+                  "description": "The width in pixels in case the file is an image"
+                },
+                "height": {
+                  "type": "Number",
+                  "description": "The height in pixels in case the file is an image"
+                },
+                "orientation": {
+                  "type": "String",
+                  "description": "The orientation of the image"
+                }
+              }
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "formId": {
+            "type": "string",
+            "description": "Id of the form asked to client on the store",
+            "format": "object id"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Item",
+          "url": "/docs/api/payments/item/object"
+        }
+      },
+      "ItemChannel": {
+        "type": "object",
+        "description": "Each sale channel is a binding to some Community or Store that overrides variants, prices and visibility.",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "store",
+              "community"
+            ],
+            "description": "The kind of entity that this channel is associated",
+            "example": "store"
+          },
+          "entity": {
+            "type": "string",
+            "description": "ObjectId of the specified model.",
+            "example": "5bb2575199d7179dfe85be02"
+          },
+          "overrides": {
+            "type": "array",
+            "items": {
+              "title": "ItemChannelOverride",
+              "type": "object",
+              "description": "Each sale channel is a binding to some Community or Store that overrides variants, prices and visibility.",
+              "properties": {
+                "skuId": {
+                  "type": "string",
+                  "description": "The _id of referenced Sku",
+                  "example": "5bb2575199d7179dfe85be02"
+                },
+                "price": {
+                  "$ref": "#/components/schemas/Amount"
+                },
+                "priceFrom": {
+                  "$ref": "#/components/schemas/Amount"
+                },
+                "invisible": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Removes this sku from the channel if enabled"
+                }
+              },
+              "required": [
+                "skuId"
+              ],
+              "example": {
+                "skuId": "5bb2575199d7179dfe85be02",
+                "price": {
+                  "amount": 10000
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "kind",
+          "entity"
+        ],
+        "example": {
+          "kind": "store",
+          "entity": "5bb2575199d7179dfe85be02",
+          "overrides": [
+            {
+              "skuId": "5bb2575199d7179dfe85be03",
+              "price": {
+                "amount": 1000
+              }
+            },
+            {
+              "skuId": "5bb2575199d7179dfe85be04",
+              "invisible": true
+            }
+          ]
+        },
+        "externalDocs": {
+          "description": "Entidade ItemChannel",
+          "url": "/docs/api/payments/itemchannel/object"
+        }
+      },
+      "ItemChannelOverride": {
+        "type": "object",
+        "description": "Each sale channel is a binding to some Community or Store that overrides variants, prices and visibility.",
+        "properties": {
+          "skuId": {
+            "type": "string",
+            "description": "The _id of referenced Sku",
+            "example": "5bb2575199d7179dfe85be02"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "priceFrom": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "invisible": {
+            "type": "boolean",
+            "default": false,
+            "description": "Removes this sku from the channel if enabled"
+          }
+        },
+        "required": [
+          "skuId"
+        ],
+        "example": {
+          "skuId": "5bb2575199d7179dfe85be02",
+          "price": {
+            "amount": 10000
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade ItemChannelOverride",
+          "url": "/docs/api/payments/itemchanneloverride/object"
+        }
+      },
+      "ItemContent": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "example": "markdown",
+            "description": "Kind of the item content"
+          },
+          "markdown": {
+            "type": "string",
+            "example": "#Title \\n\\lorem ipsum lorem harlem shakem",
+            "description": "Content of the markdown"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "externalDocs": {
+          "description": "Entidade ItemContent",
+          "url": "/docs/api/payments/itemcontent/object"
+        }
+      },
+      "ItemOption": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "color",
+            "description": "Identification of this Option. Defaults to a slug of the name"
+          },
+          "name": {
+            "type": "string",
+            "example": "Color",
+            "description": "The name of this attribute",
+            "minLength": "1,",
+            "maxLength": "32,"
+          }
+        },
+        "example": [
+          {
+            "key": "color",
+            "name": "Color"
+          },
+          {
+            "key": "custom-id",
+            "name": "Size"
+          }
+        ],
+        "required": [
+          "name"
+        ],
+        "externalDocs": {
+          "description": "Entidade ItemOption",
+          "url": "/docs/api/payments/itemoption/object"
+        }
+      },
+      "ItemSku": {
+        "type": "object",
+        "description": "Represents a sellable variant of an item. An Sku is what applies pricing to an item.",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "Internal item unique identifier for the Sku. Set to a random uuid if you need to create an item with attributes and list options at once.\n",
+            "format": "uuid"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Define your own Sku code here."
+          },
+          "price": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "priceFrom": {
+            "$ref": "#/components/schemas/Amount"
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "title": "ItemSkuAttribute",
+              "type": "object",
+              "description": "Specifies a tupple of option id and value to form an Sku's attribute-value pair",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "description": "The id of the ItemOption"
+                },
+                "optionName": {
+                  "type": "string",
+                  "readOnly": true,
+                  "description": "The Name of the option"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The Value of the attribute."
+                }
+              },
+              "example": {
+                "key": "attr-color",
+                "value": "Blue"
+              }
+            },
+            "description": "A list of attribute-value that characterize this variant Sku",
+            "example": [
+              {
+                "key": "color",
+                "optionName": "Color",
+                "value": "Blue"
+              },
+              {
+                "key": "custom-id",
+                "optionName": "Size",
+                "value": "Super Large"
+              }
+            ]
+          },
+          "gallery": {
+            "type": "array",
+            "items": {
+              "title": "Media",
+              "type": "object",
+              "description": "Represents any uploaded media",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Uploaded name of the file",
+                  "example": "Icon-iOS-TendaEdu.png"
+                },
+                "path": {
+                  "type": "string",
+                  "description": "relative path of this file in CDN",
+                  "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "url",
+                  "description": "formated URL of the path pointing to CDN",
+                  "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                },
+                "thumb": {
+                  "type": "string",
+                  "format": "url",
+                  "description": "URL of a 1024x1024 contained image in case the file supports it",
+                  "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                },
+                "size": {
+                  "type": "Number",
+                  "description": "Size in bytes of the file",
+                  "example": 56878
+                },
+                "mime": {
+                  "type": "string",
+                  "description": "Mime type of the file",
+                  "example": "image/png"
+                },
+                "width": {
+                  "type": "Number",
+                  "description": "The width in pixels in case the file is an image"
+                },
+                "height": {
+                  "type": "Number",
+                  "description": "The height in pixels in case the file is an image"
+                },
+                "orientation": {
+                  "type": "String",
+                  "description": "The orientation of the image"
+                }
+              }
+            }
+          },
+          "caption": {
+            "type": "string",
+            "description": "Sku Caption",
+            "example": "Polyester tent for camping that supports up to 6 person",
+            "maxLength": 100
+          },
+          "plan": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Plan"
+              },
+              {
+                "description": "Represents a recurrence model to the sku."
+              },
+              {
+                "default": null
+              }
+            ]
+          },
+          "inventoryId": {
+            "type": "string",
+            "description": "Inventory id of this sku",
+            "format": "object id"
+          },
+          "reference": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ItemSkuReference"
+              },
+              {
+                "description": "Additional extenral reference to this sku that might be used to connect external real-time inventory tracking capabilities to this sku"
+              },
+              {
+                "default": null
+              }
+            ]
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade ItemSku",
+          "url": "/docs/api/payments/itemsku/object"
+        }
+      },
+      "ItemSkuAttribute": {
+        "type": "object",
+        "description": "Specifies a tupple of option id and value to form an Sku's attribute-value pair",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The id of the ItemOption"
+          },
+          "optionName": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The Name of the option"
+          },
+          "value": {
+            "type": "string",
+            "description": "The Value of the attribute."
+          }
+        },
+        "example": {
+          "key": "attr-color",
+          "value": "Blue"
+        },
+        "externalDocs": {
+          "description": "Entidade ItemSkuAttribute",
+          "url": "/docs/api/payments/itemskuattribute/object"
+        }
+      },
+      "ItemSkuReference": {
+        "type": "object",
+        "description": "Additional external reference to sku that might be used to connect external real-time inventory tracking capabilities",
+        "properties": {
+          "resourceKind": {
+            "type": "string",
+            "description": "Defines the kind of the external resource/api",
+            "enum": [
+              "layers:group"
+            ]
+          },
+          "resourceId": {
+            "type": "string"
+          },
+          "dynamicInventory": {
+            "type": "boolean",
+            "default": true
+          },
+          "dynamicForm": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade ItemSkuReference",
+          "url": "/docs/api/payments/itemskureference/object"
+        }
+      },
+      "List": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of document",
+            "example": "5bb2575199d7179dfe85be02",
+            "readOnly": true
+          },
+          "kind": {
+            "type": "string",
+            "description": "Kind of this item",
+            "enum": [
+              "product"
+            ],
+            "example": "product"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Document creation date",
+            "example": "2018-05-29T15:34:11.118Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Last customer update date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "List Name",
+            "example": "First grade teaching materials",
+            "minLength": 3,
+            "maxLength": 100
+          },
+          "published": {
+            "type": "Boolean",
+            "description": "Indicates if the list is visible in associated channels",
+            "default": true
+          },
+          "content": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ItemContent"
+              },
+              {
+                "description": "Content/description of the list."
+              }
+            ]
+          },
+          "caption": {
+            "type": "string",
+            "description": "Product Caption",
+            "example": "Polyester tent for camping that supports up to 6 person",
+            "maxLength": 100
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "title": "ListItem",
+              "type": "object",
+              "properties": {
+                "itemId": {
+                  "type": "string",
+                  "description": "Id of the item document",
+                  "example": "5bb2575199d7179dfe85be02",
+                  "readOnly": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "description": "Document creation date",
+                  "example": "2018-05-29T15:34:11.118Z",
+                  "readOnly": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "description": "Last customer update date",
+                  "example": "2018-05-30T17:34:11.118Z",
+                  "readOnly": true
+                },
+                "required": {
+                  "type": "Boolean",
+                  "description": "Indicates if this item can be removed from the list by the client",
+                  "default": true
+                },
+                "selectedSkus": {
+                  "type": "array",
+                  "description": "Array of skus that will be available to client",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "allSkus": {
+                  "type": "Boolean",
+                  "description": "Indicates if all skus will be available to client (Is set to true automatically if selectedSkus is empty)",
+                  "default": true
+                }
+              }
+            }
+          },
+          "gallery": {
+            "type": "array",
+            "items": {
+              "title": "Media",
+              "type": "object",
+              "description": "Represents any uploaded media",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Uploaded name of the file",
+                  "example": "Icon-iOS-TendaEdu.png"
+                },
+                "path": {
+                  "type": "string",
+                  "description": "relative path of this file in CDN",
+                  "example": "/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "url",
+                  "description": "formated URL of the path pointing to CDN",
+                  "example": "https://cdn.edu.tenda.digital/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                },
+                "thumb": {
+                  "type": "string",
+                  "format": "url",
+                  "description": "URL of a 1024x1024 contained image in case the file supports it",
+                  "example": "https://api.edu.tenda.digital/v1/media/thumb/png:1024x1024/tendaedu/uploads/a0081244-f2e6-402e-9999-4ea22fc10c4e/Icon-iOS-TendaEdu.png"
+                },
+                "size": {
+                  "type": "Number",
+                  "description": "Size in bytes of the file",
+                  "example": 56878
+                },
+                "mime": {
+                  "type": "string",
+                  "description": "Mime type of the file",
+                  "example": "image/png"
+                },
+                "width": {
+                  "type": "Number",
+                  "description": "The width in pixels in case the file is an image"
+                },
+                "height": {
+                  "type": "Number",
+                  "description": "The height in pixels in case the file is an image"
+                },
+                "orientation": {
+                  "type": "String",
+                  "description": "The orientation of the image"
+                }
+              }
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "formId": {
+            "type": "string",
+            "description": "Id of the form asked to client on the store",
+            "format": "object id"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade List",
+          "url": "/docs/api/payments/list/object"
+        }
+      },
+      "ListItem": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string",
+            "description": "Id of the item document",
+            "example": "5bb2575199d7179dfe85be02",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Document creation date",
+            "example": "2018-05-29T15:34:11.118Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Last customer update date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          },
+          "required": {
+            "type": "Boolean",
+            "description": "Indicates if this item can be removed from the list by the client",
+            "default": true
+          },
+          "selectedSkus": {
+            "type": "array",
+            "description": "Array of skus that will be available to client",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allSkus": {
+            "type": "Boolean",
+            "description": "Indicates if all skus will be available to client (Is set to true automatically if selectedSkus is empty)",
+            "default": true
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade ListItem",
+          "url": "/docs/api/payments/listitem/object"
+        }
+      },
+      "Sale": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Token of the order",
+            "example": "81778d07-92ee-4f13-b177-043905322cd3",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Document creation date",
+            "example": "2018-05-29T15:34:11.118Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Document last modified date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          },
+          "currency": {
+            "allOf": [
+              {
+                "description": "ISO Code of the Currency."
+              },
+              {
+                "$ref": "#/components/schemas/Currency"
+              }
+            ],
+            "readOnly": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "title": "CheckoutItem",
+              "type": "object",
+              "x-tags": [
+                "Items"
+              ],
+              "description": "Represents an item in checkout",
+              "properties": {
+                "variantId": {
+                  "type": "string",
+                  "description": "The identification of the item variant",
+                  "example": "81778d07-92ee-4f13-b177-043905322cd3"
+                },
+                "itemId": {
+                  "type": "string",
+                  "description": "The identification of the item",
+                  "exmaple": "507f1f77bcf86cd799439011",
+                  "readOnly": true
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the item",
+                  "example": "Uniforme masculino"
+                },
+                "caption": {
+                  "type": "string",
+                  "description": "Extra information about the item",
+                  "example": "Tamanho: M"
+                },
+                "shippable": {
+                  "type": "boolean",
+                  "description": "Defines if this item is shippable",
+                  "example": true
+                },
+                "media": {
+                  "$ref": "#/components/schemas/Media"
+                },
+                "quantity": {
+                  "type": "number",
+                  "default": 1,
+                  "description": "Quantity of items to purshase",
+                  "example": 2
+                },
+                "price": {
+                  "$ref": "#/components/schemas/Amount"
+                },
+                "subtotal": {
+                  "$ref": "#/components/schemas/Amount"
+                }
+              }
+            }
+          },
+          "customer": {
+            "$ref": "#/components/schemas/CheckoutCustomer"
+          },
+          "payment": {
+            "$ref": "#/components/params/PaymentLine"
+          },
+          "shipping": {
+            "$ref": "#/components/schemas/CheckoutShipping"
+          },
+          "discounts": {
+            "type": "array",
+            "description": "Discounts applied on sale",
+            "items": {
+              "title": "DiscountAllocation",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of this discount",
+                  "example": "discounts.payment_method_discount"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "payment",
+                  "enum": [
+                    "payment"
+                  ]
+                },
+                "discount": {
+                  "allOf": [
+                    {
+                      "description": "Discount to be applied"
+                    },
+                    {
+                      "$ref": "#/components/params/Discount"
+                    }
+                  ]
+                },
+                "value": {
+                  "allOf": [
+                    {
+                      "description": "Value of discount (negative)"
+                    },
+                    {
+                      "$ref": "#/components/params/AmountNegative"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "owned": {
+            "$ref": "#/components/schemas/CheckoutOwned"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Sale",
+          "url": "/docs/api/payments/sale/object"
+        }
+      },
+      "SpecialCondition": {
+        "type": "object",
+        "description": "Represents an payment kind special condition",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "payment_method_discount"
+            ],
+            "description": "Special condition kind"
+          },
+          "name": {
+            "type": "string",
+            "description": "Special condition name"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The currency used in special condition"
+          },
+          "payment_method_rule": {
+            "type": "object",
+            "description": "Rules to apply special condition.",
+            "properties": {
+              "installments": {
+                "type": "number",
+                "description": "Number of installments",
+                "example": 6
+              },
+              "method": {
+                "type": "string",
+                "description": "Payment method",
+                "example": "bank_slip"
+              }
+            }
+          },
+          "discount": {
+            "type": "Object",
+            "$ref": "#/components/params/Discount"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade SpecialCondition",
+          "url": "/docs/api/payments/specialcondition/object"
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "scheme": "Bearer"
+      },
+      "permissions": {
+        "description": "Permissions that your user can have, it resembles OAuth2\n",
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "scopes": {
+              "item": "write/read items",
+              "sale": "write/read sales",
+              "channel": "write/read channels",
+              "customer": "write/read customers",
+              "admin": "All of the above"
+            }
+          }
+        }
+      },
+      "X-Store-Id": {
+        "description": "Provides the store identification in the header to scope the request. (You can use query parameter `_store` instead)\n",
+        "type": "http",
+        "scheme": "token",
+        "in": "header",
+        "name": "X-Store-Id"
+      },
+      "X-Checkout-Token": {
+        "description": "Provides the checkout identification in the header to scope the request. (You can use query parameter `_checkout` instead)\n",
+        "type": "http",
+        "scheme": "token",
+        "in": "header",
+        "name": "X-Checkout-Token",
+        "example": "aaaaaaaaaaaaa"
+      }
+    },
+    "params": {
+      "ChannelTemplate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Template name",
+            "example": "Cups micro-store",
+            "default": "default"
+          },
+          "color": {
+            "type": "string",
+            "description": "Hex color of the store",
+            "example": "#8c78c4"
+          },
+          "cover": {
+            "allOf": [
+              {
+                "description": "Cover of the store"
+              },
+              {
+                "$ref": "#/components/schemas/Media"
+              }
+            ]
+          }
+        }
+      },
+      "Channel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of document",
+            "example": "5bb2575199d7179dfe85be02",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Store name",
+            "example": "Cups micro-store",
+            "minLength": 2,
+            "maxLength": 100
+          },
+          "caption": {
+            "type": "string",
+            "description": "Store Caption",
+            "example": "Cups for everyone!",
+            "maxLength": 100
+          },
+          "alias": {
+            "type": "string",
+            "description": "External store ID",
+            "example": "STORE1234"
+          },
+          "currency": {
+            "allOf": [
+              {
+                "description": "ISO Code of the Currency."
+              },
+              {
+                "$ref": "#/components/schemas/Currency"
+              }
+            ]
+          },
+          "template": {
+            "allOf": [
+              {
+                "description": "Channel template"
+              },
+              {
+                "$ref": "#/components/params/ChannelTemplate"
+              }
+            ]
+          },
+          "published": {
+            "type": "boolean",
+            "description": "If this channel has been published, i.e. (active)",
+            "example": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Document creation date",
+            "example": "2018-05-29T15:34:11.118Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Last channel update date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          },
+          "publishedAt": {
+            "type": "string",
+            "description": "Last channel update date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "kind",
+          "entityId",
+          "channel",
+          "channelId",
+          "channelKind"
+        ]
+      },
+      "ItemLink": {
+        "allOf": [
+          {
+            "$ref": "#/components/params/ChannelLink"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "description": "Kind of this ChannelLink"
+              },
+              "currency": {
+                "allOf": [
+                  {
+                    "description": "ISO Code of the Currency."
+                  },
+                  {
+                    "$ref": "#/components/schemas/Currency"
+                  }
+                ]
+              },
+              "overrides": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ItemChannelOverride"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ChannelLink": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "itemLink": "#/components/params/ItemLink"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of document",
+            "example": "5bb2575199d7179dfe85be02",
+            "readOnly": true
+          },
+          "entityId": {
+            "type": "string",
+            "description": "The itemId this link refers to",
+            "example": "5bb2575199d7179dfe85be03"
+          },
+          "channelId": {
+            "type": "string",
+            "description": "The channelId this link refers to",
+            "example": "5bb2575199d7179dfe85be04"
+          },
+          "channel": {
+            "readOnly": true,
+            "type": "object",
+            "allOf": [
+              {
+                "description": "Channel that this links refers to"
+              },
+              {
+                "$ref": "#/components/params/Channel"
+              }
+            ]
+          },
+          "channelKind": {
+            "type": "string",
+            "description": "Kind of the channel",
+            "enum": [
+              "store"
+            ],
+            "example": "store"
+          },
+          "published": {
+            "type": "boolean",
+            "description": "If this link has been published, i.e. (active)",
+            "example": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Document creation date",
+            "example": "2018-05-29T15:34:11.118Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Last ChannelLink update date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          },
+          "publishedAt": {
+            "type": "string",
+            "description": "Last ChannelLink update date",
+            "example": "2018-05-30T17:34:11.118Z",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "kind",
+          "entityId",
+          "channel",
+          "channelId",
+          "channelKind"
+        ]
+      },
+      "Address": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Address title",
+            "example": "Home"
+          },
+          "code": {
+            "type": "string",
+            "description": "Address code",
+            "example": "74482-290"
+          },
+          "address": {
+            "type": "string",
+            "description": "Address Line 1",
+            "example": "Rua São José"
+          },
+          "address2": {
+            "type": "string",
+            "description": "Address Line 2",
+            "example": "BL 2, AP 42"
+          },
+          "number": {
+            "type": "string",
+            "description": "Address Number",
+            "example": "891"
+          },
+          "district": {
+            "type": "string",
+            "description": "Address district",
+            "example": "Rio de Janeiro"
+          },
+          "state": {
+            "type": "string",
+            "description": "Address state",
+            "example": "RJ"
+          },
+          "country": {
+            "type": "string",
+            "description": "Address Country code",
+            "example": "BR"
+          },
+          "default": {
+            "type": "boolean",
+            "description": "Save as customer default address?",
+            "example": true
+          }
+        },
+        "required": [
+          "code",
+          "state",
+          "district",
+          "address",
+          "coutry"
+        ]
+      },
+      "AmountNegative": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Currency"
+              },
+              {
+                "readOnly": true
+              }
+            ]
+          },
+          "amount": {
+            "type": "integer",
+            "example": -10000,
+            "description": "Integer value of amount in cents without fractions. '-10.00' becomes '-1000'",
+            "min": -1,
+            "max": -10000000
+          }
+        },
+        "example": {
+          "amount": -1000
+        }
+      },
+      "Discount": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "description": "Type of this discount",
+            "example": "percent",
+            "enum": [
+              "percent",
+              "fixed"
+            ]
+          },
+          "percent": {
+            "description": "Percentage of the discount",
+            "type": "number",
+            "maximum": 0.5,
+            "minimum": 0.01,
+            "example": 0.2
+          },
+          "fixed": {
+            "allOf": [
+              {
+                "description": "Fixed discount amount"
+              },
+              {
+                "$ref": "#/components/schemas/Amount"
+              }
+            ]
+          }
+        }
+      },
+      "DiscountAllocation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of this discount",
+            "example": "discounts.payment_method_discount"
+          },
+          "location": {
+            "type": "string",
+            "example": "payment",
+            "enum": [
+              "payment"
+            ]
+          },
+          "discount": {
+            "allOf": [
+              {
+                "description": "Discount to be applied"
+              },
+              {
+                "$ref": "#/components/params/Discount"
+              }
+            ]
+          },
+          "value": {
+            "allOf": [
+              {
+                "description": "Value of discount (negative)"
+              },
+              {
+                "$ref": "#/components/params/AmountNegative"
+              }
+            ]
+          }
+        }
+      },
+      "SalePayment": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Key of the payment",
+            "example": "iugu:credit_card"
+          },
+          "sourceId": {
+            "type": "string",
+            "description": "Id of the source of this payment",
+            "example": "5be1e52da3b4d2002330059c"
+          },
+          "method": {
+            "type": "string",
+            "description": "Method of this payment",
+            "example": "credit_card",
+            "enum": [
+              "credit_card",
+              "bank_slip"
+            ]
+          },
+          "strategy": {
+            "type": "string,",
+            "default": "installment",
+            "description": "Strategy of this payment",
+            "enum": [
+              "installment",
+              "recurrent"
+            ]
+          },
+          "installments": {
+            "type": "number",
+            "description": "Number of installments",
+            "minimum": 1,
+            "maximum": 12
+          },
+          "discount": {
+            "allOf": [
+              {
+                "description": "Discount"
+              },
+              {
+                "$ref": "#/components/params/Discount"
+              }
+            ]
+          }
+        }
+      },
+      "Customer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Customer name",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "Customer email",
+            "example": "john@doe.com"
+          },
+          "document": {
+            "type": "object",
+            "description": "Customer email",
+            "$ref": "#/components/schemas/taxNumber"
+          }
+        },
+        "required": [
+          "name",
+          "email"
+        ]
+      },
+      "CreditCard": {
+        "allOf": [
+          {
+            "$ref": "#/components/params/PaymentMethod"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "token": {
+                "type": "string",
+                "description": "Credit card token",
+                "example": "428996DA2C214C8193FBC0"
+              },
+              "kind": {
+                "type": "string",
+                "description": "Kind of this payment method"
+              },
+              "lastDigits": {
+                "type": "string",
+                "description": "Last 4 digits of credit card",
+                "example": "1234"
+              }
+            },
+            "required": [
+              "token",
+              "kind",
+              "lastDigits"
+            ]
+          }
+        ]
+      },
+      "PaymentMethod": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "credit_card": "#/components/params/CreditCard"
+          }
+        },
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Name of this PaymentMethod",
+            "example": "My creditcard"
+          }
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "FormCheckbox": {
+        "allOf": [
+          {
+            "$ref": "#/components/params/FormFields"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "FormText": {
+        "allOf": [
+          {
+            "$ref": "#/components/params/FormFields"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "placeholder": {
+                "type": "string,",
+                "description": "Placeholder Text"
+              }
+            }
+          }
+        ]
+      },
+      "FormFields": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "text": "#/components/params/FormText",
+            "checkbox": "#/components/params/FormCheckbox"
+          }
+        },
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of this field",
+            "example": "My custom form"
+          },
+          "caption": {
+            "type": "string,",
+            "description": "Field caption",
+            "example": "My custom caption"
+          },
+          "required": {
+            "type": "boolean,",
+            "description": "If this field is required",
+            "example": true
+          },
+          "kind": {
+            "type": "string",
+            "description": "Kind of this field",
+            "example": "checkbox"
+          }
+        }
+      },
+      "Form": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Name of this Form",
+            "example": "My creditcard"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/params/FormFields"
+            }
+          }
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "Inventory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Inventory Id",
+            "example": "5bb2575199d7179dfe85be02"
+          },
+          "strategy": {
+            "type": "string",
+            "description": "Inventory strategy",
+            "example": "tracked",
+            "enum": [
+              "tracked",
+              "untracked"
+            ]
+          },
+          "trackedQuantity": {
+            "type": "number",
+            "example": 10
+          }
+        }
+      },
+      "PaymentLine": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of this sale",
+            "example": "paid",
+            "default": "open",
+            "enum": [
+              "open",
+              "refunded",
+              "chargeback",
+              "in_protest",
+              "paid",
+              "released",
+              "pending",
+              "failed",
+              "expired",
+              "canceled"
+            ]
+          },
+          "statusChangedAt": {
+            "type": "string",
+            "description": "Last status change date",
+            "example": "2018-05-29T15:34:11.118Z",
+            "readOnly": true
+          },
+          "tags": {
+            "type": "array",
+            "description": "Contains all status that this sale passed",
+            "example": [
+              "open",
+              "pending",
+              "paid"
+            ]
+          },
+          "method": {
+            "allOf": [
+              {
+                "description": "Method that customer picked"
+              },
+              {
+                "$ref": "#/components/params/SalePayment"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

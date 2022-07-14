@@ -1,0 +1,739 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Comunicação",
+    "description": "A API de comunicação permite que você envie publicações para a linha do tempo ou agenda do app",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.layers.digital/v1"
+    }
+  ],
+  "paths": {
+    "/post": {
+      "post": {
+        "tags": [
+          "Publicações"
+        ],
+        "summary": "Criar uma publicação",
+        "description": "Criar uma publicação na linha do tempo ou agenda.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "user:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Event"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Publicação criada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Criar uma publicação",
+          "url": "/docs/api/communication/post/post"
+        }
+      },
+      "get": {
+        "tags": [
+          "Publicações"
+        ],
+        "summary": "Listar Publicações",
+        "description": "Listar as publicações existentes",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/CreatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/ViewAt"
+          },
+          {
+            "$ref": "#/components/parameters/Date"
+          },
+          {
+            "$ref": "#/components/parameters/QueryId"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "$ref": "#/components/parameters/Approved"
+          },
+          {
+            "$ref": "#/components/parameters/Roles"
+          },
+          {
+            "$ref": "#/components/parameters/Season"
+          },
+          {
+            "$ref": "#/components/parameters/Tags"
+          },
+          {
+            "$ref": "#/components/parameters/AuthorName"
+          },
+          {
+            "$ref": "#/components/parameters/AuthorId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "member:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de publicações",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar Publicações",
+          "url": "/docs/api/communication/post"
+        }
+      }
+    },
+    "/post/{postId}": {
+      "delete": {
+        "tags": [
+          "Publicações"
+        ],
+        "summary": "Remover publicação",
+        "description": "Remover a publicação especificada. Essse processo **pode** ser revertido por meio da rota de atualizar publicação trocando o valor da chave `active` de `false` para `true`",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathPostId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "post:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Publicação removida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Remover publicação",
+          "url": "/docs/api/communication/post/postid/delete"
+        }
+      },
+      "put": {
+        "tags": [
+          "Publicações"
+        ],
+        "summary": "Atualizar publicação",
+        "description": "Atualizar informações da publicação especificada",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathPostId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "post:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Event"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Publicação editada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Atualizar publicação",
+          "url": "/docs/api/communication/post/postid/put"
+        }
+      },
+      "get": {
+        "tags": [
+          "Publicações"
+        ],
+        "summary": "Visualizar informações da publicação especificada",
+        "description": "Visualizar informações da publicação específicado.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathPostId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "user:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "informações da publicação",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Visualizar informações da publicação especificada",
+          "url": "/docs/api/communication/post/postid"
+        }
+      }
+    },
+    "/post/search": {
+      "get": {
+        "tags": [
+          "Publicações"
+        ],
+        "summary": "Buscar Publicações",
+        "description": "Busca de publicações. Podem ser aplicados filtros bem como busca de texto livre através do parametro q na query",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/CreatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/ViewAt"
+          },
+          {
+            "$ref": "#/components/parameters/Date"
+          },
+          {
+            "$ref": "#/components/parameters/QueryId"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "$ref": "#/components/parameters/Approved"
+          },
+          {
+            "$ref": "#/components/parameters/Roles"
+          },
+          {
+            "$ref": "#/components/parameters/Season"
+          },
+          {
+            "$ref": "#/components/parameters/Tags"
+          },
+          {
+            "$ref": "#/components/parameters/AuthorName"
+          },
+          {
+            "$ref": "#/components/parameters/AuthorId"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Texto de busca. Pode ser o título da publicação ou nome de algum dos targets",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "user:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Número e lista de publicações encontradas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Número total de posts que se encaixam nos filtros aplicados na query",
+                      "example": 1
+                    },
+                    "hits": {
+                      "type": "array",
+                      "description": "Publicações encontradas ordenadas por quão bem se encaixam na busca",
+                      "items": {
+                        "$ref": "#/components/schemas/Event"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Buscar Publicações",
+          "url": "/docs/api/communication/post/search"
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BasePost": {
+        "type": "object",
+        "description": "Estrutura básica de um post na Layers Education",
+        "required": [
+          "type",
+          "title",
+          "text",
+          "targets",
+          "roles"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador do documento da publicação",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação da publicação",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última edição da publicação",
+            "readOnly": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Tipo da publicação"
+          },
+          "title": {
+            "type": "string",
+            "description": "Título da publicação"
+          },
+          "text": {
+            "type": "string",
+            "description": "Texto de corpo da publicação"
+          },
+          "targets": {
+            "type": "array",
+            "description": "Público alvo da publicação",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Identificador do membro, usuário, turma ou tag"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "description": "Tipo do público especificado. Pode ser user, member, group ou tag."
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "description": "Email do usuário"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "description": "Tipo do público especificado. Pode ser user, member, group ou tag."
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "Alias do membro, usuário ou grupo."
+                    },
+                    "kind": {
+                      "type": "string",
+                      "description": "Tipo do público especificado. Pode ser user, member, group ou tag."
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "roles": {
+            "type": "array",
+            "description": "Perfís de usuários no público alvo que poderão ver essa publicação.",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "guardian"
+            ]
+          },
+          "viewAt": {
+            "type": "string",
+            "description": "Data quando a publicação deve ser vista."
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade BasePost",
+          "url": "/docs/api/communication/basepost/object"
+        }
+      },
+      "Event": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasePost"
+          },
+          {
+            "type": "object",
+            "description": "Publicação do tipo Evento",
+            "required": [
+              "date",
+              "event"
+            ],
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Data do evento"
+              },
+              "event": {
+                "type": "object",
+                "required": [
+                  "endDate",
+                  "allDay"
+                ],
+                "properties": {
+                  "endDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Data do fim do evento"
+                  },
+                  "allDay": {
+                    "type": "boolean",
+                    "description": "Indica se o evento deve durar o dia todo",
+                    "example": false,
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "parameters": {
+      "Community-id": {
+        "name": "community-id",
+        "in": "header",
+        "description": "Identificador da comunidade",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "test"
+        }
+      },
+      "CreatedAt": {
+        "name": "createdAt",
+        "in": "query",
+        "description": "Data de criação do documento",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "UpdatedAt": {
+        "name": "updatedAt",
+        "in": "query",
+        "description": "Data da última modificação do documento",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "ViewAt": {
+        "name": "viewAt",
+        "in": "query",
+        "description": "Data na qual a publicação ficou visível para o público alvo",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Season": {
+        "name": "season",
+        "in": "query",
+        "description": "Temporada do documento. Geralmente é o ano letivo",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Status": {
+        "name": "status",
+        "in": "query",
+        "description": "Indicador do status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (INACTIVE)",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Active": {
+        "name": "active",
+        "in": "query",
+        "description": "Indicador do estado do documento. Quando verdadeiro o documento está ativo e quando falso o documento está apagado.",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "Roles": {
+        "name": "roles",
+        "in": "query",
+        "description": "Permissão que o usuário possui",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PathPostId": {
+        "name": "postId",
+        "in": "path",
+        "description": "Identificador da publicação",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PathEnrollmentId": {
+        "name": "enrollmentId",
+        "in": "path",
+        "description": "Identificador da matrícula",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "QueryId": {
+        "name": "userId",
+        "in": "query",
+        "description": "Identificador do documento",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Title": {
+        "name": "title",
+        "in": "query",
+        "description": "Título da publicação",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Type": {
+        "name": "title",
+        "in": "query",
+        "description": "Array contendo tipos de publicação",
+        "required": true,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "Tags": {
+        "name": "tags",
+        "in": "query",
+        "description": "Array contendo os identificadores de todo publico alvo que pode ver essa publicação (grupos, usuarios, alunos e turmas)",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "Date": {
+        "name": "date",
+        "in": "query",
+        "description": "Data da publicação. (Apenas para publicações da agenda e eventos)",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Approved": {
+        "name": "approved",
+        "in": "query",
+        "description": "Indica se o post já foi aprovado para ser publicado ou ainda aguarda autorização",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "Name": {
+        "name": "name",
+        "in": "query",
+        "description": "Nome",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "AuthorName": {
+        "name": "author.name",
+        "in": "query",
+        "description": "Nome do autor da publicação",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "AuthorId": {
+        "name": "author.id",
+        "in": "query",
+        "description": "Id do autor da publicação",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "description": "Generate a token",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "x-nav": [
+    {
+      "name": "Publicações",
+      "schemas": [
+        "Event"
+      ],
+      "tags": [
+        "Publicações"
+      ]
+    }
+  ]
+}

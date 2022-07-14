@@ -1,0 +1,142 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Notificações",
+    "description": "A API de notificações permite que você envie notificações push para qualquer plataforma",
+    "version": "2.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.layers.digital/v2"
+    }
+  ],
+  "paths": {
+    "/notication": {
+      "post": {
+        "tags": [
+          "Notificações"
+        ],
+        "summary": "Enviar notificação",
+        "description": "Enviar notificações push para usuários de uma certa comunidade via web, android e ios.",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-context": [
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "requestBody": {
+          "description": "Informações necessárias para o envio da notificação",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "users",
+                  "title"
+                ],
+                "properties": {
+                  "users": {
+                    "type": "array",
+                    "description": "Array que contém os ids dos usuários que receberão a notificação",
+                    "items": {
+                      "type": "string",
+                      "description": "Id de um usuário"
+                    }
+                  },
+                  "title": {
+                    "type": "string",
+                    "maxLength": 65,
+                    "description": "Título da notificação"
+                  },
+                  "body": {
+                    "type": "string",
+                    "maxLength": 178,
+                    "description": "Texto do corpo da notificação"
+                  },
+                  "scheduleDate": {
+                    "type": "string",
+                    "description": "Data em formato ISO8601 com o momento em que deve ser enviada a notificação. Caso o paramêtro não esteja presente, a notificação é enviada instantaneamente."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Notificações enviadas ou agendadas com sucesso"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "400"
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "InvalidParameter"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Bad Request"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Title/users not provided"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Enviar notificação",
+          "url": "/docs/api/notifications/notication/post"
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "Community-id": {
+        "name": "community-id",
+        "in": "header",
+        "description": "Identificador da comunidade",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "test"
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "description": "App Token",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "x-nav": [
+    {
+      "name": "Notificações",
+      "tags": [
+        "Notificações"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2476 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Dados",
+    "description": "A API de dados permite que você administre usuários, membros, grupos, matrículas e seus vínculos",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.layers.digital/v1"
+    }
+  ],
+  "paths": {
+    "/community/permissions": {
+      "get": {
+        "tags": [
+          "Comunidade"
+        ],
+        "summary": "Listar permissões",
+        "description": "Listar permissões da comunidade",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Objeto contento todas as permissões na comunidade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "permission_name": {
+                      "type": "object",
+                      "properties": {
+                        "group": {
+                          "type": "string",
+                          "description": "Grupo da permissão",
+                          "example": "Agenda - Agenda"
+                        },
+                        "includes": {
+                          "type": "array",
+                          "description": "Lista de outras permissões contidas nessa permissão",
+                          "items": {
+                            "type": "string",
+                            "example": "@admin:agenda:events:autoapprove"
+                          }
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Descrição que aparece na interface",
+                          "example": "Aprovar conteúdos da agenda"
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "Identificador da permissão (igual à chave que contém esse objeto)",
+                          "example": "@admin:agenda:events:approve"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar permissões",
+          "url": "/docs/api/data/community/permissions"
+        }
+      }
+    },
+    "/components": {
+      "get": {
+        "tags": [
+          "Componentes"
+        ],
+        "summary": "Listar componentes",
+        "description": "Listar componentes registrados na Layers",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:read",
+          "group:read:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Número e lista de componentes encontrados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "format": "integer",
+                      "description": "Número de componentes encontrados"
+                    },
+                    "hits": {
+                      "type": "array",
+                      "description": "Array contendo os componentes encontrados",
+                      "items": {
+                        "$ref": "#/components/schemas/Component"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar componentes",
+          "url": "/docs/api/data/components"
+        }
+      }
+    },
+    "/enrollments/{enrollmentId}": {
+      "get": {
+        "tags": [
+          "Matrículas"
+        ],
+        "summary": "Ver matricula",
+        "description": "Ver matrícula especificada",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathEnrollmentId"
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "description": "Identificador do grupo",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:write",
+          "group:write:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Matrículas que correspondem ao filtro da query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Enrollment"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Ver matricula",
+          "url": "/docs/api/data/enrollments/enrollmentid"
+        }
+      }
+    },
+    "/enrollments": {
+      "get": {
+        "tags": [
+          "Matrículas"
+        ],
+        "summary": "Listar matriculas",
+        "description": "Listar matrículas no grupo especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "description": "Identificador do grupo",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:write",
+          "group:write:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Matrículas que correspondem ao filtro da query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Enrollment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar matriculas",
+          "url": "/docs/api/data/enrollments"
+        }
+      }
+    },
+    "/enrollments/search": {
+      "get": {
+        "tags": [
+          "Matrículas"
+        ],
+        "summary": "Buscar matriculas",
+        "description": "Buscar matrículas no grupo especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "description": "Identificador do grupo",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:write",
+          "group:write:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Matrículas que correspondem ao filtro da query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Número de matrículas encontradas",
+                      "example": 1
+                    },
+                    "hits": {
+                      "type": "array",
+                      "description": "Matrículas encontradas",
+                      "items": {
+                        "$ref": "#/components/schemas/Enrollment"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Buscar matriculas",
+          "url": "/docs/api/data/enrollments/search"
+        }
+      }
+    },
+    "/groups/{groupId}/admins": {
+      "get": {
+        "tags": [
+          "Grupos"
+        ],
+        "summary": "Listar administradores",
+        "description": "Listar administradores do grupo específicado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathGroupId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:read",
+          "group:read:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificador do usuário administrador da turma"
+                      },
+                      "user": {
+                        "$ref": "#/components/schemas/User"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar administradores",
+          "url": "/docs/api/data/groups/groupid/admins"
+        }
+      }
+    },
+    "/groups/{groupId}/enrollments": {
+      "get": {
+        "tags": [
+          "Matrículas"
+        ],
+        "summary": "Listar matriculas",
+        "description": "Listar matriculas do grupo especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathGroupId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:read",
+          "group:read:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificador do documento da matrícula",
+                        "readOnly": true
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "description": "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
+                        "example": "2020-01-01T00:00:00.000Z",
+                        "readOnly": true
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "description": "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
+                        "example": "2020-01-01T00:00:00.000Z",
+                        "readOnly": true
+                      },
+                      "community": {
+                        "type": "string",
+                        "description": "Identificador da comunidade da matrícula",
+                        "example": "test",
+                        "readOnly": true
+                      },
+                      "kind": {
+                        "type": "string",
+                        "description": "Tipo de entidade que está vinculada ao grupo",
+                        "example": "member"
+                      },
+                      "entity": {
+                        "$ref": "#/components/schemas/Member"
+                      },
+                      "group": {
+                        "type": "string",
+                        "format": "ObjectId",
+                        "description": "Identificador do grupo à qual a entidade está matriculada",
+                        "readOnly": true
+                      },
+                      "active": {
+                        "type": "boolean",
+                        "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
+                        "example": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar matriculas",
+          "url": "/docs/api/data/groups/groupid/enrollments"
+        }
+      }
+    },
+    "/groups/{groupId}": {
+      "get": {
+        "tags": [
+          "Grupos"
+        ],
+        "summary": "Visualizar Grupo",
+        "description": "Visualizar informações do grupo especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathGroupId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Grupo específicado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Visualizar Grupo",
+          "url": "/docs/api/data/groups/groupid"
+        }
+      }
+    },
+    "/groups": {
+      "get": {
+        "tags": [
+          "Grupos"
+        ],
+        "summary": "Listar grupos",
+        "description": "Listar grupos existentes na Layers",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:read",
+          "group:read:scoped"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/CreatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "$ref": "#/components/parameters/Name"
+          },
+          {
+            "$ref": "#/components/parameters/GroupAdmin"
+          },
+          {
+            "$ref": "#/components/parameters/Season"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Grupos que atendem às restrições ordenados por data de criação",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Group"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar grupos",
+          "url": "/docs/api/data/groups"
+        }
+      }
+    },
+    "/groups/search": {
+      "get": {
+        "tags": [
+          "Grupos"
+        ],
+        "summary": "Buscar grupos",
+        "description": "Buscar grupos usando texto livre no parametro q e outros parâmetros de filtro.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/CreatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "$ref": "#/components/parameters/Name"
+          },
+          {
+            "$ref": "#/components/parameters/GroupAdmin"
+          },
+          {
+            "$ref": "#/components/parameters/Season"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Texto de busca. Pode ser o nome ou identificador do grupos.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "group:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Número e lista de grupos encontrados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "format": "integer",
+                      "description": "Número de resultados encontrados"
+                    },
+                    "hits": {
+                      "type": "array",
+                      "description": "Array contendo os resultados da busca ordenados pelos que mais se encaixam nos termos da busca",
+                      "items": {
+                        "$ref": "#/components/schemas/Group"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Buscar grupos",
+          "url": "/docs/api/data/groups/search"
+        }
+      }
+    },
+    "/members": {
+      "get": {
+        "tags": [
+          "Membros"
+        ],
+        "summary": "Listar Membros",
+        "description": "Listar membros existentes.",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "member:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/CreatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/QueryId"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "$ref": "#/components/parameters/Alias"
+          },
+          {
+            "$ref": "#/components/parameters/Name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Membros ordenados por data de criação",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Member"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar Membros",
+          "url": "/docs/api/data/members"
+        }
+      }
+    },
+    "/members/{memberId}": {
+      "get": {
+        "tags": [
+          "Membros"
+        ],
+        "summary": "Visualizar membro",
+        "description": "Visualizar informações do membro especificado",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathMemberId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "member:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Informações do membro especificado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Member"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Visualizar membro",
+          "url": "/docs/api/data/members/memberid"
+        }
+      }
+    },
+    "/members/search": {
+      "get": {
+        "tags": [
+          "Membros"
+        ],
+        "summary": "Buscar membros",
+        "description": "Buscar membros. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/CreatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/Status"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Texto de busca. Pode ser o nome ou alias do membro.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "member:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "Número e lista de membros encontrados.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Número de membros encontrados",
+                      "example": 1
+                    },
+                    "hits": {
+                      "type": "array",
+                      "description": "Lista de membros encontrados ordenados por quão bem se encaixam na busca",
+                      "items": {
+                        "$ref": "#/components/schemas/Member"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Buscar membros",
+          "url": "/docs/api/data/members/search"
+        }
+      }
+    },
+    "/network/communities": {
+      "get": {
+        "tags": [
+          "Redes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "network:communities:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "apps"
+        ],
+        "summary": "Listar comunidades da rede",
+        "description": "Listar as comunidades na rede",
+        "responses": {
+          "200": {
+            "description": "Lista de comunidades na rede",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Community"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar comunidades da rede",
+          "url": "/docs/api/data/network/communities"
+        }
+      }
+    },
+    "/network/roles": {
+      "get": {
+        "tags": [
+          "Redes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "network:communities:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "apps"
+        ],
+        "summary": "Listar permissões",
+        "description": "Listar as permissões que existem na comunidade",
+        "responses": {
+          "200": {
+            "description": "Lista de permissões existentes nas comunidades da rede",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "example": "admin"
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "👩‍💻 Administrador Geral"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Acesso à todos os recursos do Sistema"
+                      },
+                      "group": {
+                        "type": "string",
+                        "example": "Geral"
+                      },
+                      "hierarchy": {
+                        "type": "string",
+                        "example": 4
+                      },
+                      "pinned": {
+                        "type": "string",
+                        "example": true
+                      },
+                      "includes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "example": [
+                          "feed:read",
+                          "sync:manage",
+                          "agenda:admin",
+                          "post:manage",
+                          "ticket:manage",
+                          "report:manage",
+                          "group:manage",
+                          "member:manage",
+                          "user:manage",
+                          "season:manage",
+                          "export:manage",
+                          "payments:admin",
+                          "statistics:read"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar permissões",
+          "url": "/docs/api/data/network/roles"
+        }
+      }
+    },
+    "/network/tags": {
+      "get": {
+        "tags": [
+          "Redes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "network:communities:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "apps"
+        ],
+        "summary": "Listar tags da rede",
+        "description": "Listar as tags disponíveis na rede",
+        "responses": {
+          "200": {
+            "description": "Lista de estimativas de usuários contidos nos targets para cada comunidade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "Tags disponíveis na rede",
+                  "items": {
+                    "$ref": "#/components/schemas/Tag"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar tags da rede",
+          "url": "/docs/api/data/network/tags"
+        }
+      }
+    },
+    "/season/active": {
+      "get": {
+        "tags": [
+          "Períodos"
+        ],
+        "summary": "Ver Período Ativo",
+        "description": "Ver período ativo.",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "season:manage"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Períodos existentes na comunidade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Season"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Ver Período Ativo",
+          "url": "/docs/api/data/season/active"
+        }
+      }
+    },
+    "/season": {
+      "get": {
+        "tags": [
+          "Períodos"
+        ],
+        "summary": "Listar Períodos",
+        "description": "Listar períodos existentes.",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "season:manage"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Períodos existentes na comunidade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Season"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar Períodos",
+          "url": "/docs/api/data/season"
+        }
+      }
+    },
+    "/tags": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Listar tags",
+        "description": "Listar tags cadastradas",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "member:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de tags",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tag"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar tags",
+          "url": "/docs/api/data/tags"
+        }
+      }
+    },
+    "/tags/search": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Buscar tags",
+        "description": "Buscar tags",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "member:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Texto de busca pelo nome da tag",
+            "required": false,
+            "example": "Ensino Médio",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de usuários que estão vinculados ao membro",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Número de tags que passam pela query",
+                      "example": 1
+                    },
+                    "hits": {
+                      "type": "array",
+                      "description": "Tags encontradas",
+                      "items": {
+                        "$ref": "#/components/schemas/Tag"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Buscar tags",
+          "url": "/docs/api/data/tags/search"
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Listar usuários",
+        "description": "Listar contas de acesso de usuários.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/CreatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/Status"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "$ref": "#/components/parameters/Roles"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "user:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Número de Usuários encontrados",
+                      "example": 10
+                    },
+                    "hits": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/User"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Listar usuários",
+          "url": "/docs/api/data/users"
+        }
+      }
+    },
+    "/users/search": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Buscar usuários",
+        "description": "Buscar contas de acesso de usuários. Essa busca pode ser feita com filtros através dos parâmetros listados bem como texto livre no parâmetro q.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/CreatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/UpdatedAt"
+          },
+          {
+            "$ref": "#/components/parameters/Status"
+          },
+          {
+            "$ref": "#/components/parameters/Active"
+          },
+          {
+            "$ref": "#/components/parameters/Roles"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Texto de busca. Pode ser o nome, e-mail ou alias do usuário.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "user:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "description": "Número de Usuários encontrados",
+                      "example": 10
+                    },
+                    "hits": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/User"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Buscar usuários",
+          "url": "/docs/api/data/users/search"
+        }
+      }
+    },
+    "/users/{userId}/related": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Visualizar membros relacionados",
+        "description": "Visualizar todos os membros relacionados com o usuário especificado",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "user:write"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathUserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Membros relacionados com o usuário especificado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "members": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Member"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Visualizar membros relacionados",
+          "url": "/docs/api/data/users/userid/related"
+        }
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Visualizar informações do usuário",
+        "description": "Visualizar informações da conta de acesso do usuário especificado.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Community-id"
+          },
+          {
+            "$ref": "#/components/parameters/PathUserId"
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-permissions": [
+          "user:read"
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Visualizar informações do usuário",
+          "url": "/docs/api/data/users/userid"
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "description": "Usuário da Layers Education",
+        "required": [
+          "email",
+          "name",
+          "roles"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador do documento do usuário",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Data de criação do usuário em UTC corrigido para o fuso da comunidade",
+            "example": "2020-01-01T00:00:00.000Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Data da última modificação do usuário em UTC corrido para o fuso da comunidade",
+            "example": "2020-01-01T00:00:00.000Z",
+            "readOnly": true
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Chave que indica se o usuário está ativo (quando o usuário é apagado, essa chave é mudada para false)",
+            "example": true
+          },
+          "community": {
+            "type": "string",
+            "description": "Identificador da communidade do usuário",
+            "example": "test",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "INVITED",
+              "UNSENT"
+            ],
+            "description": "Status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (UNSENT)",
+            "example": "ACTIVE",
+            "readOnly": true
+          },
+          "invitationCount": {
+            "type": "number",
+            "description": "Numero de convites enviados para o usuário",
+            "example": 2,
+            "readOnly": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Email do usuário",
+            "example": "exemplo@tenda.digital"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do usuário",
+            "example": "Gabriel Raniere"
+          },
+          "roles": {
+            "type": "array",
+            "description": "Array contendo as permissões do usuário na plataforma",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "guardian",
+              "professor"
+            ]
+          },
+          "address": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "CEP do usuário",
+                "example": "01414-001"
+              },
+              "state": {
+                "type": "string",
+                "description": "Estado do usuário",
+                "example": "SP"
+              },
+              "city": {
+                "type": "string",
+                "description": "Cidade do usuário",
+                "example": "São Caetano do Sul"
+              },
+              "district": {
+                "type": "string",
+                "description": "Bairro do usuário",
+                "example": "Centro"
+              },
+              "address": {
+                "type": "string",
+                "description": "Rua do usuário",
+                "example": "Rua Pará"
+              },
+              "number": {
+                "type": "string",
+                "description": "Numero da casa do usuário",
+                "example": "79"
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade User",
+          "url": "/docs/api/data/user/object"
+        }
+      },
+      "Member": {
+        "type": "object",
+        "required": [
+          "name",
+          "alias"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador do documento do membro",
+            "example": "12345678",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Data de criação do membro em UTC corrigido para o fuso da comunidade",
+            "example": "2020-01-01T00:00:00.000Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Data da última modificação do membro em UTC corrido para o fuso da comunidade",
+            "example": "2020-01-01T00:00:00.000Z",
+            "readOnly": true
+          },
+          "active": {
+            "readOnly": true,
+            "type": "boolean",
+            "description": "Chave que indica se o membro está ativo (quando o membro é apagado, essa chave é mudada para false)",
+            "example": true
+          },
+          "community": {
+            "type": "string",
+            "description": "Identificador da communidade do membro",
+            "example": "test",
+            "readOnly": true
+          },
+          "access": {
+            "readOnly": true,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "permissions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "description": "Permissões do usuário atrelado a esse membro",
+                    "example": "guardian"
+                  }
+                },
+                "user": {
+                  "type": "string",
+                  "description": "Identificador do documento do usuário"
+                }
+              }
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do membro",
+            "example": "Gabriel Raniere"
+          },
+          "alias": {
+            "type": "string",
+            "description": "RA do membro",
+            "example": "abc123d"
+          },
+          "birth": {
+            "type": "string",
+            "description": "Data de nascimento",
+            "example": "2010-04-10T00:00:00.000Z"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Member",
+          "url": "/docs/api/data/member/object"
+        }
+      },
+      "Group": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "identificador do documento do grupo",
+            "readOnly": true
+          },
+          "alias": {
+            "type": "string",
+            "description": "Identificador da turma único para a comunidade",
+            "readOnly": false,
+            "example": "3A"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Data de criação do grupo em UTC corrigido para o fuso da comunidade",
+            "example": "2020-01-01T00:00:00.000Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Data da última modificação do grupo em UTC corrido para o fuso da comunidade",
+            "example": "2020-01-01T00:00:00.000Z",
+            "readOnly": true
+          },
+          "community": {
+            "type": "string",
+            "description": "Identificador da communidade do grupo",
+            "example": "test",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do grupo",
+            "example": "Terceiro ano A"
+          },
+          "tags": {
+            "type": "array",
+            "description": "tags às quais esse grupo pertence",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Identificador do documento da tag"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nome da tag",
+                  "example": "Ensino Fundamental"
+                }
+              }
+            }
+          },
+          "admins": {
+            "type": "array",
+            "description": "administradores do grupo",
+            "items": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Chave que indica se o grupo está ativo (quando o grupo é apagado, essa chave é mudada para false)",
+            "example": true
+          },
+          "syncedAt": {
+            "type": "string",
+            "description": "data da última vez que esse grupo foi modificado pela rota /sync",
+            "example": "2020-03-01T00:00:00.000Z",
+            "readOnly": true
+          },
+          "season": {
+            "type": "string",
+            "description": "temporada à qual esse grupo pertence",
+            "example": "Ano letivo 2020",
+            "readOnly": true
+          },
+          "fields": {
+            "type": "object",
+            "description": "Campos personalizados da comunidade. Podem ser diferentes de comunidade para comunidade dependendo do tipo de também dos apps instalados na comunidade.",
+            "properties": {
+              "@education:basic": {
+                "type": "object",
+                "properties": {
+                  "tipo": {
+                    "type": "object",
+                    "description": "Tipo de ensino",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Identificador do nível de ensino",
+                        "enum": [
+                          "regular",
+                          "idiomas",
+                          "extracurricular"
+                        ]
+                      },
+                      "label": {
+                        "type": "string",
+                        "description": "Nome do nível de ensino",
+                        "enum": [
+                          "Ensino Regular",
+                          "Ensino de Idiomas",
+                          "Curso Extracurricular"
+                        ]
+                      }
+                    }
+                  },
+                  "nivel": {
+                    "type": "object",
+                    "description": "Nível de ensino",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Identificador do nível de ensino",
+                        "enum": [
+                          "EI:G0",
+                          "EI:G1",
+                          "EI:G2",
+                          "EI:G3",
+                          "EI:G4",
+                          "EI:G5",
+                          "EF:A1",
+                          "EF:A2",
+                          "EF:A3",
+                          "EF:A4",
+                          "EF:A5",
+                          "EF:A6",
+                          "EF:A7",
+                          "EF:A8",
+                          "EF:A9",
+                          "EM:S1",
+                          "EM:S2",
+                          "EM:S3"
+                        ]
+                      },
+                      "label": {
+                        "type": "string",
+                        "description": "Descrição do nível de ensino",
+                        "enum": [
+                          "Educação Infantil / Berçario",
+                          "Educação Infantil / G1 (0 a 1 ano)",
+                          "Educação Infantil / G2 (1 a 2 anos)",
+                          "Educação Infantil / G3 (2 anos)",
+                          "Educação Infantil / G4 (3 anos)",
+                          "Educação Infantil / G5 (4 anos)",
+                          "Ensino Fundamental / 1º Ano",
+                          "Ensino Fundamental / 2º Ano",
+                          "Ensino Fundamental / 3º Ano",
+                          "Ensino Fundamental / 4º Ano",
+                          "Ensino Fundamental / 5º Ano",
+                          "Ensino Fundamental / 6º Ano",
+                          "Ensino Fundamental / 7º Ano",
+                          "Ensino Fundamental / 8º Ano",
+                          "Ensino Fundamental / 9º Ano",
+                          "Ensino Médio / 1ª Série",
+                          "Ensino Médio / 2ª Série",
+                          "Ensino Médio / 3ª Série"
+                        ]
+                      }
+                    }
+                  },
+                  "periodo": {
+                    "type": "string",
+                    "description": "Período do grupo",
+                    "enum": [
+                      "manha",
+                      "tarde",
+                      "noite"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Group",
+          "url": "/docs/api/data/group/object"
+        }
+      },
+      "Tag": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador do documento da tag",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome da tag",
+            "example": "Ensino Fundamental"
+          },
+          "community": {
+            "type": "string",
+            "description": "Identificador da comunidade da tag",
+            "example": "test",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação da tag",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última atualização da tag",
+            "readOnly": true
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Tag",
+          "url": "/docs/api/data/tag/object"
+        }
+      },
+      "Enrollment": {
+        "type": "object",
+        "required": [
+          "kind",
+          "entity",
+          "group"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador do documento da matrícula",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Data de criação da matrícula em UTC corrigido para o fuso da comunidade",
+            "example": "2020-01-01T00:00:00.000Z",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Data da última modificação da matrícula em UTC corrido para o fuso da comunidade",
+            "example": "2020-01-01T00:00:00.000Z",
+            "readOnly": true
+          },
+          "community": {
+            "type": "string",
+            "description": "Identificador da comunidade da matrícula",
+            "example": "test",
+            "readOnly": true
+          },
+          "kind": {
+            "type": "string",
+            "description": "Tipo de entidade que está vinculada ao grupo",
+            "example": "member"
+          },
+          "entity": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador do documento da entidade à qual pertence essa matrícula"
+          },
+          "group": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador do grupo à qual a entidade está matriculada"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Chave que indica se essa matrícula está ativa (é mudada para false quando a entidade é removida do grupo)",
+            "example": true
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Enrollment",
+          "url": "/docs/api/data/enrollment/object"
+        }
+      },
+      "Component": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "description": "Identificador único do componente",
+            "readOnly": true
+          },
+          "syncedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última vez que esse dado foi atualizado em uma sincronização",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do componente",
+            "example": "Português",
+            "minLength": 1,
+            "maxLength": 60
+          },
+          "alias": {
+            "type": "string",
+            "description": "Identificador do componente na comunidade",
+            "example": "PORT"
+          },
+          "fields": {
+            "type": "object",
+            "description": "Campos personalizados da comunidade. Podem ser diferentes de comunidade para comunidade dependendo do tipo de também dos apps instalados na comunidade.",
+            "properties": {
+              "@education:basic": {
+                "type": "object",
+                "description": "Campos personalizados do módulo de educação",
+                "properties": {
+                  "inep": {
+                    "type": "object",
+                    "description": "Tipo de componente curricular definida pelo EducaCenso",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "description": "Identificador do componente no inep",
+                        "enum": [
+                          "1",
+                          "2",
+                          "3",
+                          "4",
+                          "5",
+                          "6",
+                          "7",
+                          "8",
+                          "9",
+                          "10",
+                          "11",
+                          "12",
+                          "13",
+                          "14",
+                          "16",
+                          "17",
+                          "20",
+                          "21",
+                          "23",
+                          "25",
+                          "26",
+                          "27",
+                          "28",
+                          "29",
+                          "30",
+                          "31",
+                          "32"
+                        ]
+                      },
+                      "label": {
+                        "type": "string",
+                        "description": "Nome da disciplina no inep",
+                        "enum": [
+                          "1 - Química",
+                          "2 - Física",
+                          "3 - Matemática",
+                          "4 - Biologia",
+                          "5 - Ciências",
+                          "6 - Língua Portuguesa",
+                          "7 - Língua Estrangeira - Inglês",
+                          "8 - Língua Estrangeira - Espanhol",
+                          "9 - Língua Estrangeira - Outra",
+                          "10 - Arte",
+                          "11 - Educação Física",
+                          "12 - História",
+                          "13 - Geografia",
+                          "14 - Filosofia",
+                          "16 - Informática/Computação",
+                          "17 - Áreas do conhecimento profissionalizantes",
+                          "20 - Educação Especial e Práticas Educacionais Inclusivas",
+                          "21 - Diversidade Sociocultural",
+                          "23 - Libras",
+                          "25 - Áreas do conhecimento pedagógicas",
+                          "26 - Ensino religioso",
+                          "27 - Língua Indígena",
+                          "28 - Estudos Sociais",
+                          "29 - Sociologia",
+                          "30 - Língua Estrangeira - Francês",
+                          "31 - Língua Portuguesa como Segunda Língua",
+                          "32 - Estágio curricular supervisionado",
+                          "99 - Outras áreas do conhecimento"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Component",
+          "url": "/docs/api/data/component/object"
+        }
+      },
+      "Season": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "ObjectId",
+            "readOnly": true,
+            "description": "Identificador único do período na comunidade"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 16,
+            "description": "Nome do período",
+            "example": "2020"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação do período",
+            "readOnly": true
+          },
+          "activatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de ativação do período",
+            "readOnly": true
+          },
+          "deactivatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de desativação do período",
+            "readOnly": true
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Season",
+          "url": "/docs/api/data/season/object"
+        }
+      },
+      "Community": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação da comunidade"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data da última atualização dessa comunidade"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome da comunidade que aparece para os usuários",
+            "example": "Comunidade de Testes"
+          },
+          "community": {
+            "type": "string",
+            "description": "Identificador da comunidade",
+            "example": "test"
+          }
+        },
+        "externalDocs": {
+          "description": "Entidade Community",
+          "url": "/docs/api/data/community/object"
+        }
+      }
+    },
+    "parameters": {
+      "Community-id": {
+        "name": "community-id",
+        "in": "header",
+        "description": "Identificador da comunidade",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "test"
+        }
+      },
+      "CreatedAt": {
+        "name": "createdAt",
+        "in": "query",
+        "description": "Data de criação do documento",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "UpdatedAt": {
+        "name": "updateAt",
+        "in": "query",
+        "description": "Data da última modificação do documento",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "ViewAt": {
+        "name": "viewAt",
+        "in": "query",
+        "description": "Data na qual a publicação ficou visível para o público alvo",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Season": {
+        "name": "season",
+        "in": "query",
+        "description": "Temporada do documento. Geralmente é o ano letivo.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Status": {
+        "name": "status",
+        "in": "query",
+        "description": "Indicador do status do usuário. Pode ser ativo (ACTIVE), convidado (INVITED) ou não convidado (INACTIVE)",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Active": {
+        "name": "active",
+        "in": "query",
+        "description": "Indicador do estado do documento. Quando verdadeiro o documento está ativo e quando falso o documento está apagado.",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "Roles": {
+        "name": "roles",
+        "in": "query",
+        "description": "Permissão que o usuário possui",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PathUserId": {
+        "name": "userId",
+        "in": "path",
+        "description": "Identificador do usuário.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PathMemberId": {
+        "name": "memberId",
+        "in": "path",
+        "description": "Identificador do membro.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PathGroupId": {
+        "name": "groupId",
+        "in": "path",
+        "description": "Identificador do grupo.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PathPostId": {
+        "name": "postId",
+        "in": "path",
+        "description": "Identificador da publicação",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PathEnrollmentId": {
+        "name": "enrollmentId",
+        "in": "path",
+        "description": "Identificador da matrícula",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PathSeasonId": {
+        "name": "seasonId",
+        "in": "path",
+        "description": "Identificador do período",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "ChannelId": {
+        "name": "channelId",
+        "in": "path",
+        "description": "Identificador do canal de atendimento",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "QueryId": {
+        "name": "userId",
+        "in": "query",
+        "description": "Identificador do documento",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Title": {
+        "name": "title",
+        "in": "query",
+        "description": "Título da publicação",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Type": {
+        "name": "title",
+        "in": "query",
+        "description": "Array contendo tipos de publicação",
+        "required": true,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "Tags": {
+        "name": "tags",
+        "in": "query",
+        "description": "Array contendo os identificadores de todo público alvo que pode ver essa publicação (grupos, usuários, alunos e turmas)",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "Date": {
+        "name": "date",
+        "in": "query",
+        "description": "Data da publicação. (Apenas para publicações da agenda e eventos)",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Approved": {
+        "name": "approved",
+        "in": "query",
+        "description": "Indica se o post já foi aprovado para ser publicado ou ainda aguarda autorização.",
+        "required": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "Name": {
+        "name": "name",
+        "in": "query",
+        "description": "Nome",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Alias": {
+        "name": "alias",
+        "in": "query",
+        "description": "Identificador na Layers Education",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "AuthorName": {
+        "name": "author.name",
+        "in": "query",
+        "description": "Nome do autor da publicação",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "AuthorId": {
+        "name": "author.id",
+        "in": "query",
+        "description": "Id do autor da publicação",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "GroupAdmin": {
+        "name": "admins.user",
+        "in": "query",
+        "description": "Id de um dos administradores do grupo",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "description": "Generate a token",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "x-nav": [
+    {
+      "name": "Sincronização",
+      "tags": [
+        "Sincronização"
+      ]
+    },
+    {
+      "name": "Membros",
+      "schemas": [
+        "Member"
+      ],
+      "tags": [
+        "Membros"
+      ]
+    },
+    {
+      "name": "Usuários",
+      "schemas": [
+        "User"
+      ],
+      "tags": [
+        "Usuários"
+      ]
+    },
+    {
+      "name": "Grupos",
+      "schemas": [
+        "Group"
+      ],
+      "tags": [
+        "Grupos"
+      ]
+    },
+    {
+      "name": "Matrículas",
+      "schemas": [
+        "Enrollment"
+      ],
+      "tags": [
+        "Matrículas"
+      ]
+    },
+    {
+      "name": "Componentes",
+      "schemas": [
+        "Component"
+      ],
+      "tags": [
+        "Componentes"
+      ]
+    },
+    {
+      "name": "Períodos",
+      "schemas": [
+        "Season"
+      ],
+      "tags": [
+        "Períodos"
+      ]
+    },
+    {
+      "name": "Redes",
+      "tags": [
+        "Redes"
+      ]
+    }
+  ]
+}

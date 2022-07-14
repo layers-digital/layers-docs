@@ -1,0 +1,138 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Arquivos e Mídia",
+    "description": "A API de arquivos e mídia permite que você faça upload de arquivos de até 5MB que podem ser usados nas outras APIs da Layers",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.layers.digital/v1"
+    }
+  ],
+  "paths": {
+    "/media/upload": {
+      "post": {
+        "tags": [
+          "Arquivos e Mídia"
+        ],
+        "summary": "Fazer upload",
+        "description": "Faça upload de arquivos como imagens ou PDFs de até 5MB que podem ser usados em publicações, solicitações ou outros apps na Layers",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-layers-context": [
+          "user",
+          "app"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "item"
+                ],
+                "properties": {
+                  "item": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "String do arquivo em formato binário"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Informações do upload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "mime": {
+                      "type": "string",
+                      "description": "Tipo do mime do arquivo",
+                      "example": "image/jpeg"
+                    },
+                    "path": {
+                      "type": "string",
+                      "description": "Endereço do arquivo",
+                      "example": "/tendaedu/uploads/906981ff-2253-4e67-be27-4825bd23d939/minha_imagem.jpg"
+                    },
+                    "thumb": {
+                      "type": "string",
+                      "description": "URL da thumb do arquivo",
+                      "example": "https://api.layers.digital/v1/media/thumb/jpeg:1024x1024/tendaedu/uploads/906981ff-2253-4e67-be27-4825bd23d939/minha_imagem.jpg"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "URL da imagem",
+                      "example": "https://cdn.layers.digital/tendaedu/uploads/906981ff-2253-4e67-be27-4825bd23d939/minha_imagem.jpg"
+                    },
+                    "size": {
+                      "type": "number",
+                      "format": "integer",
+                      "description": "Tamanho do Arquivo",
+                      "example": 64302
+                    },
+                    "height": {
+                      "type": "number",
+                      "format": "integer",
+                      "description": "Altura da imagem",
+                      "example": 1024
+                    },
+                    "width": {
+                      "type": "number",
+                      "format": "integer",
+                      "description": "Largura da imagem",
+                      "example": 702
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "description": "Fazer upload",
+          "url": "/docs/api/media/media/upload/post"
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "Community-id": {
+        "name": "community-id",
+        "in": "header",
+        "description": "Identificador da comunidade",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "test"
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "description": "Generate a token",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "x-nav": [
+    {
+      "name": "Mídia",
+      "tags": [
+        "Arquivos e Mídia"
+      ]
+    }
+  ]
+}

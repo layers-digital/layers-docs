@@ -14,19 +14,28 @@ Para um App Consumidor poder consumir dados de uma action é necessário que haj
 
 ### Request
 
-Para um App Provedor ser responsável por determinada action, é necessário que sejam implementadas rotas do tipo
+Para um App Provedor ser responsável por determinada action, é necessário que seja implementada uma rota para sua action específica.
 
 ```http
-POST https://api.layers.digital/v1/services/validate/{{action}}/{{provider_id}}
+POST https://api.app_provedor.com/v1/layers/actions/{{action}}
 ```
 
-```headers
-Authorization: Bearer {{token_do_seu_app}}
-community-id: {{id_da_comunidade}}
+Nesta rota, você deve esperar uma requisição com, no mínimo, os seguintes parâmetros no corpo da mensagem:
+
+```json
+{
+  "context": {
+    "issuedAt": "2022-07-14T14:36:28.242Z", // data e hora da requisição
+    "action": "@layers:identificador_da_action", // action específica
+    "community": "test" // comunidade específica
+  },
+  "secret": "exemplo", // chave secreta específica do app
+}
 ```
 
-Ou seja, para cada Action que um app é responsável por fornecer dados, é necessário que haja uma rota que responda por ela conforme especificado anteriormente.
+Dependendo da Action, outros campos podem ser incluídos para dar mais contexto de quem está requisitando a informação. Caso seja uma action que dependa do usuário final, o ID deste usuário na Layers pode ser enviado numa chave `layersID`, por exemplo.
+
 
 ### Response
 
-A payload da resposta da requisição varia de acordo com a Action. 
+A payload da resposta da requisição varia de acordo com a Action.

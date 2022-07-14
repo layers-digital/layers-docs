@@ -11,22 +11,21 @@ export class DocsButton {
 
   render() {
     if (typeof this.href === 'string') {
-      const isInternal = /^\/docs/.test(this.href);
-
-      if (isInternal && !this.download) {
-        return (
-          <stencil-route-link url={this.href}>
-            <slot/>
-          </stencil-route-link>
-        );
-      }
-
       if (this.download) {
         return (
           <a href={this.href} download={this.download}>
             <slot/>
           </a>
         )
+      }
+
+      const isInternal = /^\/docs/.test(this.href);
+      if (isInternal) {
+        return (
+          <stencil-route-link url={this.href}>
+            <slot/>
+          </stencil-route-link>
+        );
       }
 
       return (

@@ -5,14 +5,18 @@ import { OpenAPIObject } from 'openapi3-ts';
 import { GetRoutes, GetRouteMenu, GetSchemas, GetSchemaMenu } from '../../helpers/OpenApi';
 
 const DATA_PATH = resolve(__dirname, '../../../src/data');
+const DATA_ASSETS_PATH = resolve(__dirname, '../../../src/assets/apiCollections')
 
 
 export default {
-  title: 'Build API Services JSON',
+  title: 'Build API Services and Collection Api Assets JSON',
   async task() {
     let MappedServices = {}
 
+    const serviceExternalSaves = []
+
     for (let service of ApiServices) {
+      serviceExternalSaves.push(outputJson(join(DATA_ASSETS_PATH, `${service.id}.json`), service.spec, { spaces: 2 }))
       // Hidrate services
       hidrateRouteDocs(service)
       hidrateSchemaDocs(service)
@@ -20,9 +24,10 @@ export default {
       // Merge services
       MappedServices[service.id] = service
     }
-    
-    // Save Mapped Services to file
-    await outputJson(join(DATA_PATH, 'api-services.json'), MappedServices, { spaces: 2 })
+
+    // Save Mapped Services to file and run all await calls simultaneously
+    serviceExternalSaves.push(outputJson(join(DATA_PATH, 'api-services.json'), MappedServices, { spaces: 2 }))
+    await Promise.all(serviceExternalSaves)
   },
 }
 

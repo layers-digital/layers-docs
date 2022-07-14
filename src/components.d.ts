@@ -51,6 +51,7 @@ export namespace Components {
     'link': (contributor: string) => string;
   }
   interface DocsButton {
+    'download'?: string;
     'href': string;
     'round': boolean;
   }
@@ -520,6 +521,7 @@ declare namespace LocalJSX {
     'link'?: (contributor: string) => string;
   }
   interface DocsButton {
+    'download'?: string;
     'href'?: string;
     'round'?: boolean;
   }

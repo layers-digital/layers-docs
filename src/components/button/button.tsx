@@ -6,18 +6,27 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class DocsButton {
   @Prop() href: string;
+  @Prop() download?: string = null
   @Prop({ reflectToAttr: true }) round = false;
 
   render() {
     if (typeof this.href === 'string') {
       const isInternal = /^\/docs/.test(this.href);
 
-      if (isInternal) {
+      if (isInternal && !this.download) {
         return (
           <stencil-route-link url={this.href}>
             <slot/>
           </stencil-route-link>
         );
+      }
+
+      if (this.download) {
+        return (
+          <a href={this.href} download={this.download}>
+            <slot/>
+          </a>
+        )
       }
 
       return (

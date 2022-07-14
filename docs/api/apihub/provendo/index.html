@@ -203,26 +203,52 @@ class="markdown-content" c-id=57.4.2.1><div c-id=57.5.3.0><p class=intro c-id=57
 <h2 id="respondendo-por-uma-action" c-id=57.9.4.2><!--t.57.10.5.0--> <a href="#respondendo-por-uma-action"
 c-id=57.11.5.1><!--t.57.12.6.0-->Respondendo por uma Action</a><!--t.57.13.5.2--> </h2><!--t.57.14.4.3-->
 <h3 id=request c-id=57.15.4.4><!--t.57.16.5.0--> <a href=#request c-id=57.17.5.1><!--t.57.18.6.0-->Request</a><!--t.57.19.5.2-->
-</h3><!--t.57.20.4.5--> <p c-id=57.21.4.6><!--t.57.22.5.0-->Para um App Provedor ser responsável por determinada action, é necessário que sejam implementadas rotas do tipo</p><!--t.57.23.4.7-->
+</h3><!--t.57.20.4.5--> <p c-id=57.21.4.6><!--t.57.22.5.0-->Para um App Provedor ser responsável por determinada action, é necessário que seja implementada uma rota para sua action específica.</p><!--t.57.23.4.7-->
 <docs-code class=hydrated c-id=57.24.4.8 s-id=58><!--r.58--><!--t.57.25.5.0--> <pre c-id=57.26.5.1><code
 c-id=57.27.6.0><span class="token method" c-id=57.28.7.0><span class="token post" c-id=57.29.8.0><!--t.57.30.9.0-->POST</span></span><!--t.57.31.7.1--> <span
-class="token schema" c-id=57.32.7.2><!--t.57.33.8.0-->https://</span><!--t.57.34.7.3-->api.layers.digital<span
-class="token path" c-id=57.35.7.4><span class="token version" c-id=57.36.8.0><!--t.57.37.9.0-->/v1</span><!--t.57.38.8.1-->/services/validate/<span
-class="token param" c-id=57.39.8.2><!--t.57.40.9.0-->{{action}}</span><!--t.57.41.8.3-->/<span class="token param"
-c-id=57.42.8.4><!--t.57.43.9.0-->{{provider_id}}</span></span></code></pre><!--t.57.44.5.2--> <div class="code-text__copy"
-c-id=58.0.0.0><a class="code-text__copy-link" c-id=58.1.1.0><!--t.58.2.2.0-->Copiar</a><span class="code-text__copy-confirmation"
-c-id=58.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=58.4.2.0><path d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=58.5.3.0></path></svg><!--t.58.6.2.1-->Copiado</span></div></docs-code><!--t.57.45.4.9--> <docs-code
-class=hydrated c-id=57.46.4.10 s-id=59><!--r.59--><!--t.57.47.5.0--> <pre c-id=57.48.5.1><code c-id=57.49.6.0><!--t.57.50.7.0-->Authorization: Bearer {{token_do_seu_app}}
-community-id: {{id_da_comunidade}}</code></pre><!--t.57.51.5.2-->
-<div class="code-text__copy" c-id=59.0.0.0><a class="code-text__copy-link" c-id=59.1.1.0><!--t.59.2.2.0-->Copiar</a><span
+class="token schema" c-id=57.32.7.2><!--t.57.33.8.0-->https://</span><!--t.57.34.7.3-->api.app_provedor.com<span
+class="token path" c-id=57.35.7.4><span class="token version" c-id=57.36.8.0><!--t.57.37.9.0-->/v1</span><!--t.57.38.8.1-->/layers/actions/<span
+class="token param" c-id=57.39.8.2><!--t.57.40.9.0-->{{action}}</span></span></code></pre><!--t.57.41.5.2-->
+<div class="code-text__copy" c-id=58.0.0.0><a class="code-text__copy-link" c-id=58.1.1.0><!--t.58.2.2.0-->Copiar</a><span
+class="code-text__copy-confirmation" c-id=58.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=58.4.2.0><path
+d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
+c-id=58.5.3.0></path></svg><!--t.58.6.2.1-->Copiado</span></div></docs-code><!--t.57.42.4.9--> <p c-id=57.43.4.10><!--t.57.44.5.0-->Nesta rota, você deve esperar uma requisição com, no mínimo, os seguintes parâmetros no corpo da mensagem:</p><!--t.57.45.4.11-->
+<docs-code class=hydrated c-id=57.46.4.12 s-id=59><!--r.59--><!--t.57.47.5.0--> <pre c-id=57.48.5.1><code
+c-id=57.49.6.0><span class="token punctuation" c-id=57.50.7.0><!--t.57.51.8.0-->{</span><!--t.57.52.7.1-->
+  <span
+class="token property" c-id=57.53.7.2><!--t.57.54.8.0-->"context"</span><span class="token operator" c-id=57.55.7.3><!--t.57.56.8.0-->:</span><!--t.57.57.7.4--> <span
+class="token punctuation" c-id=57.58.7.5><!--t.57.59.8.0-->{</span><!--t.57.60.7.6-->
+    <span class="token property"
+c-id=57.61.7.7><!--t.57.62.8.0-->"issuedAt"</span><span class="token operator" c-id=57.63.7.8><!--t.57.64.8.0-->:</span><!--t.57.65.7.9--> <span
+class="token string" c-id=57.66.7.10><!--t.57.67.8.0-->"2022-07-14T14:36:28.242Z"</span><span class="token punctuation"
+c-id=57.68.7.11><!--t.57.69.8.0-->,</span><!--t.57.70.7.12--> <span class="token comment" c-id=57.71.7.13><!--t.57.72.8.0-->// data e hora da requisição</span><!--t.57.73.7.14-->
+    <span
+class="token property" c-id=57.74.7.15><!--t.57.75.8.0-->"action"</span><span class="token operator" c-id=57.76.7.16><!--t.57.77.8.0-->:</span><!--t.57.78.7.17--> <span
+class="token string" c-id=57.79.7.18><!--t.57.80.8.0-->"@layers:identificador_da_action"</span><span
+class="token punctuation" c-id=57.81.7.19><!--t.57.82.8.0-->,</span><!--t.57.83.7.20--> <span class="token comment"
+c-id=57.84.7.21><!--t.57.85.8.0-->// action específica</span><!--t.57.86.7.22-->
+    <span class="token property"
+c-id=57.87.7.23><!--t.57.88.8.0-->"community"</span><span class="token operator" c-id=57.89.7.24><!--t.57.90.8.0-->:</span><!--t.57.91.7.25--> <span
+class="token string" c-id=57.92.7.26><!--t.57.93.8.0-->"test"</span><!--t.57.94.7.27--> <span class="token comment"
+c-id=57.95.7.28><!--t.57.96.8.0-->// comunidade específica</span><!--t.57.97.7.29-->
+  <span class="token punctuation"
+c-id=57.98.7.30><!--t.57.99.8.0-->}</span><span class="token punctuation" c-id=57.100.7.31><!--t.57.101.8.0-->,</span><!--t.57.102.7.32-->
+  <span
+class="token property" c-id=57.103.7.33><!--t.57.104.8.0-->"secret"</span><span class="token operator"
+c-id=57.105.7.34><!--t.57.106.8.0-->:</span><!--t.57.107.7.35--> <span class="token string" c-id=57.108.7.36><!--t.57.109.8.0-->"exemplo"</span><span
+class="token punctuation" c-id=57.110.7.37><!--t.57.111.8.0-->,</span><!--t.57.112.7.38--> <span class="token comment"
+c-id=57.113.7.39><!--t.57.114.8.0-->// chave secreta específica do app</span><!--t.57.115.7.40-->
+<span
+class="token punctuation" c-id=57.116.7.41><!--t.57.117.8.0-->}</span></code></pre><!--t.57.118.5.2--> <div
+class="code-text__copy" c-id=59.0.0.0><a class="code-text__copy-link" c-id=59.1.1.0><!--t.59.2.2.0-->Copiar</a><span
 class="code-text__copy-confirmation" c-id=59.3.1.1><svg viewBox="0 0 512 512" height=26px width=26px c-id=59.4.2.0><path
 d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"
-c-id=59.5.3.0></path></svg><!--t.59.6.2.1-->Copiado</span></div></docs-code><!--t.57.52.4.11--> <p c-id=57.53.4.12><!--t.57.54.5.0-->Ou seja, para cada Action que um app é responsável por fornecer dados, é necessário que haja uma rota que responda por ela conforme especificado anteriormente.</p><!--t.57.55.4.13-->
-<h3 id=response c-id=57.56.4.14><!--t.57.57.5.0--> <a href=#response c-id=57.58.5.1><!--t.57.59.6.0-->Response</a><!--t.57.60.5.2-->
-</h3><!--t.57.61.4.15--> <p c-id=57.62.4.16><!--t.57.63.5.0-->A payload da resposta da requisição varia de acordo com a Action.
-</p></div></section><docs-page-footer
-role=contentinfo class=hydrated c-id=57.64.2.2 s-id=60><!--r.60--><docs-pagination class=hydrated c-id=60.0.0.0
+c-id=59.5.3.0></path></svg><!--t.59.6.2.1-->Copiado</span></div></docs-code><!--t.57.119.4.13--> <p c-id=57.120.4.14><!--t.57.121.5.0-->Dependendo da Action, outros campos podem ser incluídos para dar mais contexto de quem está requisitando a informação. Caso seja uma action que dependa do usuário final, o ID deste usuário na Layers pode ser enviado numa chave
+<code
+c-id=57.122.5.1><!--t.57.123.6.0-->layersID</code><!--t.57.124.5.2-->, por exemplo.</p><!--t.57.125.4.15-->
+<h3 id=response c-id=57.126.4.16><!--t.57.127.5.0--> <a href=#response c-id=57.128.5.1><!--t.57.129.6.0-->Response</a><!--t.57.130.5.2-->
+</h3><!--t.57.131.4.17--> <p c-id=57.132.4.18><!--t.57.133.5.0-->A payload da resposta da requisição varia de acordo com a Action.</p></div></section><docs-page-footer
+role=contentinfo class=hydrated c-id=57.134.2.2 s-id=60><!--r.60--><docs-pagination class=hydrated c-id=60.0.0.0
 s-id=61><!--r.61--><stencil-route-link class="previous hydrated" c-id=61.0.0.0 s-id=62><!--r.62--><!--o.61.1--><!--o.61.3--><a
 href="/docs/api/apihub/consumindo" title="Consumindo Informações" c-id=62.0.0.0><!--s.62.1.1.0.--><div
 class=paggination__title c-id=61.1.1.0><!--t.61.2.2.0-->Anterior</div><div class=paggination__text c-id=61.3.1.1><svg

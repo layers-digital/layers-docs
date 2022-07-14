@@ -51,7 +51,7 @@
     [
       "p",
       null,
-      "Para um App Provedor ser responsável por determinada action, é necessário que sejam implementadas rotas do tipo"
+      "Para um App Provedor ser responsável por determinada action, é necessário que seja implementada uma rota para sua action específica."
     ],
     " ",
     [
@@ -87,7 +87,7 @@
             },
             "https://"
           ],
-          "api.layers.digital",
+          "api.app_provedor.com",
           [
             "span",
             {
@@ -100,21 +100,13 @@
               },
               "/v1"
             ],
-            "/services/validate/",
+            "/layers/actions/",
             [
               "span",
               {
                 "class": "token param"
               },
               "{{action}}"
-            ],
-            "/",
-            [
-              "span",
-              {
-                "class": "token param"
-              },
-              "{{provider_id}}"
             ]
           ]
         ]
@@ -123,9 +115,15 @@
     ],
     " ",
     [
+      "p",
+      null,
+      "Nesta rota, você deve esperar uma requisição com, no mínimo, os seguintes parâmetros no corpo da mensagem:"
+    ],
+    " ",
+    [
       "docs-code",
       {
-        "language": "headers"
+        "language": "json"
       },
       " ",
       [
@@ -134,7 +132,204 @@
         [
           "code",
           null,
-          "Authorization: Bearer {{token_do_seu_app}}\ncommunity-id: {{id_da_comunidade}}"
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"context\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"issuedAt\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"2022-07-14T14:36:28.242Z\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// data e hora da requisição"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"@layers:identificador_da_action\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// action específica"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"test\""
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// comunidade específica"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"secret\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token comment"
+            },
+            "// chave secreta específica do app"
+          ],
+          "\n",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ]
         ]
       ],
       " "
@@ -143,7 +338,13 @@
     [
       "p",
       null,
-      "Ou seja, para cada Action que um app é responsável por fornecer dados, é necessário que haja uma rota que responda por ela conforme especificado anteriormente."
+      "Dependendo da Action, outros campos podem ser incluídos para dar mais contexto de quem está requisitando a informação. Caso seja uma action que dependa do usuário final, o ID deste usuário na Layers pode ser enviado numa chave ",
+      [
+        "code",
+        null,
+        "layersID"
+      ],
+      ", por exemplo."
     ],
     " ",
     [
@@ -165,7 +366,7 @@
     [
       "p",
       null,
-      "A payload da resposta da requisição varia de acordo com a Action. "
+      "A payload da resposta da requisição varia de acordo com a Action."
     ]
   ],
   "headings": [

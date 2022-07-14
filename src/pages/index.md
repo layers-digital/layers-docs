@@ -32,7 +32,7 @@ Para desenvolvedores desses serviços, integrar sua solução à Layers signific
 O ecossistema Layers Education é composto por EdTechs que desenvolvem [apps](#apps-na-layers) e Instituições de ensino que os utilizam. Para isso, instituições de ensino devem instalar os apps em suas [comunidades](#comunidades-na-layers): unidades de organização na Layers que contém os dados e apps usados pela instituição.
 
 
-<docs-zoomable-image href="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8d56b338-d194-4179-8d7c-00ffd7baa0b6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220712%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220712T183639Z&X-Amz-Expires=86400&X-Amz-Signature=678818782558bcd219b895905c257d45968d2f1ebcba62af9dfeccfc25a35e98&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" caption="Diagrama com Resumo da estrutura da Layers">
+<docs-zoomable-image href="/docs/assets/images/layersDiagram.png" caption="Diagrama com Resumo da estrutura da Layers">
 </docs-zoomable-image>
 
 

@@ -8,7 +8,7 @@ export default () => {
 const requests = Object.values(menuData.apihub).flat()
 
 const items = {
-  'API Hub': {
+  'Layers API Hub': {
     'Introdução': '/docs/api/apihub',
     'Consumindo dados de uma Action': '/docs/api/apihub/consumindo',
     'Provendo dados para uma Action': '/docs/api/apihub/provendo'

@@ -12,6 +12,14 @@ Para cada uma dessas actions, está disponível ao menos um App desenvolvido pel
 
 Para exemplificar, observe:
 <docs-zoomable-image href="/docs/assets/images/flow-erp.png" caption="O app mais a esquerda é o “Notas Acadêmicas” e irá representar apps que necessitam de requisitar dados (App consumidor). Já o app mais a direita é o “ERP Modelo” e irá representar os apps que podem prover dados para outros apps (App Provedor)."></docs-zoomable-image>
+
+
+Também disponibilizamos uma documentação das rotas do Layers API Hub em formato [Open Api 3.0](https://spec.openapis.org/oas/v3.0.0), podendo ser importada diretamente no [Postman](https://www.postman.com/) ou outro cliente HTTP que tenha suporte a esse formato.
+
+<docs-button href="/docs/assets/apiCollections/apihub.json" download="layers_api_hub.json">
+  Layers API Hub Open Api 3.0
+</docs-button>
+
 ## Como funciona ?
 
 + <strong> 1 - App requisita informações </strong>

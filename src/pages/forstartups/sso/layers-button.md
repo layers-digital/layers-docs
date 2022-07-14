@@ -129,3 +129,14 @@ A API deve retornar um JSON com o seguinte formato:
 + **state**: Mensagem adicional que pode ser utilizada para ser retornado na rota de token de acesso
 
 O `access_token` possuirá o token de autenticação do usuário na Layers.
+
+
+## Mobile Guidelines
+
+Para utilizar o botão no mobile, é preciso tomar cuidado com alguns detalhes.
+- O botão precisa ser utilizado com `mode="redirect"`;
+- No momento de realizar o redirecionamento para a Layers, seu App precisa estar configurado para fazer isso utilizando um `In-App Browser` ou o próprio `Navegador` do dispositivo. Isto se dá pois o Google possui uma [política de bloqueio de Oauth para aplicações em web-view](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0623491).
+
+Se você não seguir essas guidelines, provavelmente encontrará o erro abaixo:
+
+![Erro 403 - Disallowed User Agent](/docs/assets/images/googleOauthError.png)

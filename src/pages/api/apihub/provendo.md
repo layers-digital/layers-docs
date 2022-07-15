@@ -4,6 +4,8 @@ title: Provendos dados para uma Action
 tableOfContents: false
 previousText: 'Consumindo Informações'
 previousUrl: '/docs/api/apihub/consumindo'
+nextText: 'Actions Disponíveis'
+nextUrl: '/docs/api/apihub/actions'
 ---
 
 # Provendo dados para uma Action

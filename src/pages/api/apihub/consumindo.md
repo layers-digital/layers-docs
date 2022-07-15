@@ -65,4 +65,4 @@ Authorization: Bearer {{token_do_seu_app}}
 community-id: {{id_da_comunidade}}
 ```
 
-O corpo da requisição varia de acordo com a action, assim como o payload de resposta. Você pode checar com detalhes nas seções logo abaixo! :) 
+O corpo da requisição varia de acordo com a action, assim como o payload de resposta.

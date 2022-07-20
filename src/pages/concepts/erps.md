@@ -10,6 +10,8 @@ tableOfContents: false
 
 A Layers oferece um conjunto de ferramentas que permitem que sistemas de gestão se integrem com diversas instituições de ensino. Por meio de um único app o ERP pode sincronizar dados de pais, alunos e turmas com a Layers, expor as informações suportadas pelo API Hub, enviar comunicados importantes ou mesmo notificações de novas informações disponíveis.
 
+O ERP que desenvolve a parte de sincronização e integração com o API HUB deve desenvolver uma API que recebe as requisições e responde de acordo com as principais funcionalidades listadas abaixo. Portanto a documentação abaixo deve servir como um modelo da documentação da API desenvolvida pelo ERP.
+
 ## Principais funcionalidades
 
 <docs-cards>

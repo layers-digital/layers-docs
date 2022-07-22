@@ -7,7 +7,7 @@ export default () => {
 
 const menuStructure = {
   "Entidades": [],
-  "Consumindo Dados": [],
+  "Consumindo Dados": {},
   "Provendo Dados": [],
 }
 
@@ -34,10 +34,21 @@ Object.keys(menuData.data).map((key: string) => {
     const tag = item.tag.text
     const type = tagTextToType[tag]
     if (type) {
-      menuStructure[type].push(item)
+      if (Array.isArray(menuStructure[type])) {
+        menuStructure[type].push(item)
+      }
+      else {
+        if (!menuStructure[type][key]) {
+          menuStructure[type][key] = []
+        }
+
+        menuStructure[type][key].push(item)
+      }
     }
   });
 });
+
+menuStructure['Provendo Dados'] = menuStructure['Provendo Dados'].concat(...menuData.apihub['Sincronização de Dados'])
 
 const items = {
   'Layers Data Sync': {

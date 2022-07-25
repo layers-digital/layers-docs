@@ -1,7 +1,7 @@
 {
   "template": "api-route",
   "title": "Enviar notificação",
-  "path": "/docs/api/notifications/notication/post",
+  "path": "/docs/api/notifications/notification/post",
   "body": [
     "div",
     null,
@@ -63,7 +63,7 @@
               },
               "/v2"
             ],
-            "/notication"
+            "/notification"
           ]
         ]
       ],
@@ -121,7 +121,37 @@
             {
               "class": "token string"
             },
-            "\"exemplo\""
+            "\"61087e1a608106241d30a8aa\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"32123e1a608106241d30a8aa\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"61087e1c123406241d30c9dd\""
           ],
           "\n  ",
           [
@@ -159,7 +189,7 @@
             {
               "class": "token string"
             },
-            "\"exemplo\""
+            "\"Título da minha Notificação\""
           ],
           [
             "span",
@@ -189,7 +219,98 @@
             {
               "class": "token string"
             },
-            "\"exemplo\""
+            "\"Corpo da minha notificação\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"data\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"location\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"/portal/@seuApp\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"community\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"comunidade\""
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
           ],
           [
             "span",
@@ -219,7 +340,7 @@
             {
               "class": "token string"
             },
-            "\"exemplo\""
+            "\"2030-09-07T15:50-03:00\""
           ],
           "\n",
           [
@@ -258,7 +379,7 @@
   "responseSchema": {},
   "route": {
     "type": "route",
-    "path": "/notication",
+    "path": "/notification",
     "method": "post",
     "spec": {
       "tags": [
@@ -296,21 +417,44 @@
                   "items": {
                     "type": "string",
                     "description": "Id de um usuário"
-                  }
+                  },
+                  "example": [
+                    "61087e1a608106241d30a8aa",
+                    "32123e1a608106241d30a8aa",
+                    "61087e1c123406241d30c9dd"
+                  ]
                 },
                 "title": {
                   "type": "string",
                   "maxLength": 65,
-                  "description": "Título da notificação"
+                  "description": "Título da notificação",
+                  "example": "Título da minha Notificação"
                 },
                 "body": {
                   "type": "string",
                   "maxLength": 178,
-                  "description": "Texto do corpo da notificação"
+                  "description": "Texto do corpo da notificação",
+                  "example": "Corpo da minha notificação"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "type": "string",
+                      "description": "Localização do portal na layers",
+                      "example": "/portal/@seuApp"
+                    },
+                    "community": {
+                      "type": "string",
+                      "description": "Comunidade na layers",
+                      "example": "comunidade"
+                    }
+                  }
                 },
                 "scheduleDate": {
                   "type": "string",
-                  "description": "Data em formato ISO8601 com o momento em que deve ser enviada a notificação. Caso o paramêtro não esteja presente, a notificação é enviada instantaneamente."
+                  "description": "Data em formato ISO8601 com o momento em que deve ser enviada a notificação. Caso o paramêtro não esteja presente, a notificação é enviada instantaneamente.",
+                  "example": "2030-09-07T15:50-03:00"
                 }
               }
             }
@@ -352,7 +496,7 @@
       },
       "externalDocs": {
         "description": "Enviar notificação",
-        "url": "/docs/api/notifications/notication/post"
+        "url": "/docs/api/notifications/notification/post"
       }
     },
     "tags": [
@@ -361,5 +505,5 @@
     "summary": "Enviar notificação"
   },
   "headings": [],
-  "pageClass": "page-api-notifications-notication-post"
+  "pageClass": "page-api-notifications-notification-post"
 }

@@ -786,13 +786,14 @@
               "community": {
                 "type": "string",
                 "description": "Identificador da comunidade",
-                "example": "test"
+                "example": "idcomunidadeteste"
               }
             }
           },
           "secret": {
             "type": "string",
-            "description": "Chave secreta específica do app"
+            "description": "Chave secreta específica do app",
+            "example": "exemplo1-e000-11xe-2m33-4444444plo"
           }
         },
         "externalDocs": {
@@ -818,7 +819,8 @@
                   "limit": {
                     "type": "number",
                     "format": "integer",
-                    "description": "Quantidade máxima de publicações que devem ser retornadas"
+                    "description": "Quantidade máxima de publicações que devem ser retornadas",
+                    "example": 10
                   },
                   "after": {
                     "type": "string",
@@ -849,7 +851,8 @@
                   "limit": {
                     "type": "number",
                     "format": "integer",
-                    "description": "Quantidade máxima de eventos que devem ser retornados"
+                    "description": "Quantidade máxima de eventos que devem ser retornados",
+                    "example": 10
                   },
                   "after": {
                     "type": "string",
@@ -1002,7 +1005,8 @@
                     "properties": {
                       "id": {
                         "type": "string",
-                        "description": "Identificador do usuário"
+                        "description": "Identificador do usuário",
+                        "example": "61b087e1a608106241d30a8a"
                       },
                       "name": {
                         "type": "string",
@@ -1636,7 +1640,7 @@
                       },
                       "url": {
                         "type": "string",
-                        "description": "URL para fazer download do anexo. Obrigatóriamente uma url HTTPS",
+                        "description": "URL para fazer download do anexo. Obrigatoriamente uma url HTTPS",
                         "example": "https://calculo.pdf"
                       }
                     }
@@ -1782,7 +1786,7 @@
                       },
                       "url": {
                         "type": "string",
-                        "description": "URL para fazer download do anexo. Obrigatóriamente uma url HTTPS",
+                        "description": "URL para fazer download do anexo. Obrigatoriamente uma url HTTPS",
                         "example": "https://calculo.pdf"
                       }
                     }
@@ -1808,7 +1812,7 @@
                   "properties": {
                     "url": {
                       "type": "string",
-                      "description": "URL para videoconferência. Obrigatóriamente uma url HTTPS",
+                      "description": "URL para videoconferência. Obrigatoriamente uma url HTTPS",
                       "example": "https://meet.google.com/ABCD"
                     },
                     "type": {
@@ -2125,7 +2129,7 @@
                       },
                       "url": {
                         "type": "string",
-                        "description": "URL para fazer download do anexo. Obrigatóriamente uma url HTTPS",
+                        "description": "URL para fazer download do anexo. Obrigatoriamente uma url HTTPS",
                         "example": "https://calculo.pdf"
                       }
                     }
@@ -2425,7 +2429,7 @@
                       },
                       "url": {
                         "type": "string",
-                        "description": "URL para fazer download do anexo. Obrigatóriamente uma url HTTPS",
+                        "description": "URL para fazer download do anexo. Obrigatoriamente uma url HTTPS",
                         "example": "https://calculo.pdf"
                       }
                     }
@@ -2548,6 +2552,40 @@
                         "type": "string",
                         "description": "Subtítulo do horário",
                         "example": "Prof(a): Ana Maria"
+                      }
+                    }
+                  }
+                },
+                "attachments": {
+                  "type": "array",
+                  "description": "Arquivo com quadro horário",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "type",
+                      "url"
+                    ],
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "description": "Título do anexo",
+                        "example": "Horarios.pdf"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "file",
+                          "link",
+                          "image"
+                        ],
+                        "description": "Tipo do anexo",
+                        "example": "file`"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "URL para fazer download do anexo. Obrigatoriamente uma url HTTPS",
+                        "example": "https://Horarios.pdf"
                       }
                     }
                   }
@@ -2853,7 +2891,7 @@
                                     },
                                     "url": {
                                       "type": "string",
-                                      "description": "URL do arquivo. Obrigatóriamente uma url HTTPS",
+                                      "description": "URL do arquivo. Obrigatoriamente uma url HTTPS",
                                       "example": "https://hospitalexample.com.br/prontuariojaneiro.pdf"
                                     }
                                   }
@@ -3058,7 +3096,7 @@
                         "properties": {
                           "link": {
                             "type": "string",
-                            "description": "URL de download do boleto. Obrigatóriamente uma url HTTPS",
+                            "description": "URL de download do boleto. Obrigatoriamente uma url HTTPS",
                             "example": "https://boleto.pdf"
                           },
                           "code": {
@@ -3109,7 +3147,7 @@
                             },
                             "url": {
                               "type": "string",
-                              "description": "Link para baixar o anexo. Obrigatóriamente uma url HTTPS",
+                              "description": "Link para baixar o anexo. Obrigatoriamente uma url HTTPS",
                               "example": "https://url.para-download.com"
                             }
                           }
@@ -3640,7 +3678,68 @@
                 "fields": {
                   "type": "object",
                   "description": "Campos personalizados para o grupo",
-                  "nullable": true
+                  "nullable": true,
+                  "properties": {
+                    "@education:basic": {
+                      "type": "object",
+                      "description": "Campo personalizado de educação básica",
+                      "required": [
+                        "nivel",
+                        "periodo",
+                        "tipo"
+                      ],
+                      "properties": {
+                        "nivel": {
+                          "type": "string",
+                          "enum": [
+                            "EI:G0",
+                            "EI:G1",
+                            "EI:G2",
+                            "EI:G3",
+                            "EI:G4",
+                            "EI:G5",
+                            "EF:A1",
+                            "EF:A2",
+                            "EF:A3",
+                            "EF:A4",
+                            "EF:A5",
+                            "EF:A6",
+                            "EF:A7",
+                            "EF:A8",
+                            "EF:A9",
+                            "EM:S1",
+                            "EM:S2",
+                            "EM:S3"
+                          ],
+                          "description": "Identificador da turma",
+                          "example": "EM:S3"
+                        },
+                        "periodo": {
+                          "description": "Lista de identificadores de períodos relacionados a esse componente",
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "description": "Identificadores de períodos",
+                            "example": [
+                              "manha",
+                              "tarde"
+                            ]
+                          }
+                        },
+                        "tipo": {
+                          "type": "string",
+                          "enum": [
+                            "regular",
+                            "idiomas",
+                            "extracurricular",
+                            "integral"
+                          ],
+                          "description": "Tipo de ensino",
+                          "example": "regular"
+                        }
+                      }
+                    }
+                  }
                 },
                 "tags": {
                   "type": "array",
@@ -3999,7 +4098,68 @@
           "fields": {
             "type": "object",
             "description": "Campos personalizados para o grupo",
-            "nullable": true
+            "nullable": true,
+            "properties": {
+              "@education:basic": {
+                "type": "object",
+                "description": "Campo personalizado de educação básica",
+                "required": [
+                  "nivel",
+                  "periodo",
+                  "tipo"
+                ],
+                "properties": {
+                  "nivel": {
+                    "type": "string",
+                    "enum": [
+                      "EI:G0",
+                      "EI:G1",
+                      "EI:G2",
+                      "EI:G3",
+                      "EI:G4",
+                      "EI:G5",
+                      "EF:A1",
+                      "EF:A2",
+                      "EF:A3",
+                      "EF:A4",
+                      "EF:A5",
+                      "EF:A6",
+                      "EF:A7",
+                      "EF:A8",
+                      "EF:A9",
+                      "EM:S1",
+                      "EM:S2",
+                      "EM:S3"
+                    ],
+                    "description": "Identificador da turma",
+                    "example": "EM:S3"
+                  },
+                  "periodo": {
+                    "description": "Lista de identificadores de períodos relacionados a esse componente",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "Identificadores de períodos",
+                      "example": [
+                        "manha",
+                        "tarde"
+                      ]
+                    }
+                  },
+                  "tipo": {
+                    "type": "string",
+                    "enum": [
+                      "regular",
+                      "idiomas",
+                      "extracurricular",
+                      "integral"
+                    ],
+                    "description": "Tipo de ensino",
+                    "example": "regular"
+                  }
+                }
+              }
+            }
           },
           "tags": {
             "type": "array",

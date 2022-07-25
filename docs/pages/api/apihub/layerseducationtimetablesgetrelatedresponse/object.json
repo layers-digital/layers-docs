@@ -490,6 +490,143 @@
             },
             "]"
           ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"attachments\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"title\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"Horarios.pdf\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"type\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"file`\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"url\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"https://Horarios.pdf\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
           "\n    ",
           [
             "span",
@@ -630,6 +767,40 @@
                       "type": "string",
                       "description": "Subtítulo do horário",
                       "example": "Prof(a): Ana Maria"
+                    }
+                  }
+                }
+              },
+              "attachments": {
+                "type": "array",
+                "description": "Arquivo com quadro horário",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "title",
+                    "type",
+                    "url"
+                  ],
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "description": "Título do anexo",
+                      "example": "Horarios.pdf"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "file",
+                        "link",
+                        "image"
+                      ],
+                      "description": "Tipo do anexo",
+                      "example": "file`"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "URL para fazer download do anexo. Obrigatoriamente uma url HTTPS",
+                      "example": "https://Horarios.pdf"
                     }
                   }
                 }

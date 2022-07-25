@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/notication": {
+    "/notification": {
       "post": {
         "tags": [
           "Notificações"
@@ -48,21 +48,44 @@
                     "items": {
                       "type": "string",
                       "description": "Id de um usuário"
-                    }
+                    },
+                    "example": [
+                      "61087e1a608106241d30a8aa",
+                      "32123e1a608106241d30a8aa",
+                      "61087e1c123406241d30c9dd"
+                    ]
                   },
                   "title": {
                     "type": "string",
                     "maxLength": 65,
-                    "description": "Título da notificação"
+                    "description": "Título da notificação",
+                    "example": "Título da minha Notificação"
                   },
                   "body": {
                     "type": "string",
                     "maxLength": 178,
-                    "description": "Texto do corpo da notificação"
+                    "description": "Texto do corpo da notificação",
+                    "example": "Corpo da minha notificação"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "location": {
+                        "type": "string",
+                        "description": "Localização do portal na layers",
+                        "example": "/portal/@seuApp"
+                      },
+                      "community": {
+                        "type": "string",
+                        "description": "Comunidade na layers",
+                        "example": "comunidade"
+                      }
+                    }
                   },
                   "scheduleDate": {
                     "type": "string",
-                    "description": "Data em formato ISO8601 com o momento em que deve ser enviada a notificação. Caso o paramêtro não esteja presente, a notificação é enviada instantaneamente."
+                    "description": "Data em formato ISO8601 com o momento em que deve ser enviada a notificação. Caso o paramêtro não esteja presente, a notificação é enviada instantaneamente.",
+                    "example": "2030-09-07T15:50-03:00"
                   }
                 }
               }
@@ -104,7 +127,7 @@
         },
         "externalDocs": {
           "description": "Enviar notificação",
-          "url": "/docs/api/notifications/notication/post"
+          "url": "/docs/api/notifications/notification/post"
         }
       }
     }

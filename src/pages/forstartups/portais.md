@@ -10,7 +10,7 @@ nextUrl: '/docs/forstartups/sso'
 
 # Layers Portal
 
-A funcionalidade de Portais da Layers permite que apps adicionem telas personalizadas à nossa interface. Os Apps podem também habilitar a funcionalidade de autenticação OAuth para que os usuários que acessarem o portal sejam autenticados e o app possa acessar informações consentidas por eles. Além disso, utilizar essa funcionalidade permite que o App utilize nosso sistema de [Push Notifications](/docs/api/notifications/notication/post), que permite um fácil envio de push notifications para os usuários do app mobile e web.
+A funcionalidade de Portais da Layers permite que apps adicionem telas personalizadas à nossa interface. Os Apps podem também habilitar a funcionalidade de autenticação OAuth para que os usuários que acessarem o portal sejam autenticados e o app possa acessar informações consentidas por eles. Além disso, utilizar essa funcionalidade permite que o App utilize nosso sistema de [Push Notifications](/docs/api/notifications/notification/post), que permite um fácil envio de push notifications para os usuários do app mobile e web.
 
 
 ### Criando um portal na Layers

@@ -1,7 +1,7 @@
 {
   "path": "/docs/forstartups/portais",
   "template": "default",
-  "title": "Layers Portal",
+  "title": "LayersPortal.js",
   "tableOfContents": false,
   "previousText": "Introdução",
   "previousUrl": "/docs/forstartups",
@@ -45,13 +45,13 @@
     [
       "p",
       null,
-      "Para que um app possa utilizar essa funcionalidade da Layers ele deve estar cadastrado, ter a funcionalidade \"portais\" habilitada e disponibilizar o link de uma página que utilize o ",
+      "Para que um app possa utilizar essa funcionalidade da Layers ele deve estar cadastrado, ter a funcionalidade \"portais\" habilitada e disponibilizar o link de uma página que utilize ",
       [
         "stencil-route-link",
         {
-          "url": "/docs/forstartups/portais#layers-portal-sdk"
+          "url": "/docs/forstartups/portais#layersportal-js"
         },
-        "SDK de portais"
+        "a lib de portais"
       ],
       " da Layers. Essa biblioteca permite que o app receba eventos quando o app estiver pronto e quando estiver conectado para que ele possa ser acessado através da Layers."
     ],
@@ -59,15 +59,15 @@
     [
       "h2",
       {
-        "id": "layers-portal-sdk"
+        "id": "layersportal-js"
       },
       " ",
       [
         "a",
         {
-          "href": "#layers-portal-sdk"
+          "href": "#layersportal-js"
         },
-        "Layers Portal SDK"
+        "LayersPortal.js"
       ],
       " "
     ],
@@ -75,15 +75,15 @@
     [
       "h3",
       {
-        "id": "importando-e-configurando-o-sdk"
+        "id": "importando-e-configurando-a-lib"
       },
       " ",
       [
         "a",
         {
-          "href": "#importando-e-configurando-o-sdk"
+          "href": "#importando-e-configurando-a-lib"
         },
-        "Importando e configurando o SDK"
+        "Importando e configurando a lib"
       ],
       " "
     ],
@@ -91,7 +91,7 @@
     [
       "p",
       null,
-      "Uma vez que o app está registrado ele poderá ser instalado nas comunidades e utilizado pelos usuários da comunidade em específico. Para que tudo funcione de forma segura e fluida para o usuário final, a página que será acessada através da Layers deve importar nosso SDK de portais da maneira que está exemplificado abaixo. Através desse SDK, apps podem acessar informações e funcionalidades da Layers."
+      "Uma vez que o app está registrado ele poderá ser instalado nas comunidades e utilizado pelos usuários da comunidade em específico. Para que tudo funcione de forma segura e fluida para o usuário final, a página que será acessada através da Layers deve importar nossa lib de portais da maneira que está exemplificado abaixo. Através dessa lib, apps podem acessar informações e funcionalidades da Layers."
     ],
     " ",
     [
@@ -607,15 +607,15 @@
     [
       "h3",
       {
-        "id": "utilizando-o-sdk"
+        "id": "utilizando-a-lib"
       },
       " ",
       [
         "a",
         {
-          "href": "#utilizando-o-sdk"
+          "href": "#utilizando-a-lib"
         },
-        "Utilizando o SDK"
+        "Utilizando a lib"
       ],
       " "
     ],
@@ -623,7 +623,7 @@
     [
       "p",
       null,
-      "O SDK de portais disponibiliza uma série de eventos e promises para que apps que usam a funcionalidade de portais possam monitorar o status do SDK e da sua conexão com a Layers."
+      "A lib de portais disponibiliza uma série de eventos e promises para que apps que usam a funcionalidade de portais possam monitorar o status da lib e da sua conexão com a Layers."
     ],
     " ",
     [
@@ -660,7 +660,7 @@
           null,
           "ready"
         ],
-        " é emitido quando o SDK de portais é carregado, indicando que ele foi importado com sucesso."
+        " é emitido quando a lib de portais é carregada, indicando que ele foi importado com sucesso."
       ],
       " "
     ],
@@ -748,7 +748,7 @@
             {
               "class": "token comment"
             },
-            "//função chamada quando o SDK for carregado"
+            "//função chamada quando a lib for carregada"
           ],
           "\n",
           [
@@ -788,7 +788,7 @@
           null,
           "connected"
         ],
-        " é emitido quando o SDK de portais está conectado com a Layers, indicando que apps podem acessar propriedades e métodos do SDK. A função chamada quando receber esse evento pode receber o objeto ",
+        " é emitido quando a lib de portais está conectada com a Layers, indicando que apps podem acessar propriedades e métodos da lib. A função chamada quando receber esse evento pode receber o objeto ",
         [
           "code",
           null,
@@ -889,7 +889,7 @@
             {
               "class": "token comment"
             },
-            "//função chamada quando o SDK estiver conectado com a Layers"
+            "//função chamada quando a lib estiver conectada com a Layers"
           ],
           "\n",
           [
@@ -930,7 +930,7 @@
     [
       "p",
       null,
-      "Além dos eventos, apps podem optar por usar promises para controlar o status do SDK."
+      "Além dos eventos, apps podem optar por usar promises para controlar o status da lib."
     ],
     " ",
     [
@@ -954,7 +954,7 @@
             null,
             "readyPromise"
           ],
-          " é, como o nome sugere, uma promise que será resolvida quando o SDK for importado com sucesso."
+          " é, como o nome sugere, uma promise que será resolvida quando a lib for importada com sucesso."
         ],
         " "
       ],
@@ -976,7 +976,7 @@
             null,
             "connectedPromise"
           ],
-          " será resolvida  quando o SDK estiver conectado com a Layers retornando as informações de seção e do usuário acessando o portal."
+          " será resolvida  quando a lib estiver conectada com a Layers retornando as informações de seção e do usuário acessando o portal."
         ],
         " "
       ],
@@ -986,7 +986,7 @@
     [
       "p",
       null,
-      "O SDK de portais também oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers"
+      "A lib de portais também oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers"
     ],
     " ",
     [
@@ -1017,7 +1017,7 @@
           null,
           "ready"
         ],
-        ": Booleano que indica se o SDK de portais foi importado com sucesso"
+        ": Booleano que indica se a lib de portais foi importada com sucesso"
       ],
       " ",
       [
@@ -1028,7 +1028,7 @@
           null,
           "connected"
         ],
-        ": Booleano que indica se o SDK de portais está conectado com a Layers"
+        ": Booleano que indica se a lib de portais está conectada com a Layers"
       ],
       " ",
       [
@@ -1342,7 +1342,7 @@
     [
       "p",
       null,
-      "A autenticação pode ser feita através do uso das informações no SDK de portais e da rota de validar sessão. Essa rota recebe nos parâmetros da query a ",
+      "A autenticação pode ser feita através do uso das informações na lib de portais e da rota de validar sessão. Essa rota recebe nos parâmetros da query a ",
       [
         "code",
         null,
@@ -1366,7 +1366,7 @@
         null,
         "token de aplicação"
       ],
-      ", que é fornecido pela Layers à Startup durante o processo de integração. As informações necessárias podem ser extraídas do SDK de portais da seguinte maneira: "
+      ", que é fornecido pela Layers à Startup durante o processo de integração. As informações necessárias podem ser extraídas da lib de portais da seguinte maneira:"
     ],
     " ",
     [
@@ -1633,8 +1633,8 @@
   ],
   "headings": [
     {
-      "text": "Layers Portal SDK",
-      "href": "#layers-portal-sdk"
+      "text": "LayersPortal.js",
+      "href": "#layersportal-js"
     }
   ],
   "pageClass": "page-forstartups-portais"

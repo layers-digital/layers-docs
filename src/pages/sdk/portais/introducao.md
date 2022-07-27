@@ -10,11 +10,11 @@ Portais permitem que apps adicionem telas personalizadas ao ambiente Layers das 
 
 ## Registre o app
 
-O primeiro passo para usar a funcionalidade de portais na Layers é [registrar o app](./../../register) selecionando na pergunta sobre as funcionalidades que o app vai usar a opção de "Telas adicionais". 
+O primeiro passo para usar a funcionalidade de portais na Layers é [registrar o app](./../../register) selecionando na pergunta sobre as funcionalidades que o app vai usar a opção de "Telas adicionais".
 
-## Importando e configurando o SDK
+## Importando e configurando a lib
 
-Uma vez que o app está registrado ele poderá ser instalado nas comunidades e adicionar a tela à Layers. Para isso, a página que será acessada através da Layers deve importar nosso SDK de portais da maneira que está exemplificado abaixo. Através desse SDK, apps podem acessar informações e funcionalidades da Layers.
+Uma vez que o app está registrado ele poderá ser instalado nas comunidades e adicionar a tela à Layers. Para isso, a página que será acessada através da Layers deve importar nossa lib de portais da maneira que está exemplificado abaixo. Através dessa lib, apps podem acessar informações e funcionalidades da Layers.
 
 ``` html
 <!DOCTYPE HTML>

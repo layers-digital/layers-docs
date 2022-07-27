@@ -8,12 +8,12 @@ previousText: 'Eventos e Promises'
 previousUrl: '/docs/sdk/portais/eventos-e-promises'
 ---
 
-O SDK de portais oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers
+A lib de portais oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers
 
 ## Propriedades
 
-+ **ready**: Booleano que indica se o SDK de portais foi importado com sucesso
-+ **connected**: Booleano que indica se o SDK de portais está conectado com a Layers
++ **ready**: Booleano que indica se a lib de portais foi importado com sucesso
++ **connected**: Booleano que indica se a lib de portais está conectado com a Layers
 + **platform**: String que pode ter o valor de `"iframe"`, `"ios"` ou `"android"` se a página estiver sendo acessada através ad Layers ou `null` se estiver sendo acessada fora da Layers.
 + **session**: String da seção
 + **userId**: String do identificador único do usuário na Layers

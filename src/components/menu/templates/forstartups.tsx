@@ -9,7 +9,7 @@ const items = {
   'Layers': {
     'Introdução': '/docs/forstartups',
   },
-  'Layers Portal': {
+  'LayersPortal.js': {
     'Portais na Layers': '/docs/forstartups/portais',
     ...(menuData.notifications)
   },

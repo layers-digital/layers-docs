@@ -65,11 +65,11 @@
 ### Como criar um App
 ### Como colocar o botão "Logar com Layers"
 ### Como integrar dados de Calendário
-### Como integrar dados de 
+### Como integrar dados de
 
 # APIs
 
-# SDKs
+# LayersPortal.js
 
 ## Core Data
 ### Introdução

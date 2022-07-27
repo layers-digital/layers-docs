@@ -2,7 +2,7 @@
 template: default
 title: Single Sign-On na Layers
 tableOfContents: true
-previousText: 'Layers Portal SDK'
+previousText: 'LayersPortal.js'
 previousUrl: '/docs/forstartups/portais/layers-portal'
 nextText: 'Botão "Logar com Layers"'
 nextUrl: '/docs/forstartups/sso/layers-button'
@@ -16,7 +16,7 @@ Plataformas parceiras possuem o botão "Logar com Layers", facilitando o acesso 
 O botão é um link com parâmetros adicionados que definem para qual aplicativo a Layers deve enviar o usuário e algumas configurações necessárias para o fluxo do
 protocolo OAuth2.
 
-Com a intenção de facilitar a vida do desenvolvedor, a Layers desenvolveu uma SDK que abstrai grande parte da lógica necessária para a implementação do botão - para utilizá-lo, é necessário utilizar a [SDK de Botão "Logar com Layers"](/docs/forstartups/sso/layers-button)
+Com a intenção de facilitar a vida do desenvolvedor, a Layers desenvolveu uma lib que abstrai grande parte da lógica necessária para a implementação do botão - para utilizá-lo, é necessário utilizar a [lib de Botão "Logar com Layers"](/docs/forstartups/sso/layers-button)
 
 ### Escopos OAuth2
 | Escopo                    | Acesso                                                                                                                                                                               |
@@ -28,10 +28,10 @@ Com a intenção de facilitar a vida do desenvolvedor, a Layers desenvolveu uma 
 | related.communities | community.community <br/>community.name <br/>community.icon <br/>community.logo <br/>community.language <br/>community.timezone <br/>community.geolocation <br/>community.color <br/>community.createdAt <br/>community.updatedAt <br/>user.lastSeenAt <br/>user.id <br/>user.createdAt <br/>user.updatedAt <br/>user.alias <br/>user.roles <br/>user.permissions |
 | related.groups     | group.id <br/>group.name <br/>group.alias <br/>group.createdAt <br/>group.updatedAt <br/>group.enrollment.id <br/>group.enrollment.kind <br/>group.enrollment.entity <br/>group.enrollment.group <br/>group.enrollment.createdAt <br/>group.enrollment.updatedAt                                                                                               |
 | related.members                | member.id <br/>member.name <br/>member.createdAt <br/>member.updatedAt                                                                                                                                          |
-| related.members.groups         | groups.id <br/>group.name <br/>group.alias <br/>group.createdAt <br/>group.updatedAt <br/>group.enrollment.id <br/>group.enrollment.kind <br/>group.enrollment.entity <br/>group.enrollment.group <br/>group.enrollment.createdAt <br/>group.enrollment.updatedAt  
+| related.members.groups         | groups.id <br/>group.name <br/>group.alias <br/>group.createdAt <br/>group.updatedAt <br/>group.enrollment.id <br/>group.enrollment.kind <br/>group.enrollment.entity <br/>group.enrollment.group <br/>group.enrollment.createdAt <br/>group.enrollment.updatedAt
 
 ## Layers OAuth2
-Caso não queira utilizar a [SDK de Botão "Logar com Layers"](/docs/forstartups/sso/layers-button) e criar seu próprio fluxo, as especificações passo a passo do OAuth2 da Layers seguem abaixo.
+Caso não queira utilizar a [lib de Botão "Logar com Layers"](/docs/forstartups/sso/layers-button) e criar seu próprio fluxo, as especificações passo a passo do OAuth2 da Layers seguem abaixo.
 
 ### Client-side
 

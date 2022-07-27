@@ -19,21 +19,21 @@ Para desenvolvedores, integrar sua solução à Layers significa criar um app ú
 A Layers oferece aos desenvolvedores uma série de funcionalidades para que criem apps e integrem serviços ao ecossistema.
 
 <docs-cards>
-  <docs-card header="Layers Portal" href="/docs/forstartups/portais" icon="/docs/assets/icons/Portais.svg">
+  <docs-card header="LayersPortal.js" href="/docs/forstartups/portais" icon="/docs/assets/icons/Portais.svg">
     <p>Permitir que seu app seja acessado dentro da Layers</p>
   </docs-card>
 
   <docs-card header="Layers SSO" href="/docs/forstartups/sso" icon="/docs/assets/icons/Logar com Layers.svg">
     <p>Autenticar usuários com a Layers e acessar informações com seu consentimento</p>
   </docs-card>
-  
+
   <docs-card header="Layers Data Sync" href="/docs/api/data" icon="/docs/assets/icons/Data.svg">
     <p>Sincronização de Dados com a Layers</p>
   </docs-card>
-  
+
   <docs-card header="Layers API Hub" href="/docs/api/apihub" icon="/docs/assets/icons/Hub.svg">
     <p>Prover informações sobre horários, frequência, cobranças e mais</p>
-  </docs-card>  
+  </docs-card>
 </docs-cards>
 
 ## Etapas do Processo de Integração

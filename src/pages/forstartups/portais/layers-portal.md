@@ -1,6 +1,6 @@
 ---
 template: default
-title: Layers Portal SDK
+title: LayersPortal.js
 tableOfContents: true
 nextText: 'Single Sign-On na Layers'
 nextUrl: '/docs/forstartups/sso'
@@ -8,13 +8,13 @@ previousText: 'Portais na Layers'
 previousUrl: '/docs/forstartups/portais'
 ---
 
-# Layers Portal SDK
+# LayersPortal.js
 
 A funcionalidade de Portais da Layers permite que apps adicionem telas personalizadas à nossa interface, formando uma experiência unificada e integrando totalmente no ecossistema Layers.
 
-## Importando e configurando o SDK
+## Importando e configurando a lib
 
-Uma vez que o app está registrado ele poderá ser instalado nas comunidades e utilizado pelos usuários da comunidade em específico. Para que tudo funcione de forma segura e fluida para o usuário final, a página que será acessada através da Layers deve importar nosso SDK de portais da maneira que está exemplificado abaixo. Através desse SDK, apps podem acessar informações e funcionalidades da Layers.
+Uma vez que o app está registrado ele poderá ser instalado nas comunidades e utilizado pelos usuários da comunidade em específico. Para que tudo funcione de forma segura e fluida para o usuário final, a página que será acessada através da Layers deve importar nossa lib de portais da maneira que está exemplificado abaixo. Através dessa lib, apps podem acessar informações e funcionalidades da Layers.
 
 ``` html
 <!DOCTYPE HTML>
@@ -40,44 +40,44 @@ O objeto `LayersPortalOptions` deve ser definido com as seguintes propriedades:
 + **insidePortalOnly**: Booleano indicando se a página deve ser acessível apenas através da Layers
 + **manualLoadingControl**: Booleano indicando se o app controlará o carregamento manualmente, chamando o método `LayersPortal.ready()` quando a página estiver carregada ou se o controle de carregamento deve ser feito automáticamente pela Layers
 
-## Utilizando o SDK
+## Utilizando a lib
 
-O SDK de portais disponibiliza uma série de eventos e promises para que apps que usam a funcionalidade de portais possam monitorar o status do SDK e da sua conexão com a Layers.
+A lib de portais disponibiliza uma série de eventos e promises para que apps que usam a funcionalidade de portais possam monitorar o status da lib e da sua conexão com a Layers.
 
 ### Eventos
 
-+ **ready**: O evento `ready` é emitido quando o SDK de portais é carregado, indicando que ele foi importado com sucesso.
++ **ready**: O evento `ready` é emitido quando a lib de portais é carregado, indicando que ele foi importado com sucesso.
 
 ```js
 LayersPortal.on('ready', function(){
-  //função chamada quando o SDK for carregado
+  //função chamada quando a lib for carregada
 })
 ```
 
-+ **connected**: O evento `connected` é emitido quando o SDK de portais está conectado com a Layers, indicando que apps podem acessar propriedades e métodos do SDK. A função chamada quando receber esse evento pode receber o objeto `data` com informações de usuário e seção como parâmetro.
++ **connected**: O evento `connected` é emitido quando a lib de portais está conectado com a Layers, indicando que apps podem acessar propriedades e métodos da lib. A função chamada quando receber esse evento pode receber o objeto `data` com informações de usuário e seção como parâmetro.
 
 ```js
 LayersPortal.on('connected', function(data){
-  //função chamada quando o SDK estiver conectado com a Layers
+  //função chamada quando a lib estiver conectado com a Layers
 })
 ```
 
 ### Promises
 
-Além dos eventos, apps podem optar por usar promises para controlar o status do SDK.
+Além dos eventos, apps podem optar por usar promises para controlar o status da lib.
 
-+ **readyPromise**: A propriedade `readyPromise` é, como o nome sugere, uma promise que será resolvida quando o SDK for importado com sucesso.
++ **readyPromise**: A propriedade `readyPromise` é, como o nome sugere, uma promise que será resolvida quando a lib for importada com sucesso.
 
-+ **connectedPromise**: Assim como a propriedade anterior, a propriedade `connectedPromise` será resolvida  quando o SDK estiver conectado com a Layers retornando as informações de seção e do usuário acessando o portal.
++ **connectedPromise**: Assim como a propriedade anterior, a propriedade `connectedPromise` será resolvida  quando a lib estiver conectada com a Layers retornando as informações de seção e do usuário acessando o portal.
 
 
 
-O SDK de portais também oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers
+A lib de portais também oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers
 
 ### Propriedades
 
-+ **ready**: Booleano que indica se o SDK de portais foi importado com sucesso
-+ **connected**: Booleano que indica se o SDK de portais está conectado com a Layers
++ **ready**: Booleano que indica se a lib de portais foi importado com sucesso
++ **connected**: Booleano que indica se a lib de portais está conectado com a Layers
 + **platform**: String que pode ter o valor de `"iframe"`, `"ios"` ou `"android"` se a página estiver sendo acessada através da Layers ou `null` se estiver sendo acessada fora da Layers.
 + **session**: String da seção
 + **userId**: String do identificador único do usuário na Layers
@@ -103,7 +103,7 @@ LayersPortal.update(
 
 ### Autenticação
 
-A autenticação pode ser feita através do uso das informações no SDK de portais e da rota de validar sessão. Essa rota recebe nos parâmetros da query a `session`, o `userId` e a `community`. Fora isso, a rota também necessita da utilização de um `token de aplicação`, que é fornecido pela Layers à Startup durante o processo de integração. As informações necessárias podem ser extraídas do SDK de portais da seguinte maneira: 
+A autenticação pode ser feita através do uso das informações na lib de portais e da rota de validar sessão. Essa rota recebe nos parâmetros da query a `session`, o `userId` e a `community`. Fora isso, a rota também necessita da utilização de um `token de aplicação`, que é fornecido pela Layers à Startup durante o processo de integração. As informações necessárias podem ser extraídas da lib de portais da seguinte maneira:
 
 ```js
 const { session, communityId, userId } = LayersPortal

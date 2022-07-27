@@ -12,4 +12,4 @@ A funcionalidade "logar com Layers" permite que apps autentiquem usuários por m
 
 ## Usando a funcionalidade Logar com Layers
 
-Para facilitar o uso da funcionalidade Logar com Layers, disponibilizamos um [tutorial sobre o SDK](./../../sdk/como-colocar-o-botao-logar-com-layers) disponibilizado para que apps possam usar o botão de logar com Layers em suas páginas de login.
+Para facilitar o uso da funcionalidade Logar com Layers, disponibilizamos um [tutorial sobre a lib](./../../sdk/como-colocar-o-botao-logar-com-layers) disponibilizado para que apps possam usar o botão de logar com Layers em suas páginas de login.

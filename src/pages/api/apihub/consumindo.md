@@ -57,7 +57,7 @@ A partir dessa resposta, precisamos, para cada App Provedor, requisitar seus dad
 ### Request
 
 ```http
-GET https://api.layers.digital/v1/services/call/{{action}}/{{id_app_Provedor}}?version={{versao_da_action_desejada}}
+POST https://api.layers.digital/v1/services/call/{{action}}/{{id_app_Provedor}}?version={{versao_da_action_desejada}}
 ```
 
 ```headers

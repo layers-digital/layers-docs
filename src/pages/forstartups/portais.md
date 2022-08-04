@@ -127,3 +127,7 @@ GET https://api.layers.digital/v1/sso/session/validate?session={SESSION}&communi
 ```
 
 Caso as informações enviadas sejam válidas, a rota de validação de sessão responderá com status `200` confirmando que essa é uma sessão válida e o usuário está autenticado na Layers.
+
+#### Requisitando informações do usuário
+
+Com a sessão validada, para requisitar informações do usuário em questão basta utilizar a [rota de informações do usuário do Layers Data Sync](/docs/api/data/users/userid)

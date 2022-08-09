@@ -19,6 +19,9 @@ const items = {
     'Requisitando Informações do Usuário': '/docs/forstartups/sso/basic-user-info',
     'Validando o Layers SSO Token': '/docs/forstartups/sso/validating-tokens',
   },
+  'Permissionamento': {
+    'Permissionamento na Layers': '/docs/forstartups/permissionamento',
+  },
   'Outras Camadas': {
     'Layers Data Sync': '/docs/api/data',
     'Layers API Hub': '/docs/api/apihub'

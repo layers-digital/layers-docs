@@ -5,7 +5,7 @@ export default () => {
   return <docs-nav items={items} />
 };
 
-const requests = Object.values(menuData.apihub).flat()
+const requests = menuData.apihub
 
 const items = {
   'Layers API Hub': {

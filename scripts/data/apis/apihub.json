@@ -618,6 +618,66 @@
           }
         }
       }
+    },
+    "/@layers:payments:Tabs:getRelated": {
+      "post": {
+        "tags": [
+          "Layers:Payments:Tabs:getRelated"
+        ],
+        "summary": "Prover Tabs de uma loja",
+        "description": "Deve retornar os tabs que o usuário pode ver na loja, a partir do user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersPaymentsTabsGetRelatedRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersPaymentsTabsGetRelatedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/@layers:payments:Items:getRelated": {
+      "post": {
+        "tags": [
+          "Layers:Payments:Items:getRelated"
+        ],
+        "summary": "Prover Itens da tab de uma loja",
+        "description": "Deve retornar os itens de uma tab",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayersPaymentsItemsGetRelatedRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LayersPaymentsItemsGetRelatedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -652,6 +712,8 @@
             "@layers:getHomeInfo",
             "@layers:health:MedicalRecord:getRelated",
             "@layers:payments:Payables:getRelated",
+            "@layers:payments:Items:getRelated",
+            "@layers:payments:Tabs:getRelated",
             "@layers:data:Users:getUpdatedAfter",
             "@layers:data:Members:getUpdatedAfter",
             "@layers:data:Groups:getUpdatedAfter",
@@ -3785,6 +3847,611 @@
           "updatedAt"
         ],
         "additionalProperties": false
+      },
+      "LayersPaymentsItemsGetRelatedRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Context"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": [
+                  "catalogTab",
+                  "user"
+                ],
+                "properties": {
+                  "catalogTab": {
+                    "type": "object",
+                    "description": "Identificador do tab do catálogo que o item pertence.",
+                    "properties": {
+                      "alias": {
+                        "type": "string",
+                        "description": "Identificador único da aba"
+                      },
+                      "title": {
+                        "type": "string",
+                        "description": "Título da aba"
+                      },
+                      "icon": {
+                        "type": "string",
+                        "description": "Ícone da aba"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "description": "Dados adicionais do item",
+                        "default": {}
+                      }
+                    }
+                  },
+                  "user": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "name",
+                      "alias",
+                      "timezone",
+                      "language",
+                      "accountId"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Identificador do usuário"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome do usuário",
+                        "example": "Carlos Pereira"
+                      },
+                      "alias": {
+                        "type": "string",
+                        "description": "Identificador do usuário na comunidade",
+                        "example": "user2"
+                      },
+                      "timezone": {
+                        "type": "string",
+                        "description": "Fuso horário do usuário",
+                        "example": "America/Sao_Paulo"
+                      },
+                      "language": {
+                        "type": "string",
+                        "description": "Língua do usuário",
+                        "example": "pt/BR"
+                      },
+                      "accountId": {
+                        "type": "string",
+                        "description": "Identificador da conta do usuário"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LayersPaymentsItemsGetRelatedResponse": {
+        "type": "object",
+        "required": [
+          "items",
+          "lists"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "alias",
+                "price",
+                "name",
+                "kind",
+                "gallery"
+              ],
+              "properties": {
+                "alias": {
+                  "type": "string",
+                  "description": "Identificador do item"
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Dados adicionais do item",
+                  "default": {}
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nome do item"
+                },
+                "caption": {
+                  "description": "Descrição do item",
+                  "type": "string",
+                  "default": ""
+                },
+                "content": {
+                  "type": "array",
+                  "description": "Descrição longa do item",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "markdown"
+                        ],
+                        "description": "Tipo do conteúdo"
+                      },
+                      "markdown": {
+                        "type": "string",
+                        "description": "Conteúdo em markdown"
+                      }
+                    }
+                  }
+                },
+                "gallery": {
+                  "type": "array",
+                  "description": "Array com imagens",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "thumb",
+                      "url"
+                    ],
+                    "properties": {
+                      "thumb": {
+                        "description": "URL da imagem",
+                        "type": "string"
+                      },
+                      "url": {
+                        "description": "URL da imagem em um cdn",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "price": {
+                  "type": "object",
+                  "description": "Preço do item",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Valor em centavos"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "enum": [
+                        "BRL"
+                      ],
+                      "description": "Tipo da moeda"
+                    }
+                  }
+                },
+                "priceFrom": {
+                  "type": "object",
+                  "description": "Preço do item sem considerar preço promocional",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Valor em centavos"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "enum": [
+                        "BRL"
+                      ],
+                      "description": "Tipo da moeda"
+                    }
+                  }
+                },
+                "categories": {
+                  "type": "array",
+                  "description": "Lista de categorias associadas ao item",
+                  "items": {
+                    "type": "string",
+                    "description": "Nome da categoria"
+                  }
+                },
+                "kind": {
+                  "type": "string",
+                  "description": "Diz se o item é recurrence ou product",
+                  "enum": [
+                    "product"
+                  ]
+                },
+                "package": {
+                  "type": "object",
+                  "description": "Tamanho do pacote que contém o item, caso for físico",
+                  "properties": {
+                    "width": {
+                      "type": "number",
+                      "default": 5,
+                      "description": "Largura em cm"
+                    },
+                    "depth": {
+                      "type": "number",
+                      "default": 5,
+                      "description": "Profundidade em cm"
+                    },
+                    "height": {
+                      "type": "number",
+                      "default": 5,
+                      "description": "Altura em cm"
+                    },
+                    "weight": {
+                      "type": "number",
+                      "description": "Peso em kg",
+                      "default": 0.2
+                    }
+                  }
+                },
+                "shippable": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Indica se o item requer frete"
+                },
+                "itemTyingGroup": {
+                  "type": "string",
+                  "description": "Nome do grupo de itens que devem ser comprados juntos"
+                }
+              }
+            }
+          },
+          "lists": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Dados do kit de itens usados no catálogo e na venda",
+              "required": [
+                "alias",
+                "name",
+                "gallery",
+                "items"
+              ],
+              "properties": {
+                "alias": {
+                  "type": "string",
+                  "description": "Identificador do kit de itens"
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Dados adicionais do kit de itens",
+                  "default": {}
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Nome do kit de itens"
+                },
+                "caption": {
+                  "description": "Descrição do kit de itens",
+                  "type": "string",
+                  "default": ""
+                },
+                "content": {
+                  "type": "array",
+                  "description": "Descrição longa do item",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "markdown"
+                        ],
+                        "description": "Tipo do conteúdo"
+                      },
+                      "markdown": {
+                        "type": "string",
+                        "description": "Conteúdo em markdown"
+                      }
+                    }
+                  }
+                },
+                "gallery": {
+                  "type": "array",
+                  "description": "Array com imagens",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "thumb",
+                      "url"
+                    ],
+                    "properties": {
+                      "thumb": {
+                        "description": "URL da imagem",
+                        "type": "string"
+                      },
+                      "url": {
+                        "description": "URL da imagem em um cdn",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "items": {
+                  "type": "array",
+                  "description": "Lista de itens",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "alias",
+                      "price",
+                      "name",
+                      "kind",
+                      "gallery"
+                    ],
+                    "properties": {
+                      "alias": {
+                        "type": "string",
+                        "description": "Identificador do item"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "description": "Dados adicionais do item",
+                        "default": {}
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome do item"
+                      },
+                      "caption": {
+                        "description": "Descrição do item",
+                        "type": "string",
+                        "default": ""
+                      },
+                      "content": {
+                        "type": "array",
+                        "description": "Descrição longa do item",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "markdown"
+                              ],
+                              "description": "Tipo do conteúdo"
+                            },
+                            "markdown": {
+                              "type": "string",
+                              "description": "Conteúdo em markdown"
+                            }
+                          }
+                        }
+                      },
+                      "gallery": {
+                        "type": "array",
+                        "description": "Array com imagens",
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "thumb",
+                            "url"
+                          ],
+                          "properties": {
+                            "thumb": {
+                              "description": "URL da imagem",
+                              "type": "string"
+                            },
+                            "url": {
+                              "description": "URL da imagem em um cdn",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "price": {
+                        "type": "object",
+                        "description": "Preço do item",
+                        "properties": {
+                          "amount": {
+                            "type": "number",
+                            "description": "Valor em centavos"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "enum": [
+                              "BRL"
+                            ],
+                            "description": "Tipo da moeda"
+                          }
+                        }
+                      },
+                      "priceFrom": {
+                        "type": "object",
+                        "description": "Preço do item sem considerar preço promocional",
+                        "properties": {
+                          "amount": {
+                            "type": "number",
+                            "description": "Valor em centavos"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "enum": [
+                              "BRL"
+                            ],
+                            "description": "Tipo da moeda"
+                          }
+                        }
+                      },
+                      "categories": {
+                        "type": "array",
+                        "description": "Lista de categorias associadas ao item",
+                        "items": {
+                          "type": "string",
+                          "description": "Nome da categoria"
+                        }
+                      },
+                      "kind": {
+                        "type": "string",
+                        "description": "Diz se o item é recurrence ou product",
+                        "enum": [
+                          "product"
+                        ]
+                      },
+                      "package": {
+                        "type": "object",
+                        "description": "Tamanho do pacote que contém o item, caso for físico",
+                        "properties": {
+                          "width": {
+                            "type": "number",
+                            "default": 5,
+                            "description": "Largura em cm"
+                          },
+                          "depth": {
+                            "type": "number",
+                            "default": 5,
+                            "description": "Profundidade em cm"
+                          },
+                          "height": {
+                            "type": "number",
+                            "default": 5,
+                            "description": "Altura em cm"
+                          },
+                          "weight": {
+                            "type": "number",
+                            "description": "Peso em kg",
+                            "default": 0.2
+                          }
+                        }
+                      },
+                      "shippable": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Indica se o item requer frete"
+                      },
+                      "itemTyingGroup": {
+                        "type": "string",
+                        "description": "Nome do grupo de itens que devem ser comprados juntos"
+                      }
+                    }
+                  }
+                },
+                "wholePrice": {
+                  "type": "object",
+                  "description": "Preço da lista quando comprada por completo",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Valor em centavos"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "enum": [
+                        "BRL"
+                      ],
+                      "description": "Tipo da moeda"
+                    }
+                  }
+                },
+                "unifiedKitName": {
+                  "type": "string",
+                  "description": "Nome do grupo que unifica este kit no marketplace com outros kits"
+                }
+              }
+            }
+          }
+        }
+      },
+      "LayersPaymentsTabsGetRelatedRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Context"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": [
+                  "user"
+                ],
+                "properties": {
+                  "user": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "name",
+                      "alias",
+                      "timezone",
+                      "language",
+                      "accountId"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Identificador do usuário"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome do usuário",
+                        "example": "Carlos Pereira"
+                      },
+                      "alias": {
+                        "type": "string",
+                        "description": "Identificador do usuário na comunidade",
+                        "example": "user2"
+                      },
+                      "timezone": {
+                        "type": "string",
+                        "description": "Fuso horário do usuário",
+                        "example": "America/Sao_Paulo"
+                      },
+                      "language": {
+                        "type": "string",
+                        "description": "Língua do usuário",
+                        "example": "pt/BR"
+                      },
+                      "accountId": {
+                        "type": "string",
+                        "description": "Identificador da conta do usuário"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LayersPaymentsTabsGetRelatedResponse": {
+        "type": "object",
+        "required": [
+          "catalogTabs"
+        ],
+        "description": "Abas do catálogo que o usuário tem acesso.",
+        "properties": {
+          "catalogTabs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Identificador da aba do catálogo que o item pertence.",
+              "required": [
+                "alias"
+              ],
+              "properties": {
+                "alias": {
+                  "type": "string",
+                  "description": "Identificador único da aba"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Título da aba"
+                },
+                "icon": {
+                  "type": "string",
+                  "description": "Ícone da aba"
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Dados adicionais do item",
+                  "default": {}
+                }
+              }
+            }
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -3872,6 +4539,13 @@
         "Layers:data:Members",
         "Layers:data:Groups",
         "Layers:data:Components"
+      ]
+    },
+    {
+      "name": "Ecommerce",
+      "tags": [
+        "Layers:Payments:Items:getRelated",
+        "Layers:Payments:Tabs:getRelated"
       ]
     }
   ]

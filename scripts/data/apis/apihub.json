@@ -3875,10 +3875,6 @@
                         "type": "string",
                         "description": "Título da aba"
                       },
-                      "icon": {
-                        "type": "string",
-                        "description": "Ícone da aba"
-                      },
                       "metadata": {
                         "type": "object",
                         "description": "Dados adicionais do item",
@@ -3894,7 +3890,8 @@
                       "alias",
                       "timezone",
                       "language",
-                      "accountId"
+                      "accountId",
+                      "email"
                     ],
                     "properties": {
                       "id": {
@@ -3924,6 +3921,12 @@
                       "accountId": {
                         "type": "string",
                         "description": "Identificador da conta do usuário"
+                      },
+                      "email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "E-mail do usuário",
+                        "example": "carlos.pereira@gmail.com"
                       }
                     }
                   }
@@ -4376,7 +4379,8 @@
                       "alias",
                       "timezone",
                       "language",
-                      "accountId"
+                      "accountId",
+                      "email"
                     ],
                     "properties": {
                       "id": {
@@ -4401,11 +4405,16 @@
                       "language": {
                         "type": "string",
                         "description": "Língua do usuário",
-                        "example": "pt/BR"
+                        "example": "pt-BR"
                       },
                       "accountId": {
                         "type": "string",
                         "description": "Identificador da conta do usuário"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "Email do usuário",
+                        "example": "carlos.pereira@gmail.com"
                       }
                     }
                   }
@@ -4438,10 +4447,6 @@
                 "title": {
                   "type": "string",
                   "description": "Título da aba"
-                },
-                "icon": {
-                  "type": "string",
-                  "description": "Ícone da aba"
                 },
                 "metadata": {
                   "type": "object",

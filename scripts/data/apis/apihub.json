@@ -3860,7 +3860,8 @@
                 "type": "object",
                 "required": [
                   "catalogTab",
-                  "user"
+                  "user",
+                  "channel"
                 ],
                 "properties": {
                   "catalogTab": {
@@ -3927,6 +3928,27 @@
                         "format": "email",
                         "description": "E-mail do usuário",
                         "example": "carlos.pereira@gmail.com"
+                      }
+                    }
+                  },
+                  "channel": {
+                    "type": "object",
+                    "description": "Informações do canal de venda que está buscando os items.",
+                    "required": [
+                      "id",
+                      "slug"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Identificador do canal de venda"
+                      },
+                      "slug": {
+                        "type": "string"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "description": "Metadados"
                       }
                     }
                   }
@@ -4368,7 +4390,8 @@
               "data": {
                 "type": "object",
                 "required": [
-                  "user"
+                  "user",
+                  "channel"
                 ],
                 "properties": {
                   "user": {
@@ -4415,6 +4438,27 @@
                         "type": "string",
                         "description": "Email do usuário",
                         "example": "carlos.pereira@gmail.com"
+                      }
+                    }
+                  },
+                  "channel": {
+                    "type": "object",
+                    "description": "Informações do canal de venda que está buscando os items.",
+                    "required": [
+                      "id",
+                      "slug"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Identificador do canal de venda"
+                      },
+                      "slug": {
+                        "type": "string"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "description": "Metadados"
                       }
                     }
                   }

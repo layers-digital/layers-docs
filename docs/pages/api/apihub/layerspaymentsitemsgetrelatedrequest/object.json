@@ -73,7 +73,7 @@
             {
               "class": "token string"
             },
-            "\"2023-04-24T15:22:43.713Z\""
+            "\"2023-05-24T18:04:52.588Z\""
           ],
           [
             "span",
@@ -565,6 +565,134 @@
             },
             "}"
           ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"channel\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"id\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"slug\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"metadata\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
           "\n  ",
           [
             "span",
@@ -628,7 +756,8 @@
           "type": "object",
           "required": [
             "catalogTab",
-            "user"
+            "user",
+            "channel"
           ],
           "properties": {
             "catalogTab": {
@@ -695,6 +824,27 @@
                   "format": "email",
                   "description": "E-mail do usuário",
                   "example": "carlos.pereira@gmail.com"
+                }
+              }
+            },
+            "channel": {
+              "type": "object",
+              "description": "Informações do canal de venda que está buscando os items.",
+              "required": [
+                "id",
+                "slug"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Identificador do canal de venda"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "metadata": {
+                  "type": "object",
+                  "description": "Metadados"
                 }
               }
             }

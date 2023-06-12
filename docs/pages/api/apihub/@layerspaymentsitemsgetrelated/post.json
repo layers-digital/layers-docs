@@ -136,7 +136,7 @@
             {
               "class": "token string"
             },
-            "\"2023-05-24T18:04:52.588Z\""
+            "\"2023-06-12T18:52:19.056Z\""
           ],
           [
             "span",
@@ -2982,7 +2982,7 @@
             {
               "class": "token property"
             },
-            "\"unifiedKitName\""
+            "\"unifiedListAlias\""
           ],
           [
             "span",
@@ -2998,6 +2998,220 @@
               "class": "token string"
             },
             "\"exemplo\""
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n  ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"unifiedLists\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n    ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"alias\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"tags\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "{"
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"name\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token property"
+            },
+            "\"icon\""
+          ],
+          [
+            "span",
+            {
+              "class": "token operator"
+            },
+            ":"
+          ],
+          " ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "\"exemplo\""
+          ],
+          "\n        ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "}"
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
           ],
           "\n    ",
           [
@@ -3198,7 +3412,7 @@
         "type": "array",
         "items": {
           "type": "object",
-          "description": "Dados do kit de itens usados no catálogo e na venda",
+          "description": "Dados do list de itens usados no catálogo e na venda",
           "required": [
             "alias",
             "name",
@@ -3208,19 +3422,19 @@
           "properties": {
             "alias": {
               "type": "string",
-              "description": "Identificador do kit de itens"
+              "description": "Identificador do list de itens"
             },
             "metadata": {
               "type": "object",
-              "description": "Dados adicionais do kit de itens",
+              "description": "Dados adicionais do list de itens",
               "default": {}
             },
             "name": {
               "type": "string",
-              "description": "Nome do kit de itens"
+              "description": "Nome do list de itens"
             },
             "caption": {
-              "description": "Descrição do kit de itens",
+              "description": "Descrição do list de itens",
               "type": "string",
               "default": ""
             },
@@ -3441,9 +3655,51 @@
                 }
               }
             },
-            "unifiedKitName": {
+            "unifiedListAlias": {
               "type": "string",
-              "description": "Nome do grupo que unifica este kit no marketplace com outros kits"
+              "description": "Código do grupo que unifica este list no marketplace com outros lists"
+            }
+          }
+        }
+      },
+      "unifiedLists": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "description": "Dados do list de itens usados no catálogo e na venda",
+          "required": [
+            "alias",
+            "name"
+          ],
+          "properties": {
+            "alias": {
+              "type": "string",
+              "description": "Identificador que agrupa as lists"
+            },
+            "name": {
+              "type": "string",
+              "description": "Nome do grupo"
+            },
+            "tags": {
+              "type": "array",
+              "description": "Etiquetas que aparecem ao lado do grupo no catálogo",
+              "items": {
+                "type": "object",
+                "description": "Etiqueta que aparece ao lado do grupo no catálogo",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Nome da etiqueta"
+                  },
+                  "icon": {
+                    "type": "string",
+                    "description": "Url da imagem do ícone da etiqueta"
+                  }
+                }
+              }
             }
           }
         }

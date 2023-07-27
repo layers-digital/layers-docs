@@ -32,7 +32,6 @@ Uma vez que o app está registrado ele poderá ser instalado nas comunidades e u
       window.LayersPortalOptions = {
         appId: String,
         insidePortalOnly: Boolean,
-        manualLoadingControl: Boolean
       }
     </script>
     <script type="text/javascript" src="https://js.layers.digital/v1/LayersPortal.js"></script>
@@ -46,7 +45,6 @@ O objeto `LayersPortalOptions` deve ser definido com as seguintes propriedades:
 
 + **appId**: String contendo o identificador do app
 + **insidePortalOnly**: Booleano indicando se a página deve ser acessível apenas através da Layers
-+ **manualLoadingControl**: Booleano indicando se o app controlará o carregamento manualmente, chamando o método `LayersPortal.ready()` quando a página estiver carregada ou se o controle de carregamento deve ser feito automáticamente pela Layers
 
 ### Utilizando a lib
 
@@ -57,7 +55,7 @@ A lib de portais disponibiliza uma série de eventos e promises para que apps qu
 + **ready**: O evento `ready` é emitido quando a lib de portais é carregada, indicando que ele foi importado com sucesso.
 
 ```js
-LayersPortal.on('ready', function(){
+LayersPortal.on('ready', function() {
   //função chamada quando a lib for carregada
 })
 ```
@@ -65,7 +63,7 @@ LayersPortal.on('ready', function(){
 + **connected**: O evento `connected` é emitido quando a lib de portais está conectada com a Layers, indicando que apps podem acessar propriedades e métodos da lib. A função chamada quando receber esse evento pode receber o objeto `data` com informações de usuário e seção como parâmetro.
 
 ```js
-LayersPortal.on('connected', function(data){
+LayersPortal.on('connected', function(data) {
   //função chamada quando a lib estiver conectada com a Layers
 })
 ```
@@ -77,8 +75,6 @@ Além dos eventos, apps podem optar por usar promises para controlar o status da
 + **readyPromise**: A propriedade `readyPromise` é, como o nome sugere, uma promise que será resolvida quando a lib for importada com sucesso.
 
 + **connectedPromise**: Assim como a propriedade anterior, a propriedade `connectedPromise` será resolvida  quando a lib estiver conectada com a Layers retornando as informações de seção e do usuário acessando o portal.
-
-
 
 A lib de portais também oferece propriedades e métodos que permitem que apps acessem informações não sensíveis do usuário acessando o portal e funcionalidades de navegação Layers
 
@@ -94,7 +90,7 @@ A lib de portais também oferece propriedades e métodos que permitem que apps a
 
 #### Métodos
 
-+ **ready**: O método `ready()` deve ser chamado para indicar que a página a ser exposta no portal está carregada se a a opção `manualLoadingControl` for definida como `true` nas configurações do portal.
++ **LayersPortal**: O parâmetro `'ready'` deve ser passado para indicar que a página a ser exposta no portal está carregada.
 + **update**: O método `update(params)` permite que apps atualizem a URL e/ou o título do portal. Para isso, o app deve chamar a função como mostrado no exemplo abaixo:
 
 ```js

@@ -88,22 +88,20 @@ A lib de portais também oferece propriedades e métodos que permitem que apps a
 + **communityId**: String do identificador da comunidade através do qual o usuário está acessando o portal
 + **accountId**: String do identificador único da conta do usuário acessando o portal
 
-#### Métodos
+#### Layers Portal: Parâmetros
 
-+ **LayersPortal**: O parâmetro `'ready'` deve ser passado para indicar que a página a ser exposta no portal está carregada.
-+ **update**: O método `update(params)` permite que apps atualizem a URL e/ou o título do portal. Para isso, o app deve chamar a função como mostrado no exemplo abaixo:
++ **ready**: O parâmetro `'ready'` deve ser passado para indicar que a página a ser exposta no portal está carregada.
++ **update**: O parâmetro `'params'` permite que apps atualizem a URL e/ou o título do portal. Para isso, o app deve chamar a função como mostrado no exemplo abaixo:
 
 ```js
-LayersPortal.update(
-  {
-    url: String, //nova URL (opcional)
-    title: String //novo título (opcional)
-  }
-)
+LayersPortal('update', {
+  url: String, // nova URL (opcional)
+  title: String // novo título (opcional)
+})
 ```
 
-+ **go**: O método `go(path)` permite que portais redirecionem para outras páginas de portais ou da Layers. Para isso, o app deve chamar a função passando como parâmetro a URL da página para a qual o usuário deve ser redirecionado.
-+ **close**: O método `close()` permite que o app feche o portal
++ **go**: O parâmetro `'go'` permite que portais redirecionem para outras páginas de portais ou da Layers. Para isso, o app deve chamar a função passando como parâmetro a URL da página para a qual o usuário deve ser redirecionado.
++ **close**: O parâmetro `'close'` permite que o app feche o portal
 
 #### Autenticação
 
@@ -116,7 +114,7 @@ const { session, communityId, userId } = LayersPortal
 Assim, a aplicação pode fazer uma requisição na URL de validação de sessão no seguinte formato:
 
 ```headers
-Authorization: Bearer {{AppToken}}
+Authorization: Bearer {{ AppToken }}
 ```
 ```http
 GET https://api.layers.digital/v1/sso/session/validate?session={SESSION}&community={COMMUNITY}&userId={USER_ID}

@@ -4645,9 +4645,13 @@
                   "default": false,
                   "description": "Indica se o item requer frete"
                 },
-                "itemTyingGroup": {
-                  "type": "string",
-                  "description": "Nome do grupo de itens que devem ser comprados juntos"
+                "chain": {
+                  "type": "array",
+                  "description": "Código dos itens que devem ser comprados juntos, se esse item for comprado",
+                  "items": {
+                    "type": "string",
+                    "description": "Código do item"
+                  }
                 }
               }
             }
@@ -4875,9 +4879,13 @@
                         "default": false,
                         "description": "Indica se o item requer frete"
                       },
-                      "itemTyingGroup": {
-                        "type": "string",
-                        "description": "Nome do grupo de itens que devem ser comprados juntos"
+                      "chain": {
+                        "type": "array",
+                        "description": "Código dos itens que devem ser comprados juntos, se esse item for comprado",
+                        "items": {
+                          "type": "string",
+                          "description": "Código do item"
+                        }
                       }
                     }
                   }

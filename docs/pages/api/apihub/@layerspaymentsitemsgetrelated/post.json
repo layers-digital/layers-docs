@@ -136,7 +136,7 @@
             {
               "class": "token string"
             },
-            "\"2023-06-12T18:52:19.056Z\""
+            "\"2023-07-31T19:14:06.145Z\""
           ],
           [
             "span",
@@ -1616,7 +1616,7 @@
             {
               "class": "token property"
             },
-            "\"itemTyingGroup\""
+            "\"chain\""
           ],
           [
             "span",
@@ -1629,9 +1629,25 @@
           [
             "span",
             {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n        ",
+          [
+            "span",
+            {
               "class": "token string"
             },
             "\"exemplo\""
+          ],
+          "\n      ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
           ],
           "\n    ",
           [
@@ -2845,7 +2861,7 @@
             {
               "class": "token property"
             },
-            "\"itemTyingGroup\""
+            "\"chain\""
           ],
           [
             "span",
@@ -2858,9 +2874,25 @@
           [
             "span",
             {
+              "class": "token punctuation"
+            },
+            "["
+          ],
+          "\n            ",
+          [
+            "span",
+            {
               "class": "token string"
             },
             "\"exemplo\""
+          ],
+          "\n          ",
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            "]"
           ],
           "\n        ",
           [
@@ -3401,9 +3433,13 @@
               "default": false,
               "description": "Indica se o item requer frete"
             },
-            "itemTyingGroup": {
-              "type": "string",
-              "description": "Nome do grupo de itens que devem ser comprados juntos"
+            "chain": {
+              "type": "array",
+              "description": "Código dos itens que devem ser comprados juntos, se esse item for comprado",
+              "items": {
+                "type": "string",
+                "description": "Código do item"
+              }
             }
           }
         }
@@ -3631,9 +3667,13 @@
                     "default": false,
                     "description": "Indica se o item requer frete"
                   },
-                  "itemTyingGroup": {
-                    "type": "string",
-                    "description": "Nome do grupo de itens que devem ser comprados juntos"
+                  "chain": {
+                    "type": "array",
+                    "description": "Código dos itens que devem ser comprados juntos, se esse item for comprado",
+                    "items": {
+                      "type": "string",
+                      "description": "Código do item"
+                    }
                   }
                 }
               }

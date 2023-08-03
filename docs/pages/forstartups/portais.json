@@ -291,15 +291,7 @@
                 },
                 ","
               ],
-              "\n        manualLoadingControl",
-              [
-                "span",
-                {
-                  "class": "token operator"
-                },
-                ":"
-              ],
-              " Boolean\n      ",
+              "\n      ",
               [
                 "span",
                 {
@@ -584,23 +576,6 @@
         ],
         ": Booleano indicando se a página deve ser acessível apenas através da Layers"
       ],
-      " ",
-      [
-        "li",
-        null,
-        [
-          "strong",
-          null,
-          "manualLoadingControl"
-        ],
-        ": Booleano indicando se o app controlará o carregamento manualmente, chamando o método ",
-        [
-          "code",
-          null,
-          "LayersPortal.ready()"
-        ],
-        " quando a página estiver carregada ou se o controle de carregamento deve ser feito automáticamente pela Layers"
-      ],
       " "
     ],
     " ",
@@ -735,6 +710,7 @@
             },
             ")"
           ],
+          " ",
           [
             "span",
             {
@@ -876,6 +852,7 @@
             },
             ")"
           ],
+          " ",
           [
             "span",
             {
@@ -1115,15 +1092,15 @@
     [
       "h4",
       {
-        "id": "m-todos"
+        "id": "layers-portal-par-metros"
       },
       " ",
       [
         "a",
         {
-          "href": "#m-todos"
+          "href": "#layers-portal-par-metros"
         },
-        "Métodos"
+        "Layers Portal: Parâmetros"
       ],
       " "
     ],
@@ -1140,25 +1117,13 @@
           null,
           "ready"
         ],
-        ": O método ",
+        ": O parâmetro ",
         [
           "code",
           null,
-          "ready()"
+          "'ready'"
         ],
-        " deve ser chamado para indicar que a página a ser exposta no portal está carregada se a a opção ",
-        [
-          "code",
-          null,
-          "manualLoadingControl"
-        ],
-        " for definida como ",
-        [
-          "code",
-          null,
-          "true"
-        ],
-        " nas configurações do portal."
+        " deve ser passado para indicar que a página a ser exposta no portal está carregada."
       ],
       " ",
       [
@@ -1169,11 +1134,11 @@
           null,
           "update"
         ],
-        ": O método ",
+        ": O parâmetro ",
         [
           "code",
           null,
-          "update(params)"
+          "'params'"
         ],
         " permite que apps atualizem a URL e/ou o título do portal. Para isso, o app deve chamar a função como mostrado no exemplo abaixo:"
       ],
@@ -1192,20 +1157,12 @@
         [
           "code",
           null,
-          "LayersPortal",
-          [
-            "span",
-            {
-              "class": "token punctuation"
-            },
-            "."
-          ],
           [
             "span",
             {
               "class": "token function"
             },
-            "update"
+            "LayersPortal"
           ],
           [
             "span",
@@ -1214,7 +1171,21 @@
             },
             "("
           ],
-          "\n  ",
+          [
+            "span",
+            {
+              "class": "token string"
+            },
+            "'update'"
+          ],
+          [
+            "span",
+            {
+              "class": "token punctuation"
+            },
+            ","
+          ],
+          " ",
           [
             "span",
             {
@@ -1222,7 +1193,7 @@
             },
             "{"
           ],
-          "\n    url",
+          "\n  url",
           [
             "span",
             {
@@ -1244,9 +1215,9 @@
             {
               "class": "token comment"
             },
-            "//nova URL (opcional)"
+            "// nova URL (opcional)"
           ],
-          "\n    title",
+          "\n  title",
           [
             "span",
             {
@@ -1260,9 +1231,9 @@
             {
               "class": "token comment"
             },
-            "//novo título (opcional)"
+            "// novo título (opcional)"
           ],
-          "\n  ",
+          "\n",
           [
             "span",
             {
@@ -1270,7 +1241,6 @@
             },
             "}"
           ],
-          "\n",
           [
             "span",
             {
@@ -1295,11 +1265,11 @@
           null,
           "go"
         ],
-        ": O método ",
+        ": O parâmetro ",
         [
           "code",
           null,
-          "go(path)"
+          "'go'"
         ],
         " permite que portais redirecionem para outras páginas de portais ou da Layers. Para isso, o app deve chamar a função passando como parâmetro a URL da página para a qual o usuário deve ser redirecionado."
       ],
@@ -1312,11 +1282,11 @@
           null,
           "close"
         ],
-        ": O método ",
+        ": O parâmetro ",
         [
           "code",
           null,
-          "close()"
+          "'close'"
         ],
         " permite que o app feche o portal"
       ],
@@ -1452,7 +1422,7 @@
         [
           "code",
           null,
-          "Authorization: Bearer {{AppToken}}"
+          "Authorization: Bearer {{ AppToken }}"
         ]
       ],
       " "
